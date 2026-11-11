@@ -37,6 +37,7 @@
   },
   "seriesAliasesFile": "public/data/series-aliases.json",
   "tradeAliasesFile": "public/data/trade-aliases.json",
+  "partNameAbbreviationsFile": "public/data/part-name-abbreviations.json",
   "documents": {
     "rootUrl": "/data-sheets",
     "localFolder": "data-sheets",

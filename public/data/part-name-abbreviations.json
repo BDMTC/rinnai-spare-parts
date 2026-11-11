@@ -1,0 +1,351 @@
+{
+  "version": 1,
+  "meta": {
+    "title": "Part-name abbreviation ↔ long-form search aliases",
+    "locale": "en-AU",
+    "updated": "2026-11-12",
+    "notes": "Beau-locked single-meaning shorthand plus high-confidence clear tokens from the spare-parts name abbrev pass. Bidirectional whole-token / phrase expansion in search.js. Context-dependent tokens are careful (no merged “both”). Unset tokens omitted: W/I, FS, A/FRM, MOD, OUT, HE, PSI."
+  },
+  "groups": [
+    {
+      "id": "brkt",
+      "status": "locked",
+      "forms": ["BRKT", "BRACKET", "BKT"],
+      "notes": "Bracket."
+    },
+    {
+      "id": "assy",
+      "status": "locked",
+      "forms": ["ASSY", "ASSEMBLY", "SUBASSY", "SUBASS", "SUB-ASSY", "SUB-AS", "SUB ASSEMBLY", "SUB-ASSEMBLY"],
+      "notes": "Assembly / sub-assembly truncations."
+    },
+    {
+      "id": "con-kit",
+      "status": "locked",
+      "forms": ["CON KIT", "CONVERSION KIT", "CONV/KIT"],
+      "notes": "Fuel conversion kit only — not bare CON, not convection CONV."
+    },
+    {
+      "id": "comb",
+      "status": "locked",
+      "forms": ["COMB", "COMBUSTION"],
+      "notes": "Combustion (COMB CHAMBER / FAN COMB)."
+    },
+    {
+      "id": "conv",
+      "status": "locked",
+      "forms": ["CONV", "CONVECTION"],
+      "notes": "Convection fans/motors/blades. Fuel kits use CON KIT / CONV/KIT (separate group)."
+    },
+    {
+      "id": "lp-fuel",
+      "status": "locked-careful",
+      "forms": ["LP", "LPG", "LP GAS"],
+      "excludeNamePatterns": ["PRESS SWITCH LP"],
+      "notes": "LP gas fuel attribute. Skip PRESS SWITCH LP (low-pressure HVAC)."
+    },
+    {
+      "id": "nat-gas",
+      "status": "locked-careful",
+      "forms": ["NAT", "NG", "NATURAL GAS"],
+      "excludeNamePatterns": ["NAT RUBBER"],
+      "notes": "Natural gas. Ignore NAT RUBBER grommets."
+    },
+    {
+      "id": "mtr",
+      "status": "locked",
+      "forms": ["MTR", "METRE", "METER", "METRES", "METERS"],
+      "numericSuffix": true,
+      "notes": "Length metres (2MTR / 10MTR). Not gas/water meter."
+    },
+    {
+      "id": "elect",
+      "status": "locked",
+      "forms": ["ELECT", "ELEC", "ELECTRICAL", "ELECTRIC"],
+      "notes": "Electrical covers / cords / control boxes."
+    },
+    {
+      "id": "c-w",
+      "status": "locked",
+      "forms": ["C/W", "COMPLETE WITH"],
+      "notes": "Complete with."
+    },
+    {
+      "id": "w-pnl",
+      "status": "locked",
+      "forms": ["W/PNL", "W/PANEL", "WALL PANEL"],
+      "notes": "Wall panel sets."
+    },
+    {
+      "id": "ohs",
+      "status": "locked",
+      "forms": ["OHS", "OVERHEAT SENSOR", "OVERHEAT SWITCH", "OH SENSOR"],
+      "notes": "Overheat sensor / switch safety device."
+    },
+    {
+      "id": "reg",
+      "status": "locked",
+      "forms": ["REG", "REGULATOR"],
+      "notes": "Regulator (lid / spring / test point)."
+    },
+    {
+      "id": "trans",
+      "status": "locked",
+      "forms": ["TRANS", "TRANSFORMER"],
+      "notes": "Transformer. Not transition (TRANSITON typo is separate)."
+    },
+    {
+      "id": "hsg",
+      "status": "locked",
+      "forms": ["HSG", "HOUSING"],
+      "notes": "Housing (often MOTOR/FAN/HSG)."
+    },
+    {
+      "id": "pnl",
+      "status": "locked",
+      "forms": ["PNL", "PANEL"],
+      "notes": "Panel. Wall-panel sets also covered by w-pnl."
+    },
+    {
+      "id": "inj",
+      "status": "locked",
+      "forms": ["INJ", "INJECTOR"],
+      "notes": "Injector."
+    },
+    {
+      "id": "control",
+      "status": "locked",
+      "forms": ["CNTRL", "CTRL", "CONTL", "CONTROL"],
+      "notes": "Control / controller shorthand + CONTL typo."
+    },
+    {
+      "id": "hx",
+      "status": "locked",
+      "forms": ["HX", "EXCH", "HEAT EXCHANGER", "HEAT EXCH", "EXCHANGER"],
+      "notes": "Heat exchanger."
+    },
+    {
+      "id": "pcb",
+      "status": "locked",
+      "forms": ["PCB", "PC BOARD", "PRINTED CIRCUIT BOARD", "CIRCUIT BOARD"],
+      "notes": "Overlaps trade-aliases pcb entry; token expand helps PCB ↔ long form."
+    },
+    {
+      "id": "cab",
+      "status": "locked",
+      "forms": ["CAB", "CABINET"],
+      "notes": "Cabinet."
+    },
+    {
+      "id": "idu",
+      "status": "locked",
+      "forms": ["IDU", "INDOOR UNIT", "INDOOR"],
+      "notes": "Indoor unit."
+    },
+    {
+      "id": "odu",
+      "status": "locked",
+      "forms": ["ODU", "OUTDOOR UNIT", "OUTDOOR"],
+      "notes": "Outdoor unit. Bare OD left context-dependent (unset from merge)."
+    },
+    {
+      "id": "temp",
+      "status": "locked",
+      "forms": ["TEMP", "TEMPERATURE"],
+      "notes": "Temperature."
+    },
+    {
+      "id": "rh",
+      "status": "locked",
+      "forms": ["RH", "RHS", "R/H", "RIGHT HAND", "RIGHT-HAND", "RIGHT HAND SIDE"],
+      "notes": "Right-hand."
+    },
+    {
+      "id": "lh",
+      "status": "locked",
+      "forms": ["LH", "LHS", "L/H", "LEFT HAND", "LEFT-HAND", "LEFT HAND SIDE"],
+      "notes": "Left-hand."
+    },
+    {
+      "id": "oh",
+      "status": "locked",
+      "forms": ["O/H", "OVERHEAT"],
+      "notes": "Overheat (thermostat / loom). Distinct from OHS device noun."
+    },
+    {
+      "id": "btm",
+      "status": "locked",
+      "forms": ["BTM", "BOT", "BOTTOM"],
+      "notes": "Bottom."
+    },
+    {
+      "id": "blk",
+      "status": "locked",
+      "forms": ["BLK", "BLACK"],
+      "notes": "Black colour."
+    },
+    {
+      "id": "compr",
+      "status": "locked-careful",
+      "forms": ["COMPR", "COMPRESSOR"],
+      "notes": "Compressor clear form only — bare COMP stays context-dependent (compressor vs compression fitting)."
+    },
+    {
+      "id": "extens",
+      "status": "locked-careful",
+      "forms": ["EXTENS", "EXTENSION"],
+      "notes": "Clear extension spelling only — bare EXT stays context-dependent."
+    },
+    {
+      "id": "t-stat",
+      "status": "locked",
+      "forms": ["T/STAT", "THERMOSTAT"],
+      "notes": "Thermostat."
+    },
+    {
+      "id": "t-couple",
+      "status": "locked",
+      "forms": ["T/COUPLE", "THERMOCOUPLE", "THERMO COUPLE"],
+      "notes": "Thermocouple."
+    },
+    {
+      "id": "p-switch",
+      "status": "locked",
+      "forms": ["P/SWITCH", "PRESSURE SWITCH", "PRESS SWITCH"],
+      "notes": "Pressure switch."
+    },
+    {
+      "id": "press",
+      "status": "locked",
+      "forms": ["PRESS", "PRES", "PRESSURE"],
+      "notes": "Pressure (test / relief / transducer)."
+    },
+    {
+      "id": "exp",
+      "status": "locked",
+      "forms": ["EXP", "EXPN", "EXPANSION"],
+      "notes": "Expansion (relief / EEV)."
+    },
+    {
+      "id": "ht",
+      "status": "locked",
+      "forms": ["HT", "HIGH TENSION", "HT LEAD"],
+      "notes": "High-tension ignition lead."
+    },
+    {
+      "id": "ign",
+      "status": "locked",
+      "forms": ["IGN", "IGNITION", "IGNITER", "IGNITOR"],
+      "notes": "Ignition / igniter."
+    },
+    {
+      "id": "exh",
+      "status": "locked",
+      "forms": ["EXH", "EXHST", "EXHAUST"],
+      "notes": "Exhaust."
+    },
+    {
+      "id": "conn",
+      "status": "locked",
+      "forms": ["CONN", "CONNECTOR", "CONNECTING"],
+      "notes": "Connector / connecting."
+    },
+    {
+      "id": "supp",
+      "status": "locked",
+      "forms": ["SUPP", "SUPPORT"],
+      "notes": "Support (roof conduit)."
+    },
+    {
+      "id": "waterproof",
+      "status": "locked",
+      "forms": ["WATERPRF", "WATERPROOF"],
+      "notes": "Waterproof."
+    },
+    {
+      "id": "adapter",
+      "status": "locked",
+      "forms": ["ADPTR", "ADPT", "ADAPT", "ADAPTER", "ADAPTOR"],
+      "notes": "Adapter / adaptor."
+    },
+    {
+      "id": "chamber",
+      "status": "locked",
+      "forms": ["CHAMB", "CHMBR", "BRNCHMBR", "CHAMBER", "BURNER CHAMBER"],
+      "notes": "Chamber / burner chamber truncations."
+    },
+    {
+      "id": "w-o",
+      "status": "locked",
+      "forms": ["W/O", "WITHOUT"],
+      "notes": "Without."
+    },
+    {
+      "id": "inc",
+      "status": "locked",
+      "forms": ["INC", "INCLUDING"],
+      "notes": "Including / supplied with."
+    },
+    {
+      "id": "ret",
+      "status": "locked",
+      "forms": ["RET", "RETAINER"],
+      "notes": "Retainer (glass latch)."
+    },
+    {
+      "id": "dia",
+      "status": "locked",
+      "forms": ["DIA", "DIAMETER"],
+      "notes": "Diameter."
+    },
+    {
+      "id": "var",
+      "status": "locked",
+      "forms": ["VAR", "VARIABLE"],
+      "notes": "Variable-speed."
+    },
+    {
+      "id": "repl",
+      "status": "locked",
+      "forms": ["REPL", "REPLACEMENT"],
+      "notes": "Replacement."
+    },
+    {
+      "id": "std",
+      "status": "locked",
+      "forms": ["STD", "STANDARD"],
+      "notes": "Standard."
+    },
+    {
+      "id": "ptr",
+      "status": "locked",
+      "forms": ["PTR", "P&T RELIEF", "PT RELIEF", "P AND T RELIEF"],
+      "notes": "P&T relief valve."
+    },
+    {
+      "id": "evap-c",
+      "status": "locked",
+      "forms": ["EVAP/C", "EVAPORATIVE", "EVAPORATIVE COOLER"],
+      "notes": "Evaporative cooler product shorthand."
+    },
+    {
+      "id": "t-red",
+      "status": "locked",
+      "forms": ["T/RED", "TERRA RED", "TERRARED"],
+      "notes": "Terra red colour."
+    }
+  ],
+  "skipped": {
+    "unset": ["W/I", "FS", "A/FRM", "MOD", "OUT", "HE", "PSI"],
+    "contextDependentNoMerge": [
+      "PAN",
+      "COMP",
+      "CONT",
+      "COND",
+      "OD",
+      "EXT",
+      "REV"
+    ],
+    "notes": "Context-dependent: do not merge both meanings into one alias group. COMPR/EXTENS cover the safe clear spellings only. LP fuel and NAT gas are locked-careful with excludeNamePatterns."
+  }
+}
