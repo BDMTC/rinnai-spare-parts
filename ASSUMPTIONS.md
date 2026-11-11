@@ -27,4 +27,4 @@ Short notes so Beau can correct anything that doesn’t match warehouse reality.
 - Wrong-order risk (LPG vs NG) is not encoded yet — keep reading Description 2 / notes on models.
 - Don’t treat discount-segment rows (PCH, PWC, …) as sell prices.
 - When Beau imports a new price list in Admin, review NLA/removed rows (skip = keep) before applying the local patch — then ask AI to sync via ingest for production.
-- Header logo (swoosh + MTCGAS Australia, no orange arc / IVMS) deferred to RSP-11 palette pass — SVG/CSS stand-in fine until full asset.
+- Header uses SVG swoosh + MTCGAS Australia wordmark (no orange arc / IVMS); full brand asset can refine in RSP-11.
