@@ -116,33 +116,6 @@ body::before {
   transition: border-color 140ms ease, background 140ms ease, transform 140ms ease;
 }
 
-.flag-trigger {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.75rem;
-  padding: 0.45rem 0.85rem;
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.85);
-  color: var(--ink);
-  font: inherit;
-  font-size: 0.82rem;
-  font-weight: 650;
-  cursor: pointer;
-  transition: border-color 140ms ease, background 140ms ease, transform 140ms ease;
-}
-
-.flag-trigger:hover {
-  border-color: #b45309;
-  background: #fff7ed;
-  color: #9a3412;
-}
-
-.flag-trigger:active {
-  transform: translateY(1px);
-}
 
 .cart-trigger:hover {
   border-color: var(--accent);
@@ -662,6 +635,14 @@ input[type="number"]:focus {
   flex-shrink: 0;
 }
 
+.result-card-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.4rem;
+  min-width: 10.5rem;
+}
+
 .result-flags {
   display: flex;
   flex-wrap: wrap;
@@ -876,6 +857,29 @@ input[type="number"]:focus {
   background: var(--accent-soft);
   color: var(--accent-ink);
   border-color: transparent;
+}
+
+.flag-part-btn {
+  border: 1px solid #c4a484;
+  background: #fff;
+  color: #9a3f0c;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.75rem;
+  font-weight: 650;
+  padding: 0.38rem 0.7rem;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
+}
+
+.flag-part-btn:hover {
+  background: #fff7ed;
+  border-color: #f47921;
+}
+
+.flag-part-btn:active {
+  transform: translateY(1px);
 }
 
 .match-row {
@@ -1764,10 +1768,6 @@ mark {
     justify-content: flex-start;
   }
 
-  .flag-trigger {
-    flex: 1 1 auto;
-  }
-
   .topbar-note {
     width: 100%;
   }
@@ -1791,8 +1791,16 @@ mark {
   .result-head-actions {
     width: 100%;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+  }
+
+  .result-card-actions {
+    width: 100%;
+    min-width: 0;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
   .cart-line {

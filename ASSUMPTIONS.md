@@ -14,7 +14,7 @@ Short notes so Beau can correct anything that doesn’t match warehouse reality.
 7c. **Unit class** — Internal vs external (FFUC/FFC vs WC/WC-AK) are distinct; soft document matching never equates conflicting unit-class suffixes.
 7d. **Data sheets** — `document-index.json` / `documents.js` stay in the codebase for later admin use; the main search UI no longer lists sheets. PDF bytes live under gitignored `data-sheets/`.
 8. **Quote list** — User-facing name is **Quote list** (not shopping cart). **Add to Quote** sits top-right on each result card. Overlay email/copy/save/clear unchanged in behaviour.
-9. **Flag for problem** — Header control next to Quote list opens a picker; mailto `stores@mtcgas.com.au` with fixed subject/body naming the part (code included when known). Local flag overlay recorded for admin clear.
+9. **Flag for problem** — On each result card (with Add to Quote); mailto `stores@mtcgas.com.au` with fixed subject/body for that card’s part (code included). Local flag overlay recorded for admin clear.
 10. **Admin overlays** — Light password gate (empty = stub unlock). Flag clear / suspend / delete / browser price-import live in `localStorage` (`rinnai-parts-overrides-v1`). Password in `rinnai-parts-admin-password-v1` or blank `config.admin.password` — never commit a real secret. **Production catalogue updates go through AI + `npm run ingest`**; the admin UI queues change intents and applies a local overlay only.
 11. **Diagrams later** — `diagramUrl` / `diagramPath` / `diagramRef.callout` exist; no exploded diagrams in this pass.
 12. **Source xlsx** — Kept under `source-data/` locally and gitignored; generated JSON under `public/data/` is committed for offline use.
