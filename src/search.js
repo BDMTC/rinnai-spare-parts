@@ -209,6 +209,82 @@ function synonymPresent(nameN, expanded, form, index) {
 }
 
 /**
+ * Human-readable abbrev bridges for UI chips (one chip per group).
+ * Example: query "bracket", name has BRKT → "matched BRKT (bracket)".
+ * Covers every wired group in part-name-abbreviations.json when that group
+ * caused the hit — not BRKT-only.
+ * @returns {string[]}
+ */
+export function matchedAbbrevLabels(nameN, expanded, q, abbrevForms, index) {
+  if (!q || !index?.groups?.length) return [];
+  const labels = [];
+  const seenGroups = new Set();
+
+  const display = (form) => String(form || "").toUpperCase();
+
+  const formsOnName = (group) =>
+    (group?.forms || []).filter((f) => formPresentInName(nameN, f, index));
+
+  const considerGroup = (group, queryForm) => {
+    if (!group || seenGroups.has(group.id)) return;
+    if (nameExcludedForGroup(nameN, group)) return;
+    if (queryExcludedForGroup(q, group)) return;
+    const onName = formsOnName(group);
+    if (!onName.length) return;
+    seenGroups.add(group.id);
+
+    const qry = String(queryForm || q || "").trim();
+    // Prefer catalogue spelling that differs from what the user typed
+    const catalogueForm =
+      onName.find((f) => f !== qry) || onName[0];
+    const cat = String(catalogueForm || "").trim();
+    if (!cat) return;
+
+    if (qry && qry !== cat) {
+      labels.push(`matched ${display(cat)} (${qry})`);
+    } else {
+      // Same token both sides (e.g. typed BRKT, name has BRKT) — still show cue
+      const other =
+        group.forms.find((f) => f !== cat) ||
+        (abbrevForms?.singles || []).find((f) => group.forms.includes(f) && f !== cat) ||
+        (abbrevForms?.phrases || []).find((f) => group.forms.includes(f) && f !== cat);
+      if (other) labels.push(`matched ${display(cat)} (${other})`);
+      else labels.push(`matched ${display(cat)}`);
+    }
+  };
+
+  const exact = index.formToGroup.get(q);
+  if (exact) considerGroup(exact, q);
+
+  for (const t of abbrevForms?.singles || []) {
+    considerGroup(index.formToGroup.get(t), q);
+  }
+  for (const ph of abbrevForms?.phrases || []) {
+    considerGroup(index.formToGroup.get(ph), q);
+  }
+
+  if (!labels.length) {
+    for (const f of expandedFormSet(expanded)) {
+      const group = index.formToGroup.get(f);
+      if (!group) continue;
+      if (!formsOnName(group).length) continue;
+      if (
+        f === q ||
+        abbrevForms?.singles?.includes(f) ||
+        abbrevForms?.phrases?.includes(f) ||
+        q.includes(f) ||
+        f.includes(q)
+      ) {
+        considerGroup(group, q);
+        if (labels.length) break;
+      }
+    }
+  }
+
+  return labels.slice(0, 4);
+}
+
+/**
  * True when query text (normalised) hits a name via abbreviation expansion.
  * Used to credit name-level matches like query "bracket" vs name "BRKT …".
  */
@@ -656,6 +732,7 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
     let score = 0;
     let matchedOn = [];
     let aliasStrength = 0;
+    let abbrevLabels = [];
 
     const trade = scoreTradeHit(nameN, tradeHits);
     if (trade.strength > 0) {
@@ -694,6 +771,13 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
         score += 55;
         aliasStrength = Math.max(aliasStrength, 55);
         matchedOn.push("abbrev");
+        abbrevLabels = matchedAbbrevLabels(
+          nameN,
+          nameExpanded,
+          q,
+          abbrevForms,
+          abbrevIndex
+        );
       }
 
       for (let i = 0; i < aliasesN.length; i += 1) {
@@ -788,6 +872,15 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
           } else if (abbrevTokenHit && !matchedOn.includes("abbrev")) {
             matchedOn.push("abbrev");
           }
+          if (abbrevTokenHit && !abbrevLabels.length) {
+            abbrevLabels = matchedAbbrevLabels(
+              nameN,
+              nameExpanded,
+              q,
+              abbrevForms,
+              abbrevIndex
+            );
+          }
         }
       }
 
@@ -827,6 +920,20 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
       .map((id) => modelsById[id])
       .filter(Boolean);
 
+    if (
+      matchedOn.includes("abbrev") &&
+      !abbrevLabels.length &&
+      abbrevIndex
+    ) {
+      abbrevLabels = matchedAbbrevLabels(
+        nameN,
+        nameExpanded,
+        q,
+        abbrevForms,
+        abbrevIndex
+      );
+    }
+
     results.push({
       part,
       score,
@@ -835,6 +942,7 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
       fitTier: fit.tier,
       fitReason: fit.reason,
       aliasStrength,
+      abbrevLabels,
       fitRank,
       fittedModels,
       isPrimary: false,
