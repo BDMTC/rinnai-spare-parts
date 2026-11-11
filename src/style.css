@@ -1005,8 +1005,8 @@ mark {
   gap: 0.3rem;
   padding: 0.7rem 0.95rem;
   border-radius: 12px;
-  /* Solid white so the badge reads clearly on the HQ photo */
-  background: rgba(255, 255, 255, 0.97);
+  /* Near-solid white — hides text behind without a harsh slab */
+  background: rgba(255, 255, 255, 0.94);
   box-shadow: 0 10px 28px rgba(1, 52, 116, 0.2);
   text-align: center;
   max-width: min(90%, 18rem);
