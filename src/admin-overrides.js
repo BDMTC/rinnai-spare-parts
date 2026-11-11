@@ -3,13 +3,20 @@
  *
  * Runtime: localStorage overlay (flag / suspend / delete + optional price patch).
  * Intent queue: records what Beau asked for so AI / ingest can sync production JSON later.
- * Never store the real admin password in git — use localStorage or a blank config stub.
+ * Admin unlock uses a baked PBKDF2 hash only — never store plaintext password in git.
  */
 
 export const OVERRIDES_STORAGE_KEY = "rinnai-parts-overrides-v1";
-export const ADMIN_PASSWORD_STORAGE_KEY = "rinnai-parts-admin-password-v1";
 export const ADMIN_SESSION_STORAGE_KEY = "rinnai-parts-admin-session-v1";
 export const PRICE_LIST_PATH_STORAGE_KEY = "rinnai-parts-price-list-path-v1";
+
+/** Fixed app salt for admin password PBKDF2 (not a secret). */
+export const ADMIN_PASSWORD_SALT = "mtc-rinnai-admin-gate-v1";
+export const ADMIN_PASSWORD_ITERATIONS = 120000;
+export const ADMIN_PASSWORD_BITS = 256;
+/** PBKDF2-SHA-256 hex digest of the admin password with ADMIN_PASSWORD_SALT. */
+export const ADMIN_PASSWORD_HASH_HEX =
+  "6517a2cce8ca3ef7be45f4d47405b8c8ebee1c7c79ecdfbea11e22cbde53e8b6";
 
 /**
  * @typedef {{
@@ -80,31 +87,59 @@ export function saveOverrides(overrides) {
 }
 
 /**
- * Password lives only in localStorage (or empty = stub gate).
- * Config may hint where to set it; never commit a real value.
- * @param {object|null} config
+ * @param {ArrayBuffer|Uint8Array} buffer
+ * @returns {string}
  */
-export function getConfiguredAdminPassword(config) {
-  try {
-    const fromStorage = localStorage.getItem(ADMIN_PASSWORD_STORAGE_KEY);
-    if (fromStorage != null) return String(fromStorage);
-  } catch {
-    /* ignore */
-  }
-  const fromConfig = config?.admin?.password;
-  if (fromConfig == null) return "";
-  return String(fromConfig);
+function bufferToHex(buffer) {
+  return [...new Uint8Array(buffer)]
+    .map((b) => b.toString(16).padStart(2, "0"))
+    .join("");
 }
 
 /**
- * @param {string} password
+ * @param {string} a
+ * @param {string} b
  */
-export function setLocalAdminPassword(password) {
-  localStorage.setItem(ADMIN_PASSWORD_STORAGE_KEY, String(password ?? ""));
+function timingSafeEqualHex(a, b) {
+  const left = String(a || "");
+  const right = String(b || "");
+  const len = Math.max(left.length, right.length);
+  let diff = left.length === right.length ? 0 : 1;
+  for (let i = 0; i < len; i++) {
+    diff |= (left.charCodeAt(i) || 0) ^ (right.charCodeAt(i) || 0);
+  }
+  return diff === 0;
 }
 
-export function clearLocalAdminPassword() {
-  localStorage.removeItem(ADMIN_PASSWORD_STORAGE_KEY);
+/**
+ * Derive PBKDF2-SHA-256 hex of an unlock attempt (Web Crypto).
+ * @param {string} password
+ * @returns {Promise<string>}
+ */
+export async function hashAdminPassword(password) {
+  const enc = new TextEncoder();
+  const subtle = globalThis.crypto?.subtle;
+  if (!subtle) {
+    throw new Error("Web Crypto is required for admin unlock.");
+  }
+  const keyMaterial = await subtle.importKey(
+    "raw",
+    enc.encode(String(password ?? "")),
+    "PBKDF2",
+    false,
+    ["deriveBits"]
+  );
+  const bits = await subtle.deriveBits(
+    {
+      name: "PBKDF2",
+      salt: enc.encode(ADMIN_PASSWORD_SALT),
+      iterations: ADMIN_PASSWORD_ITERATIONS,
+      hash: "SHA-256",
+    },
+    keyMaterial,
+    ADMIN_PASSWORD_BITS
+  );
+  return bufferToHex(bits);
 }
 
 export function isAdminSessionUnlocked() {
@@ -125,22 +160,21 @@ export function setAdminSessionUnlocked(unlocked) {
 }
 
 /**
- * Stub gate: empty configured password → any submit unlocks (incl. empty).
- * Once Beau sets a password in localStorage / config.admin.password, it must match.
+ * Compare hashed attempt to the baked-in admin password hash.
  * @param {string} attempt
- * @param {object|null} config
+ * @returns {Promise<{ ok: boolean }>}
  */
-export function tryUnlockAdmin(attempt, config) {
-  const expected = getConfiguredAdminPassword(config);
-  if (!expected) {
-    setAdminSessionUnlocked(true);
-    return { ok: true, stub: true };
+export async function tryUnlockAdmin(attempt) {
+  try {
+    const hashed = await hashAdminPassword(attempt);
+    if (timingSafeEqualHex(hashed, ADMIN_PASSWORD_HASH_HEX)) {
+      setAdminSessionUnlocked(true);
+      return { ok: true };
+    }
+  } catch {
+    /* treat crypto failures as failed unlock */
   }
-  if (String(attempt ?? "") === expected) {
-    setAdminSessionUnlocked(true);
-    return { ok: true, stub: false };
-  }
-  return { ok: false, stub: false };
+  return { ok: false };
 }
 
 /**
