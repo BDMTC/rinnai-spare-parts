@@ -40,11 +40,12 @@
   "partNameAbbreviationsFile": "public/data/part-name-abbreviations.json",
   "documents": {
     "rootUrl": "/data-sheets",
+    "fileRootUrl": "../data-sheets",
     "localFolder": "data-sheets",
     "indexPathPrefix": "data-sheets/",
     "indexFile": "public/data/document-index.json",
     "extractRootExample": "C:\\Temp\\rinnai-spare-parts\\data-sheets",
-    "note": "Binary PDFs stay under localFolder (gitignored). Vite maps rootUrl → ./data-sheets. Index JSON only is committed."
+    "note": "Binary PDFs stay under localFolder (gitignored). Vite maps rootUrl → ./data-sheets for http. file:// builds (dist/index.html) use fileRootUrl → ../data-sheets. Open PDFs via link/navigation, not fetch. Index JSON only is committed."
   },
   "howToRefresh": [
     "Drop the new Rinnai price workbook into source-data/ (or update priceList.workbookPath / priceList.endpoint in this file).",

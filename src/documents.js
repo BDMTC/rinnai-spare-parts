@@ -96,18 +96,41 @@ export function expandDocumentKeys(seriesDoc, query, pin = null) {
 }
 
 /**
+ * PDF root for the current page protocol.
+ * - http / Vite: `/data-sheets` (middleware maps to ./data-sheets)
+ * - file:// from dist/index.html: `../data-sheets` (repo-root sibling of dist/)
+ *
+ * @param {object|null|undefined} config
+ * @returns {string}
+ */
+export function resolveDocumentsRoot(config = null) {
+  const httpRoot = String(
+    config?.documents?.rootUrl || "/data-sheets"
+  ).replace(/\/$/, "");
+  const fileRoot = String(
+    config?.documents?.fileRootUrl || "../data-sheets"
+  ).replace(/\/$/, "");
+
+  if (typeof location !== "undefined" && location.protocol === "file:") {
+    return fileRoot;
+  }
+  return httpRoot;
+}
+
+/**
  * Build a browser URL for a document PDF.
  * Index paths look like `data-sheets/Rinnai Data Sheets/foo.pdf`.
  * Vite serves the gitignored `./data-sheets` folder at `/data-sheets`.
+ *
+ * Under file://, open via relative navigation (`../data-sheets/...`) — do not
+ * fetch() PDF bytes (Chrome/Edge block local fetch without special flags).
  *
  * @param {object} doc
  * @param {object|null|undefined} config
  * @returns {string|null}
  */
 export function resolveDocumentUrl(doc, config = null) {
-  const rootUrl = String(
-    config?.documents?.rootUrl || "/data-sheets"
-  ).replace(/\/$/, "");
+  const rootUrl = resolveDocumentsRoot(config);
   let rel = String(doc?.path || "").replace(/\\/g, "/");
   if (!rel && doc?.fileName) {
     rel = doc.fileName;

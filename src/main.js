@@ -71,8 +71,13 @@ import {
   diffPriceImport,
   buildReviewedParts,
 } from "./price-import.js";
+import { loadBootData } from "./boot-data.js";
 
-const app = document.querySelector("#app");
+// Resolved at boot (not import time) so the file:// classic IIFE can sit in <head>
+// with defer, or at end of <body>, without racing #app.
+function getApp() {
+  return document.querySelector("#app");
+}
 
 /** @type {object|null} */
 let baseCatalogue = null;
@@ -105,12 +110,6 @@ let overrides = loadOverrides();
 let adminUnlocked = isAdminSessionUnlocked();
 /** @type {null | { incomingParts: object[], diff: object, sourceFile: string, meta: object, skipCodes: Set<string> }} */
 let pendingImport = null;
-
-async function loadJson(url) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Could not load ${url} (${res.status})`);
-  return res.json();
-}
 
 function escapeHtml(str) {
   return String(str)
@@ -535,7 +534,7 @@ function renderShell() {
     "price list";
   const pricePath = loadPriceListPath(config);
 
-  app.innerHTML = `
+  getApp().innerHTML = `
     <div class="page">
       <header class="topbar">
         <div class="brand">
@@ -1945,16 +1944,14 @@ function bindEvents() {
 async function boot() {
   renderShell();
   try {
-    const [cat, cfg, prices, series, trade, abbrevs] = await Promise.all([
-      loadJson("/data/catalogue.json"),
-      loadJson("/data/config.json"),
-      loadJson("/data/prices.json"),
-      loadJson("/data/series-aliases.json"),
-      loadJson("/data/trade-aliases.json").catch(() => ({ aliases: [] })),
-      loadJson("/data/part-name-abbreviations.json").catch(() => ({
-        groups: [],
-      })),
-    ]);
+    const {
+      catalogue: cat,
+      config: cfg,
+      prices,
+      series,
+      trade,
+      abbrevs,
+    } = await loadBootData();
     baseCatalogue = cat;
     config = cfg;
     pricesMeta = prices.meta || null;
@@ -1977,14 +1974,23 @@ async function boot() {
     populateDataSources();
     bindEvents();
   } catch (err) {
-    app.innerHTML = `
+    const root = getApp();
+    if (root) {
+      root.innerHTML = `
       <div class="fatal">
         <h1>Catalogue failed to load</h1>
         <p>${escapeHtml(err.message)}</p>
-        <p>Expected files under <code>/data/</code> — run <code>npm run ingest</code> if JSON is missing.</p>
+        <p>Expected files under <code>data/</code> — run <code>npm run ingest</code> if JSON is missing. For double-click open, use <code>npm run build:file</code> then open <code>dist/index.html</code>.</p>
       </div>
     `;
+    }
   }
 }
 
-boot();
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    boot();
+  });
+} else {
+  boot();
+}
