@@ -4,6 +4,8 @@ Local-first spare parts search for MTC Gas admin. Find parts by **order code**, 
 
 No backend required. Data loads from static JSON under `public/data/`.
 
+**Tip (PR [#13](https://github.com/BDMTC/rinnai-spare-parts/pull/13)):** branch `cursor/feedback-popup-379a` @ `beac548`. Canonical TDD lives in Project Context `docs/rinnai-parts-tdd.md` (not this repo).
+
 ## How to run
 
 ```bash
@@ -86,17 +88,21 @@ If the folder is missing (cloud agent, fresh clone), the index still lists match
 - **NLA / restricted gate**: Description 2 flags (NLA, export only, use-up, only-for) grey models in the picker; **click only** opens unlock confirm (Enter/keyboard will not select); exclusive restricted chassis parts stay out of default search until that pin is unlocked for the session
 - **Series pin** via aliases (HD28, HD200e/VRM2632WC, HD200i, Infinity 26/32, HD210, …)
 - **Ranked model-pinned search**: Primary = most likely code for the pin; trade aliases resolve layman terms; chassis fit across all series
+- **Part-name abbreviations**: bidirectional short↔long search (`part-name-abbreviations.json`) with **matched …** chips on result cards
+- **MTC logo home**: banner logo click clears search + model pin
+- Header **?** beginner help tips; thumbs-up **feedback** blurb (offline `localStorage` + optional mailto / JSON export)
 - Margin **0–100%** in **5%** steps (default 20%)
 - **Quote list** (header icon + overlay): Add to Quote on each result (top-right), email/copy/save/clear
 - **Flag item for problem** on each result card → mailto stores for Beau review (that part)
-- **Admin / development** (hashed password gate): clear flags, suspend/delete parts, price-list path, workbook import with count-diff review — localStorage overlay + change queue for AI ingest sync
-- Matches part code, description, trade alias, and sheet/category
+- **Admin / development** (hashed PBKDF2 password gate): clear flags, suspend/delete parts, price-list path, workbook import with count-diff review — localStorage overlay + change queue for AI ingest sync
+- Matches part code, description, trade alias, abbrev expand, and sheet/category
 - Shows net invoice ex GST, computed ex GST at selected margin, and inc GST
 - Data-sources panel documents how to swap the next price list
-- Data-sheet index/code kept; sheet listing removed from the main search UI
+- Data-sheet index/code kept; sheet listing removed from the main search UI; Tech sync covers **CFHW / REU** sheets only
 
 ## Out of scope (this pass)
 
+- **Aircon** / broader Tech File Manager sections (deferred — CFHW/REU only)
 - Exploded diagrams / callout RAG (Beau supplying next)
 - Explicit `modelIds` on every price row (fit currently inferred from chassis text)
 - Committing browser admin edits as production `prices.json` (always go through AI ingest)
