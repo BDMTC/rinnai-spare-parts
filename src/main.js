@@ -626,7 +626,7 @@ function renderShell() {
               />
               <p class="ops-panels-veil-title">MTC Gas team</p>
               <p class="ops-panels-hint" id="ops-panels-hint">
-                Hover or focus to reveal admin &amp; data sources
+                Hover or focus to show behind.
               </p>
             </div>
           </div>
