@@ -1,11 +1,12 @@
 ﻿# Document index
 
 - `data/document-index.json` — full local index (includes absolutePath); gitignored.
-- `public/data/document-index.json` — app-friendly copy (relative path, type, series).
-- Types from filename: `PL`, `ED`, `SM`, `EDPL` (combined), `other`.
-- Series tags for HD28: `REU-VCM2837`, `VCM2837`, `HD28` on the VCM2837 parts-list PDFs.
+- `public/data/document-index.json` — app-friendly copy (relative path, type, series, optional `quarantined[]`).
+- `public/data/tech-sheet-sync.json` — Tech mirror replace/add map for `npm run sync:tech-sheets`.
+- Types from filename / sync map: `PL`, `ED`, `SM`, `EDPL` (combined), `other`.
+- HD28 sheets are class-tagged (`VCM2837WC` vs `VCM2837FFC`) so WC/FF never soft-collide.
 - Binary PDFs remain only under local `data-sheets/` (e.g. `C:\Temp\rinnai-spare-parts\data-sheets\`) — not for git.
-- Source zip: local `zip/Rinnai Data Sheets.zip`.
+- Source zip: local `zip/Rinnai Data Sheets.zip`. Tech refresh: Project store `media/rinnai-tech-latest/`.
 
 ## Serving PDFs in the app
 

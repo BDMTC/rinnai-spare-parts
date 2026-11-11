@@ -1,0 +1,393 @@
+{
+  "version": 1,
+  "meta": {
+    "title": "Tech mirror → local data-sheets sync map",
+    "updated": "2026-11-11",
+    "techMirrorHint": "Project store media/rinnai-tech-latest/ (or pass --mirror)",
+    "localSheetsDir": "data-sheets/Rinnai Data Sheets",
+    "quarantineDir": "data-sheets/quarantine",
+    "notes": "Binary PDFs stay local / Project store — not committed. This JSON drives scripts/sync-tech-sheets.mjs and document-index updates. Scope: AU continuous-flow / HW pin coverage first; no aircon dump."
+  },
+  "replacements": [
+    {
+      "id": "pl-n3237-issue4",
+      "confidence": "clear",
+      "reason": "N-Series PL ISSUE 4 Feb 2025 supersedes ISSUE 3 Dec 2021; all 84 RA codes already on price list",
+      "replaceFileNames": [
+        "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf"
+      ],
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - 2020 REUN3237 - N SERIES - ISSUE 4 - FEB 25.pdf",
+      "type": "PL",
+      "series": [
+        "N3237",
+        "REU-N3237",
+        "REUN3237",
+        "N3237W",
+        "N3237WC",
+        "N3237FFC",
+        "N-SERIES",
+        "ENVIRO",
+        "HD210e",
+        "HD210i",
+        "Infinity 32 Enviro+"
+      ],
+      "contentCheck": {
+        "raCodes": 84,
+        "missingFromCatalogue": 0
+      }
+    },
+    {
+      "id": "pl-vcm2837-wc-issue5",
+      "confidence": "clear",
+      "reason": "HD28 WC external PL ISSUE 5 May 2026 supersedes undated Jan 2024 WC PL; 2 RA codes (92098325/92098327 dampers) not on current price list",
+      "replaceFileNames": [
+        "Parts List REU-VCM2837 WC External.pdf",
+        "REU-VCM2837 - External  PARTS LIST.pdf"
+      ],
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+      "type": "PL",
+      "series": [
+        "HD28e",
+        "HD28E",
+        "REU-VCM2837WC",
+        "VCM2837WC",
+        "REUVCM2837WC"
+      ],
+      "hd28": true,
+      "contentCheck": {
+        "raCodes": 67,
+        "missingFromCatalogue": ["92098325", "92098327"]
+      }
+    },
+    {
+      "id": "pl-rdv600-issue10",
+      "confidence": "clear",
+      "reason": "RDV600 Flame Fire PL ISSUE 10 Apr 2024 supersedes May 2021/ISSUE 8; +2 RA codes (90187790 flame rod, 90198838 spacer) both already priced; fan gasket note + item 26 rename",
+      "replaceFileNames": [
+        "Spares RDV600 May 2021 COMB.pdf"
+      ],
+      "techRelative": "Rinnai Space Heating/FLAME FIRE/SPARE PARTS/PL - RINNAI - RDV600 - ISSUE 10 - APR 2024.pdf",
+      "type": "PL",
+      "series": ["RDV600", "RDV600ER"],
+      "contentCheck": {
+        "raCodes": 67,
+        "deltaVsIssue8": {
+          "addedRa": ["90187790", "90198838"],
+          "removedRa": []
+        }
+      }
+    },
+    {
+      "id": "pl-km3237-enviro-issue5",
+      "confidence": "probable",
+      "reason": "KM3237WDC / HDC211e PL ISSUE 5 Feb 2025 supersedes Combined SP Sep 2018 + undated PL & ED KM3237WD",
+      "replaceFileNames": [
+        "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "PL & ED KM3237WD.pdf"
+      ],
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - INFINITY 32 ENVIRO REU-KM3237WD-C-AK & HDC211E REU-KM3237WDC-AK - ISSUE 5 - FEB 2025.pdf",
+      "type": "PL",
+      "series": [
+        "KM3237",
+        "KM3237WD",
+        "KM3237WDC",
+        "REU-KM3237WD",
+        "REU-KM3237WDC",
+        "REUKM3237",
+        "HDC211e",
+        "HDC211E",
+        "Infinity 32 Enviro",
+        "ENVIRO"
+      ]
+    },
+    {
+      "id": "edpl-km3237wd-issue4",
+      "confidence": "probable",
+      "reason": "Companion EDPL INF32 Enviro KM3237WD ISSUE 4 Jun 2025",
+      "replaceFileNames": [],
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf",
+      "type": "EDPL",
+      "series": [
+        "KM3237",
+        "KM3237WD",
+        "REU-KM3237WD",
+        "Infinity 32 Enviro",
+        "ENVIRO"
+      ]
+    },
+    {
+      "id": "pl-km2635-enviro-issue5",
+      "confidence": "probable",
+      "reason": "KM2635WD-C-AK PL ISSUE 5 Feb 2025 supersedes undated PL & ED KM2635WD",
+      "replaceFileNames": ["PL & ED KM2635WD.pdf"],
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - INFINITY ENVIRO 26 REU-KM2635WD-C-AK - ISSUE 5 - FEB 2025.pdf",
+      "type": "PL",
+      "series": [
+        "KM2635WD",
+        "REU-KM2635WD",
+        "REUKM2635WD",
+        "INF26",
+        "INFINITY26",
+        "ENVIRO"
+      ]
+    },
+    {
+      "id": "edpl-enviro-km2635-issue4",
+      "confidence": "probable",
+      "reason": "Companion ENVIRO KM2635WD ISSUE 4 Jun 2025",
+      "replaceFileNames": [],
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - ENVIRO KM2635WD - ISSUE 04 - JUNE 2025.pdf",
+      "type": "EDPL",
+      "series": ["KM2635WD", "REU-KM2635WD", "INF26", "ENVIRO"]
+    },
+    {
+      "id": "pl-hd200e-issue7",
+      "confidence": "probable",
+      "reason": "HD200e REU-VRM2632WC-AK PL ISSUE 7 Jun 2025",
+      "replaceFileNames": [],
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - HD200e REU-VRM2632WC-AK - ISSUE 07 - JUNE 2025.pdf",
+      "type": "PL",
+      "series": [
+        "HD200e",
+        "HD200E",
+        "HD200",
+        "REU-VRM2632WC",
+        "REU-VRM2632WC-AK",
+        "VRM2632WC",
+        "REUVRM2632WC"
+      ],
+      "hd200": true
+    },
+    {
+      "id": "edpl-vrm2632wc-issue2",
+      "confidence": "probable",
+      "reason": "EDPL REU-VRM2632WC ISSUE 2 Jun 2025 supersedes undated EDPL REU-VRM2632WC.pdf",
+      "replaceFileNames": ["EDPL REU-VRM2632WC.pdf"],
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - EDPL REU-VRM2632WC - ISSUE 2 - JUNE 2025.pdf",
+      "type": "EDPL",
+      "series": [
+        "HD200e",
+        "HD200E",
+        "REU-VRM2632WC",
+        "VRM2632WC",
+        "REUVRM2632WC"
+      ],
+      "hd200": true
+    },
+    {
+      "id": "pl-vrm2630-issue5",
+      "confidence": "probable",
+      "reason": "VRM2630 / INF26 PL ISSUE 5 Jun 2025 supersedes undated EDPL VRM2630.pdf",
+      "replaceFileNames": ["EDPL VRM2630.pdf"],
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - VRM2630 2011 - INF 26 - ISSUE 5 - JUNE 2025.pdf",
+      "type": "PL",
+      "series": ["VRM2630", "INF26", "Infinity 26 Plus", "REUV2630WD", "VRM2630WD"]
+    },
+    {
+      "id": "edpl-vrm2632ffu-issue4",
+      "confidence": "probable",
+      "reason": "EDPL VRM2632FFU ISSUE 4 Jun 2025 supersedes undated EDPL VRM2632FFU.pdf",
+      "replaceFileNames": ["EDPL VRM2632FFU.pdf"],
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf",
+      "type": "EDPL",
+      "series": [
+        "VRM2632FFU",
+        "VRM2632FFUC",
+        "HD200i",
+        "REU-VRM2632FFUC",
+        "REU-VR2632FFUG"
+      ]
+    },
+    {
+      "id": "pl-vr2426-vr2626-issue2",
+      "confidence": "probable",
+      "reason": "2010 VR2426_VR2626 PL ISSUE 2 Apr 2026 supersedes undated EDPL VR2426_VR2626.pdf",
+      "replaceFileNames": ["EDPL VR2426_VR2626.pdf"],
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - 2010 VR2426_VR2626 - ISSUE 2 - APRIL 2026.pdf",
+      "type": "PL",
+      "series": ["VR2426", "VR2626", "VR2426WB", "REUVR2426"]
+    },
+    {
+      "id": "pl-fm10-ihf10-issue2",
+      "confidence": "probable",
+      "reason": "FLOWMASTER FM10 / IHF10 ISSUE 2 Feb 2026 is current continuous-flow instantaneous PL (distinct from older Hotflo IHF10 ISSUE 3). Quarantines undated IHF10-Spare-Parts-List.pdf; Hotflo storage PL added separately.",
+      "replaceFileNames": ["IHF10-Spare-Parts-List.pdf"],
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - FLOWMASTER FM10 - IHF10 - ISSUE 2 - FEB 2026.pdf",
+      "type": "PL",
+      "series": ["IHF10", "FM10", "FLOWMASTER"]
+    }
+  ],
+  "additions": [
+    {
+      "id": "pl-vcm2837-ff-issue4",
+      "reason": "HD28i / VCM2837 FF internal PL — we had WC only",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+      "type": "PL",
+      "series": [
+        "HD28i",
+        "HD28I",
+        "REU-VCM2837FF",
+        "REU-VCM2837FFC",
+        "VCM2837FF",
+        "VCM2837FFC",
+        "REUVCM2837FFC"
+      ],
+      "hd28": true
+    },
+    {
+      "id": "pl-am3237w-ak",
+      "reason": "HD32 / AM3237W chassis — models in pin list, no sheet",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - 2022 REU-AM3237W-AK - Issue 2 - FEB 2023.pdf",
+      "type": "PL",
+      "series": ["AM3237", "AM3237W", "REU-AM3237W", "REUAM3237W", "HD32"]
+    },
+    {
+      "id": "pl-am3237wc-ak",
+      "reason": "AM3237WC external — models in pin list, no sheet",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+      "type": "PL",
+      "series": ["AM3237", "AM3237WC", "REU-AM3237WC", "REUAM3237WC", "HD32"]
+    },
+    {
+      "id": "pl-am3237w-50-ak",
+      "reason": "AM3237W-50-AK domestic temp variant",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - 2022 REU-AM3237W-50-AK - Issue 2 - FEB 2023.pdf",
+      "type": "PL",
+      "series": ["AM3237", "AM3237W", "REU-AM3237W-50-AK", "HD32"]
+    },
+    {
+      "id": "pl-a-am-series-cfhw",
+      "reason": "Combined A & AM Series CFHW ISSUE 2 Feb 2025",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - A & AM SERIES - CFHW - ISSUE 2- FEB 2025.pdf",
+      "type": "PL",
+      "series": ["A-SERIES", "AM3237", "AM SERIES", "HD32"]
+    },
+    {
+      "id": "pl-nb3237-issue2",
+      "reason": "NB3237 / HDC32 Inf Enviro32 — models in pin list, no sheet",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+      "type": "PL",
+      "series": [
+        "NB3237",
+        "REU-NB3237",
+        "REUNB3237",
+        "HDC32",
+        "HDC32E",
+        "HDC32I",
+        "ENVIRO"
+      ]
+    },
+    {
+      "id": "edpl-hd250e-vrm3237wc",
+      "reason": "HD250e / VRM3237WC — models in pin list, no dedicated current sheet",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf",
+      "type": "EDPL",
+      "series": [
+        "HD250",
+        "HD250e",
+        "HD250E",
+        "VRM3237WC",
+        "REU-VRM3237WC",
+        "REUVRM3237WC"
+      ]
+    },
+    {
+      "id": "edpl-vrm3237-issue4",
+      "reason": "VRM3237 family EDPL ISSUE 4 Jun 2025",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - EDPLVRM3237 - ISSUE 4 - JUNE 2025.pdf",
+      "type": "EDPL",
+      "series": ["VRM3237", "VRM3237WC", "VRM3237WG", "REUVRM3237", "HD250"]
+    },
+    {
+      "id": "pl-vreuvrm3237wg-issue5",
+      "reason": "REUVRM3237WG PL ISSUE 5 Feb 2025",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - 2013 REUVRM3237WG - ISSUE 05 - FEB 2025.pdf",
+      "type": "PL",
+      "series": ["VRM3237WG", "REUVRM3237WG", "REU-VRM3237WG"]
+    },
+    {
+      "id": "pl-b20-vr2020wb",
+      "reason": "B20 / VR2020WB — models in pin list; only had VR2024WB marketing PDF",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - B20 - VR2020WB - ISSUE 04 - MARCH 2015.pdf",
+      "type": "PL",
+      "series": ["B20", "VR2020WB", "REUVR2020WB"]
+    },
+    {
+      "id": "pl-inf-black-a2626wb",
+      "reason": "Infinity Black REU-A2626WB-AK ISSUE 1 Aug 2025",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - 2025 INF BLACK, REU-A2626WB-AK - ISSUE 1 - AUG 2025.pdf",
+      "type": "PL",
+      "series": ["A2626WB", "REU-A2626WB", "REUA2626WB", "INF BLACK", "B26"]
+    },
+    {
+      "id": "pl-hdc211e-km3237wdc",
+      "reason": "Dedicated HDC211e PL ISSUE 3 Jun 2025",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf",
+      "type": "PL",
+      "series": ["HDC211e", "HDC211E", "REU-KM3237WDC", "KM3237WDC"]
+    },
+    {
+      "id": "pl-inf26ffug-hd200i",
+      "reason": "INF26FFUG_C (HD200i) ISSUE 4 Feb 2025",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - INF26FFUG_C (HD200i) - ISSUE 04 - FEB 2025.pdf",
+      "type": "PL",
+      "series": [
+        "HD200i",
+        "HD200I",
+        "INF26",
+        "VRM2632FFUC",
+        "VR2632FFUG",
+        "REU-VRM2632FFUC"
+      ],
+      "hd200": true
+    },
+    {
+      "id": "pl-vr2632ffug-vrm2632ffuc",
+      "reason": "VR2632FFUG_VRM2632FFUC ISSUE 4 Jun 2025",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+      "type": "PL",
+      "series": [
+        "VR2632FFUG",
+        "VRM2632FFUC",
+        "HD200i",
+        "REU-VR2632FFUG",
+        "REU-VRM2632FFUC"
+      ],
+      "hd200": true
+    },
+    {
+      "id": "pl-km3237ffudc",
+      "reason": "INF32 KM3237FFUDC-AK internal ISSUE 3 Jun 2025 — no app sheet",
+      "techRelative": "Rinnai Hot Water/RINNAI CONTINUOUS FLOW HW/SPARE PARTS/PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+      "type": "PL",
+      "series": [
+        "KM3237FFUDC",
+        "REU-KM3237FFUDC",
+        "REUKM3237FFUDC",
+        "HDC211i",
+        "HDC211I"
+      ]
+    },
+    {
+      "id": "pl-hotflo-ihf10-issue3",
+      "reason": "Older Hotflo IHF10 storage PL kept distinct from Flowmaster FM10",
+      "techRelative": "Rinnai Hot Water/RINNAI STORAGE/SPARE PARTS/PL - RINNAI - HOTFLO - IHF10 - ISSUE 03 - APRIL 2017.pdf",
+      "type": "PL",
+      "series": ["IHF10", "HOTFLO"]
+    },
+    {
+      "id": "pl-qre-issue3",
+      "reason": "Commercial QRE tanks — we only had QRESS quick-recovery sheet",
+      "techRelative": "Rinnai Commercial Hot Water/SPARE PARTS/SP - RINNAI - QRE - ISSUE 3 - OCT 2024.pdf",
+      "type": "PL",
+      "series": ["QRE", "QRESS"]
+    }
+  ],
+  "skipped": {
+    "aircon": "206 Tech-only refrigerated aircon models — out of REU/HW scope unless Beau expands",
+    "spaceHeatingBeyondRdv600": "43 space-heating Tech-only (RHFE/RDV*) — only RDV600 updated because we already shipped that sheet",
+    "heatPumps": "EHPG/EHPS/Enviroflo heat-pump PLs present on Tech; no matching models in REU-Model-History pin list",
+    "flowmasterStorage": "FM25–FM250 storage PLs — no models in pin list",
+    "lifestyleEvaporative": "lifestyle + evaporative Tech-only"
+  }
+}
