@@ -1,7 +1,7 @@
 import "./style.css";
 import mtcgasLogoUrl from "./assets/mtcgas-australia-logo.png?inline";
 import mtcTeamHqUrl from "./assets/mtc-team-hq.jpg?inline";
-import { searchParts, getModelLabel } from "./search.js";
+import { searchParts, getModelLabel, buildAbbrevIndex } from "./search.js";
 import {
   computePrices,
   formatAud,
@@ -75,6 +75,10 @@ let pricesMeta = null;
 let seriesDoc = null;
 /** @type {object|null} */
 let tradeAliases = null;
+/** @type {object|null} */
+let partAbbrevs = null;
+/** @type {ReturnType<typeof buildAbbrevIndex>|null} */
+let abbrevIndex = null;
 let lastResults = [];
 let marginPercent = DEFAULT_MARGIN_PERCENT;
 let gstRate = DEFAULT_GST_RATE;
@@ -743,6 +747,10 @@ function renderShell() {
                   <dd><code>public/data/trade-aliases.json</code></dd>
                 </div>
                 <div>
+                  <dt>Part-name abbreviations</dt>
+                  <dd><code>public/data/part-name-abbreviations.json</code></dd>
+                </div>
+                <div>
                   <dt>Local admin overlay</dt>
                   <dd id="ds-overrides">localStorage · see Admin</dd>
                 </div>
@@ -751,7 +759,7 @@ function renderShell() {
                 <li>Drop the new Rinnai price workbook into <code>source-data/</code> (or set path in Admin).</li>
                 <li>Update <code>priceList.workbookPath</code> / <code>endpoint</code> / <code>effectiveDate</code> in <code>public/data/config.json</code>.</li>
                 <li>Run <code>npm run ingest</code> for production JSON, then refresh — or use Admin import for a local preview overlay.</li>
-                <li>Series / trade aliases are hand-maintained JSON — not overwritten by ingest.</li>
+                <li>Series / trade / part-name abbreviation aliases are hand-maintained JSON — not overwritten by ingest.</li>
                 <li>Data-sheet PDFs remain under <code>data-sheets/</code>; the sheet list is hidden from the main search UI (index code kept for later admin use).</li>
               </ol>
             </div>
@@ -902,6 +910,7 @@ function runSearch() {
     modelIds: pin.modelIds,
     pin,
     tradeAliases,
+    abbrevIndex,
     isPartVisible,
   });
   renderResults(q, pin);
@@ -1683,18 +1692,23 @@ function bindEvents() {
 async function boot() {
   renderShell();
   try {
-    const [cat, cfg, prices, series, trade] = await Promise.all([
+    const [cat, cfg, prices, series, trade, abbrevs] = await Promise.all([
       loadJson("/data/catalogue.json"),
       loadJson("/data/config.json"),
       loadJson("/data/prices.json"),
       loadJson("/data/series-aliases.json"),
       loadJson("/data/trade-aliases.json").catch(() => ({ aliases: [] })),
+      loadJson("/data/part-name-abbreviations.json").catch(() => ({
+        groups: [],
+      })),
     ]);
     baseCatalogue = cat;
     config = cfg;
     pricesMeta = prices.meta || null;
     seriesDoc = series;
     tradeAliases = trade;
+    partAbbrevs = abbrevs;
+    abbrevIndex = buildAbbrevIndex(abbrevs);
     overrides = loadOverrides();
     refreshCatalogueFromOverrides();
     marginPercent = clampMarginPercent(

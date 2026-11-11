@@ -32,6 +32,229 @@ function alnum(text) {
 }
 
 /**
+ * Build a lookup index for part-name abbreviation ↔ long-form groups.
+ * @param {object|null|undefined} abbrevDoc
+ */
+export function buildAbbrevIndex(abbrevDoc) {
+  const groups = [];
+  const formToGroup = new Map();
+  const phrases = [];
+
+  for (const raw of abbrevDoc?.groups || []) {
+    if (!raw || raw.status === "unset") continue;
+    const forms = [
+      ...new Set((raw.forms || []).map((f) => normalise(f)).filter(Boolean)),
+    ];
+    if (!forms.length) continue;
+    const group = {
+      id: String(raw.id || `g${groups.length}`),
+      status: raw.status || "locked",
+      forms,
+      formSet: new Set(forms),
+      numericSuffix: Boolean(raw.numericSuffix),
+      excludeNamePatterns: (raw.excludeNamePatterns || [])
+        .map((p) => normalise(p))
+        .filter(Boolean),
+    };
+    groups.push(group);
+    for (const form of forms) {
+      // Prefer first group if a form were duplicated; should not happen.
+      if (!formToGroup.has(form)) formToGroup.set(form, group);
+      if (form.includes(" ") || form.includes("/")) {
+        phrases.push({ form, group });
+      }
+    }
+  }
+
+  phrases.sort((a, b) => b.form.length - a.form.length);
+  return { groups, formToGroup, phrases };
+}
+
+function nameExcludedForGroup(nameN, group) {
+  for (const pat of group.excludeNamePatterns || []) {
+    if (pat && nameN.includes(pat)) return true;
+  }
+  return false;
+}
+
+function queryExcludedForGroup(q, group) {
+  for (const pat of group.excludeNamePatterns || []) {
+    if (pat && q.includes(pat)) return true;
+  }
+  return false;
+}
+
+function resolveSegmentGroup(segment, index) {
+  if (!segment || !index) return null;
+  const direct = index.formToGroup.get(segment);
+  if (direct) return direct;
+  // 2mtr / 10mtr length shorthand
+  const m = segment.match(/^(\d+)(mtr)$/);
+  if (m) {
+    const g = index.formToGroup.get(m[2]);
+    if (g?.numericSuffix) return g;
+  }
+  return null;
+}
+
+/**
+ * Whole-token / phrase presence — avoids false hits like C/W inside WC/WD,
+ * and avoids mining CONV out of CONV/KIT (known slash-forms stay atomic).
+ * @param {string} nameN
+ * @param {string} form
+ * @param {{ formToGroup?: Map }|null} [index]
+ */
+function formPresentInName(nameN, form, index = null) {
+  if (!nameN || !form) return false;
+  if (form.includes(" ")) {
+    return ` ${nameN} `.includes(` ${form} `);
+  }
+  const spaceToks = nameN.split(" ").filter(Boolean);
+  if (form.includes("/")) {
+    return spaceToks.includes(form);
+  }
+  if (spaceToks.includes(form)) return true;
+
+  // Slash pieces (MOTOR/FAN/HSG → hsg), but not inside known slash-forms (CONV/KIT)
+  for (const tok of spaceToks) {
+    if (!tok.includes("/")) continue;
+    if (index?.formToGroup?.get(tok)) continue;
+    for (const part of tok.split("/")) {
+      if (part === form) return true;
+    }
+  }
+
+  const group = index?.formToGroup?.get(form);
+  if (group?.numericSuffix) {
+    return spaceToks.some((s) => new RegExp(`^\\d+${form}$`).test(s));
+  }
+  return false;
+}
+
+/**
+ * Expand a normalised name/query with all synonym forms for matched groups.
+ * Enables bracket ↔ BRKT and conversion kit ↔ CON KIT via includes/token checks.
+ * Slash-phrase forms (CONV/KIT, C/W, W/PNL) bind only their own group so
+ * CONV/KIT does not also pick up convection via the CONV segment.
+ * @param {string} textN already-normalised text
+ * @param {{ formToGroup: Map, phrases: Array }} index
+ */
+export function expandAbbrevs(textN, index) {
+  if (!textN || !index?.groups?.length) return textN || "";
+  const extras = new Set();
+
+  for (const { form, group } of index.phrases) {
+    if (!formPresentInName(textN, form, index)) continue;
+    if (nameExcludedForGroup(textN, group)) continue;
+    for (const f of group.forms) extras.add(f);
+  }
+
+  for (const tok of String(textN)
+    .split(" ")
+    .filter(Boolean)) {
+    // Whole slash-token is itself a known form (conv/kit, c/w, w/pnl, …)
+    const whole = index.formToGroup.get(tok);
+    if (whole && tok.includes("/")) {
+      if (!nameExcludedForGroup(textN, whole)) {
+        for (const f of whole.forms) extras.add(f);
+      }
+      continue;
+    }
+
+    const segs = tok.includes("/") ? [tok, ...tok.split("/").filter(Boolean)] : [tok];
+    for (const seg of segs) {
+      const group = resolveSegmentGroup(seg, index);
+      if (!group) continue;
+      if (nameExcludedForGroup(textN, group)) continue;
+      for (const f of group.forms) extras.add(f);
+    }
+  }
+
+  if (!extras.size) return textN;
+  return `${textN} ${[...extras].join(" ")}`;
+}
+
+/**
+ * True when query text (normalised) hits a name via abbreviation expansion.
+ * Used to credit name-level matches like query "bracket" vs name "BRKT …".
+ */
+function abbrevNameHit(nameN, nameX, q, index) {
+  if (!q || !index?.groups?.length) return false;
+
+  const group = index.formToGroup.get(q);
+  if (
+    group &&
+    !nameExcludedForGroup(nameN, group) &&
+    !queryExcludedForGroup(q, group)
+  ) {
+    return group.forms.some(
+      (f) =>
+        formPresentInName(nameN, f, index) ||
+        (f.includes(" ") && ` ${nameX} `.includes(` ${f} `))
+    );
+  }
+
+  // Expanded long-form landed in nameX only (e.g. query "bracket", name has BRKT)
+  if (
+    !formPresentInName(nameN, q, index) &&
+    (formPresentInName(nameX, q, index) || ` ${nameX} `.includes(` ${q} `))
+  ) {
+    return true;
+  }
+  return false;
+}
+
+/**
+ * Synonym forms for the query — single-token forms only for token overlap
+ * (do not split "right hand" into independent right/hand tokens).
+ * Multi-word / exact phrase matches win so "wall panel" does not also
+ * expand bare PANEL, and excludeNamePatterns apply on the query side too.
+ */
+function abbrevQueryForms(q, qTokens, index) {
+  const singles = new Set();
+  const phrases = new Set();
+  if (!q || !index?.groups?.length) {
+    return { singles: [], phrases: [] };
+  }
+
+  const addGroup = (group) => {
+    if (!group || queryExcludedForGroup(q, group)) return;
+    for (const f of group.forms) {
+      if (f.includes(" ")) phrases.add(f);
+      else singles.add(f);
+    }
+  };
+
+  // Exact whole-query form (e.g. "conversion kit", "wall panel", "brkt")
+  const exact = index.formToGroup.get(q);
+  if (exact) {
+    addGroup(exact);
+    return { singles: [...singles], phrases: [...phrases] };
+  }
+
+  // Contained phrase forms (longest first already in index.phrases)
+  const padded = ` ${q} `;
+  const phraseHits = [];
+  let remainder = q;
+  for (const { form, group } of index.phrases) {
+    if (queryExcludedForGroup(q, group)) continue;
+    if (!padded.includes(` ${form} `) && q !== form) continue;
+    phraseHits.push({ form, group });
+    remainder = remainder.split(form).join(" ");
+  }
+  if (phraseHits.length) {
+    for (const hit of phraseHits) addGroup(hit.group);
+    for (const t of remainder.split(/\s+/).filter(Boolean)) {
+      addGroup(index.formToGroup.get(t));
+    }
+    return { singles: [...singles], phrases: [...phrases] };
+  }
+
+  for (const t of qTokens) addGroup(index.formToGroup.get(t));
+  return { singles: [...singles], phrases: [...phrases] };
+}
+
+/**
  * Chassis-like tokens from a price-list description (VRM2632WC, VCM2837, …).
  * Splits on spaces and slashes so "VRM2630WC/WD" yields both sides when useful.
  * @param {string} text
@@ -332,6 +555,8 @@ function scoreTradeHit(partNameN, tradeHits) {
  *   modelIds?: string[],
  *   pin?: object|null,
  *   tradeAliases?: object|null,
+ *   partAbbrevs?: object|null,
+ *   abbrevIndex?: object|null,
  *   isPartVisible?: ((part: object) => boolean)|null,
  * }} [opts]
  * @returns {Array<object>}
@@ -359,6 +584,14 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
   const hasPin = Boolean(pinCtx);
   const tradeHits = matchTradeAliases(opts.tradeAliases, query);
   const hasTrade = tradeHits.length > 0;
+  const abbrevIndex =
+    opts.abbrevIndex ||
+    (opts.partAbbrevs ? buildAbbrevIndex(opts.partAbbrevs) : null);
+  const abbrevForms = abbrevIndex
+    ? abbrevQueryForms(q, qTokens, abbrevIndex)
+    : { singles: [], phrases: [] };
+  /** Whole query is itself a locked form — don't token-flood on words like "with"/"panel". */
+  const exactAbbrevQuery = Boolean(abbrevIndex?.formToGroup.has(q));
   const modelsById = Object.fromEntries(
     (catalogue.models || []).map((m) => [m.id, m])
   );
@@ -375,8 +608,12 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
     if (isPartVisible && !isPartVisible(part)) continue;
 
     const nameN = normalise(part.name);
+    const nameX = abbrevIndex ? expandAbbrevs(nameN, abbrevIndex) : nameN;
     const codeN = normalise(part.code);
     const aliasesN = (part.aliases || []).map(normalise);
+    const aliasesX = abbrevIndex
+      ? aliasesN.map((a) => expandAbbrevs(a, abbrevIndex))
+      : aliasesN;
     const categoryN = normalise(part.category);
     const sheetN = normalise(part.sheet);
     const partModelIds = part.modelIds || [];
@@ -408,12 +645,31 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
       if (nameN === q) {
         score += 90;
         matchedOn.push("name");
-      } else if (nameN.includes(q)) {
+      } else if (
+        abbrevIndex?.formToGroup.has(q)
+          ? formPresentInName(nameN, q, abbrevIndex)
+          : q.includes("/")
+            ? formPresentInName(nameN, q, abbrevIndex)
+            : nameN.includes(q)
+      ) {
         score += 55;
         matchedOn.push("name");
+      } else if (
+        abbrevNameHit(nameN, nameX, q, abbrevIndex) ||
+        abbrevForms.phrases.some(
+          (ph) =>
+            formPresentInName(nameN, ph, abbrevIndex) ||
+            ` ${nameX} `.includes(` ${ph} `)
+        )
+      ) {
+        score += 55;
+        aliasStrength = Math.max(aliasStrength, 55);
+        matchedOn.push("abbrev");
       }
 
-      for (const alias of aliasesN) {
+      for (let i = 0; i < aliasesN.length; i += 1) {
+        const alias = aliasesN[i];
+        const aliasX = aliasesX[i] || alias;
         if (alias === q) {
           score += 85;
           aliasStrength = Math.max(aliasStrength, 85);
@@ -426,6 +682,12 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
           matchedOn.push("alias");
           break;
         }
+        if (abbrevNameHit(alias, aliasX, q, abbrevIndex)) {
+          score += 50;
+          aliasStrength = Math.max(aliasStrength, 50);
+          matchedOn.push("abbrev");
+          break;
+        }
       }
 
       if (categoryN.includes(q) || sheetN.includes(q)) {
@@ -433,34 +695,72 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
         matchedOn.push("category");
       }
 
-      // Token overlap — when a trade alias fired, also count official-pattern tokens
+      // Token overlap — trade official patterns + single-token abbrev synonyms
       const extraTokens = hasTrade
         ? tradeHits.flatMap((h) =>
             [...h.prefer, ...h.official].flatMap((p) => p.split(" "))
           )
         : [];
-      const searchTokens = [...new Set([...qTokens, ...extraTokens])].filter(
-        (t) => t.length >= 2
-      );
+      const searchTokens = [
+        ...new Set([
+          ...(exactAbbrevQuery ? [] : qTokens),
+          ...extraTokens,
+          ...abbrevForms.singles,
+        ]),
+      ].filter((t) => t.length >= 2);
 
-      if (searchTokens.length > 1 || score === 0 || hasTrade) {
-        const haystack = [nameN, codeN, categoryN, sheetN, ...aliasesN].join(
-          " "
-        );
+      if (
+        searchTokens.length > 1 ||
+        score === 0 ||
+        hasTrade ||
+        abbrevForms.singles.length ||
+        abbrevForms.phrases.length
+      ) {
+        const haystack = [
+          nameX,
+          codeN,
+          categoryN,
+          sheetN,
+          ...aliasesX,
+        ].join(" ");
         let hits = 0;
         let weighed = 0;
+        let abbrevTokenHit = false;
         for (const t of searchTokens) {
-          if (haystack.includes(t)) {
+          const isAbbrevForm = abbrevForms.singles.includes(t);
+          const present = isAbbrevForm
+            ? formPresentInName(nameN, t, abbrevIndex) ||
+              formPresentInName(nameX, t, abbrevIndex) ||
+              ` ${nameX} `.includes(` ${t} `)
+            : haystack.includes(t);
+          if (present) {
             hits += 1;
             // Prefer meaningful trade tokens over stop-ish shorts
             weighed += t.length >= 4 ? 2 : 1;
+            if (isAbbrevForm && !qTokens.includes(t)) {
+              abbrevTokenHit = true;
+            }
+          }
+        }
+        for (const ph of abbrevForms.phrases) {
+          if (
+            formPresentInName(nameN, ph, abbrevIndex) ||
+            ` ${nameX} `.includes(` ${ph} `)
+          ) {
+            hits += 1;
+            weighed += 2;
+            abbrevTokenHit = true;
           }
         }
         if (hits > 0) {
           const denom = Math.max(1, qTokens.length);
           score += Math.round((hits / Math.max(denom, searchTokens.length)) * 35);
           score += Math.min(20, weighed);
-          if (!matchedOn.length) matchedOn.push("token");
+          if (!matchedOn.length) {
+            matchedOn.push(abbrevTokenHit ? "abbrev" : "token");
+          } else if (abbrevTokenHit && !matchedOn.includes("abbrev")) {
+            matchedOn.push("abbrev");
+          }
         }
       }
 
