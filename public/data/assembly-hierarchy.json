@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "status": "provisional-awaiting-beau",
+  "status": "hex-gasket-confirmed-sample-loops-pending",
   "meta": {
-    "title": "Assembly → sub-component hierarchy (PROVISIONAL)",
+    "title": "Assembly → sub-component hierarchy (HEX gasket confirmed; other loops pending)",
     "updated": "2026-11-12",
-    "sourceRule": "Exploded diagram: lone numbered callout = standalone part; closed dashed loop enclosing several numbered parts = parent assembly, enclosed numbers = children. Do not invent parent/child from ASSY naming or price-list adjacency alone.",
+    "sourceRule": "Exploded diagram: lone numbered callout = standalone part; closed dashed loop enclosing several numbered parts = parent assembly, enclosed numbers = children. Do not invent parent/child from ASSY naming or price-list adjacency alone. Shared children may belong to more than one parent loop and remain available alone.",
     "sourceSheets": [
       "data-sheets/Rinnai Data Sheets/ED_N Series 2020 IN32 Enviro.pdf",
       "data-sheets/Rinnai Data Sheets/PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf"
     ],
-    "notes": "NOT FINAL — Beau reviews diagram findings before these maps drive ranking. See Project docs/assembly-search-ranking.md. Add assemblies only after a diagram loop is confirmed."
+    "notes": "Beau confirmed 142/92099479 shared child of TOP+BTM. Do NOT wire full ranking until other sample loops are OK'd. See Project docs/assembly-search-ranking.md."
   },
   "concepts": [
     {
@@ -39,7 +39,7 @@
   ],
   "assemblies": [
     {
-      "status": "diagram-supported",
+      "status": "beau-confirmed",
       "confidence": "high",
       "parentItemNos": ["130", "131"],
       "parentCode": "92099423",
@@ -61,17 +61,18 @@
           "code": "92099479",
           "role": "gasket",
           "shared": true,
+          "availableAlone": true,
           "sharedParentCodes": ["92099423", "92099477"],
           "sheetName": "GASKET HEAT EXCH N3237",
           "priceListName": "GASKET HEX EXCH BTM N3237",
-          "notes": "Beau hypothesis (reviewing ED p3): shared child of TOP 130/92099423 and BTM 140/92099477. NOT LOCKED."
+          "notes": "Beau confirmed: shared child of TOP 130/92099423 and BTM 140/92099477; also available alone as 142."
         }
       ],
-      "notes": "Dashed loop around primary HEX body; callouts 130/131 on the loop. 92099423 is a PARENT assembly."
+      "notes": "Dashed loop around primary HEX body; callouts 130/131 on the loop. Beau confirmed parent."
     },
     {
-      "status": "needs-beau-confirm",
-      "confidence": "low",
+      "status": "beau-confirmed",
+      "confidence": "high",
       "parentItemNos": ["140"],
       "parentCode": "92099477",
       "parentName": "HEAT EXCH BTM N3237",
@@ -85,13 +86,14 @@
           "code": "92099479",
           "role": "gasket",
           "shared": true,
+          "availableAlone": true,
           "sharedParentCodes": ["92099423", "92099477"],
           "sheetName": "GASKET HEAT EXCH N3237",
           "priceListName": "GASKET HEX EXCH BTM N3237",
-          "notes": "Same shared-child hypothesis as under TOP — listed on both parents until Beau confirms."
+          "notes": "Beau confirmed shared child of TOP+BTM; available alone as 142."
         }
       ],
-      "notes": "PROVISIONAL — Beau reviewing whether 142 is shared across TOP+BTM loops."
+      "notes": "Beau confirmed BTM HEX parent; gasket 142 shared with TOP."
     },
     {
       "status": "diagram-supported",
