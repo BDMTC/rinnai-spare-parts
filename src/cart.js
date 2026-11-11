@@ -1,5 +1,6 @@
 /**
- * Quote / shopping cart for Rinnai spare parts (client-side, localStorage).
+ * Quote list for Rinnai spare parts (client-side, localStorage).
+ * Storage key kept as cart-v1 for continuity with earlier builds.
  */
 
 import {
@@ -244,7 +245,7 @@ export function formatQuoteText(opts) {
   out.push(`Margin: ${margin}% · GST: ${Math.round(gstRate * 100)}%`);
   out.push("");
   if (!lines.length) {
-    out.push("(Cart is empty)");
+    out.push("(Quote list is empty)");
   } else {
     for (const line of lines) {
       const p = linePricing(line, margin, gstRate);
