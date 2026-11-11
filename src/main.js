@@ -1019,12 +1019,22 @@ function renderResults(query, pin) {
     }
     if (part.adminFlagged) li.classList.add("result--flagged");
 
-    const tradeAliasesForPart =
-      (part.aliases || []).length > 0
-        ? part.aliases
-            .map((a) => `<span class="alias">${highlight(a, query)}</span>`)
-            .join("")
-        : `<span class="muted">No part-level aliases yet</span>`;
+    const storedAliases = part.aliases || [];
+    const abbrevLabels = row.abbrevLabels || [];
+    const aliasChips = [];
+    for (const a of storedAliases) {
+      aliasChips.push(
+        `<span class="alias">${highlight(a, query)}</span>`
+      );
+    }
+    for (const label of abbrevLabels) {
+      aliasChips.push(
+        `<span class="alias alias--abbrev">${escapeHtml(label)}</span>`
+      );
+    }
+    const tradeAliasesForPart = aliasChips.length
+      ? aliasChips.join("")
+      : `<span class="muted">No stored part aliases — global abbrev search still applies</span>`;
 
     const chassisBit =
       hasPin && fitReason
