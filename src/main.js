@@ -14,6 +14,10 @@ import {
 } from "./series.js";
 import { searchDocuments, resolveDocumentUrl } from "./documents.js";
 import { bindModelPicker } from "./model-picker.js";
+import {
+  makePartVisibilityFilter,
+  restrictionWarningCopy,
+} from "./restriction.js";
 
 const app = document.querySelector("#app");
 
@@ -37,6 +41,8 @@ let gstRate = DEFAULT_GST_RATE;
 let viewerState = null;
 /** @type {{ getValue: () => string|null, setValue: (v: string|null) => void }|null} */
 let modelPicker = null;
+/** Session unlocks for restricted pins (model id or series:…). */
+const unlockedPins = new Set();
 
 async function loadJson(url) {
   const res = await fetch(url);
@@ -206,6 +212,19 @@ function renderShell() {
         <iframe class="pdf-viewer-frame" id="pdf-viewer-frame" title="Data sheet PDF"></iframe>
       </dialog>
 
+      <dialog class="nla-dialog" id="nla-dialog" aria-labelledby="nla-dialog-title">
+        <form method="dialog" class="nla-dialog-form" id="nla-dialog-form">
+          <p class="nla-dialog-kicker" id="nla-dialog-kicker">Restricted unit</p>
+          <h2 class="nla-dialog-title" id="nla-dialog-title">Are you sure this is the unit you want?</h2>
+          <p class="nla-dialog-body" id="nla-dialog-body"></p>
+          <p class="nla-dialog-detail muted" id="nla-dialog-detail" hidden></p>
+          <div class="nla-dialog-actions">
+            <button type="submit" value="cancel" class="nla-btn nla-btn--ghost" id="nla-dialog-no">No</button>
+            <button type="submit" value="confirm" class="nla-btn nla-btn--primary" id="nla-dialog-yes">Yes</button>
+          </div>
+        </form>
+      </dialog>
+
       <section class="data-sources" id="data-sources" aria-labelledby="data-sources-heading">
         <h2 id="data-sources-heading">Data sources / price list config</h2>
         <dl class="data-sources-grid">
@@ -263,6 +282,58 @@ function renderShell() {
   `;
 }
 
+/**
+ * Confirm unlock for a restricted typeahead suggestion (mouse click only).
+ * @param {object} suggestion
+ * @returns {Promise<boolean>}
+ */
+function requestUnlock(suggestion) {
+  const dialog = document.querySelector("#nla-dialog");
+  const titleEl = document.querySelector("#nla-dialog-title");
+  const bodyEl = document.querySelector("#nla-dialog-body");
+  const detailEl = document.querySelector("#nla-dialog-detail");
+  const kickerEl = document.querySelector("#nla-dialog-kicker");
+  const yesBtn = document.querySelector("#nla-dialog-yes");
+  const noBtn = document.querySelector("#nla-dialog-no");
+  if (!dialog || typeof dialog.showModal !== "function") {
+    const ok = window.confirm(
+      `${suggestion.label} is restricted / NLA. Are you sure this is the unit you want?`
+    );
+    if (ok) unlockedPins.add(suggestion.value);
+    return Promise.resolve(ok);
+  }
+
+  const copy = restrictionWarningCopy(suggestion.restriction || suggestion);
+  if (kickerEl) kickerEl.textContent = copy.title;
+  if (titleEl) titleEl.textContent = "Are you sure this is the unit you want?";
+  if (bodyEl) bodyEl.textContent = copy.body;
+  if (detailEl) {
+    if (copy.detail) {
+      detailEl.hidden = false;
+      detailEl.textContent = copy.detail;
+    } else {
+      detailEl.hidden = true;
+      detailEl.textContent = "";
+    }
+  }
+  if (yesBtn) yesBtn.textContent = "Yes";
+  if (noBtn) noBtn.textContent = "No";
+
+  return new Promise((resolve) => {
+    const onClose = () => {
+      dialog.removeEventListener("close", onClose);
+      const ok = dialog.returnValue === "confirm";
+      if (ok) unlockedPins.add(suggestion.value);
+      resolve(ok);
+    };
+    dialog.addEventListener("close", onClose);
+    dialog.returnValue = "";
+    dialog.showModal();
+    // Focus No by default so Enter does not casually unlock.
+    noBtn?.focus();
+  });
+}
+
 function mountModelPicker() {
   const root = document.querySelector("#model-picker");
   if (!root) {
@@ -273,6 +344,8 @@ function mountModelPicker() {
     catalogue,
     seriesDoc,
     onChange: () => runSearch(),
+    isPinUnlocked: (pinValue) => unlockedPins.has(pinValue),
+    requestUnlock,
   });
 }
 
@@ -290,9 +363,15 @@ function populateDataSources() {
   const sheetsEl = document.querySelector("#ds-sheets");
   const docsEl = document.querySelector("#ds-docs");
   if (modelsEl) {
-    modelsEl.textContent = String(
-      catalogue?.meta?.modelCount ?? catalogue?.models?.length ?? "—"
-    );
+    const total =
+      catalogue?.meta?.modelCount ?? catalogue?.models?.length ?? "—";
+    const restricted =
+      catalogue?.meta?.restrictedModelCount ??
+      (catalogue?.models || []).filter((m) => m.restricted).length;
+    modelsEl.textContent =
+      restricted != null && total !== "—"
+        ? `${total} · ${restricted} restricted (NLA/export/use-up)`
+        : String(total);
   }
   if (pricesEl) {
     const priced = pricesMeta?.pricedCount ?? catalogue?.parts?.length ?? "—";
@@ -316,10 +395,20 @@ function runSearch() {
   const q = document.querySelector("#query-input").value;
   const pin = currentPin();
   const modelId = pin.kind === "model" ? pin.model?.id : null;
+  const pinValue =
+    modelPicker?.getValue?.() ||
+    document.querySelector("#model-pin")?.value ||
+    null;
+  const isPartVisible = makePartVisibilityFilter(catalogue, {
+    unlockedPinValues: unlockedPins,
+    activePinValue: pinValue,
+    activeModelIds: pin.modelIds,
+  });
   lastResults = searchParts(catalogue, q, modelId, {
     modelIds: pin.modelIds,
     pin,
     tradeAliases,
+    isPartVisible,
   });
   lastDocResults = searchDocuments(documentIndex, seriesDoc, q, pin, config);
   renderResults(q, pin);

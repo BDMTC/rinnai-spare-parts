@@ -71,6 +71,7 @@ If the folder is missing (cloud agent, fresh clone), the index still lists match
 ## What it does
 
 - Search bar + **model typeahead** (marketing names, REU/chassis codes, series aliases)
+- **NLA / restricted gate**: Description 2 flags (NLA, export only, use-up, only-for) grey models in the picker; **click only** opens unlock confirm (Enter/keyboard will not select); exclusive restricted chassis parts stay out of default search until that pin is unlocked for the session
 - **Series pin** via aliases (HD28, HD200e/VRM2632WC, HD200i, Infinity 26/32, HD210, …)
 - **Ranked model-pinned search**: Primary = most likely code for the pin; trade aliases resolve layman terms; chassis fit across all series
 - Margin **0–100%** in **5%** steps (default 20%)

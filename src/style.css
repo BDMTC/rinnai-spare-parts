@@ -286,10 +286,116 @@ input[type="text"]:focus {
   color: var(--accent-ink);
 }
 
+.model-option--restricted {
+  opacity: 0.55;
+}
+
+.model-option--restricted .model-option-label {
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+.model-option--restricted .model-option-kind {
+  color: var(--ink-muted);
+}
+
+.model-option--restricted.is-active,
+.model-option--restricted:hover {
+  background: color-mix(in srgb, var(--ink-muted) 12%, transparent);
+  opacity: 0.7;
+}
+
 .model-option--empty {
   cursor: default;
   color: var(--ink-muted);
   font-size: 0.9rem;
+}
+
+.nla-dialog {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 0;
+  max-width: min(28rem, calc(100vw - 2rem));
+  background: var(--panel-solid);
+  color: var(--ink);
+  box-shadow: var(--shadow);
+}
+
+.nla-dialog::backdrop {
+  background: rgba(18, 22, 28, 0.45);
+}
+
+.nla-dialog-form {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1.25rem 1.35rem 1.2rem;
+}
+
+.nla-dialog-kicker {
+  margin: 0;
+  font-size: 0.75rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.nla-dialog-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.nla-dialog-body {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: var(--ink);
+}
+
+.nla-dialog-detail {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  font-family: var(--font-mono);
+}
+
+.nla-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.6rem;
+  margin-top: 0.35rem;
+}
+
+.nla-btn {
+  appearance: none;
+  border-radius: 10px;
+  font: inherit;
+  font-weight: 650;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+}
+
+.nla-btn--ghost {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+}
+
+.nla-btn--ghost:hover {
+  background: var(--other-soft);
+}
+
+.nla-btn--primary {
+  border: 1px solid var(--accent-ink);
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+
+.nla-btn--primary:hover {
+  filter: brightness(0.97);
 }
 
 .query-row {
