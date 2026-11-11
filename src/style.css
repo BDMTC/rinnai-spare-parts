@@ -161,10 +161,12 @@ body::before {
   line-height: 0;
 }
 
-.mtc-logo-svg {
+.mtc-logo-img {
   display: block;
-  width: clamp(9.5rem, 22vw, 12.5rem);
+  width: clamp(8.5rem, 20vw, 11.5rem);
   height: auto;
+  /* Official PNG is RGBA — keep alpha; no background fill behind the mark */
+  background: transparent;
 }
 
 .brand-text {
