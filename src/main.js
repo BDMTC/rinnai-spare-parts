@@ -12,7 +12,6 @@ import {
   resolveModelPin,
   documentKeysForPin,
 } from "./series.js";
-import { searchDocuments, resolveDocumentUrl } from "./documents.js";
 import { bindModelPicker } from "./model-picker.js";
 import {
   makePartVisibilityFilter,
@@ -32,9 +31,40 @@ import {
   buildStoresMailto,
   normalizeJobNumber,
 } from "./cart.js";
+import {
+  loadOverrides,
+  saveOverrides,
+  applyOverridesToCatalogue,
+  makeAdminPartFilter,
+  tryUnlockAdmin,
+  isAdminSessionUnlocked,
+  setAdminSessionUnlocked,
+  getConfiguredAdminPassword,
+  setLocalAdminPassword,
+  loadPriceListPath,
+  savePriceListPath,
+  clearFlag,
+  suspendPart,
+  unsuspendPart,
+  deletePartOverride,
+  restoreDeletedPart,
+  applyPricePatch,
+  clearPricePatch,
+  flagPart,
+  enqueueChange,
+} from "./admin-overrides.js";
+import { buildFlagIssueMailto } from "./flag-issue.js";
+import {
+  parsePriceWorkbook,
+  pricesToCatalogueParts,
+  diffPriceImport,
+  buildReviewedParts,
+} from "./price-import.js";
 
 const app = document.querySelector("#app");
 
+/** @type {object|null} */
+let baseCatalogue = null;
 /** @type {object|null} */
 let catalogue = null;
 /** @type {object|null} */
@@ -45,14 +75,9 @@ let pricesMeta = null;
 let seriesDoc = null;
 /** @type {object|null} */
 let tradeAliases = null;
-/** @type {object|null} */
-let documentIndex = null;
 let lastResults = [];
-let lastDocResults = [];
 let marginPercent = DEFAULT_MARGIN_PERCENT;
 let gstRate = DEFAULT_GST_RATE;
-/** @type {{ title: string, url: string }|null} */
-let viewerState = null;
 /** @type {{ getValue: () => string|null, setValue: (v: string|null) => void }|null} */
 let modelPicker = null;
 /** Session unlocks for restricted pins (model id or series:…). */
@@ -60,6 +85,11 @@ const unlockedPins = new Set();
 /** @type {import("./cart.js").CartLine[]} */
 let cartLines = loadCart();
 let cartFlashTimer = 0;
+/** @type {import("./admin-overrides.js").AdminOverrides} */
+let overrides = loadOverrides();
+let adminUnlocked = isAdminSessionUnlocked();
+/** @type {null | { incomingParts: object[], diff: object, sourceFile: string, meta: object, skipCodes: Set<string> }} */
+let pendingImport = null;
 
 async function loadJson(url) {
   const res = await fetch(url);
@@ -94,6 +124,18 @@ function persistCart() {
   saveCart(cartLines);
 }
 
+function persistOverrides() {
+  saveOverrides(overrides);
+}
+
+function refreshCatalogueFromOverrides() {
+  if (!baseCatalogue) {
+    catalogue = null;
+    return;
+  }
+  catalogue = applyOverridesToCatalogue(baseCatalogue, overrides);
+}
+
 function pinnedLabelForQuote() {
   const pin = currentPin();
   if (pin.kind === "series" && pin.series) {
@@ -121,7 +163,7 @@ function updateCartBadge() {
   if (btn) {
     btn.setAttribute(
       "aria-label",
-      count > 0 ? `Open quote cart (${count} items)` : "Open quote cart"
+      count > 0 ? `Open quote list (${count} items)` : "Open quote list"
     );
   }
 }
@@ -152,7 +194,7 @@ function renderCartOverlay() {
   }
 
   if (!cartLines.length) {
-    body.innerHTML = `<p class="cart-empty">Cart is empty. Add parts from search results.</p>`;
+    body.innerHTML = `<p class="cart-empty">Quote list is empty. Add parts from search results.</p>`;
   } else {
     body.innerHTML = cartLines
       .map((line) => {
@@ -217,7 +259,6 @@ function renderCartOverlay() {
       const next = Number(input.value);
       if (!Number.isFinite(next) || next < 1) return;
       cartLines = setCartQty(cartLines, input.dataset.code, next);
-      // Live totals without full re-render of focused input
       const line = cartLines.find(
         (l) => l.code.toUpperCase() === String(input.dataset.code || "").toUpperCase()
       );
@@ -267,7 +308,7 @@ function closeCart() {
   else if (dialog) dialog.removeAttribute("open");
 }
 
-function handleAddToCart(part) {
+function handleAddToQuote(part) {
   if (!part?.code) return;
   cartLines = addToCart(cartLines, {
     code: part.code,
@@ -294,7 +335,7 @@ function promptJobNumber() {
 
 function emailCartToStores() {
   if (!cartLines.length) {
-    showCartFlash("Cart is empty — add parts first.");
+    showCartFlash("Quote list is empty — add parts first.");
     return;
   }
   const job = promptJobNumber();
@@ -312,7 +353,7 @@ function emailCartToStores() {
 
 async function copyCartToClipboard() {
   if (!cartLines.length) {
-    showCartFlash("Cart is empty — nothing to copy.");
+    showCartFlash("Quote list is empty — nothing to copy.");
     return;
   }
   const text = formatQuoteText({
@@ -344,7 +385,7 @@ async function copyCartToClipboard() {
 
 function saveCartAndClose() {
   persistCart();
-  showCartFlash("Cart saved.");
+  showCartFlash("Quote list saved.");
   window.setTimeout(() => closeCart(), 350);
 }
 
@@ -353,6 +394,113 @@ function clearCartAndClose() {
   clearStoredCart();
   updateCartBadge();
   closeCart();
+}
+
+function collectFlagCandidates() {
+  /** @type {Map<string, { code: string, title: string, source: string }>} */
+  const map = new Map();
+  for (const line of cartLines) {
+    const key = String(line.code || "").toUpperCase();
+    if (!key) continue;
+    map.set(key, {
+      code: line.code,
+      title: line.name || line.code,
+      source: "quote list",
+    });
+  }
+  for (const row of lastResults) {
+    const part = row.part;
+    if (!part?.code || part.kind === "discount-segment") continue;
+    const key = String(part.code).toUpperCase();
+    if (map.has(key)) continue;
+    map.set(key, {
+      code: part.code,
+      title: part.name || part.code,
+      source: "search results",
+    });
+  }
+  for (const entry of Object.values(overrides.flagged || {})) {
+    const key = String(entry.code || "").toUpperCase();
+    if (!key || map.has(key)) continue;
+    map.set(key, {
+      code: entry.code,
+      title: entry.title || entry.code,
+      source: "already flagged",
+    });
+  }
+  return [...map.values()];
+}
+
+function openFlagPicker() {
+  const dialog = document.querySelector("#flag-dialog");
+  const list = document.querySelector("#flag-picker-list");
+  const empty = document.querySelector("#flag-picker-empty");
+  const customCode = document.querySelector("#flag-custom-code");
+  const customTitle = document.querySelector("#flag-custom-title");
+  if (!dialog || !list) return;
+
+  const candidates = collectFlagCandidates();
+  list.innerHTML = "";
+  if (!candidates.length) {
+    if (empty) empty.hidden = false;
+  } else {
+    if (empty) empty.hidden = true;
+    for (const c of candidates) {
+      const li = document.createElement("li");
+      li.className = "flag-picker-item";
+      li.innerHTML = `
+        <div>
+          <p class="flag-picker-code">${escapeHtml(c.code)}</p>
+          <p class="flag-picker-title">${escapeHtml(c.title)}</p>
+          <p class="flag-picker-source muted">${escapeHtml(c.source)}</p>
+        </div>
+        <button type="button" class="flag-picker-btn" data-code="${escapeHtml(
+          c.code
+        )}" data-title="${escapeHtml(c.title)}">Flag</button>
+      `;
+      list.appendChild(li);
+    }
+  }
+
+  if (customCode) customCode.value = "";
+  if (customTitle) customTitle.value = "";
+
+  list.querySelectorAll(".flag-picker-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      submitFlagPart({
+        code: btn.dataset.code,
+        title: btn.dataset.title,
+      });
+    });
+  });
+
+  if (typeof dialog.showModal === "function") dialog.showModal();
+  else dialog.setAttribute("open", "");
+}
+
+function closeFlagPicker() {
+  const dialog = document.querySelector("#flag-dialog");
+  if (dialog && typeof dialog.close === "function") dialog.close();
+  else if (dialog) dialog.removeAttribute("open");
+}
+
+function submitFlagPart(part) {
+  const code = String(part?.code || "").trim();
+  const title = String(part?.title || part?.name || code).trim();
+  if (!code && !title) {
+    window.alert("Pick a part or enter a code / title.");
+    return;
+  }
+  const payload = {
+    code: code || title,
+    title: title || code,
+  };
+  overrides = flagPart(overrides, payload);
+  persistOverrides();
+  closeFlagPicker();
+  window.location.href = buildFlagIssueMailto(payload);
+  renderAdminPanel();
+  runSearch();
 }
 
 function renderShell() {
@@ -364,6 +512,7 @@ function renderShell() {
     config?.priceList?.workbookFile ||
     pricesMeta?.sourceFile ||
     "price list";
+  const pricePath = loadPriceListPath(config);
 
   app.innerHTML = `
     <div class="page">
@@ -375,21 +524,32 @@ function renderShell() {
             <h1 class="brand-name">Rinnai Parts</h1>
           </div>
         </div>
-        <button
-          type="button"
-          class="cart-trigger"
-          id="cart-open"
-          aria-label="Open quote cart"
-          title="Quote cart"
-        >
-          <svg class="cart-trigger-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-            <path
-              fill="currentColor"
-              d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16 14h9.45c.75 0 1.41-.41 1.75-1.03l3.24-6.07A1 1 0 0 0 20.72 5H6.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7.42l.74-1.35z"
-            />
-          </svg>
-          <span class="cart-badge" id="cart-badge" hidden>0</span>
-        </button>
+        <div class="topbar-actions">
+          <button
+            type="button"
+            class="cart-trigger"
+            id="cart-open"
+            aria-label="Open quote list"
+            title="Quote list"
+          >
+            <svg class="cart-trigger-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                fill="currentColor"
+                d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16 14h9.45c.75 0 1.41-.41 1.75-1.03l3.24-6.07A1 1 0 0 0 20.72 5H6.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7.42l.74-1.35z"
+              />
+            </svg>
+            <span class="cart-badge" id="cart-badge" hidden>0</span>
+          </button>
+          <button
+            type="button"
+            class="flag-trigger"
+            id="flag-open"
+            aria-label="Flag item for problem"
+            title="Flag item for problem"
+          >
+            Flag item for problem
+          </button>
+        </div>
         <p class="topbar-note">Local catalogue · price list ${escapeHtml(effective)}</p>
       </header>
 
@@ -490,24 +650,8 @@ function renderShell() {
       <section class="results-wrap" aria-live="polite">
         <div class="results-meta" id="results-meta"></div>
         <ul class="results" id="results"></ul>
-        <div class="docs-wrap" id="docs-wrap" hidden>
-          <h2 class="docs-heading">Data sheets</h2>
-          <p class="docs-note muted" id="docs-note" hidden></p>
-          <ul class="docs" id="docs"></ul>
-        </div>
         <p class="empty" id="empty" hidden>No matches. Try a part code, description fragment, or clear the model pin.</p>
       </section>
-
-      <dialog class="pdf-viewer" id="pdf-viewer">
-        <div class="pdf-viewer-bar">
-          <p class="pdf-viewer-title" id="pdf-viewer-title">Data sheet</p>
-          <div class="pdf-viewer-actions">
-            <a class="pdf-viewer-link" id="pdf-viewer-newtab" href="#" target="_blank" rel="noopener">Open in new tab</a>
-            <button type="button" class="pdf-viewer-close" id="pdf-viewer-close">Close</button>
-          </div>
-        </div>
-        <iframe class="pdf-viewer-frame" id="pdf-viewer-frame" title="Data sheet PDF"></iframe>
-      </dialog>
 
       <dialog class="nla-dialog" id="nla-dialog" aria-labelledby="nla-dialog-title">
         <form method="dialog" class="nla-dialog-form" id="nla-dialog-form">
@@ -527,9 +671,9 @@ function renderShell() {
           <header class="cart-dialog-bar">
             <div>
               <p class="cart-dialog-kicker">Quote</p>
-              <h2 class="cart-dialog-title" id="cart-dialog-title">Shopping cart</h2>
+              <h2 class="cart-dialog-title" id="cart-dialog-title">Quote list</h2>
             </div>
-            <button type="button" class="cart-dialog-close" id="cart-close" aria-label="Close cart">Close</button>
+            <button type="button" class="cart-dialog-close" id="cart-close" aria-label="Close quote list">Close</button>
           </header>
           <p class="cart-pin muted" id="cart-pin"></p>
           <p class="cart-flash" id="cart-flash" hidden></p>
@@ -539,12 +683,55 @@ function renderShell() {
             <div class="cart-actions">
               <button type="button" class="cart-action cart-action--primary" id="cart-email">Email list to stores</button>
               <button type="button" class="cart-action" id="cart-copy">Copy to clipboard</button>
-              <button type="button" class="cart-action" id="cart-save">Save cart</button>
-              <button type="button" class="cart-action cart-action--danger" id="cart-clear">Clear cart</button>
+              <button type="button" class="cart-action" id="cart-save">Save quote list</button>
+              <button type="button" class="cart-action cart-action--danger" id="cart-clear">Clear quote list</button>
             </div>
           </footer>
         </div>
       </dialog>
+
+      <dialog class="flag-dialog" id="flag-dialog" aria-labelledby="flag-dialog-title">
+        <div class="flag-dialog-inner">
+          <header class="flag-dialog-bar">
+            <div>
+              <p class="flag-dialog-kicker">Problem report</p>
+              <h2 class="flag-dialog-title" id="flag-dialog-title">Flag item for problem</h2>
+            </div>
+            <button type="button" class="flag-dialog-close" id="flag-close" aria-label="Close">Close</button>
+          </header>
+          <p class="flag-dialog-note muted">
+            Emails <code>stores@mtcgas.com.au</code> so Beau can review. Pick from the quote list / current results, or type a code.
+          </p>
+          <p class="flag-picker-empty" id="flag-picker-empty" hidden>No parts in quote list or results yet — enter a code below.</p>
+          <ul class="flag-picker-list" id="flag-picker-list"></ul>
+          <div class="flag-custom">
+            <label class="field" for="flag-custom-code">
+              <span class="field-label">Part code</span>
+              <input id="flag-custom-code" type="text" placeholder="e.g. 92095902" spellcheck="false" />
+            </label>
+            <label class="field" for="flag-custom-title">
+              <span class="field-label">Title / description</span>
+              <input id="flag-custom-title" type="text" placeholder="Optional title" spellcheck="false" />
+            </label>
+            <button type="button" class="flag-custom-submit" id="flag-custom-submit">Flag &amp; email</button>
+          </div>
+        </div>
+      </dialog>
+
+      <section class="admin-section" id="admin-section" aria-labelledby="admin-heading">
+        <div class="admin-head">
+          <div>
+            <p class="admin-kicker">Development</p>
+            <h2 id="admin-heading">Admin / catalogue tools</h2>
+          </div>
+        </div>
+        <p class="admin-note">
+          Local overrides only (browser storage). <strong>Production part listings are updated by AI via ingest</strong>
+          (<code>npm run ingest</code> — this panel records intent in a change queue and applies a local overlay so search matches what Beau just changed. Do not treat browser edits as the committed <code>prices.json</code> source of truth.
+        </p>
+        <div class="admin-gate" id="admin-gate"></div>
+        <div class="admin-body" id="admin-body" hidden></div>
+      </section>
 
       <section class="data-sources" id="data-sources" aria-labelledby="data-sources-heading">
         <h2 id="data-sources-heading">Data sources / price list config</h2>
@@ -556,6 +743,10 @@ function renderShell() {
           <div>
             <dt>Active price workbook</dt>
             <dd><code>${escapeHtml(workbook)}</code></dd>
+          </div>
+          <div>
+            <dt>Configured path / endpoint</dt>
+            <dd><code id="ds-price-path">${escapeHtml(pricePath || "—")}</code></dd>
           </div>
           <div>
             <dt>Effective</dt>
@@ -582,17 +773,16 @@ function renderShell() {
             <dd><code>public/data/trade-aliases.json</code></dd>
           </div>
           <div>
-            <dt>Document index</dt>
-            <dd id="ds-docs"><code>public/data/document-index.json</code></dd>
+            <dt>Local admin overlay</dt>
+            <dd id="ds-overrides">localStorage · see Admin</dd>
           </div>
         </dl>
         <ol class="refresh-steps">
-          <li>Drop the new Rinnai price workbook into <code>source-data/</code>.</li>
-          <li>Update <code>priceList.workbookPath</code> / <code>effectiveDate</code> in <code>public/data/config.json</code>.</li>
-          <li>Run <code>npm run ingest</code>, then refresh the app.</li>
-          <li>Series map (e.g. HD28 ↔ VCM2837) lives in <code>public/data/series-aliases.json</code> — edit there for model pin / document keys.</li>
-          <li>Trade terms (e.g. flow servo) live in <code>public/data/trade-aliases.json</code> — not overwritten by ingest.</li>
-          <li>Data-sheet PDFs stay local under <code>data-sheets/</code> (e.g. <code>C:\\Temp\\rinnai-spare-parts\\data-sheets\\</code>); Vite serves them at <code>/data-sheets/</code>. Only the JSON index is committed.</li>
+          <li>Drop the new Rinnai price workbook into <code>source-data/</code> (or set path in Admin).</li>
+          <li>Update <code>priceList.workbookPath</code> / <code>endpoint</code> / <code>effectiveDate</code> in <code>public/data/config.json</code>.</li>
+          <li>Run <code>npm run ingest</code> for production JSON, then refresh — or use Admin import for a local preview overlay.</li>
+          <li>Series / trade aliases are hand-maintained JSON — not overwritten by ingest.</li>
+          <li>Data-sheet PDFs remain under <code>data-sheets/</code>; the sheet list is hidden from the main search UI (index code kept for later admin use).</li>
         </ol>
       </section>
 
@@ -650,7 +840,6 @@ function requestUnlock(suggestion) {
     dialog.addEventListener("close", onClose);
     dialog.returnValue = "";
     dialog.showModal();
-    // Focus No by default so Enter does not casually unlock.
     noBtn?.focus();
   });
 }
@@ -682,7 +871,8 @@ function populateDataSources() {
   const modelsEl = document.querySelector("#ds-models");
   const pricesEl = document.querySelector("#ds-prices");
   const sheetsEl = document.querySelector("#ds-sheets");
-  const docsEl = document.querySelector("#ds-docs");
+  const overridesEl = document.querySelector("#ds-overrides");
+  const pathEl = document.querySelector("#ds-price-path");
   if (modelsEl) {
     const total =
       catalogue?.meta?.modelCount ?? catalogue?.models?.length ?? "—";
@@ -695,173 +885,49 @@ function populateDataSources() {
         : String(total);
   }
   if (pricesEl) {
-    const priced = pricesMeta?.pricedCount ?? catalogue?.parts?.length ?? "—";
+    const live = catalogue?.parts?.length ?? "—";
+    const priced = pricesMeta?.pricedCount ?? live;
     const total = pricesMeta?.count ?? priced;
-    pricesEl.textContent = `${total} total · ${priced} priced`;
+    pricesEl.textContent = `${live} live · ${total} base · ${priced} priced`;
   }
   if (sheetsEl) {
     sheetsEl.textContent = String(
       pricesMeta?.sheetCount ?? config?.priceList?.sheetCount ?? "—"
     );
   }
-  if (docsEl) {
-    const n = documentIndex?.totals?.pdfs ?? documentIndex?.documents?.length;
-    docsEl.innerHTML = n
-      ? `<code>public/data/document-index.json</code> · ${n} PDFs`
-      : `<code>public/data/document-index.json</code>`;
+  if (pathEl) {
+    pathEl.textContent = loadPriceListPath(config) || "—";
+  }
+  if (overridesEl) {
+    const f = Object.keys(overrides.flagged || {}).length;
+    const s = Object.keys(overrides.suspended || {}).length;
+    const d = Object.keys(overrides.deleted || {}).length;
+    const patch = overrides.pricePatch ? " · price patch on" : "";
+    overridesEl.textContent = `${f} flagged · ${s} suspended · ${d} deleted${patch}`;
   }
 }
 
 function runSearch() {
-  const q = document.querySelector("#query-input").value;
+  const q = document.querySelector("#query-input")?.value || "";
   const pin = currentPin();
   const modelId = pin.kind === "model" ? pin.model?.id : null;
   const pinValue =
     modelPicker?.getValue?.() ||
     document.querySelector("#model-pin")?.value ||
     null;
-  const isPartVisible = makePartVisibilityFilter(catalogue, {
+  const baseVis = makePartVisibilityFilter(catalogue, {
     unlockedPinValues: unlockedPins,
     activePinValue: pinValue,
     activeModelIds: pin.modelIds,
   });
+  const isPartVisible = makeAdminPartFilter(overrides, baseVis);
   lastResults = searchParts(catalogue, q, modelId, {
     modelIds: pin.modelIds,
     pin,
     tradeAliases,
     isPartVisible,
   });
-  lastDocResults = searchDocuments(documentIndex, seriesDoc, q, pin, config);
   renderResults(q, pin);
-}
-
-function documentsRootHint() {
-  const folder =
-    config?.documents?.extractRootExample ||
-    config?.documents?.localFolder ||
-    "data-sheets/";
-  const rootUrl = config?.documents?.rootUrl || "/data-sheets";
-  return `PDFs load from ${folder} via ${rootUrl}/ (gitignored — not in cloud).`;
-}
-
-function openPdfViewer(title, url) {
-  viewerState = { title, url };
-  const dialog = document.querySelector("#pdf-viewer");
-  const frame = document.querySelector("#pdf-viewer-frame");
-  const titleEl = document.querySelector("#pdf-viewer-title");
-  const link = document.querySelector("#pdf-viewer-newtab");
-  if (!dialog || !frame || !titleEl || !link) {
-    window.open(url, "_blank", "noopener");
-    return;
-  }
-  titleEl.textContent = title;
-  link.href = url;
-  frame.src = url;
-  if (typeof dialog.showModal === "function") dialog.showModal();
-  else dialog.setAttribute("open", "");
-}
-
-function closePdfViewer() {
-  viewerState = null;
-  const dialog = document.querySelector("#pdf-viewer");
-  const frame = document.querySelector("#pdf-viewer-frame");
-  if (frame) frame.src = "about:blank";
-  if (dialog && typeof dialog.close === "function") dialog.close();
-  else if (dialog) dialog.removeAttribute("open");
-}
-
-function renderDocResults(pin) {
-  const wrap = document.querySelector("#docs-wrap");
-  const list = document.querySelector("#docs");
-  const note = document.querySelector("#docs-note");
-  if (!wrap || !list) return;
-  list.innerHTML = "";
-
-  const activePin = pin || currentPin();
-  const hasPin = activePin.kind !== "none";
-  const hasQuery = Boolean(
-    String(document.querySelector("#query-input")?.value || "").trim()
-  );
-  const indexCount =
-    documentIndex?.totals?.pdfs ?? documentIndex?.documents?.length ?? 0;
-
-  if (!lastDocResults.length) {
-    if (hasPin || hasQuery) {
-      wrap.hidden = false;
-      if (note) {
-        note.hidden = false;
-        if (!indexCount) {
-          note.textContent =
-            "No document index loaded. Expected public/data/document-index.json.";
-        } else if (hasPin) {
-          const label =
-            activePin.series?.label ||
-            activePin.model?.sku ||
-            "this pin";
-          note.textContent = `No matching data sheets for ${label}. ${documentsRootHint()}`;
-        } else {
-          note.textContent = `No matching data sheets for this search. ${documentsRootHint()}`;
-        }
-      }
-    } else {
-      wrap.hidden = true;
-      if (note) {
-        note.hidden = true;
-        note.textContent = "";
-      }
-    }
-    return;
-  }
-
-  wrap.hidden = false;
-  if (note) {
-    note.hidden = false;
-    note.textContent = `${lastDocResults.length} sheet${
-      lastDocResults.length === 1 ? "" : "s"
-    } · click to open · ${documentsRootHint()}`;
-  }
-
-  for (const row of lastDocResults) {
-    const { doc, matchedOn } = row;
-    const url = row.url || resolveDocumentUrl(doc, config);
-    const li = document.createElement("li");
-    li.className = "doc";
-    const series = (doc.series || [])
-      .map((s) => `<span class="model-tag">${escapeHtml(s)}</span>`)
-      .join("");
-    const type = escapeHtml(doc.type || "other");
-    const name = escapeHtml(doc.fileName);
-    const openControls = url
-      ? `<div class="doc-actions">
-          <a class="doc-open" href="${escapeHtml(url)}" target="_blank" rel="noopener">Open PDF</a>
-          <button type="button" class="doc-view" data-url="${escapeHtml(url)}" data-title="${name}">View here</button>
-        </div>`
-      : `<p class="docs-note muted">No URL — check documents.rootUrl in config.json</p>`;
-
-    li.innerHTML = `
-      <div class="doc-head">
-        <span class="doc-type">${type}</span>
-        <p class="doc-name">${
-          url
-            ? `<a class="doc-name-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">${name}</a>`
-            : name
-        }</p>
-      </div>
-      <div class="doc-series">${series || '<span class="muted">No series tags</span>'}</div>
-      <p class="doc-path muted">${escapeHtml(doc.path || "")}</p>
-      ${openControls}
-      <div class="match-row">Matched on ${(matchedOn || [])
-        .map((m) => `<span class="match-tag">${escapeHtml(m)}</span>`)
-        .join("")}</div>
-    `;
-    list.appendChild(li);
-  }
-
-  list.querySelectorAll(".doc-view").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      openPdfViewer(btn.dataset.title || "Data sheet", btn.dataset.url);
-    });
-  });
 }
 
 function renderPriceBlock(part) {
@@ -906,6 +972,7 @@ function renderResults(query, pin) {
   const hasPin = activePin.kind !== "none";
   const hasQuery = Boolean(String(query || "").trim());
 
+  if (!list || !meta || !empty) return;
   list.innerHTML = "";
 
   if (pinWarn) {
@@ -915,16 +982,6 @@ function renderResults(query, pin) {
   if (!hasQuery && !hasPin) {
     meta.textContent = "";
     empty.hidden = true;
-    const docsWrap = document.querySelector("#docs-wrap");
-    const docsList = document.querySelector("#docs");
-    const docsNote = document.querySelector("#docs-note");
-    if (docsWrap) docsWrap.hidden = true;
-    if (docsList) docsList.innerHTML = "";
-    if (docsNote) {
-      docsNote.hidden = true;
-      docsNote.textContent = "";
-    }
-    lastDocResults = [];
     return;
   }
 
@@ -945,14 +1002,9 @@ function renderResults(query, pin) {
       : hasPin
         ? " · no exact Primary for this pin"
         : "";
-  const docBit = lastDocResults.length
-    ? ` · ${lastDocResults.length} data sheet${lastDocResults.length === 1 ? "" : "s"}`
-    : "";
-  meta.textContent = `${lastResults.length} part${lastResults.length === 1 ? "" : "s"}${docBit}${pinBit}${primaryBit} · margin ${marginPercent}%`;
+  meta.textContent = `${lastResults.length} part${lastResults.length === 1 ? "" : "s"}${pinBit}${primaryBit} · margin ${marginPercent}%`;
 
-  renderDocResults(activePin);
-
-  if (!lastResults.length && !lastDocResults.length) {
+  if (!lastResults.length) {
     empty.hidden = false;
     return;
   }
@@ -979,6 +1031,7 @@ function renderResults(query, pin) {
     } else if (hasPin && fitsSelectedModel === false) {
       li.classList.add("result--other-model");
     }
+    if (part.adminFlagged) li.classList.add("result--flagged");
 
     const tradeAliasesForPart =
       (part.aliases || []).length > 0
@@ -1016,6 +1069,10 @@ function renderResults(query, pin) {
             ? `<span class="badge badge--related">Related family</span>`
             : `<span class="badge badge--other">Other model</span>`;
 
+    const flagBadge = part.adminFlagged
+      ? `<span class="badge badge--flag">Flagged</span>`
+      : "";
+
     const matchBits = matchedOn
       .map((m) => `<span class="match-tag">${escapeHtml(m)}</span>`)
       .join("");
@@ -1024,9 +1081,18 @@ function renderResults(query, pin) {
       ? `<span class="category-tag">${escapeHtml(part.category)}</span>`
       : "";
 
+    const addQuoteBtn =
+      part.kind === "discount-segment"
+        ? ""
+        : `<button
+            type="button"
+            class="add-quote-btn"
+            data-code="${escapeHtml(part.code)}"
+          >Add to Quote</button>`;
+
     li.innerHTML = `
       <div class="result-head">
-        <div>
+        <div class="result-head-main">
           ${
             isPrimary
               ? `<p class="primary-kicker">Most likely for ${escapeHtml(
@@ -1040,7 +1106,10 @@ function renderResults(query, pin) {
           <h2 class="result-name">${highlight(part.name, query)}</h2>
           <div class="result-tags">${categoryBit}</div>
         </div>
-        <div class="result-flags">${fitBadge}</div>
+        <div class="result-head-actions">
+          <div class="result-flags">${fitBadge}${flagBadge}</div>
+          ${addQuoteBtn}
+        </div>
       </div>
       <div class="result-body">
         ${renderPriceBlock(part)}
@@ -1053,38 +1122,504 @@ function renderResults(query, pin) {
       </div>
       <div class="result-foot">
         <div class="match-row">Matched on ${matchBits || '<span class="muted">—</span>'}</div>
-        <div class="result-foot-actions">
-          ${
-            part.kind === "discount-segment"
-              ? ""
-              : `<button
-                  type="button"
-                  class="add-cart-btn"
-                  data-code="${escapeHtml(part.code)}"
-                >Add to cart</button>`
-          }
-          <span class="diagram-ref muted">Sheet: ${escapeHtml(part.sheet || "—")}</span>
-        </div>
+        <span class="diagram-ref muted">Sheet: ${escapeHtml(part.sheet || "—")}</span>
       </div>
     `;
     list.appendChild(li);
   }
 
-  list.querySelectorAll(".add-cart-btn").forEach((btn) => {
+  list.querySelectorAll(".add-quote-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       const code = btn.dataset.code;
       const row = lastResults.find((r) => r.part?.code === code);
       if (!row?.part) return;
-      handleAddToCart(row.part);
+      handleAddToQuote(row.part);
       const prev = btn.textContent;
       btn.textContent = "Added";
-      btn.classList.add("add-cart-btn--done");
+      btn.classList.add("add-quote-btn--done");
       window.setTimeout(() => {
         btn.textContent = prev;
-        btn.classList.remove("add-cart-btn--done");
+        btn.classList.remove("add-quote-btn--done");
       }, 900);
     });
   });
+}
+
+function renderAdminGate() {
+  const gate = document.querySelector("#admin-gate");
+  const body = document.querySelector("#admin-body");
+  if (!gate || !body) return;
+
+  if (adminUnlocked) {
+    gate.innerHTML = `
+      <div class="admin-gate-open">
+        <p class="admin-unlocked">Unlocked for this browser tab.</p>
+        <button type="button" class="admin-lock-btn" id="admin-lock">Lock admin</button>
+      </div>
+    `;
+    body.hidden = false;
+    gate.querySelector("#admin-lock")?.addEventListener("click", () => {
+      adminUnlocked = false;
+      setAdminSessionUnlocked(false);
+      renderAdminPanel();
+    });
+    return;
+  }
+
+  body.hidden = true;
+  const hasPassword = Boolean(getConfiguredAdminPassword(config));
+  gate.innerHTML = `
+    <form class="admin-unlock-form" id="admin-unlock-form">
+      <label class="field" for="admin-password">
+        <span class="field-label">Admin password</span>
+        <input
+          id="admin-password"
+          type="password"
+          autocomplete="current-password"
+          placeholder="${hasPassword ? "Enter password" : "Empty stub — press Unlock (set password later)"}"
+        />
+      </label>
+      <button type="submit" class="admin-unlock-btn">Unlock</button>
+      <p class="admin-gate-hint muted">
+        ${
+          hasPassword
+            ? "Password is set in localStorage / config (not committed)."
+            : "No password set yet — Unlock opens the tools. Set one later via the field inside Admin or localStorage key <code>rinnai-parts-admin-password-v1</code>."
+        }
+      </p>
+    </form>
+  `;
+  gate.querySelector("#admin-unlock-form")?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const attempt = document.querySelector("#admin-password")?.value ?? "";
+    const result = tryUnlockAdmin(attempt, config);
+    if (!result.ok) {
+      window.alert("Incorrect password.");
+      return;
+    }
+    adminUnlocked = true;
+    renderAdminPanel();
+  });
+}
+
+function renderImportReview() {
+  if (!pendingImport) return "";
+  const { diff, sourceFile, skipCodes } = pendingImport;
+  const removedRows = (diff.removed || [])
+    .map((row) => {
+      const key = String(row.code).toUpperCase();
+      const checked = skipCodes.has(key) ? " checked" : "";
+      return `
+        <label class="import-row">
+          <input type="checkbox" class="import-skip" data-code="${escapeHtml(
+            row.code
+          )}"${checked} />
+          <span>
+            <strong>${escapeHtml(row.code)}</strong>
+            ${escapeHtml(row.title)}
+            <span class="muted"> — missing from new list (skip = keep in catalogue)</span>
+          </span>
+        </label>
+      `;
+    })
+    .join("");
+
+  const addedPreview = (diff.added || [])
+    .slice(0, 12)
+    .map(
+      (row) =>
+        `<li><code>${escapeHtml(row.code)}</code> ${escapeHtml(row.title)}</li>`
+    )
+    .join("");
+
+  return `
+    <div class="import-review" id="import-review">
+      <h3>Import review — ${escapeHtml(sourceFile)}</h3>
+      <p>
+        Current parts: <strong>${diff.currentCount}</strong>
+        · Incoming: <strong>${diff.incomingCount}</strong>
+        · Difference: <strong>${diff.difference >= 0 ? "+" : ""}${diff.difference}</strong>
+        · Kept: ${diff.keptCount}
+        · New: ${diff.added?.length ?? 0}
+        · Missing from new list: ${diff.removed?.length ?? 0}
+      </p>
+      ${
+        diff.removed?.length
+          ? `<div class="import-removed">
+              <h4>Missing from new list (often NLA / removed) — tick to keep</h4>
+              <div class="import-removed-list">${removedRows}</div>
+            </div>`
+          : `<p class="muted">No parts missing from the new list.</p>`
+      }
+      ${
+        diff.added?.length
+          ? `<div class="import-added">
+              <h4>New in incoming (first 12)</h4>
+              <ul>${addedPreview}</ul>
+            </div>`
+          : ""
+      }
+      <div class="import-actions">
+        <button type="button" class="admin-btn admin-btn--primary" id="import-apply">Apply import to local overlay</button>
+        <button type="button" class="admin-btn" id="import-cancel">Cancel review</button>
+      </div>
+      <p class="muted">Apply writes a local price patch + change-queue entry. Production still needs <code>npm run ingest</code> / AI sync.</p>
+    </div>
+  `;
+}
+
+function renderAdminBody() {
+  const body = document.querySelector("#admin-body");
+  if (!body || !adminUnlocked) return;
+
+  const flagged = Object.values(overrides.flagged || {});
+  const suspended = Object.values(overrides.suspended || {});
+  const deleted = Object.values(overrides.deleted || {});
+  const queue = overrides.changeQueue || [];
+  const path = loadPriceListPath(config);
+  const storedPw = getConfiguredAdminPassword(config);
+
+  const flagRows = flagged.length
+    ? flagged
+        .map(
+          (f) => `
+        <li class="admin-item">
+          <div>
+            <code>${escapeHtml(f.code)}</code>
+            <span>${escapeHtml(f.title || "")}</span>
+          </div>
+          <button type="button" class="admin-btn" data-unflag="${escapeHtml(
+            f.code
+          )}">Clear flag</button>
+        </li>`
+        )
+        .join("")
+    : `<li class="muted">No flagged parts.</li>`;
+
+  const suspendRows = suspended.length
+    ? suspended
+        .map(
+          (s) => `
+        <li class="admin-item">
+          <div>
+            <code>${escapeHtml(s.code)}</code>
+            <span>${escapeHtml(s.title || "")}</span>
+          </div>
+          <button type="button" class="admin-btn" data-unsuspend="${escapeHtml(
+            s.code
+          )}">Unsuspend</button>
+        </li>`
+        )
+        .join("")
+    : `<li class="muted">No suspended parts.</li>`;
+
+  const deleteRows = deleted.length
+    ? deleted
+        .map(
+          (d) => `
+        <li class="admin-item">
+          <div>
+            <code>${escapeHtml(d.code)}</code>
+            <span>${escapeHtml(d.title || "")}</span>
+          </div>
+          <button type="button" class="admin-btn" data-restore="${escapeHtml(
+            d.code
+          )}">Restore</button>
+        </li>`
+        )
+        .join("")
+    : `<li class="muted">No deleted parts in overlay.</li>`;
+
+  const queueRows = queue.length
+    ? queue
+        .slice(0, 25)
+        .map(
+          (q) => `
+        <li class="admin-queue-item">
+          <span class="admin-queue-action">${escapeHtml(q.action)}</span>
+          <code>${escapeHtml(q.code || "—")}</code>
+          <span class="muted">${escapeHtml(q.detail || "")}</span>
+        </li>`
+        )
+        .join("")
+    : `<li class="muted">Change queue empty.</li>`;
+
+  body.innerHTML = `
+    <div class="admin-grid">
+      <div class="admin-card">
+        <h3>Password (local only)</h3>
+        <p class="muted">Stored in <code>localStorage</code> — leave blank for stub unlock. Never commit a real password.</p>
+        <div class="admin-inline">
+          <input id="admin-set-password" type="password" placeholder="${
+            storedPw ? "Password is set — enter to replace" : "Set password (optional)"
+          }" autocomplete="new-password" />
+          <button type="button" class="admin-btn" id="admin-save-password">Save password</button>
+          <button type="button" class="admin-btn" id="admin-clear-password">Clear</button>
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <h3>Price list path / endpoint</h3>
+        <p class="muted">Hint for where the workbook lives (Office PC). Browser import uses a file picker; path is config for ingest.</p>
+        <div class="admin-inline">
+          <input id="admin-price-path" type="text" value="${escapeHtml(
+            path
+          )}" spellcheck="false" />
+          <button type="button" class="admin-btn" id="admin-save-path">Save path</button>
+        </div>
+        <div class="admin-inline admin-inline--file">
+          <input id="admin-price-file" type="file" accept=".xlsx,.xls" />
+          <button type="button" class="admin-btn admin-btn--primary" id="admin-import-file">Import &amp; review</button>
+        </div>
+        ${
+          overrides.pricePatch
+            ? `<p>Local price patch active from <code>${escapeHtml(
+                overrides.pricePatch.sourceFile
+              )}</code> (${overrides.pricePatch.parts?.length ?? 0} parts).
+               <button type="button" class="admin-btn" id="admin-clear-patch">Clear patch</button></p>`
+            : `<p class="muted">No local price patch — using committed JSON.</p>`
+        }
+        <div id="import-review-slot">${renderImportReview()}</div>
+      </div>
+
+      <div class="admin-card">
+        <h3>Flagged parts</h3>
+        <ul class="admin-list">${flagRows}</ul>
+      </div>
+
+      <div class="admin-card">
+        <h3>Suspended (hidden from search)</h3>
+        <div class="admin-inline">
+          <input id="admin-suspend-code" type="text" placeholder="Part code to suspend" spellcheck="false" />
+          <button type="button" class="admin-btn" id="admin-suspend-btn">Suspend</button>
+        </div>
+        <ul class="admin-list">${suspendRows}</ul>
+      </div>
+
+      <div class="admin-card">
+        <h3>Deleted from active catalogue</h3>
+        <p class="muted">Soft-delete overlay — does not rewrite <code>prices.json</code>. Queue for AI ingest.</p>
+        <div class="admin-inline">
+          <input id="admin-delete-code" type="text" placeholder="Part code to delete" spellcheck="false" />
+          <button type="button" class="admin-btn admin-btn--danger" id="admin-delete-btn">Delete</button>
+        </div>
+        <ul class="admin-list">${deleteRows}</ul>
+      </div>
+
+      <div class="admin-card admin-card--wide">
+        <h3>Change queue (for AI ingest sync)</h3>
+        <p class="muted">Beau’s admin actions are recorded here. Production catalogue updates should be applied by AI running ingest / editing committed JSON — not by shipping localStorage.</p>
+        <ul class="admin-queue">${queueRows}</ul>
+        <button type="button" class="admin-btn" id="admin-export-queue">Copy queue JSON</button>
+      </div>
+    </div>
+  `;
+
+  body.querySelector("#admin-save-password")?.addEventListener("click", () => {
+    const val = document.querySelector("#admin-set-password")?.value ?? "";
+    setLocalAdminPassword(val);
+    window.alert(
+      val
+        ? "Password saved in localStorage for this browser."
+        : "Password cleared (stub unlock)."
+    );
+    renderAdminPanel();
+  });
+  body.querySelector("#admin-clear-password")?.addEventListener("click", () => {
+    setLocalAdminPassword("");
+    renderAdminPanel();
+  });
+  body.querySelector("#admin-save-path")?.addEventListener("click", () => {
+    const val = document.querySelector("#admin-price-path")?.value ?? "";
+    savePriceListPath(val);
+    overrides = enqueueChange(overrides, {
+      action: "set-price-path",
+      detail: `Price list path set to ${val || "(empty)"}`,
+    });
+    persistOverrides();
+    populateDataSources();
+    renderAdminPanel();
+  });
+  body.querySelector("#admin-import-file")?.addEventListener("click", () => {
+    const fileInput = document.querySelector("#admin-price-file");
+    const file = fileInput?.files?.[0];
+    if (!file) {
+      window.alert("Choose an .xlsx price list first.");
+      return;
+    }
+    void handlePriceImportFile(file);
+  });
+  body.querySelector("#admin-clear-patch")?.addEventListener("click", () => {
+    overrides = clearPricePatch(overrides);
+    persistOverrides();
+    refreshCatalogueFromOverrides();
+    populateDataSources();
+    runSearch();
+    renderAdminPanel();
+  });
+  body.querySelector("#import-apply")?.addEventListener("click", applyPendingImport);
+  body.querySelector("#import-cancel")?.addEventListener("click", () => {
+    pendingImport = null;
+    renderAdminPanel();
+  });
+  body.querySelectorAll(".import-skip").forEach((cb) => {
+    cb.addEventListener("change", () => {
+      if (!pendingImport) return;
+      const code = String(cb.dataset.code || "").toUpperCase();
+      if (cb.checked) pendingImport.skipCodes.add(code);
+      else pendingImport.skipCodes.delete(code);
+    });
+  });
+  body.querySelectorAll("[data-unflag]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      overrides = clearFlag(overrides, btn.dataset.unflag);
+      persistOverrides();
+      refreshCatalogueFromOverrides();
+      runSearch();
+      renderAdminPanel();
+      populateDataSources();
+    });
+  });
+  body.querySelectorAll("[data-unsuspend]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      overrides = unsuspendPart(overrides, btn.dataset.unsuspend);
+      persistOverrides();
+      refreshCatalogueFromOverrides();
+      runSearch();
+      renderAdminPanel();
+      populateDataSources();
+    });
+  });
+  body.querySelectorAll("[data-restore]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      overrides = restoreDeletedPart(overrides, btn.dataset.restore);
+      persistOverrides();
+      refreshCatalogueFromOverrides();
+      runSearch();
+      renderAdminPanel();
+      populateDataSources();
+    });
+  });
+  body.querySelector("#admin-suspend-btn")?.addEventListener("click", () => {
+    const code = String(
+      document.querySelector("#admin-suspend-code")?.value || ""
+    ).trim();
+    if (!code) return;
+    const part =
+      catalogue?.parts?.find(
+        (p) => String(p.code).toUpperCase() === code.toUpperCase()
+      ) ||
+      baseCatalogue?.parts?.find(
+        (p) => String(p.code).toUpperCase() === code.toUpperCase()
+      );
+    overrides = suspendPart(overrides, {
+      code,
+      title: part?.name || code,
+    });
+    persistOverrides();
+    refreshCatalogueFromOverrides();
+    runSearch();
+    renderAdminPanel();
+    populateDataSources();
+  });
+  body.querySelector("#admin-delete-btn")?.addEventListener("click", () => {
+    const code = String(
+      document.querySelector("#admin-delete-code")?.value || ""
+    ).trim();
+    if (!code) return;
+    if (
+      !window.confirm(
+        `Delete ${code} from the active local catalogue overlay? (prices.json unchanged until AI ingest)`
+      )
+    ) {
+      return;
+    }
+    const part =
+      catalogue?.parts?.find(
+        (p) => String(p.code).toUpperCase() === code.toUpperCase()
+      ) ||
+      baseCatalogue?.parts?.find(
+        (p) => String(p.code).toUpperCase() === code.toUpperCase()
+      );
+    overrides = deletePartOverride(overrides, {
+      code,
+      title: part?.name || code,
+    });
+    persistOverrides();
+    refreshCatalogueFromOverrides();
+    runSearch();
+    renderAdminPanel();
+    populateDataSources();
+  });
+  body.querySelector("#admin-export-queue")?.addEventListener("click", async () => {
+    const text = JSON.stringify(overrides.changeQueue || [], null, 2);
+    try {
+      await navigator.clipboard.writeText(text);
+      window.alert("Change queue copied to clipboard.");
+    } catch {
+      window.prompt("Copy change queue JSON:", text);
+    }
+  });
+}
+
+function renderAdminPanel() {
+  renderAdminGate();
+  renderAdminBody();
+  populateDataSources();
+}
+
+async function handlePriceImportFile(file) {
+  try {
+    const buffer = await file.arrayBuffer();
+    const parsed = parsePriceWorkbook(buffer, {
+      sourceFile: file.name,
+      dataStartRow: config?.priceList?.parse?.dataStartRow ?? 6,
+      effectiveDate: config?.priceList?.effectiveDate || null,
+      label: config?.priceList?.label,
+      currency: config?.currency,
+      gstRate: config?.gstRate ?? gstRate,
+    });
+    const incomingParts = pricesToCatalogueParts(parsed.prices);
+    const currentParts = catalogue?.parts || baseCatalogue?.parts || [];
+    const diff = diffPriceImport(currentParts, incomingParts);
+    pendingImport = {
+      incomingParts,
+      diff,
+      sourceFile: file.name,
+      meta: parsed.meta,
+      skipCodes: new Set(),
+    };
+    renderAdminPanel();
+  } catch (err) {
+    window.alert(`Import failed: ${err.message || err}`);
+  }
+}
+
+function applyPendingImport() {
+  if (!pendingImport) return;
+  const parts = buildReviewedParts(
+    pendingImport.incomingParts,
+    pendingImport.skipCodes,
+    {
+      currentParts: catalogue?.parts || baseCatalogue?.parts || [],
+      retainSkippedRemoved: true,
+    }
+  );
+  overrides = applyPricePatch(overrides, {
+    sourceFile: pendingImport.sourceFile,
+    parts,
+    meta: pendingImport.meta,
+    skippedCodes: [...pendingImport.skipCodes],
+  });
+  persistOverrides();
+  pendingImport = null;
+  refreshCatalogueFromOverrides();
+  populateDataSources();
+  runSearch();
+  renderAdminPanel();
+  window.alert(
+    `Local overlay updated (${parts.length} parts). Queue recorded for AI ingest sync.`
+  );
 }
 
 function bindEvents() {
@@ -1122,19 +1657,6 @@ function bindEvents() {
     });
   });
 
-  const viewerClose = document.querySelector("#pdf-viewer-close");
-  const viewer = document.querySelector("#pdf-viewer");
-  if (viewerClose) viewerClose.addEventListener("click", closePdfViewer);
-  if (viewer) {
-    viewer.addEventListener("cancel", (e) => {
-      e.preventDefault();
-      closePdfViewer();
-    });
-    viewer.addEventListener("click", (e) => {
-      if (e.target === viewer) closePdfViewer();
-    });
-  }
-
   const cartOpen = document.querySelector("#cart-open");
   const cartClose = document.querySelector("#cart-close");
   const cartDialog = document.querySelector("#cart-dialog");
@@ -1156,33 +1678,53 @@ function bindEvents() {
     });
   }
 
+  document.querySelector("#flag-open")?.addEventListener("click", openFlagPicker);
+  document.querySelector("#flag-close")?.addEventListener("click", closeFlagPicker);
+  const flagDialog = document.querySelector("#flag-dialog");
+  if (flagDialog) {
+    flagDialog.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      closeFlagPicker();
+    });
+    flagDialog.addEventListener("click", (e) => {
+      if (e.target === flagDialog) closeFlagPicker();
+    });
+  }
+  document.querySelector("#flag-custom-submit")?.addEventListener("click", () => {
+    submitFlagPart({
+      code: document.querySelector("#flag-custom-code")?.value,
+      title: document.querySelector("#flag-custom-title")?.value,
+    });
+  });
+
   updateCartBadge();
+  renderAdminPanel();
 }
 
 async function boot() {
   renderShell();
   try {
-    const [cat, cfg, prices, series, trade, docs] = await Promise.all([
+    const [cat, cfg, prices, series, trade] = await Promise.all([
       loadJson("/data/catalogue.json"),
       loadJson("/data/config.json"),
       loadJson("/data/prices.json"),
       loadJson("/data/series-aliases.json"),
       loadJson("/data/trade-aliases.json").catch(() => ({ aliases: [] })),
-      loadJson("/data/document-index.json").catch(() => ({ documents: [] })),
     ]);
-    catalogue = cat;
+    baseCatalogue = cat;
     config = cfg;
     pricesMeta = prices.meta || null;
     seriesDoc = series;
     tradeAliases = trade;
-    documentIndex = docs;
+    overrides = loadOverrides();
+    refreshCatalogueFromOverrides();
     marginPercent = clampMarginPercent(
       Number(cfg.defaultMarginPercent ?? cat.meta?.defaultMarginPercent) ||
         DEFAULT_MARGIN_PERCENT
     );
     gstRate = Number(cfg.gstRate ?? cat.meta?.gstRate) || DEFAULT_GST_RATE;
+    adminUnlocked = isAdminSessionUnlocked();
 
-    // Re-render shell now that config is known (effective date / workbook name).
     renderShell();
     cartLines = loadCart();
     mountModelPicker();

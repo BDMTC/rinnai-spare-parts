@@ -10,6 +10,7 @@
     "effectiveDate": "2026-04-01",
     "workbookFile": "Price-List-Spare-Parts-Effective-01-04-26.xlsx",
     "workbookPath": "source-data/Price-List-Spare-Parts-Effective-01-04-26.xlsx",
+    "endpoint": "source-data/Price-List-Spare-Parts-Effective-01-04-26.xlsx",
     "generatedFile": "public/data/prices.json",
     "parse": {
       "dataStartRow": 6,
@@ -21,6 +22,12 @@
       "notes": "Excel row 6 is typically the column header row; ingest skips header-like rows. All workbook sheets are scanned; product sheets yield priced parts."
     },
     "lastIngested": "2026-11-11"
+  },
+  "admin": {
+    "password": "",
+    "passwordStorageKey": "rinnai-parts-admin-password-v1",
+    "overridesStorageKey": "rinnai-parts-overrides-v1",
+    "note": "Leave password empty for the stub gate (any Unlock works). Set a real password later in localStorage (rinnai-parts-admin-password-v1) or here for local-only — never commit a real secret. Admin UI writes local overrides + a change queue; production catalogue updates go through AI / npm run ingest, not by rewriting prices.json from the browser."
   },
   "modelHistory": {
     "label": "REU Model History",
@@ -40,12 +47,13 @@
     "note": "Binary PDFs stay under localFolder (gitignored). Vite maps rootUrl → ./data-sheets. Index JSON only is committed."
   },
   "howToRefresh": [
-    "Drop the new Rinnai price workbook into source-data/ (or update priceList.workbookPath in this file).",
-    "Update priceList.effectiveDate and priceList.workbookFile/workbookPath to match the new file.",
-    "Run: npm run ingest",
-    "Restart or refresh the app — search uses public/data/prices.json and public/data/models.json.",
+    "Drop the new Rinnai price workbook into source-data/ (or update priceList.workbookPath / priceList.endpoint in this file).",
+    "Update priceList.effectiveDate and priceList.workbookFile/workbookPath/endpoint to match the new file.",
+    "Run: npm run ingest (authoritative production catalogue). Admin browser import is a local overlay + change-queue intent only.",
+    "Restart or refresh the app — search uses public/data/prices.json and public/data/models.json (plus localStorage admin overlays).",
     "Series aliases (HD28 ↔ VCM2837 etc.) are hand-maintained in public/data/series-aliases.json — not overwritten by ingest.",
     "Trade aliases (flow servo → WATER FLOW SENSOR etc.) are hand-maintained in public/data/trade-aliases.json — not overwritten by ingest.",
-    "Data-sheet PDFs: keep under data-sheets/ (e.g. C:\\Temp\\rinnai-spare-parts\\data-sheets\\). App opens them via /data-sheets/... — do not commit the binaries."
+    "Data-sheet PDFs: keep under data-sheets/ (e.g. C:\\Temp\\rinnai-spare-parts\\data-sheets\\). Index stays available in code; main search UI no longer lists sheets.",
+    "Admin flag/suspend/delete/import: localStorage overrides queue intents for AI ingest sync — do not treat browser edits as the production source of truth."
   ]
 }
