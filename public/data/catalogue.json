@@ -1,0 +1,400 @@
+{
+  "version": 1,
+  "meta": {
+    "title": "Rinnai spare parts sample catalogue",
+    "locale": "en-AU",
+    "notes": "Sample seed for MTC Gas admin. Replace/extend with Beau's real lists. diagramUrl/path fields are placeholders for exploded diagrams later.",
+    "updated": "2026-11-11"
+  },
+  "models": [
+    {
+      "id": "inf16i",
+      "brand": "Rinnai",
+      "name": "Infinity 16 Internal",
+      "sku": "INF16I",
+      "family": "Infinity continuous flow",
+      "fuel": "Natural Gas",
+      "diagramUrl": null,
+      "diagramPath": null,
+      "notes": null
+    },
+    {
+      "id": "inf20e",
+      "brand": "Rinnai",
+      "name": "Infinity 20 External",
+      "sku": "INF20E",
+      "family": "Infinity continuous flow",
+      "fuel": "Natural Gas",
+      "diagramUrl": null,
+      "diagramPath": null,
+      "notes": null
+    },
+    {
+      "id": "inf26e",
+      "brand": "Rinnai",
+      "name": "Infinity 26 External",
+      "sku": "INF26E",
+      "family": "Infinity continuous flow",
+      "fuel": "Natural Gas / LPG variants",
+      "diagramUrl": null,
+      "diagramPath": null,
+      "notes": "Common commercial / multi-res unit"
+    },
+    {
+      "id": "inf32e",
+      "brand": "Rinnai",
+      "name": "Infinity 32 External",
+      "sku": "INF32E",
+      "family": "Infinity continuous flow",
+      "fuel": "Natural Gas / LPG variants",
+      "diagramUrl": null,
+      "diagramPath": null,
+      "notes": null
+    },
+    {
+      "id": "hd200e",
+      "brand": "Rinnai",
+      "name": "Heavy Duty 200 External",
+      "sku": "HD200E",
+      "family": "Heavy Duty continuous flow",
+      "fuel": "Natural Gas / LPG",
+      "diagramUrl": null,
+      "diagramPath": null,
+      "notes": "Commercial high-demand"
+    },
+    {
+      "id": "r85",
+      "brand": "Rinnai",
+      "name": "R85 Storage Cylinder",
+      "sku": "R85",
+      "family": "Storage hot water",
+      "fuel": "Electric / Gas companion",
+      "diagramUrl": null,
+      "diagramPath": null,
+      "notes": "Sample storage model for alias demos"
+    }
+  ],
+  "parts": [
+    {
+      "id": "part-pcb-main",
+      "code": "R2235",
+      "name": "Main Printed Circuit Board Assembly",
+      "aliases": [
+        "PCB",
+        "main board",
+        "computer board",
+        "control board",
+        "electronics board",
+        "brain board"
+      ],
+      "modelIds": ["inf16i", "inf20e", "inf26e"],
+      "category": "Controls",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": "PCB-1"
+      },
+      "notes": "Confirm firmware / board revision against serial before ordering"
+    },
+    {
+      "id": "part-pcb-hd",
+      "code": "R3102",
+      "name": "Main PCB Assembly — Heavy Duty",
+      "aliases": [
+        "PCB",
+        "main board",
+        "control board",
+        "HD board"
+      ],
+      "modelIds": ["hd200e"],
+      "category": "Controls",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": "PCB-1"
+      },
+      "notes": null
+    },
+    {
+      "id": "part-flow-sensor",
+      "code": "R1876",
+      "name": "Water Flow Sensor Assembly",
+      "aliases": [
+        "flow sensor",
+        "water sensor",
+        "flow switch",
+        "flow turbine",
+        "water flow switch"
+      ],
+      "modelIds": ["inf16i", "inf20e", "inf26e", "inf32e", "hd200e"],
+      "category": "Water path",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": "WF-3"
+      },
+      "notes": "Common failure when unit won't fire / low flow error"
+    },
+    {
+      "id": "part-inlet-filter",
+      "code": "R1055",
+      "name": "Cold Water Inlet Filter",
+      "aliases": [
+        "inlet strainer",
+        "water filter",
+        "mesh filter",
+        "inlet screen",
+        "y-strainer"
+      ],
+      "modelIds": ["inf16i", "inf20e", "inf26e", "inf32e", "hd200e"],
+      "category": "Water path",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": "WF-1"
+      },
+      "notes": null
+    },
+    {
+      "id": "part-heat-exchanger-26",
+      "code": "R2640",
+      "name": "Heat Exchanger Assembly — Infinity 26",
+      "aliases": [
+        "heat exchanger",
+        "HEX",
+        "HX",
+        "copper block",
+        "heater core"
+      ],
+      "modelIds": ["inf26e"],
+      "category": "Heat exchanger",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": "HX-1"
+      },
+      "notes": "Model-specific — do not swap with 20/32 without checking"
+    },
+    {
+      "id": "part-heat-exchanger-20",
+      "code": "R2638",
+      "name": "Heat Exchanger Assembly — Infinity 20",
+      "aliases": [
+        "heat exchanger",
+        "HEX",
+        "HX",
+        "copper block",
+        "heater core"
+      ],
+      "modelIds": ["inf20e"],
+      "category": "Heat exchanger",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": "HX-1"
+      },
+      "notes": null
+    },
+    {
+      "id": "part-gas-valve",
+      "code": "R2210",
+      "name": "Gas Proportional Valve Assembly",
+      "aliases": [
+        "gas valve",
+        "modulating valve",
+        "prop valve",
+        "gas modulator",
+        "solenoid gas valve"
+      ],
+      "modelIds": ["inf16i", "inf20e", "inf26e", "inf32e"],
+      "category": "Gas train",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": "GV-1"
+      },
+      "notes": "NG vs LPG orifice / valve kit may differ — check fuel type"
+    },
+    {
+      "id": "part-igniter",
+      "code": "R1544",
+      "name": "Igniter / Spark Electrode",
+      "aliases": [
+        "igniter",
+        "spark plug",
+        "electrode",
+        "spark electrode",
+        "ignition electrode"
+      ],
+      "modelIds": ["inf16i", "inf20e", "inf26e", "inf32e", "hd200e"],
+      "category": "Ignition",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": "IG-2"
+      },
+      "notes": null
+    },
+    {
+      "id": "part-flame-rod",
+      "code": "R1545",
+      "name": "Flame Rod / Flame Sensor",
+      "aliases": [
+        "flame rod",
+        "flame sensor",
+        "flame probe",
+        "ionisation probe",
+        "flame detection electrode"
+      ],
+      "modelIds": ["inf16i", "inf20e", "inf26e", "inf32e", "hd200e"],
+      "category": "Ignition",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": "IG-3"
+      },
+      "notes": "Often confused with igniter electrode"
+    },
+    {
+      "id": "part-overheat",
+      "code": "R1190",
+      "name": "Overheat Thermistor / Thermal Fuse Set",
+      "aliases": [
+        "overheat sensor",
+        "thermal fuse",
+        "hi-limit",
+        "high limit",
+        "OHS",
+        "overheat thermostat"
+      ],
+      "modelIds": ["inf16i", "inf20e", "inf26e", "inf32e"],
+      "category": "Safety",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": "SF-2"
+      },
+      "notes": null
+    },
+    {
+      "id": "part-outlet-thermistor",
+      "code": "R1188",
+      "name": "Hot Water Outlet Thermistor",
+      "aliases": [
+        "outlet sensor",
+        "hot water sensor",
+        "temp sensor",
+        "temperature probe",
+        "NTC sensor"
+      ],
+      "modelIds": ["inf16i", "inf20e", "inf26e", "inf32e", "hd200e"],
+      "category": "Sensors",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": "SN-1"
+      },
+      "notes": null
+    },
+    {
+      "id": "part-fan",
+      "code": "R2401",
+      "name": "Combustion Fan Assembly",
+      "aliases": [
+        "fan",
+        "blower",
+        "combustion fan",
+        "exhaust fan",
+        "inducer"
+      ],
+      "modelIds": ["inf20e", "inf26e", "inf32e", "hd200e"],
+      "category": "Air / exhaust",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": "AF-1"
+      },
+      "notes": null
+    },
+    {
+      "id": "part-remote-ctrl",
+      "code": "MC-91-2AU",
+      "name": "Kitchen Remote Controller",
+      "aliases": [
+        "remote",
+        "controller",
+        "kitchen remote",
+        "temp controller",
+        "wall controller",
+        "MC91"
+      ],
+      "modelIds": ["inf16i", "inf20e", "inf26e", "inf32e"],
+      "category": "Controls",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": null
+      },
+      "notes": "Accessory — not on every install"
+    },
+    {
+      "id": "part-pressure-relief",
+      "code": "R3011",
+      "name": "Pressure Relief Valve",
+      "aliases": [
+        "PRV",
+        "relief valve",
+        "pressure valve",
+        "TPR",
+        "safety valve"
+      ],
+      "modelIds": ["r85"],
+      "category": "Safety",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": "SF-1"
+      },
+      "notes": "Storage cylinder example part"
+    },
+    {
+      "id": "part-anode",
+      "code": "R3008",
+      "name": "Sacrificial Anode Rod",
+      "aliases": [
+        "anode",
+        "anode rod",
+        "magnesium anode",
+        "sacrificial anode"
+      ],
+      "modelIds": ["r85"],
+      "category": "Cylinder",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": "CY-4"
+      },
+      "notes": null
+    },
+    {
+      "id": "part-o-ring-kit",
+      "code": "R1099",
+      "name": "Water Connection O-Ring Kit",
+      "aliases": [
+        "o-rings",
+        "o ring kit",
+        "seal kit",
+        "washer kit",
+        "inlet outlet seals"
+      ],
+      "modelIds": ["inf16i", "inf20e", "inf26e", "inf32e", "hd200e"],
+      "category": "Seals",
+      "diagramRef": {
+        "url": null,
+        "path": null,
+        "callout": null
+      },
+      "notes": "Handy consumable for service vans"
+    }
+  ]
+}
