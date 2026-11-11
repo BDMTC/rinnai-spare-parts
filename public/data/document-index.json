@@ -1,20 +1,20 @@
 {
-    "generatedAt":  "2026-11-11T14:34:41.9241376+10:00",
+    "generatedAt":  "2026-11-11T14:43:03.5382759+10:00",
     "extractRoot":  "C:\\Temp\\rinnai-spare-parts\\data-sheets",
-    "note":  "Binary PDFs stay local under C:\\Temp\\rinnai-spare-parts\\data-sheets\\ â€” do not commit into git. This JSON is the portable index only.",
+    "note":  "Binary PDFs stay local under C:\\Temp\\rinnai-spare-parts\\data-sheets\\ — do not commit into git. Quarantined dupes under data-sheets/_duplicates_quarantine/.",
     "totals":  {
-                   "files":  106,
-                   "pdfs":  106,
+                   "files":  104,
+                   "pdfs":  104,
                    "byType":  {
-                                  "other":  8,
-                                  "SM":  44,
-                                  "PL":  16,
+                                  "other":  9,
+                                  "SM":  42,
+                                  "PL":  15,
                                   "EDPL":  37,
                                   "ED":  1
                               },
                    "hd28":  2,
                    "hd200":  1,
-                   "totalBytes":  296631604
+                   "totalBytes":  281650355
                },
     "documents":  [
                       {
@@ -498,7 +498,9 @@
                           "series":  [
                                          "REU-VCM2837",
                                          "VCM2837",
-                                         "HD28"
+                                         "HD28",
+                                         "HD-28",
+                                         "REU-VCM2837WC"
                                      ],
                           "sizeBytes":  1009311,
                           "hd28":  true,
@@ -595,7 +597,7 @@
                           "id":  "QRESS-quick-recovery-tanks-parts",
                           "fileName":  "QRESS quick recovery tanks parts.pdf",
                           "path":  "data-sheets/Rinnai Data Sheets/QRESS quick recovery tanks parts.pdf",
-                          "type":  "PL",
+                          "type":  "other",
                           "series":  [
 
                                      ],
@@ -649,7 +651,9 @@
                           "series":  [
                                          "REU-VCM2837",
                                          "VCM2837",
-                                         "HD28"
+                                         "HD28",
+                                         "HD-28",
+                                         "REU-VCM2837WC"
                                      ],
                           "sizeBytes":  576100,
                           "hd28":  true,
@@ -699,7 +703,6 @@
                           "path":  "data-sheets/Rinnai Data Sheets/REUVM2630WC HD200e.pdf",
                           "type":  "other",
                           "series":  [
-                                         "HD200",
                                          "REUVM2630WC"
                                      ],
                           "sizeBytes":  74680,
@@ -799,18 +802,6 @@
 
                                      ],
                           "sizeBytes":  3575520,
-                          "hd28":  false,
-                          "hd200":  false
-                      },
-                      {
-                          "id":  "SM-32",
-                          "fileName":  "SM 32.pdf",
-                          "path":  "data-sheets/Rinnai Data Sheets/SM 32.pdf",
-                          "type":  "SM",
-                          "series":  [
-
-                                     ],
-                          "sizeBytes":  4689035,
                           "hd28":  false,
                           "hd200":  false
                       },
@@ -1196,18 +1187,6 @@
 
                                      ],
                           "sizeBytes":  10386979,
-                          "hd28":  false,
-                          "hd200":  false
-                      },
-                      {
-                          "id":  "smvREUVR1616W_VR2024",
-                          "fileName":  "smvREUVR1616W_VR2024.pdf",
-                          "path":  "data-sheets/Rinnai Data Sheets/smvREUVR1616W_VR2024.pdf",
-                          "type":  "SM",
-                          "series":  [
-
-                                     ],
-                          "sizeBytes":  10292214,
                           "hd28":  false,
                           "hd200":  false
                       },
