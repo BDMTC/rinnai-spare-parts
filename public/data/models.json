@@ -7,7 +7,8 @@
     "locale": "en-AU",
     "updated": "2026-11-11",
     "count": 454,
-    "notes": "Fields preserved from REU-Model-History.xlsx. family/fuel/diagrams left null until Beau supplies them."
+    "restrictedCount": 288,
+    "notes": "Fields preserved from REU-Model-History.xlsx. restricted* derived from Description 2 (NLA / export only / use-up / only-for). family/fuel/diagrams left null until Beau supplies them."
   },
   "models": [
     {
@@ -24,7 +25,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE B16B50A *"
+      "notes": "*NLA USE B16B50A *",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b16b50a",
@@ -40,7 +44,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "b16b60",
@@ -56,7 +63,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE B16B60A*"
+      "notes": "*NLA USE B16B60A*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b16b60a",
@@ -72,7 +82,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "b16l50",
@@ -88,7 +101,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, REPLACEMENT B16L50A"
+      "notes": "*USE-UP, REPLACEMENT B16L50A",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "b16l50a",
@@ -104,7 +120,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "b16l60",
@@ -120,7 +139,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE B16L60A *"
+      "notes": "*NLA USE B16L60A *",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b16l60a",
@@ -136,7 +158,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "b16n50",
@@ -152,7 +177,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA, REPLACEMENT B16N50A"
+      "notes": "*NLA, REPLACEMENT B16N50A",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b16n50a",
@@ -168,7 +196,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "b16n60",
@@ -184,7 +215,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE B16N60A*"
+      "notes": "*NLA USE B16N60A*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b16n60a",
@@ -200,7 +234,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "b20l50",
@@ -216,7 +253,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, REPLACEMENT B20L50A"
+      "notes": "*USE-UP, REPLACEMENT B20L50A",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "b20l50a",
@@ -232,7 +272,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "b20l60",
@@ -248,7 +291,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, REPLACEMENT B20L60A"
+      "notes": "*USE-UP, REPLACEMENT B20L60A",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "b20l60a",
@@ -264,7 +310,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "b20n50",
@@ -280,7 +329,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, REPLACEMENT B20N50A"
+      "notes": "*USE-UP, REPLACEMENT B20N50A",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "b20n50a",
@@ -296,7 +348,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**NLA** PLS USE *INF20N50B"
+      "notes": "**NLA** PLS USE *INF20N50B",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b20n60",
@@ -312,7 +367,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, REPLACEMENT B20N60A"
+      "notes": "*USE-UP, REPLACEMENT B20N60A",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "b20n60a",
@@ -328,7 +386,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**NLA** PLS USE *INF20N60B"
+      "notes": "**NLA** PLS USE *INF20N60B",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b24b50",
@@ -344,7 +405,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "b24b60",
@@ -360,7 +424,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "b24l50",
@@ -376,7 +443,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b24l60",
@@ -392,7 +462,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE B26L60*"
+      "notes": "*NLA USE B26L60*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b24n50",
@@ -408,7 +481,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b24n60",
@@ -424,7 +500,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE B26N60*"
+      "notes": "*NLA USE B26N60*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b26b50a",
@@ -440,7 +519,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "b26b60",
@@ -456,7 +538,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE B26B60*"
+      "notes": "*NLA USE B26B60*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b26b60a",
@@ -472,7 +557,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "b26l50",
@@ -488,7 +576,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, REPLACEMENT B26L50A"
+      "notes": "*USE-UP, REPLACEMENT B26L50A",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "b26l50a",
@@ -504,7 +595,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "b26l60",
@@ -520,7 +614,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA, REPLACEMENT B26L60A"
+      "notes": "*NLA, REPLACEMENT B26L60A",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b26l60a",
@@ -536,7 +633,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "b26n50",
@@ -552,7 +652,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE B26N50A*"
+      "notes": "*NLA USE B26N50A*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b26n50a",
@@ -568,7 +671,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "WHEN NLA PLS USE *INF26N50B"
+      "notes": "WHEN NLA PLS USE *INF26N50B",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b26n50ablk",
@@ -584,7 +690,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "b26n60",
@@ -600,7 +709,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE B26N60A*"
+      "notes": "*NLA USE B26N60A*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b26n60a",
@@ -616,7 +728,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "b26n60ablk",
@@ -632,7 +747,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "b26n75",
@@ -648,7 +766,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "b26n75a",
@@ -664,7 +785,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "csac1",
@@ -680,7 +804,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "csac2",
@@ -696,7 +823,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "env26l",
@@ -712,7 +842,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "env26n",
@@ -728,7 +861,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, NLA*"
+      "notes": "*USE-UP, NLA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "env32l",
@@ -744,7 +880,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "env32n",
@@ -760,7 +899,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "envsmtl",
@@ -776,7 +918,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "envsmtl50",
@@ -792,7 +937,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "envsmtn",
@@ -808,7 +956,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "envsmtn50",
@@ -824,7 +975,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, NLA*"
+      "notes": "*USE-UP, NLA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "hd200al",
@@ -840,7 +994,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE HD200L*"
+      "notes": "*NLA USE HD200L*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hd200an",
@@ -856,7 +1013,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE HD200N WHILE NIL STOCK"
+      "notes": "*USE HD200N WHILE NIL STOCK",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "hd200b42",
@@ -872,7 +1032,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hd200b50",
@@ -888,7 +1051,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hd200b75",
@@ -904,7 +1070,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hd200ib50",
@@ -920,7 +1089,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hd200ib75",
@@ -936,7 +1108,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hd200il40",
@@ -952,7 +1127,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200il42",
@@ -968,7 +1146,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE *HD28IL42 WHEN NLA"
+      "notes": "*USE *HD28IL42 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200il50",
@@ -984,7 +1165,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE *HD28IL50 WHEN NLA"
+      "notes": "*USE *HD28IL50 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200il75",
@@ -1000,7 +1184,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200in40",
@@ -1016,7 +1203,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200in42",
@@ -1032,7 +1222,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE *HD28IN42 WHEN NLA"
+      "notes": "*USE *HD28IN42 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200in50",
@@ -1048,7 +1241,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE *HD28IN50 WHEN NLA"
+      "notes": "*USE *HD28IN50 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200in75",
@@ -1064,7 +1260,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE *HD28IN75 WHEN NLA"
+      "notes": "*USE *HD28IN75 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200l40",
@@ -1080,7 +1279,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200l42",
@@ -1096,7 +1298,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200l50",
@@ -1112,7 +1317,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200l75",
@@ -1128,7 +1336,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200li",
@@ -1144,7 +1355,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE HD200IL WHILE NIL STOCK"
+      "notes": "*USE HD200IL WHILE NIL STOCK",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "hd200n40",
@@ -1160,7 +1374,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA"
+      "notes": "*NLA",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hd200n42",
@@ -1176,7 +1393,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE *HD28EN42 WHEN NLA"
+      "notes": "*USE *HD28EN42 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200n50",
@@ -1192,7 +1412,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE *HD28EN50 WHEN NLA"
+      "notes": "*USE *HD28EN50 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200n75",
@@ -1208,7 +1431,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE *HD28EN75 WHEN NLA"
+      "notes": "*USE *HD28EN75 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd200ni",
@@ -1224,7 +1450,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE HD200IN WHILE NIL STOCK"
+      "notes": "*USE HD200IN WHILE NIL STOCK",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "hd210eb50",
@@ -1240,7 +1469,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hd210eb75",
@@ -1256,7 +1488,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hd210el42",
@@ -1272,7 +1507,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210el50",
@@ -1288,7 +1526,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210el75",
@@ -1304,7 +1545,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE HDC32E75 WHEN NLA"
+      "notes": "*USE HDC32E75 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210el75nz",
@@ -1320,7 +1564,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210en42",
@@ -1336,7 +1583,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210en50",
@@ -1352,7 +1602,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210en75",
@@ -1368,7 +1621,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*HDC32E75 UNLESS RBOX05 INSTAL"
+      "notes": "*HDC32E75 UNLESS RBOX05 INSTAL",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210en75nz",
@@ -1384,7 +1640,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210ib50",
@@ -1400,7 +1659,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hd210ib75",
@@ -1416,7 +1678,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hd210il42",
@@ -1432,7 +1697,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE HDC32I42 WHEN NLA"
+      "notes": "*USE HDC32I42 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210il50",
@@ -1448,7 +1716,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE HDC32I50 WHEN NLA"
+      "notes": "*USE HDC32I50 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210il75",
@@ -1464,7 +1735,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE HDC32I75 WHEN NLA"
+      "notes": "*USE HDC32I75 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210il75nz",
@@ -1480,7 +1754,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210in42",
@@ -1496,7 +1773,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE HDC32I42 WHEN NLA"
+      "notes": "*USE HDC32I42 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210in50",
@@ -1512,7 +1792,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE HDC32I50 WHEN NLA"
+      "notes": "*USE HDC32I50 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210in75",
@@ -1528,7 +1811,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE HDC32I75 WHEN NLA"
+      "notes": "*USE HDC32I75 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd210in75nz",
@@ -1544,7 +1830,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd250al",
@@ -1560,7 +1849,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hd250b50",
@@ -1576,7 +1868,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hd250b75",
@@ -1592,7 +1887,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hd250l42",
@@ -1608,7 +1906,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**NLA**"
+      "notes": "**NLA**",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hd250l50",
@@ -1624,7 +1925,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**NLA - REPLACE BY HD32EL50**"
+      "notes": "**NLA - REPLACE BY HD32EL50**",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hd250l75",
@@ -1640,7 +1944,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**NLA - REPLACE BY HD32EL75**"
+      "notes": "**NLA - REPLACE BY HD32EL75**",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hd250l95",
@@ -1656,7 +1963,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**TO BE KEYED BY NCPD**"
+      "notes": "**TO BE KEYED BY NCPD**",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd250n42",
@@ -1672,7 +1982,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**NLA**"
+      "notes": "**NLA**",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hd250n50",
@@ -1688,7 +2001,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**NLA - REPLACE BY HD32EN50**"
+      "notes": "**NLA - REPLACE BY HD32EN50**",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hd250n75",
@@ -1704,7 +2020,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**NLA - REPLACE BY HD32EN75**"
+      "notes": "**NLA - REPLACE BY HD32EN75**",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hd250n95",
@@ -1720,7 +2039,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**TO BE KEYED BY NCPD**"
+      "notes": "**TO BE KEYED BY NCPD**",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd26ib75",
@@ -1736,7 +2058,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hd28eb50",
@@ -1752,7 +2077,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hd28eb75",
@@ -1768,7 +2096,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hd28el42",
@@ -1784,7 +2115,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd28el50",
@@ -1800,7 +2134,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd28el75",
@@ -1816,7 +2153,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd28en42",
@@ -1832,7 +2172,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd28en50",
@@ -1848,7 +2191,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd28en75",
@@ -1864,7 +2210,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd28il42",
@@ -1880,7 +2229,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd28il50",
@@ -1896,7 +2248,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd28il75",
@@ -1912,7 +2267,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd28in42",
@@ -1928,7 +2286,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd28in50",
@@ -1944,7 +2305,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd28in75",
@@ -1960,7 +2324,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd32eb50",
@@ -1976,7 +2343,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*UNAVAILABLE USE HD250B75"
+      "notes": "*UNAVAILABLE USE HD250B75",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hd32eb75",
@@ -1992,7 +2362,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*UNAVAILABLE USE HD250B75"
+      "notes": "*UNAVAILABLE USE HD250B75",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hd32el50",
@@ -2008,7 +2381,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd32el75",
@@ -2024,7 +2400,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd32en50",
@@ -2040,7 +2419,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd32en75",
@@ -2056,7 +2438,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc211eb50",
@@ -2072,7 +2457,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "hdc211eb75",
@@ -2088,7 +2476,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc211el42",
@@ -2104,7 +2495,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc211el50",
@@ -2120,7 +2514,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**NLA WHEN AFTER RUNOUT**"
+      "notes": "**NLA WHEN AFTER RUNOUT**",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "hdc211el75",
@@ -2136,7 +2533,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc211en42",
@@ -2152,7 +2552,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc211en50",
@@ -2168,7 +2571,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**NLA WHEN AFTER RUNOUT**"
+      "notes": "**NLA WHEN AFTER RUNOUT**",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "hdc211en75",
@@ -2184,7 +2590,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**NLA WHEN AFTER RUNOUT**"
+      "notes": "**NLA WHEN AFTER RUNOUT**",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "hdc211ib50",
@@ -2200,7 +2609,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hdc211ib75",
@@ -2216,7 +2628,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hdc211il42",
@@ -2232,7 +2647,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hdc211il50",
@@ -2248,7 +2666,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE HD210IL50 WHEN NLA"
+      "notes": "*USE HD210IL50 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc211il75",
@@ -2264,7 +2685,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE *HD210IL75 WHEN NLA"
+      "notes": "*USE *HD210IL75 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc211in42",
@@ -2280,7 +2704,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hdc211in50",
@@ -2296,7 +2723,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "hdc211in75",
@@ -2312,7 +2742,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE *HD210IN75 WHEN NLA"
+      "notes": "*USE *HD210IN75 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc32e42",
@@ -2328,7 +2761,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc32e50",
@@ -2344,7 +2780,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc32e75",
@@ -2360,7 +2799,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc32eb75",
@@ -2376,7 +2818,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc32i42",
@@ -2392,7 +2837,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc32i50",
@@ -2408,7 +2856,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc32i75",
@@ -2424,7 +2875,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc32ib75",
@@ -2440,7 +2894,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf12b50b",
@@ -2456,7 +2913,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf12b50ma",
@@ -2472,7 +2932,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf12b60b",
@@ -2488,7 +2951,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf12b60ma",
@@ -2504,7 +2970,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf12l50b",
@@ -2520,7 +2989,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf12l50ma",
@@ -2536,7 +3008,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf12l60b",
@@ -2552,7 +3027,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf12l60ma",
@@ -2568,7 +3046,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf12n50b",
@@ -2584,7 +3065,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf12n50ma",
@@ -2600,7 +3084,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf12n60b",
@@ -2616,7 +3103,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf12n60ma",
@@ -2632,7 +3122,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf16an",
@@ -2648,7 +3141,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16b50b",
@@ -2664,7 +3160,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf16b50m",
@@ -2680,7 +3179,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf16b50ma",
@@ -2696,7 +3198,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf16b60b",
@@ -2712,7 +3217,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf16b60m",
@@ -2728,7 +3236,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**USE NEW CODE *INF16B60MA**"
+      "notes": "**USE NEW CODE *INF16B60MA**",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf16b60ma",
@@ -2744,7 +3255,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*   USE *INF16B60B"
+      "notes": "*EXPORT ONLY*   USE *INF16B60B",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf16el50a",
@@ -2760,7 +3274,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf16el60a",
@@ -2776,7 +3293,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf16en50a",
@@ -2792,7 +3312,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf16en60a",
@@ -2808,7 +3331,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf16l",
@@ -2824,7 +3350,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16l08",
@@ -2840,7 +3369,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16l42",
@@ -2856,7 +3388,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16l42-11",
@@ -2872,7 +3407,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16l42m",
@@ -2888,7 +3426,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF16L42MA*"
+      "notes": "*NLA USE INF16L42MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16l50",
@@ -2904,7 +3445,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16l50a",
@@ -2920,7 +3464,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16l50b",
@@ -2936,7 +3483,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf16l50m",
@@ -2952,7 +3502,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF16L50MA*"
+      "notes": "*NLA USE INF16L50MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16l50ma",
@@ -2968,7 +3521,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf16l60",
@@ -2984,7 +3540,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16l60b",
@@ -3000,7 +3559,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf16l60m",
@@ -3016,7 +3578,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF16L60MA*"
+      "notes": "*NLA USE INF16L60MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16l60ma",
@@ -3032,7 +3597,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf16l65",
@@ -3048,7 +3616,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16l75",
@@ -3064,7 +3635,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16n",
@@ -3080,7 +3654,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16n08",
@@ -3096,7 +3673,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16n42",
@@ -3112,7 +3692,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16n42-11",
@@ -3128,7 +3711,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16n42m",
@@ -3144,7 +3730,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF16N42MA*"
+      "notes": "*NLA USE INF16N42MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16n42ma",
@@ -3160,7 +3749,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "C'FLOW INFINITY 16 (42) NG"
+      "notes": "C'FLOW INFINITY 16 (42) NG",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf16n50",
@@ -3176,7 +3768,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16n50-08",
@@ -3192,7 +3787,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16n50a",
@@ -3208,7 +3806,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16n50b",
@@ -3224,7 +3825,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf16n50m",
@@ -3240,7 +3844,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF16N50MA*"
+      "notes": "*NLA USE INF16N50MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16n50ma",
@@ -3256,7 +3863,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**NLA** PLS USE *INF16N50B"
+      "notes": "**NLA** PLS USE *INF16N50B",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16n60",
@@ -3272,7 +3882,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16n60b",
@@ -3288,7 +3901,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf16n60m",
@@ -3304,7 +3920,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF16N60MA*"
+      "notes": "*NLA USE INF16N60MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16n60ma",
@@ -3320,7 +3939,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf16n65",
@@ -3336,7 +3958,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf16n75",
@@ -3352,7 +3977,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20an",
@@ -3368,7 +3996,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20b50b",
@@ -3384,7 +4015,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf20b50m",
@@ -3400,7 +4034,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF20B50MA*"
+      "notes": "*NLA USE INF20B50MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20b50ma",
@@ -3416,7 +4053,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf20b60b",
@@ -3432,7 +4072,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf20b60m",
@@ -3448,7 +4091,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF20B60MA*"
+      "notes": "*NLA USE INF20B60MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20b60ma",
@@ -3464,7 +4110,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf20in",
@@ -3480,7 +4129,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20l",
@@ -3496,7 +4148,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20l08",
@@ -3512,7 +4167,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20l42m",
@@ -3528,7 +4186,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF20L42MA*"
+      "notes": "*NLA USE INF20L42MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20l50",
@@ -3544,7 +4205,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20l50-08",
@@ -3560,7 +4224,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20l50a",
@@ -3576,7 +4243,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, NLA*"
+      "notes": "*USE-UP, NLA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf20l50b",
@@ -3592,7 +4262,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf20l50m",
@@ -3608,7 +4281,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF20L50MA*"
+      "notes": "*NLA USE INF20L50MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20l50ma",
@@ -3624,7 +4300,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf20l60",
@@ -3640,7 +4319,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20l60-11",
@@ -3656,7 +4338,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20l60b",
@@ -3672,7 +4357,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf20l60m",
@@ -3688,7 +4376,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF20L60MA*"
+      "notes": "*NLA USE INF20L60MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20l60ma",
@@ -3704,7 +4395,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf20l65",
@@ -3720,7 +4414,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20l75",
@@ -3736,7 +4433,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20n",
@@ -3752,7 +4452,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20n08",
@@ -3768,7 +4471,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20n42m",
@@ -3784,7 +4490,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF20N42MA*"
+      "notes": "*NLA USE INF20N42MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20n42ma",
@@ -3800,7 +4509,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "C'FLOW INFINITY 20 (42) NG"
+      "notes": "C'FLOW INFINITY 20 (42) NG",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf20n50",
@@ -3816,7 +4528,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20n50a",
@@ -3832,7 +4547,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20n50b",
@@ -3848,7 +4566,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf20n50m",
@@ -3864,7 +4585,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF20N50MA*"
+      "notes": "*NLA USE INF20N50MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20n50ma",
@@ -3880,7 +4604,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf20n60",
@@ -3896,7 +4623,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20n60-11",
@@ -3912,7 +4642,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20n60b",
@@ -3928,7 +4661,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf20n60m",
@@ -3944,7 +4680,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF20N60MA*"
+      "notes": "*NLA USE INF20N60MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20n60ma",
@@ -3960,7 +4699,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf20n65",
@@ -3976,7 +4718,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf20n75",
@@ -3992,7 +4737,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf24l50",
@@ -4008,7 +4756,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf24pil",
@@ -4024,7 +4775,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf24pin",
@@ -4040,7 +4794,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26b50b",
@@ -4056,7 +4813,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf26b50m",
@@ -4072,7 +4832,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF26B50MA*"
+      "notes": "*NLA USE INF26B50MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26b50ma",
@@ -4088,7 +4851,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf26b60",
@@ -4104,7 +4870,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26b60b",
@@ -4120,7 +4889,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf26b60m",
@@ -4136,7 +4908,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF26B60MA*"
+      "notes": "*NLA USE INF26B60MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26b60ma",
@@ -4152,7 +4927,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf26el50a",
@@ -4168,7 +4946,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26el60",
@@ -4184,7 +4965,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA, USE INF26EL60A*"
+      "notes": "*NLA, USE INF26EL60A*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26el60a",
@@ -4200,7 +4984,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26en50a",
@@ -4216,7 +5003,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26en60",
@@ -4232,7 +5022,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF26EN60A/INF26EN50A"
+      "notes": "*NLA USE INF26EN60A/INF26EN50A",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26en60a",
@@ -4248,7 +5041,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26ib50m",
@@ -4264,7 +5060,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY, USE-UP/NLA*"
+      "notes": "*EXPORT ONLY, USE-UP/NLA*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf26ib60m",
@@ -4280,7 +5079,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY, USE-UP/NLA*"
+      "notes": "*EXPORT ONLY, USE-UP/NLA*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf26il",
@@ -4296,7 +5098,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26il42",
@@ -4312,7 +5117,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26il42m",
@@ -4328,7 +5136,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP/NLA*"
+      "notes": "*USE-UP/NLA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf26il50",
@@ -4344,7 +5155,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26il50m",
@@ -4360,7 +5174,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, USE INF28IL50 if NLA*"
+      "notes": "*USE-UP, USE INF28IL50 if NLA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf26il60",
@@ -4376,7 +5193,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, REPLACE INF26IL60M*"
+      "notes": "*USE-UP, REPLACE INF26IL60M*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf26il60m",
@@ -4392,7 +5212,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, USE INF28IL60 if NLA*"
+      "notes": "*USE-UP, USE INF28IL60 if NLA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf26in",
@@ -4408,7 +5231,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26in42",
@@ -4424,7 +5250,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26in42m",
@@ -4440,7 +5269,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP/NLA*"
+      "notes": "*USE-UP/NLA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf26in50",
@@ -4456,7 +5288,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF26IN50M*"
+      "notes": "*NLA USE INF26IN50M*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26in50m",
@@ -4472,7 +5307,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, USE INF28IN50 if NLA*"
+      "notes": "*USE-UP, USE INF28IN50 if NLA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf26in60",
@@ -4488,7 +5326,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF26IN60M*"
+      "notes": "*NLA USE INF26IN60M*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26in60m",
@@ -4504,7 +5345,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, USE INF28IN60 if NLA*"
+      "notes": "*USE-UP, USE INF28IN60 if NLA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf26l",
@@ -4520,7 +5364,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26l08",
@@ -4536,7 +5383,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26l42",
@@ -4552,7 +5402,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26l42-11",
@@ -4568,7 +5421,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26l42b",
@@ -4584,7 +5440,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26l42m",
@@ -4600,7 +5459,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF26L42MA*"
+      "notes": "*NLA USE INF26L42MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26l42ma",
@@ -4616,7 +5478,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "C'FLOW INFINITY 26 (42) LP"
+      "notes": "C'FLOW INFINITY 26 (42) LP",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26l50",
@@ -4632,7 +5497,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26l50-08",
@@ -4648,7 +5516,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26l50a",
@@ -4664,7 +5535,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26l50b",
@@ -4680,7 +5554,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26l50m",
@@ -4696,7 +5573,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF26L50MA*"
+      "notes": "*NLA USE INF26L50MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26l50ma",
@@ -4712,7 +5592,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26l60",
@@ -4728,7 +5611,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26l60-11",
@@ -4744,7 +5630,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26l60b",
@@ -4760,7 +5649,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26l60m",
@@ -4776,7 +5668,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, REPLACE INF26L60MA*"
+      "notes": "*USE-UP, REPLACE INF26L60MA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf26l60ma",
@@ -4792,7 +5687,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26l65",
@@ -4808,7 +5706,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26l75",
@@ -4824,7 +5725,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26li",
@@ -4840,7 +5744,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26li50",
@@ -4856,7 +5763,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF26RIL50*"
+      "notes": "*NLA USE INF26RIL50*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26lr",
@@ -4872,7 +5782,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26n",
@@ -4888,7 +5801,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26n08",
@@ -4904,7 +5820,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26n42",
@@ -4920,7 +5839,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26n42-11",
@@ -4936,7 +5858,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26n42b",
@@ -4952,7 +5877,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26n42m",
@@ -4968,7 +5896,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF26N42MA*"
+      "notes": "*NLA USE INF26N42MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26n42ma",
@@ -4984,7 +5915,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "C'FLOW INFINITY 26 (42) NG"
+      "notes": "C'FLOW INFINITY 26 (42) NG",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26n50",
@@ -5000,7 +5934,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26n50-08",
@@ -5016,7 +5953,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, NLA*"
+      "notes": "*USE-UP, NLA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf26n50a",
@@ -5032,7 +5972,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26n50b",
@@ -5048,7 +5991,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26n50m",
@@ -5064,7 +6010,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF26N50MA*"
+      "notes": "*NLA USE INF26N50MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26n50ma",
@@ -5080,7 +6029,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "WHEN NLA PLS USE *INF26N50B"
+      "notes": "WHEN NLA PLS USE *INF26N50B",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26n50mablk",
@@ -5096,7 +6048,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**ONLY FOR REECE,USE-UP/NLA**"
+      "notes": "**ONLY FOR REECE,USE-UP/NLA**",
+      "restricted": true,
+      "restrictionKind": "customer-only",
+      "restrictionLabel": "Customer-only"
     },
     {
       "id": "inf26n60",
@@ -5112,7 +6067,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26n60-11",
@@ -5128,7 +6086,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26n60b",
@@ -5144,7 +6105,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26n60m",
@@ -5160,7 +6124,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, REPLACE INF26N60MA*"
+      "notes": "*USE-UP, REPLACE INF26N60MA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf26n60ma",
@@ -5176,7 +6143,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26n60mablk",
@@ -5192,7 +6162,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**ONLY FOR REECE,USE-UP/NLA**"
+      "notes": "**ONLY FOR REECE,USE-UP/NLA**",
+      "restricted": true,
+      "restrictionKind": "customer-only",
+      "restrictionLabel": "Customer-only"
     },
     {
       "id": "inf26n65",
@@ -5208,7 +6181,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26n75",
@@ -5224,7 +6200,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26ni",
@@ -5240,7 +6219,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF26RIN*"
+      "notes": "*NLA USE INF26RIN*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26ni50",
@@ -5256,7 +6238,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF26RIN50*"
+      "notes": "*NLA USE INF26RIN50*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26nr",
@@ -5272,7 +6257,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pl",
@@ -5288,7 +6276,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pl08",
@@ -5304,7 +6295,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pl42",
@@ -5320,7 +6314,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pl50",
@@ -5336,7 +6333,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pl50-08",
@@ -5352,7 +6352,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pl50a",
@@ -5368,7 +6371,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pl60",
@@ -5384,7 +6390,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pn",
@@ -5400,7 +6409,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pn08",
@@ -5416,7 +6428,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pn42",
@@ -5432,7 +6447,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pn50",
@@ -5448,7 +6466,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA"
+      "notes": "*NLA",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pn50a",
@@ -5464,7 +6485,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pn60",
@@ -5480,7 +6504,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pn60-11",
@@ -5496,7 +6523,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pn65",
@@ -5512,7 +6542,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26pn75",
@@ -5528,7 +6561,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26ril",
@@ -5544,7 +6580,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26ril42",
@@ -5560,7 +6599,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26ril50",
@@ -5576,7 +6618,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26ril60",
@@ -5592,7 +6637,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26ril65",
@@ -5608,7 +6656,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26ril75",
@@ -5624,7 +6675,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26rin",
@@ -5640,7 +6694,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26rin42",
@@ -5656,7 +6713,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26rin50",
@@ -5672,7 +6732,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26rin60",
@@ -5688,7 +6751,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26rin65",
@@ -5704,7 +6770,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26rin75",
@@ -5720,7 +6789,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26sl50",
@@ -5736,7 +6808,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, NLA*"
+      "notes": "*USE-UP, NLA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf26sn50",
@@ -5752,7 +6827,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, NLA*"
+      "notes": "*USE-UP, NLA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf26ssl50",
@@ -5768,7 +6846,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26ssl55",
@@ -5784,7 +6865,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26ssn50",
@@ -5800,7 +6884,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26ssn55",
@@ -5816,7 +6903,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26tl50m",
@@ -5832,7 +6922,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, REPLACE INF26TL50MA*"
+      "notes": "*USE-UP, REPLACE INF26TL50MA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf26tl50ma",
@@ -5848,7 +6941,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26tl60m",
@@ -5864,7 +6960,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, REPLACE INF26TL60MA*"
+      "notes": "*USE-UP, REPLACE INF26TL60MA*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf26tl60ma",
@@ -5880,7 +6979,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26tn50m",
@@ -5896,7 +6998,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "WHEN NLA - USE INF26TN50MA"
+      "notes": "WHEN NLA - USE INF26TN50MA",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26tn50ma",
@@ -5912,7 +7017,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf26tn60m",
@@ -5928,7 +7036,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF26TN60MA*"
+      "notes": "*NLA USE INF26TN60MA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf26tn60ma",
@@ -5944,7 +7055,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf28il50",
@@ -5960,7 +7074,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf28il60",
@@ -5976,7 +7093,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf28in50",
@@ -5992,7 +7112,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf28in60",
@@ -6008,7 +7131,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf32al",
@@ -6024,7 +7150,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32an",
@@ -6040,7 +7169,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA USE INF32N *"
+      "notes": "*NLA USE INF32N *",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32b50m",
@@ -6056,7 +7188,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf32b60",
@@ -6072,7 +7207,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32b60m",
@@ -6088,7 +7226,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "inf32e60b",
@@ -6104,7 +7245,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf32eel60nz",
@@ -6120,7 +7264,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf32een60nz",
@@ -6136,7 +7283,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf32eil60nz",
@@ -6152,7 +7302,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf32ein60nz",
@@ -6168,7 +7321,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf32el50a",
@@ -6184,7 +7340,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NOT AVAILABLE*"
+      "notes": "*NOT AVAILABLE*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32el60",
@@ -6200,7 +7359,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, REPLACE INF32EL60A*"
+      "notes": "*USE-UP, REPLACE INF32EL60A*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf32el60a",
@@ -6216,7 +7378,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "NLA PLEASE USE *INF32E60B"
+      "notes": "NLA PLEASE USE *INF32E60B",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32en50a",
@@ -6232,7 +7397,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NOT AVAILABLE*"
+      "notes": "*NOT AVAILABLE*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32en60",
@@ -6248,7 +7416,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE INF32EN60A* WHEN NLA"
+      "notes": "*USE INF32EN60A* WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf32en60a",
@@ -6264,7 +7435,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "NLA PLEASE USE *INF32E60B"
+      "notes": "NLA PLEASE USE *INF32E60B",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32l",
@@ -6280,7 +7454,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32l42m",
@@ -6296,7 +7473,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "C'FLOW INFINITY 32 (42) LP"
+      "notes": "C'FLOW INFINITY 32 (42) LP",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf32l50",
@@ -6312,7 +7492,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE-UP, REPLACE INF32L50M*"
+      "notes": "*USE-UP, REPLACE INF32L50M*",
+      "restricted": true,
+      "restrictionKind": "use-up",
+      "restrictionLabel": "Use-up / NLA"
     },
     {
       "id": "inf32l50a",
@@ -6328,7 +7511,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32l50m",
@@ -6344,7 +7530,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "NLA PLS USE *INF32L50MA"
+      "notes": "NLA PLS USE *INF32L50MA",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32l50ma",
@@ -6360,7 +7549,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf32l60",
@@ -6376,7 +7568,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32l60-11",
@@ -6392,7 +7587,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32l60m",
@@ -6408,7 +7606,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "NLA PLS USE *INF32L60MA"
+      "notes": "NLA PLS USE *INF32L60MA",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32l60ma",
@@ -6424,7 +7625,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf32l65",
@@ -6440,7 +7644,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32l75",
@@ -6456,7 +7663,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32l85",
@@ -6472,7 +7682,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32n",
@@ -6488,7 +7701,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32n42m",
@@ -6504,7 +7720,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "C'FLOW INFINITY 32 (42) NG"
+      "notes": "C'FLOW INFINITY 32 (42) NG",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf32n50",
@@ -6520,7 +7739,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32n50a",
@@ -6536,7 +7758,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32n50m",
@@ -6552,7 +7777,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "NLA PLS USE *INF32N50MA"
+      "notes": "NLA PLS USE *INF32N50MA",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32n50ma",
@@ -6568,7 +7796,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf32n60",
@@ -6584,7 +7815,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf32n60-11",
@@ -6600,7 +7834,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32n60m",
@@ -6616,7 +7853,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "NLA PLS USE *INF32N60MA"
+      "notes": "NLA PLS USE *INF32N60MA",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32n60ma",
@@ -6632,7 +7872,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "inf32n65",
@@ -6648,7 +7891,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32n75",
@@ -6664,7 +7910,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32n85",
@@ -6680,7 +7929,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "inf32na",
@@ -6696,7 +7948,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "k26l60m",
@@ -6712,7 +7967,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "k26n60",
@@ -6728,7 +7986,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "k26n60m",
@@ -6744,7 +8005,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "k26pn50",
@@ -6760,7 +8024,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "k26pn60",
@@ -6776,7 +8043,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "meca04",
@@ -6792,7 +8062,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "CONNECTS 2 UNITS"
+      "notes": "CONNECTS 2 UNITS",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "meca05",
@@ -6808,7 +8081,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "CNCT 2UNITS MOUNT IN W/PROOF C"
+      "notes": "CNCT 2UNITS MOUNT IN W/PROOF C",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "mecb04",
@@ -6824,7 +8100,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "CONNECTS EXTRA HD UNIT"
+      "notes": "CONNECTS EXTRA HD UNIT",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "mecc04",
@@ -6840,7 +8119,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "CNCT EACH BANK OF 5 HD UNITS"
+      "notes": "CNCT EACH BANK OF 5 HD UNITS",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "reu24fejrs",
@@ -6856,7 +8138,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "reu55rtl",
@@ -6872,7 +8157,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "reun3237w60akl",
@@ -6888,7 +8176,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "reun3237w60akn",
@@ -6904,7 +8195,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "reuv2626wakncn",
@@ -6920,7 +8214,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "reuv3237wg50akl",
@@ -6936,7 +8233,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "reuv3237wgakl",
@@ -6952,7 +8252,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "reuv3237wgakn",
@@ -6968,7 +8271,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*"
+      "notes": "*NLA*",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "s20b70",
@@ -6984,7 +8290,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "s20l70",
@@ -7000,7 +8309,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "s20l70b",
@@ -7016,7 +8328,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "s20n70",
@@ -7032,7 +8347,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "s20n70b",
@@ -7048,7 +8366,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "s26b70",
@@ -7064,7 +8385,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*EXPORT ONLY*"
+      "notes": "*EXPORT ONLY*",
+      "restricted": true,
+      "restrictionKind": "export-only",
+      "restrictionLabel": "Export only"
     },
     {
       "id": "s26il70",
@@ -7080,7 +8404,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "s26in70",
@@ -7096,7 +8423,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*USE S28IN70 WHEN NLA"
+      "notes": "*USE S28IN70 WHEN NLA",
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "s26l70",
@@ -7112,7 +8442,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "s26l70b",
@@ -7128,7 +8461,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "s26n70",
@@ -7144,7 +8480,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "s26n70b",
@@ -7160,7 +8499,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "s28il70",
@@ -7176,7 +8518,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "s28in70",
@@ -7192,7 +8537,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "s32l70",
@@ -7208,7 +8556,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**NLA - USE S32L70AM**"
+      "notes": "**NLA - USE S32L70AM**",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "s32l70am",
@@ -7224,7 +8575,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "s32n70",
@@ -7240,7 +8594,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "**NLA - REPLACE BY S32N70AM **"
+      "notes": "**NLA - REPLACE BY S32N70AM **",
+      "restricted": true,
+      "restrictionKind": "nla",
+      "restrictionLabel": "No longer available"
     },
     {
       "id": "s32n70am",
@@ -7256,7 +8613,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "smartstart",
@@ -7272,7 +8632,10 @@
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": null
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     }
   ]
 }

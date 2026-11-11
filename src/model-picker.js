@@ -1,5 +1,9 @@
 /**
  * Model / series typeahead — filter across marketing names, REU codes, aliases.
+ *
+ * Restricted / NLA rows stay visible (greyed) and arrow-highlightable, but
+ * keyboard confirm (Enter) must NOT select them — only an explicit mouse click
+ * opens the unlock confirm dialog.
  */
 
 import { getModelLabel, getModelDisplayName } from "./search.js";
@@ -10,6 +14,10 @@ import {
   seriesForModel,
   normalise,
 } from "./series.js";
+import {
+  isModelRestricted,
+  restrictionForPin,
+} from "./restriction.js";
 
 /**
  * Score a normalised haystack against query (normalised + raw).
@@ -37,6 +45,26 @@ function scoreMatch(haystacksNorm, qNorm, qRaw) {
 }
 
 /**
+ * Annotate a suggestion with restriction metadata.
+ * @param {object} suggestion
+ * @param {object} catalogue
+ * @param {object|null|undefined} seriesDoc
+ */
+function withRestriction(suggestion, catalogue, seriesDoc) {
+  const info = restrictionForPin(catalogue, seriesDoc, suggestion.value, {
+    listSeries,
+    modelIdsForSeries,
+  });
+  const restricted = Boolean(info?.restricted);
+  return {
+    ...suggestion,
+    restricted,
+    restriction: info,
+    restrictionLabel: info?.label || null,
+  };
+}
+
+/**
  * Build typeahead suggestions for the model pin field.
  * @param {object} catalogue
  * @param {object|null|undefined} seriesDoc
@@ -61,15 +89,21 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
         continue;
       }
       const count = modelIdsForSeries(catalogue, series).length;
-      results.push({
-        kind: "series",
-        value: `series:${series.id}`,
-        label: series.label,
-        subtitle: seriesSubtitle(series, count),
-        series,
-        model: null,
-        score: 10,
-      });
+      results.push(
+        withRestriction(
+          {
+            kind: "series",
+            value: `series:${series.id}`,
+            label: series.label,
+            subtitle: seriesSubtitle(series, count),
+            series,
+            model: null,
+            score: 10,
+          },
+          catalogue,
+          seriesDoc
+        )
+      );
     }
     return results.slice(0, limit);
   }
@@ -90,15 +124,21 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
       score += 5;
     }
     const count = modelIdsForSeries(catalogue, series).length;
-    results.push({
-      kind: "series",
-      value: `series:${series.id}`,
-      label: series.label,
-      subtitle: seriesSubtitle(series, count),
-      series,
-      model: null,
-      score,
-    });
+    results.push(
+      withRestriction(
+        {
+          kind: "series",
+          value: `series:${series.id}`,
+          label: series.label,
+          subtitle: seriesSubtitle(series, count),
+          series,
+          model: null,
+          score,
+        },
+        catalogue,
+        seriesDoc
+      )
+    );
   }
 
   for (const model of catalogue?.models || []) {
@@ -127,15 +167,21 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
         score += 8;
       }
     }
-    results.push({
-      kind: "model",
-      value: model.id,
-      label: display,
-      subtitle: modelSubtitle(model, series),
-      series: series || null,
-      model,
-      score,
-    });
+    results.push(
+      withRestriction(
+        {
+          kind: "model",
+          value: model.id,
+          label: display,
+          subtitle: modelSubtitle(model, series),
+          series: series || null,
+          model,
+          score,
+        },
+        catalogue,
+        seriesDoc
+      )
+    );
   }
 
   results.sort((a, b) => {
@@ -168,6 +214,9 @@ function seriesSubtitle(series, count) {
 function modelSubtitle(model, series) {
   const bits = [];
   if (series?.label) bits.push(series.label);
+  if (isModelRestricted(model) && model.restrictionLabel) {
+    bits.push(model.restrictionLabel);
+  }
   if (model.itemNumber) bits.push(model.itemNumber);
   else if (model.sku) bits.push(model.sku);
   return bits.join(" · ");
@@ -197,7 +246,13 @@ export function labelForPinValue(catalogue, seriesDoc, pinValue) {
  * Root must contain: input#model-input, button.clear, ul[role=listbox], hidden input#model-pin
  *
  * @param {HTMLElement} root
- * @param {{ catalogue: object, seriesDoc: object, onChange: () => void }} ctx
+ * @param {{
+ *   catalogue: object,
+ *   seriesDoc: object,
+ *   onChange: () => void,
+ *   isPinUnlocked?: (pinValue: string) => boolean,
+ *   requestUnlock?: (suggestion: object) => Promise<boolean>|boolean,
+ * }} ctx
  */
 export function bindModelPicker(root, ctx) {
   const input = root.querySelector("#model-input");
@@ -210,6 +265,8 @@ export function bindModelPicker(root, ctx) {
   let activeIndex = -1;
   /** @type {Array<object>} */
   let suggestions = [];
+  /** Prevent blur-restore while unlock dialog is open */
+  let unlockPending = false;
 
   function setPin(value, label) {
     hidden.value = value || "";
@@ -251,18 +308,30 @@ export function bindModelPicker(root, ctx) {
       const li = document.createElement("li");
       li.id = `model-opt-${i}`;
       li.className = "model-option";
+      if (s.restricted) li.classList.add("model-option--restricted");
       li.setAttribute("role", "option");
       li.setAttribute("aria-selected", i === activeIndex ? "true" : "false");
+      if (s.restricted) {
+        li.setAttribute("aria-disabled", "false");
+        li.title =
+          "Restricted unit — click to confirm unlock (keyboard Enter will not select)";
+      }
       if (i === activeIndex) li.classList.add("is-active");
       li.dataset.value = s.value;
+      const kindLabel = s.restricted
+        ? s.restrictionLabel || "Restricted"
+        : s.kind === "series"
+          ? "Series"
+          : "Model";
       li.innerHTML = `
         <span class="model-option-label">${escapeHtml(s.label)}</span>
         <span class="model-option-sub">${escapeHtml(s.subtitle || "")}</span>
-        <span class="model-option-kind">${s.kind === "series" ? "Series" : "Model"}</span>
+        <span class="model-option-kind">${escapeHtml(kindLabel)}</span>
       `;
+      // Mouse / pointer only — keyboard must not synthesise this path.
       li.addEventListener("mousedown", (e) => {
         e.preventDefault();
-        choose(i);
+        choose(i, { fromKeyboard: false });
       });
       list.appendChild(li);
     });
@@ -288,9 +357,44 @@ export function bindModelPicker(root, ctx) {
     renderList();
   }
 
-  function choose(index) {
+  /**
+   * @param {number} index
+   * @param {{ fromKeyboard?: boolean }} [opts]
+   */
+  async function choose(index, opts = {}) {
+    const fromKeyboard = Boolean(opts.fromKeyboard);
     const s = suggestions[index];
     if (!s) return;
+
+    // Restricted rows: keyboard confirm is blocked. Only an explicit click
+    // may open the unlock dialog (or pin if already unlocked this session).
+    if (s.restricted && fromKeyboard) {
+      return;
+    }
+
+    if (s.restricted) {
+      const already =
+        typeof ctx.isPinUnlocked === "function" &&
+        ctx.isPinUnlocked(s.value);
+      if (!already) {
+        if (typeof ctx.requestUnlock !== "function") return;
+        unlockPending = true;
+        closeList();
+        let ok = false;
+        try {
+          ok = Boolean(await ctx.requestUnlock(s));
+        } finally {
+          unlockPending = false;
+        }
+        if (!ok) {
+          // Cancelled — leave input as typed filter text, no pin.
+          updateClear();
+          input.focus();
+          return;
+        }
+      }
+    }
+
     setPin(s.value, s.label);
     closeList();
     input.blur();
@@ -305,7 +409,7 @@ export function bindModelPicker(root, ctx) {
   }
 
   input.addEventListener("focus", () => {
-    refreshSuggestions();
+    if (!unlockPending) refreshSuggestions();
   });
 
   input.addEventListener("input", () => {
@@ -333,7 +437,8 @@ export function bindModelPicker(root, ctx) {
     } else if (e.key === "Enter") {
       if (open && activeIndex >= 0 && suggestions[activeIndex]) {
         e.preventDefault();
-        choose(activeIndex);
+        // Keyboard confirm — restricted rows are ignored (click required).
+        choose(activeIndex, { fromKeyboard: true });
       }
     } else if (e.key === "Escape") {
       e.preventDefault();
@@ -348,6 +453,7 @@ export function bindModelPicker(root, ctx) {
   input.addEventListener("blur", () => {
     // Delay so mousedown on option can fire
     setTimeout(() => {
+      if (unlockPending) return;
       closeList();
       // If pin set, restore canonical label; if not, leave typed text cleared
       if (hidden.value) {

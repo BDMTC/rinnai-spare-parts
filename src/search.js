@@ -332,6 +332,7 @@ function scoreTradeHit(partNameN, tradeHits) {
  *   modelIds?: string[],
  *   pin?: object|null,
  *   tradeAliases?: object|null,
+ *   isPartVisible?: ((part: object) => boolean)|null,
  * }} [opts]
  * @returns {Array<object>}
  */
@@ -361,6 +362,8 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
   const modelsById = Object.fromEntries(
     (catalogue.models || []).map((m) => [m.id, m])
   );
+  const isPartVisible =
+    typeof opts.isPartVisible === "function" ? opts.isPartVisible : null;
 
   if (!q && !hasPin) {
     return [];
@@ -369,6 +372,8 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
   const results = [];
 
   for (const part of catalogue.parts || []) {
+    if (isPartVisible && !isPartVisible(part)) continue;
+
     const nameN = normalise(part.name);
     const codeN = normalise(part.code);
     const aliasesN = (part.aliases || []).map(normalise);
