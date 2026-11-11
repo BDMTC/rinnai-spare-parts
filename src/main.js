@@ -1,15 +1,35 @@
 import "./style.css";
 import { searchParts, getModelLabel } from "./search.js";
+import {
+  computePrices,
+  formatAud,
+  DEFAULT_MARGIN_PERCENT,
+  DEFAULT_GST_RATE,
+} from "./pricing.js";
+import {
+  listSeries,
+  resolveModelPin,
+  documentKeysForPin,
+  modelIdsForSeries,
+} from "./series.js";
 
 const app = document.querySelector("#app");
 
 /** @type {object|null} */
 let catalogue = null;
+/** @type {object|null} */
+let config = null;
+/** @type {object|null} */
+let pricesMeta = null;
+/** @type {object|null} */
+let seriesDoc = null;
 let lastResults = [];
+let marginPercent = DEFAULT_MARGIN_PERCENT;
+let gstRate = DEFAULT_GST_RATE;
 
-async function loadCatalogue() {
-  const res = await fetch("/data/catalogue.json");
-  if (!res.ok) throw new Error(`Could not load catalogue (${res.status})`);
+async function loadJson(url) {
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Could not load ${url} (${res.status})`);
   return res.json();
 }
 
@@ -37,6 +57,15 @@ function highlight(text, query) {
 }
 
 function renderShell() {
+  const effective =
+    config?.priceList?.effectiveDate ||
+    pricesMeta?.effectiveDate ||
+    "unknown";
+  const workbook =
+    config?.priceList?.workbookFile ||
+    pricesMeta?.sourceFile ||
+    "price list";
+
   app.innerHTML = `
     <div class="page">
       <header class="topbar">
@@ -47,17 +76,34 @@ function renderShell() {
             <h1 class="brand-name">Rinnai Parts</h1>
           </div>
         </div>
-        <p class="topbar-note">Local catalogue · offline-ready seed</p>
+        <p class="topbar-note">Local catalogue · price list ${escapeHtml(effective)}</p>
       </header>
 
       <main class="hero">
         <form class="search-panel" id="search-form" autocomplete="off">
-          <label class="field model-field" for="model-select">
-            <span class="field-label">Model</span>
-            <select id="model-select" name="model">
-              <option value="">Any model</option>
-            </select>
-          </label>
+          <div class="controls-row">
+            <label class="field model-field" for="model-select">
+              <span class="field-label">Model</span>
+              <select id="model-select" name="model">
+                <option value="">Any model</option>
+              </select>
+            </label>
+
+            <label class="field margin-field" for="margin-select">
+              <span class="field-label">Margin %</span>
+              <select id="margin-select" name="margin">
+                <option value="0">0%</option>
+                <option value="10">10%</option>
+                <option value="15">15%</option>
+                <option value="20" selected>20% (default)</option>
+                <option value="25">25%</option>
+                <option value="30">30%</option>
+                <option value="35">35%</option>
+                <option value="40">40%</option>
+                <option value="50">50%</option>
+              </select>
+            </label>
+          </div>
 
           <label class="field query-field" for="query-input">
             <span class="field-label">Search</span>
@@ -66,7 +112,7 @@ function renderShell() {
                 id="query-input"
                 name="q"
                 type="search"
-                placeholder="Part name, Rinnai code, or trade term…"
+                placeholder="Part code, description, or sheet category…"
                 spellcheck="false"
                 autofocus
               />
@@ -76,21 +122,67 @@ function renderShell() {
         </form>
 
         <p class="hint" id="hint">
-          Tip: try <button type="button" class="chip" data-q="flow sensor">flow sensor</button>
-          <button type="button" class="chip" data-q="PCB">PCB</button>
-          <button type="button" class="chip" data-q="R1876">R1876</button>
-          <button type="button" class="chip" data-q="anode">anode</button>
+          Tip: try
+          <button type="button" class="chip" data-q="35401021">35401021</button>
+          <button type="button" class="chip" data-q="flow">flow</button>
+          <button type="button" class="chip" data-q="thermocouple">thermocouple</button>
+          <button type="button" class="chip" data-q="HD200">HD200</button>
+          <button type="button" class="chip" data-q="VCM2837">VCM2837</button>
+        </p>
+        <p class="pricing-note">
+          Prices: net invoice ex GST × (1 + margin%) → AUD ex GST; + GST ${Math.round(gstRate * 100)}% → inc GST.
+          Default margin <strong>${DEFAULT_MARGIN_PERCENT}%</strong>.
         </p>
       </main>
 
       <section class="results-wrap" aria-live="polite">
         <div class="results-meta" id="results-meta"></div>
         <ul class="results" id="results"></ul>
-        <p class="empty" id="empty" hidden>No matches. Check spelling, try an alias, or clear the model pin.</p>
+        <p class="empty" id="empty" hidden>No matches. Try a part code, description fragment, or clear the model pin.</p>
+      </section>
+
+      <section class="data-sources" id="data-sources" aria-labelledby="data-sources-heading">
+        <h2 id="data-sources-heading">Data sources / price list config</h2>
+        <dl class="data-sources-grid">
+          <div>
+            <dt>Config file</dt>
+            <dd><code>public/data/config.json</code></dd>
+          </div>
+          <div>
+            <dt>Active price workbook</dt>
+            <dd><code>${escapeHtml(workbook)}</code></dd>
+          </div>
+          <div>
+            <dt>Effective</dt>
+            <dd>${escapeHtml(String(effective))}</dd>
+          </div>
+          <div>
+            <dt>Models</dt>
+            <dd id="ds-models">—</dd>
+          </div>
+          <div>
+            <dt>Price rows</dt>
+            <dd id="ds-prices">—</dd>
+          </div>
+          <div>
+            <dt>Sheets scanned</dt>
+            <dd id="ds-sheets">—</dd>
+          </div>
+          <div>
+            <dt>Series aliases</dt>
+            <dd><code>public/data/series-aliases.json</code></dd>
+          </div>
+        </dl>
+        <ol class="refresh-steps">
+          <li>Drop the new Rinnai price workbook into <code>source-data/</code>.</li>
+          <li>Update <code>priceList.workbookPath</code> / <code>effectiveDate</code> in <code>public/data/config.json</code>.</li>
+          <li>Run <code>npm run ingest</code>, then refresh the app.</li>
+          <li>Series map (e.g. HD28 ↔ VCM2837) lives in <code>public/data/series-aliases.json</code> — edit there for model pin / document keys.</li>
+        </ol>
       </section>
 
       <footer class="footer">
-        <span>Sample data only — replace <code>public/data/catalogue.json</code> with real lists.</span>
+        <span>Real Rinnai lists ingested locally. Exploded diagrams still to come.</span>
       </footer>
     </div>
   `;
@@ -98,40 +190,142 @@ function renderShell() {
 
 function populateModels() {
   const select = document.querySelector("#model-select");
+
+  const seriesList = listSeries(seriesDoc);
+  if (seriesList.length) {
+    const seriesGroup = document.createElement("optgroup");
+    seriesGroup.label = "Series (aliases)";
+    for (const series of seriesList) {
+      const count = modelIdsForSeries(catalogue, series).length;
+      const opt = document.createElement("option");
+      opt.value = `series:${series.id}`;
+      const aliasBit = (series.aliases || [])
+        .filter((a) => normaliseAlias(a) !== normaliseAlias(series.label))
+        .slice(0, 2)
+        .join(" · ");
+      opt.textContent = aliasBit
+        ? `${series.label} series (${aliasBit}) · ${count} models`
+        : `${series.label} series · ${count} models`;
+      seriesGroup.appendChild(opt);
+    }
+    select.appendChild(seriesGroup);
+  }
+
+  const modelsGroup = document.createElement("optgroup");
+  modelsGroup.label = "Models";
   const models = [...(catalogue.models || [])].sort((a, b) =>
-    a.name.localeCompare(b.name)
+    String(a.sku || a.name).localeCompare(String(b.sku || b.name))
   );
   for (const model of models) {
     const opt = document.createElement("option");
     opt.value = model.id;
     opt.textContent = getModelLabel(model);
-    select.appendChild(opt);
+    modelsGroup.appendChild(opt);
+  }
+  select.appendChild(modelsGroup);
+}
+
+function normaliseAlias(text) {
+  return String(text || "")
+    .toUpperCase()
+    .replace(/[^A-Z0-9]+/g, "");
+}
+
+function currentPin() {
+  const pinValue = document.querySelector("#model-select")?.value || null;
+  return resolveModelPin(catalogue, seriesDoc, pinValue);
+}
+
+function populateDataSources() {
+  const modelsEl = document.querySelector("#ds-models");
+  const pricesEl = document.querySelector("#ds-prices");
+  const sheetsEl = document.querySelector("#ds-sheets");
+  if (modelsEl) {
+    modelsEl.textContent = String(
+      catalogue?.meta?.modelCount ?? catalogue?.models?.length ?? "—"
+    );
+  }
+  if (pricesEl) {
+    const priced = pricesMeta?.pricedCount ?? catalogue?.parts?.length ?? "—";
+    const total = pricesMeta?.count ?? priced;
+    pricesEl.textContent = `${total} total · ${priced} priced`;
+  }
+  if (sheetsEl) {
+    sheetsEl.textContent = String(
+      pricesMeta?.sheetCount ?? config?.priceList?.sheetCount ?? "—"
+    );
   }
 }
 
 function runSearch() {
   const q = document.querySelector("#query-input").value;
-  const modelId = document.querySelector("#model-select").value || null;
-  lastResults = searchParts(catalogue, q, modelId);
-  renderResults(q, modelId);
+  const pin = currentPin();
+  const modelId = pin.kind === "model" ? pin.model?.id : null;
+  lastResults = searchParts(catalogue, q, modelId, {
+    modelIds: pin.modelIds,
+  });
+  renderResults(q, pin);
 }
 
-function renderResults(query, modelId) {
+function renderPriceBlock(part) {
+  if (part.kind === "discount-segment") {
+    const pct =
+      part.discountPercent != null ? `${part.discountPercent}%` : "—";
+    return `
+      <div class="price-block">
+        <h3>Discount segment</h3>
+        <p class="price-line"><span class="price-label">List discount</span> <strong>${escapeHtml(pct)}</strong></p>
+        <p class="price-muted">Not a sell price — segment discount from the price workbook.</p>
+      </div>
+    `;
+  }
+
+  const priced = computePrices(part.netInvoiceExGst, marginPercent, gstRate);
+  if (!priced) {
+    return `
+      <div class="price-block">
+        <h3>Pricing</h3>
+        <p class="muted">No net invoice price on this row.</p>
+      </div>
+    `;
+  }
+
+  return `
+    <div class="price-block">
+      <h3>Pricing (AUD)</h3>
+      <p class="price-line"><span class="price-label">Net invoice ex GST</span> <strong>${formatAud(priced.netInvoiceExGst)}</strong></p>
+      <p class="price-line"><span class="price-label">Ex GST @ ${priced.marginPercent}%</span> <strong>${formatAud(priced.exGst)}</strong></p>
+      <p class="price-line price-line--inc"><span class="price-label">Inc GST</span> <strong>${formatAud(priced.incGst)}</strong></p>
+    </div>
+  `;
+}
+
+function renderResults(query, pin) {
   const list = document.querySelector("#results");
   const meta = document.querySelector("#results-meta");
   const empty = document.querySelector("#empty");
+  const activePin = pin || currentPin();
+  const hasPin = activePin.kind !== "none";
 
   list.innerHTML = "";
 
-  if (!query.trim() && !modelId) {
+  if (!query.trim() && !hasPin) {
     meta.textContent = "";
     empty.hidden = true;
     return;
   }
 
-  const model = (catalogue.models || []).find((m) => m.id === modelId);
-  const modelBit = model ? ` · pinned ${getModelLabel(model)}` : "";
-  meta.textContent = `${lastResults.length} result${lastResults.length === 1 ? "" : "s"}${modelBit}`;
+  let pinBit = "";
+  if (activePin.kind === "series" && activePin.series) {
+    const keys = documentKeysForPin(activePin).slice(0, 3).join(" · ");
+    pinBit = ` · pinned ${activePin.series.label} series (${keys}) · ${activePin.modelIds.length} models`;
+  } else if (activePin.kind === "model" && activePin.model) {
+    const seriesBit = activePin.series
+      ? ` · ${activePin.series.label}/${(activePin.series.aliases || []).find((a) => /VCM2837/i.test(a)) || activePin.series.label}`
+      : "";
+    pinBit = ` · pinned ${getModelLabel(activePin.model)}${seriesBit}`;
+  }
+  meta.textContent = `${lastResults.length} result${lastResults.length === 1 ? "" : "s"}${pinBit} · margin ${marginPercent}%`;
 
   if (!lastResults.length) {
     empty.hidden = false;
@@ -143,65 +337,69 @@ function renderResults(query, modelId) {
     const { part, matchedOn, fitsSelectedModel, fittedModels } = row;
     const li = document.createElement("li");
     li.className = "result";
-    if (modelId && fitsSelectedModel === false) {
+    if (hasPin && fitsSelectedModel === false) {
       li.classList.add("result--other-model");
     }
-    if (modelId && fitsSelectedModel === true) {
+    if (hasPin && fitsSelectedModel === true) {
       li.classList.add("result--fits");
     }
 
     const aliases =
       (part.aliases || []).length > 0
-        ? part.aliases.map((a) => `<span class="alias">${highlight(a, query)}</span>`).join("")
-        : `<span class="muted">No aliases</span>`;
+        ? part.aliases
+            .map((a) => `<span class="alias">${highlight(a, query)}</span>`)
+            .join("")
+        : `<span class="muted">No aliases yet</span>`;
 
     const modelsHtml = fittedModels.length
       ? fittedModels
           .map((m) => {
-            const cls =
-              modelId && m.id === modelId ? "model-tag model-tag--active" : "model-tag";
+            const active =
+              hasPin && activePin.modelIds.includes(m.id);
+            const cls = active
+              ? "model-tag model-tag--active"
+              : "model-tag";
             return `<span class="${cls}">${escapeHtml(m.sku || m.name)}</span>`;
           })
           .join("")
-      : `<span class="muted">No models linked</span>`;
+      : `<span class="muted">Model links not mapped yet</span>`;
 
     const fitBadge =
-      modelId == null
+      !hasPin
         ? ""
         : fitsSelectedModel
-          ? `<span class="badge badge--fit">Fits selected model</span>`
+          ? `<span class="badge badge--fit">${activePin.kind === "series" ? "Fits series" : "Fits selected model"}</span>`
           : `<span class="badge badge--other">Other model</span>`;
 
     const matchBits = matchedOn
       .map((m) => `<span class="match-tag">${escapeHtml(m)}</span>`)
       .join("");
 
-    const diagramPlaceholder =
-      part.diagramRef?.url || part.diagramRef?.path
-        ? `<span class="diagram-ref">Diagram: ${escapeHtml(part.diagramRef.path || part.diagramRef.url)}${part.diagramRef.callout ? ` · ${escapeHtml(part.diagramRef.callout)}` : ""}</span>`
-        : `<span class="diagram-ref muted">Diagram: placeholder (callout ${escapeHtml(part.diagramRef?.callout || "—")})</span>`;
+    const categoryBit = part.category
+      ? `<span class="category-tag">${escapeHtml(part.category)}</span>`
+      : "";
 
     li.innerHTML = `
       <div class="result-head">
         <div>
           <p class="result-code">${highlight(part.code, query)}</p>
           <h2 class="result-name">${highlight(part.name, query)}</h2>
+          <div class="result-tags">${categoryBit}</div>
         </div>
         <div class="result-flags">${fitBadge}</div>
       </div>
       <div class="result-body">
+        ${renderPriceBlock(part)}
         <div class="result-block">
           <h3>Aliases</h3>
           <div class="alias-row">${aliases}</div>
-        </div>
-        <div class="result-block">
-          <h3>Fits models</h3>
+          <h3 class="subhead">Fits models</h3>
           <div class="model-row">${modelsHtml}</div>
         </div>
       </div>
       <div class="result-foot">
         <div class="match-row">Matched on ${matchBits || '<span class="muted">—</span>'}</div>
-        ${diagramPlaceholder}
+        <span class="diagram-ref muted">Sheet: ${escapeHtml(part.sheet || "—")}</span>
       </div>
     `;
     list.appendChild(li);
@@ -212,19 +410,26 @@ function bindEvents() {
   const form = document.querySelector("#search-form");
   const input = document.querySelector("#query-input");
   const select = document.querySelector("#model-select");
+  const margin = document.querySelector("#margin-select");
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
     runSearch();
   });
 
-  // Live search as you type / change model — ops-friendly
   let debounce;
   input.addEventListener("input", () => {
     clearTimeout(debounce);
     debounce = setTimeout(runSearch, 120);
   });
   select.addEventListener("change", runSearch);
+
+  margin.value = String(marginPercent);
+  margin.addEventListener("change", () => {
+    marginPercent = Number(margin.value);
+    const q = input.value;
+    renderResults(q, currentPin());
+  });
 
   document.querySelectorAll(".chip").forEach((btn) => {
     btn.addEventListener("click", () => {
@@ -238,15 +443,32 @@ function bindEvents() {
 async function boot() {
   renderShell();
   try {
-    catalogue = await loadCatalogue();
+    const [cat, cfg, prices, series] = await Promise.all([
+      loadJson("/data/catalogue.json"),
+      loadJson("/data/config.json"),
+      loadJson("/data/prices.json"),
+      loadJson("/data/series-aliases.json"),
+    ]);
+    catalogue = cat;
+    config = cfg;
+    pricesMeta = prices.meta || null;
+    seriesDoc = series;
+    marginPercent =
+      Number(cfg.defaultMarginPercent ?? cat.meta?.defaultMarginPercent) ||
+      DEFAULT_MARGIN_PERCENT;
+    gstRate = Number(cfg.gstRate ?? cat.meta?.gstRate) || DEFAULT_GST_RATE;
+
+    // Re-render shell now that config is known (effective date / workbook name).
+    renderShell();
     populateModels();
+    populateDataSources();
     bindEvents();
   } catch (err) {
     app.innerHTML = `
       <div class="fatal">
         <h1>Catalogue failed to load</h1>
         <p>${escapeHtml(err.message)}</p>
-        <p>Expected file: <code>/data/catalogue.json</code></p>
+        <p>Expected files under <code>/data/</code> — run <code>npm run ingest</code> if JSON is missing.</p>
       </div>
     `;
   }

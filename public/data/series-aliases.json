@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "meta": {
+    "title": "Rinnai series aliases",
+    "locale": "en-AU",
+    "updated": "2026-11-11",
+    "notes": "Durable marketing-series ↔ chassis / document keys for model pin and future document vault lookup. Extend — do not invent — when Beau confirms more platforms."
+  },
+  "series": [
+    {
+      "id": "hd28",
+      "label": "HD28",
+      "aliases": [
+        "HD28",
+        "REU-VCM2837",
+        "VCM2837",
+        "REUVCM2837"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["HD28"],
+        "itemNumberIncludes": ["REUVCM2837", "VCM2837"]
+      },
+      "documentKeys": [
+        "HD28",
+        "REU-VCM2837",
+        "VCM2837",
+        "REUVCM2837"
+      ],
+      "notes": "HD28 continuous-flow platform shares REU-VCM2837 / VCM2837 chassis codes used on plates and technical docs."
+    }
+  ]
+}

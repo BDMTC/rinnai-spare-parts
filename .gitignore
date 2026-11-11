@@ -12,6 +12,11 @@ dist
 dist-ssr
 *.local
 
+# Source Excel workbooks (ingest locally; JSON under public/data is committed)
+source-data/*.xlsx
+source-data/*.xls
+!source-data/README.md
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

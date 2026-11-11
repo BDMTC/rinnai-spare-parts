@@ -1,14 +1,14 @@
-# Rinnai Parts — MTC Gas Admin (v1)
+# Rinnai Parts — MTC Gas Admin
 
-Local-first spare parts search for MTC Gas admin. Find the right Rinnai part by **official name**, **Rinnai code**, or **trade/layman alias**, optionally pinned to a unit model.
+Local-first spare parts search for MTC Gas admin. Find parts by **order code**, **description**, or **sheet category**, optionally pinned to a REU model. Pricing uses Rinnai **net invoice ex GST** with an on-screen margin and 10% GST.
 
-No backend required for v1. Catalogue loads from a static JSON file.
+No backend required. Data loads from static JSON under `public/data/`.
 
 ## How to run
 
 ```bash
-cd rinnai-parts
 npm install
+npm run ingest   # if source-data/*.xlsx are present / refreshed
 npm run dev
 ```
 
@@ -21,97 +21,60 @@ npm run build
 npm run preview
 ```
 
-Offline / USB stick: after `npm run build`, serve the `dist/` folder with any static server (or open via a local server — fetch of JSON needs http(s), not `file://`).
+## Pricing (locked rules)
+
+| Item | Rule |
+|------|------|
+| Base price | Column **K** — Net invoice price **ex GST** |
+| Description | Column **A** (from Excel row 6 down) |
+| Part / order code | Column **C** |
+| Sheets | **All** workbook sheets are scanned |
+| Margin | On-screen selector; **default 20%** |
+| Sell ex GST | `net × (1 + margin%/100)` |
+| Inc GST | `ex GST × 1.10` (AU GST 10%) |
+
+## Refresh the price list
+
+1. Put the new Rinnai price workbook in `source-data/` (see `source-data/README.md`).
+2. Edit `public/data/config.json` → `priceList.workbookPath`, `workbookFile`, `effectiveDate`.
+3. Run `npm run ingest`.
+4. Refresh the browser.
+
+The app also shows this path under **Data sources / price list config**.
+
+## Data files
+
+| File | Role |
+|------|------|
+| `public/data/config.json` | Margin default, GST, workbook paths, refresh steps |
+| `public/data/models.json` | REU Model History rows |
+| `public/data/prices.json` | Price rows + sheet index |
+| `public/data/catalogue.json` | Combined search index (models + parts) |
+| `public/data/series-aliases.json` | Series map for model pin + document lookup (HD28 ↔ REU-VCM2837 / VCM2837) |
 
 ## What it does
 
-- Google-like search bar + **Search** button (also searches as you type)
-- **Model** select to pin which Rinnai unit the query is for
-- Matches across part name, Rinnai code, and aliases
-- Results show code, official name, aliases, and which models fit
-- When a model is selected, fitting parts rank higher; non-fitting hits stay visible but marked “Other model”
+- Search bar + model pin (REU marketing codes from model history)
+- **Series pin** via aliases (HD28 ↔ REU-VCM2837 / VCM2837 / REUVCM2837)
+- Matches part code, description, and sheet/category
+- Shows net invoice ex GST, computed ex GST at selected margin, and inc GST
+- Data-sources panel documents how to swap the next price list
 
-## Data shape
+## Out of scope (this pass)
 
-Replace or extend `public/data/catalogue.json`. Shape:
-
-```json
-{
-  "version": 1,
-  "meta": {
-    "title": "…",
-    "locale": "en-AU",
-    "notes": "…",
-    "updated": "YYYY-MM-DD"
-  },
-  "models": [
-    {
-      "id": "inf26e",
-      "brand": "Rinnai",
-      "name": "Infinity 26 External",
-      "sku": "INF26E",
-      "family": "Infinity continuous flow",
-      "fuel": "Natural Gas / LPG variants",
-      "diagramUrl": null,
-      "diagramPath": null,
-      "notes": null
-    }
-  ],
-  "parts": [
-    {
-      "id": "part-flow-sensor",
-      "code": "R1876",
-      "name": "Water Flow Sensor Assembly",
-      "aliases": ["flow sensor", "water sensor", "flow switch"],
-      "modelIds": ["inf16i", "inf20e", "inf26e"],
-      "category": "Water path",
-      "diagramRef": {
-        "url": null,
-        "path": null,
-        "callout": "WF-3"
-      },
-      "notes": "optional free text"
-    }
-  ]
-}
-```
-
-### Field notes
-
-| Field | Purpose |
-|-------|---------|
-| `models[].id` | Stable key referenced by `parts[].modelIds` |
-| `models[].diagramUrl` / `diagramPath` | Placeholder for exploded diagram later |
-| `parts[].code` | Official Rinnai part code |
-| `parts[].aliases` | Trade / admin / plumber synonyms |
-| `parts[].diagramRef` | Future diagram link + callout number |
-
-Diagram media can later live under `public/diagrams/` and be pointed to via `diagramPath` (e.g. `/diagrams/inf26e-exploded.pdf`).
+- Exploded diagrams / callout RAG (Beau supplying next)
+- Quote cart / email handoff
+- Trade aliases (schema ready; lists not supplied yet)
+- Model ↔ part fit mapping from Rinnai docs
 
 ## Assumptions
 
 See [ASSUMPTIONS.md](./ASSUMPTIONS.md).
 
-## Out of scope (v1)
-
-- Company portal auth
-- Real catalogue import / ERP sync
-- OCR of exploded diagrams
-- Ordering / stock levels
-
-## What Beau should supply next
-
-1. Real **model list** (SKU / marketing name / fuel variants)
-2. Real **parts lists** per model (code + official name)
-3. **Alias / synonym** list from admin + warehouse (how people actually ask)
-4. Exploded **diagram PDFs/images** + callout map when ready
-5. Any known **NG vs LPG** part splits that must not be cross-ordered
-
 ---
 
-**Woz's Proactive Tips (Potential Pitfalls)**
+**Woz's tips**
 
-- Same trade term (e.g. “PCB”) can map to **different codes per model family** — always pin the model before ordering.
-- Alias collisions will grow; keep aliases lowercase-ish plain English and avoid stuffing SKUs into alias lists (SKUs belong in `code`).
-- When diagrams arrive, store them locally under `public/diagrams/` first; don’t assume portal CDN until auth exists.
-- `file://` won’t load the JSON via `fetch` — always use `npm run dev` / `preview` or another static server.
+- Pin the model when you can — part–model links are not mapped yet from the price book alone.
+- When Rinnai sends a new price workbook, change config + `npm run ingest`; don’t hand-edit `prices.json`.
+- `file://` won’t load JSON via `fetch` — use `npm run dev` / `preview`.

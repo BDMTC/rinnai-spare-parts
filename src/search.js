@@ -1,6 +1,6 @@
 /**
  * Local catalogue search for Rinnai spare parts.
- * Scores official name, Rinnai code, and layman/trade aliases.
+ * Scores official name, Rinnai/order code, aliases, sheet/category.
  * When a model is pinned, parts that fit that model rank higher and
  * non-fitting parts are deprioritised (still shown, marked).
  */
@@ -23,16 +23,27 @@ function tokens(text) {
  * @param {object} catalogue
  * @param {string} query
  * @param {string|null} modelId
+ * @param {{ limit?: number, modelIds?: string[] }} [opts]
  * @returns {Array<object>}
  */
-export function searchParts(catalogue, query, modelId = null) {
+export function searchParts(catalogue, query, modelId = null, opts = {}) {
   const q = normalise(query);
   const qTokens = tokens(query);
+  const limit = opts.limit ?? 80;
+  const pinnedIds = new Set(
+    (opts.modelIds && opts.modelIds.length
+      ? opts.modelIds
+      : modelId
+        ? [modelId]
+        : []
+    ).filter(Boolean)
+  );
+  const hasPin = pinnedIds.size > 0;
   const modelsById = Object.fromEntries(
     (catalogue.models || []).map((m) => [m.id, m])
   );
 
-  if (!q && !modelId) {
+  if (!q && !hasPin) {
     return [];
   }
 
@@ -42,7 +53,12 @@ export function searchParts(catalogue, query, modelId = null) {
     const nameN = normalise(part.name);
     const codeN = normalise(part.code);
     const aliasesN = (part.aliases || []).map(normalise);
-    const fitsModel = modelId ? (part.modelIds || []).includes(modelId) : null;
+    const categoryN = normalise(part.category);
+    const sheetN = normalise(part.sheet);
+    const partModelIds = part.modelIds || [];
+    const fitsModel = hasPin
+      ? partModelIds.some((id) => pinnedIds.has(id))
+      : null;
 
     let score = 0;
     let matchedOn = [];
@@ -52,12 +68,12 @@ export function searchParts(catalogue, query, modelId = null) {
       if (codeN === q) {
         score += 100;
         matchedOn.push("code");
-      } else if (codeN.includes(q) || q.includes(codeN)) {
+      } else if (codeN.includes(q) || (q.length >= 3 && q.includes(codeN))) {
         score += 70;
         matchedOn.push("code");
       }
 
-      // Exact / substring name
+      // Exact / substring name (price-list description)
       if (nameN === q) {
         score += 90;
         matchedOn.push("name");
@@ -80,9 +96,17 @@ export function searchParts(catalogue, query, modelId = null) {
         }
       }
 
+      // Sheet / category (so “heating”, “cont flow” etc. work)
+      if (categoryN.includes(q) || sheetN.includes(q)) {
+        score += 25;
+        matchedOn.push("category");
+      }
+
       // Token overlap (handles multi-word trade terms)
       if (qTokens.length > 1 || score === 0) {
-        const haystack = [nameN, codeN, ...aliasesN].join(" ");
+        const haystack = [nameN, codeN, categoryN, sheetN, ...aliasesN].join(
+          " "
+        );
         let hits = 0;
         for (const t of qTokens) {
           if (haystack.includes(t)) hits += 1;
@@ -92,21 +116,21 @@ export function searchParts(catalogue, query, modelId = null) {
           if (!matchedOn.length) matchedOn.push("token");
         }
       }
-    } else if (modelId && fitsModel) {
-      // Model browse with empty query: list parts that fit
+    } else if (hasPin && fitsModel) {
+      // Model / series browse with empty query: list parts that fit
       score = 10;
       matchedOn.push("model");
     }
 
     if (score <= 0) continue;
 
-    // Model pin: boost fits, soft-penalise non-fits (still visible)
-    if (modelId) {
+    // Model / series pin: boost fits, soft-penalise non-fits (still visible)
+    if (hasPin) {
       if (fitsModel) score += 40;
       else score = Math.max(1, score - 25);
     }
 
-    const fittedModels = (part.modelIds || [])
+    const fittedModels = partModelIds
       .map((id) => modelsById[id])
       .filter(Boolean);
 
@@ -121,8 +145,7 @@ export function searchParts(catalogue, query, modelId = null) {
 
   results.sort((a, b) => {
     if (b.score !== a.score) return b.score - a.score;
-    // Prefer model-fit when scores tie
-    if (modelId) {
+    if (hasPin) {
       const af = a.fitsSelectedModel ? 1 : 0;
       const bf = b.fitsSelectedModel ? 1 : 0;
       if (bf !== af) return bf - af;
@@ -130,10 +153,11 @@ export function searchParts(catalogue, query, modelId = null) {
     return a.part.name.localeCompare(b.part.name);
   });
 
-  return results;
+  return results.slice(0, limit);
 }
 
 export function getModelLabel(model) {
   if (!model) return "";
-  return model.sku ? `${model.name} (${model.sku})` : model.name;
+  const sku = model.sku || model.marketingCode;
+  return sku ? `${model.name} (${sku})` : model.name;
 }

@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "locale": "en-AU",
+  "currency": "AUD",
+  "gstRate": 0.1,
+  "defaultMarginPercent": 20,
+  "marginNote": "Sell ex GST = net invoice ex GST × (1 + margin%/100). Inc GST = ex GST × 1.10.",
+  "priceList": {
+    "label": "Rinnai Spare Parts Price List",
+    "effectiveDate": "2026-04-01",
+    "workbookFile": "Price-List-Spare-Parts-Effective-01-04-26.xlsx",
+    "workbookPath": "source-data/Price-List-Spare-Parts-Effective-01-04-26.xlsx",
+    "generatedFile": "public/data/prices.json",
+    "parse": {
+      "dataStartRow": 6,
+      "columns": {
+        "description": "A",
+        "partCode": "C",
+        "netInvoiceExGst": "K"
+      },
+      "notes": "Excel row 6 is typically the column header row; ingest skips header-like rows. All workbook sheets are scanned; product sheets yield priced parts."
+    },
+    "lastIngested": "2026-11-11"
+  },
+  "modelHistory": {
+    "label": "REU Model History",
+    "workbookFile": "REU-Model-History.xlsx",
+    "workbookPath": "source-data/REU-Model-History.xlsx",
+    "generatedFile": "public/data/models.json",
+    "lastIngested": "2026-11-11"
+  },
+  "seriesAliasesFile": "public/data/series-aliases.json",
+  "howToRefresh": [
+    "Drop the new Rinnai price workbook into source-data/ (or update priceList.workbookPath in this file).",
+    "Update priceList.effectiveDate and priceList.workbookFile/workbookPath to match the new file.",
+    "Run: npm run ingest",
+    "Restart or refresh the app — search uses public/data/prices.json and public/data/models.json.",
+    "Series aliases (HD28 ↔ VCM2837 etc.) are hand-maintained in public/data/series-aliases.json — not overwritten by ingest."
+  ]
+}
