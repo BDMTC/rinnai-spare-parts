@@ -135,5 +135,31 @@ export function searchParts(catalogue, query, modelId = null) {
 
 export function getModelLabel(model) {
   if (!model) return "";
+  if (model.sku && model.series?.length) {
+    const seriesBit = model.series.filter((s) => s !== model.sku).slice(0, 2).join(" / ");
+    return seriesBit
+      ? `${model.name} (${model.sku} · ${seriesBit})`
+      : `${model.name} (${model.sku})`;
+  }
   return model.sku ? `${model.name} (${model.sku})` : model.name;
+}
+
+/**
+ * Resolve a selected model id against catalogue + optional series-alias modelId.
+ * @param {object} catalogue
+ * @param {string|null} modelId
+ * @param {object|null} aliasesConfig
+ */
+export function resolveModel(catalogue, modelId, aliasesConfig = null) {
+  if (!modelId) return null;
+  const models = catalogue?.models || [];
+  const direct = models.find((m) => m.id === modelId);
+  if (direct) return direct;
+  const group = (aliasesConfig?.aliases || []).find((a) => a.modelId === modelId || a.id === modelId);
+  if (!group) return null;
+  return (
+    models.find((m) => m.id === group.modelId) ||
+    models.find((m) => (m.series || []).includes(group.canonical)) ||
+    null
+  );
 }

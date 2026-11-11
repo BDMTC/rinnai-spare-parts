@@ -1,16 +1,26 @@
 import "./style.css";
-import { searchParts, getModelLabel } from "./search.js";
+import { searchParts, getModelLabel, resolveModel } from "./search.js";
+import { searchDocuments } from "./documents.js";
 
 const app = document.querySelector("#app");
 
 /** @type {object|null} */
 let catalogue = null;
+/** @type {object|null} */
+let documentIndex = null;
+/** @type {object|null} */
+let seriesAliases = null;
 let lastResults = [];
+let lastDocResults = [];
+
+async function loadJson(path) {
+  const res = await fetch(path);
+  if (!res.ok) throw new Error(`Could not load ${path} (${res.status})`);
+  return res.json();
+}
 
 async function loadCatalogue() {
-  const res = await fetch("/data/catalogue.json");
-  if (!res.ok) throw new Error(`Could not load catalogue (${res.status})`);
-  return res.json();
+  return loadJson("/data/catalogue.json");
 }
 
 function escapeHtml(str) {
@@ -78,14 +88,18 @@ function renderShell() {
         <p class="hint" id="hint">
           Tip: try <button type="button" class="chip" data-q="flow sensor">flow sensor</button>
           <button type="button" class="chip" data-q="PCB">PCB</button>
-          <button type="button" class="chip" data-q="R1876">R1876</button>
-          <button type="button" class="chip" data-q="anode">anode</button>
+          <button type="button" class="chip" data-q="HD28">HD28</button>
+          <button type="button" class="chip" data-q="VCM2837">VCM2837</button>
         </p>
       </main>
 
       <section class="results-wrap" aria-live="polite">
         <div class="results-meta" id="results-meta"></div>
         <ul class="results" id="results"></ul>
+        <div class="docs-wrap" id="docs-wrap" hidden>
+          <h2 class="docs-heading">Data sheets</h2>
+          <ul class="docs" id="docs"></ul>
+        </div>
         <p class="empty" id="empty" hidden>No matches. Check spelling, try an alias, or clear the model pin.</p>
       </section>
 
@@ -112,8 +126,43 @@ function populateModels() {
 function runSearch() {
   const q = document.querySelector("#query-input").value;
   const modelId = document.querySelector("#model-select").value || null;
+  const model = resolveModel(catalogue, modelId, seriesAliases);
   lastResults = searchParts(catalogue, q, modelId);
+  lastDocResults = searchDocuments(documentIndex, seriesAliases, q, model);
   renderResults(q, modelId);
+}
+
+function renderDocResults() {
+  const wrap = document.querySelector("#docs-wrap");
+  const list = document.querySelector("#docs");
+  list.innerHTML = "";
+  if (!lastDocResults.length) {
+    wrap.hidden = true;
+    return;
+  }
+  wrap.hidden = false;
+  for (const row of lastDocResults) {
+    const { doc, matchedOn } = row;
+    const li = document.createElement("li");
+    li.className = "doc";
+    const series = (doc.series || [])
+      .map((s) => `<span class="model-tag">${escapeHtml(s)}</span>`)
+      .join("");
+    const type = escapeHtml(doc.type || "other");
+    // PDFs stay on local disk; path is relative under the Temp app folder.
+    li.innerHTML = `
+      <div class="doc-head">
+        <span class="doc-type">${type}</span>
+        <p class="doc-name">${escapeHtml(doc.fileName)}</p>
+      </div>
+      <div class="doc-series">${series || '<span class="muted">No series tags</span>'}</div>
+      <p class="doc-path muted">${escapeHtml(doc.path || "")}</p>
+      <div class="match-row">Matched on ${(matchedOn || [])
+        .map((m) => `<span class="match-tag">${escapeHtml(m)}</span>`)
+        .join("")}</div>
+    `;
+    list.appendChild(li);
+  }
 }
 
 function renderResults(query, modelId) {
@@ -126,14 +175,21 @@ function renderResults(query, modelId) {
   if (!query.trim() && !modelId) {
     meta.textContent = "";
     empty.hidden = true;
+    document.querySelector("#docs-wrap").hidden = true;
+    document.querySelector("#docs").innerHTML = "";
     return;
   }
 
-  const model = (catalogue.models || []).find((m) => m.id === modelId);
+  const model = resolveModel(catalogue, modelId, seriesAliases);
   const modelBit = model ? ` · pinned ${getModelLabel(model)}` : "";
-  meta.textContent = `${lastResults.length} result${lastResults.length === 1 ? "" : "s"}${modelBit}`;
+  const docBit = lastDocResults.length
+    ? ` · ${lastDocResults.length} data sheet${lastDocResults.length === 1 ? "" : "s"}`
+    : "";
+  meta.textContent = `${lastResults.length} part${lastResults.length === 1 ? "" : "s"}${docBit}${modelBit}`;
 
-  if (!lastResults.length) {
+  renderDocResults();
+
+  if (!lastResults.length && !lastDocResults.length) {
     empty.hidden = false;
     return;
   }
@@ -238,7 +294,14 @@ function bindEvents() {
 async function boot() {
   renderShell();
   try {
-    catalogue = await loadCatalogue();
+    const [cat, docs, aliases] = await Promise.all([
+      loadCatalogue(),
+      loadJson("/data/document-index.json").catch(() => ({ documents: [] })),
+      loadJson("/data/series-aliases.json").catch(() => ({ aliases: [] })),
+    ]);
+    catalogue = cat;
+    documentIndex = docs;
+    seriesAliases = aliases;
     populateModels();
     bindEvents();
   } catch (err) {

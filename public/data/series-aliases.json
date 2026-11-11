@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "meta": {
+    "notes": "Trade / marketing names mapped to Rinnai series codes used in data-sheet filenames and document-index series[]. Expand both directions when resolving model pins or free-text search.",
+    "updated": "2026-11-11"
+  },
+  "aliases": [
+    {
+      "id": "reu-vcm2837",
+      "canonical": "REU-VCM2837",
+      "labels": [
+        "HD28",
+        "HD-28",
+        "HD 28",
+        "VCM2837",
+        "REU-VCM2837",
+        "REU-VCM2837WC",
+        "REU VCM2837"
+      ],
+      "modelId": "reu-vcm2837",
+      "notes": "Beau: HD28 maps to VCM2837 external. Two PL PDFs in local data-sheets."
+    }
+  ]
+}

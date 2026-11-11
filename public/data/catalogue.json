@@ -63,6 +63,19 @@
       "notes": "Commercial high-demand"
     },
     {
+      "id": "reu-vcm2837",
+      "brand": "Rinnai",
+      "name": "Heavy Duty 28 External",
+      "sku": "HD28",
+      "family": "Heavy Duty continuous flow",
+      "fuel": "Natural Gas / LPG",
+      "aliases": ["HD28", "HD-28", "VCM2837", "REU-VCM2837", "REU-VCM2837WC"],
+      "series": ["REU-VCM2837", "VCM2837", "HD28"],
+      "diagramUrl": null,
+      "diagramPath": "data-sheets/Rinnai Data Sheets/Parts List REU-VCM2837 WC External.pdf",
+      "notes": "Trade name HD28 maps to REU-VCM2837 / VCM2837. Local PL PDFs indexed under data-sheets."
+    },
+    {
       "id": "r85",
       "brand": "Rinnai",
       "name": "R85 Storage Cylinder",
