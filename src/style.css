@@ -925,87 +925,114 @@ mark {
   background: rgba(255, 255, 255, 0.45);
 }
 
-.data-sources {
+/* Shared veil over Admin + Data sources */
+.ops-panels {
   position: relative;
   margin-top: 2.25rem;
-  padding: 0;
-  border: 1px solid rgba(26, 47, 154, 0.28);
-  border-radius: var(--radius);
-  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(26, 47, 154, 0.22);
+  border-radius: 16px;
   overflow: hidden;
   outline: none;
-  min-height: 11.5rem;
+  background: rgba(255, 255, 255, 0.55);
+  min-height: 18rem;
 }
 
-.data-sources:focus-visible {
+.ops-panels:focus-visible {
   box-shadow: 0 0 0 3px rgba(79, 144, 200, 0.45);
 }
 
-.data-sources-body {
-  padding: 1.1rem 1.15rem;
+.ops-panels-body {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
 }
 
-.data-sources-veil {
+.ops-panels-veil {
   position: absolute;
   inset: 0;
-  z-index: 2;
+  z-index: 3;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 0.35rem;
-  padding: 1.25rem 1.1rem;
-  text-align: center;
-  color: #fff;
-  background:
-    radial-gradient(900px 420px at 100% 0%, rgba(0, 134, 197, 0.55), transparent 55%),
-    radial-gradient(700px 380px at 0% 100%, rgba(13, 25, 142, 0.45), transparent 50%),
-    linear-gradient(135deg, var(--mtc-field-dark) 0%, var(--mtc-swoosh-bot) 48%, var(--mtc-field-bright) 100%);
-  opacity: 1;
+  /* Soft translucent — hides panels gently, not a hard wall */
+  opacity: 0.78;
   pointer-events: auto;
-  transition: opacity 280ms ease;
+  transition: opacity 320ms ease;
+  background:
+    radial-gradient(900px 480px at 100% 0%, rgba(0, 134, 197, 0.35), transparent 58%),
+    linear-gradient(160deg, var(--mtc-field-dark) 0%, var(--mtc-swoosh-bot) 55%, var(--mtc-field-bright) 100%);
 }
 
-.data-sources:hover .data-sources-veil,
-.data-sources:focus-visible .data-sources-veil,
-.data-sources:focus-within .data-sources-veil {
+.ops-panels:hover .ops-panels-veil,
+.ops-panels:focus-visible .ops-panels-veil,
+.ops-panels:focus-within .ops-panels-veil {
   opacity: 0;
   pointer-events: none;
 }
 
-.data-sources-veil-logo {
+.ops-panels-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  /* Prefer letterbox over chopping people out of the HQ shot */
+  object-fit: contain;
+  object-position: center center;
+}
+
+.ops-panels-veil-caption {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 10px 28px rgba(1, 52, 116, 0.18);
+  text-align: center;
+  max-width: min(90%, 20rem);
+}
+
+.ops-panels-veil-logo {
   display: block;
-  width: clamp(7.5rem, 28vw, 10rem);
+  width: clamp(6.5rem, 22vw, 8.5rem);
   height: auto;
-  margin-bottom: 0.45rem;
-  padding: 0.55rem 0.75rem;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 8px 24px rgba(1, 52, 116, 0.22);
 }
 
-.data-sources-veil-kicker {
-  margin: 0;
-  font-size: 0.72rem;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  font-weight: 650;
-  color: rgba(255, 255, 255, 0.88);
-}
-
-.data-sources-veil-title {
+.ops-panels-veil-title {
   margin: 0;
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  letter-spacing: -0.02em;
-  color: #fff;
+  color: var(--mtc-blue-dark);
 }
 
-.data-sources-veil-hint {
-  margin: 0.35rem 0 0;
-  font-size: 0.82rem;
-  color: rgba(255, 255, 255, 0.82);
+.ops-panels-hint {
+  margin: 0;
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ops-panels-veil {
+    transition: none;
+  }
+}
+
+.data-sources {
+  position: relative;
+  margin-top: 0;
+  padding: 0;
+  border: 1px solid rgba(26, 47, 154, 0.2);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.86);
+  overflow: hidden;
+}
+
+.data-sources-body {
+  padding: 1.1rem 1.15rem;
 }
 
 .data-sources h2 {
@@ -1013,12 +1040,6 @@ mark {
   font-family: var(--font-display);
   font-size: 1.05rem;
   letter-spacing: -0.02em;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .data-sources-veil {
-    transition: none;
-  }
 }
 
 .data-sources-grid {
@@ -1640,12 +1661,11 @@ mark {
 
 /* Admin / development */
 .admin-section {
-  margin-top: 2.5rem;
+  margin-top: 0;
   padding: 1.25rem 1.2rem 1.4rem;
   border: 1px solid var(--line);
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.72);
-  animation: rise 560ms ease-out both;
+  background: rgba(255, 255, 255, 0.86);
 }
 
 .admin-kicker {
