@@ -231,9 +231,14 @@ export function matchedAbbrevLabels(nameN, expanded, q, abbrevForms, index) {
     if (queryExcludedForGroup(q, group)) return;
     const onName = formsOnName(group);
     if (!onName.length) return;
-    seenGroups.add(group.id);
 
     const qry = String(queryForm || q || "").trim();
+    // Exact full-word already on the name — no cue (variant did not fire).
+    // Cue only when the typed form differs from what's printed on the part.
+    if (onName.includes(qry) || onName.includes(q)) return;
+
+    seenGroups.add(group.id);
+
     // Prefer catalogue spelling that differs from what the user typed
     const catalogueForm =
       onName.find((f) => f !== qry) || onName[0];
@@ -243,13 +248,7 @@ export function matchedAbbrevLabels(nameN, expanded, q, abbrevForms, index) {
     if (qry && qry !== cat) {
       labels.push(`matched ${display(cat)} (${qry})`);
     } else {
-      // Same token both sides (e.g. typed BRKT, name has BRKT) — still show cue
-      const other =
-        group.forms.find((f) => f !== cat) ||
-        (abbrevForms?.singles || []).find((f) => group.forms.includes(f) && f !== cat) ||
-        (abbrevForms?.phrases || []).find((f) => group.forms.includes(f) && f !== cat);
-      if (other) labels.push(`matched ${display(cat)} (${other})`);
-      else labels.push(`matched ${display(cat)}`);
+      labels.push(`matched ${display(cat)}`);
     }
   };
 
@@ -851,7 +850,12 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
             hits += 1;
             // Prefer meaningful trade tokens over stop-ish shorts
             weighed += t.length >= 4 ? 2 : 1;
-            if (isAbbrevForm && !qTokens.includes(t)) {
+            if (
+              isAbbrevForm &&
+              !qTokens.includes(t) &&
+              // Variant fired: typed form is not literally on the name
+              !formPresentInName(nameN, q, abbrevIndex)
+            ) {
               abbrevTokenHit = true;
             }
           }
@@ -860,7 +864,9 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
           if (synonymPresent(nameN, nameExpanded, ph, abbrevIndex)) {
             hits += 1;
             weighed += 2;
-            abbrevTokenHit = true;
+            if (!formPresentInName(nameN, q, abbrevIndex)) {
+              abbrevTokenHit = true;
+            }
           }
         }
         if (hits > 0) {
