@@ -60,6 +60,12 @@ import {
 } from "./admin-overrides.js";
 import { buildFlagIssueMailto } from "./flag-issue.js";
 import {
+  appendFeedback,
+  buildFeedbackMailto,
+  downloadFeedbackJson,
+  loadFeedback,
+} from "./feedback.js";
+import {
   parsePriceWorkbook,
   pricesToCatalogueParts,
   diffPriceImport,
@@ -353,6 +359,55 @@ function closeHelp() {
   const dialog = document.querySelector("#help-dialog");
   if (dialog && typeof dialog.close === "function") dialog.close();
   else if (dialog) dialog.removeAttribute("open");
+}
+
+function openFeedback() {
+  const dialog = document.querySelector("#feedback-dialog");
+  if (!dialog) return;
+  const flash = document.querySelector("#feedback-flash");
+  if (flash) {
+    flash.hidden = true;
+    flash.textContent = "";
+  }
+  if (typeof dialog.showModal === "function") dialog.showModal();
+  else dialog.setAttribute("open", "");
+  document.querySelector("#feedback-name")?.focus();
+}
+
+function closeFeedback() {
+  const dialog = document.querySelector("#feedback-dialog");
+  if (dialog && typeof dialog.close === "function") dialog.close();
+  else if (dialog) dialog.removeAttribute("open");
+}
+
+function showFeedbackFlash(message) {
+  const flash = document.querySelector("#feedback-flash");
+  if (!flash) return;
+  flash.textContent = message;
+  flash.hidden = !message;
+}
+
+function submitFeedback(opts = {}) {
+  const nameInput = document.querySelector("#feedback-name");
+  const commentInput = document.querySelector("#feedback-comment");
+  const name = nameInput?.value ?? "";
+  const comment = commentInput?.value ?? "";
+  let entry;
+  try {
+    entry = appendFeedback({ name, comment });
+  } catch (err) {
+    showFeedbackFlash(err.message || "Please fill in your name and comment.");
+    if (!String(name).trim()) nameInput?.focus();
+    else commentInput?.focus();
+    return null;
+  }
+  if (nameInput) nameInput.value = "";
+  if (commentInput) commentInput.value = "";
+  showFeedbackFlash("Thanks — saved on this device.");
+  if (opts.mailto) {
+    openMailto(buildFeedbackMailto(entry));
+  }
+  return entry;
 }
 
 function handleAddToQuote(part) {
@@ -725,6 +780,54 @@ function renderShell() {
         </div>
       </dialog>
 
+      <dialog class="cart-dialog help-dialog feedback-dialog" id="feedback-dialog" aria-labelledby="feedback-dialog-title">
+        <div class="help-dialog-inner">
+          <header class="cart-dialog-bar">
+            <div>
+              <p class="cart-dialog-kicker">Feedback</p>
+              <h2 class="cart-dialog-title" id="feedback-dialog-title">Questions · comments · suggestions</h2>
+            </div>
+            <button type="button" class="cart-dialog-close" id="feedback-close" aria-label="Close feedback">Close</button>
+          </header>
+          <form class="feedback-form" id="feedback-form">
+            <p class="feedback-lead">
+              How can we improve this tool for you? Drop a note for Beau — it stays on this device (and you can email or export it).
+            </p>
+            <p class="cart-flash" id="feedback-flash" hidden></p>
+            <label class="cart-job-field" for="feedback-name">
+              <span class="cart-job-label">Your name</span>
+              <input
+                id="feedback-name"
+                class="cart-job-input"
+                type="text"
+                name="name"
+                autocomplete="name"
+                required
+                maxlength="120"
+                placeholder="e.g. Sam from stores"
+              />
+            </label>
+            <label class="cart-job-field" for="feedback-comment">
+              <span class="cart-job-label">Comment</span>
+              <textarea
+                id="feedback-comment"
+                class="cart-job-input feedback-comment"
+                name="comment"
+                required
+                maxlength="4000"
+                rows="5"
+                placeholder="What would make this easier day-to-day?"
+              ></textarea>
+            </label>
+            <div class="cart-actions feedback-actions">
+              <button type="submit" class="cart-action cart-action--primary" id="feedback-save">Save feedback</button>
+              <button type="button" class="cart-action" id="feedback-email">Save &amp; email Beau</button>
+              <button type="button" class="cart-action" id="feedback-export">Export JSON</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
+
       <div
         class="ops-panels"
         id="ops-panels"
@@ -836,6 +939,27 @@ function renderShell() {
             </div>
           </section>
         </div>
+      </div>
+
+      <div class="feedback-blurb">
+        <button
+          type="button"
+          class="feedback-like"
+          id="feedback-open"
+          aria-haspopup="dialog"
+          aria-controls="feedback-dialog"
+          title="Questions, comments, suggestions"
+        >
+          <span class="feedback-like-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" focusable="false">
+              <path
+                fill="currentColor"
+                d="M2 21h4V9H2v12zm19.07-9.62c.28-.45.43-.97.43-1.51 0-1.52-1.23-2.75-2.75-2.75H13.4l.79-3.78.03-.32c0-.41-.17-.79-.44-1.06L12.87 1 6.93 6.94C6.54 7.33 6.3 7.87 6.3 8.45V18c0 1.1.9 2 2 2h8.35c.83 0 1.55-.5 1.86-1.22l3.12-7.29c.16-.37.24-.77.24-1.17 0-.22-.03-.43-.08-.64l.28.2z"
+              />
+            </svg>
+          </span>
+          <span class="feedback-like-copy">Like if you found this useful</span>
+        </button>
       </div>
 
       <footer class="footer">
@@ -1779,6 +1903,39 @@ function bindEvents() {
       if (e.target === helpDialog) closeHelp();
     });
   }
+
+  const feedbackOpen = document.querySelector("#feedback-open");
+  const feedbackClose = document.querySelector("#feedback-close");
+  const feedbackDialog = document.querySelector("#feedback-dialog");
+  const feedbackForm = document.querySelector("#feedback-form");
+  feedbackOpen?.addEventListener("click", openFeedback);
+  feedbackClose?.addEventListener("click", closeFeedback);
+  feedbackForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    submitFeedback({ mailto: false });
+  });
+  document.querySelector("#feedback-email")?.addEventListener("click", () => {
+    submitFeedback({ mailto: true });
+  });
+  document.querySelector("#feedback-export")?.addEventListener("click", () => {
+    const n = downloadFeedbackJson();
+    showFeedbackFlash(
+      n
+        ? `Exported ${n} feedback entr${n === 1 ? "y" : "ies"}.`
+        : "No feedback saved yet — submit one first."
+    );
+  });
+  if (feedbackDialog) {
+    feedbackDialog.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      closeFeedback();
+    });
+    feedbackDialog.addEventListener("click", (e) => {
+      if (e.target === feedbackDialog) closeFeedback();
+    });
+  }
+  // Touch localStorage early so export/status stay consistent after boot.
+  loadFeedback();
 
   updateCartBadge();
   bindOpsPanelsReveal();
