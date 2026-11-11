@@ -55,9 +55,19 @@
           "role": "insulation",
           "sheetName": "HEX insulation / INSULATION THERMAL HEX N3237",
           "notes": "Inside 130/131 dashed loop. RA may be 92099592 on price list / blank on some PL rows."
+        },
+        {
+          "itemNo": "142",
+          "code": "92099479",
+          "role": "gasket",
+          "shared": true,
+          "sharedParentCodes": ["92099423", "92099477"],
+          "sheetName": "GASKET HEAT EXCH N3237",
+          "priceListName": "GASKET HEX EXCH BTM N3237",
+          "notes": "Beau hypothesis (reviewing ED p3): shared child of TOP 130/92099423 and BTM 140/92099477. NOT LOCKED."
         }
       ],
-      "notes": "Dashed loop around primary HEX body; callouts 130/131 on the loop. 92099423 is a PARENT assembly here, not a child of 92099479."
+      "notes": "Dashed loop around primary HEX body; callouts 130/131 on the loop. 92099423 is a PARENT assembly."
     },
     {
       "status": "needs-beau-confirm",
@@ -74,12 +84,14 @@
           "itemNo": "142",
           "code": "92099479",
           "role": "gasket",
+          "shared": true,
+          "sharedParentCodes": ["92099423", "92099477"],
           "sheetName": "GASKET HEAT EXCH N3237",
           "priceListName": "GASKET HEX EXCH BTM N3237",
-          "notes": "UNCONFIRMED parent. Crop reads disagree whether 142 is on a loop border (parent-like) or a seal associated with BTM 140. Not a child of 92099423."
+          "notes": "Same shared-child hypothesis as under TOP — listed on both parents until Beau confirms."
         }
       ],
-      "notes": "PROVISIONAL only — do not treat 92099479→92099477 as locked until Beau confirms the BTM loop on ED p3."
+      "notes": "PROVISIONAL — Beau reviewing whether 142 is shared across TOP+BTM loops."
     },
     {
       "status": "diagram-supported",
