@@ -26,6 +26,8 @@ let pricesMeta = null;
 /** @type {object|null} */
 let seriesDoc = null;
 /** @type {object|null} */
+let tradeAliases = null;
+/** @type {object|null} */
 let documentIndex = null;
 let lastResults = [];
 let lastDocResults = [];
@@ -155,7 +157,7 @@ function renderShell() {
                 id="query-input"
                 name="q"
                 type="search"
-                placeholder="Part code, description, or sheet category…"
+                placeholder="Trade term, part code, or description…"
                 spellcheck="false"
                 autofocus
               />
@@ -164,14 +166,17 @@ function renderShell() {
           </label>
         </form>
 
+        <p class="pin-warn" id="pin-warn" hidden>
+          No model pinned — results are unranked for a specific unit. Pin a model (e.g. HD200e) for a Primary part code.
+        </p>
+
         <p class="hint" id="hint">
-          Tip: try
-          <button type="button" class="chip" data-q="35401021">35401021</button>
-          <button type="button" class="chip" data-q="flow">flow</button>
+          Tip: pin a model, then try
+          <button type="button" class="chip" data-q="flow servo">flow servo</button>
           <button type="button" class="chip" data-q="thermocouple">thermocouple</button>
-          <button type="button" class="chip" data-q="HD200">HD200</button>
-          <button type="button" class="chip" data-q="HD28">HD28</button>
-          <button type="button" class="chip" data-q="VCM2837">VCM2837</button>
+          <button type="button" class="chip" data-q="pcb">pcb</button>
+          <button type="button" class="chip" data-q="35401021">35401021</button>
+          <button type="button" class="chip" data-q="gas valve">gas valve</button>
         </p>
         <p class="pricing-note">
           Prices: net invoice ex GST × (1 + margin%) → AUD ex GST; + GST ${Math.round(gstRate * 100)}% → inc GST.
@@ -233,6 +238,10 @@ function renderShell() {
             <dd><code>public/data/series-aliases.json</code></dd>
           </div>
           <div>
+            <dt>Trade aliases</dt>
+            <dd><code>public/data/trade-aliases.json</code></dd>
+          </div>
+          <div>
             <dt>Document index</dt>
             <dd id="ds-docs"><code>public/data/document-index.json</code></dd>
           </div>
@@ -242,6 +251,7 @@ function renderShell() {
           <li>Update <code>priceList.workbookPath</code> / <code>effectiveDate</code> in <code>public/data/config.json</code>.</li>
           <li>Run <code>npm run ingest</code>, then refresh the app.</li>
           <li>Series map (e.g. HD28 ↔ VCM2837) lives in <code>public/data/series-aliases.json</code> — edit there for model pin / document keys.</li>
+          <li>Trade terms (e.g. flow servo) live in <code>public/data/trade-aliases.json</code> — not overwritten by ingest.</li>
           <li>Data-sheet PDFs stay local under <code>data-sheets/</code> (e.g. <code>C:\\Temp\\rinnai-spare-parts\\data-sheets\\</code>); Vite serves them at <code>/data-sheets/</code>. Only the JSON index is committed.</li>
         </ol>
       </section>
@@ -308,6 +318,8 @@ function runSearch() {
   const modelId = pin.kind === "model" ? pin.model?.id : null;
   lastResults = searchParts(catalogue, q, modelId, {
     modelIds: pin.modelIds,
+    pin,
+    tradeAliases,
   });
   lastDocResults = searchDocuments(documentIndex, seriesDoc, q, pin, config);
   renderResults(q, pin);
@@ -479,12 +491,18 @@ function renderResults(query, pin) {
   const list = document.querySelector("#results");
   const meta = document.querySelector("#results-meta");
   const empty = document.querySelector("#empty");
+  const pinWarn = document.querySelector("#pin-warn");
   const activePin = pin || currentPin();
   const hasPin = activePin.kind !== "none";
+  const hasQuery = Boolean(String(query || "").trim());
 
   list.innerHTML = "";
 
-  if (!query.trim() && !hasPin) {
+  if (pinWarn) {
+    pinWarn.hidden = !(hasQuery && !hasPin);
+  }
+
+  if (!hasQuery && !hasPin) {
     meta.textContent = "";
     empty.hidden = true;
     const docsWrap = document.querySelector("#docs-wrap");
@@ -506,14 +524,21 @@ function renderResults(query, pin) {
     pinBit = ` · pinned ${activePin.series.label} series (${keys}) · ${activePin.modelIds.length} models`;
   } else if (activePin.kind === "model" && activePin.model) {
     const seriesBit = activePin.series
-      ? ` · ${activePin.series.label}/${(activePin.series.aliases || []).find((a) => /VCM2837/i.test(a)) || activePin.series.label}`
+      ? ` · ${activePin.series.label}`
       : "";
     pinBit = ` · pinned ${getModelLabel(activePin.model)}${seriesBit}`;
   }
+  const primary = lastResults.find((r) => r.isPrimary);
+  const primaryBit =
+    hasPin && primary
+      ? ` · Primary ${primary.part.code}`
+      : hasPin
+        ? " · no exact Primary for this pin"
+        : "";
   const docBit = lastDocResults.length
     ? ` · ${lastDocResults.length} data sheet${lastDocResults.length === 1 ? "" : "s"}`
     : "";
-  meta.textContent = `${lastResults.length} part${lastResults.length === 1 ? "" : "s"}${docBit}${pinBit} · margin ${marginPercent}%`;
+  meta.textContent = `${lastResults.length} part${lastResults.length === 1 ? "" : "s"}${docBit}${pinBit}${primaryBit} · margin ${marginPercent}%`;
 
   renderDocResults(activePin);
 
@@ -524,42 +549,62 @@ function renderResults(query, pin) {
   empty.hidden = true;
 
   for (const row of lastResults) {
-    const { part, matchedOn, fitsSelectedModel, fittedModels } = row;
+    const {
+      part,
+      matchedOn,
+      fitsSelectedModel,
+      fittedModels,
+      isPrimary,
+      fitTier,
+      fitReason,
+    } = row;
     const li = document.createElement("li");
     li.className = "result";
-    if (hasPin && fitsSelectedModel === false) {
+    if (isPrimary) {
+      li.classList.add("result--primary");
+    } else if (hasPin && fitTier === "exact") {
+      li.classList.add("result--fits");
+    } else if (hasPin && fitTier === "related") {
+      li.classList.add("result--related");
+    } else if (hasPin && fitsSelectedModel === false) {
       li.classList.add("result--other-model");
     }
-    if (hasPin && fitsSelectedModel === true) {
-      li.classList.add("result--fits");
-    }
 
-    const aliases =
+    const tradeAliasesForPart =
       (part.aliases || []).length > 0
         ? part.aliases
             .map((a) => `<span class="alias">${highlight(a, query)}</span>`)
             .join("")
-        : `<span class="muted">No aliases yet</span>`;
+        : `<span class="muted">No part-level aliases yet</span>`;
+
+    const chassisBit =
+      hasPin && fitReason
+        ? `<span class="muted fit-reason">${escapeHtml(fitReason)}</span>`
+        : "";
 
     const modelsHtml = fittedModels.length
       ? fittedModels
           .map((m) => {
-            const active =
-              hasPin && activePin.modelIds.includes(m.id);
+            const active = hasPin && activePin.modelIds.includes(m.id);
             const cls = active
               ? "model-tag model-tag--active"
               : "model-tag";
             return `<span class="${cls}">${escapeHtml(m.sku || m.name)}</span>`;
           })
           .join("")
-      : `<span class="muted">Model links not mapped yet</span>`;
+      : chassisBit || `<span class="muted">Fit inferred from chassis in description</span>`;
 
-    const fitBadge =
-      !hasPin
-        ? ""
-        : fitsSelectedModel
-          ? `<span class="badge badge--fit">${activePin.kind === "series" ? "Fits series" : "Fits selected model"}</span>`
-          : `<span class="badge badge--other">Other model</span>`;
+    const fitBadge = !hasPin
+      ? ""
+      : isPrimary
+        ? `<span class="badge badge--primary">Primary</span>`
+        : fitTier === "exact"
+          ? `<span class="badge badge--fit">${
+              activePin.kind === "series" ? "Fits series" : "Fits pinned model"
+            }</span>`
+          : fitTier === "related"
+            ? `<span class="badge badge--related">Related family</span>`
+            : `<span class="badge badge--other">Other model</span>`;
 
     const matchBits = matchedOn
       .map((m) => `<span class="match-tag">${escapeHtml(m)}</span>`)
@@ -572,6 +617,15 @@ function renderResults(query, pin) {
     li.innerHTML = `
       <div class="result-head">
         <div>
+          ${
+            isPrimary
+              ? `<p class="primary-kicker">Most likely for ${escapeHtml(
+                  activePin.series?.label ||
+                    activePin.model?.sku ||
+                    "pinned model"
+                )}</p>`
+              : ""
+          }
           <p class="result-code">${highlight(part.code, query)}</p>
           <h2 class="result-name">${highlight(part.name, query)}</h2>
           <div class="result-tags">${categoryBit}</div>
@@ -582,8 +636,8 @@ function renderResults(query, pin) {
         ${renderPriceBlock(part)}
         <div class="result-block">
           <h3>Aliases</h3>
-          <div class="alias-row">${aliases}</div>
-          <h3 class="subhead">Fits models</h3>
+          <div class="alias-row">${tradeAliasesForPart}</div>
+          <h3 class="subhead">Model fit</h3>
           <div class="model-row">${modelsHtml}</div>
         </div>
       </div>
@@ -646,17 +700,19 @@ function bindEvents() {
 async function boot() {
   renderShell();
   try {
-    const [cat, cfg, prices, series, docs] = await Promise.all([
+    const [cat, cfg, prices, series, trade, docs] = await Promise.all([
       loadJson("/data/catalogue.json"),
       loadJson("/data/config.json"),
       loadJson("/data/prices.json"),
       loadJson("/data/series-aliases.json"),
+      loadJson("/data/trade-aliases.json").catch(() => ({ aliases: [] })),
       loadJson("/data/document-index.json").catch(() => ({ documents: [] })),
     ]);
     catalogue = cat;
     config = cfg;
     pricesMeta = prices.meta || null;
     seriesDoc = series;
+    tradeAliases = trade;
     documentIndex = docs;
     marginPercent = clampMarginPercent(
       Number(cfg.defaultMarginPercent ?? cat.meta?.defaultMarginPercent) ||
