@@ -135,8 +135,8 @@ function renderShell() {
           <button type="button" class="chip" data-q="VCM2837">VCM2837</button>
         </p>
         <p class="pricing-note">
-          Prices: net invoice ex GST × (1 + margin%) → AUD ex GST; + GST ${Math.round(gstRate * 100)}% → inc GST.
-          Default margin <strong>${DEFAULT_MARGIN_PERCENT}%</strong>.
+          Prices: <strong>Price EX GST</strong> (net invoice) → <strong>Price EX GST plus markup</strong> → <strong>Price INC GST</strong> (+${Math.round(gstRate * 100)}% GST).
+          Default markup <strong>${DEFAULT_MARGIN_PERCENT}%</strong>.
         </p>
       </main>
 
@@ -348,9 +348,9 @@ function renderPriceBlock(part) {
   return `
     <div class="price-block">
       <h3>Pricing (AUD)</h3>
-      <p class="price-line"><span class="price-label">Net invoice ex GST</span> <strong>${formatAud(priced.netInvoiceExGst)}</strong></p>
-      <p class="price-line"><span class="price-label">Ex GST @ ${priced.marginPercent}%</span> <strong>${formatAud(priced.exGst)}</strong></p>
-      <p class="price-line price-line--inc"><span class="price-label">Inc GST</span> <strong>${formatAud(priced.incGst)}</strong></p>
+      <p class="price-line"><span class="price-label">Price EX GST</span> <strong>${formatAud(priced.netInvoiceExGst)}</strong></p>
+      <p class="price-line"><span class="price-label">Price EX GST plus ${priced.marginPercent}% markup</span> <strong>${formatAud(priced.exGst)}</strong></p>
+      <p class="price-line price-line--inc"><span class="price-label">Price INC GST</span> <strong>${formatAud(priced.incGst)}</strong></p>
     </div>
   `;
 }
