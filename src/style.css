@@ -159,6 +159,16 @@ body::before {
   flex-shrink: 0;
   display: block;
   line-height: 0;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.mtc-logo:focus-visible {
+  outline: 2px solid var(--accent-ink);
+  outline-offset: 3px;
 }
 
 .mtc-logo-img {
