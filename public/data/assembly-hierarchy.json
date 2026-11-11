@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "status": "provisional-awaiting-beau",
+  "meta": {
+    "title": "Assembly → sub-component hierarchy (PROVISIONAL)",
+    "updated": "2026-11-12",
+    "sourceRule": "Exploded diagram: lone numbered callout = standalone part; closed dashed loop enclosing several numbered parts = parent assembly, enclosed numbers = children. Do not invent parent/child from ASSY naming or price-list adjacency alone.",
+    "sourceSheets": [
+      "data-sheets/Rinnai Data Sheets/ED_N Series 2020 IN32 Enviro.pdf",
+      "data-sheets/Rinnai Data Sheets/PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf"
+    ],
+    "notes": "NOT FINAL — Beau reviews diagram findings before these maps drive ranking. See Project docs/assembly-search-ranking.md. Add assemblies only after a diagram loop is confirmed."
+  },
+  "concepts": [
+    {
+      "id": "heat-exchanger",
+      "queryTerms": [
+        "heat exchanger",
+        "heat exchange",
+        "heat exch",
+        "hex exch",
+        "hex exchanger"
+      ],
+      "assemblyNamePatterns": [
+        "heat exch",
+        "hex exch",
+        "heat exchanger"
+      ]
+    }
+  ],
+  "demotionCues": [
+    "gasket",
+    "o ring",
+    "o-ring",
+    "oring",
+    "seal",
+    "top",
+    "half"
+  ],
+  "assemblies": [
+    {
+      "status": "diagram-supported",
+      "confidence": "high",
+      "parentItemNos": ["130", "131"],
+      "parentCode": "92099423",
+      "parentName": "HEAT EXCH TOP N3237",
+      "shortName": "HEAT EXCH TOP",
+      "conceptId": "heat-exchanger",
+      "seriesTokens": ["N3237"],
+      "diagramPage": "ED_N Series 2020 IN32 Enviro.pdf p3",
+      "children": [
+        {
+          "itemNo": "137",
+          "code": null,
+          "role": "insulation",
+          "sheetName": "HEX insulation / INSULATION THERMAL HEX N3237",
+          "notes": "Inside 130/131 dashed loop. RA may be 92099592 on price list / blank on some PL rows."
+        }
+      ],
+      "notes": "Dashed loop around primary HEX body; callouts 130/131 on the loop. 92099423 is a PARENT assembly here, not a child of 92099479."
+    },
+    {
+      "status": "needs-beau-confirm",
+      "confidence": "low",
+      "parentItemNos": ["140"],
+      "parentCode": "92099477",
+      "parentName": "HEAT EXCH BTM N3237",
+      "shortName": "HEX EXCH BTM",
+      "conceptId": "heat-exchanger",
+      "seriesTokens": ["N3237"],
+      "diagramPage": "ED_N Series 2020 IN32 Enviro.pdf p3",
+      "children": [
+        {
+          "itemNo": "142",
+          "code": "92099479",
+          "role": "gasket",
+          "sheetName": "GASKET HEAT EXCH N3237",
+          "priceListName": "GASKET HEX EXCH BTM N3237",
+          "notes": "UNCONFIRMED parent. Crop reads disagree whether 142 is on a loop border (parent-like) or a seal associated with BTM 140. Not a child of 92099423."
+        }
+      ],
+      "notes": "PROVISIONAL only — do not treat 92099479→92099477 as locked until Beau confirms the BTM loop on ED p3."
+    },
+    {
+      "status": "diagram-supported",
+      "confidence": "medium",
+      "parentItemNos": ["150"],
+      "parentCode": "92099483",
+      "parentName": "ELECTRODE ASSY N3237",
+      "shortName": "ELECTRODE ASSY",
+      "conceptId": null,
+      "seriesTokens": ["N3237"],
+      "diagramPage": "ED_N Series 2020 IN32 Enviro.pdf p3",
+      "children": [
+        { "itemNo": "151", "code": "92099485", "role": "electrode" },
+        { "itemNo": "152", "code": "92099487", "role": "flame-rod" },
+        { "itemNo": "153", "code": "92099486", "role": "gasket" },
+        { "itemNo": "154", "code": null, "role": "bracket" },
+        { "itemNo": "155", "code": null, "role": "bracket" },
+        { "itemNo": "156", "code": null, "role": "sleeve" }
+      ],
+      "notes": "Sample loop: electrode ASSY dashed group on ED p3. Medium confidence pending Beau eyeball."
+    },
+    {
+      "status": "diagram-supported",
+      "confidence": "medium",
+      "parentItemNos": ["110"],
+      "parentCode": "92099409",
+      "parentName": "FAN COMB ASSY N3237",
+      "shortName": "FAN COMB ASSY",
+      "conceptId": null,
+      "seriesTokens": ["N3237"],
+      "diagramPage": "ED_N Series 2020 IN32 Enviro.pdf p3",
+      "children": [
+        { "itemNo": "111", "code": "92099411", "role": "gasket" },
+        { "itemNo": "112", "code": "92099413", "role": "o-ring" },
+        { "itemNo": "113", "code": null, "role": "bolt" }
+      ],
+      "notes": "Sample loop: fan combustion ASSY. Confirm 110 is the loop parent (not 111)."
+    },
+    {
+      "status": "diagram-supported",
+      "confidence": "high",
+      "parentItemNos": ["040"],
+      "parentCode": "92099399",
+      "parentName": "PANEL FRONT N3237FFC",
+      "shortName": "PANEL FRONT FFC",
+      "conceptId": null,
+      "seriesTokens": ["N3237", "N3237FFC"],
+      "diagramPage": "ED_N Series 2020 IN32 Enviro.pdf p1 (FFC casing)",
+      "children": [
+        { "itemNo": "044", "code": "92099405", "role": "brace" },
+        { "itemNo": "045", "code": null, "role": "gasket" },
+        { "itemNo": "046", "code": null, "role": "gasket" },
+        { "itemNo": "010", "code": null, "role": "screw" },
+        { "itemNo": "011", "code": null, "role": "screw" }
+      ],
+      "notes": "Clear casing loop on FFC sheet. WC/W use parent item 042 instead."
+    }
+  ]
+}
