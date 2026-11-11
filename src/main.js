@@ -125,6 +125,10 @@ function revealOpsPanels() {
   document.querySelector("#ops-panels")?.classList.add("is-revealed");
 }
 
+function coverOpsPanels() {
+  document.querySelector("#ops-panels")?.classList.remove("is-revealed");
+}
+
 function bindOpsPanelsReveal() {
   const panels = document.querySelector("#ops-panels");
   if (!panels || panels.dataset.revealBound === "1") return;
@@ -132,7 +136,10 @@ function bindOpsPanelsReveal() {
   const reveal = () => panels.classList.add("is-revealed");
   panels.addEventListener("pointerdown", reveal);
   panels.addEventListener("focusin", reveal);
+  // While admin is unlocked, never re-cover — mouseleave used to clear
+  // is-revealed and the team-photo veil blocked the Admin UI again.
   panels.addEventListener("mouseleave", () => {
+    if (adminUnlocked) return;
     if (panels.contains(document.activeElement)) return;
     panels.classList.remove("is-revealed");
   });
@@ -338,30 +345,22 @@ function handleAddToQuote(part) {
 }
 
 /**
- * Open a mailto: link via a temporary anchor click.
- * Prefer this over location.href so modal dialogs / SPA DOM updates do not swallow it.
+ * Hand off to the OS mail client. Call only from a real click handler
+ * (not after window.prompt) — Chromium drops mailto without user activation.
  * @param {string} href
  */
 function openMailto(href) {
   if (!href || !String(href).startsWith("mailto:")) return;
-  const a = document.createElement("a");
-  a.href = href;
-  a.rel = "noopener";
-  a.style.display = "none";
-  document.body.appendChild(a);
-  a.click();
-  a.remove();
+  // location.href is more reliable than a synthetic <a>.click() for mailto.
+  window.location.href = href;
 }
 
-function promptJobNumber() {
-  const raw = window.prompt(
-    "Job / work order number for stores email\n(plain number or WO-… for Acumatica):",
-    ""
-  );
-  if (raw == null) return null;
-  const job = normalizeJobNumber(raw);
+function readCartJobNumber() {
+  const input = document.querySelector("#cart-job");
+  const job = normalizeJobNumber(input?.value ?? "");
   if (!job) {
-    window.alert("Enter a job or work order number.");
+    showCartFlash("Enter a job or work order number (plain digits or WO-…).");
+    input?.focus();
     return null;
   }
   return job;
@@ -372,15 +371,11 @@ function emailCartToStores() {
     showCartFlash("Quote list is empty — add parts first.");
     return;
   }
-  // Chromium suppresses window.prompt while a modal <dialog> is open — close first.
-  const dialog = document.querySelector("#cart-dialog");
-  const wasOpen = Boolean(dialog?.open);
-  if (wasOpen) closeCart();
-  const job = promptJobNumber();
-  if (job == null) {
-    if (wasOpen) openCart();
-    return;
-  }
+  // Keep the modal open and read job from the in-dialog field.
+  // window.prompt is suppressed under <dialog showModal()>, and closing the
+  // dialog then prompting burns the user gesture so mailto often no-ops.
+  const job = readCartJobNumber();
+  if (job == null) return;
   const body = formatQuoteText({
     lines: cartLines,
     jobNumber: job,
@@ -628,6 +623,17 @@ function renderShell() {
           <div class="cart-body" id="cart-body"></div>
           <footer class="cart-dialog-foot">
             <div class="cart-totals" id="cart-totals"></div>
+            <label class="cart-job-field" for="cart-job">
+              <span class="cart-job-label">Job / WO for stores email</span>
+              <input
+                id="cart-job"
+                class="cart-job-input"
+                type="text"
+                inputmode="text"
+                autocomplete="off"
+                placeholder="e.g. 12345 or WO-12345"
+              />
+            </label>
             <div class="cart-actions">
               <button type="button" class="cart-action cart-action--primary" id="cart-email">Email list to stores</button>
               <button type="button" class="cart-action" id="cart-copy">Copy to clipboard</button>
@@ -1136,6 +1142,7 @@ function renderAdminGate() {
   if (!gate || !body) return;
 
   if (adminUnlocked) {
+    revealOpsPanels();
     gate.innerHTML = `
       <div class="admin-gate-open">
         <p class="admin-unlocked">Unlocked for this browser tab.</p>
@@ -1146,6 +1153,7 @@ function renderAdminGate() {
     gate.querySelector("#admin-lock")?.addEventListener("click", () => {
       adminUnlocked = false;
       setAdminSessionUnlocked(false);
+      coverOpsPanels();
       renderAdminPanel();
     });
     return;
