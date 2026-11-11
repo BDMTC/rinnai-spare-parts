@@ -41,8 +41,6 @@ import {
   tryUnlockAdmin,
   isAdminSessionUnlocked,
   setAdminSessionUnlocked,
-  getConfiguredAdminPassword,
-  setLocalAdminPassword,
   loadPriceListPath,
   savePriceListPath,
   clearFlag,
@@ -1113,7 +1111,6 @@ function renderAdminGate() {
   }
 
   body.hidden = true;
-  const hasPassword = Boolean(getConfiguredAdminPassword(config));
   gate.innerHTML = `
     <form class="admin-unlock-form" id="admin-unlock-form">
       <label class="field" for="admin-password">
@@ -1122,23 +1119,22 @@ function renderAdminGate() {
           id="admin-password"
           type="password"
           autocomplete="current-password"
-          placeholder="${hasPassword ? "Enter password" : "Empty stub — press Unlock (set password later)"}"
+          placeholder="Enter password"
         />
       </label>
       <button type="submit" class="admin-unlock-btn">Unlock</button>
       <p class="admin-gate-hint muted">
-        ${
-          hasPassword
-            ? "Password is set in localStorage / config (not committed)."
-            : "No password set yet — Unlock opens the tools. Set one later via the field inside Admin or localStorage key <code>rinnai-parts-admin-password-v1</code>."
-        }
+        Unlocks Admin tools for this browser tab (sessionStorage). Password is verified against a baked-in hash — not stored as plaintext.
       </p>
     </form>
   `;
-  gate.querySelector("#admin-unlock-form")?.addEventListener("submit", (e) => {
+  gate.querySelector("#admin-unlock-form")?.addEventListener("submit", async (e) => {
     e.preventDefault();
     const attempt = document.querySelector("#admin-password")?.value ?? "";
-    const result = tryUnlockAdmin(attempt, config);
+    const submitBtn = gate.querySelector(".admin-unlock-btn");
+    if (submitBtn) submitBtn.disabled = true;
+    const result = await tryUnlockAdmin(attempt);
+    if (submitBtn) submitBtn.disabled = false;
     if (!result.ok) {
       window.alert("Incorrect password.");
       return;
@@ -1223,7 +1219,6 @@ function renderAdminBody() {
   const deleted = Object.values(overrides.deleted || {});
   const queue = overrides.changeQueue || [];
   const path = loadPriceListPath(config);
-  const storedPw = getConfiguredAdminPassword(config);
 
   const flagRows = flagged.length
     ? flagged
@@ -1293,18 +1288,6 @@ function renderAdminBody() {
   body.innerHTML = `
     <div class="admin-grid">
       <div class="admin-card">
-        <h3>Password (local only)</h3>
-        <p class="muted">Stored in <code>localStorage</code> — leave blank for stub unlock. Never commit a real password.</p>
-        <div class="admin-inline">
-          <input id="admin-set-password" type="password" placeholder="${
-            storedPw ? "Password is set — enter to replace" : "Set password (optional)"
-          }" autocomplete="new-password" />
-          <button type="button" class="admin-btn" id="admin-save-password">Save password</button>
-          <button type="button" class="admin-btn" id="admin-clear-password">Clear</button>
-        </div>
-      </div>
-
-      <div class="admin-card">
         <h3>Price list path / endpoint</h3>
         <p class="muted">Hint for where the workbook lives (Office PC). Browser import uses a file picker; path is config for ingest.</p>
         <div class="admin-inline">
@@ -1361,20 +1344,6 @@ function renderAdminBody() {
     </div>
   `;
 
-  body.querySelector("#admin-save-password")?.addEventListener("click", () => {
-    const val = document.querySelector("#admin-set-password")?.value ?? "";
-    setLocalAdminPassword(val);
-    window.alert(
-      val
-        ? "Password saved in localStorage for this browser."
-        : "Password cleared (stub unlock)."
-    );
-    renderAdminPanel();
-  });
-  body.querySelector("#admin-clear-password")?.addEventListener("click", () => {
-    setLocalAdminPassword("");
-    renderAdminPanel();
-  });
   body.querySelector("#admin-save-path")?.addEventListener("click", () => {
     const val = document.querySelector("#admin-price-path")?.value ?? "";
     savePriceListPath(val);
