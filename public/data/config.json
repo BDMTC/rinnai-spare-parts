@@ -24,10 +24,9 @@
     "lastIngested": "2026-11-11"
   },
   "admin": {
-    "password": "",
-    "passwordStorageKey": "rinnai-parts-admin-password-v1",
     "overridesStorageKey": "rinnai-parts-overrides-v1",
-    "note": "Leave password empty for the stub gate (any Unlock works). Set a real password later in localStorage (rinnai-parts-admin-password-v1) or here for local-only — never commit a real secret. Admin UI writes local overrides + a change queue; production catalogue updates go through AI / npm run ingest, not by rewriting prices.json from the browser."
+    "sessionStorageKey": "rinnai-parts-admin-session-v1",
+    "note": "Admin unlock compares a password attempt to a baked-in PBKDF2 hash in the app bundle (no plaintext in config). Session unlock uses sessionStorage. Admin UI writes local overrides + a change queue; production catalogue updates go through AI / npm run ingest, not by rewriting prices.json from the browser."
   },
   "modelHistory": {
     "label": "REU Model History",

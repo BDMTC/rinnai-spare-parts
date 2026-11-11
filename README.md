@@ -77,7 +77,7 @@ If the folder is missing (cloud agent, fresh clone), the index still lists match
 - Margin **0–100%** in **5%** steps (default 20%)
 - **Quote list** (header icon + overlay): Add to Quote on each result (top-right), email/copy/save/clear
 - **Flag item for problem** on each result card → mailto stores for Beau review (that part)
-- **Admin / development** (password stub): clear flags, suspend/delete parts, price-list path, workbook import with count-diff review — localStorage overlay + change queue for AI ingest sync
+- **Admin / development** (hashed password gate): clear flags, suspend/delete parts, price-list path, workbook import with count-diff review — localStorage overlay + change queue for AI ingest sync
 - Matches part code, description, trade alias, and sheet/category
 - Shows net invoice ex GST, computed ex GST at selected margin, and inc GST
 - Data-sources panel documents how to swap the next price list
