@@ -133,14 +133,17 @@ function formPresentInName(nameN, form, index = null) {
 
 /**
  * Expand a normalised name/query with all synonym forms for matched groups.
- * Enables bracket ↔ BRKT and conversion kit ↔ CON KIT via includes/token checks.
- * Slash-phrase forms (CONV/KIT, C/W, W/PNL) bind only their own group so
- * CONV/KIT does not also pick up convection via the CONV segment.
+ * Returns base text plus a Set of full synonym forms (do not space-split the
+ * joined blob for single-token checks — that leaked “components” out of
+ * “COND COMPONENTS” into unrelated queries).
+ * Slash-phrase forms (CONV/KIT, C/W, W/PNL) bind only their own group.
  * @param {string} textN already-normalised text
  * @param {{ formToGroup: Map, phrases: Array }} index
+ * @returns {{ text: string, forms: Set<string> }}
  */
 export function expandAbbrevs(textN, index) {
-  if (!textN || !index?.groups?.length) return textN || "";
+  const empty = { text: textN || "", forms: new Set() };
+  if (!textN || !index?.groups?.length) return empty;
   const extras = new Set();
 
   for (const { form, group } of index.phrases) {
@@ -161,7 +164,9 @@ export function expandAbbrevs(textN, index) {
       continue;
     }
 
-    const segs = tok.includes("/") ? [tok, ...tok.split("/").filter(Boolean)] : [tok];
+    const segs = tok.includes("/")
+      ? [tok, ...tok.split("/").filter(Boolean)]
+      : [tok];
     for (const seg of segs) {
       const group = resolveSegmentGroup(seg, index);
       if (!group) continue;
@@ -170,15 +175,44 @@ export function expandAbbrevs(textN, index) {
     }
   }
 
-  if (!extras.size) return textN;
-  return `${textN} ${[...extras].join(" ")}`;
+  if (!extras.size) return { text: textN, forms: extras };
+  return { text: `${textN} ${[...extras].join(" ")}`, forms: extras };
+}
+
+/** @param {string|{text?: string, forms?: Set<string>}} expanded */
+function expandedText(expanded, fallback = "") {
+  if (!expanded) return fallback;
+  if (typeof expanded === "string") return expanded;
+  return expanded.text || fallback;
+}
+
+/** @param {string|{text?: string, forms?: Set<string>}} expanded */
+function expandedFormSet(expanded) {
+  if (!expanded || typeof expanded === "string") return new Set();
+  return expanded.forms || new Set();
+}
+
+/**
+ * Synonym form present on original name or in the expansion form Set
+ * (exact full-form membership — no mining words out of multi-word extras).
+ */
+function synonymPresent(nameN, expanded, form, index) {
+  if (!form) return false;
+  if (formPresentInName(nameN, form, index)) return true;
+  const forms = expandedFormSet(expanded);
+  if (forms.has(form)) return true;
+  if (form.includes(" ")) {
+    const blob = expandedText(expanded, nameN);
+    return ` ${blob} `.includes(` ${form} `);
+  }
+  return false;
 }
 
 /**
  * True when query text (normalised) hits a name via abbreviation expansion.
  * Used to credit name-level matches like query "bracket" vs name "BRKT …".
  */
-function abbrevNameHit(nameN, nameX, q, index) {
+function abbrevNameHit(nameN, expanded, q, index) {
   if (!q || !index?.groups?.length) return false;
 
   const group = index.formToGroup.get(q);
@@ -187,18 +221,11 @@ function abbrevNameHit(nameN, nameX, q, index) {
     !nameExcludedForGroup(nameN, group) &&
     !queryExcludedForGroup(q, group)
   ) {
-    return group.forms.some(
-      (f) =>
-        formPresentInName(nameN, f, index) ||
-        (f.includes(" ") && ` ${nameX} `.includes(` ${f} `))
-    );
+    return group.forms.some((f) => synonymPresent(nameN, expanded, f, index));
   }
 
-  // Expanded long-form landed in nameX only (e.g. query "bracket", name has BRKT)
-  if (
-    !formPresentInName(nameN, q, index) &&
-    (formPresentInName(nameX, q, index) || ` ${nameX} `.includes(` ${q} `))
-  ) {
+  // Expanded long-form landed in synonym set only (e.g. query "bracket", name has BRKT)
+  if (!formPresentInName(nameN, q, index) && synonymPresent(nameN, expanded, q, index)) {
     return true;
   }
   return false;
@@ -608,12 +635,16 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
     if (isPartVisible && !isPartVisible(part)) continue;
 
     const nameN = normalise(part.name);
-    const nameX = abbrevIndex ? expandAbbrevs(nameN, abbrevIndex) : nameN;
+    const nameExpanded = abbrevIndex
+      ? expandAbbrevs(nameN, abbrevIndex)
+      : { text: nameN, forms: new Set() };
+    const nameX = nameExpanded.text;
     const codeN = normalise(part.code);
     const aliasesN = (part.aliases || []).map(normalise);
-    const aliasesX = abbrevIndex
+    const aliasesExpanded = abbrevIndex
       ? aliasesN.map((a) => expandAbbrevs(a, abbrevIndex))
-      : aliasesN;
+      : aliasesN.map((a) => ({ text: a, forms: new Set() }));
+    const aliasesX = aliasesExpanded.map((a) => a.text);
     const categoryN = normalise(part.category);
     const sheetN = normalise(part.sheet);
     const partModelIds = part.modelIds || [];
@@ -655,11 +686,9 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
         score += 55;
         matchedOn.push("name");
       } else if (
-        abbrevNameHit(nameN, nameX, q, abbrevIndex) ||
-        abbrevForms.phrases.some(
-          (ph) =>
-            formPresentInName(nameN, ph, abbrevIndex) ||
-            ` ${nameX} `.includes(` ${ph} `)
+        abbrevNameHit(nameN, nameExpanded, q, abbrevIndex) ||
+        abbrevForms.phrases.some((ph) =>
+          synonymPresent(nameN, nameExpanded, ph, abbrevIndex)
         )
       ) {
         score += 55;
@@ -669,7 +698,10 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
 
       for (let i = 0; i < aliasesN.length; i += 1) {
         const alias = aliasesN[i];
-        const aliasX = aliasesX[i] || alias;
+        const aliasExpanded = aliasesExpanded[i] || {
+          text: alias,
+          forms: new Set(),
+        };
         if (alias === q) {
           score += 85;
           aliasStrength = Math.max(aliasStrength, 85);
@@ -682,7 +714,7 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
           matchedOn.push("alias");
           break;
         }
-        if (abbrevNameHit(alias, aliasX, q, abbrevIndex)) {
+        if (abbrevNameHit(alias, aliasExpanded, q, abbrevIndex)) {
           score += 50;
           aliasStrength = Math.max(aliasStrength, 50);
           matchedOn.push("abbrev");
@@ -729,9 +761,7 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
         for (const t of searchTokens) {
           const isAbbrevForm = abbrevForms.singles.includes(t);
           const present = isAbbrevForm
-            ? formPresentInName(nameN, t, abbrevIndex) ||
-              formPresentInName(nameX, t, abbrevIndex) ||
-              ` ${nameX} `.includes(` ${t} `)
+            ? synonymPresent(nameN, nameExpanded, t, abbrevIndex)
             : haystack.includes(t);
           if (present) {
             hits += 1;
@@ -743,10 +773,7 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
           }
         }
         for (const ph of abbrevForms.phrases) {
-          if (
-            formPresentInName(nameN, ph, abbrevIndex) ||
-            ` ${nameX} `.includes(` ${ph} `)
-          ) {
+          if (synonymPresent(nameN, nameExpanded, ph, abbrevIndex)) {
             hits += 1;
             weighed += 2;
             abbrevTokenHit = true;

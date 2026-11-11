@@ -4,7 +4,7 @@
     "title": "Part-name abbreviation ↔ long-form search aliases",
     "locale": "en-AU",
     "updated": "2026-11-12",
-    "notes": "Beau-locked single-meaning shorthand plus high-confidence clear tokens from the spare-parts name abbrev pass. Bidirectional whole-token / phrase expansion in search.js. Context-dependent tokens are careful (no merged “both”). Unset tokens omitted: W/I, FS, A/FRM, MOD, OUT, HE, PSI."
+    "notes": "Beau-locked single-meaning shorthand, high-confidence clear tokens, catalogue typos/truncations, spelling/word-order variants, and safe context-dependent phrases. Bidirectional whole-token / phrase expansion in search.js. Context-dependent tokens are never merged “both”. Unset tokens omitted: W/I, FS, A/FRM, MOD, OUT, HE, PSI. Full-word catalogue nouns (HARNESS, FILTER, FLUE, …) already match as-is — no identity alias needed."
   },
   "groups": [
     {
@@ -16,7 +16,7 @@
     {
       "id": "assy",
       "status": "locked",
-      "forms": ["ASSY", "ASSEMBLY", "SUBASSY", "SUBASS", "SUB-ASSY", "SUB-AS", "SUB ASSEMBLY", "SUB-ASSEMBLY"],
+      "forms": ["ASSY", "ASSEMBLY", "SUBASSY", "SUBASS", "SUB-ASSY", "SUB-AS", "SUB AS", "SUB ASSEMB", "SUBASSEMB", "SUB ASSEMBLY", "SUB-ASSEMBLY"],
       "notes": "Assembly / sub-assembly truncations."
     },
     {
@@ -92,7 +92,7 @@
       "id": "trans",
       "status": "locked",
       "forms": ["TRANS", "TRANSFORMER"],
-      "notes": "Transformer. Not transition (TRANSITON typo is separate)."
+      "notes": "Transformer. Transition typo is the separate transiton group."
     },
     {
       "id": "hsg",
@@ -121,7 +121,7 @@
     {
       "id": "hx",
       "status": "locked",
-      "forms": ["HX", "EXCH", "HEAT EXCHANGER", "HEAT EXCH", "EXCHANGER"],
+      "forms": ["HX", "EXCH", "HEAT EXCHANGER", "HEAT EXCH", "HEAT EX", "EXCHANGER"],
       "notes": "Heat exchanger."
     },
     {
@@ -229,7 +229,7 @@
     {
       "id": "ht",
       "status": "locked",
-      "forms": ["HT", "HIGH TENSION", "HT LEAD"],
+      "forms": ["HT", "HIGH TENSION", "HT LEAD", "HIGH TENSION LEAD"],
       "notes": "High-tension ignition lead."
     },
     {
@@ -271,7 +271,7 @@
     {
       "id": "chamber",
       "status": "locked",
-      "forms": ["CHAMB", "CHMBR", "BRNCHMBR", "CHAMBER", "BURNER CHAMBER"],
+      "forms": ["CHAMB", "CHMBR", "BRNCHMBR", "BRN CHMBR", "BRNR CHMBR", "CHAMBER", "BURNER CHAMBER"],
       "notes": "Chamber / burner chamber truncations."
     },
     {
@@ -333,8 +333,202 @@
       "status": "locked",
       "forms": ["T/RED", "TERRA RED", "TERRARED"],
       "notes": "Terra red colour."
+    },
+    {
+      "id": "burner",
+      "status": "locked",
+      "forms": ["BURNER", "BRNR", "BRN"],
+      "notes": "Burner truncations in catalogue (PILOT BRNR, COVER BRN CHMBR)."
+    },
+    {
+      "id": "sparker",
+      "status": "locked",
+      "forms": ["SPARKER", "SPARK"],
+      "notes": "Sparker / spark (ignition)."
+    },
+    {
+      "id": "spindle",
+      "status": "locked",
+      "forms": ["SPINDAL", "SPINDLE"],
+      "notes": "Catalogue typo SPINDAL ↔ spindle."
+    },
+    {
+      "id": "conduit",
+      "status": "locked",
+      "forms": ["CONDIUT", "CONDUIT"],
+      "notes": "Catalogue typo CONDIUT ↔ conduit."
+    },
+    {
+      "id": "transiton",
+      "status": "locked",
+      "forms": ["TRANSITON", "TRANSITION"],
+      "notes": "Catalogue typo TRANSITON ↔ transition (not transformer)."
+    },
+    {
+      "id": "components",
+      "status": "locked",
+      "forms": ["COMPONS", "COMPONENTS"],
+      "notes": "Catalogue typo COMPONS ↔ components."
+    },
+    {
+      "id": "o-ring",
+      "status": "locked",
+      "forms": ["O-RING", "O RING", "ORING", "O-RINGE"],
+      "notes": "O-ring hyphen / space variants."
+    },
+    {
+      "id": "w-assy",
+      "status": "locked",
+      "forms": ["W/ASSY", "WITH ASSEMBLY", "WITH ASSY"],
+      "notes": "With assembly slash form."
+    },
+    {
+      "id": "sml",
+      "status": "locked",
+      "forms": ["SML", "SMALL"],
+      "notes": "Small size shorthand."
+    },
+    {
+      "id": "med",
+      "status": "locked",
+      "forms": ["MED", "MEDIUM"],
+      "notes": "Medium size shorthand."
+    },
+    {
+      "id": "pcs",
+      "status": "locked",
+      "forms": ["PCS", "PIECES"],
+      "notes": "Pieces count shorthand (not T-piece fittings)."
+    },
+    {
+      "id": "waterflow",
+      "status": "locked",
+      "forms": ["WATERFLOW", "WATER FLOW"],
+      "notes": "Closed-up vs spaced spelling (servo / sensor / turbine)."
+    },
+    {
+      "id": "gas-valve",
+      "status": "locked",
+      "forms": ["VALVE GAS", "GAS VALVE"],
+      "notes": "Word-order variant for gas valves."
+    },
+    {
+      "id": "pack",
+      "status": "locked",
+      "forms": ["PACK", "MULTIPACK", "MULTI PACK", "MULTI-PACK"],
+      "notes": "Retail multipack (4 PACK). Not packing gasket."
+    },
+    {
+      "id": "fast-blow",
+      "status": "locked",
+      "forms": ["FAST", "FAST BLOW", "FAST-BLOW"],
+      "notes": "Fuse fast-blow. Not fastener."
+    },
+    {
+      "id": "pan-head",
+      "status": "locked-careful",
+      "forms": ["PAN HEAD", "PAN-HEAD", "PANHEAD"],
+      "notes": "Pan-head screw only — not drain pan (see drain-pan)."
+    },
+    {
+      "id": "drain-pan",
+      "status": "locked-careful",
+      "forms": ["PAN ASSY DRAIN", "DRAIN PAN", "DRAINPAN"],
+      "notes": "Drain pan assembly only — not pan-head screws."
+    },
+    {
+      "id": "compression-fitting",
+      "status": "locked-careful",
+      "forms": [
+        "UNION COMP",
+        "COMP FLARED",
+        "COMPRESSION",
+        "COMPRESSION UNION",
+        "COMPRESSION FITTING",
+        "NUT COMPRESSION"
+      ],
+      "notes": "Compression fittings/unions/nuts only — not compressor (COMPR) and not bare COMP merge."
+    },
+    {
+      "id": "reversing-valve",
+      "status": "locked-careful",
+      "forms": ["VALVE REV", "REV VALVE", "REVERSING VALVE", "REVERSING"],
+      "excludeNamePatterns": ["REV BLYGOLD", "REVA", "REVB"],
+      "notes": "Reversing valve only — not coil revision letters (REV BLYGOLD)."
+    },
+    {
+      "id": "condensate",
+      "status": "locked-careful",
+      "forms": [
+        "COND HOSE",
+        "COND DRAIN",
+        "CONDENSATE",
+        "CONDENSATE HOSE",
+        "CONDENSATE DRAIN"
+      ],
+      "notes": "Condensate hose/drain only — not condenser (see condenser)."
+    },
+    {
+      "id": "condenser",
+      "status": "locked-careful",
+      "forms": [
+        "COIL COND",
+        "COND COMPONENTS",
+        "COND COMPONS",
+        "CONDENSER",
+        "CONDENSER COIL"
+      ],
+      "notes": "Condenser coil / components only — not condensate."
+    },
+    {
+      "id": "outdoor-coil",
+      "status": "locked-careful",
+      "forms": ["COIL OD", "OD COIL", "OUTDOOR COIL"],
+      "notes": "Outdoor coil only — not bare OD (outer diameter) and not all ODU."
+    },
+    {
+      "id": "extension-loom",
+      "status": "locked-careful",
+      "forms": ["LOOM EXT", "EXT LOOM", "EXTENSION LOOM"],
+      "notes": "Extension loom only — not bare EXT merge."
+    },
+    {
+      "id": "extension-timer",
+      "status": "locked-careful",
+      "forms": ["EXT TIMER", "EXTENSION TIMER", "EXT TIMER KIT", "EXTENSION TIMER KIT"],
+      "notes": "Extension timer kit only — not bare EXT merge."
     }
   ],
+  "alreadyExactMatch": {
+    "notes": "These full-word catalogue tokens already search as-is (no short↔long identity alias required). Trade variants / truncations above cover gaps where they exist.",
+    "tokens": [
+      "HARNESS",
+      "LOOM",
+      "FILTER",
+      "FLUE",
+      "BURNER",
+      "THERMISTOR",
+      "ELECTRODE",
+      "GASKET",
+      "CAPACITOR",
+      "MANIFOLD",
+      "SPARKER",
+      "DAMPER",
+      "BYPASS",
+      "AERATION",
+      "DECAL",
+      "CONTACTOR",
+      "BAFFLE",
+      "SERVO",
+      "UNION",
+      "SNORKEL",
+      "GROMMET",
+      "SPRING",
+      "RELIEF",
+      "ORIFICE",
+      "PIEZO"
+    ]
+  },
   "skipped": {
     "unset": ["W/I", "FS", "A/FRM", "MOD", "OUT", "HE", "PSI"],
     "contextDependentNoMerge": [
@@ -346,6 +540,6 @@
       "EXT",
       "REV"
     ],
-    "notes": "Context-dependent: do not merge both meanings into one alias group. COMPR/EXTENS cover the safe clear spellings only. LP fuel and NAT gas are locked-careful with excludeNamePatterns."
+    "notes": "Bare context-dependent tokens stay unmerged. Safe phrase groups (pan-head, drain-pan, compression-fitting, reversing-valve, condensate, condenser, outdoor-coil, extension-loom, extension-timer) cover the confident splits. COMPR/EXTENS remain clear-spelling only. LP fuel and NAT gas keep excludeNamePatterns. CAP≠capacitor (end caps). MOT≠motor (too sparse/noisy). DECAL≠LABEL (different part types)."
   }
 }
