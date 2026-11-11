@@ -396,108 +396,16 @@ function clearCartAndClose() {
   closeCart();
 }
 
-function collectFlagCandidates() {
-  /** @type {Map<string, { code: string, title: string, source: string }>} */
-  const map = new Map();
-  for (const line of cartLines) {
-    const key = String(line.code || "").toUpperCase();
-    if (!key) continue;
-    map.set(key, {
-      code: line.code,
-      title: line.name || line.code,
-      source: "quote list",
-    });
-  }
-  for (const row of lastResults) {
-    const part = row.part;
-    if (!part?.code || part.kind === "discount-segment") continue;
-    const key = String(part.code).toUpperCase();
-    if (map.has(key)) continue;
-    map.set(key, {
-      code: part.code,
-      title: part.name || part.code,
-      source: "search results",
-    });
-  }
-  for (const entry of Object.values(overrides.flagged || {})) {
-    const key = String(entry.code || "").toUpperCase();
-    if (!key || map.has(key)) continue;
-    map.set(key, {
-      code: entry.code,
-      title: entry.title || entry.code,
-      source: "already flagged",
-    });
-  }
-  return [...map.values()];
-}
-
-function openFlagPicker() {
-  const dialog = document.querySelector("#flag-dialog");
-  const list = document.querySelector("#flag-picker-list");
-  const empty = document.querySelector("#flag-picker-empty");
-  const customCode = document.querySelector("#flag-custom-code");
-  const customTitle = document.querySelector("#flag-custom-title");
-  if (!dialog || !list) return;
-
-  const candidates = collectFlagCandidates();
-  list.innerHTML = "";
-  if (!candidates.length) {
-    if (empty) empty.hidden = false;
-  } else {
-    if (empty) empty.hidden = true;
-    for (const c of candidates) {
-      const li = document.createElement("li");
-      li.className = "flag-picker-item";
-      li.innerHTML = `
-        <div>
-          <p class="flag-picker-code">${escapeHtml(c.code)}</p>
-          <p class="flag-picker-title">${escapeHtml(c.title)}</p>
-          <p class="flag-picker-source muted">${escapeHtml(c.source)}</p>
-        </div>
-        <button type="button" class="flag-picker-btn" data-code="${escapeHtml(
-          c.code
-        )}" data-title="${escapeHtml(c.title)}">Flag</button>
-      `;
-      list.appendChild(li);
-    }
-  }
-
-  if (customCode) customCode.value = "";
-  if (customTitle) customTitle.value = "";
-
-  list.querySelectorAll(".flag-picker-btn").forEach((btn) => {
-    btn.addEventListener("click", () => {
-      submitFlagPart({
-        code: btn.dataset.code,
-        title: btn.dataset.title,
-      });
-    });
-  });
-
-  if (typeof dialog.showModal === "function") dialog.showModal();
-  else dialog.setAttribute("open", "");
-}
-
-function closeFlagPicker() {
-  const dialog = document.querySelector("#flag-dialog");
-  if (dialog && typeof dialog.close === "function") dialog.close();
-  else if (dialog) dialog.removeAttribute("open");
-}
-
 function submitFlagPart(part) {
   const code = String(part?.code || "").trim();
   const title = String(part?.title || part?.name || code).trim();
-  if (!code && !title) {
-    window.alert("Pick a part or enter a code / title.");
-    return;
-  }
+  if (!code && !title) return;
   const payload = {
     code: code || title,
     title: title || code,
   };
   overrides = flagPart(overrides, payload);
   persistOverrides();
-  closeFlagPicker();
   window.location.href = buildFlagIssueMailto(payload);
   renderAdminPanel();
   runSearch();
@@ -577,15 +485,6 @@ function renderShell() {
               />
             </svg>
             <span class="cart-badge" id="cart-badge" hidden>0</span>
-          </button>
-          <button
-            type="button"
-            class="flag-trigger"
-            id="flag-open"
-            aria-label="Flag item for problem"
-            title="Flag item for problem"
-          >
-            Flag item for problem
           </button>
         </div>
         <p class="topbar-note">Local catalogue · price list ${escapeHtml(effective)}</p>
@@ -725,34 +624,6 @@ function renderShell() {
               <button type="button" class="cart-action cart-action--danger" id="cart-clear">Clear quote list</button>
             </div>
           </footer>
-        </div>
-      </dialog>
-
-      <dialog class="flag-dialog" id="flag-dialog" aria-labelledby="flag-dialog-title">
-        <div class="flag-dialog-inner">
-          <header class="flag-dialog-bar">
-            <div>
-              <p class="flag-dialog-kicker">Problem report</p>
-              <h2 class="flag-dialog-title" id="flag-dialog-title">Flag item for problem</h2>
-            </div>
-            <button type="button" class="flag-dialog-close" id="flag-close" aria-label="Close">Close</button>
-          </header>
-          <p class="flag-dialog-note muted">
-            Emails <code>stores@mtcgas.com.au</code> so Beau can review. Pick from the quote list / current results, or type a code.
-          </p>
-          <p class="flag-picker-empty" id="flag-picker-empty" hidden>No parts in quote list or results yet — enter a code below.</p>
-          <ul class="flag-picker-list" id="flag-picker-list"></ul>
-          <div class="flag-custom">
-            <label class="field" for="flag-custom-code">
-              <span class="field-label">Part code</span>
-              <input id="flag-custom-code" type="text" placeholder="e.g. 92095902" spellcheck="false" />
-            </label>
-            <label class="field" for="flag-custom-title">
-              <span class="field-label">Title / description</span>
-              <input id="flag-custom-title" type="text" placeholder="Optional title" spellcheck="false" />
-            </label>
-            <button type="button" class="flag-custom-submit" id="flag-custom-submit">Flag &amp; email</button>
-          </div>
         </div>
       </dialog>
 
@@ -1119,14 +990,22 @@ function renderResults(query, pin) {
       ? `<span class="category-tag">${escapeHtml(part.category)}</span>`
       : "";
 
-    const addQuoteBtn =
+    const cardActions =
       part.kind === "discount-segment"
         ? ""
-        : `<button
-            type="button"
-            class="add-quote-btn"
-            data-code="${escapeHtml(part.code)}"
-          >Add to Quote</button>`;
+        : `<div class="result-card-actions">
+            <button
+              type="button"
+              class="add-quote-btn"
+              data-code="${escapeHtml(part.code)}"
+            >Add to Quote</button>
+            <button
+              type="button"
+              class="flag-part-btn"
+              data-code="${escapeHtml(part.code)}"
+              data-title="${escapeHtml(part.name || part.code)}"
+            >Flag item for problem</button>
+          </div>`;
 
     li.innerHTML = `
       <div class="result-head">
@@ -1146,7 +1025,7 @@ function renderResults(query, pin) {
         </div>
         <div class="result-head-actions">
           <div class="result-flags">${fitBadge}${flagBadge}</div>
-          ${addQuoteBtn}
+          ${cardActions}
         </div>
       </div>
       <div class="result-body">
@@ -1179,6 +1058,18 @@ function renderResults(query, pin) {
         btn.textContent = prev;
         btn.classList.remove("add-quote-btn--done");
       }, 900);
+    });
+  });
+
+  list.querySelectorAll(".flag-part-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const code = btn.dataset.code;
+      const row = lastResults.find((r) => r.part?.code === code);
+      const part = row?.part;
+      submitFlagPart({
+        code: part?.code || code,
+        title: part?.name || btn.dataset.title || code,
+      });
     });
   });
 }
@@ -1715,25 +1606,6 @@ function bindEvents() {
       if (e.target === cartDialog) closeCart();
     });
   }
-
-  document.querySelector("#flag-open")?.addEventListener("click", openFlagPicker);
-  document.querySelector("#flag-close")?.addEventListener("click", closeFlagPicker);
-  const flagDialog = document.querySelector("#flag-dialog");
-  if (flagDialog) {
-    flagDialog.addEventListener("cancel", (e) => {
-      e.preventDefault();
-      closeFlagPicker();
-    });
-    flagDialog.addEventListener("click", (e) => {
-      if (e.target === flagDialog) closeFlagPicker();
-    });
-  }
-  document.querySelector("#flag-custom-submit")?.addEventListener("click", () => {
-    submitFlagPart({
-      code: document.querySelector("#flag-custom-code")?.value,
-      title: document.querySelector("#flag-custom-title")?.value,
-    });
-  });
 
   updateCartBadge();
   renderAdminPanel();
