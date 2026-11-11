@@ -12,7 +12,7 @@ import {
   documentKeysForPin,
   modelIdsForSeries,
 } from "./series.js";
-import { searchDocuments } from "./documents.js";
+import { searchDocuments, resolveDocumentUrl } from "./documents.js";
 
 const app = document.querySelector("#app");
 
@@ -30,6 +30,8 @@ let lastResults = [];
 let lastDocResults = [];
 let marginPercent = DEFAULT_MARGIN_PERCENT;
 let gstRate = DEFAULT_GST_RATE;
+/** @type {{ title: string, url: string }|null} */
+let viewerState = null;
 
 async function loadJson(url) {
   const res = await fetch(url);
@@ -145,10 +147,22 @@ function renderShell() {
         <ul class="results" id="results"></ul>
         <div class="docs-wrap" id="docs-wrap" hidden>
           <h2 class="docs-heading">Data sheets</h2>
+          <p class="docs-note muted" id="docs-note" hidden></p>
           <ul class="docs" id="docs"></ul>
         </div>
         <p class="empty" id="empty" hidden>No matches. Try a part code, description fragment, or clear the model pin.</p>
       </section>
+
+      <dialog class="pdf-viewer" id="pdf-viewer">
+        <div class="pdf-viewer-bar">
+          <p class="pdf-viewer-title" id="pdf-viewer-title">Data sheet</p>
+          <div class="pdf-viewer-actions">
+            <a class="pdf-viewer-link" id="pdf-viewer-newtab" href="#" target="_blank" rel="noopener">Open in new tab</a>
+            <button type="button" class="pdf-viewer-close" id="pdf-viewer-close">Close</button>
+          </div>
+        </div>
+        <iframe class="pdf-viewer-frame" id="pdf-viewer-frame" title="Data sheet PDF"></iframe>
+      </dialog>
 
       <section class="data-sources" id="data-sources" aria-labelledby="data-sources-heading">
         <h2 id="data-sources-heading">Data sources / price list config</h2>
@@ -191,7 +205,7 @@ function renderShell() {
           <li>Update <code>priceList.workbookPath</code> / <code>effectiveDate</code> in <code>public/data/config.json</code>.</li>
           <li>Run <code>npm run ingest</code>, then refresh the app.</li>
           <li>Series map (e.g. HD28 ↔ VCM2837) lives in <code>public/data/series-aliases.json</code> — edit there for model pin / document keys.</li>
-          <li>Data-sheet PDFs stay local under <code>data-sheets/</code>; only the JSON index is committed.</li>
+          <li>Data-sheet PDFs stay local under <code>data-sheets/</code> (e.g. <code>C:\\Temp\\rinnai-spare-parts\\data-sheets\\</code>); Vite serves them at <code>/data-sheets/</code>. Only the JSON index is committed.</li>
         </ol>
       </section>
 
@@ -285,41 +299,137 @@ function runSearch() {
   lastResults = searchParts(catalogue, q, modelId, {
     modelIds: pin.modelIds,
   });
-  lastDocResults = searchDocuments(documentIndex, seriesDoc, q, pin);
+  lastDocResults = searchDocuments(documentIndex, seriesDoc, q, pin, config);
   renderResults(q, pin);
 }
 
-function renderDocResults() {
-  const wrap = document.querySelector("#docs-wrap");
-  const list = document.querySelector("#docs");
-  if (!wrap || !list) return;
-  list.innerHTML = "";
-  if (!lastDocResults.length) {
-    wrap.hidden = true;
+function documentsRootHint() {
+  const folder =
+    config?.documents?.extractRootExample ||
+    config?.documents?.localFolder ||
+    "data-sheets/";
+  const rootUrl = config?.documents?.rootUrl || "/data-sheets";
+  return `PDFs load from ${folder} via ${rootUrl}/ (gitignored — not in cloud).`;
+}
+
+function openPdfViewer(title, url) {
+  viewerState = { title, url };
+  const dialog = document.querySelector("#pdf-viewer");
+  const frame = document.querySelector("#pdf-viewer-frame");
+  const titleEl = document.querySelector("#pdf-viewer-title");
+  const link = document.querySelector("#pdf-viewer-newtab");
+  if (!dialog || !frame || !titleEl || !link) {
+    window.open(url, "_blank", "noopener");
     return;
   }
+  titleEl.textContent = title;
+  link.href = url;
+  frame.src = url;
+  if (typeof dialog.showModal === "function") dialog.showModal();
+  else dialog.setAttribute("open", "");
+}
+
+function closePdfViewer() {
+  viewerState = null;
+  const dialog = document.querySelector("#pdf-viewer");
+  const frame = document.querySelector("#pdf-viewer-frame");
+  if (frame) frame.src = "about:blank";
+  if (dialog && typeof dialog.close === "function") dialog.close();
+  else if (dialog) dialog.removeAttribute("open");
+}
+
+function renderDocResults(pin) {
+  const wrap = document.querySelector("#docs-wrap");
+  const list = document.querySelector("#docs");
+  const note = document.querySelector("#docs-note");
+  if (!wrap || !list) return;
+  list.innerHTML = "";
+
+  const activePin = pin || currentPin();
+  const hasPin = activePin.kind !== "none";
+  const hasQuery = Boolean(
+    String(document.querySelector("#query-input")?.value || "").trim()
+  );
+  const indexCount =
+    documentIndex?.totals?.pdfs ?? documentIndex?.documents?.length ?? 0;
+
+  if (!lastDocResults.length) {
+    if (hasPin || hasQuery) {
+      wrap.hidden = false;
+      if (note) {
+        note.hidden = false;
+        if (!indexCount) {
+          note.textContent =
+            "No document index loaded. Expected public/data/document-index.json.";
+        } else if (hasPin) {
+          const label =
+            activePin.series?.label ||
+            activePin.model?.sku ||
+            "this pin";
+          note.textContent = `No matching data sheets for ${label}. ${documentsRootHint()}`;
+        } else {
+          note.textContent = `No matching data sheets for this search. ${documentsRootHint()}`;
+        }
+      }
+    } else {
+      wrap.hidden = true;
+      if (note) {
+        note.hidden = true;
+        note.textContent = "";
+      }
+    }
+    return;
+  }
+
   wrap.hidden = false;
+  if (note) {
+    note.hidden = false;
+    note.textContent = `${lastDocResults.length} sheet${
+      lastDocResults.length === 1 ? "" : "s"
+    } · click to open · ${documentsRootHint()}`;
+  }
+
   for (const row of lastDocResults) {
     const { doc, matchedOn } = row;
+    const url = row.url || resolveDocumentUrl(doc, config);
     const li = document.createElement("li");
     li.className = "doc";
     const series = (doc.series || [])
       .map((s) => `<span class="model-tag">${escapeHtml(s)}</span>`)
       .join("");
     const type = escapeHtml(doc.type || "other");
+    const name = escapeHtml(doc.fileName);
+    const openControls = url
+      ? `<div class="doc-actions">
+          <a class="doc-open" href="${escapeHtml(url)}" target="_blank" rel="noopener">Open PDF</a>
+          <button type="button" class="doc-view" data-url="${escapeHtml(url)}" data-title="${name}">View here</button>
+        </div>`
+      : `<p class="docs-note muted">No URL — check documents.rootUrl in config.json</p>`;
+
     li.innerHTML = `
       <div class="doc-head">
         <span class="doc-type">${type}</span>
-        <p class="doc-name">${escapeHtml(doc.fileName)}</p>
+        <p class="doc-name">${
+          url
+            ? `<a class="doc-name-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">${name}</a>`
+            : name
+        }</p>
       </div>
       <div class="doc-series">${series || '<span class="muted">No series tags</span>'}</div>
       <p class="doc-path muted">${escapeHtml(doc.path || "")}</p>
+      ${openControls}
       <div class="match-row">Matched on ${(matchedOn || [])
         .map((m) => `<span class="match-tag">${escapeHtml(m)}</span>`)
         .join("")}</div>
     `;
     list.appendChild(li);
   }
+
+  list.querySelectorAll(".doc-view").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      openPdfViewer(btn.dataset.title || "Data sheet", btn.dataset.url);
+    });
+  });
 }
 
 function renderPriceBlock(part) {
@@ -369,8 +479,13 @@ function renderResults(query, pin) {
     empty.hidden = true;
     const docsWrap = document.querySelector("#docs-wrap");
     const docsList = document.querySelector("#docs");
+    const docsNote = document.querySelector("#docs-note");
     if (docsWrap) docsWrap.hidden = true;
     if (docsList) docsList.innerHTML = "";
+    if (docsNote) {
+      docsNote.hidden = true;
+      docsNote.textContent = "";
+    }
     lastDocResults = [];
     return;
   }
@@ -390,7 +505,7 @@ function renderResults(query, pin) {
     : "";
   meta.textContent = `${lastResults.length} part${lastResults.length === 1 ? "" : "s"}${docBit}${pinBit} · margin ${marginPercent}%`;
 
-  renderDocResults();
+  renderDocResults(activePin);
 
   if (!lastResults.length && !lastDocResults.length) {
     empty.hidden = false;
@@ -503,6 +618,19 @@ function bindEvents() {
       input.focus();
     });
   });
+
+  const viewerClose = document.querySelector("#pdf-viewer-close");
+  const viewer = document.querySelector("#pdf-viewer");
+  if (viewerClose) viewerClose.addEventListener("click", closePdfViewer);
+  if (viewer) {
+    viewer.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      closePdfViewer();
+    });
+    viewer.addEventListener("click", (e) => {
+      if (e.target === viewer) closePdfViewer();
+    });
+  }
 }
 
 async function boot() {

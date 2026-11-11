@@ -15,6 +15,8 @@
         "HD-28",
         "REU-VCM2837",
         "REU-VCM2837WC",
+        "REU-VCM2837FFC",
+        "REU-VCM2837FFUC",
         "VCM2837",
         "REUVCM2837"
       ],
@@ -26,10 +28,15 @@
         "HD28",
         "REU-VCM2837",
         "REU-VCM2837WC",
+        "REU-VCM2837FFC",
+        "REU-VCM2837FFUC",
         "VCM2837",
+        "VCM2837WC",
+        "VCM2837FFC",
+        "VCM2837FFUC",
         "REUVCM2837"
       ],
-      "notes": "HD28 continuous-flow platform shares REU-VCM2837 / VCM2837 chassis codes used on plates and technical docs. Two local PL PDFs tagged HD28/VCM2837 in document-index."
+      "notes": "HD28 continuous-flow platform shares REU-VCM2837 / VCM2837 chassis codes used on plates and technical docs. WC (external) and FFC/FFUC (internal) are distinct unit classes — keep both document keys; never treat them as duplicate sheets."
     }
   ]
 }
