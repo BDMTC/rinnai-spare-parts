@@ -1,0 +1,1314 @@
+{
+    "generatedAt":  "2026-11-11T14:34:41.9241376+10:00",
+    "extractRoot":  "C:\\Temp\\rinnai-spare-parts\\data-sheets",
+    "note":  "Binary PDFs stay local under C:\\Temp\\rinnai-spare-parts\\data-sheets\\ â€” do not commit into git. This JSON is the portable index only.",
+    "totals":  {
+                   "files":  106,
+                   "pdfs":  106,
+                   "byType":  {
+                                  "other":  8,
+                                  "SM":  44,
+                                  "PL":  16,
+                                  "EDPL":  37,
+                                  "ED":  1
+                              },
+                   "hd28":  2,
+                   "hd200":  1,
+                   "totalBytes":  296631604
+               },
+    "documents":  [
+                      {
+                          "id":  "EDPL-2425W",
+                          "fileName":  "EDPL 2425W.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL 2425W.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "2425W"
+                                     ],
+                          "sizeBytes":  236916,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-B16",
+                          "fileName":  "EDPL B16.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL B16.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "B16"
+                                     ],
+                          "sizeBytes":  506140,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-B24",
+                          "fileName":  "EDPL B24.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL B24.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "B24"
+                                     ],
+                          "sizeBytes":  501089,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REU-K2403WG",
+                          "fileName":  "EDPL REU-K2403WG.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REU-K2403WG.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REU-K2403WG"
+                                     ],
+                          "sizeBytes":  389836,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REU-K2430WG",
+                          "fileName":  "EDPL REU-K2430WG.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REU-K2430WG.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REU-K2430WG"
+                                     ],
+                          "sizeBytes":  389835,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REU-VR2632FFUG",
+                          "fileName":  "EDPL REU-VR2632FFUG.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REU-VR2632FFUG.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REU-VR2632FFUG",
+                                         "VR2632FFUG"
+                                     ],
+                          "sizeBytes":  258584,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REU-VRM2632WC",
+                          "fileName":  "EDPL REU-VRM2632WC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REU-VRM2632WC.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REU-VRM2632WC",
+                                         "VRM2632WC"
+                                     ],
+                          "sizeBytes":  253437,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REUV1620W",
+                          "fileName":  "EDPL REUV1620W.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REUV1620W.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REUV1620W"
+                                     ],
+                          "sizeBytes":  1299085,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REUV1620WG",
+                          "fileName":  "EDPL REUV1620WG.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REUV1620WG.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REUV1620WG"
+                                     ],
+                          "sizeBytes":  316924,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REUV2024WG",
+                          "fileName":  "EDPL REUV2024WG.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REUV2024WG.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REUV2024WG"
+                                     ],
+                          "sizeBytes":  543069,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REUV2426WG",
+                          "fileName":  "EDPL REUV2426WG.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REUV2426WG.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REUV2426WG"
+                                     ],
+                          "sizeBytes":  590502,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REUV2626WG",
+                          "fileName":  "EDPL REUV2626WG.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REUV2626WG.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REUV2626WG"
+                                     ],
+                          "sizeBytes":  966450,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REUV2626W_REUV2632WC",
+                          "fileName":  "EDPL REUV2626W_REUV2632WC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REUV2626W_REUV2632WC.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REUV2626W"
+                                     ],
+                          "sizeBytes":  146003,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REUV2630WD-INF26Plus",
+                          "fileName":  "EDPL REUV2630WD INF26Plus.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REUV2630WD INF26Plus.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REUV2630WD",
+                                         "INF26"
+                                     ],
+                          "sizeBytes":  844808,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REUV2632FFU",
+                          "fileName":  "EDPL REUV2632FFU.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REUV2632FFU.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REUV2632FFU"
+                                     ],
+                          "sizeBytes":  817644,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REUV2632FFUC",
+                          "fileName":  "EDPL REUV2632FFUC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REUV2632FFUC.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REUV2632FFUC"
+                                     ],
+                          "sizeBytes":  781803,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REUV3237",
+                          "fileName":  "EDPL REUV3237.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REUV3237.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REUV3237"
+                                     ],
+                          "sizeBytes":  254289,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-REUVM3237WC",
+                          "fileName":  "EDPL REUVM3237WC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL REUVM3237WC.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REUVM3237WC"
+                                     ],
+                          "sizeBytes":  254275,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-Smartstart",
+                          "fileName":  "EDPL Smartstart.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL Smartstart.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "SMARTSTART"
+                                     ],
+                          "sizeBytes":  136278,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-V1616WF",
+                          "fileName":  "EDPL V1616WF.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL V1616WF.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "V1616WF"
+                                     ],
+                          "sizeBytes":  1136290,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-V1616W_2018W_2020W",
+                          "fileName":  "EDPL V1616W_2018W_2020W.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL V1616W_2018W_2020W.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "V1616W"
+                                     ],
+                          "sizeBytes":  871592,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-V2632FFU_FFUC",
+                          "fileName":  "EDPL V2632FFU_FFUC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL V2632FFU_FFUC.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "V2632FFU"
+                                     ],
+                          "sizeBytes":  251173,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-V3232W_WC",
+                          "fileName":  "EDPL V3232W_WC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL V3232W_WC.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "V3232W"
+                                     ],
+                          "sizeBytes":  606584,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-VM3237WC",
+                          "fileName":  "EDPL VM3237WC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL VM3237WC.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "VM3237WC"
+                                     ],
+                          "sizeBytes":  292318,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-VR1620",
+                          "fileName":  "EDPL VR1620.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL VR1620.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "VR1620"
+                                     ],
+                          "sizeBytes":  506872,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-VR2024",
+                          "fileName":  "EDPL VR2024.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL VR2024.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "VR2024"
+                                     ],
+                          "sizeBytes":  441479,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-VR2426_VR2626",
+                          "fileName":  "EDPL VR2426_VR2626.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL VR2426_VR2626.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "VR2426"
+                                     ],
+                          "sizeBytes":  502534,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-VRM2630",
+                          "fileName":  "EDPL VRM2630.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL VRM2630.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "VRM2630"
+                                     ],
+                          "sizeBytes":  519859,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-VRM2632FFU",
+                          "fileName":  "EDPL VRM2632FFU.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL VRM2632FFU.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "VRM2632FFU"
+                                     ],
+                          "sizeBytes":  326813,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-VR_VRM3237",
+                          "fileName":  "EDPL VR_VRM3237.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EDPL VR_VRM3237.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  325639,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "ED_N-Series-2020-IN32-Enviro",
+                          "fileName":  "ED_N Series 2020 IN32 Enviro.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/ED_N Series 2020 IN32 Enviro.pdf",
+                          "type":  "ED",
+                          "series":  [
+                                         "INFINITY-32",
+                                         "ENVIRO"
+                                     ],
+                          "sizeBytes":  703586,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EHFA-SPARE-PARTS",
+                          "fileName":  "EHFA  SPARE PARTS.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/EHFA  SPARE PARTS.pdf",
+                          "type":  "PL",
+                          "series":  [
+                                         "EHFA"
+                                     ],
+                          "sizeBytes":  2804692,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "HFE-250S-315S-SPL-29032021-V8",
+                          "fileName":  "HFE 250S 315S SPL 29032021 V8.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/HFE 250S 315S SPL 29032021 V8.pdf",
+                          "type":  "PL",
+                          "series":  [
+                                         "HFE"
+                                     ],
+                          "sizeBytes":  310140,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "Hotflo-EHFA160-Spare-Parts-List-S111418B",
+                          "fileName":  "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/Hotflo EHFA160 Spare Parts List S111418B.pdf",
+                          "type":  "PL",
+                          "series":  [
+                                         "EHFA160"
+                                     ],
+                          "sizeBytes":  1086839,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "HW_CF_A_Series_Parts_List_Issue_1_Jan_2018",
+                          "fileName":  "HW_CF_A_Series_Parts_List_Issue_1_Jan_2018.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/HW_CF_A_Series_Parts_List_Issue_1_Jan_2018.pdf",
+                          "type":  "PL",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  1046202,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "HW_CF_BM_SM_Issue_1_AUG-BM2626-B26-Series",
+                          "fileName":  "HW_CF_BM_SM_Issue_1_AUG BM2626 \u0026 B26 Series.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/HW_CF_BM_SM_Issue_1_AUG BM2626 \u0026 B26 Series.pdf",
+                          "type":  "SM",
+                          "series":  [
+                                         "BM2626",
+                                         "B26"
+                                     ],
+                          "sizeBytes":  7801928,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "IHF10-Spare-Parts-List",
+                          "fileName":  "IHF10-Spare-Parts-List.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/IHF10-Spare-Parts-List.pdf",
+                          "type":  "PL",
+                          "series":  [
+                                         "IHF10"
+                                     ],
+                          "sizeBytes":  604792,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "IHF10",
+                          "fileName":  "IHF10.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/IHF10.pdf",
+                          "type":  "other",
+                          "series":  [
+                                         "IHF10"
+                                     ],
+                          "sizeBytes":  5924462,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "New-A-Series-CF-Parts-List",
+                          "fileName":  "New A Series CF Parts List.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/New A Series CF Parts List.pdf",
+                          "type":  "PL",
+                          "series":  [
+                                         "A-SERIES"
+                                     ],
+                          "sizeBytes":  8887705,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "Parts-List-REU-VCM2837-WC-External",
+                          "fileName":  "Parts List REU-VCM2837 WC External.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/Parts List REU-VCM2837 WC External.pdf",
+                          "type":  "PL",
+                          "series":  [
+                                         "REU-VCM2837",
+                                         "VCM2837",
+                                         "HD28"
+                                     ],
+                          "sizeBytes":  1009311,
+                          "hd28":  true,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "PL-ED-INF26-Smartstart-VR2626WGP",
+                          "fileName":  "PL \u0026 ED INF26 Smartstart VR2626WGP.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/PL \u0026 ED INF26 Smartstart VR2626WGP.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "VR2626WGP",
+                                         "INF26",
+                                         "SMARTSTART"
+                                     ],
+                          "sizeBytes":  481199,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "PL-ED-KM2635WD",
+                          "fileName":  "PL \u0026 ED KM2635WD.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/PL \u0026 ED KM2635WD.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "KM2635WD"
+                                     ],
+                          "sizeBytes":  381449,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "PL-ED-KM3237WD",
+                          "fileName":  "PL \u0026 ED KM3237WD.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/PL \u0026 ED KM3237WD.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "KM3237WD"
+                                     ],
+                          "sizeBytes":  431791,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "PL---N3237_Infinity-32-Enviro-Plus-N-Series_Issue-3_Dec-21",
+                          "fileName":  "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf",
+                          "type":  "PL",
+                          "series":  [
+                                         "ENVIRO"
+                                     ],
+                          "sizeBytes":  125288,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "PL---RINNAI---2025-BM-SERIES---INFINITY-B---ISSUE-1---AUG-2025",
+                          "fileName":  "PL - RINNAI - 2025 BM SERIES - INFINITY B - ISSUE 1 - AUG 2025.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/PL - RINNAI - 2025 BM SERIES - INFINITY B - ISSUE 1 - AUG 2025.pdf",
+                          "type":  "PL",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  906443,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "PL-REU2425_2408_2020_2018",
+                          "fileName":  "PL REU2425_2408_2020_2018.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/PL REU2425_2408_2020_2018.pdf",
+                          "type":  "PL",
+                          "series":  [
+                                         "REU2425"
+                                     ],
+                          "sizeBytes":  633679,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "PLED_Infinity-32-Enviro-Plus-N-Series-e",
+                          "fileName":  "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "N-SERIES",
+                                         "ENVIRO"
+                                     ],
+                          "sizeBytes":  744375,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "QRESS-quick-recovery-tanks-parts",
+                          "fileName":  "QRESS quick recovery tanks parts.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/QRESS quick recovery tanks parts.pdf",
+                          "type":  "PL",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  162697,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "REU-2020_18_24-PL",
+                          "fileName":  "REU-2020_18_24 PL.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/REU-2020_18_24 PL.pdf",
+                          "type":  "PL",
+                          "series":  [
+                                         "REU-2020"
+                                     ],
+                          "sizeBytes":  52969,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "REU-KM3237WDC-AK-Combined-SP-EPD-SEP-2018",
+                          "fileName":  "REU-KM3237WDC-AK Combined SP \u0026 EPD SEP 2018.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/REU-KM3237WDC-AK Combined SP \u0026 EPD SEP 2018.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "REU-KM3237WDC",
+                                         "KM3237WDC"
+                                     ],
+                          "sizeBytes":  468240,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "REU-V3237WG-Parts-List",
+                          "fileName":  "REU-V3237WG Parts List.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/REU-V3237WG Parts List.pdf",
+                          "type":  "PL",
+                          "series":  [
+                                         "REU-V3237WG",
+                                         "V3237WG"
+                                     ],
+                          "sizeBytes":  11588,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "REU-VCM2837---External-PARTS-LIST",
+                          "fileName":  "REU-VCM2837 - External  PARTS LIST.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/REU-VCM2837 - External  PARTS LIST.pdf",
+                          "type":  "PL",
+                          "series":  [
+                                         "REU-VCM2837",
+                                         "VCM2837",
+                                         "HD28"
+                                     ],
+                          "sizeBytes":  576100,
+                          "hd28":  true,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "REU-VRM2024",
+                          "fileName":  "REU-VRM2024.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/REU-VRM2024.pdf",
+                          "type":  "other",
+                          "series":  [
+                                         "REU-VRM2024",
+                                         "VRM2024"
+                                     ],
+                          "sizeBytes":  366753,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "REUV2630WD-INF26Plus",
+                          "fileName":  "REUV2630WD INF26Plus.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/REUV2630WD INF26Plus.pdf",
+                          "type":  "other",
+                          "series":  [
+                                         "REUV2630WD",
+                                         "INF26"
+                                     ],
+                          "sizeBytes":  74880,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "REUV2632FFU",
+                          "fileName":  "REUV2632FFU.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/REUV2632FFU.pdf",
+                          "type":  "other",
+                          "series":  [
+                                         "REUV2632FFU"
+                                     ],
+                          "sizeBytes":  73901,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "REUVM2630WC-HD200e",
+                          "fileName":  "REUVM2630WC HD200e.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/REUVM2630WC HD200e.pdf",
+                          "type":  "other",
+                          "series":  [
+                                         "HD200",
+                                         "REUVM2630WC"
+                                     ],
+                          "sizeBytes":  74680,
+                          "hd28":  false,
+                          "hd200":  true
+                      },
+                      {
+                          "id":  "SM-2006",
+                          "fileName":  "SM 2006.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM 2006.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  2871689,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-2007_2008_2408_2424W",
+                          "fileName":  "SM 2007_2008_2408_2424W.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM 2007_2008_2408_2424W.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  2878141,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-2010",
+                          "fileName":  "SM 2010.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM 2010.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  3019779,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-2402",
+                          "fileName":  "SM 2402.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM 2402.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  3935936,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-2406",
+                          "fileName":  "SM 2406.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM 2406.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  2488471,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-2408HD",
+                          "fileName":  "SM 2408HD.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM 2408HD.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  2151221,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-2425",
+                          "fileName":  "SM 2425.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM 2425.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  2069776,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-24WA",
+                          "fileName":  "SM 24WA.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM 24WA.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  3575520,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-32",
+                          "fileName":  "SM 32.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM 32.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  4689035,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-Close-Coupled-V6",
+                          "fileName":  "SM Close Coupled V6.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM Close Coupled V6.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  4549919,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-DemandDuo",
+                          "fileName":  "SM DemandDuo.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM DemandDuo.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  1413534,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-ECO1616",
+                          "fileName":  "SM ECO1616.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM ECO1616.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  3687703,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-Inbuilt-Smartstart",
+                          "fileName":  "SM Inbuilt Smartstart.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM Inbuilt Smartstart.pdf",
+                          "type":  "SM",
+                          "series":  [
+                                         "SMARTSTART"
+                                     ],
+                          "sizeBytes":  2623301,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-INF26_INF32-Enviro-WH-190810",
+                          "fileName":  "SM INF26_INF32 Enviro WH 190810.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM INF26_INF32 Enviro WH 190810.pdf",
+                          "type":  "SM",
+                          "series":  [
+                                         "INF26",
+                                         "ENVIRO"
+                                     ],
+                          "sizeBytes":  3540740,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-NEW-2425",
+                          "fileName":  "SM NEW 2425.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM NEW 2425.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  3225216,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-REU-2425OLD",
+                          "fileName":  "SM REU-2425OLD.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM REU-2425OLD.pdf",
+                          "type":  "SM",
+                          "series":  [
+                                         "REU-2425OLD"
+                                     ],
+                          "sizeBytes":  4389129,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-REU3203",
+                          "fileName":  "SM REU3203.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM REU3203.pdf",
+                          "type":  "SM",
+                          "series":  [
+                                         "REU3203"
+                                     ],
+                          "sizeBytes":  4689035,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-Smartstart",
+                          "fileName":  "SM Smartstart.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM Smartstart.pdf",
+                          "type":  "SM",
+                          "series":  [
+                                         "SMARTSTART"
+                                     ],
+                          "sizeBytes":  2014126,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-V1616WF",
+                          "fileName":  "SM V1616WF.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM V1616WF.pdf",
+                          "type":  "SM",
+                          "series":  [
+                                         "V1616WF"
+                                     ],
+                          "sizeBytes":  3001595,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-V16_18_20",
+                          "fileName":  "SM V16_18_20.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM V16_18_20.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  9947601,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-V26",
+                          "fileName":  "SM V26.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM V26.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  2163275,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-V26FFU",
+                          "fileName":  "SM V26FFU.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM V26FFU.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  3004333,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM-V32",
+                          "fileName":  "SM V32.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM V32.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  4915308,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SM2018_2422_2020_2425",
+                          "fileName":  "SM2018_2422_2020_2425.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SM2018_2422_2020_2425.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  2225309,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "sm3232W_WC-April09",
+                          "fileName":  "sm3232W_WC April09.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/sm3232W_WC April09.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  10142150,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "sm3237W_WC-April09",
+                          "fileName":  "sm3237W_WC April09.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/sm3237W_WC April09.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  10153614,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SmartStart-Parts-list",
+                          "fileName":  "SmartStart Parts list.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SmartStart Parts list.pdf",
+                          "type":  "PL",
+                          "series":  [
+                                         "SMARTSTART"
+                                     ],
+                          "sizeBytes":  136555,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "smK2430WAK",
+                          "fileName":  "smK2430WAK.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/smK2430WAK.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  3294419,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "smREUV3237W_VM3237WC-April09",
+                          "fileName":  "smREUV3237W_VM3237WC April09.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/smREUV3237W_VM3237WC April09.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  10441100,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "smv1616W",
+                          "fileName":  "smv1616W.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/smv1616W.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  9804120,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "smV1616W_V2018W_V2020W",
+                          "fileName":  "smV1616W_V2018W_V2020W.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/smV1616W_V2018W_V2020W.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  3972496,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SMV1620W_V2018W",
+                          "fileName":  "SMV1620W_V2018W.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SMV1620W_V2018W.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  7214315,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "smv1620_2024",
+                          "fileName":  "smv1620_2024.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/smv1620_2024.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  10438973,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "smv2426W_2626W_V2630WC",
+                          "fileName":  "smv2426W_2626W_V2630WC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/smv2426W_2626W_V2630WC.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  10928766,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "smV2626W_V2630WC",
+                          "fileName":  "smV2626W_V2630WC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/smV2626W_V2630WC.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  10931570,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "smV2626W_V2632WC",
+                          "fileName":  "smV2626W_V2632WC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/smV2626W_V2632WC.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  5982715,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "smv2632FFU_FFUC",
+                          "fileName":  "smv2632FFU_FFUC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/smv2632FFU_FFUC.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  3866480,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SMVR2426W_VR2632WC",
+                          "fileName":  "SMVR2426W_VR2632WC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SMVR2426W_VR2632WC.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  10111615,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "SMVR2426_VR2626_VR2630WD",
+                          "fileName":  "SMVR2426_VR2626_VR2630WD.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/SMVR2426_VR2626_VR2630WD.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  10111605,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "smVR2632FFUG_VRM2632FFUC",
+                          "fileName":  "smVR2632FFUG_VRM2632FFUC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/smVR2632FFUG_VRM2632FFUC.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  3702558,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "smVR3237WG_WC",
+                          "fileName":  "smVR3237WG_WC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/smVR3237WG_WC.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  10386979,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "smvREUVR1616W_VR2024",
+                          "fileName":  "smvREUVR1616W_VR2024.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/smvREUVR1616W_VR2024.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  10292214,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "smvREUVR1616W_VR2024_v2",
+                          "fileName":  "smvREUVR1616W_VR2024_v2.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/smvREUVR1616W_VR2024_v2.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  10356969,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "smVRM2632WC",
+                          "fileName":  "smVRM2632WC.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/smVRM2632WC.pdf",
+                          "type":  "SM",
+                          "series":  [
+
+                                     ],
+                          "sizeBytes":  2160314,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "VR2024WB-50-AK-B20-NON50",
+                          "fileName":  "VR2024WB-50-AK B20 NON50.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/VR2024WB-50-AK B20 NON50.pdf",
+                          "type":  "other",
+                          "series":  [
+                                         "VR2024WB",
+                                         "B20"
+                                     ],
+                          "sizeBytes":  968258,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "EDPL-UCH-151-TITAN--parts-list",
+                          "fileName":  "EDPL UCH 151 TITAN- parts list.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/flame fires/EDPL UCH 151 TITAN- parts list.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "TITAN",
+                                         "UCH151"
+                                     ],
+                          "sizeBytes":  158121,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "REH-151UCH-Titan",
+                          "fileName":  "REH-151UCH Titan.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/flame fires/REH-151UCH Titan.pdf",
+                          "type":  "other",
+                          "series":  [
+                                         "TITAN",
+                                         "REH-151UCH"
+                                     ],
+                          "sizeBytes":  319107,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "RHFE-308FTR-Comb-V7-June-2019",
+                          "fileName":  "RHFE 308FTR Comb V7 June 2019.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/flame fires/RHFE 308FTR Comb V7 June 2019.pdf",
+                          "type":  "other",
+                          "series":  [
+                                         "RHFE-308FTR"
+                                     ],
+                          "sizeBytes":  521221,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "RIB2310-PARTS-LIST-AND-EXPLODED-DIAGRAM",
+                          "fileName":  "RIB2310  PARTS LIST AND EXPLODED DIAGRAM.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/flame fires/RIB2310  PARTS LIST AND EXPLODED DIAGRAM.pdf",
+                          "type":  "EDPL",
+                          "series":  [
+                                         "RIB2310"
+                                     ],
+                          "sizeBytes":  4053715,
+                          "hd28":  false,
+                          "hd200":  false
+                      },
+                      {
+                          "id":  "Spares-RDV600-May-2021-COMB",
+                          "fileName":  "Spares RDV600 May 2021 COMB.pdf",
+                          "path":  "data-sheets/Rinnai Data Sheets/flame fires/Spares RDV600 May 2021 COMB.pdf",
+                          "type":  "PL",
+                          "series":  [
+                                         "RDV600"
+                                     ],
+                          "sizeBytes":  2098154,
+                          "hd28":  false,
+                          "hd200":  false
+                      }
+                  ]
+}

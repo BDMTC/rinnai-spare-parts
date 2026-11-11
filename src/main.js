@@ -12,6 +12,7 @@ import {
   documentKeysForPin,
   modelIdsForSeries,
 } from "./series.js";
+import { searchDocuments } from "./documents.js";
 
 const app = document.querySelector("#app");
 
@@ -23,7 +24,10 @@ let config = null;
 let pricesMeta = null;
 /** @type {object|null} */
 let seriesDoc = null;
+/** @type {object|null} */
+let documentIndex = null;
 let lastResults = [];
+let lastDocResults = [];
 let marginPercent = DEFAULT_MARGIN_PERCENT;
 let gstRate = DEFAULT_GST_RATE;
 
@@ -127,6 +131,7 @@ function renderShell() {
           <button type="button" class="chip" data-q="flow">flow</button>
           <button type="button" class="chip" data-q="thermocouple">thermocouple</button>
           <button type="button" class="chip" data-q="HD200">HD200</button>
+          <button type="button" class="chip" data-q="HD28">HD28</button>
           <button type="button" class="chip" data-q="VCM2837">VCM2837</button>
         </p>
         <p class="pricing-note">
@@ -138,6 +143,10 @@ function renderShell() {
       <section class="results-wrap" aria-live="polite">
         <div class="results-meta" id="results-meta"></div>
         <ul class="results" id="results"></ul>
+        <div class="docs-wrap" id="docs-wrap" hidden>
+          <h2 class="docs-heading">Data sheets</h2>
+          <ul class="docs" id="docs"></ul>
+        </div>
         <p class="empty" id="empty" hidden>No matches. Try a part code, description fragment, or clear the model pin.</p>
       </section>
 
@@ -172,12 +181,17 @@ function renderShell() {
             <dt>Series aliases</dt>
             <dd><code>public/data/series-aliases.json</code></dd>
           </div>
+          <div>
+            <dt>Document index</dt>
+            <dd id="ds-docs"><code>public/data/document-index.json</code></dd>
+          </div>
         </dl>
         <ol class="refresh-steps">
           <li>Drop the new Rinnai price workbook into <code>source-data/</code>.</li>
           <li>Update <code>priceList.workbookPath</code> / <code>effectiveDate</code> in <code>public/data/config.json</code>.</li>
           <li>Run <code>npm run ingest</code>, then refresh the app.</li>
           <li>Series map (e.g. HD28 ↔ VCM2837) lives in <code>public/data/series-aliases.json</code> — edit there for model pin / document keys.</li>
+          <li>Data-sheet PDFs stay local under <code>data-sheets/</code>; only the JSON index is committed.</li>
         </ol>
       </section>
 
@@ -240,6 +254,7 @@ function populateDataSources() {
   const modelsEl = document.querySelector("#ds-models");
   const pricesEl = document.querySelector("#ds-prices");
   const sheetsEl = document.querySelector("#ds-sheets");
+  const docsEl = document.querySelector("#ds-docs");
   if (modelsEl) {
     modelsEl.textContent = String(
       catalogue?.meta?.modelCount ?? catalogue?.models?.length ?? "—"
@@ -255,6 +270,12 @@ function populateDataSources() {
       pricesMeta?.sheetCount ?? config?.priceList?.sheetCount ?? "—"
     );
   }
+  if (docsEl) {
+    const n = documentIndex?.totals?.pdfs ?? documentIndex?.documents?.length;
+    docsEl.innerHTML = n
+      ? `<code>public/data/document-index.json</code> · ${n} PDFs`
+      : `<code>public/data/document-index.json</code>`;
+  }
 }
 
 function runSearch() {
@@ -264,7 +285,41 @@ function runSearch() {
   lastResults = searchParts(catalogue, q, modelId, {
     modelIds: pin.modelIds,
   });
+  lastDocResults = searchDocuments(documentIndex, seriesDoc, q, pin);
   renderResults(q, pin);
+}
+
+function renderDocResults() {
+  const wrap = document.querySelector("#docs-wrap");
+  const list = document.querySelector("#docs");
+  if (!wrap || !list) return;
+  list.innerHTML = "";
+  if (!lastDocResults.length) {
+    wrap.hidden = true;
+    return;
+  }
+  wrap.hidden = false;
+  for (const row of lastDocResults) {
+    const { doc, matchedOn } = row;
+    const li = document.createElement("li");
+    li.className = "doc";
+    const series = (doc.series || [])
+      .map((s) => `<span class="model-tag">${escapeHtml(s)}</span>`)
+      .join("");
+    const type = escapeHtml(doc.type || "other");
+    li.innerHTML = `
+      <div class="doc-head">
+        <span class="doc-type">${type}</span>
+        <p class="doc-name">${escapeHtml(doc.fileName)}</p>
+      </div>
+      <div class="doc-series">${series || '<span class="muted">No series tags</span>'}</div>
+      <p class="doc-path muted">${escapeHtml(doc.path || "")}</p>
+      <div class="match-row">Matched on ${(matchedOn || [])
+        .map((m) => `<span class="match-tag">${escapeHtml(m)}</span>`)
+        .join("")}</div>
+    `;
+    list.appendChild(li);
+  }
 }
 
 function renderPriceBlock(part) {
@@ -312,6 +367,11 @@ function renderResults(query, pin) {
   if (!query.trim() && !hasPin) {
     meta.textContent = "";
     empty.hidden = true;
+    const docsWrap = document.querySelector("#docs-wrap");
+    const docsList = document.querySelector("#docs");
+    if (docsWrap) docsWrap.hidden = true;
+    if (docsList) docsList.innerHTML = "";
+    lastDocResults = [];
     return;
   }
 
@@ -325,9 +385,14 @@ function renderResults(query, pin) {
       : "";
     pinBit = ` · pinned ${getModelLabel(activePin.model)}${seriesBit}`;
   }
-  meta.textContent = `${lastResults.length} result${lastResults.length === 1 ? "" : "s"}${pinBit} · margin ${marginPercent}%`;
+  const docBit = lastDocResults.length
+    ? ` · ${lastDocResults.length} data sheet${lastDocResults.length === 1 ? "" : "s"}`
+    : "";
+  meta.textContent = `${lastResults.length} part${lastResults.length === 1 ? "" : "s"}${docBit}${pinBit} · margin ${marginPercent}%`;
 
-  if (!lastResults.length) {
+  renderDocResults();
+
+  if (!lastResults.length && !lastDocResults.length) {
     empty.hidden = false;
     return;
   }
@@ -443,16 +508,18 @@ function bindEvents() {
 async function boot() {
   renderShell();
   try {
-    const [cat, cfg, prices, series] = await Promise.all([
+    const [cat, cfg, prices, series, docs] = await Promise.all([
       loadJson("/data/catalogue.json"),
       loadJson("/data/config.json"),
       loadJson("/data/prices.json"),
       loadJson("/data/series-aliases.json"),
+      loadJson("/data/document-index.json").catch(() => ({ documents: [] })),
     ]);
     catalogue = cat;
     config = cfg;
     pricesMeta = prices.meta || null;
     seriesDoc = series;
+    documentIndex = docs;
     marginPercent =
       Number(cfg.defaultMarginPercent ?? cat.meta?.defaultMarginPercent) ||
       DEFAULT_MARGIN_PERCENT;

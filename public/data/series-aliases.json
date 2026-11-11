@@ -12,7 +12,9 @@
       "label": "HD28",
       "aliases": [
         "HD28",
+        "HD-28",
         "REU-VCM2837",
+        "REU-VCM2837WC",
         "VCM2837",
         "REUVCM2837"
       ],
@@ -23,10 +25,11 @@
       "documentKeys": [
         "HD28",
         "REU-VCM2837",
+        "REU-VCM2837WC",
         "VCM2837",
         "REUVCM2837"
       ],
-      "notes": "HD28 continuous-flow platform shares REU-VCM2837 / VCM2837 chassis codes used on plates and technical docs."
+      "notes": "HD28 continuous-flow platform shares REU-VCM2837 / VCM2837 chassis codes used on plates and technical docs. Two local PL PDFs tagged HD28/VCM2837 in document-index."
     }
   ]
 }

@@ -17,6 +17,12 @@ source-data/*.xlsx
 source-data/*.xls
 !source-data/README.md
 
+# Local Rinnai data sheets (large binaries — keep under Temp; index JSON only in repo)
+data-sheets/
+zip/
+# Machine-local full index with absolutePath (app uses public/data/document-index.json)
+data/document-index.json
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
