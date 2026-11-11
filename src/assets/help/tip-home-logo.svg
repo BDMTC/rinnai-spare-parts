@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="180" viewBox="0 0 480 180" role="img" aria-label="Home logo tip">
+  <rect width="480" height="180" rx="14" fill="#f3f7fb"/>
+  <rect x="28" y="40" width="220" height="100" rx="12" fill="#ffffff" stroke="#c5d0db"/>
+  <text x="48" y="88" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="750" letter-spacing="0.02em"><tspan fill="#1A2F9A">MTC</tspan><tspan fill="#4F90C8">GAS</tspan></text>
+  <text x="88" y="112" font-family="Segoe UI, Arial, sans-serif" font-size="11" font-weight="650" letter-spacing="0.28em" fill="#000">AUSTRALIA</text>
+  <rect x="36" y="48" width="204" height="84" rx="10" fill="none" stroke="#f47921" stroke-width="2.5" stroke-dasharray="5 4"/>
+  <path d="M270 90 L320 90" stroke="#f47921" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="320,84 336,90 320,96" fill="#f47921"/>
+  <text x="350" y="84" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#9a3f0c">Click logo</text>
+  <text x="350" y="106" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b7a">clears search</text>
+  <text x="350" y="124" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b7a">&amp; model pin</text>
+</svg>

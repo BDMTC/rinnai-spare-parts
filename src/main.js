@@ -1,6 +1,11 @@
 import "./style.css";
 import mtcgasLogoUrl from "./assets/mtcgas-australia-logo.png?inline";
 import mtcTeamHqUrl from "./assets/mtc-team-hq.jpg?inline";
+import tipPinModelUrl from "./assets/help/tip-pin-model.svg?inline";
+import tipMarginUrl from "./assets/help/tip-margin.svg?inline";
+import tipSearchUrl from "./assets/help/tip-search.svg?inline";
+import tipHomeLogoUrl from "./assets/help/tip-home-logo.svg?inline";
+import tipQuoteUrl from "./assets/help/tip-quote.svg?inline";
 import { searchParts, getModelLabel, buildAbbrevIndex } from "./search.js";
 import {
   computePrices,
@@ -337,6 +342,19 @@ function closeCart() {
   else if (dialog) dialog.removeAttribute("open");
 }
 
+function openHelp() {
+  const dialog = document.querySelector("#help-dialog");
+  if (!dialog) return;
+  if (typeof dialog.showModal === "function") dialog.showModal();
+  else dialog.setAttribute("open", "");
+}
+
+function closeHelp() {
+  const dialog = document.querySelector("#help-dialog");
+  if (dialog && typeof dialog.close === "function") dialog.close();
+  else if (dialog) dialog.removeAttribute("open");
+}
+
 function handleAddToQuote(part) {
   if (!part?.code) return;
   cartLines = addToCart(cartLines, {
@@ -487,6 +505,20 @@ function renderShell() {
           </div>
         </div>
         <div class="topbar-actions">
+          <button
+            type="button"
+            class="cart-trigger help-trigger"
+            id="help-open"
+            aria-label="Open help tips"
+            title="Help"
+          >
+            <svg class="cart-trigger-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                fill="currentColor"
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+              />
+            </svg>
+          </button>
           <button
             type="button"
             class="cart-trigger"
@@ -651,6 +683,45 @@ function renderShell() {
               <button type="button" class="cart-action cart-action--danger" id="cart-clear">Clear quote list</button>
             </div>
           </footer>
+        </div>
+      </dialog>
+
+      <dialog class="cart-dialog help-dialog" id="help-dialog" aria-labelledby="help-dialog-title">
+        <div class="help-dialog-inner">
+          <header class="cart-dialog-bar">
+            <div>
+              <p class="cart-dialog-kicker">Tips</p>
+              <h2 class="cart-dialog-title" id="help-dialog-title">Quick help</h2>
+            </div>
+            <button type="button" class="cart-dialog-close" id="help-close" aria-label="Close help">Close</button>
+          </header>
+          <div class="help-body">
+            <article class="help-tip">
+              <h3 class="help-tip-title">1. Pin a model</h3>
+              <p class="help-tip-copy">Type a model (e.g. HD200e) and pick it from the list.</p>
+              <img class="help-tip-img" src="${tipPinModelUrl}" alt="Model field with typeahead pick list" width="560" height="220" decoding="async" />
+            </article>
+            <article class="help-tip">
+              <h3 class="help-tip-title">2. Set margin</h3>
+              <p class="help-tip-copy">Use Margin % for your sell markup. Default is 30%.</p>
+              <img class="help-tip-img" src="${tipMarginUrl}" alt="Margin percent dropdown" width="420" height="180" decoding="async" />
+            </article>
+            <article class="help-tip">
+              <h3 class="help-tip-title">3. Search</h3>
+              <p class="help-tip-copy">Part code or trade words work. Short and long aliases both match (e.g. brkt / bracket).</p>
+              <img class="help-tip-img" src="${tipSearchUrl}" alt="Search box with matched alias chip" width="560" height="210" decoding="async" />
+            </article>
+            <article class="help-tip">
+              <h3 class="help-tip-title">4. Back to main page</h3>
+              <p class="help-tip-copy">Click the MTC logo to clear search and the model pin.</p>
+              <img class="help-tip-img" src="${tipHomeLogoUrl}" alt="MTC logo home button" width="480" height="180" decoding="async" />
+            </article>
+            <article class="help-tip">
+              <h3 class="help-tip-title">5. Quote button</h3>
+              <p class="help-tip-copy">Add to Quote builds a list. The cart icon opens it so you can email or copy.</p>
+              <img class="help-tip-img" src="${tipQuoteUrl}" alt="Quote cart icon and Add to Quote button" width="520" height="200" decoding="async" />
+            </article>
+          </div>
         </div>
       </dialog>
 
@@ -1691,6 +1762,21 @@ function bindEvents() {
     });
     cartDialog.addEventListener("click", (e) => {
       if (e.target === cartDialog) closeCart();
+    });
+  }
+
+  const helpOpen = document.querySelector("#help-open");
+  const helpClose = document.querySelector("#help-close");
+  const helpDialog = document.querySelector("#help-dialog");
+  helpOpen?.addEventListener("click", openHelp);
+  helpClose?.addEventListener("click", closeHelp);
+  if (helpDialog) {
+    helpDialog.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      closeHelp();
+    });
+    helpDialog.addEventListener("click", (e) => {
+      if (e.target === helpDialog) closeHelp();
     });
   }
 
