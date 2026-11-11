@@ -4,7 +4,7 @@
     "title": "Rinnai series aliases",
     "locale": "en-AU",
     "updated": "2026-11-11",
-    "notes": "Marketing ↔ chassis / document keys for model pin + typeahead. Confirmed: HD28↔VCM2837; AU HD200e↔VRM2632WC; HD200i↔REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 Plus↔REUV2630WD/VRM2630WD; Infinity 26 Smartstart↔VR2626WGP; Infinity 32 Enviro↔KM3237; HD210e↔N3237WC; HD210i↔N3237FFC; Infinity 32 Enviro+↔N3237W (not all N3237). NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau)."
+    "notes": "Marketing ↔ chassis / document keys for model pin + typeahead. Confirmed: HD28↔VCM2837; AU HD200e↔VRM2632WC; HD200i↔REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 Plus↔REUV2630WD/VRM2630WD; Infinity 26 Smartstart↔VR2626WGP; Infinity 32 Enviro↔KM3237; HD210e↔N3237WC; HD210i↔N3237FFC; Infinity 32 Enviro+↔N3237W (not all N3237). Tech ingest 2026-11-11: HD32↔AM3237; HDC32↔NB3237; HD250e↔VRM3237WC. NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau)."
   },
   "series": [
     {
@@ -410,6 +410,121 @@
         "REUN3237WD"
       ],
       "notes": "Confirmed Beau: N3237W → Infinity 32 Enviro+. Item match is N3237WD / specific N3237W60AK* only — never REUN3237W prefix (would swallow WC/FFC HD210)."
+    },
+    {
+      "id": "hd32",
+      "label": "HD32",
+      "aliases": [
+        "HD32",
+        "AM3237",
+        "REU-AM3237",
+        "REUAM3237",
+        "AM3237W",
+        "AM3237WC"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["HD32"],
+        "itemNumberIncludes": ["REUAM3237", "AM3237"]
+      },
+      "documentKeys": [
+        "HD32",
+        "AM3237",
+        "AM3237W",
+        "AM3237WC",
+        "REU-AM3237W",
+        "REU-AM3237WC",
+        "REUAM3237W",
+        "REUAM3237WC",
+        "A-SERIES",
+        "AM SERIES"
+      ],
+      "notes": "Tech ingest: HD32 marketing ↔ REU-AM3237 W/WC chassis. WC vs W kept as distinct document keys."
+    },
+    {
+      "id": "hdc32e",
+      "label": "HDC32e",
+      "aliases": [
+        "HDC32e",
+        "HDC32E",
+        "HDC32",
+        "NB3237",
+        "NB3237WC",
+        "REU-NB3237",
+        "REUNB3237"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["HDC32E"],
+        "itemNumberIncludes": ["REUNB3237WC", "NB3237WC"],
+        "unitClasses": ["WC", "WCAK"]
+      },
+      "documentKeys": [
+        "HDC32",
+        "HDC32e",
+        "HDC32E",
+        "NB3237",
+        "NB3237WC",
+        "REU-NB3237",
+        "REUNB3237"
+      ],
+      "notes": "Tech ingest: HDC32 external ↔ NB3237WC. Shared NB PL also tagged for internal."
+    },
+    {
+      "id": "hdc32i",
+      "label": "HDC32i",
+      "aliases": [
+        "HDC32i",
+        "HDC32I",
+        "HDC32",
+        "NB3237",
+        "NB3237FFC",
+        "REU-NB3237",
+        "REUNB3237"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["HDC32I"],
+        "itemNumberIncludes": ["REUNB3237FFC", "NB3237FFC"],
+        "unitClasses": ["FFC"]
+      },
+      "documentKeys": [
+        "HDC32",
+        "HDC32i",
+        "HDC32I",
+        "NB3237",
+        "NB3237FFC",
+        "REU-NB3237",
+        "REUNB3237"
+      ],
+      "notes": "Tech ingest: HDC32 internal ↔ NB3237FFC."
+    },
+    {
+      "id": "hd250e",
+      "label": "HD250e",
+      "aliases": [
+        "HD250e",
+        "HD250E",
+        "HD250",
+        "VRM3237WC",
+        "REU-VRM3237WC",
+        "REUVRM3237WC",
+        "VRM3237"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["HD250"],
+        "itemNumberIncludes": ["REUVRM3237WC", "VRM3237WC", "REUV3232WC"],
+        "unitClasses": ["WC", "WCAK"]
+      },
+      "documentKeys": [
+        "HD250",
+        "HD250e",
+        "HD250E",
+        "VRM3237",
+        "VRM3237WC",
+        "VRM3237WG",
+        "REU-VRM3237WC",
+        "REUVRM3237WC",
+        "REUVRM3237WG"
+      ],
+      "notes": "Tech ingest: HD250e ↔ VRM3237WC (plus older V3232WC heritage on some SKUs)."
     }
   ]
 }

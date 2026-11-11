@@ -53,6 +53,8 @@ Admin can also **Import & review** a workbook in-browser (same A/C/K row-6 rules
 | `public/data/series-aliases.json` | Series map for model typeahead + document lookup (HD28, HD200e/i, Infinity 26/32, HD210, …) |
 | `public/data/trade-aliases.json` | Trade/layman terms → official description patterns (e.g. flow servo) |
 | `public/data/document-index.json` | Portable PDF index (paths + series tags) — **no binaries** |
+| `public/data/tech-sheet-sync.json` | Map of Tech-mirror PLs to replace/add into local sheets |
+| `public/data/part-name-abbreviations.json` | Bidirectional short↔long part-name search aliases |
 | `data-sheets/` | Local PDFs only (gitignored). Vite serves at `/data-sheets/` |
 
 ## Local data sheets (PDF open)
@@ -65,6 +67,16 @@ Binaries stay on the office PC (≈283MB). Do **not** commit them.
 3. In `public/data/config.json`, `documents.rootUrl` defaults to `/data-sheets` and `documents.localFolder` to `data-sheets`.
 4. Run `npm run dev` (or `preview`) from the repo root. Vite maps **`/data-sheets/*` → `./data-sheets/*`**.
 5. Pin **HD28** (or search `VCM2837` / `REU-VCM2837`) — matching sheets list under **Data sheets**. Use **Open PDF** (new tab) or **View here** (in-app).
+
+### Refresh sheets from Rinnai Tech mirror
+
+After an overnight Tech spider (Project store `media/rinnai-tech-latest/`):
+
+```bash
+npm run sync:tech-sheets -- --mirror /path/to/rinnai-tech-latest
+```
+
+That copies mapped PLs into `data-sheets/Rinnai Data Sheets/`, quarantines superseded filenames under `data-sheets/quarantine/`, and rewrites `public/data/document-index.json`. Use `--index-only` to refresh the JSON without copying binaries (cloud). Mapping lives in `public/data/tech-sheet-sync.json`.
 
 If the folder is missing (cloud agent, fresh clone), the index still lists matches; opening a PDF shows a clear 404 until files are present. WC vs FFUC/FFC stay distinct keys — both can appear for a series; they are not treated as duplicates.
 
