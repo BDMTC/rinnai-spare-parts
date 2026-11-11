@@ -120,6 +120,24 @@ function highlight(text, query) {
   }
 }
 
+/** Keep Admin / Data sources usable after unlock / paste (veil must not re-block). */
+function revealOpsPanels() {
+  document.querySelector("#ops-panels")?.classList.add("is-revealed");
+}
+
+function bindOpsPanelsReveal() {
+  const panels = document.querySelector("#ops-panels");
+  if (!panels || panels.dataset.revealBound === "1") return;
+  panels.dataset.revealBound = "1";
+  const reveal = () => panels.classList.add("is-revealed");
+  panels.addEventListener("pointerdown", reveal);
+  panels.addEventListener("focusin", reveal);
+  panels.addEventListener("mouseleave", () => {
+    if (panels.contains(document.activeElement)) return;
+    panels.classList.remove("is-revealed");
+  });
+}
+
 function persistCart() {
   saveCart(cartLines);
 }
@@ -319,6 +337,22 @@ function handleAddToQuote(part) {
   updateCartBadge();
 }
 
+/**
+ * Open a mailto: link via a temporary anchor click.
+ * Prefer this over location.href so modal dialogs / SPA DOM updates do not swallow it.
+ * @param {string} href
+ */
+function openMailto(href) {
+  if (!href || !String(href).startsWith("mailto:")) return;
+  const a = document.createElement("a");
+  a.href = href;
+  a.rel = "noopener";
+  a.style.display = "none";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+}
+
 function promptJobNumber() {
   const raw = window.prompt(
     "Job / work order number for stores email\n(plain number or WO-… for Acumatica):",
@@ -338,8 +372,15 @@ function emailCartToStores() {
     showCartFlash("Quote list is empty — add parts first.");
     return;
   }
+  // Chromium suppresses window.prompt while a modal <dialog> is open — close first.
+  const dialog = document.querySelector("#cart-dialog");
+  const wasOpen = Boolean(dialog?.open);
+  if (wasOpen) closeCart();
   const job = promptJobNumber();
-  if (job == null) return;
+  if (job == null) {
+    if (wasOpen) openCart();
+    return;
+  }
   const body = formatQuoteText({
     lines: cartLines,
     jobNumber: job,
@@ -347,8 +388,7 @@ function emailCartToStores() {
     gstRate,
     pinnedLabel: pinnedLabelForQuote(),
   });
-  const href = buildStoresMailto(job, body);
-  window.location.href = href;
+  openMailto(buildStoresMailto(job, body));
 }
 
 async function copyCartToClipboard() {
@@ -406,9 +446,10 @@ function submitFlagPart(part) {
   };
   overrides = flagPart(overrides, payload);
   persistOverrides();
-  window.location.href = buildFlagIssueMailto(payload);
   renderAdminPanel();
   runSearch();
+  // Open mail client after DOM updates so navigation is not cancelled.
+  openMailto(buildFlagIssueMailto(payload));
 }
 
 function renderShell() {
@@ -1130,17 +1171,25 @@ function renderAdminGate() {
   `;
   gate.querySelector("#admin-unlock-form")?.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const attempt = document.querySelector("#admin-password")?.value ?? "";
+    revealOpsPanels();
+    const attempt =
+      gate.querySelector("#admin-password")?.value ??
+      document.querySelector("#admin-password")?.value ??
+      "";
     const submitBtn = gate.querySelector(".admin-unlock-btn");
     if (submitBtn) submitBtn.disabled = true;
-    const result = await tryUnlockAdmin(attempt);
-    if (submitBtn) submitBtn.disabled = false;
-    if (!result.ok) {
-      window.alert("Incorrect password.");
-      return;
+    try {
+      const result = await tryUnlockAdmin(attempt);
+      if (!result.ok) {
+        window.alert("Incorrect password.");
+        return;
+      }
+      adminUnlocked = true;
+      revealOpsPanels();
+      renderAdminPanel();
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
     }
-    adminUnlocked = true;
-    renderAdminPanel();
   });
 }
 
@@ -1594,6 +1643,7 @@ function bindEvents() {
   }
 
   updateCartBadge();
+  bindOpsPanelsReveal();
   renderAdminPanel();
 }
 

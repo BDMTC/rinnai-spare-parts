@@ -966,7 +966,8 @@ mark {
 
 .ops-panels:hover .ops-panels-veil,
 .ops-panels:focus-visible .ops-panels-veil,
-.ops-panels:focus-within .ops-panels-veil {
+.ops-panels:focus-within .ops-panels-veil,
+.ops-panels.is-revealed .ops-panels-veil {
   opacity: 0;
   pointer-events: none;
 }
