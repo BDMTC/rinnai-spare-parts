@@ -1429,6 +1429,36 @@ mark {
   margin-bottom: 0.85rem;
 }
 
+.cart-job-field {
+  display: grid;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.cart-job-label {
+  font-size: 0.78rem;
+  font-weight: 650;
+  color: var(--ink-muted);
+}
+
+.cart-job-input {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel-solid);
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.92rem;
+  padding: 0.55rem 0.75rem;
+}
+
+.cart-job-input:focus {
+  outline: none;
+  border-color: rgba(0, 134, 197, 0.55);
+  box-shadow: 0 0 0 3px rgba(79, 144, 200, 0.28);
+}
+
 .cart-total-line {
   display: flex;
   justify-content: space-between;
