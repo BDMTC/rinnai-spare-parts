@@ -1,5 +1,6 @@
 import "./style.css";
 import mtcgasLogoUrl from "./assets/mtcgas-australia-logo.png?inline";
+import mtcTeamHqUrl from "./assets/mtc-team-hq.jpg?inline";
 import { searchParts, getModelLabel } from "./search.js";
 import {
   computePrices,
@@ -598,96 +599,112 @@ function renderShell() {
         </div>
       </dialog>
 
-      <section class="admin-section" id="admin-section" aria-labelledby="admin-heading">
-        <div class="admin-head">
-          <div>
-            <p class="admin-kicker">Development</p>
-            <h2 id="admin-heading">Admin / catalogue tools</h2>
-          </div>
-        </div>
-        <p class="admin-note">
-          Local overrides only (browser storage). <strong>Production part listings are updated by AI via ingest</strong>
-          (<code>npm run ingest</code> — this panel records intent in a change queue and applies a local overlay so search matches what Beau just changed. Do not treat browser edits as the committed <code>prices.json</code> source of truth.
-        </p>
-        <div class="admin-gate" id="admin-gate"></div>
-        <div class="admin-body" id="admin-body" hidden></div>
-      </section>
-
-      <section
-        class="data-sources"
-        id="data-sources"
+      <div
+        class="ops-panels"
+        id="ops-panels"
         tabindex="0"
-        aria-labelledby="data-sources-heading"
-        aria-describedby="data-sources-veil-hint"
+        aria-describedby="ops-panels-hint"
       >
-        <div class="data-sources-veil" aria-hidden="true">
+        <div class="ops-panels-veil" aria-hidden="true">
           <img
-            class="data-sources-veil-logo"
-            src="${mtcgasLogoUrl}"
+            class="ops-panels-photo"
+            src="${mtcTeamHqUrl}"
             alt=""
-            width="204"
-            height="100"
+            width="2048"
+            height="1365"
             decoding="async"
           />
-          <p class="data-sources-veil-kicker">MTC Gas</p>
-          <p class="data-sources-veil-title">Catalogue &amp; price list</p>
-          <p class="data-sources-veil-hint" id="data-sources-veil-hint">
-            Hover or focus to reveal config
-          </p>
+          <div class="ops-panels-veil-caption">
+            <img
+              class="ops-panels-veil-logo"
+              src="${mtcgasLogoUrl}"
+              alt=""
+              width="204"
+              height="100"
+              decoding="async"
+            />
+            <p class="ops-panels-veil-title">MTC Gas team</p>
+            <p class="ops-panels-hint" id="ops-panels-hint">
+              Hover or focus to reveal admin &amp; data sources
+            </p>
+          </div>
         </div>
-        <div class="data-sources-body">
-          <h2 id="data-sources-heading">Data sources / price list config</h2>
-          <dl class="data-sources-grid">
-            <div>
-              <dt>Config file</dt>
-              <dd><code>public/data/config.json</code></dd>
+        <div class="ops-panels-body">
+          <section class="admin-section" id="admin-section" aria-labelledby="admin-heading">
+            <div class="admin-head">
+              <div>
+                <p class="admin-kicker">Development</p>
+                <h2 id="admin-heading">Admin / catalogue tools</h2>
+              </div>
             </div>
-            <div>
-              <dt>Active price workbook</dt>
-              <dd><code>${escapeHtml(workbook)}</code></dd>
+            <p class="admin-note">
+              Local overrides only (browser storage). <strong>Production part listings are updated by AI via ingest</strong>
+              (<code>npm run ingest</code> — this panel records intent in a change queue and applies a local overlay so search matches what Beau just changed. Do not treat browser edits as the committed <code>prices.json</code> source of truth.
+            </p>
+            <div class="admin-gate" id="admin-gate"></div>
+            <div class="admin-body" id="admin-body" hidden></div>
+          </section>
+
+          <section
+            class="data-sources"
+            id="data-sources"
+            aria-labelledby="data-sources-heading"
+          >
+            <div class="data-sources-body">
+              <h2 id="data-sources-heading">Data sources / price list config</h2>
+              <dl class="data-sources-grid">
+                <div>
+                  <dt>Config file</dt>
+                  <dd><code>public/data/config.json</code></dd>
+                </div>
+                <div>
+                  <dt>Active price workbook</dt>
+                  <dd><code>${escapeHtml(workbook)}</code></dd>
+                </div>
+                <div>
+                  <dt>Configured path / endpoint</dt>
+                  <dd><code id="ds-price-path">${escapeHtml(pricePath || "—")}</code></dd>
+                </div>
+                <div>
+                  <dt>Effective</dt>
+                  <dd>${escapeHtml(String(effective))}</dd>
+                </div>
+                <div>
+                  <dt>Models</dt>
+                  <dd id="ds-models">—</dd>
+                </div>
+                <div>
+                  <dt>Price rows</dt>
+                  <dd id="ds-prices">—</dd>
+                </div>
+                <div>
+                  <dt>Sheets scanned</dt>
+                  <dd id="ds-sheets">—</dd>
+                </div>
+                <div>
+                  <dt>Series aliases</dt>
+                  <dd><code>public/data/series-aliases.json</code></dd>
+                </div>
+                <div>
+                  <dt>Trade aliases</dt>
+                  <dd><code>public/data/trade-aliases.json</code></dd>
+                </div>
+                <div>
+                  <dt>Local admin overlay</dt>
+                  <dd id="ds-overrides">localStorage · see Admin</dd>
+                </div>
+              </dl>
+              <ol class="refresh-steps">
+                <li>Drop the new Rinnai price workbook into <code>source-data/</code> (or set path in Admin).</li>
+                <li>Update <code>priceList.workbookPath</code> / <code>endpoint</code> / <code>effectiveDate</code> in <code>public/data/config.json</code>.</li>
+                <li>Run <code>npm run ingest</code> for production JSON, then refresh — or use Admin import for a local preview overlay.</li>
+                <li>Series / trade aliases are hand-maintained JSON — not overwritten by ingest.</li>
+                <li>Data-sheet PDFs remain under <code>data-sheets/</code>; the sheet list is hidden from the main search UI (index code kept for later admin use).</li>
+              </ol>
             </div>
-            <div>
-              <dt>Configured path / endpoint</dt>
-              <dd><code id="ds-price-path">${escapeHtml(pricePath || "—")}</code></dd>
-            </div>
-            <div>
-              <dt>Effective</dt>
-              <dd>${escapeHtml(String(effective))}</dd>
-            </div>
-            <div>
-              <dt>Models</dt>
-              <dd id="ds-models">—</dd>
-            </div>
-            <div>
-              <dt>Price rows</dt>
-              <dd id="ds-prices">—</dd>
-            </div>
-            <div>
-              <dt>Sheets scanned</dt>
-              <dd id="ds-sheets">—</dd>
-            </div>
-            <div>
-              <dt>Series aliases</dt>
-              <dd><code>public/data/series-aliases.json</code></dd>
-            </div>
-            <div>
-              <dt>Trade aliases</dt>
-              <dd><code>public/data/trade-aliases.json</code></dd>
-            </div>
-            <div>
-              <dt>Local admin overlay</dt>
-              <dd id="ds-overrides">localStorage · see Admin</dd>
-            </div>
-          </dl>
-          <ol class="refresh-steps">
-            <li>Drop the new Rinnai price workbook into <code>source-data/</code> (or set path in Admin).</li>
-            <li>Update <code>priceList.workbookPath</code> / <code>endpoint</code> / <code>effectiveDate</code> in <code>public/data/config.json</code>.</li>
-            <li>Run <code>npm run ingest</code> for production JSON, then refresh — or use Admin import for a local preview overlay.</li>
-            <li>Series / trade aliases are hand-maintained JSON — not overwritten by ingest.</li>
-            <li>Data-sheet PDFs remain under <code>data-sheets/</code>; the sheet list is hidden from the main search UI (index code kept for later admin use).</li>
-          </ol>
+          </section>
         </div>
-      </section>
+      </div>
 
       <footer class="footer">
         <span>Real Rinnai lists ingested locally. Exploded diagrams still to come.</span>
