@@ -16,12 +16,28 @@ npm run dev
 
 Open the URL Vite prints (usually `http://localhost:5173`).
 
-Production build:
+Production build (http / deploy):
 
 ```bash
 npm run build
 npm run preview
 ```
+
+### Double-click / `file://` (no local server)
+
+Chrome and Edge block `fetch` and ES modules under `file://`. Use the dedicated file build, which bundles catalogue JSON into one classic (IIFE) script with relative asset URLs:
+
+```bash
+npm run build:file
+```
+
+Then open **`dist/index.html`** (double-click in Explorer, or drag into Chrome/Edge). Keep the whole `dist/` folder together.
+
+- Models, prices, and search load from the baked-in JSON pack — no network and no `fetch` of `data/*.json`.
+- `npm run dev` is unchanged (still the day-to-day workflow).
+- Regular `npm run build` stays absolute-base for http deploy; only `build:file` uses `base: './'` + IIFE.
+
+**PDFs:** keep sheets under repo-root `data-sheets/` (sibling of `dist/`). Open via the in-app link (navigation to `../data-sheets/...`). Do not expect `fetch` of local PDFs under `file://` — Chromium blocks that without special flags; opening in a new tab usually works when the file exists.
 
 ## Pricing (locked rules)
 
@@ -66,8 +82,8 @@ Binaries stay on the office PC (≈283MB). Do **not** commit them.
 1. Keep (or extract) PDFs under the repo’s `data-sheets/` folder, e.g.  
    `C:\Temp\rinnai-spare-parts\data-sheets\Rinnai Data Sheets\…`
 2. Confirm `public/data/document-index.json` is present (already committed).
-3. In `public/data/config.json`, `documents.rootUrl` defaults to `/data-sheets` and `documents.localFolder` to `data-sheets`.
-4. Run `npm run dev` (or `preview`) from the repo root. Vite maps **`/data-sheets/*` → `./data-sheets/*`**.
+3. In `public/data/config.json`, `documents.rootUrl` defaults to `/data-sheets`, `documents.fileRootUrl` to `../data-sheets` (for `dist/` + `file://`), and `documents.localFolder` to `data-sheets`.
+4. Run `npm run dev` (or `preview`) from the repo root. Vite maps **`/data-sheets/*` → `./data-sheets/*`**. For double-click, use `npm run build:file` and open `dist/index.html` (PDF links resolve to `../data-sheets/...`).
 5. Pin **HD28** (or search `VCM2837` / `REU-VCM2837`) — matching sheets list under **Data sheets**. Use **Open PDF** (new tab) or **View here** (in-app).
 
 ### Refresh sheets from Rinnai Tech mirror
@@ -117,4 +133,4 @@ See [ASSUMPTIONS.md](./ASSUMPTIONS.md).
 
 - Pin the model when you can — Primary ranking uses series chassis keys in the description (e.g. HD200e + flow servo → 92095902).
 - When Rinnai sends a new price workbook, change config + `npm run ingest`; don’t hand-edit `prices.json`.
-- `file://` won’t load JSON via `fetch` — use `npm run dev` / `preview`.
+- Day-to-day: `npm run dev`. For a no-server open on the office PC: `npm run build:file` → double-click `dist/index.html`.
