@@ -616,6 +616,7 @@ function conflictsPinUnitClass(haystack, chassis, pinCtx, matchedKey) {
  */
 export function buildAssemblyIndex(hierarchyDoc) {
   const concepts = [];
+  /** @type {Map<string, object>} */
   const childByCode = new Map();
   const parentByCode = new Map();
   const demotionCues = (hierarchyDoc?.demotionCues || [])
@@ -653,17 +654,55 @@ export function buildAssemblyIndex(hierarchyDoc) {
     for (const ch of raw.children || []) {
       const code = String(ch.code || "").trim();
       if (!code) continue;
-      const child = {
+      const link = {
         code,
         role: ch.role ? String(ch.role) : null,
+        shared: Boolean(ch.shared),
         parentCode,
         parentName: parent.parentName,
         shortName: parent.shortName,
         conceptId: parent.conceptId,
         seriesTokens: parent.seriesTokens,
       };
-      parent.children.push(child);
-      if (!childByCode.has(code)) childByCode.set(code, child);
+      parent.children.push(link);
+
+      // Shared children (e.g. HEX gasket 142) may sit under multiple parent loops.
+      const existing = childByCode.get(code);
+      if (!existing) {
+        childByCode.set(code, {
+          code,
+          role: link.role,
+          shared: link.shared,
+          parents: [
+            {
+              parentCode,
+              parentName: parent.parentName,
+              shortName: parent.shortName,
+              conceptId: parent.conceptId,
+              seriesTokens: parent.seriesTokens,
+            },
+          ],
+          // Back-compat single-parent fields = first parent
+          parentCode,
+          parentName: parent.parentName,
+          shortName: parent.shortName,
+          conceptId: parent.conceptId,
+          seriesTokens: parent.seriesTokens,
+        });
+      } else {
+        existing.shared = existing.shared || link.shared || true;
+        if (
+          !existing.parents.some((p) => p.parentCode === parentCode)
+        ) {
+          existing.parents.push({
+            parentCode,
+            parentName: parent.parentName,
+            shortName: parent.shortName,
+            conceptId: parent.conceptId,
+            seriesTokens: parent.seriesTokens,
+          });
+        }
+      }
     }
   }
 
@@ -768,7 +807,7 @@ function assemblyInPinScope(entry, pinTokens) {
  *   assemblyRank: number,
  *   isSubComponent: boolean,
  *   isAssembly: boolean,
- *   subOf: null|{code: string, shortName: string, name: string},
+ *   subOf: null|{code: string, shortName: string, name: string, parents?: Array<{code: string, shortName: string, name: string}>},
  *   reason: string|null
  * }}
  */
@@ -795,23 +834,53 @@ export function scoreAssemblyRole(part, query, hierarchyIndex, pinCtx = null) {
   const child = hierarchyIndex.childByCode.get(code);
   const parent = hierarchyIndex.parentByCode.get(code);
 
-  // Explicit child of a mapped parent
+  // Explicit child of a mapped parent (may be shared across multiple loops)
   if (child) {
-    const scoped = assemblyInPinScope(child, pinTokens);
+    const parentLinks = child.parents?.length
+      ? child.parents
+      : [
+          {
+            parentCode: child.parentCode,
+            parentName: child.parentName,
+            shortName: child.shortName,
+            seriesTokens: child.seriesTokens,
+          },
+        ];
+    const scoped = parentLinks.some((p) =>
+      assemblyInPinScope(
+        { seriesTokens: p.seriesTokens || child.seriesTokens },
+        pinTokens
+      )
+    );
     // Free search: always demote known children. Pinned: only chassis-scoped.
     if (!hasPin || scoped) {
-      const parentRec = hierarchyIndex.parentByCode.get(child.parentCode);
+      const parents = parentLinks.map((p) => {
+        const parentRec = hierarchyIndex.parentByCode.get(p.parentCode);
+        return {
+          code: p.parentCode,
+          shortName: p.shortName || parentRec?.shortName || p.parentCode,
+          name:
+            p.parentName ||
+            parentRec?.parentName ||
+            p.shortName ||
+            p.parentCode,
+        };
+      });
+      const label = parents
+        .map((p) => `${p.code} ${p.shortName}`.trim())
+        .join(" / ");
       return {
         delta: hasPin && scoped ? -55 : -45,
         assemblyRank: -2,
         isSubComponent: true,
         isAssembly: false,
         subOf: {
-          code: child.parentCode,
-          shortName: child.shortName,
-          name: child.parentName || parentRec?.parentName || child.parentCode,
+          code: parents[0].code,
+          shortName: parents[0].shortName,
+          name: parents[0].name,
+          parents,
         },
-        reason: `sub-component of ${child.parentCode}`,
+        reason: `sub-component of ${label}`,
       };
     }
   }
