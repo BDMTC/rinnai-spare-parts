@@ -18,6 +18,20 @@ import {
   makePartVisibilityFilter,
   restrictionWarningCopy,
 } from "./restriction.js";
+import {
+  loadCart,
+  saveCart,
+  clearStoredCart,
+  addToCart,
+  removeFromCart,
+  setCartQty,
+  cartItemCount,
+  linePricing,
+  cartTotals,
+  formatQuoteText,
+  buildStoresMailto,
+  normalizeJobNumber,
+} from "./cart.js";
 
 const app = document.querySelector("#app");
 
@@ -43,6 +57,9 @@ let viewerState = null;
 let modelPicker = null;
 /** Session unlocks for restricted pins (model id or series:…). */
 const unlockedPins = new Set();
+/** @type {import("./cart.js").CartLine[]} */
+let cartLines = loadCart();
+let cartFlashTimer = 0;
 
 async function loadJson(url) {
   const res = await fetch(url);
@@ -73,6 +90,271 @@ function highlight(text, query) {
   }
 }
 
+function persistCart() {
+  saveCart(cartLines);
+}
+
+function pinnedLabelForQuote() {
+  const pin = currentPin();
+  if (pin.kind === "series" && pin.series) {
+    return `${pin.series.label} series`;
+  }
+  if (pin.kind === "model" && pin.model) {
+    const seriesBit = pin.series ? ` · ${pin.series.label}` : "";
+    return `${getModelLabel(pin.model)}${seriesBit}`;
+  }
+  return null;
+}
+
+function updateCartBadge() {
+  const badge = document.querySelector("#cart-badge");
+  const btn = document.querySelector("#cart-open");
+  if (!badge) return;
+  const count = cartItemCount(cartLines);
+  if (count > 0) {
+    badge.hidden = false;
+    badge.textContent = count > 99 ? "99+" : String(count);
+  } else {
+    badge.hidden = true;
+    badge.textContent = "0";
+  }
+  if (btn) {
+    btn.setAttribute(
+      "aria-label",
+      count > 0 ? `Open quote cart (${count} items)` : "Open quote cart"
+    );
+  }
+}
+
+function showCartFlash(message) {
+  const flash = document.querySelector("#cart-flash");
+  if (!flash) return;
+  flash.hidden = false;
+  flash.textContent = message;
+  window.clearTimeout(cartFlashTimer);
+  cartFlashTimer = window.setTimeout(() => {
+    flash.hidden = true;
+    flash.textContent = "";
+  }, 2200);
+}
+
+function renderCartOverlay() {
+  const body = document.querySelector("#cart-body");
+  const totalsEl = document.querySelector("#cart-totals");
+  const pinEl = document.querySelector("#cart-pin");
+  if (!body || !totalsEl) return;
+
+  const pinLabel = pinnedLabelForQuote();
+  if (pinEl) {
+    pinEl.textContent = pinLabel
+      ? `Pinned model: ${pinLabel} · prices at ${marginPercent}% margin`
+      : `No model pinned · prices at ${marginPercent}% margin`;
+  }
+
+  if (!cartLines.length) {
+    body.innerHTML = `<p class="cart-empty">Cart is empty. Add parts from search results.</p>`;
+  } else {
+    body.innerHTML = cartLines
+      .map((line) => {
+        const p = linePricing(line, marginPercent, gstRate);
+        return `
+          <article class="cart-line" data-code="${escapeHtml(line.code)}">
+            <div class="cart-line-main">
+              <p class="cart-line-code">${escapeHtml(line.code)}</p>
+              <h3 class="cart-line-name">${escapeHtml(line.name)}</h3>
+              <p class="cart-line-units">
+                <span>Unit EX GST <strong>${formatAud(p.unitNet)}</strong></span>
+                <span>Unit + ${marginPercent}% <strong>${formatAud(p.unitEx)}</strong></span>
+                <span>Unit INC GST <strong>${formatAud(p.unitInc)}</strong></span>
+              </p>
+            </div>
+            <label class="cart-qty">
+              <span class="cart-qty-label">Qty</span>
+              <input
+                type="number"
+                class="cart-qty-input"
+                min="1"
+                max="9999"
+                step="1"
+                value="${line.qty}"
+                data-code="${escapeHtml(line.code)}"
+                inputmode="numeric"
+              />
+            </label>
+            <div class="cart-line-total">
+              <span class="cart-line-total-label">Line total</span>
+              <strong>${formatAud(p.lineEx)}</strong>
+              <span class="cart-line-total-sub muted">INC GST ${formatAud(p.lineInc)}</span>
+            </div>
+            <button
+              type="button"
+              class="cart-line-remove"
+              data-code="${escapeHtml(line.code)}"
+              aria-label="Remove ${escapeHtml(line.code)}"
+            >Remove</button>
+          </article>
+        `;
+      })
+      .join("");
+  }
+
+  const totals = cartTotals(cartLines, marginPercent, gstRate);
+  totalsEl.innerHTML = `
+    <p class="cart-total-line"><span>Total EX GST</span> <strong>${formatAud(totals.totalExGst)}</strong></p>
+    <p class="cart-total-line"><span>Total with markup</span> <strong>${formatAud(totals.totalMarkup)}</strong></p>
+    <p class="cart-total-line cart-total-line--inc"><span>Total INC GST</span> <strong>${formatAud(totals.totalIncGst)}</strong></p>
+  `;
+
+  updateCartBadge();
+
+  body.querySelectorAll(".cart-qty-input").forEach((input) => {
+    input.addEventListener("change", () => {
+      cartLines = setCartQty(cartLines, input.dataset.code, input.value);
+      persistCart();
+      renderCartOverlay();
+    });
+    input.addEventListener("input", () => {
+      const next = Number(input.value);
+      if (!Number.isFinite(next) || next < 1) return;
+      cartLines = setCartQty(cartLines, input.dataset.code, next);
+      // Live totals without full re-render of focused input
+      const line = cartLines.find(
+        (l) => l.code.toUpperCase() === String(input.dataset.code || "").toUpperCase()
+      );
+      const article = input.closest(".cart-line");
+      if (line && article) {
+        const p = linePricing(line, marginPercent, gstRate);
+        const strong = article.querySelector(".cart-line-total strong");
+        const sub = article.querySelector(".cart-line-total-sub");
+        if (strong) strong.textContent = formatAud(p.lineEx);
+        if (sub) sub.textContent = `INC GST ${formatAud(p.lineInc)}`;
+      }
+      const totalsLive = cartTotals(cartLines, marginPercent, gstRate);
+      totalsEl.innerHTML = `
+        <p class="cart-total-line"><span>Total EX GST</span> <strong>${formatAud(totalsLive.totalExGst)}</strong></p>
+        <p class="cart-total-line"><span>Total with markup</span> <strong>${formatAud(totalsLive.totalMarkup)}</strong></p>
+        <p class="cart-total-line cart-total-line--inc"><span>Total INC GST</span> <strong>${formatAud(totalsLive.totalIncGst)}</strong></p>
+      `;
+      updateCartBadge();
+    });
+  });
+
+  body.querySelectorAll(".cart-line-remove").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      cartLines = removeFromCart(cartLines, btn.dataset.code);
+      persistCart();
+      renderCartOverlay();
+    });
+  });
+}
+
+function openCart() {
+  const dialog = document.querySelector("#cart-dialog");
+  renderCartOverlay();
+  if (!dialog) return;
+  if (typeof dialog.showModal === "function") dialog.showModal();
+  else dialog.setAttribute("open", "");
+}
+
+function closeCart() {
+  const dialog = document.querySelector("#cart-dialog");
+  const flash = document.querySelector("#cart-flash");
+  if (flash) {
+    flash.hidden = true;
+    flash.textContent = "";
+  }
+  if (dialog && typeof dialog.close === "function") dialog.close();
+  else if (dialog) dialog.removeAttribute("open");
+}
+
+function handleAddToCart(part) {
+  if (!part?.code) return;
+  cartLines = addToCart(cartLines, {
+    code: part.code,
+    name: part.name,
+    netInvoiceExGst: part.netInvoiceExGst ?? null,
+  });
+  persistCart();
+  updateCartBadge();
+}
+
+function promptJobNumber() {
+  const raw = window.prompt(
+    "Job / work order number for stores email\n(plain number or WO-… for Acumatica):",
+    ""
+  );
+  if (raw == null) return null;
+  const job = normalizeJobNumber(raw);
+  if (!job) {
+    window.alert("Enter a job or work order number.");
+    return null;
+  }
+  return job;
+}
+
+function emailCartToStores() {
+  if (!cartLines.length) {
+    showCartFlash("Cart is empty — add parts first.");
+    return;
+  }
+  const job = promptJobNumber();
+  if (job == null) return;
+  const body = formatQuoteText({
+    lines: cartLines,
+    jobNumber: job,
+    marginPercent,
+    gstRate,
+    pinnedLabel: pinnedLabelForQuote(),
+  });
+  const href = buildStoresMailto(job, body);
+  window.location.href = href;
+}
+
+async function copyCartToClipboard() {
+  if (!cartLines.length) {
+    showCartFlash("Cart is empty — nothing to copy.");
+    return;
+  }
+  const text = formatQuoteText({
+    lines: cartLines,
+    jobNumber: "",
+    marginPercent,
+    gstRate,
+    pinnedLabel: pinnedLabelForQuote(),
+  });
+  try {
+    if (navigator.clipboard?.writeText) {
+      await navigator.clipboard.writeText(text);
+    } else {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+    }
+    showCartFlash("Copied quote list to clipboard.");
+  } catch {
+    showCartFlash("Could not copy — try again or use Email.");
+  }
+}
+
+function saveCartAndClose() {
+  persistCart();
+  showCartFlash("Cart saved.");
+  window.setTimeout(() => closeCart(), 350);
+}
+
+function clearCartAndClose() {
+  cartLines = [];
+  clearStoredCart();
+  updateCartBadge();
+  closeCart();
+}
+
 function renderShell() {
   const effective =
     config?.priceList?.effectiveDate ||
@@ -93,6 +375,21 @@ function renderShell() {
             <h1 class="brand-name">Rinnai Parts</h1>
           </div>
         </div>
+        <button
+          type="button"
+          class="cart-trigger"
+          id="cart-open"
+          aria-label="Open quote cart"
+          title="Quote cart"
+        >
+          <svg class="cart-trigger-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path
+              fill="currentColor"
+              d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zm10 0c-1.1 0-1.99.9-1.99 2S15.9 22 17 22s2-.9 2-2-.9-2-2-2zM7.16 14h9.45c.75 0 1.41-.41 1.75-1.03l3.24-6.07A1 1 0 0 0 20.72 5H6.21l-.94-2H1v2h2l3.6 7.59-1.35 2.44C4.52 15.37 5.48 17 7 17h12v-2H7.42l.74-1.35z"
+            />
+          </svg>
+          <span class="cart-badge" id="cart-badge" hidden>0</span>
+        </button>
         <p class="topbar-note">Local catalogue · price list ${escapeHtml(effective)}</p>
       </header>
 
@@ -223,6 +520,30 @@ function renderShell() {
             <button type="submit" value="confirm" class="nla-btn nla-btn--primary" id="nla-dialog-yes">Yes</button>
           </div>
         </form>
+      </dialog>
+
+      <dialog class="cart-dialog" id="cart-dialog" aria-labelledby="cart-dialog-title">
+        <div class="cart-dialog-inner">
+          <header class="cart-dialog-bar">
+            <div>
+              <p class="cart-dialog-kicker">Quote</p>
+              <h2 class="cart-dialog-title" id="cart-dialog-title">Shopping cart</h2>
+            </div>
+            <button type="button" class="cart-dialog-close" id="cart-close" aria-label="Close cart">Close</button>
+          </header>
+          <p class="cart-pin muted" id="cart-pin"></p>
+          <p class="cart-flash" id="cart-flash" hidden></p>
+          <div class="cart-body" id="cart-body"></div>
+          <footer class="cart-dialog-foot">
+            <div class="cart-totals" id="cart-totals"></div>
+            <div class="cart-actions">
+              <button type="button" class="cart-action cart-action--primary" id="cart-email">Email list to stores</button>
+              <button type="button" class="cart-action" id="cart-copy">Copy to clipboard</button>
+              <button type="button" class="cart-action" id="cart-save">Save cart</button>
+              <button type="button" class="cart-action cart-action--danger" id="cart-clear">Clear cart</button>
+            </div>
+          </footer>
+        </div>
       </dialog>
 
       <section class="data-sources" id="data-sources" aria-labelledby="data-sources-heading">
@@ -732,11 +1053,38 @@ function renderResults(query, pin) {
       </div>
       <div class="result-foot">
         <div class="match-row">Matched on ${matchBits || '<span class="muted">—</span>'}</div>
-        <span class="diagram-ref muted">Sheet: ${escapeHtml(part.sheet || "—")}</span>
+        <div class="result-foot-actions">
+          ${
+            part.kind === "discount-segment"
+              ? ""
+              : `<button
+                  type="button"
+                  class="add-cart-btn"
+                  data-code="${escapeHtml(part.code)}"
+                >Add to cart</button>`
+          }
+          <span class="diagram-ref muted">Sheet: ${escapeHtml(part.sheet || "—")}</span>
+        </div>
       </div>
     `;
     list.appendChild(li);
   }
+
+  list.querySelectorAll(".add-cart-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const code = btn.dataset.code;
+      const row = lastResults.find((r) => r.part?.code === code);
+      if (!row?.part) return;
+      handleAddToCart(row.part);
+      const prev = btn.textContent;
+      btn.textContent = "Added";
+      btn.classList.add("add-cart-btn--done");
+      window.setTimeout(() => {
+        btn.textContent = prev;
+        btn.classList.remove("add-cart-btn--done");
+      }, 900);
+    });
+  });
 }
 
 function bindEvents() {
@@ -762,6 +1110,8 @@ function bindEvents() {
     margin.value = String(marginPercent);
     const q = input.value;
     renderResults(q, currentPin());
+    const cartDialog = document.querySelector("#cart-dialog");
+    if (cartDialog?.open) renderCartOverlay();
   });
 
   document.querySelectorAll(".chip").forEach((btn) => {
@@ -784,6 +1134,29 @@ function bindEvents() {
       if (e.target === viewer) closePdfViewer();
     });
   }
+
+  const cartOpen = document.querySelector("#cart-open");
+  const cartClose = document.querySelector("#cart-close");
+  const cartDialog = document.querySelector("#cart-dialog");
+  cartOpen?.addEventListener("click", openCart);
+  cartClose?.addEventListener("click", closeCart);
+  document.querySelector("#cart-email")?.addEventListener("click", emailCartToStores);
+  document.querySelector("#cart-copy")?.addEventListener("click", () => {
+    copyCartToClipboard();
+  });
+  document.querySelector("#cart-save")?.addEventListener("click", saveCartAndClose);
+  document.querySelector("#cart-clear")?.addEventListener("click", clearCartAndClose);
+  if (cartDialog) {
+    cartDialog.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      closeCart();
+    });
+    cartDialog.addEventListener("click", (e) => {
+      if (e.target === cartDialog) closeCart();
+    });
+  }
+
+  updateCartBadge();
 }
 
 async function boot() {
@@ -811,6 +1184,7 @@ async function boot() {
 
     // Re-render shell now that config is known (effective date / workbook name).
     renderShell();
+    cartLines = loadCart();
     mountModelPicker();
     populateDataSources();
     bindEvents();
