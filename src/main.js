@@ -707,7 +707,11 @@ function renderShell() {
       </div>
 
       <footer class="footer">
-        <span>Real Rinnai lists ingested locally. Exploded diagrams still to come.</span>
+        <span>
+          All pricing data current, Parts tool made by
+          <a class="footer-author" href="mailto:beau.dougall@mtcgas.com.au">Beau Dougall</a>
+          for MTC Gas Australia PTY LTD. Version two coming - expanding to all roles.
+        </span>
       </footer>
     </div>
   `;

@@ -1518,6 +1518,20 @@ mark {
   margin-top: 2rem;
   color: var(--ink-muted);
   font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.footer-author {
+  color: var(--mtc-blue-dark);
+  font-weight: 650;
+  text-decoration: underline;
+  text-decoration-color: rgba(26, 47, 154, 0.35);
+  text-underline-offset: 0.15em;
+}
+
+.footer-author:hover {
+  color: var(--mtc-field-bright);
+  text-decoration-color: currentColor;
 }
 
 .fatal {
