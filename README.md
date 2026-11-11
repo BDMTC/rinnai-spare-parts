@@ -50,7 +50,7 @@ The app also shows this path under **Data sources / price list config**.
 | `public/data/models.json` | REU Model History rows |
 | `public/data/prices.json` | Price rows + sheet index |
 | `public/data/catalogue.json` | Combined search index (models + parts) |
-| `public/data/series-aliases.json` | Series map for model pin + document lookup (HD28 ↔ REU-VCM2837 / VCM2837) |
+| `public/data/series-aliases.json` | Series map for model typeahead + document lookup (HD28, HD200e/i, NZ HD200e Infinity, …) |
 | `public/data/document-index.json` | Portable PDF index (paths + series tags) — **no binaries** |
 | `data-sheets/` | Local PDFs only (gitignored). Vite serves at `/data-sheets/` |
 
@@ -69,8 +69,9 @@ If the folder is missing (cloud agent, fresh clone), the index still lists match
 
 ## What it does
 
-- Search bar + model pin (REU marketing codes from model history)
-- **Series pin** via aliases (HD28 ↔ REU-VCM2837 / VCM2837 / REUVCM2837)
+- Search bar + **model typeahead** (marketing names, REU/chassis codes, series aliases)
+- **Series pin** via aliases (HD28, HD200e/VRM2632WC, provisional HD200i, NZ VM2630WC, …)
+- Margin **0–100%** in **5%** steps (default 20%)
 - Matching **data sheets** for the pin (from `document-index.json`) with click-to-open PDFs
 - Matches part code, description, and sheet/category
 - Shows net invoice ex GST, computed ex GST at selected margin, and inc GST

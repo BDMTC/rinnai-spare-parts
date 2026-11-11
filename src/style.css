@@ -171,7 +171,8 @@ body::before {
 }
 
 select,
-input[type="search"] {
+input[type="search"],
+input[type="text"] {
   width: 100%;
   border: 1px solid var(--line);
   background: var(--panel-solid);
@@ -184,9 +185,107 @@ input[type="search"] {
 }
 
 select:focus,
-input[type="search"]:focus {
+input[type="search"]:focus,
+input[type="text"]:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(15, 110, 86, 0.16);
+}
+
+.model-picker {
+  position: relative;
+}
+
+.model-picker-row {
+  position: relative;
+  display: grid;
+}
+
+.model-picker-row #model-input {
+  padding-right: 2.4rem;
+}
+
+.model-clear {
+  position: absolute;
+  right: 0.45rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1.85rem;
+  height: 1.85rem;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--ink-muted);
+  font: inherit;
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.model-clear:hover {
+  background: var(--other-soft);
+  color: var(--ink);
+}
+
+.model-listbox {
+  position: absolute;
+  z-index: 30;
+  left: 0;
+  right: 0;
+  top: calc(100% + 0.35rem);
+  margin: 0;
+  padding: 0.35rem;
+  list-style: none;
+  max-height: min(22rem, 55vh);
+  overflow: auto;
+  background: var(--panel-solid);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.model-option {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-template-areas:
+    "label kind"
+    "sub kind";
+  gap: 0.1rem 0.75rem;
+  padding: 0.65rem 0.75rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.model-option.is-active,
+.model-option:hover {
+  background: var(--accent-soft);
+}
+
+.model-option-label {
+  grid-area: label;
+  font-weight: 650;
+  color: var(--ink);
+}
+
+.model-option-sub {
+  grid-area: sub;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+.model-option-kind {
+  grid-area: kind;
+  align-self: center;
+  font-size: 0.72rem;
+  font-weight: 650;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+
+.model-option--empty {
+  cursor: default;
+  color: var(--ink-muted);
+  font-size: 0.9rem;
 }
 
 .query-row {

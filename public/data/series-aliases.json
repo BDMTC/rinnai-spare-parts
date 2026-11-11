@@ -1,10 +1,10 @@
 {
-  "version": 1,
+  "version": 2,
   "meta": {
     "title": "Rinnai series aliases",
     "locale": "en-AU",
     "updated": "2026-11-11",
-    "notes": "Durable marketing-series ↔ chassis / document keys for model pin and future document vault lookup. Extend — do not invent — when Beau confirms more platforms."
+    "notes": "Marketing ↔ chassis / document keys for model pin + typeahead. Confirmed: HD28↔VCM2837; AU HD200e↔VRM2632WC; HD200i↔REU-VR2632FFUG / REU-VRM2632FFUC; NZ HD200e Infinity↔VM2630WC; Infinity 26 Plus↔REUV2630WD/VRM2630WD; Infinity 26 Smartstart↔VR2626WGP; Infinity 32 Enviro↔KM3237; HD210e↔N3237WC; HD210i↔N3237FFC; Infinity 32 Enviro+↔N3237W (not all N3237). Provisional: HD200e↔REU-VM2630WC-AK badge on NZ PL."
   },
   "series": [
     {
@@ -13,6 +13,10 @@
       "aliases": [
         "HD28",
         "HD-28",
+        "HD28e",
+        "HD28E",
+        "HD28i",
+        "HD28I",
         "REU-VCM2837",
         "REU-VCM2837WC",
         "REU-VCM2837FFC",
@@ -36,7 +40,420 @@
         "VCM2837FFUC",
         "REUVCM2837"
       ],
-      "notes": "HD28 continuous-flow platform shares REU-VCM2837 / VCM2837 chassis codes used on plates and technical docs. WC (external) and FFC/FFUC (internal) are distinct unit classes — keep both document keys; never treat them as duplicate sheets."
+      "notes": "HD28 continuous-flow platform shares REU-VCM2837 / VCM2837 chassis codes. WC (external / HD28e) and FFC/FFUC (internal / HD28i) are distinct unit classes — keep both document keys."
+    },
+    {
+      "id": "hd28e",
+      "label": "HD28e",
+      "aliases": [
+        "HD28e",
+        "HD28E",
+        "HD 28E",
+        "REU-VCM2837WC",
+        "VCM2837WC",
+        "REUVCM2837WC"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["HD28E"],
+        "itemNumberIncludes": ["REUVCM2837WC", "VCM2837WC"],
+        "unitClasses": ["WC", "WCAK"]
+      },
+      "documentKeys": [
+        "HD28e",
+        "HD28E",
+        "REU-VCM2837WC",
+        "VCM2837WC",
+        "REUVCM2837WC"
+      ],
+      "notes": "HD28 external (WC). Marketing codes HD28E*."
+    },
+    {
+      "id": "hd28i",
+      "label": "HD28i",
+      "aliases": [
+        "HD28i",
+        "HD28I",
+        "HD 28I",
+        "REU-VCM2837FFC",
+        "VCM2837FFC",
+        "REUVCM2837FFC"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["HD28I"],
+        "itemNumberIncludes": ["REUVCM2837FFC", "VCM2837FFC", "REUVCM2837FFUC", "VCM2837FFUC"],
+        "unitClasses": ["FFC", "FFUC"]
+      },
+      "documentKeys": [
+        "HD28i",
+        "HD28I",
+        "REU-VCM2837FFC",
+        "REU-VCM2837FFUC",
+        "VCM2837FFC",
+        "VCM2837FFUC"
+      ],
+      "notes": "HD28 internal (FFC/FFUC). Marketing codes HD28I*."
+    },
+    {
+      "id": "hd200e",
+      "label": "HD200e",
+      "aliases": [
+        "HD200e",
+        "HD200E",
+        "HD 200E",
+        "HD200",
+        "REU-VRM2632WC",
+        "REU-VRM2632WC-AK",
+        "VRM2632WC",
+        "VRM2632WC-AK",
+        "REUVRM2632WC",
+        "VRM2632",
+        "REU-VM2630WC-AK",
+        "VM2630WC-AK",
+        "REUVM2630WCAK"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["HD200"],
+        "marketingCodeExcludePrefixes": ["HD200I"],
+        "itemNumberIncludes": [
+          "REUVRM2632WC",
+          "VRM2632WC",
+          "REUVRM2632WCAK",
+          "VRM2632WCAK"
+        ],
+        "unitClasses": ["WC", "WCAK"]
+      },
+      "documentKeys": [
+        "HD200e",
+        "HD200E",
+        "HD200",
+        "REU-VRM2632WC",
+        "REU-VRM2632WC-AK",
+        "VRM2632WC",
+        "VRM2632WC-AK",
+        "REUVRM2632WC",
+        "VRM2632",
+        "REU-VM2630WC-AK",
+        "VM2630WC-AK"
+      ],
+      "notes": "Confirmed Beau: REU-VRM2632WC / VRM2632WC = current AU HD200e external (EDPL also shows WC-AK). Provisional office PL extract also pairs HD200e ↔ REU-VM2630WC-AK — same badge surfaces NZ/discontinued twin via typeahead aliases; keep NZ series as its own pin. Do not merge FFUC↔WC."
+    },
+    {
+      "id": "hd200i",
+      "label": "HD200i",
+      "aliases": [
+        "HD200i",
+        "HD200I",
+        "HD 200I",
+        "HD200",
+        "REU-VRM2632FFUC",
+        "VRM2632FFUC",
+        "REUVRM2632FFUC",
+        "REU-VR2632FFUG",
+        "VR2632FFUG",
+        "REUVR2632FFUG",
+        "REU-VRM2632FFUG",
+        "VRM2632FFUG",
+        "REUVRM2632FFUG",
+        "REU-VM2632FFUC",
+        "VM2632FFUC",
+        "REUVM2632FFUC",
+        "REU-V2632FFUG",
+        "V2632FFUG",
+        "REUV2632FFUG",
+        "REU-V2632FFU",
+        "V2632FFU",
+        "VRM2632"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["HD200I"],
+        "itemNumberIncludes": [
+          "REUVRM2632FFUC",
+          "VRM2632FFUC",
+          "REUVM2632FFUC",
+          "VM2632FFUC",
+          "REUV2632FFUC",
+          "V2632FFUC"
+        ],
+        "unitClasses": ["FFUC"]
+      },
+      "documentKeys": [
+        "HD200i",
+        "HD200I",
+        "HD200",
+        "REU-VRM2632FFUC",
+        "VRM2632FFUC",
+        "REUVRM2632FFUC",
+        "REU-VR2632FFUG",
+        "VR2632FFUG",
+        "REU-VRM2632FFUG",
+        "VRM2632FFUG",
+        "REU-VM2632FFUC",
+        "VM2632FFUC",
+        "REU-V2632FFUG",
+        "V2632FFUG",
+        "VRM2632"
+      ],
+      "relatedFamilies": ["FFU", "FFUG", "FFUC"],
+      "notes": "Confirmed Beau: HD200i ↔ REU-VR2632FFUG / REU-VRM2632FFUC (Infinity internal / FFUC). Aliases + documentKeys include FFUG mates for typeahead/docs; model pin match stays HD200I*/FFUC so INF26 is not swallowed. relatedFamilies flags wider FFU heritage for later cross-family parts search."
+    },
+    {
+      "id": "hd200e-infinity-nz",
+      "label": "HD200e Infinity (NZ, discontinued)",
+      "aliases": [
+        "HD200e Infinity",
+        "HD200E Infinity",
+        "INFINITY HD200",
+        "Infinity HD200",
+        "HD200e",
+        "REU-VM2630WC",
+        "REU-VM2630WC-AK",
+        "VM2630WC",
+        "VM2630WC-AK",
+        "REUVM2630WC",
+        "REUVM2630WCAK",
+        "VM2630"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUVM2630WC",
+          "VM2630WC",
+          "REUVM2630WCAK",
+          "VM2630WCAK"
+        ]
+      },
+      "documentKeys": [
+        "HD200e",
+        "HD200",
+        "REU-VM2630WC",
+        "REU-VM2630WC-AK",
+        "VM2630WC",
+        "VM2630WC-AK",
+        "REUVM2630WC",
+        "VM2630"
+      ],
+      "region": "NZ",
+      "status": "discontinued",
+      "notes": "Own alias — not current AU VRM2632 HD200e. Beau: NZ-only discontinued “INFINITY HD200 external (REU-VM2630WC)”. Office PL extract: `REU-VM2630WC-AK (HD200e)` in REUVM2630WC HD200e.pdf — provisional badge evidence pending final ✅. Ref: https://rinnai.co.nz/water-heating/gas-hot-water-systems/residential-and-commercial-use/rinnai-infinity-hd200-external-reu-vm2630wc"
+    },
+    {
+      "id": "infinity26-internal",
+      "label": "Infinity 26 (internal)",
+      "aliases": [
+        "Infinity 26",
+        "INF26",
+        "INF 26",
+        "REU-VRM2632FFUG",
+        "VRM2632FFUG",
+        "REUVRM2632FFUG",
+        "REU-VR2632FFUG",
+        "VR2632FFUG",
+        "REU-V2632FFUG",
+        "V2632FFUG",
+        "VRM2632"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["INF26I"],
+        "itemNumberIncludes": [
+          "REUVRM2632FFUG",
+          "VRM2632FFUG",
+          "REUVR2632FFUG",
+          "VR2632FFUG",
+          "REUV2632FFUG",
+          "V2632FFUG"
+        ],
+        "unitClasses": ["FFUG"]
+      },
+      "documentKeys": [
+        "INF26",
+        "Infinity 26",
+        "REU-VRM2632FFUG",
+        "VRM2632FFUG",
+        "REU-VR2632FFUG",
+        "VR2632FFUG",
+        "REU-V2632FFUG",
+        "V2632FFUG",
+        "VRM2632"
+      ],
+      "notes": "Infinity 26 internal FFUG — confirmed SM pairing with HD200i FFUC on shared docs. Separate pin for INF26 marketing codes; typing VRM2632 surfaces both. Cross-FFU parts fit is deferred to later search."
+    },
+    {
+      "id": "infinity26-plus",
+      "label": "Infinity 26 Plus",
+      "aliases": [
+        "Infinity 26 Plus",
+        "INF26 Plus",
+        "INF26P",
+        "INF 26P",
+        "REUV2630WD",
+        "REU-V2630WD",
+        "VRM2630WD",
+        "REU-VRM2630WD",
+        "REUVRM2630WD",
+        "VM2630WD",
+        "REU-VM2630WD"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["INF26P", "K26P"],
+        "itemNumberIncludes": [
+          "REUV2630WD",
+          "REUVRM2630WD",
+          "VRM2630WD",
+          "REUVM2630WD",
+          "VM2630WD"
+        ],
+        "unitClasses": ["WD"]
+      },
+      "documentKeys": [
+        "Infinity 26 Plus",
+        "INF26",
+        "REUV2630WD",
+        "VRM2630WD",
+        "REU-VRM2630WD",
+        "VM2630WD"
+      ],
+      "notes": "Confirmed Beau: REUV2630WD / VRM2630WD → Infinity 26 Plus. Distinct from NZ VM2630WC HD200e Infinity."
+    },
+    {
+      "id": "infinity26-smartstart",
+      "label": "Infinity 26 Smartstart",
+      "aliases": [
+        "Infinity 26 Smartstart",
+        "INF26 Smartstart",
+        "Smartstart",
+        "SMARTSTART",
+        "VR2626WGP",
+        "REU-VR2626WGP",
+        "REUVR2626WGP"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["INF26S", "INF26SS"],
+        "itemNumberIncludes": ["REUVR2626WGP", "VR2626WGP"]
+      },
+      "documentKeys": [
+        "Infinity 26 Smartstart",
+        "SMARTSTART",
+        "INF26",
+        "VR2626WGP",
+        "REU-VR2626WGP",
+        "REUVR2626WGP"
+      ],
+      "notes": "Confirmed Beau: VR2626WGP → Infinity 26 Smartstart."
+    },
+    {
+      "id": "infinity32-enviro",
+      "label": "Infinity 32 Enviro",
+      "aliases": [
+        "Infinity 32 Enviro",
+        "Infinity 32 Enviro Plus",
+        "INF32 Enviro",
+        "ENVIRO 32",
+        "KM3237",
+        "REU-KM3237",
+        "REUKM3237",
+        "KM3237WD",
+        "REU-KM3237WD"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["ENV32"],
+        "itemNumberIncludes": ["REUKM3237WD", "KM3237WD"],
+        "unitClasses": ["WD"],
+        "marketingCodeExcludePrefixes": ["HDC211", "HD210", "INF32EEL", "INF32EEN", "INF32EIL", "INF32EIN"]
+      },
+      "documentKeys": [
+        "Infinity 32 Enviro",
+        "ENVIRO",
+        "INFINITY-32",
+        "KM3237",
+        "KM3237WD",
+        "REU-KM3237WD",
+        "REUKM3237"
+      ],
+      "notes": "Confirmed Beau: KM3237 → Infinity 32 Enviro / Enviro Plus. Match is KM3237WD only (not WDC/FFUDC HDC211, not N3237 Enviro+/HD210)."
+    },
+    {
+      "id": "hd210e",
+      "label": "HD210e",
+      "aliases": [
+        "HD210e",
+        "HD210E",
+        "HD 210E",
+        "N3237WC",
+        "REU-N3237WC",
+        "REUN3237WC"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["HD210E"],
+        "itemNumberIncludes": ["REUN3237WC", "N3237WC"],
+        "unitClasses": ["WC"]
+      },
+      "documentKeys": [
+        "HD210e",
+        "HD210E",
+        "N3237WC",
+        "REU-N3237WC",
+        "REUN3237WC"
+      ],
+      "notes": "Confirmed Beau: N3237WC → HD210e. Shared N3237 platform with HD210i / Enviro+ — keep badges distinct; do not map all N3237 to Infinity 32 Enviro Plus."
+    },
+    {
+      "id": "hd210i",
+      "label": "HD210i",
+      "aliases": [
+        "HD210i",
+        "HD210I",
+        "HD 210I",
+        "N3237FFC",
+        "REU-N3237FFC",
+        "REUN3237FFC"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["HD210I"],
+        "itemNumberIncludes": ["REUN3237FFC", "N3237FFC"],
+        "unitClasses": ["FFC"]
+      },
+      "documentKeys": [
+        "HD210i",
+        "HD210I",
+        "N3237FFC",
+        "REU-N3237FFC",
+        "REUN3237FFC"
+      ],
+      "notes": "Confirmed Beau: N3237FFC → HD210i. Distinct from N3237WC (HD210e) and N3237W (Infinity 32 Enviro+)."
+    },
+    {
+      "id": "infinity32-enviro-plus-n",
+      "label": "Infinity 32 Enviro+",
+      "aliases": [
+        "Infinity 32 Enviro+",
+        "Infinity 32 Enviro Plus",
+        "INF32 Enviro+",
+        "N3237W",
+        "N3237WD",
+        "REU-N3237W",
+        "REU-N3237WD",
+        "REUN3237W",
+        "REUN3237WD"
+      ],
+      "match": {
+        "marketingCodeExcludePrefixes": ["HD210", "HDC211", "INF32EEL", "INF32EEN", "INF32EIL", "INF32EIN"],
+        "itemNumberIncludes": [
+          "REUN3237WD",
+          "N3237WD",
+          "REUN3237W60AKL",
+          "REUN3237W60AKN"
+        ]
+      },
+      "documentKeys": [
+        "Infinity 32 Enviro+",
+        "ENVIRO",
+        "N-SERIES",
+        "N3237W",
+        "N3237WD",
+        "REU-N3237W",
+        "REU-N3237WD",
+        "REUN3237WD"
+      ],
+      "notes": "Confirmed Beau: N3237W → Infinity 32 Enviro+. Item match is N3237WD / specific N3237W60AK* only — never REUN3237W prefix (would swallow WC/FFC HD210)."
     }
   ]
 }
