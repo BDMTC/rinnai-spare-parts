@@ -606,27 +606,29 @@ function renderShell() {
         aria-describedby="ops-panels-hint"
       >
         <div class="ops-panels-veil" aria-hidden="true">
-          <img
-            class="ops-panels-photo"
-            src="${mtcTeamHqUrl}"
-            alt=""
-            width="2048"
-            height="1365"
-            decoding="async"
-          />
-          <div class="ops-panels-veil-caption">
+          <div class="ops-panels-photo-frame">
             <img
-              class="ops-panels-veil-logo"
-              src="${mtcgasLogoUrl}"
+              class="ops-panels-photo"
+              src="${mtcTeamHqUrl}"
               alt=""
-              width="204"
-              height="100"
+              width="2048"
+              height="1365"
               decoding="async"
             />
-            <p class="ops-panels-veil-title">MTC Gas team</p>
-            <p class="ops-panels-hint" id="ops-panels-hint">
-              Hover or focus to reveal admin &amp; data sources
-            </p>
+            <div class="ops-panels-veil-caption">
+              <img
+                class="ops-panels-veil-logo"
+                src="${mtcgasLogoUrl}"
+                alt=""
+                width="204"
+                height="100"
+                decoding="async"
+              />
+              <p class="ops-panels-veil-title">MTC Gas team</p>
+              <p class="ops-panels-hint" id="ops-panels-hint">
+                Hover or focus to reveal admin &amp; data sources
+              </p>
+            </div>
           </div>
         </div>
         <div class="ops-panels-body">
