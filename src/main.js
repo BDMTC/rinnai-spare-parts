@@ -1,4 +1,5 @@
 import "./style.css";
+import mtcgasLogoUrl from "./assets/mtcgas-australia-logo.png?inline";
 import { searchParts, getModelLabel } from "./search.js";
 import {
   computePrices,
@@ -426,45 +427,15 @@ function renderShell() {
     <div class="page">
       <header class="topbar">
         <div class="brand">
-          <div class="mtc-logo" aria-label="MTCGAS Australia">
-            <svg class="mtc-logo-svg" viewBox="0 0 280 92" role="img" focusable="false">
-              <title>MTCGAS Australia</title>
-              <defs>
-                <linearGradient id="mtc-swoosh-grad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stop-color="#0D198E"/>
-                  <stop offset="100%" stop-color="#2648AA"/>
-                </linearGradient>
-              </defs>
-              <!-- C-curve swoosh only — no orange arc -->
-              <path
-                fill="none"
-                stroke="url(#mtc-swoosh-grad)"
-                stroke-width="7"
-                stroke-linecap="round"
-                d="M248 18 C 210 6, 150 2, 98 14 C 42 28, 18 52, 28 72 C 38 90, 92 86, 148 78"
-              />
-              <text
-                x="48"
-                y="52"
-                class="mtc-logo-word"
-                font-family="Sora, Segoe UI, sans-serif"
-                font-size="34"
-                font-weight="750"
-                letter-spacing="0.02em"
-              >
-                <tspan fill="#1A2F9A">MTC</tspan><tspan fill="#4F90C8">GAS</tspan>
-              </text>
-              <text
-                x="140"
-                y="74"
-                text-anchor="middle"
-                fill="#000000"
-                font-family="IBM Plex Sans, Segoe UI, sans-serif"
-                font-size="11"
-                font-weight="650"
-                letter-spacing="0.28em"
-              >AUSTRALIA</text>
-            </svg>
+          <div class="mtc-logo">
+            <img
+              class="mtc-logo-img"
+              src="${mtcgasLogoUrl}"
+              alt="MTCGAS Australia"
+              width="204"
+              height="100"
+              decoding="async"
+            />
           </div>
           <div class="brand-text">
             <h1 class="brand-name">Rinnai Parts</h1>
