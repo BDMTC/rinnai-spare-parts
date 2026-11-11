@@ -611,6 +611,284 @@ function conflictsPinUnitClass(haystack, chassis, pinCtx, matchedKey) {
 }
 
 /**
+ * Build lookup indexes from assembly-hierarchy.json.
+ * @param {object|null|undefined} hierarchyDoc
+ */
+export function buildAssemblyIndex(hierarchyDoc) {
+  const concepts = [];
+  const childByCode = new Map();
+  const parentByCode = new Map();
+  const demotionCues = (hierarchyDoc?.demotionCues || [])
+    .map((c) => normalise(c))
+    .filter(Boolean);
+
+  for (const raw of hierarchyDoc?.concepts || []) {
+    if (!raw?.id) continue;
+    concepts.push({
+      id: String(raw.id),
+      queryTerms: (raw.queryTerms || []).map(normalise).filter(Boolean),
+      assemblyNamePatterns: (raw.assemblyNamePatterns || [])
+        .map(normalise)
+        .filter(Boolean),
+    });
+  }
+
+  for (const raw of hierarchyDoc?.assemblies || []) {
+    const parentCode = String(raw.parentCode || "").trim();
+    if (!parentCode) continue;
+    const parent = {
+      parentCode,
+      parentName: String(raw.parentName || "").trim(),
+      shortName: String(raw.shortName || raw.parentName || parentCode).trim(),
+      conceptId: raw.conceptId ? String(raw.conceptId) : null,
+      seriesTokens: (raw.seriesTokens || [])
+        .map((t) => alnum(t))
+        .filter(Boolean),
+      assemblyRole: raw.assemblyRole ? String(raw.assemblyRole) : null,
+      demoteForBareConcept: Boolean(raw.demoteForBareConcept),
+      children: [],
+    };
+    parentByCode.set(parentCode, parent);
+
+    for (const ch of raw.children || []) {
+      const code = String(ch.code || "").trim();
+      if (!code) continue;
+      const child = {
+        code,
+        role: ch.role ? String(ch.role) : null,
+        parentCode,
+        parentName: parent.parentName,
+        shortName: parent.shortName,
+        conceptId: parent.conceptId,
+        seriesTokens: parent.seriesTokens,
+      };
+      parent.children.push(child);
+      if (!childByCode.has(code)) childByCode.set(code, child);
+    }
+  }
+
+  return { concepts, childByCode, parentByCode, demotionCues };
+}
+
+/**
+ * Which assembly concept (if any) the query is aiming at.
+ * @returns {object|null}
+ */
+export function matchAssemblyConcept(hierarchyIndex, query) {
+  if (!hierarchyIndex?.concepts?.length) return null;
+  const q = normalise(query);
+  if (!q) return null;
+  let best = null;
+  for (const concept of hierarchyIndex.concepts) {
+    for (const term of concept.queryTerms) {
+      if (!term) continue;
+      let strength = 0;
+      if (q === term) strength = 100;
+      else if (q.includes(term) || (term.length >= 4 && term.includes(q))) {
+        strength = Math.min(95, 50 + term.length);
+      }
+      if (strength > 0 && (!best || strength > best.strength)) {
+        best = { concept, term, strength };
+      }
+    }
+  }
+  return best;
+}
+
+/**
+ * True when the typed query already names a demotion cue (gasket, top, …)
+ * so we should not demote those rows.
+ */
+function queryAsksForCue(q, cue) {
+  if (!q || !cue) return false;
+  if (cue.includes(" ")) return ` ${q} `.includes(` ${cue} `) || q.includes(cue);
+  const toks = q.split(" ").filter(Boolean);
+  return toks.includes(cue);
+}
+
+/**
+ * Name looks like a sub-piece of an assembly concept (TOP / GASKET / …).
+ */
+function nameHasDemotionCue(nameN, cues, q) {
+  if (!nameN || !cues?.length) return null;
+  for (const cue of cues) {
+    if (!cue) continue;
+    if (queryAsksForCue(q, cue)) continue;
+    if (cue.includes(" ")) {
+      if (nameN.includes(cue)) return cue;
+      continue;
+    }
+    const toks = nameN.split(" ").filter(Boolean);
+    if (toks.includes(cue)) return cue;
+  }
+  return null;
+}
+
+function nameMatchesAssemblyPatterns(nameN, patterns) {
+  if (!nameN || !patterns?.length) return false;
+  return patterns.some((p) => p && nameN.includes(p));
+}
+
+/**
+ * Pin chassis tokens for scoping assembly maps (N3237, VRM2632, …).
+ */
+function pinChassisTokens(pinCtx) {
+  if (!pinCtx) return [];
+  const out = new Set();
+  for (const k of pinCtx.keys || []) {
+    const n = alnum(k);
+    if (n) out.add(n);
+  }
+  for (const c of pinCtx.cores || []) {
+    if (c) out.add(String(c));
+  }
+  return [...out];
+}
+
+function assemblyInPinScope(entry, pinTokens) {
+  if (!pinTokens?.length) return true;
+  const series = entry?.seriesTokens || [];
+  if (!series.length) return true;
+  for (const tok of series) {
+    for (const pin of pinTokens) {
+      if (pin === tok) return true;
+      if (pin.includes(tok) || tok.includes(pin)) return true;
+      // capacity core soft match (3237 inside N3237 / KM3237)
+      const core = capacityCore(tok);
+      if (core && pin.includes(core)) return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * Score / annotate assembly vs sub-component for a matched part.
+ * @returns {{
+ *   delta: number,
+ *   assemblyRank: number,
+ *   isSubComponent: boolean,
+ *   isAssembly: boolean,
+ *   subOf: null|{code: string, shortName: string, name: string},
+ *   reason: string|null
+ * }}
+ */
+export function scoreAssemblyRole(part, query, hierarchyIndex, pinCtx = null) {
+  const empty = {
+    delta: 0,
+    assemblyRank: 0,
+    isSubComponent: false,
+    isAssembly: false,
+    subOf: null,
+    reason: null,
+  };
+  if (!hierarchyIndex || !query) return empty;
+
+  const conceptHit = matchAssemblyConcept(hierarchyIndex, query);
+  if (!conceptHit) return empty;
+
+  const q = normalise(query);
+  const nameN = normalise(part.name);
+  const code = String(part.code || "").trim();
+  const pinTokens = pinChassisTokens(pinCtx);
+  const hasPin = Boolean(pinCtx);
+  const concept = conceptHit.concept;
+  const child = hierarchyIndex.childByCode.get(code);
+  const parent = hierarchyIndex.parentByCode.get(code);
+
+  // Explicit child of a mapped parent
+  if (child) {
+    const scoped = assemblyInPinScope(child, pinTokens);
+    // Free search: always demote known children. Pinned: only chassis-scoped.
+    if (!hasPin || scoped) {
+      const parentRec = hierarchyIndex.parentByCode.get(child.parentCode);
+      return {
+        delta: hasPin && scoped ? -55 : -45,
+        assemblyRank: -2,
+        isSubComponent: true,
+        isAssembly: false,
+        subOf: {
+          code: child.parentCode,
+          shortName: child.shortName,
+          name: child.parentName || parentRec?.parentName || child.parentCode,
+        },
+        reason: `sub-component of ${child.parentCode}`,
+      };
+    }
+  }
+
+  // Mapped parent / top-half assembly
+  if (parent && (!parent.conceptId || parent.conceptId === concept.id)) {
+    const scoped = assemblyInPinScope(parent, pinTokens);
+    if (hasPin && !scoped) {
+      // Other chassis assembly — leave alone beyond heuristics below
+    } else if (parent.demoteForBareConcept || parent.assemblyRole === "top-half") {
+      const cue = nameHasDemotionCue(nameN, hierarchyIndex.demotionCues, q);
+      if (cue) {
+        return {
+          delta: hasPin && scoped ? -35 : -28,
+          assemblyRank: -1,
+          isSubComponent: true,
+          isAssembly: false,
+          subOf: null,
+          reason: `partial assembly (${cue})`,
+        };
+      }
+    } else {
+      return {
+        delta: hasPin && scoped ? 48 : 36,
+        assemblyRank: 2,
+        isSubComponent: false,
+        isAssembly: true,
+        subOf: null,
+        reason: "complete assembly",
+      };
+    }
+  }
+
+  // Heuristic: name matches concept patterns
+  if (!nameMatchesAssemblyPatterns(nameN, concept.assemblyNamePatterns)) {
+    return empty;
+  }
+
+  const cue = nameHasDemotionCue(nameN, hierarchyIndex.demotionCues, q);
+  if (cue) {
+    // Infer parent note from hierarchy when possible (same chassis token)
+    let subOf = null;
+    const chassis = extractChassisTokens(part.name);
+    for (const [, p] of hierarchyIndex.parentByCode) {
+      if (p.conceptId && p.conceptId !== concept.id) continue;
+      if (p.demoteForBareConcept) continue;
+      if (!assemblyInPinScope(p, chassis.length ? chassis : pinTokens)) continue;
+      if (hasPin && !assemblyInPinScope(p, pinTokens)) continue;
+      subOf = {
+        code: p.parentCode,
+        shortName: p.shortName,
+        name: p.parentName || p.shortName,
+      };
+      break;
+    }
+    return {
+      delta: -30,
+      assemblyRank: -1,
+      isSubComponent: true,
+      isAssembly: false,
+      subOf,
+      reason: `demotion cue ${cue}`,
+    };
+  }
+
+  // Clean assembly-shaped name for this concept
+  return {
+    delta: hasPin ? 40 : 30,
+    assemblyRank: 2,
+    isSubComponent: false,
+    isAssembly: true,
+    subOf: null,
+    reason: "assembly name match",
+  };
+}
+
+/**
  * Trade-alias hit quality against a part name.
  * @returns {{ strength: number, label: string|null, preferred: boolean }}
  */
@@ -659,6 +937,8 @@ function scoreTradeHit(partNameN, tradeHits) {
  *   tradeAliases?: object|null,
  *   partAbbrevs?: object|null,
  *   abbrevIndex?: object|null,
+ *   assemblyHierarchy?: object|null,
+ *   assemblyIndex?: object|null,
  *   isPartVisible?: ((part: object) => boolean)|null,
  * }} [opts]
  * @returns {Array<object>}
@@ -694,6 +974,14 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
     : { singles: [], phrases: [] };
   /** Whole query is itself a locked form — don't token-flood on words like "with"/"panel". */
   const exactAbbrevQuery = Boolean(abbrevIndex?.formToGroup.has(q));
+  const assemblyIndex =
+    opts.assemblyIndex ||
+    (opts.assemblyHierarchy
+      ? buildAssemblyIndex(opts.assemblyHierarchy)
+      : null);
+  const assemblyConcept = assemblyIndex
+    ? matchAssemblyConcept(assemblyIndex, query)
+    : null;
   const modelsById = Object.fromEntries(
     (catalogue.models || []).map((m) => [m.id, m])
   );
@@ -922,6 +1210,13 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
       }
     }
 
+    const assembly = scoreAssemblyRole(part, query, assemblyIndex, pinCtx);
+    if (assembly.delta) {
+      score += assembly.delta;
+      if (assembly.isAssembly) matchedOn.push("assembly");
+      else if (assembly.isSubComponent) matchedOn.push("sub-component");
+    }
+
     const fittedModels = partModelIds
       .map((id) => modelsById[id])
       .filter(Boolean);
@@ -950,6 +1245,11 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
       aliasStrength,
       abbrevLabels,
       fitRank,
+      assemblyRank: assembly.assemblyRank || 0,
+      isAssembly: Boolean(assembly.isAssembly),
+      isSubComponent: Boolean(assembly.isSubComponent),
+      subOf: assembly.subOf || null,
+      assemblyReason: assembly.reason,
       fittedModels,
       isPrimary: false,
     });
@@ -957,6 +1257,9 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
 
   results.sort((a, b) => {
     if (hasPin && b.fitRank !== a.fitRank) return b.fitRank - a.fitRank;
+    if (assemblyConcept && b.assemblyRank !== a.assemblyRank) {
+      return b.assemblyRank - a.assemblyRank;
+    }
     if (hasPin && b.aliasStrength !== a.aliasStrength) {
       return b.aliasStrength - a.aliasStrength;
     }
@@ -965,11 +1268,41 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
   });
 
   const sliced = results.slice(0, limit);
-  if (hasPin && sliced.length) {
-    // Primary = top exact-fit hit when present; else top related; else none
-    const primaryIdx = sliced.findIndex((r) => r.fitTier === "exact");
-    const idx = primaryIdx >= 0 ? primaryIdx : sliced[0].fitTier === "related" ? 0 : -1;
-    if (idx >= 0) sliced[idx].isPrimary = true;
+  if (sliced.length) {
+    if (hasPin) {
+      // Prefer complete assembly among exact-fit when query targets an assembly concept
+      if (assemblyConcept) {
+        const assemblyExact = sliced.findIndex(
+          (r) => r.fitTier === "exact" && r.isAssembly && !r.isSubComponent
+        );
+        if (assemblyExact >= 0) {
+          sliced[assemblyExact].isPrimary = true;
+        } else {
+          const primaryIdx = sliced.findIndex((r) => r.fitTier === "exact");
+          const idx =
+            primaryIdx >= 0
+              ? primaryIdx
+              : sliced[0].fitTier === "related"
+                ? 0
+                : -1;
+          if (idx >= 0) sliced[idx].isPrimary = true;
+        }
+      } else {
+        const primaryIdx = sliced.findIndex((r) => r.fitTier === "exact");
+        const idx =
+          primaryIdx >= 0
+            ? primaryIdx
+            : sliced[0].fitTier === "related"
+              ? 0
+              : -1;
+        if (idx >= 0) sliced[idx].isPrimary = true;
+      }
+    } else if (assemblyConcept) {
+      const assemblyIdx = sliced.findIndex(
+        (r) => r.isAssembly && !r.isSubComponent
+      );
+      if (assemblyIdx >= 0) sliced[assemblyIdx].isPrimary = true;
+    }
   }
 
   return sliced;
