@@ -53,7 +53,7 @@ body {
   color: var(--ink);
   background:
     radial-gradient(1200px 600px at 8% -12%, rgba(1, 52, 116, 0.18), transparent 55%),
-    radial-gradient(900px 520px at 100% 0%, rgba(0, 134, 197, 0.16), transparent 52%),
+    radial-gradient(900px 520px at 100% 0%, rgba(0, 134, 197, 0.2), transparent 52%),
     linear-gradient(180deg, var(--bg1), var(--bg0));
   background-attachment: fixed;
 }
