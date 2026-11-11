@@ -462,7 +462,13 @@ function renderShell() {
     <div class="page">
       <header class="topbar">
         <div class="brand">
-          <div class="mtc-logo">
+          <button
+            type="button"
+            class="mtc-logo"
+            id="home-logo"
+            aria-label="MTC Gas home — clear search and model pin"
+            title="Home"
+          >
             <img
               class="mtc-logo-img"
               src="${mtcgasLogoUrl}"
@@ -471,7 +477,7 @@ function renderShell() {
               height="100"
               decoding="async"
             />
-          </div>
+          </button>
           <div class="brand-text">
             <h1 class="brand-name">Rinnai Parts</h1>
           </div>
@@ -1594,10 +1600,29 @@ function applyPendingImport() {
   );
 }
 
+function resetToHome() {
+  const input = document.querySelector("#query-input");
+  if (input) input.value = "";
+  if (modelPicker?.setValue) {
+    modelPicker.setValue(null);
+  } else {
+    const pin = document.querySelector("#model-pin");
+    const modelInput = document.querySelector("#model-input");
+    if (pin) pin.value = "";
+    if (modelInput) modelInput.value = "";
+    const clearBtn = document.querySelector("#model-clear");
+    if (clearBtn) clearBtn.hidden = true;
+    runSearch();
+  }
+  input?.focus();
+}
+
 function bindEvents() {
   const form = document.querySelector("#search-form");
   const input = document.querySelector("#query-input");
   const margin = document.querySelector("#margin-select");
+
+  document.querySelector("#home-logo")?.addEventListener("click", resetToHome);
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
