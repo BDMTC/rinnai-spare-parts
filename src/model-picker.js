@@ -54,7 +54,7 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
     // Empty: surface primary series pins for discovery
     for (const series of listSeries(seriesDoc)) {
       if (
-        !/^(hd28e?|hd28i|hd200e|hd200i|hd200e-infinity-nz|hd210e|hd210i|infinity26|infinity32)/i.test(
+        !/^(hd28e?|hd28i|hd200e|hd200i|hd210e|hd210i|infinity26|infinity32)/i.test(
           series.id
         )
       ) {
@@ -86,7 +86,7 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
     // Boost short marketing labels (HD200e) when query is prefix of label
     if (normalise(series.label).startsWith(qNorm)) score += 15;
     // Chassis queries (VRM2632) should still rank series high
-    if (/^\d/.test(qNorm) === false && /VRM|VCM|VM2630|REU/.test(qNorm)) {
+    if (/^\d/.test(qNorm) === false && /VRM|VCM|REU/.test(qNorm)) {
       score += 5;
     }
     const count = modelIdsForSeries(catalogue, series).length;
@@ -158,7 +158,7 @@ function seriesSubtitle(series, count) {
   if (series.region) bits.push(series.region);
   if (series.status) bits.push(series.status);
   const alias = (series.aliases || []).find((a) =>
-    /VRM|VCM|VM2630|REU-/i.test(a)
+    /VRM|VCM|REU-/i.test(a)
   );
   if (alias) bits.push(alias);
   bits.push(`${count} model${count === 1 ? "" : "s"}`);

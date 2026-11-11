@@ -50,7 +50,7 @@ The app also shows this path under **Data sources / price list config**.
 | `public/data/models.json` | REU Model History rows |
 | `public/data/prices.json` | Price rows + sheet index |
 | `public/data/catalogue.json` | Combined search index (models + parts) |
-| `public/data/series-aliases.json` | Series map for model typeahead + document lookup (HD28, HD200e/i, NZ HD200e Infinity, …) |
+| `public/data/series-aliases.json` | Series map for model typeahead + document lookup (HD28, HD200e/i, Infinity 26/32, HD210, …) |
 | `public/data/document-index.json` | Portable PDF index (paths + series tags) — **no binaries** |
 | `data-sheets/` | Local PDFs only (gitignored). Vite serves at `/data-sheets/` |
 
@@ -70,7 +70,7 @@ If the folder is missing (cloud agent, fresh clone), the index still lists match
 ## What it does
 
 - Search bar + **model typeahead** (marketing names, REU/chassis codes, series aliases)
-- **Series pin** via aliases (HD28, HD200e/VRM2632WC, provisional HD200i, NZ VM2630WC, …)
+- **Series pin** via aliases (HD28, HD200e/VRM2632WC, HD200i, Infinity 26/32, HD210, …)
 - Margin **0–100%** in **5%** steps (default 20%)
 - Matching **data sheets** for the pin (from `document-index.json`) with click-to-open PDFs
 - Matches part code, description, and sheet/category

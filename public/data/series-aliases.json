@@ -4,7 +4,7 @@
     "title": "Rinnai series aliases",
     "locale": "en-AU",
     "updated": "2026-11-11",
-    "notes": "Marketing ↔ chassis / document keys for model pin + typeahead. Confirmed: HD28↔VCM2837; AU HD200e↔VRM2632WC; HD200i↔REU-VR2632FFUG / REU-VRM2632FFUC; NZ HD200e Infinity↔VM2630WC; Infinity 26 Plus↔REUV2630WD/VRM2630WD; Infinity 26 Smartstart↔VR2626WGP; Infinity 32 Enviro↔KM3237; HD210e↔N3237WC; HD210i↔N3237FFC; Infinity 32 Enviro+↔N3237W (not all N3237). Provisional: HD200e↔REU-VM2630WC-AK badge on NZ PL."
+    "notes": "Marketing ↔ chassis / document keys for model pin + typeahead. Confirmed: HD28↔VCM2837; AU HD200e↔VRM2632WC; HD200i↔REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 Plus↔REUV2630WD/VRM2630WD; Infinity 26 Smartstart↔VR2626WGP; Infinity 32 Enviro↔KM3237; HD210e↔N3237WC; HD210i↔N3237FFC; Infinity 32 Enviro+↔N3237W (not all N3237). NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau)."
   },
   "series": [
     {
@@ -106,10 +106,7 @@
         "VRM2632WC",
         "VRM2632WC-AK",
         "REUVRM2632WC",
-        "VRM2632",
-        "REU-VM2630WC-AK",
-        "VM2630WC-AK",
-        "REUVM2630WCAK"
+        "VRM2632"
       ],
       "match": {
         "marketingCodePrefixes": ["HD200"],
@@ -131,11 +128,9 @@
         "VRM2632WC",
         "VRM2632WC-AK",
         "REUVRM2632WC",
-        "VRM2632",
-        "REU-VM2630WC-AK",
-        "VM2630WC-AK"
+        "VRM2632"
       ],
-      "notes": "Confirmed Beau: REU-VRM2632WC / VRM2632WC = current AU HD200e external (EDPL also shows WC-AK). Provisional office PL extract also pairs HD200e ↔ REU-VM2630WC-AK — same badge surfaces NZ/discontinued twin via typeahead aliases; keep NZ series as its own pin. Do not merge FFUC↔WC."
+      "notes": "Confirmed Beau: REU-VRM2632WC / VRM2632WC = current AU HD200e external (EDPL also shows WC-AK). NZ discontinued REU-VM2630WC / HD200e Infinity is not linked here. Do not merge FFUC↔WC."
     },
     {
       "id": "hd200i",
@@ -195,45 +190,6 @@
       ],
       "relatedFamilies": ["FFU", "FFUG", "FFUC"],
       "notes": "Confirmed Beau: HD200i ↔ REU-VR2632FFUG / REU-VRM2632FFUC (Infinity internal / FFUC). Aliases + documentKeys include FFUG mates for typeahead/docs; model pin match stays HD200I*/FFUC so INF26 is not swallowed. relatedFamilies flags wider FFU heritage for later cross-family parts search."
-    },
-    {
-      "id": "hd200e-infinity-nz",
-      "label": "HD200e Infinity (NZ, discontinued)",
-      "aliases": [
-        "HD200e Infinity",
-        "HD200E Infinity",
-        "INFINITY HD200",
-        "Infinity HD200",
-        "HD200e",
-        "REU-VM2630WC",
-        "REU-VM2630WC-AK",
-        "VM2630WC",
-        "VM2630WC-AK",
-        "REUVM2630WC",
-        "REUVM2630WCAK",
-        "VM2630"
-      ],
-      "match": {
-        "itemNumberIncludes": [
-          "REUVM2630WC",
-          "VM2630WC",
-          "REUVM2630WCAK",
-          "VM2630WCAK"
-        ]
-      },
-      "documentKeys": [
-        "HD200e",
-        "HD200",
-        "REU-VM2630WC",
-        "REU-VM2630WC-AK",
-        "VM2630WC",
-        "VM2630WC-AK",
-        "REUVM2630WC",
-        "VM2630"
-      ],
-      "region": "NZ",
-      "status": "discontinued",
-      "notes": "Own alias — not current AU VRM2632 HD200e. Beau: NZ-only discontinued “INFINITY HD200 external (REU-VM2630WC)”. Office PL extract: `REU-VM2630WC-AK (HD200e)` in REUVM2630WC HD200e.pdf — provisional badge evidence pending final ✅. Ref: https://rinnai.co.nz/water-heating/gas-hot-water-systems/residential-and-commercial-use/rinnai-infinity-hd200-external-reu-vm2630wc"
     },
     {
       "id": "infinity26-internal",
@@ -311,7 +267,7 @@
         "REU-VRM2630WD",
         "VM2630WD"
       ],
-      "notes": "Confirmed Beau: REUV2630WD / VRM2630WD → Infinity 26 Plus. Distinct from NZ VM2630WC HD200e Infinity."
+      "notes": "Confirmed Beau: REUV2630WD / VRM2630WD → Infinity 26 Plus."
     },
     {
       "id": "infinity26-smartstart",
