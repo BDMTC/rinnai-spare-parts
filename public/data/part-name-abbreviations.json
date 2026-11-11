@@ -497,10 +497,154 @@
       "status": "locked-careful",
       "forms": ["EXT TIMER", "EXTENSION TIMER", "EXT TIMER KIT", "EXTENSION TIMER KIT"],
       "notes": "Extension timer kit only — not bare EXT merge."
+    },
+    {
+      "id": "harness",
+      "status": "locked",
+      "forms": ["HARNESS", "HARN", "WIRING HARNESS", "WIRE HARNESS"],
+      "notes": "Trade/truncation for wiring harness."
+    },
+    {
+      "id": "loom",
+      "status": "locked",
+      "forms": ["LOOM", "WIRING LOOM", "WIRE LOOM"],
+      "notes": "Wiring loom trade wording."
+    },
+    {
+      "id": "filter",
+      "status": "locked",
+      "forms": ["FILTER", "FILT", "FILTR"],
+      "notes": "Filter truncations (trade short forms)."
+    },
+    {
+      "id": "flue",
+      "status": "locked",
+      "forms": ["FLUE", "FLUE PIPE"],
+      "notes": "Flue / flue pipe."
+    },
+    {
+      "id": "thermistor",
+      "status": "locked",
+      "forms": ["THERMISTOR", "THERMIST"],
+      "notes": "Thermistor. Bare THERM skipped (ambiguous in catalogue)."
+    },
+    {
+      "id": "electrode",
+      "status": "locked",
+      "forms": ["ELECTRODE", "ELECTROD", "FLAME ROD"],
+      "notes": "Electrode + trade ‘flame rod’."
+    },
+    {
+      "id": "gasket",
+      "status": "locked",
+      "forms": ["GASKET", "GASK"],
+      "notes": "Gasket truncation. Not merged with SEAL/PACKING."
+    },
+    {
+      "id": "capacitor",
+      "status": "locked",
+      "forms": ["CAPACITOR", "CAPAC", "CAPACIT"],
+      "notes": "Capacitor truncations. CAP excluded (end caps)."
+    },
+    {
+      "id": "manifold",
+      "status": "locked",
+      "forms": ["MANIFOLD", "MANIF", "MANF"],
+      "notes": "Manifold truncations."
+    },
+    {
+      "id": "damper",
+      "status": "locked",
+      "forms": ["DAMPER", "DAMP"],
+      "notes": "Damper truncation."
+    },
+    {
+      "id": "bypass",
+      "status": "locked",
+      "forms": ["BYPASS", "BYP"],
+      "notes": "Bypass truncation."
+    },
+    {
+      "id": "orifice",
+      "status": "locked",
+      "forms": ["ORIFICE", "ORIF"],
+      "notes": "Orifice truncation."
+    },
+    {
+      "id": "aeration",
+      "status": "locked",
+      "forms": ["AERATION", "AERAT"],
+      "notes": "Aeration truncation."
+    },
+    {
+      "id": "snorkel",
+      "status": "locked",
+      "forms": ["SNORKEL", "SNORK"],
+      "notes": "Snorkel truncation."
+    },
+    {
+      "id": "grommet",
+      "status": "locked",
+      "forms": ["GROMMET", "GROMM"],
+      "notes": "Grommet truncation."
+    },
+    {
+      "id": "contactor",
+      "status": "locked",
+      "forms": ["CONTACTOR", "CONTAC"],
+      "notes": "Contactor truncation. Bare CONT stays context-dependent."
+    },
+    {
+      "id": "baffle",
+      "status": "locked",
+      "forms": ["BAFFLE", "BAFF"],
+      "notes": "Baffle truncation."
+    },
+    {
+      "id": "sensor",
+      "status": "locked",
+      "forms": ["SENSOR", "SENSORS"],
+      "notes": "Sensor plural/singular. Bare SENS skipped."
+    },
+    {
+      "id": "servo",
+      "status": "locked",
+      "forms": ["SERVO", "SERV"],
+      "notes": "Servo truncation."
+    },
+    {
+      "id": "piezo",
+      "status": "locked",
+      "forms": ["PIEZO", "PIEZOELECTRIC"],
+      "notes": "Piezo igniter trade wording."
+    },
+    {
+      "id": "spring",
+      "status": "locked",
+      "forms": ["SPRING", "SPR"],
+      "notes": "Spring truncation."
+    },
+    {
+      "id": "relief",
+      "status": "locked",
+      "forms": ["RELIEF", "RELIEF VALVE"],
+      "notes": "Relief valve wording. PTR remains its own P&T group."
+    },
+    {
+      "id": "union",
+      "status": "locked",
+      "forms": ["UNION", "UNIONS"],
+      "notes": "Union fitting singular/plural."
+    },
+    {
+      "id": "decal",
+      "status": "locked",
+      "forms": ["DECAL", "DECALS"],
+      "notes": "Decal plural. Not merged with LABEL."
     }
   ],
   "alreadyExactMatch": {
-    "notes": "These full-word catalogue tokens already search as-is (no short↔long identity alias required). Trade variants / truncations above cover gaps where they exist.",
+    "notes": "Full-word catalogue tokens already search as themselves; short/trade variants still fire the visible match cue when the variant (not the exact full word alone) caused the hit.",
     "tokens": [
       "HARNESS",
       "LOOM",
@@ -526,7 +670,8 @@
       "SPRING",
       "RELIEF",
       "ORIFICE",
-      "PIEZO"
+      "PIEZO",
+      "SENSOR"
     ]
   },
   "skipped": {
@@ -540,6 +685,6 @@
       "EXT",
       "REV"
     ],
-    "notes": "Bare context-dependent tokens stay unmerged. Safe phrase groups (pan-head, drain-pan, compression-fitting, reversing-valve, condensate, condenser, outdoor-coil, extension-loom, extension-timer) cover the confident splits. COMPR/EXTENS remain clear-spelling only. LP fuel and NAT gas keep excludeNamePatterns. CAP≠capacitor (end caps). MOT≠motor (too sparse/noisy). DECAL≠LABEL (different part types)."
+    "notes": "Bare context-dependent tokens stay unmerged. Safe phrase groups cover confident splits. COMPR/EXTENS clear-spelling only. LP/NAT keep excludeNamePatterns. CAP≠capacitor; MOT≠motor; THERM≠thermistor; SENS skipped; DECAL≠LABEL; GASKET≠SEAL/PACKING."
   }
 }
