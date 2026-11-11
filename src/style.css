@@ -1005,8 +1005,7 @@ mark {
   gap: 0.3rem;
   padding: 0.7rem 0.95rem;
   border-radius: 12px;
-  /* Near-solid white — barely see photo/text through it; tiny soft edge only */
-  background: rgba(255, 255, 255, 0.97);
+  background: #fff;
   box-shadow: 0 10px 28px rgba(1, 52, 116, 0.2);
   text-align: center;
   max-width: min(90%, 18rem);
