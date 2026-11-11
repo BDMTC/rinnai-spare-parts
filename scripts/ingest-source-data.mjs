@@ -15,6 +15,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import XLSX from "xlsx";
+import { applyModelRestrictionFields } from "../src/restriction.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
@@ -115,23 +116,30 @@ function ingestModels(workbookPath) {
     }
     seen.add(id);
 
-    models.push({
-      id,
-      brand: "Rinnai",
-      marketingCode: marketingCode || null,
-      itemNumber: itemNumber || null,
-      name: description || marketingCode || itemNumber,
-      sku: marketingCode || itemNumber,
-      description: description || null,
-      description2: description2 || null,
-      stockingType,
-      family: null,
-      fuel: null,
-      diagramUrl: null,
-      diagramPath: null,
-      notes: description2 || null,
-    });
+    models.push(
+      applyModelRestrictionFields({
+        id,
+        brand: "Rinnai",
+        marketingCode: marketingCode || null,
+        itemNumber: itemNumber || null,
+        name: description || marketingCode || itemNumber,
+        sku: marketingCode || itemNumber,
+        description: description || null,
+        description2: description2 || null,
+        stockingType,
+        family: null,
+        fuel: null,
+        diagramUrl: null,
+        diagramPath: null,
+        notes: description2 || null,
+        restricted: false,
+        restrictionKind: null,
+        restrictionLabel: null,
+      })
+    );
   }
+
+  const restrictedCount = models.filter((m) => m.restricted).length;
 
   return {
     version: 1,
@@ -142,8 +150,9 @@ function ingestModels(workbookPath) {
       locale: "en-AU",
       updated: new Date().toISOString().slice(0, 10),
       count: models.length,
+      restrictedCount,
       notes:
-        "Fields preserved from REU-Model-History.xlsx. family/fuel/diagrams left null until Beau supplies them.",
+        "Fields preserved from REU-Model-History.xlsx. restricted* derived from Description 2 (NLA / export only / use-up / only-for). family/fuel/diagrams left null until Beau supplies them.",
     },
     models,
   };
@@ -337,6 +346,7 @@ function buildCatalogue(modelsDoc, pricesDoc, config) {
       defaultMarginPercent: config.defaultMarginPercent ?? 20,
       gstRate: config.gstRate ?? 0.1,
       modelCount: modelsDoc.models.length,
+      restrictedModelCount: modelsDoc.models.filter((m) => m.restricted).length,
       partCount: parts.length,
     },
     models: modelsDoc.models,
@@ -354,7 +364,9 @@ function main() {
   console.log("Ingesting models from:", modelsPath);
   const modelsDoc = ingestModels(modelsPath);
   writeJson(path.join(root, config.modelHistory.generatedFile), modelsDoc);
-  console.log(`  → ${modelsDoc.models.length} models`);
+  console.log(
+    `  → ${modelsDoc.models.length} models (${modelsDoc.meta.restrictedCount} restricted from Description 2)`
+  );
 
   console.log("Ingesting prices from:", pricePath);
   const pricesDoc = ingestPrices(pricePath, config);
