@@ -712,7 +712,7 @@ function renderShell() {
         <span>
           All pricing data current, Parts tool made by
           <a class="footer-author" href="mailto:beau.dougall@mtcgas.com.au">Beau Dougall</a>
-          for MTC Gas Australia PTY LTD. Version two coming - expanding to all roles.
+          for MTC Gas Australia PTY LTD. Version two coming soon! Expanding to plumbers, exploded diagrams, and more.
         </span>
       </footer>
     </div>
