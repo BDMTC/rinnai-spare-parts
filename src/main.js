@@ -5,14 +5,15 @@ import {
   formatAud,
   DEFAULT_MARGIN_PERCENT,
   DEFAULT_GST_RATE,
+  clampMarginPercent,
+  marginPercentOptions,
 } from "./pricing.js";
 import {
-  listSeries,
   resolveModelPin,
   documentKeysForPin,
-  modelIdsForSeries,
 } from "./series.js";
 import { searchDocuments, resolveDocumentUrl } from "./documents.js";
+import { bindModelPicker } from "./model-picker.js";
 
 const app = document.querySelector("#app");
 
@@ -32,6 +33,8 @@ let marginPercent = DEFAULT_MARGIN_PERCENT;
 let gstRate = DEFAULT_GST_RATE;
 /** @type {{ title: string, url: string }|null} */
 let viewerState = null;
+/** @type {{ getValue: () => string|null, setValue: (v: string|null) => void }|null} */
+let modelPicker = null;
 
 async function loadJson(url) {
   const res = await fetch(url);
@@ -88,25 +91,59 @@ function renderShell() {
       <main class="hero">
         <form class="search-panel" id="search-form" autocomplete="off">
           <div class="controls-row">
-            <label class="field model-field" for="model-select">
-              <span class="field-label">Model</span>
-              <select id="model-select" name="model">
-                <option value="">Any model</option>
-              </select>
-            </label>
+            <div class="field model-field">
+              <span class="field-label" id="model-label">Model</span>
+              <div
+                class="model-picker"
+                id="model-picker"
+              >
+                <div class="model-picker-row">
+                  <input
+                    id="model-input"
+                    type="text"
+                    role="combobox"
+                    aria-labelledby="model-label"
+                    aria-autocomplete="list"
+                    aria-controls="model-listbox"
+                    aria-expanded="false"
+                    placeholder="Type HD200e, VRM2632, HD28…"
+                    spellcheck="false"
+                    autocomplete="off"
+                  />
+                  <button
+                    type="button"
+                    class="model-clear"
+                    id="model-clear"
+                    aria-label="Clear model pin"
+                    hidden
+                  >
+                    ×
+                  </button>
+                </div>
+                <input type="hidden" id="model-pin" name="model" value="" />
+                <ul
+                  class="model-listbox"
+                  id="model-listbox"
+                  role="listbox"
+                  hidden
+                ></ul>
+              </div>
+            </div>
 
             <label class="field margin-field" for="margin-select">
               <span class="field-label">Margin %</span>
               <select id="margin-select" name="margin">
-                <option value="0">0%</option>
-                <option value="10">10%</option>
-                <option value="15">15%</option>
-                <option value="20" selected>20% (default)</option>
-                <option value="25">25%</option>
-                <option value="30">30%</option>
-                <option value="35">35%</option>
-                <option value="40">40%</option>
-                <option value="50">50%</option>
+                ${marginPercentOptions()
+                  .map((m) => {
+                    const selected =
+                      m === DEFAULT_MARGIN_PERCENT ? " selected" : "";
+                    const label =
+                      m === DEFAULT_MARGIN_PERCENT
+                        ? `${m}% (default)`
+                        : `${m}%`;
+                    return `<option value="${m}"${selected}>${label}</option>`;
+                  })
+                  .join("")}
               </select>
             </label>
           </div>
@@ -216,51 +253,24 @@ function renderShell() {
   `;
 }
 
-function populateModels() {
-  const select = document.querySelector("#model-select");
-
-  const seriesList = listSeries(seriesDoc);
-  if (seriesList.length) {
-    const seriesGroup = document.createElement("optgroup");
-    seriesGroup.label = "Series (aliases)";
-    for (const series of seriesList) {
-      const count = modelIdsForSeries(catalogue, series).length;
-      const opt = document.createElement("option");
-      opt.value = `series:${series.id}`;
-      const aliasBit = (series.aliases || [])
-        .filter((a) => normaliseAlias(a) !== normaliseAlias(series.label))
-        .slice(0, 2)
-        .join(" · ");
-      opt.textContent = aliasBit
-        ? `${series.label} series (${aliasBit}) · ${count} models`
-        : `${series.label} series · ${count} models`;
-      seriesGroup.appendChild(opt);
-    }
-    select.appendChild(seriesGroup);
+function mountModelPicker() {
+  const root = document.querySelector("#model-picker");
+  if (!root) {
+    modelPicker = null;
+    return;
   }
-
-  const modelsGroup = document.createElement("optgroup");
-  modelsGroup.label = "Models";
-  const models = [...(catalogue.models || [])].sort((a, b) =>
-    String(a.sku || a.name).localeCompare(String(b.sku || b.name))
-  );
-  for (const model of models) {
-    const opt = document.createElement("option");
-    opt.value = model.id;
-    opt.textContent = getModelLabel(model);
-    modelsGroup.appendChild(opt);
-  }
-  select.appendChild(modelsGroup);
-}
-
-function normaliseAlias(text) {
-  return String(text || "")
-    .toUpperCase()
-    .replace(/[^A-Z0-9]+/g, "");
+  modelPicker = bindModelPicker(root, {
+    catalogue,
+    seriesDoc,
+    onChange: () => runSearch(),
+  });
 }
 
 function currentPin() {
-  const pinValue = document.querySelector("#model-select")?.value || null;
+  const pinValue =
+    modelPicker?.getValue?.() ||
+    document.querySelector("#model-pin")?.value ||
+    null;
   return resolveModelPin(catalogue, seriesDoc, pinValue);
 }
 
@@ -589,7 +599,6 @@ function renderResults(query, pin) {
 function bindEvents() {
   const form = document.querySelector("#search-form");
   const input = document.querySelector("#query-input");
-  const select = document.querySelector("#model-select");
   const margin = document.querySelector("#margin-select");
 
   form.addEventListener("submit", (e) => {
@@ -602,11 +611,12 @@ function bindEvents() {
     clearTimeout(debounce);
     debounce = setTimeout(runSearch, 120);
   });
-  select.addEventListener("change", runSearch);
 
+  marginPercent = clampMarginPercent(marginPercent);
   margin.value = String(marginPercent);
   margin.addEventListener("change", () => {
-    marginPercent = Number(margin.value);
+    marginPercent = clampMarginPercent(Number(margin.value));
+    margin.value = String(marginPercent);
     const q = input.value;
     renderResults(q, currentPin());
   });
@@ -648,14 +658,15 @@ async function boot() {
     pricesMeta = prices.meta || null;
     seriesDoc = series;
     documentIndex = docs;
-    marginPercent =
+    marginPercent = clampMarginPercent(
       Number(cfg.defaultMarginPercent ?? cat.meta?.defaultMarginPercent) ||
-      DEFAULT_MARGIN_PERCENT;
+        DEFAULT_MARGIN_PERCENT
+    );
     gstRate = Number(cfg.gstRate ?? cat.meta?.gstRate) || DEFAULT_GST_RATE;
 
     // Re-render shell now that config is known (effective date / workbook name).
     renderShell();
-    populateModels();
+    mountModelPicker();
     populateDataSources();
     bindEvents();
   } catch (err) {
