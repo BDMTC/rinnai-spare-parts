@@ -28,3 +28,4 @@ Short notes so Beau can correct anything that doesn’t match warehouse reality.
 - Don’t treat discount-segment rows (PCH, PWC, …) as sell prices.
 - When Beau imports a new price list in Admin, review NLA/removed rows (skip = keep) before applying the local patch — then ask AI to sync via ingest for production.
 - Header logo is the official MTCGAS Australia PNG, Vite-inlined (`?inline` data URI in the JS bundle) — no separate deploy asset under `public/`.
+- Admin + Data sources share one soft team-HQ photo veil (also `?inline`); hover/focus fades it fully to reveal both panels.
