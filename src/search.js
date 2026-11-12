@@ -1096,6 +1096,7 @@ function scoreTradeHit(partNameN, tradeHits) {
  *   abbrevIndex?: object|null,
  *   assemblyHierarchy?: object|null,
  *   assemblyIndex?: object|null,
+ *   partBlurbs?: object|null,
  *   isPartVisible?: ((part: object) => boolean)|null,
  * }} [opts]
  * @returns {Array<object>}
@@ -1174,7 +1175,7 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
     const displayDistinct =
       Boolean(displayN) && displayN !== nameN && display.expanded;
     const blurbN = normalise(
-      plainEnglishSummary(part, assemblyIndex, abbrevIndex)
+      plainEnglishSummary(part, assemblyIndex, abbrevIndex, opts.partBlurbs)
     );
     const partModelIds = part.modelIds || [];
 

@@ -109,6 +109,8 @@ let abbrevIndex = null;
 let assemblyHierarchy = null;
 /** @type {ReturnType<typeof buildAssemblyIndex>|null} */
 let assemblyIndex = null;
+/** @type {object|null} */
+let partBlurbs = null;
 let lastResults = [];
 let marginPercent = DEFAULT_MARGIN_PERCENT;
 let gstRate = DEFAULT_GST_RATE;
@@ -1121,6 +1123,7 @@ function runSearch() {
     abbrevIndex,
     assemblyIndex,
     assemblyHierarchy,
+    partBlurbs,
     isPartVisible,
   });
   renderResults(q, pin);
@@ -1237,7 +1240,12 @@ function renderResults(query, pin) {
       display.expanded &&
       String(display.title || "").toLowerCase() !==
         String(part.name || "").toLowerCase();
-    const summaryLine = plainEnglishSummary(part, assemblyIndex, abbrevIndex);
+    const summaryLine = plainEnglishSummary(
+      part,
+      assemblyIndex,
+      abbrevIndex,
+      partBlurbs
+    );
     const li = document.createElement("li");
     li.className = "result";
     if (isPrimary && isDuoAssembly) {
@@ -2063,6 +2071,7 @@ async function boot() {
       trade,
       abbrevs,
       assemblyHierarchy: hierarchyDoc,
+      partBlurbs: blurbsDoc,
     } = await loadBootData();
     baseCatalogue = cat;
     config = cfg;
@@ -2073,6 +2082,7 @@ async function boot() {
     abbrevIndex = buildAbbrevIndex(abbrevs);
     assemblyHierarchy = hierarchyDoc || null;
     assemblyIndex = buildAssemblyIndex(assemblyHierarchy);
+    partBlurbs = blurbsDoc || null;
     overrides = loadOverrides();
     refreshCatalogueFromOverrides();
     marginPercent = clampMarginPercent(
