@@ -805,12 +805,18 @@ input[type="number"]:focus {
 }
 
 .result-summary {
-  margin: 0.35rem 0 0;
+  margin: 0;
   font-size: 0.92rem;
   font-weight: 500;
   line-height: 1.35;
   color: var(--ink-muted);
   max-width: 42rem;
+}
+
+.result-block--summary {
+  display: flex;
+  align-items: flex-start;
+  padding: 0.15rem 0 0;
 }
 
 .result-body {
@@ -910,6 +916,17 @@ input[type="number"]:focus {
   background: var(--accent-soft);
   color: var(--accent-ink);
   font-weight: 600;
+}
+
+.model-tag--fit {
+  background: var(--other-soft);
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+.result-tags .model-tag,
+.result-tags .category-tag {
+  font-size: 0.75rem;
 }
 
 .badge {
