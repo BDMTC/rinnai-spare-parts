@@ -1,0 +1,56 @@
+{
+  "version": 1,
+  "meta": {
+    "title": "Trade / layman part aliases",
+    "locale": "en-AU",
+    "updated": "2026-11-11",
+    "notes": "Maps warehouse/trade wording to official price-list description patterns. Ranking still uses the pinned model/series chassis keys so the primary code is the one that fits that unit."
+  },
+  "aliases": [
+    {
+      "id": "flow-servo",
+      "terms": [
+        "flow servo",
+        "flowsensor",
+        "flow sensor",
+        "waterflow servo",
+        "water flow servo",
+        "waterflow sensor",
+        "water flow sensor",
+        "servo flow"
+      ],
+      "officialPatterns": [
+        "WATERFLOW SERVO",
+        "WATER FLOW SERVO",
+        "WATER FLOW SENSOR",
+        "BYPASS SERVO"
+      ],
+      "preferPatterns": [
+        "WATERFLOW SERVO",
+        "WATER FLOW SENSOR"
+      ],
+      "notes": "Trade ‘flow servo’ → official WATERFLOW SERVO / WATER FLOW SENSOR (chassis-specific). BYPASS SERVO is a related hit, demoted unless it is the only fit."
+    },
+    {
+      "id": "thermocouple",
+      "terms": ["thermocouple", "thermo couple", "flame sensor", "flame rod"],
+      "officialPatterns": ["THERMOCOUPLE", "FLAME ROD", "FLAME SENSOR", "ELECTRODE"],
+      "preferPatterns": ["THERMOCOUPLE", "FLAME ROD"],
+      "notes": "Common trade names for ignition / flame sense parts."
+    },
+    {
+      "id": "pcb",
+      "terms": ["pcb", "pc board", "circuit board", "main board", "controller board"],
+      "officialPatterns": ["PC BOARD", "PCB", "CONTROL BOARD", "CONTROLLER"],
+      "preferPatterns": ["PC BOARD", "PCB"],
+      "notes": "Trade PCB → price-list PC BOARD / PCB rows."
+    },
+    {
+      "id": "gas-valve",
+      "terms": ["gas valve", "gas servo", "modulating valve"],
+      "officialPatterns": ["VALVE GAS", "GAS VALVE", "VALVE GAS SERVO"],
+      "preferPatterns": ["VALVE GAS", "GAS VALVE"],
+      "notes": "Gas path valves; keep distinct from water-flow / bypass servo."
+    }
+  ]
+}

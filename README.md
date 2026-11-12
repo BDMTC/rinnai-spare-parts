@@ -51,6 +51,7 @@ The app also shows this path under **Data sources / price list config**.
 | `public/data/prices.json` | Price rows + sheet index |
 | `public/data/catalogue.json` | Combined search index (models + parts) |
 | `public/data/series-aliases.json` | Series map for model typeahead + document lookup (HD28, HD200e/i, Infinity 26/32, HD210, …) |
+| `public/data/trade-aliases.json` | Trade/layman terms → official description patterns (e.g. flow servo) |
 | `public/data/document-index.json` | Portable PDF index (paths + series tags) — **no binaries** |
 | `data-sheets/` | Local PDFs only (gitignored). Vite serves at `/data-sheets/` |
 
@@ -71,9 +72,10 @@ If the folder is missing (cloud agent, fresh clone), the index still lists match
 
 - Search bar + **model typeahead** (marketing names, REU/chassis codes, series aliases)
 - **Series pin** via aliases (HD28, HD200e/VRM2632WC, HD200i, Infinity 26/32, HD210, …)
+- **Ranked model-pinned search**: Primary = most likely code for the pin; trade aliases resolve layman terms; chassis fit across all series
 - Margin **0–100%** in **5%** steps (default 20%)
 - Matching **data sheets** for the pin (from `document-index.json`) with click-to-open PDFs
-- Matches part code, description, and sheet/category
+- Matches part code, description, trade alias, and sheet/category
 - Shows net invoice ex GST, computed ex GST at selected margin, and inc GST
 - Data-sources panel documents how to swap the next price list
 
@@ -81,8 +83,7 @@ If the folder is missing (cloud agent, fresh clone), the index still lists match
 
 - Exploded diagrams / callout RAG (Beau supplying next)
 - Quote cart / email handoff
-- Trade aliases (schema ready; lists not supplied yet)
-- Model ↔ part fit mapping from Rinnai docs
+- Explicit `modelIds` on every price row (fit currently inferred from chassis text)
 
 ## Assumptions
 
@@ -92,6 +93,6 @@ See [ASSUMPTIONS.md](./ASSUMPTIONS.md).
 
 **Woz's tips**
 
-- Pin the model when you can — part–model links are not mapped yet from the price book alone.
+- Pin the model when you can — Primary ranking uses series chassis keys in the description (e.g. HD200e + flow servo → 92095902).
 - When Rinnai sends a new price workbook, change config + `npm run ingest`; don’t hand-edit `prices.json`.
 - `file://` won’t load JSON via `fetch` — use `npm run dev` / `preview`.

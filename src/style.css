@@ -9,6 +9,10 @@
   --accent: #0f6e56;
   --accent-ink: #083b2e;
   --accent-soft: #d8f0e7;
+  --primary: #c45c16;
+  --primary-ink: #5c2605;
+  --primary-soft: #ffe3c8;
+  --primary-border: #e07a2f;
   --warn: #9a5b12;
   --warn-soft: #f6e6cf;
   --other: #6b7280;
@@ -314,6 +318,17 @@ input[type="text"]:focus {
   transform: translateY(1px);
 }
 
+.pin-warn {
+  margin: 0.85rem 0 0;
+  padding: 0.7rem 0.9rem;
+  border-radius: 10px;
+  border: 1px solid #e2c48a;
+  background: var(--warn-soft);
+  color: var(--warn);
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
 .hint {
   display: flex;
   flex-wrap: wrap;
@@ -367,11 +382,43 @@ input[type="text"]:focus {
   border-radius: var(--radius);
   padding: 1rem 1.1rem;
   box-shadow: 0 8px 24px rgba(21, 32, 43, 0.04);
-  transition: border-color 160ms ease, transform 180ms ease;
+  transition: border-color 160ms ease, transform 180ms ease, opacity 160ms ease;
 }
 
 .result:hover {
   border-color: #9fb0c0;
+}
+
+.result--primary {
+  border: 2px solid var(--primary-border);
+  background:
+    linear-gradient(180deg, #fff7ee 0%, #ffe8d0 100%);
+  box-shadow:
+    0 0 0 3px rgba(196, 92, 22, 0.18),
+    0 14px 36px rgba(196, 92, 22, 0.22);
+  transform: translateY(-1px);
+}
+
+.result--primary:hover {
+  border-color: var(--primary);
+}
+
+.result--primary .result-code {
+  color: var(--primary-ink);
+  font-size: 1.05rem;
+}
+
+.result--primary .result-name {
+  color: var(--primary-ink);
+}
+
+.primary-kicker {
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
 }
 
 .result--fits {
@@ -379,8 +426,26 @@ input[type="text"]:focus {
   box-shadow: 0 0 0 1px rgba(15, 110, 86, 0.12), 0 8px 24px rgba(21, 32, 43, 0.04);
 }
 
+.result--related {
+  opacity: 0.88;
+  border-color: #c5cdd6;
+}
+
 .result--other-model {
-  opacity: 0.78;
+  opacity: 0.62;
+  filter: saturate(0.85);
+}
+
+.results:has(.result--primary) .result:not(.result--primary) {
+  opacity: 0.72;
+}
+
+.results:has(.result--primary) .result.result--other-model {
+  opacity: 0.55;
+}
+
+.fit-reason {
+  font-size: 0.85rem;
 }
 
 .result-head {
@@ -511,14 +576,30 @@ input[type="text"]:focus {
   white-space: nowrap;
 }
 
+.badge--primary {
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.4rem 0.75rem;
+  box-shadow: 0 4px 12px rgba(196, 92, 22, 0.35);
+}
+
 .badge--fit {
   background: var(--accent-soft);
   color: var(--accent-ink);
 }
 
+.badge--related {
+  background: #e8eef4;
+  color: #3d4f5f;
+}
+
 .badge--other {
-  background: var(--warn-soft);
-  color: var(--warn);
+  background: var(--other-soft);
+  color: var(--other);
 }
 
 .result-foot {
