@@ -4,7 +4,7 @@ Local-first spare parts search for MTC Gas admin. Find parts by **order code**, 
 
 No backend required. Data loads from static JSON under `public/data/`.
 
-**Tip (PR [#13](https://github.com/BDMTC/rinnai-spare-parts/pull/13)):** branch `cursor/feedback-popup-379a` (thumbs-feedback feature @ `beac548`). Canonical TDD lives in Project Context `docs/rinnai-parts-tdd.md` (not this repo) — see that header for the live tip SHA.
+**Tip (PR [#17](https://github.com/BDMTC/rinnai-spare-parts/pull/17)):** branch `cursor/layman-card-blurbs-e386` @ `577549b` (layman titles/blurbs + searchable blurbs; on #15 assembly tip). Canonical TDD lives in Project Context `docs/rinnai-parts-tdd.md` (not this repo) — see that header for the live tip SHA.
 
 ## How to run
 
