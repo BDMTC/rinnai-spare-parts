@@ -1,9 +1,9 @@
 {
   "version": 1,
   "updated": "2026-11-12",
-  "title": "Site-listed AU models forced unrestricted in the picker",
-  "source": "docs/rinnai-site-vs-greyed-units.md section A (site-listed + AU greys)",
-  "notes": "Clears Description 2 / notes restriction flags for these marketing codes so the model picker treats them as normal selectable units. Export/butane siblings from section B stay grey. Survives re-ingest via scripts/ingest-source-data.mjs.",
+  "title": "Site-listed / field-supported models forced unrestricted in the picker",
+  "source": "docs/rinnai-site-vs-greyed-units.md \u00a7A (home/trade AU greys) + \u00a7F commercial HD/HDC AU greys",
+  "notes": "Clears Description 2 / notes restriction flags for these marketing codes so the model picker treats them as normal selectable units. Pure EXPORT ONLY siblings stay grey unless listed here. Survives re-ingest via scripts/ingest-source-data.mjs. HD200e is off the AU marketing site but remains a spares mainstay \u2014 do not treat as site-missing; active catalogue rows stay selectable.",
   "marketingCodes": [
     {
       "marketingCode": "B26N50A",
@@ -76,6 +76,48 @@
       "itemNumber": "REUVRM3237WG60KN",
       "siteUnit": "S32 Solar Booster (REU-VRM3237WG)",
       "formerDescription2": "NLA PLS USE *INF32N60MA"
+    },
+    {
+      "marketingCode": "HD32EB50",
+      "itemNumber": "REUAM3237WC50AKB",
+      "siteUnit": "HD32e (REU-AM3237WC)",
+      "formerDescription2": "*UNAVAILABLE USE HD250B75"
+    },
+    {
+      "marketingCode": "HD32EB75",
+      "itemNumber": "REUAM3237WC75AKB",
+      "siteUnit": "HD32e (REU-AM3237WC)",
+      "formerDescription2": "*UNAVAILABLE USE HD250B75"
+    },
+    {
+      "marketingCode": "HDC211IB50",
+      "itemNumber": "REUKM3237FFUDC50KB",
+      "siteUnit": "HDC211i (REU-KM-3237FFUDC)",
+      "formerDescription2": "*NLA*"
+    },
+    {
+      "marketingCode": "HDC211IB75",
+      "itemNumber": "REUKM3237FFUDC75KB",
+      "siteUnit": "HDC211i (REU-KM-3237FFUDC)",
+      "formerDescription2": "*NLA*"
+    },
+    {
+      "marketingCode": "HDC211IL42",
+      "itemNumber": "REUKM3237FFUDC42KL",
+      "siteUnit": "HDC211i (REU-KM-3237FFUDC)",
+      "formerDescription2": "*NLA*"
+    },
+    {
+      "marketingCode": "HDC211IN42",
+      "itemNumber": "REUKM3237FFUDC42KN",
+      "siteUnit": "HDC211i (REU-KM-3237FFUDC)",
+      "formerDescription2": "*NLA*"
+    },
+    {
+      "marketingCode": "HDC211IN50",
+      "itemNumber": "REUKM3237FFUDC50KN",
+      "siteUnit": "HDC211i (REU-KM-3237FFUDC)",
+      "formerDescription2": "*NLA*"
     }
   ]
 }
