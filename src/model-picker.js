@@ -214,9 +214,11 @@ function seriesSubtitle(series, count) {
   if (series.provisional) bits.push("provisional");
   if (series.region) bits.push(series.region);
   if (series.status) bits.push(series.status);
-  const alias = (series.aliases || []).find((a) =>
-    /VRM|VCM|REU-/i.test(a)
-  );
+  const aliases = series.aliases || [];
+  // Prefer hyphen REU schema (REU-VRM3237WC) over short chassis (VRM3237WC).
+  const alias =
+    aliases.find((a) => /^REU-/i.test(String(a))) ||
+    aliases.find((a) => /VRM|VCM|REU-/i.test(String(a)));
   if (alias) bits.push(alias);
   bits.push(`${count} model${count === 1 ? "" : "s"}`);
   return bits.join(" · ");

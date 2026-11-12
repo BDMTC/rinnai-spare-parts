@@ -206,11 +206,11 @@
         "Infinity 26",
         "INF26",
         "INF 26",
-        "AM2626",
-        "AM2626WD",
-        "AM2626WDL",
         "REU-AM2626WD",
         "REU-AM2626WDL",
+        "AM2626WD",
+        "AM2626WDL",
+        "AM2626",
         "REUAM2626WD",
         "REUAM2626WDL"
       ],
@@ -287,13 +287,13 @@
         "INF26 Plus",
         "INF26P",
         "INF 26P",
-        "REUV2630WD",
         "REU-V2630WD",
-        "VRM2630WD",
         "REU-VRM2630WD",
+        "REU-VM2630WD",
+        "REUV2630WD",
+        "VRM2630WD",
         "REUVRM2630WD",
-        "VM2630WD",
-        "REU-VM2630WD"
+        "VM2630WD"
       ],
       "match": {
         "marketingCodePrefixes": ["INF26P", "K26P"],
@@ -324,8 +324,8 @@
         "INF26 Smartstart",
         "Smartstart",
         "SMARTSTART",
-        "VR2626WGP",
         "REU-VR2626WGP",
+        "VR2626WGP",
         "REUVR2626WGP"
       ],
       "match": {
@@ -350,11 +350,11 @@
         "Infinity 32 Enviro Plus",
         "INF32 Enviro",
         "ENVIRO 32",
-        "KM3237",
+        "REU-KM3237WD",
         "REU-KM3237",
-        "REUKM3237",
         "KM3237WD",
-        "REU-KM3237WD"
+        "KM3237",
+        "REUKM3237"
       ],
       "match": {
         "marketingCodePrefixes": ["ENV32"],
@@ -382,8 +382,8 @@
         "HD 210E",
         "commercial",
         "Commercial",
-        "N3237WC",
         "REU-N3237WC",
+        "N3237WC",
         "REUN3237WC"
       ],
       "match": {
@@ -409,8 +409,8 @@
         "HD 210I",
         "commercial",
         "Commercial",
-        "N3237FFC",
         "REU-N3237FFC",
+        "N3237FFC",
         "REUN3237FFC"
       ],
       "match": {
@@ -434,10 +434,10 @@
         "Infinity 32 Enviro+",
         "Infinity 32 Enviro Plus",
         "INF32 Enviro+",
-        "N3237W",
-        "N3237WD",
-        "REU-N3237W",
         "REU-N3237WD",
+        "REU-N3237W",
+        "N3237WD",
+        "N3237W",
         "REUN3237W",
         "REUN3237WD"
       ],
@@ -471,11 +471,11 @@
         "HD32E",
         "commercial",
         "Commercial",
-        "AM3237",
+        "REU-AM3237WC",
         "REU-AM3237",
-        "REUAM3237",
         "AM3237WC",
-        "REU-AM3237WC"
+        "AM3237",
+        "REUAM3237"
       ],
       "match": {
         "marketingCodePrefixes": ["HD32"],
@@ -504,9 +504,9 @@
         "HDC",
         "commercial",
         "Commercial",
-        "NB3237",
-        "NB3237WC",
         "REU-NB3237",
+        "NB3237WC",
+        "NB3237",
         "REUNB3237"
       ],
       "match": {
@@ -535,9 +535,9 @@
         "HDC",
         "commercial",
         "Commercial",
-        "NB3237",
-        "NB3237FFC",
         "REU-NB3237",
+        "NB3237FFC",
+        "NB3237",
         "REUNB3237"
       ],
       "match": {
@@ -566,8 +566,8 @@
         "HDC",
         "commercial",
         "Commercial",
-        "KM3237WDC",
         "REU-KM3237WDC",
+        "KM3237WDC",
         "REUKM3237WDC"
       ],
       "match": {
@@ -595,8 +595,8 @@
         "HDC",
         "commercial",
         "Commercial",
-        "KM3237FFUDC",
         "REU-KM3237FFUDC",
+        "KM3237FFUDC",
         "REUKM3237FFUDC"
       ],
       "match": {
@@ -623,8 +623,8 @@
         "HD250",
         "commercial",
         "Commercial",
-        "VRM3237WC",
         "REU-VRM3237WC",
+        "VRM3237WC",
         "REUVRM3237WC",
         "VRM3237"
       ],
