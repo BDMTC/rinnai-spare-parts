@@ -494,8 +494,8 @@ function compose(part) {
       ? head.charAt(0).toUpperCase() + head.slice(1)
       : "Spare part";
   const line = chassis
-    ? `${softHead} for ${chassis} — confirm against the unit badge before ordering.`
-    : `${softHead} — confirm against the unit badge and price-list name.`;
+    ? `${softHead} for ${chassis} — confirm against the data plate before ordering.`
+    : `${softHead} — confirm against the data plate and price-list name.`;
   return {
     text: clipWords(line.replace(/\s+/g, " ").trim()),
     source: "pattern-fallback",
