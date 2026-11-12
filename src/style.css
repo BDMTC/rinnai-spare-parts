@@ -205,12 +205,17 @@ body::before {
 }
 
 .hero {
+  /* rise animation leaves transform/opacity; without an explicit z-index the
+     whole hero stacking context paints under later .ops-panels, so the model
+     listbox (absolute inside) disappears under the admin photo veil. */
+  position: relative;
+  z-index: 40;
   animation: rise 560ms ease-out 60ms both;
 }
 
 .search-panel {
   position: relative;
-  z-index: 40;
+  z-index: 1;
   display: grid;
   gap: 0.9rem;
   padding: 1.15rem;
@@ -277,6 +282,7 @@ input[type="number"]:focus {
 
 .model-picker {
   position: relative;
+  z-index: 2;
 }
 
 .model-picker-row {
@@ -312,7 +318,7 @@ input[type="number"]:focus {
 
 .model-listbox {
   position: absolute;
-  z-index: 50;
+  z-index: 1000;
   left: 0;
   right: 0;
   top: calc(100% + 0.35rem);
@@ -1161,6 +1167,7 @@ mark {
 /* Shared veil over Admin + Data sources */
 .ops-panels {
   position: relative;
+  z-index: 1; /* below .hero so model typeahead can overlap the photo panel */
   margin-top: 2.25rem;
   border: 1px solid rgba(26, 47, 154, 0.22);
   border-radius: 16px;
@@ -1977,7 +1984,8 @@ mark {
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    /* none — leave no transform after fill-mode, avoid sticky stacking contexts */
+    transform: none;
   }
 }
 
