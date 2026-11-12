@@ -1511,7 +1511,7 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
       if (assemblyIdx >= 0) sliced[assemblyIdx].isPrimary = true;
     }
 
-    markAssemblyDuos(sliced, assemblyIndex, assemblyConcept);
+    markAssemblyDuos(sliced, assemblyIndex, assemblyConcept, { hasPin });
   }
 
   return sliced;
@@ -1520,8 +1520,15 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
 /**
  * When a concept needs TOP+BTM halves (e.g. N3237 HEX), highlight both cards
  * together and label roles so admin knows both are required.
+ * With a model/series pin, skip foreign-chassis duos so they don't steal
+ * Primary from an exact-fit single HEX (HD200e + hex → 92093550, not N3237).
  */
-function markAssemblyDuos(sliced, assemblyIndex, assemblyConcept) {
+function markAssemblyDuos(
+  sliced,
+  assemblyIndex,
+  assemblyConcept,
+  { hasPin = false } = {}
+) {
   if (!sliced?.length || !assemblyIndex?.parentByCode || !assemblyConcept) {
     return;
   }
@@ -1553,6 +1560,14 @@ function markAssemblyDuos(sliced, assemblyIndex, assemblyConcept) {
       codes.add(partnerCode);
     }
     if (members.length < 2) continue;
+
+    // Pinned to another chassis: leave exact-fit Primary alone
+    if (hasPin) {
+      const duoFitsPin = members.some(
+        (r) => r.fitTier === "exact" || r.fitTier === "related"
+      );
+      if (!duoFitsPin) continue;
+    }
 
     // Clear lone Primary — both halves share Primary/duo highlight
     for (const row of sliced) row.isPrimary = false;
