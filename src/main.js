@@ -1357,7 +1357,7 @@ function renderResults(query, pin) {
         <div class="result-head-main">
           ${
             isPrimary && isDuoAssembly
-              ? `<p class="primary-kicker">${escapeHtml(
+              ? `<p class="primary-kicker primary-kicker--duo">${escapeHtml(
                   duoNeedBothNote || "Whole assembly needs TOP + BTM"
                 )} · this card is ${escapeHtml(
                   duoLabel || (duoRole === "top" ? "TOP" : "BTM")

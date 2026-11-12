@@ -656,6 +656,28 @@ input[type="number"]:focus {
   color: var(--primary);
 }
 
+/* Duo need-both banner: blink so it doesn’t blend with other kickers */
+@keyframes duo-kicker-blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.22;
+  }
+}
+
+.primary-kicker--duo {
+  animation: duo-kicker-blink 1.15s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .primary-kicker--duo {
+    animation: none;
+    opacity: 1;
+  }
+}
+
 .result--fits {
   border-color: rgba(79, 144, 200, 0.55);
   box-shadow: 0 0 0 1px rgba(26, 47, 154, 0.1), 0 8px 24px rgba(1, 52, 116, 0.06);
