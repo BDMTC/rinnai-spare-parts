@@ -770,17 +770,13 @@ input[type="number"]:focus {
   border: 1px solid #fdba74;
 }
 
+/* One shared 2-col grid so both ":" and values share the same columns.
+   (Per-row 18.5ch grids diverge when p vs h2 font metrics differ.) */
 .result-identity {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  margin: 0;
-}
-
-.result-identity-row {
   display: grid;
-  grid-template-columns: 18.5ch minmax(0, 1fr);
+  grid-template-columns: max-content minmax(0, 1fr);
   column-gap: 0.55rem;
+  row-gap: 0.2rem;
   align-items: baseline;
   margin: 0;
   font-family: var(--font-mono);
@@ -793,8 +789,12 @@ input[type="number"]:focus {
 
 .result-field-label,
 .result-field-value {
-  font: inherit;
-  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  line-height: inherit;
+  margin: 0;
 }
 
 .result-field-label {
@@ -807,11 +807,11 @@ input[type="number"]:focus {
 .result-field-value {
   min-width: 0;
   text-align: left;
+  color: inherit;
 }
 
-h2.result-identity-row {
-  font-size: 0.95rem;
-  font-weight: 600;
+.result-field-value mark {
+  font: inherit;
 }
 
 .result-official {
