@@ -778,6 +778,12 @@ input[type="number"]:focus {
   color: var(--ink);
 }
 
+.alias--abbrev {
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+  font-weight: 600;
+}
+
 .model-tag--active {
   background: var(--accent-soft);
   color: var(--accent-ink);
