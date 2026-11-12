@@ -1315,16 +1315,20 @@ function renderResults(query, pin) {
       : subOf
         ? [{ code: subOf.code, shortName: subOf.shortName, name: subOf.name }]
         : [];
-    const subOfNote =
+    const subOfKicker =
       isSubComponent && subOfParents.length
-        ? `<p class="subcomponent-note">sub-component of ${escapeHtml(
+        ? `<p class="subcomponent-note subcomponent-note--blink">sub-component of ${escapeHtml(
             subOfParents
               .map((p) => `${p.code} ${p.shortName || p.name || ""}`.trim())
               .join(" / ")
           )}</p>`
         : isSubComponent
-          ? `<p class="subcomponent-note">sub-component</p>`
+          ? `<p class="subcomponent-note subcomponent-note--blink">sub-component</p>`
           : "";
+
+    const subBadge = isSubComponent
+      ? `<span class="badge badge--sub">Sub-component</span>`
+      : "";
 
     const matchBits = matchedOn
       .map((m) => `<span class="match-tag">${escapeHtml(m)}</span>`)
@@ -1381,14 +1385,14 @@ function renderResults(query, pin) {
                         )}`
                       : "Most likely complete assembly"
                   }</p>`
-                : ""
+                : subOfKicker
           }
-          <p class="result-code">${highlight(part.code, query)}${subOfNote}</p>
+          <p class="result-code">${highlight(part.code, query)}</p>
           <h2 class="result-name">${highlight(part.name, query)}</h2>
           <div class="result-tags">${categoryBit}</div>
         </div>
         <div class="result-head-actions">
-          <div class="result-flags">${duoBadge}${fitBadge}${notAvailableBadge}${flagBadge}</div>
+          <div class="result-flags">${duoBadge}${subBadge}${fitBadge}${notAvailableBadge}${flagBadge}</div>
           ${addQuoteBtn}
         </div>
       </div>

@@ -25,6 +25,11 @@
   --primary-ink: #9a3f0c;
   --primary-soft: #fff1e6;
   --primary-border: #f47921;
+  /* Sub-component highlight — standout green, never Primary orange */
+  --sub: #1f9d55;
+  --sub-ink: #14532d;
+  --sub-soft: #e8f8ee;
+  --sub-border: #22c55e;
   --warn: #9a5b12;
   --warn-soft: #f6e6cf;
   --other: #6b7280;
@@ -610,24 +615,30 @@ input[type="number"]:focus {
   box-shadow: 0 3px 10px rgba(26, 47, 154, 0.28);
 }
 
-/* Sub-components: distinct from Primary orange */
+/* Sub-components: standout green (never Primary orange) */
 .result--subcomponent {
-  border-color: rgba(1, 52, 116, 0.35);
+  border: 2px solid var(--sub-border);
   background:
-    linear-gradient(180deg, #f4f8fc 0%, #e7eef6 100%);
-  box-shadow: 0 0 0 1px rgba(26, 47, 154, 0.08), 0 8px 20px rgba(1, 52, 116, 0.06);
+    linear-gradient(180deg, #f3fcf6 0%, #d8f5e3 100%);
+  box-shadow:
+    0 0 0 3px rgba(34, 197, 94, 0.22),
+    0 14px 36px rgba(31, 157, 85, 0.2);
+  transform: translateY(-1px);
+  opacity: 1;
 }
 
-.result--subcomponent .result-code {
-  color: var(--mtc-field-dark);
+.result--subcomponent .result-code,
+.result--subcomponent .result-name {
+  color: var(--sub-ink);
 }
 
 .subcomponent-note {
-  margin: 0.2rem 0 0;
-  font-size: 0.78rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
-  color: var(--mtc-field-bright);
+  margin: 0 0 0.35rem;
+  font-size: 0.72rem;
+  font-weight: 750;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sub);
 }
 
 .result--not-available {
@@ -656,7 +667,7 @@ input[type="number"]:focus {
   color: var(--primary);
 }
 
-/* Duo need-both banner: blink so it doesn’t blend with other kickers */
+/* Duo / sub-of kickers: blink so they don’t blend with other UI */
 @keyframes duo-kicker-blink {
   0%,
   100% {
@@ -667,12 +678,14 @@ input[type="number"]:focus {
   }
 }
 
-.primary-kicker--duo {
+.primary-kicker--duo,
+.subcomponent-note--blink {
   animation: duo-kicker-blink 1.15s ease-in-out infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .primary-kicker--duo {
+  .primary-kicker--duo,
+  .subcomponent-note--blink {
     animation: none;
     opacity: 1;
   }
@@ -693,12 +706,16 @@ input[type="number"]:focus {
   filter: saturate(0.85);
 }
 
-.results:has(.result--primary) .result:not(.result--primary) {
+.results:has(.result--primary) .result:not(.result--primary):not(.result--subcomponent) {
   opacity: 0.72;
 }
 
 .results:has(.result--primary) .result.result--other-model {
   opacity: 0.55;
+}
+
+.results:has(.result--primary) .result.result--subcomponent {
+  opacity: 1;
 }
 
 .fit-reason {
@@ -887,6 +904,17 @@ input[type="number"]:focus {
   text-transform: uppercase;
   padding: 0.4rem 0.75rem;
   box-shadow: 0 4px 12px rgba(244, 121, 33, 0.35);
+}
+
+.badge--sub {
+  background: var(--sub);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.36rem 0.65rem;
+  box-shadow: 0 3px 10px rgba(31, 157, 85, 0.3);
 }
 
 /* Embossed Not available — RA / non-8-digit (Beau locked) */
