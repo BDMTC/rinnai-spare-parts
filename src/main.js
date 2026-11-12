@@ -1389,14 +1389,10 @@ function renderResults(query, pin) {
                 : subOfKicker
           }
           <div class="result-identity">
-            <p class="result-identity-row result-code">
-              <span class="result-field-label">Rinnai part code:</span>
-              <span class="result-field-value">${highlight(part.code, query)}</span>
-            </p>
-            <h2 class="result-identity-row result-name">
-              <span class="result-field-label">Rinnai description:</span>
-              <span class="result-field-value">${highlight(displayTitle, query)}</span>
-            </h2>
+            <span class="result-field-label">Rinnai part code:</span>
+            <span class="result-field-value result-code">${highlight(part.code, query)}</span>
+            <span class="result-field-label">Rinnai description:</span>
+            <span class="result-field-value result-name">${highlight(displayTitle, query)}</span>
           </div>
           ${
             showOfficialName
