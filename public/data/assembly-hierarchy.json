@@ -88,6 +88,13 @@
       "conceptId": "heat-exchanger",
       "seriesTokens": ["N3237"],
       "diagramPage": "ED_N Series 2020 IN32 Enviro.pdf p3",
+      "duoGroup": {
+        "id": "n3237-hex",
+        "role": "top",
+        "partnerCode": "92099477",
+        "label": "TOP",
+        "needBothNote": "Whole HEX needs TOP + BTM"
+      },
       "children": [
         {
           "itemNo": "137",
@@ -117,6 +124,13 @@
       "conceptId": "heat-exchanger",
       "seriesTokens": ["N3237"],
       "diagramPage": "ED_N Series 2020 IN32 Enviro.pdf p3",
+      "duoGroup": {
+        "id": "n3237-hex",
+        "role": "bottom",
+        "partnerCode": "92099423",
+        "label": "BTM",
+        "needBothNote": "Whole HEX needs TOP + BTM"
+      },
       "children": [
         {
           "itemNo": "142",

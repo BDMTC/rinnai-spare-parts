@@ -657,6 +657,7 @@ export function buildAssemblyIndex(hierarchyDoc) {
   for (const raw of hierarchyDoc?.assemblies || []) {
     const parentCode = String(raw.parentCode || "").trim();
     if (!parentCode) continue;
+    const duoRaw = raw.duoGroup || null;
     const parent = {
       parentCode,
       parentName: String(raw.parentName || "").trim(),
@@ -667,6 +668,17 @@ export function buildAssemblyIndex(hierarchyDoc) {
         .filter(Boolean),
       assemblyRole: raw.assemblyRole ? String(raw.assemblyRole) : null,
       demoteForBareConcept: Boolean(raw.demoteForBareConcept),
+      duoGroup: duoRaw
+        ? {
+            id: String(duoRaw.id || "").trim(),
+            role: String(duoRaw.role || "").trim(), // top | bottom
+            partnerCode: String(duoRaw.partnerCode || "").trim(),
+            label: String(duoRaw.label || duoRaw.role || "").trim(),
+            needBothNote: String(
+              duoRaw.needBothNote || "Whole assembly needs both halves"
+            ).trim(),
+          }
+        : null,
       children: [],
     };
     parentByCode.set(parentCode, parent);
@@ -1335,6 +1347,10 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
       );
     }
 
+    const parentRec = assemblyIndex?.parentByCode?.get(
+      String(part.code || "").trim()
+    );
+
     results.push({
       part,
       score,
@@ -1350,8 +1366,14 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
       isSubComponent: Boolean(assembly.isSubComponent),
       subOf: assembly.subOf || null,
       assemblyReason: assembly.reason,
+      duoGroup: parentRec?.duoGroup || null,
       fittedModels,
       isPrimary: false,
+      isDuoAssembly: false,
+      duoRole: null,
+      duoLabel: null,
+      duoPartnerCode: null,
+      duoNeedBothNote: null,
     });
   }
 
@@ -1403,9 +1425,75 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
       );
       if (assemblyIdx >= 0) sliced[assemblyIdx].isPrimary = true;
     }
+
+    markAssemblyDuos(sliced, assemblyIndex, assemblyConcept);
   }
 
   return sliced;
+}
+
+/**
+ * When a concept needs TOP+BTM halves (e.g. N3237 HEX), highlight both cards
+ * together and label roles so admin knows both are required.
+ */
+function markAssemblyDuos(sliced, assemblyIndex, assemblyConcept) {
+  if (!sliced?.length || !assemblyIndex?.parentByCode || !assemblyConcept) {
+    return;
+  }
+  const conceptId = assemblyConcept.concept?.id;
+  const byCode = new Map(sliced.map((r) => [String(r.part.code || ""), r]));
+
+  /** @type {Map<string, Array<object>>} */
+  const groups = new Map();
+  for (const row of sliced) {
+    const duo = row.duoGroup;
+    if (!duo?.id || !duo.partnerCode) continue;
+    const parent = assemblyIndex.parentByCode.get(String(row.part.code || ""));
+    if (parent?.conceptId && conceptId && parent.conceptId !== conceptId) {
+      continue;
+    }
+    if (!groups.has(duo.id)) groups.set(duo.id, []);
+    groups.get(duo.id).push(row);
+  }
+
+  for (const [, members] of groups) {
+    // Ensure partner rows are included when present in the result set
+    const codes = new Set(members.map((r) => String(r.part.code || "")));
+    for (const row of [...members]) {
+      const partnerCode = row.duoGroup?.partnerCode;
+      if (!partnerCode || codes.has(partnerCode)) continue;
+      const partner = byCode.get(partnerCode);
+      if (!partner) continue;
+      members.push(partner);
+      codes.add(partnerCode);
+    }
+    if (members.length < 2) continue;
+
+    // Clear lone Primary — both halves share Primary/duo highlight
+    for (const row of sliced) row.isPrimary = false;
+
+    for (const row of members) {
+      const duo =
+        row.duoGroup ||
+        assemblyIndex.parentByCode.get(String(row.part.code || ""))?.duoGroup;
+      if (!duo) continue;
+      row.isPrimary = true;
+      row.isDuoAssembly = true;
+      row.duoRole = duo.role || null;
+      row.duoLabel = duo.label || (duo.role === "top" ? "TOP" : "BTM");
+      row.duoPartnerCode = duo.partnerCode || null;
+      row.duoNeedBothNote = duo.needBothNote || "Whole assembly needs both halves";
+      row.assemblyRank = Math.max(row.assemblyRank || 0, 4);
+    }
+
+    // Keep the duo at the top: TOP then BTM, then the rest
+    const roleOrder = (r) =>
+      r.duoRole === "top" ? 0 : r.duoRole === "bottom" ? 1 : 2;
+    members.sort((a, b) => roleOrder(a) - roleOrder(b));
+    const duoCodes = new Set(members.map((r) => String(r.part.code || "")));
+    const rest = sliced.filter((r) => !duoCodes.has(String(r.part.code || "")));
+    sliced.splice(0, sliced.length, ...members, ...rest);
+  }
 }
 
 export function getModelLabel(model) {

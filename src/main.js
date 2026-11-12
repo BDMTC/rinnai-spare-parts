@@ -1187,13 +1187,19 @@ function renderResults(query, pin) {
       : "";
     pinBit = ` · pinned ${getModelLabel(activePin.model)}${seriesBit}`;
   }
-  const primary = lastResults.find((r) => r.isPrimary);
-  const primaryBit =
-    hasPin && primary
-      ? ` · Primary ${primary.part.code}`
+  const primaries = lastResults.filter((r) => r.isPrimary);
+  const duoPrimaries = primaries.filter((r) => r.isDuoAssembly);
+  const primaryBit = duoPrimaries.length >= 2
+    ? ` · Primary duo ${duoPrimaries
+        .map((r) => `${r.duoLabel || ""} ${r.part.code}`.trim())
+        .join(" + ")}`
+    : hasPin && primaries[0]
+      ? ` · Primary ${primaries[0].part.code}`
       : hasPin
         ? " · no exact Primary for this pin"
-        : "";
+        : primaries[0]
+          ? ` · Primary ${primaries[0].part.code}`
+          : "";
   meta.textContent = `${lastResults.length} part${lastResults.length === 1 ? "" : "s"}${pinBit}${primaryBit} · margin ${marginPercent}%`;
 
   if (!lastResults.length) {
@@ -1213,11 +1219,20 @@ function renderResults(query, pin) {
       fitReason,
       isSubComponent,
       subOf,
+      isDuoAssembly,
+      duoLabel,
+      duoPartnerCode,
+      duoNeedBothNote,
+      duoRole,
     } = row;
     const notPurchasable = isNotPurchasableCode(part.code);
     const li = document.createElement("li");
     li.className = "result";
-    if (isPrimary) {
+    if (isPrimary && isDuoAssembly) {
+      li.classList.add("result--primary", "result--duo");
+      if (duoRole === "top") li.classList.add("result--duo-top");
+      if (duoRole === "bottom") li.classList.add("result--duo-bottom");
+    } else if (isPrimary) {
       li.classList.add("result--primary");
     } else if (isSubComponent) {
       li.classList.add("result--subcomponent");
@@ -1265,17 +1280,27 @@ function renderResults(query, pin) {
           .join("")
       : chassisBit || `<span class="muted">Fit inferred from chassis in description</span>`;
 
-    const fitBadge = !hasPin
-      ? ""
-      : isPrimary
-        ? `<span class="badge badge--primary">Primary</span>`
-        : fitTier === "exact"
-          ? `<span class="badge badge--fit">${
-              activePin.kind === "series" ? "Fits series" : "Fits pinned model"
-            }</span>`
-          : fitTier === "related"
-            ? `<span class="badge badge--related">Related family</span>`
-            : `<span class="badge badge--other">Other model</span>`;
+    const duoBadge = isDuoAssembly
+      ? `<span class="badge badge--duo">${escapeHtml(
+          duoLabel || (duoRole === "top" ? "TOP" : "BTM")
+        )}</span>`
+      : "";
+
+    const fitBadge = isDuoAssembly
+      ? `<span class="badge badge--primary">Primary pair</span>`
+      : !hasPin
+        ? isPrimary
+          ? `<span class="badge badge--primary">Primary</span>`
+          : ""
+        : isPrimary
+          ? `<span class="badge badge--primary">Primary</span>`
+          : fitTier === "exact"
+            ? `<span class="badge badge--fit">${
+                activePin.kind === "series" ? "Fits series" : "Fits pinned model"
+              }</span>`
+            : fitTier === "related"
+              ? `<span class="badge badge--related">Related family</span>`
+              : `<span class="badge badge--other">Other model</span>`;
 
     const flagBadge = part.adminFlagged
       ? `<span class="badge badge--flag">Flagged</span>`
@@ -1331,24 +1356,34 @@ function renderResults(query, pin) {
       <div class="result-head">
         <div class="result-head-main">
           ${
-            isPrimary
-              ? `<p class="primary-kicker">${
-                  hasPin
-                    ? `Most likely for ${escapeHtml(
-                        activePin.series?.label ||
-                          activePin.model?.sku ||
-                          "pinned model"
-                      )}`
-                    : "Most likely complete assembly"
+            isPrimary && isDuoAssembly
+              ? `<p class="primary-kicker">${escapeHtml(
+                  duoNeedBothNote || "Whole assembly needs TOP + BTM"
+                )} · this card is ${escapeHtml(
+                  duoLabel || (duoRole === "top" ? "TOP" : "BTM")
+                )}${
+                  duoPartnerCode
+                    ? ` · also need ${escapeHtml(duoPartnerCode)}`
+                    : ""
                 }</p>`
-              : ""
+              : isPrimary
+                ? `<p class="primary-kicker">${
+                    hasPin
+                      ? `Most likely for ${escapeHtml(
+                          activePin.series?.label ||
+                            activePin.model?.sku ||
+                            "pinned model"
+                        )}`
+                      : "Most likely complete assembly"
+                  }</p>`
+                : ""
           }
           <p class="result-code">${highlight(part.code, query)}${subOfNote}</p>
           <h2 class="result-name">${highlight(part.name, query)}</h2>
           <div class="result-tags">${categoryBit}</div>
         </div>
         <div class="result-head-actions">
-          <div class="result-flags">${fitBadge}${notAvailableBadge}${flagBadge}</div>
+          <div class="result-flags">${duoBadge}${fitBadge}${notAvailableBadge}${flagBadge}</div>
           ${cardActions}
         </div>
       </div>
