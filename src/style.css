@@ -578,6 +578,38 @@ input[type="number"]:focus {
   transform: translateY(-1px);
 }
 
+/* Duo halves (TOP+BTM) share Primary orange and sit as a pair */
+.result--duo {
+  border-width: 2px;
+}
+
+.result--duo-top {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  margin-bottom: 0.15rem;
+}
+
+.result--duo-bottom {
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  margin-top: 0;
+}
+
+.results:has(.result--duo) .result.result--duo {
+  opacity: 1;
+}
+
+.badge--duo {
+  background: #1a2f9a;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.36rem 0.65rem;
+  box-shadow: 0 3px 10px rgba(26, 47, 154, 0.28);
+}
+
 /* Sub-components: distinct from Primary orange */
 .result--subcomponent {
   border-color: rgba(1, 52, 116, 0.35);
