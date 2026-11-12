@@ -11,6 +11,7 @@ import {
   getModelLabel,
   buildAbbrevIndex,
   buildAssemblyIndex,
+  buildPartSearchCache,
   isNotPurchasableCode,
 } from "./search.js";
 import {
@@ -111,6 +112,11 @@ let assemblyHierarchy = null;
 let assemblyIndex = null;
 /** @type {object|null} */
 let partBlurbs = null;
+/** @type {ReturnType<typeof buildPartSearchCache>|null} */
+let partSearchCache = null;
+/** Memoised visibility predicate — pin/unlocks change it, typing must not. */
+let visiblePartFilter = null;
+let visiblePartFilterKey = "";
 let lastResults = [];
 let marginPercent = DEFAULT_MARGIN_PERCENT;
 let gstRate = DEFAULT_GST_RATE;
@@ -186,9 +192,64 @@ function persistOverrides() {
 function refreshCatalogueFromOverrides() {
   if (!baseCatalogue) {
     catalogue = null;
+    partSearchCache = null;
+    visiblePartFilter = null;
+    visiblePartFilterKey = "";
     return;
   }
   catalogue = applyOverridesToCatalogue(baseCatalogue, overrides);
+  // Index layman/abbrev text once — search used to re-expand ~6.5k blurbs every keystroke.
+  partSearchCache = buildPartSearchCache(catalogue.parts || [], {
+    abbrevIndex,
+    assemblyIndex,
+    partBlurbs,
+  });
+  visiblePartFilter = null;
+  visiblePartFilterKey = "";
+}
+
+function partVisibilityKey(pinValue) {
+  const unlocks = [...unlockedPins].map(String).sort().join(",");
+  return `${catalogue?.parts?.length || 0}|${pinValue || ""}|${unlocks}`;
+}
+
+/**
+ * Restriction + admin visibility is pin/unlock-dependent, not query-dependent.
+ * Precompute allowed part ids once per pin so keystrokes stay cheap.
+ */
+function getIsPartVisible() {
+  const pin = currentPin();
+  const pinValue =
+    modelPicker?.getValue?.() ||
+    document.querySelector("#model-pin")?.value ||
+    null;
+  const key = partVisibilityKey(pinValue);
+  if (visiblePartFilter && visiblePartFilterKey === key) {
+    return visiblePartFilter;
+  }
+  const baseVis = makePartVisibilityFilter(catalogue, {
+    unlockedPinValues: unlockedPins,
+    activePinValue: pinValue,
+    activeModelIds: pin.modelIds,
+  });
+  const isPartVisible = makeAdminPartFilter(overrides, baseVis);
+  const allowed = new Set();
+  for (const part of catalogue?.parts || []) {
+    if (!isPartVisible(part)) continue;
+    const id = String(part.id || "").trim();
+    const code = String(part.code || "").trim();
+    if (id) allowed.add(`id:${id}`);
+    if (code) allowed.add(`code:${code}`);
+  }
+  visiblePartFilter = (part) => {
+    const id = String(part?.id || "").trim();
+    if (id && allowed.has(`id:${id}`)) return true;
+    const code = String(part?.code || "").trim();
+    if (code && allowed.has(`code:${code}`)) return true;
+    return false;
+  };
+  visiblePartFilterKey = key;
+  return visiblePartFilter;
 }
 
 function pinnedLabelForQuote() {
@@ -1106,16 +1167,6 @@ function runSearch() {
   const q = document.querySelector("#query-input")?.value || "";
   const pin = currentPin();
   const modelId = pin.kind === "model" ? pin.model?.id : null;
-  const pinValue =
-    modelPicker?.getValue?.() ||
-    document.querySelector("#model-pin")?.value ||
-    null;
-  const baseVis = makePartVisibilityFilter(catalogue, {
-    unlockedPinValues: unlockedPins,
-    activePinValue: pinValue,
-    activeModelIds: pin.modelIds,
-  });
-  const isPartVisible = makeAdminPartFilter(overrides, baseVis);
   lastResults = searchParts(catalogue, q, modelId, {
     modelIds: pin.modelIds,
     pin,
@@ -1124,7 +1175,8 @@ function runSearch() {
     assemblyIndex,
     assemblyHierarchy,
     partBlurbs,
-    isPartVisible,
+    partSearchCache,
+    isPartVisible: getIsPartVisible(),
   });
   renderResults(q, pin);
 }
@@ -1947,7 +1999,8 @@ function bindEvents() {
   let debounce;
   input.addEventListener("input", () => {
     clearTimeout(debounce);
-    debounce = setTimeout(runSearch, 120);
+    // Keep short — heavy catalogue text is pre-indexed in partSearchCache.
+    debounce = setTimeout(runSearch, 100);
   });
 
   marginPercent = clampMarginPercent(marginPercent);

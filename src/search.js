@@ -1084,6 +1084,79 @@ function scoreTradeHit(partNameN, tradeHits) {
 }
 
 /**
+ * Precompute per-part normalised / expanded / layman text once (boot or catalogue refresh).
+ * Avoids re-running expandDisplayTitle + plainEnglishSummary over ~6.5k parts on every keystroke.
+ * @param {object[]} parts
+ * @param {{
+ *   abbrevIndex?: object|null,
+ *   assemblyIndex?: object|null,
+ *   partBlurbs?: object|null,
+ * }} [opts]
+ * @returns {{ get: (part: object) => object }}
+ */
+export function buildPartSearchCache(parts, opts = {}) {
+  const abbrevIndex = opts.abbrevIndex || null;
+  const assemblyIndex = opts.assemblyIndex || null;
+  const partBlurbs = opts.partBlurbs || null;
+  /** @type {Map<string, object>} */
+  const byKey = new Map();
+
+  for (const part of parts || []) {
+    const key = partSearchCacheKey(part);
+    if (!key || byKey.has(key)) continue;
+
+    const nameN = normalise(part.name);
+    const nameExpanded = abbrevIndex
+      ? expandAbbrevs(nameN, abbrevIndex)
+      : { text: nameN, forms: new Set() };
+    const codeN = normalise(part.code);
+    const aliasesN = (part.aliases || []).map(normalise);
+    const aliasesExpanded = abbrevIndex
+      ? aliasesN.map((a) => expandAbbrevs(a, abbrevIndex))
+      : aliasesN.map((a) => ({ text: a, forms: new Set() }));
+    const categoryN = normalise(part.category);
+    const sheetN = normalise(part.sheet);
+    const display = expandDisplayTitle(part.name || "", abbrevIndex);
+    const displayN = normalise(display.title);
+    const displayDistinct =
+      Boolean(displayN) && displayN !== nameN && display.expanded;
+    const blurbN = normalise(
+      plainEnglishSummary(part, assemblyIndex, abbrevIndex, partBlurbs)
+    );
+
+    byKey.set(key, {
+      nameN,
+      nameExpanded,
+      nameX: nameExpanded.text,
+      codeN,
+      aliasesN,
+      aliasesExpanded,
+      aliasesX: aliasesExpanded.map((a) => a.text),
+      categoryN,
+      sheetN,
+      displayN,
+      displayDistinct,
+      blurbN,
+    });
+  }
+
+  return {
+    size: byKey.size,
+    get(part) {
+      return byKey.get(partSearchCacheKey(part)) || null;
+    },
+  };
+}
+
+function partSearchCacheKey(part) {
+  const id = String(part?.id || "").trim();
+  if (id) return `id:${id}`;
+  const code = String(part?.code || "").trim();
+  if (code) return `code:${code}`;
+  return "";
+}
+
+/**
  * @param {object} catalogue
  * @param {string} query
  * @param {string|null} modelId
@@ -1097,6 +1170,7 @@ function scoreTradeHit(partNameN, tradeHits) {
  *   assemblyHierarchy?: object|null,
  *   assemblyIndex?: object|null,
  *   partBlurbs?: object|null,
+ *   partSearchCache?: { get: (part: object) => object|null }|null,
  *   isPartVisible?: ((part: object) => boolean)|null,
  * }} [opts]
  * @returns {Array<object>}
@@ -1145,6 +1219,8 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
   );
   const isPartVisible =
     typeof opts.isPartVisible === "function" ? opts.isPartVisible : null;
+  // Prefer boot-time cache. Building here on every call reintroduces keystroke lag.
+  const textCache = opts.partSearchCache || null;
 
   if (!q && !hasPin) {
     return [];
@@ -1155,28 +1231,38 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
   for (const part of catalogue.parts || []) {
     if (isPartVisible && !isPartVisible(part)) continue;
 
-    const nameN = normalise(part.name);
-    const nameExpanded = abbrevIndex
-      ? expandAbbrevs(nameN, abbrevIndex)
-      : { text: nameN, forms: new Set() };
-    const nameX = nameExpanded.text;
-    const codeN = normalise(part.code);
-    const aliasesN = (part.aliases || []).map(normalise);
-    const aliasesExpanded = abbrevIndex
-      ? aliasesN.map((a) => expandAbbrevs(a, abbrevIndex))
-      : aliasesN.map((a) => ({ text: a, forms: new Set() }));
-    const aliasesX = aliasesExpanded.map((a) => a.text);
-    const categoryN = normalise(part.category);
-    const sheetN = normalise(part.sheet);
+    const cached = textCache ? textCache.get(part) : null;
+    const nameN = cached?.nameN ?? normalise(part.name);
+    const nameExpanded =
+      cached?.nameExpanded ||
+      (abbrevIndex
+        ? expandAbbrevs(nameN, abbrevIndex)
+        : { text: nameN, forms: new Set() });
+    const nameX = cached?.nameX ?? nameExpanded.text;
+    const codeN = cached?.codeN ?? normalise(part.code);
+    const aliasesN = cached?.aliasesN ?? (part.aliases || []).map(normalise);
+    const aliasesExpanded =
+      cached?.aliasesExpanded ||
+      (abbrevIndex
+        ? aliasesN.map((a) => expandAbbrevs(a, abbrevIndex))
+        : aliasesN.map((a) => ({ text: a, forms: new Set() })));
+    const aliasesX = cached?.aliasesX ?? aliasesExpanded.map((a) => a.text);
+    const categoryN = cached?.categoryN ?? normalise(part.category);
+    const sheetN = cached?.sheetN ?? normalise(part.sheet);
     // Layman fields: expanded card title + plain-English blurb (always searchable,
     // but scored below strong code/name so they don't steal Primary).
-    const display = expandDisplayTitle(part.name || "", abbrevIndex);
-    const displayN = normalise(display.title);
-    const displayDistinct =
-      Boolean(displayN) && displayN !== nameN && display.expanded;
-    const blurbN = normalise(
-      plainEnglishSummary(part, assemblyIndex, abbrevIndex, opts.partBlurbs)
-    );
+    let displayN = cached?.displayN;
+    let displayDistinct = cached?.displayDistinct;
+    let blurbN = cached?.blurbN;
+    if (displayN == null || blurbN == null) {
+      const display = expandDisplayTitle(part.name || "", abbrevIndex);
+      displayN = normalise(display.title);
+      displayDistinct =
+        Boolean(displayN) && displayN !== nameN && display.expanded;
+      blurbN = normalise(
+        plainEnglishSummary(part, assemblyIndex, abbrevIndex, opts.partBlurbs)
+      );
+    }
     const partModelIds = part.modelIds || [];
 
     const fit = scorePartFit(part, pinCtx);
