@@ -16,6 +16,7 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import XLSX from "xlsx";
 import { applyModelRestrictionFields } from "../src/restriction.js";
+import { applyReuItemNumberFormat } from "../src/reu-format.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
@@ -168,6 +169,7 @@ function ingestModels(workbookPath) {
       restrictionKind: null,
       restrictionLabel: null,
     });
+    applyReuItemNumberFormat(model);
     const beforeRestricted = model.restricted;
     applySiteActiveUnrestrict(model, siteActiveUnrestrict);
     if (beforeRestricted && !model.restricted) siteActiveCleared += 1;
@@ -188,7 +190,7 @@ function ingestModels(workbookPath) {
       restrictedCount,
       siteActiveUnrestrictCleared: siteActiveCleared,
       notes:
-        "Fields preserved from REU-Model-History.xlsx. restricted* derived from Description 2 (NLA / export only / use-up / only-for), then cleared for site-active AU codes in model-site-active-unrestrict.json. family/fuel/diagrams left null until Beau supplies them.",
+        "Fields preserved from REU-Model-History.xlsx. Item Numbers normalised to Rinnai hyphen schema (REU-…-50-AKN) via src/reu-format.js. restricted* derived from Description 2 (NLA / export only / use-up / only-for), then cleared for site-active AU codes in model-site-active-unrestrict.json. family/fuel/diagrams left null until Beau supplies them.",
     },
     models,
   };
