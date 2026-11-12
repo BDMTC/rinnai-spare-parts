@@ -6,7 +6,13 @@ import tipMarginUrl from "./assets/help/tip-margin.svg?inline";
 import tipSearchUrl from "./assets/help/tip-search.svg?inline";
 import tipHomeLogoUrl from "./assets/help/tip-home-logo.svg?inline";
 import tipQuoteUrl from "./assets/help/tip-quote.svg?inline";
-import { searchParts, getModelLabel, buildAbbrevIndex } from "./search.js";
+import {
+  searchParts,
+  getModelLabel,
+  buildAbbrevIndex,
+  buildAssemblyIndex,
+  isNotPurchasableCode,
+} from "./search.js";
 import {
   computePrices,
   formatAud,
@@ -95,6 +101,10 @@ let tradeAliases = null;
 let partAbbrevs = null;
 /** @type {ReturnType<typeof buildAbbrevIndex>|null} */
 let abbrevIndex = null;
+/** @type {object|null} */
+let assemblyHierarchy = null;
+/** @type {ReturnType<typeof buildAssemblyIndex>|null} */
+let assemblyIndex = null;
 let lastResults = [];
 let marginPercent = DEFAULT_MARGIN_PERCENT;
 let gstRate = DEFAULT_GST_RATE;
@@ -1105,6 +1115,8 @@ function runSearch() {
     pin,
     tradeAliases,
     abbrevIndex,
+    assemblyIndex,
+    assemblyHierarchy,
     isPartVisible,
   });
   renderResults(q, pin);
@@ -1199,11 +1211,16 @@ function renderResults(query, pin) {
       isPrimary,
       fitTier,
       fitReason,
+      isSubComponent,
+      subOf,
     } = row;
+    const notPurchasable = isNotPurchasableCode(part.code);
     const li = document.createElement("li");
     li.className = "result";
     if (isPrimary) {
       li.classList.add("result--primary");
+    } else if (isSubComponent) {
+      li.classList.add("result--subcomponent");
     } else if (hasPin && fitTier === "exact") {
       li.classList.add("result--fits");
     } else if (hasPin && fitTier === "related") {
@@ -1211,6 +1228,7 @@ function renderResults(query, pin) {
     } else if (hasPin && fitsSelectedModel === false) {
       li.classList.add("result--other-model");
     }
+    if (notPurchasable) li.classList.add("result--not-available");
     if (part.adminFlagged) li.classList.add("result--flagged");
 
     const storedAliases = part.aliases || [];
@@ -1263,6 +1281,26 @@ function renderResults(query, pin) {
       ? `<span class="badge badge--flag">Flagged</span>`
       : "";
 
+    const notAvailableBadge = notPurchasable
+      ? `<span class="badge badge--not-available" aria-label="Not available for purchase">Not available</span>`
+      : "";
+
+    const subOfParents = subOf?.parents?.length
+      ? subOf.parents
+      : subOf
+        ? [{ code: subOf.code, shortName: subOf.shortName, name: subOf.name }]
+        : [];
+    const subOfNote =
+      isSubComponent && subOfParents.length
+        ? `<p class="subcomponent-note">sub-component of ${escapeHtml(
+            subOfParents
+              .map((p) => `${p.code} ${p.shortName || p.name || ""}`.trim())
+              .join(" / ")
+          )}</p>`
+        : isSubComponent
+          ? `<p class="subcomponent-note">sub-component</p>`
+          : "";
+
     const matchBits = matchedOn
       .map((m) => `<span class="match-tag">${escapeHtml(m)}</span>`)
       .join("");
@@ -1279,7 +1317,8 @@ function renderResults(query, pin) {
               type="button"
               class="add-quote-btn"
               data-code="${escapeHtml(part.code)}"
-            >Add to Quote</button>
+              ${notPurchasable ? "disabled aria-disabled=\"true\"" : ""}
+            >${notPurchasable ? "Not available" : "Add to Quote"}</button>
             <button
               type="button"
               class="flag-part-btn"
@@ -1293,19 +1332,23 @@ function renderResults(query, pin) {
         <div class="result-head-main">
           ${
             isPrimary
-              ? `<p class="primary-kicker">Most likely for ${escapeHtml(
-                  activePin.series?.label ||
-                    activePin.model?.sku ||
-                    "pinned model"
-                )}</p>`
+              ? `<p class="primary-kicker">${
+                  hasPin
+                    ? `Most likely for ${escapeHtml(
+                        activePin.series?.label ||
+                          activePin.model?.sku ||
+                          "pinned model"
+                      )}`
+                    : "Most likely complete assembly"
+                }</p>`
               : ""
           }
-          <p class="result-code">${highlight(part.code, query)}</p>
+          <p class="result-code">${highlight(part.code, query)}${subOfNote}</p>
           <h2 class="result-name">${highlight(part.name, query)}</h2>
           <div class="result-tags">${categoryBit}</div>
         </div>
         <div class="result-head-actions">
-          <div class="result-flags">${fitBadge}${flagBadge}</div>
+          <div class="result-flags">${fitBadge}${notAvailableBadge}${flagBadge}</div>
           ${cardActions}
         </div>
       </div>
@@ -1951,6 +1994,7 @@ async function boot() {
       series,
       trade,
       abbrevs,
+      assemblyHierarchy: hierarchyDoc,
     } = await loadBootData();
     baseCatalogue = cat;
     config = cfg;
@@ -1959,6 +2003,8 @@ async function boot() {
     tradeAliases = trade;
     partAbbrevs = abbrevs;
     abbrevIndex = buildAbbrevIndex(abbrevs);
+    assemblyHierarchy = hierarchyDoc || null;
+    assemblyIndex = buildAssemblyIndex(assemblyHierarchy);
     overrides = loadOverrides();
     refreshCatalogueFromOverrides();
     marginPercent = clampMarginPercent(

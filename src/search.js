@@ -611,6 +611,26 @@ function conflictsPinUnitClass(haystack, chassis, pinCtx, matchedKey) {
 }
 
 /**
+ * Typical sellable Rinnai AU part code = exactly 8 digits.
+ * Non-8-digit / RA-supplier-style identifiers are not purchaseable (Beau).
+ * @param {string|null|undefined} code
+ */
+export function isSellablePartCode(code) {
+  return /^\d{8}$/.test(String(code || "").trim());
+}
+
+/**
+ * @param {string|null|undefined} code
+ */
+export function isNotPurchasableCode(code) {
+  const c = String(code || "").trim();
+  if (!c) return false;
+  if (isSellablePartCode(c)) return false;
+  // Hyphenated supplier / RA-style, letter prefixes, or any non-8-digit token
+  return true;
+}
+
+/**
  * Build lookup indexes from assembly-hierarchy.json.
  * @param {object|null|undefined} hierarchyDoc
  */
@@ -765,7 +785,18 @@ function nameHasDemotionCue(nameN, cues, q) {
 
 function nameMatchesAssemblyPatterns(nameN, patterns) {
   if (!nameN || !patterns?.length) return false;
-  return patterns.some((p) => p && nameN.includes(p));
+  const padded = ` ${nameN} `;
+  return patterns.some((p) => {
+    if (!p) return false;
+    // Prefer whole-phrase containment so "front panel" does not hit "brkt front panel" wait —
+    // actually "brkt front panel" legitimately contains the phrase; require start-ish /
+    // assembly-shaped: pattern at token boundary and not preceded by brace/brkt noise.
+    if (!padded.includes(` ${p} `) && nameN !== p) return false;
+    if (/^(brkt|brace|bracket|gasket|o ring|o-ring|seal)\b/.test(nameN)) {
+      return false;
+    }
+    return true;
+  });
 }
 
 /**
@@ -904,8 +935,8 @@ export function scoreAssemblyRole(part, query, hierarchyIndex, pinCtx = null) {
       }
     } else {
       return {
-        delta: hasPin && scoped ? 48 : 36,
-        assemblyRank: 2,
+        delta: hasPin && scoped ? 70 : 55,
+        assemblyRank: 3,
         isSubComponent: false,
         isAssembly: true,
         subOf: null,
@@ -946,10 +977,10 @@ export function scoreAssemblyRole(part, query, hierarchyIndex, pinCtx = null) {
     };
   }
 
-  // Clean assembly-shaped name for this concept
+  // Clean assembly-shaped name for this concept (heuristic — below mapped parents)
   return {
-    delta: hasPin ? 40 : 30,
-    assemblyRank: 2,
+    delta: hasPin ? 28 : 22,
+    assemblyRank: 1,
     isSubComponent: false,
     isAssembly: true,
     subOf: null,
