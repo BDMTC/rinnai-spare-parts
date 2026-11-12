@@ -3,8 +3,8 @@
   "meta": {
     "title": "Rinnai series aliases",
     "locale": "en-AU",
-    "updated": "2026-11-11",
-    "notes": "Marketing ↔ chassis / document keys for model pin + typeahead. Confirmed: HD28↔VCM2837; AU HD200e↔VRM2632WC; HD200i↔REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 Plus↔REUV2630WD/VRM2630WD; Infinity 26 Smartstart↔VR2626WGP; Infinity 32 Enviro↔KM3237; HD210e↔N3237WC; HD210i↔N3237FFC; Infinity 32 Enviro+↔N3237W (not all N3237). Tech ingest 2026-11-11: HD32↔AM3237; HDC32↔NB3237; HD250e↔VRM3237WC. NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau)."
+    "updated": "2026-11-13",
+    "notes": "Marketing ↔ chassis / document keys for model pin + typeahead. Confirmed: HD28↔VCM2837; AU HD200e↔VRM2632WC; HD200i↔REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 external↔AM2626WD/WDL (owns Infinity 26 / INF26 / AM2626); Infinity 26 internal↔INF26I/FFUG; Infinity 26 Plus↔REUV2630WD/VRM2630WD; Infinity 26 Smartstart↔VR2626WGP; Infinity 32 Enviro↔KM3237WD; HD210e↔N3237WC; HD210i↔N3237FFC; Infinity 32 Enviro+↔N3237W (not all N3237). Commercial CF: HD32↔AM3237WC; HDC32↔NB3237; HDC211↔KM3237WDC/FFUDC; HD250e↔VRM3237WC; alias commercial on HD/HDC series. NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau)."
   },
   "series": [
     {
@@ -49,6 +49,8 @@
         "HD28e",
         "HD28E",
         "HD 28E",
+        "commercial",
+        "Commercial",
         "REU-VCM2837WC",
         "VCM2837WC",
         "REUVCM2837WC"
@@ -74,6 +76,8 @@
         "HD28i",
         "HD28I",
         "HD 28I",
+        "commercial",
+        "Commercial",
         "REU-VCM2837FFC",
         "VCM2837FFC",
         "REUVCM2837FFC"
@@ -101,6 +105,8 @@
         "HD200E",
         "HD 200E",
         "HD200",
+        "commercial",
+        "Commercial",
         "REU-VRM2632WC",
         "REU-VRM2632WC-AK",
         "VRM2632WC",
@@ -140,6 +146,8 @@
         "HD200I",
         "HD 200I",
         "HD200",
+        "commercial",
+        "Commercial",
         "REU-VRM2632FFUC",
         "VRM2632FFUC",
         "REUVRM2632FFUC",
@@ -192,12 +200,50 @@
       "notes": "Confirmed Beau: HD200i ↔ REU-VR2632FFUG / REU-VRM2632FFUC (Infinity internal / FFUC). Aliases + documentKeys include FFUG mates for typeahead/docs; model pin match stays HD200I*/FFUC so INF26 is not swallowed. relatedFamilies flags wider FFU heritage for later cross-family parts search."
     },
     {
-      "id": "infinity26-internal",
-      "label": "Infinity 26 (internal)",
+      "id": "infinity26",
+      "label": "Infinity 26",
       "aliases": [
         "Infinity 26",
         "INF26",
         "INF 26",
+        "AM2626",
+        "AM2626WD",
+        "AM2626WDL",
+        "REU-AM2626WD",
+        "REU-AM2626WDL",
+        "REUAM2626WD",
+        "REUAM2626WDL"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["INF26L", "INF26N", "INF26B", "INF26T"],
+        "itemNumberIncludes": [
+          "REUAM2626WD",
+          "AM2626WD",
+          "REUAM2626WDL",
+          "AM2626WDL"
+        ],
+        "unitClasses": ["WD", "WDL", "WG"]
+      },
+      "documentKeys": [
+        "Infinity 26",
+        "INF26",
+        "AM2626",
+        "AM2626WD",
+        "AM2626WDL",
+        "REU-AM2626WD",
+        "REU-AM2626WDL"
+      ],
+      "notes": "Active AU Infinity 26 external / Touch (AM2626WD / AM2626WDL). Owns bare Infinity 26 / INF26 / AM2626 typeahead. Heritage VR2626WG INF26L/N/B rows stay in-series via marketing prefix + WG; Smartstart WGP and INF26I/P/S/E stay out."
+    },
+    {
+      "id": "infinity26-internal",
+      "label": "Infinity 26 (internal)",
+      "aliases": [
+        "Infinity 26 (internal)",
+        "Infinity 26 internal",
+        "INF26I",
+        "INF 26I",
+        "INF26 internal",
         "REU-VRM2632FFUG",
         "VRM2632FFUG",
         "REUVRM2632FFUG",
@@ -209,6 +255,7 @@
       ],
       "match": {
         "marketingCodePrefixes": ["INF26I"],
+        "marketingCodeExcludePrefixes": ["S26"],
         "itemNumberIncludes": [
           "REUVRM2632FFUG",
           "VRM2632FFUG",
@@ -220,8 +267,8 @@
         "unitClasses": ["FFUG"]
       },
       "documentKeys": [
-        "INF26",
-        "Infinity 26",
+        "INF26I",
+        "Infinity 26 (internal)",
         "REU-VRM2632FFUG",
         "VRM2632FFUG",
         "REU-VR2632FFUG",
@@ -230,7 +277,7 @@
         "V2632FFUG",
         "VRM2632"
       ],
-      "notes": "Infinity 26 internal FFUG — confirmed SM pairing with HD200i FFUC on shared docs. Separate pin for INF26 marketing codes; typing VRM2632 surfaces both. Cross-FFU parts fit is deferred to later search."
+      "notes": "Infinity 26 internal FFUG (INF26I*) — SM pairing with HD200i FFUC. Bare Infinity 26 / INF26 owned by infinity26 external. S26 solar boosters excluded from this pin."
     },
     {
       "id": "infinity26-plus",
@@ -261,13 +308,13 @@
       },
       "documentKeys": [
         "Infinity 26 Plus",
-        "INF26",
+        "INF26P",
         "REUV2630WD",
         "VRM2630WD",
         "REU-VRM2630WD",
         "VM2630WD"
       ],
-      "notes": "Confirmed Beau: REUV2630WD / VRM2630WD → Infinity 26 Plus."
+      "notes": "Confirmed Beau: REUV2630WD / VRM2630WD → Infinity 26 Plus. Bare INF26 owned by infinity26 external."
     },
     {
       "id": "infinity26-smartstart",
@@ -288,12 +335,12 @@
       "documentKeys": [
         "Infinity 26 Smartstart",
         "SMARTSTART",
-        "INF26",
+        "INF26S",
         "VR2626WGP",
         "REU-VR2626WGP",
         "REUVR2626WGP"
       ],
-      "notes": "Confirmed Beau: VR2626WGP → Infinity 26 Smartstart."
+      "notes": "Confirmed Beau: VR2626WGP → Infinity 26 Smartstart. Bare INF26 owned by infinity26 external."
     },
     {
       "id": "infinity32-enviro",
@@ -333,6 +380,8 @@
         "HD210e",
         "HD210E",
         "HD 210E",
+        "commercial",
+        "Commercial",
         "N3237WC",
         "REU-N3237WC",
         "REUN3237WC"
@@ -358,6 +407,8 @@
         "HD210i",
         "HD210I",
         "HD 210I",
+        "commercial",
+        "Commercial",
         "N3237FFC",
         "REU-N3237FFC",
         "REUN3237FFC"
@@ -413,32 +464,35 @@
     },
     {
       "id": "hd32",
-      "label": "HD32",
+      "label": "HD32e",
       "aliases": [
         "HD32",
+        "HD32e",
+        "HD32E",
+        "commercial",
+        "Commercial",
         "AM3237",
         "REU-AM3237",
         "REUAM3237",
-        "AM3237W",
-        "AM3237WC"
+        "AM3237WC",
+        "REU-AM3237WC"
       ],
       "match": {
         "marketingCodePrefixes": ["HD32"],
-        "itemNumberIncludes": ["REUAM3237", "AM3237"]
+        "itemNumberIncludes": ["REUAM3237WC", "AM3237WC"],
+        "unitClasses": ["WC", "WCAK"]
       },
       "documentKeys": [
         "HD32",
+        "HD32e",
         "AM3237",
-        "AM3237W",
         "AM3237WC",
-        "REU-AM3237W",
         "REU-AM3237WC",
-        "REUAM3237W",
         "REUAM3237WC",
         "A-SERIES",
         "AM SERIES"
       ],
-      "notes": "Tech ingest: HD32 marketing ↔ REU-AM3237 W/WC chassis. WC vs W kept as distinct document keys."
+      "notes": "Commercial HD32e ↔ REU-AM3237WC only. Do not use bare AM3237 (swallows Infinity 32 AM3237W and solar AM3237WS)."
     },
     {
       "id": "hdc32e",
@@ -447,6 +501,9 @@
         "HDC32e",
         "HDC32E",
         "HDC32",
+        "HDC",
+        "commercial",
+        "Commercial",
         "NB3237",
         "NB3237WC",
         "REU-NB3237",
@@ -475,6 +532,9 @@
         "HDC32i",
         "HDC32I",
         "HDC32",
+        "HDC",
+        "commercial",
+        "Commercial",
         "NB3237",
         "NB3237FFC",
         "REU-NB3237",
@@ -497,12 +557,72 @@
       "notes": "Tech ingest: HDC32 internal ↔ NB3237FFC."
     },
     {
+      "id": "hdc211e",
+      "label": "HDC211e",
+      "aliases": [
+        "HDC211e",
+        "HDC211E",
+        "HDC211",
+        "HDC",
+        "commercial",
+        "Commercial",
+        "KM3237WDC",
+        "REU-KM3237WDC",
+        "REUKM3237WDC"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["HDC211E"],
+        "itemNumberIncludes": ["REUKM3237WDC", "KM3237WDC"],
+        "unitClasses": ["WDC"]
+      },
+      "documentKeys": [
+        "HDC211",
+        "HDC211e",
+        "HDC211E",
+        "KM3237WDC",
+        "REU-KM3237WDC",
+        "REUKM3237WDC"
+      ],
+      "notes": "Commercial HDC211 external ↔ KM3237WDC (not KM3237WD Infinity 32 Enviro)."
+    },
+    {
+      "id": "hdc211i",
+      "label": "HDC211i",
+      "aliases": [
+        "HDC211i",
+        "HDC211I",
+        "HDC211",
+        "HDC",
+        "commercial",
+        "Commercial",
+        "KM3237FFUDC",
+        "REU-KM3237FFUDC",
+        "REUKM3237FFUDC"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["HDC211I"],
+        "itemNumberIncludes": ["REUKM3237FFUDC", "KM3237FFUDC"],
+        "unitClasses": ["FFUDC"]
+      },
+      "documentKeys": [
+        "HDC211",
+        "HDC211i",
+        "HDC211I",
+        "KM3237FFUDC",
+        "REU-KM3237FFUDC",
+        "REUKM3237FFUDC"
+      ],
+      "notes": "Commercial HDC211 internal ↔ KM3237FFUDC."
+    },
+    {
       "id": "hd250e",
       "label": "HD250e",
       "aliases": [
         "HD250e",
         "HD250E",
         "HD250",
+        "commercial",
+        "Commercial",
         "VRM3237WC",
         "REU-VRM3237WC",
         "REUVRM3237WC",

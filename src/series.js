@@ -13,6 +13,7 @@ const UNIT_CLASS_SUFFIXES = [
   "FFC",
   "FFU",
   "WDC",
+  "WDL",
   "WC",
   "WD",
   "WG",
