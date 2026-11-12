@@ -46,16 +46,32 @@ The app also shows this path under **Data sources / price list config**.
 
 | File | Role |
 |------|------|
-| `public/data/config.json` | Margin default, GST, workbook paths, refresh steps |
+| `public/data/config.json` | Margin default, GST, workbook paths, `documents.rootUrl`, refresh steps |
 | `public/data/models.json` | REU Model History rows |
 | `public/data/prices.json` | Price rows + sheet index |
 | `public/data/catalogue.json` | Combined search index (models + parts) |
 | `public/data/series-aliases.json` | Series map for model pin + document lookup (HD28 ↔ REU-VCM2837 / VCM2837) |
+| `public/data/document-index.json` | Portable PDF index (paths + series tags) — **no binaries** |
+| `data-sheets/` | Local PDFs only (gitignored). Vite serves at `/data-sheets/` |
+
+## Local data sheets (PDF open)
+
+Binaries stay on the office PC (≈283MB). Do **not** commit them.
+
+1. Keep (or extract) PDFs under the repo’s `data-sheets/` folder, e.g.  
+   `C:\Temp\rinnai-spare-parts\data-sheets\Rinnai Data Sheets\…`
+2. Confirm `public/data/document-index.json` is present (already committed).
+3. In `public/data/config.json`, `documents.rootUrl` defaults to `/data-sheets` and `documents.localFolder` to `data-sheets`.
+4. Run `npm run dev` (or `preview`) from the repo root. Vite maps **`/data-sheets/*` → `./data-sheets/*`**.
+5. Pin **HD28** (or search `VCM2837` / `REU-VCM2837`) — matching sheets list under **Data sheets**. Use **Open PDF** (new tab) or **View here** (in-app).
+
+If the folder is missing (cloud agent, fresh clone), the index still lists matches; opening a PDF shows a clear 404 until files are present. WC vs FFUC/FFC stay distinct keys — both can appear for a series; they are not treated as duplicates.
 
 ## What it does
 
 - Search bar + model pin (REU marketing codes from model history)
 - **Series pin** via aliases (HD28 ↔ REU-VCM2837 / VCM2837 / REUVCM2837)
+- Matching **data sheets** for the pin (from `document-index.json`) with click-to-open PDFs
 - Matches part code, description, and sheet/category
 - Shows net invoice ex GST, computed ex GST at selected margin, and inc GST
 - Data-sources panel documents how to swap the next price list

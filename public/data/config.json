@@ -30,11 +30,20 @@
     "lastIngested": "2026-11-11"
   },
   "seriesAliasesFile": "public/data/series-aliases.json",
+  "documents": {
+    "rootUrl": "/data-sheets",
+    "localFolder": "data-sheets",
+    "indexPathPrefix": "data-sheets/",
+    "indexFile": "public/data/document-index.json",
+    "extractRootExample": "C:\\Temp\\rinnai-spare-parts\\data-sheets",
+    "note": "Binary PDFs stay under localFolder (gitignored). Vite maps rootUrl → ./data-sheets. Index JSON only is committed."
+  },
   "howToRefresh": [
     "Drop the new Rinnai price workbook into source-data/ (or update priceList.workbookPath in this file).",
     "Update priceList.effectiveDate and priceList.workbookFile/workbookPath to match the new file.",
     "Run: npm run ingest",
     "Restart or refresh the app — search uses public/data/prices.json and public/data/models.json.",
-    "Series aliases (HD28 ↔ VCM2837 etc.) are hand-maintained in public/data/series-aliases.json — not overwritten by ingest."
+    "Series aliases (HD28 ↔ VCM2837 etc.) are hand-maintained in public/data/series-aliases.json — not overwritten by ingest.",
+    "Data-sheet PDFs: keep under data-sheets/ (e.g. C:\\Temp\\rinnai-spare-parts\\data-sheets\\). App opens them via /data-sheets/... — do not commit the binaries."
   ]
 }

@@ -9,7 +9,9 @@ Short notes so Beau can correct anything that doesn’t match warehouse reality.
 5. **Base price** — Column K net invoice ex GST. Sell ex GST = net × (1 + margin%/100). Default margin **20%**. GST always **10%** AU.
 6. **Model pin is soft** — Selecting a model boosts fitting parts when `modelIds` exist; price-list rows are not yet linked to models, so pin mostly prepares for later mapping.
 7. **Part aliases** — Schema supports trade synonyms; real admin/warehouse lists still to come.
-7b. **Series aliases** — `series-aliases.json` maps marketing series ↔ chassis/doc keys. Confirmed: **HD28 ↔ REU-VCM2837 / VCM2837**. Used for model pin + future document vault lookup.
+7b. **Series aliases** — `series-aliases.json` maps marketing series ↔ chassis/doc keys. Confirmed: **HD28 ↔ REU-VCM2837 / VCM2837**. Used for model pin + document vault lookup.
+7c. **Unit class** — Internal vs external (FFUC/FFC vs WC/WC-AK) are distinct; soft document matching never equates conflicting unit-class suffixes.
+7d. **Data sheets** — `document-index.json` is committed; PDF bytes live under gitignored `data-sheets/`, served locally at `/data-sheets` per `config.documents.rootUrl`. Cloud/agents without the folder get index hits + empty/404 open, not a hard crash.
 8. **Diagrams later** — `diagramUrl` / `diagramPath` / `diagramRef.callout` exist; no exploded diagrams in this pass.
 9. **Source xlsx** — Kept under `source-data/` locally and gitignored; generated JSON under `public/data/` is committed for offline use.
 10. **Fonts** — Google Fonts load when online; layout still works if fonts fail (system fallbacks).
