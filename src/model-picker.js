@@ -83,7 +83,7 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
     // Empty: surface primary series pins for discovery
     for (const series of listSeries(seriesDoc)) {
       if (
-        !/^(hd28e?|hd28i|hd200e|hd200i|hd210e|hd210i|infinity26|infinity32)/i.test(
+        !/^(hd28e?|hd28i|hd200e|hd200i|hd210e|hd210i|hd32|hdc32e?|hdc32i|hd250e|hdc211e?|hdc211i|infinity26|infinity32)/i.test(
           series.id
         )
       ) {
