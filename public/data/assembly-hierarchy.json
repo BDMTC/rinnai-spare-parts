@@ -9,7 +9,7 @@
       "data-sheets/Rinnai Data Sheets/ED_N Series 2020 IN32 Enviro.pdf",
       "data-sheets/Rinnai Data Sheets/PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf"
     ],
-    "notes": "Beau confirmed 142/92099479 shared child of TOP+BTM. Do NOT wire full ranking until other sample loops are OK'd. See Project docs/assembly-search-ranking.md."
+    "notes": "Beau confirmed 142/92099479 shared child of TOP+BTM. Do NOT wire full ranking until other sample loops are OK'd. When wiring: also embossed Not available badge for RA/non-8-digit codes. See Project docs/assembly-search-ranking.md."
   },
   "concepts": [
     {
