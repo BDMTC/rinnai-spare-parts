@@ -36,11 +36,11 @@ npm run preview
 ## Refresh the price list
 
 1. Put the new Rinnai price workbook in `source-data/` (see `source-data/README.md`).
-2. Edit `public/data/config.json` → `priceList.workbookPath`, `workbookFile`, `effectiveDate`.
-3. Run `npm run ingest`.
+2. Edit `public/data/config.json` → `priceList.workbookPath` / `endpoint`, `workbookFile`, `effectiveDate` (or set the path in Admin).
+3. Run `npm run ingest` for production JSON.
 4. Refresh the browser.
 
-The app also shows this path under **Data sources / price list config**.
+Admin can also **Import & review** a workbook in-browser (same A/C/K row-6 rules). That applies a **local overlay** + change-queue entry only — production listings still need AI / `npm run ingest`. Path is shown under **Data sources** and editable in Admin.
 
 ## Data files
 
@@ -75,16 +75,19 @@ If the folder is missing (cloud agent, fresh clone), the index still lists match
 - **Series pin** via aliases (HD28, HD200e/VRM2632WC, HD200i, Infinity 26/32, HD210, …)
 - **Ranked model-pinned search**: Primary = most likely code for the pin; trade aliases resolve layman terms; chassis fit across all series
 - Margin **0–100%** in **5%** steps (default 20%)
-- Matching **data sheets** for the pin (from `document-index.json`) with click-to-open PDFs
+- **Quote list** (header icon + overlay): Add to Quote on each result (top-right), email/copy/save/clear
+- **Flag item for problem** on each result card → mailto stores for Beau review (that part)
+- **Admin / development** (password stub): clear flags, suspend/delete parts, price-list path, workbook import with count-diff review — localStorage overlay + change queue for AI ingest sync
 - Matches part code, description, trade alias, and sheet/category
 - Shows net invoice ex GST, computed ex GST at selected margin, and inc GST
 - Data-sources panel documents how to swap the next price list
+- Data-sheet index/code kept; sheet listing removed from the main search UI
 
 ## Out of scope (this pass)
 
 - Exploded diagrams / callout RAG (Beau supplying next)
-- Quote cart / email handoff
 - Explicit `modelIds` on every price row (fit currently inferred from chassis text)
+- Committing browser admin edits as production `prices.json` (always go through AI ingest)
 
 ## Assumptions
 
