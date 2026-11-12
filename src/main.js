@@ -41,8 +41,6 @@ import {
   tryUnlockAdmin,
   isAdminSessionUnlocked,
   setAdminSessionUnlocked,
-  getConfiguredAdminPassword,
-  setLocalAdminPassword,
   loadPriceListPath,
   savePriceListPath,
   clearFlag,
@@ -120,6 +118,31 @@ function highlight(text, query) {
   } catch {
     return safe;
   }
+}
+
+/** Keep Admin / Data sources usable after unlock / paste (veil must not re-block). */
+function revealOpsPanels() {
+  document.querySelector("#ops-panels")?.classList.add("is-revealed");
+}
+
+function coverOpsPanels() {
+  document.querySelector("#ops-panels")?.classList.remove("is-revealed");
+}
+
+function bindOpsPanelsReveal() {
+  const panels = document.querySelector("#ops-panels");
+  if (!panels || panels.dataset.revealBound === "1") return;
+  panels.dataset.revealBound = "1";
+  const reveal = () => panels.classList.add("is-revealed");
+  panels.addEventListener("pointerdown", reveal);
+  panels.addEventListener("focusin", reveal);
+  // While admin is unlocked, never re-cover — mouseleave used to clear
+  // is-revealed and the team-photo veil blocked the Admin UI again.
+  panels.addEventListener("mouseleave", () => {
+    if (adminUnlocked) return;
+    if (panels.contains(document.activeElement)) return;
+    panels.classList.remove("is-revealed");
+  });
 }
 
 function persistCart() {
@@ -321,15 +344,23 @@ function handleAddToQuote(part) {
   updateCartBadge();
 }
 
-function promptJobNumber() {
-  const raw = window.prompt(
-    "Job / work order number for stores email\n(plain number or WO-… for Acumatica):",
-    ""
-  );
-  if (raw == null) return null;
-  const job = normalizeJobNumber(raw);
+/**
+ * Hand off to the OS mail client. Call only from a real click handler
+ * (not after window.prompt) — Chromium drops mailto without user activation.
+ * @param {string} href
+ */
+function openMailto(href) {
+  if (!href || !String(href).startsWith("mailto:")) return;
+  // location.href is more reliable than a synthetic <a>.click() for mailto.
+  window.location.href = href;
+}
+
+function readCartJobNumber() {
+  const input = document.querySelector("#cart-job");
+  const job = normalizeJobNumber(input?.value ?? "");
   if (!job) {
-    window.alert("Enter a job or work order number.");
+    showCartFlash("Enter a job or work order number (plain digits or WO-…).");
+    input?.focus();
     return null;
   }
   return job;
@@ -340,7 +371,10 @@ function emailCartToStores() {
     showCartFlash("Quote list is empty — add parts first.");
     return;
   }
-  const job = promptJobNumber();
+  // Keep the modal open and read job from the in-dialog field.
+  // window.prompt is suppressed under <dialog showModal()>, and closing the
+  // dialog then prompting burns the user gesture so mailto often no-ops.
+  const job = readCartJobNumber();
   if (job == null) return;
   const body = formatQuoteText({
     lines: cartLines,
@@ -349,8 +383,7 @@ function emailCartToStores() {
     gstRate,
     pinnedLabel: pinnedLabelForQuote(),
   });
-  const href = buildStoresMailto(job, body);
-  window.location.href = href;
+  openMailto(buildStoresMailto(job, body));
 }
 
 async function copyCartToClipboard() {
@@ -408,9 +441,10 @@ function submitFlagPart(part) {
   };
   overrides = flagPart(overrides, payload);
   persistOverrides();
-  window.location.href = buildFlagIssueMailto(payload);
   renderAdminPanel();
   runSearch();
+  // Open mail client after DOM updates so navigation is not cancelled.
+  openMailto(buildFlagIssueMailto(payload));
 }
 
 function renderShell() {
@@ -428,7 +462,13 @@ function renderShell() {
     <div class="page">
       <header class="topbar">
         <div class="brand">
-          <div class="mtc-logo">
+          <button
+            type="button"
+            class="mtc-logo"
+            id="home-logo"
+            aria-label="MTC Gas home — clear search and model pin"
+            title="Home"
+          >
             <img
               class="mtc-logo-img"
               src="${mtcgasLogoUrl}"
@@ -437,7 +477,7 @@ function renderShell() {
               height="100"
               decoding="async"
             />
-          </div>
+          </button>
           <div class="brand-text">
             <h1 class="brand-name">Rinnai Parts</h1>
           </div>
@@ -589,6 +629,17 @@ function renderShell() {
           <div class="cart-body" id="cart-body"></div>
           <footer class="cart-dialog-foot">
             <div class="cart-totals" id="cart-totals"></div>
+            <label class="cart-job-field" for="cart-job">
+              <span class="cart-job-label">Job / WO for stores email</span>
+              <input
+                id="cart-job"
+                class="cart-job-input"
+                type="text"
+                inputmode="text"
+                autocomplete="off"
+                placeholder="e.g. 12345 or WO-12345"
+              />
+            </label>
             <div class="cart-actions">
               <button type="button" class="cart-action cart-action--primary" id="cart-email">Email list to stores</button>
               <button type="button" class="cart-action" id="cart-copy">Copy to clipboard</button>
@@ -1097,6 +1148,7 @@ function renderAdminGate() {
   if (!gate || !body) return;
 
   if (adminUnlocked) {
+    revealOpsPanels();
     gate.innerHTML = `
       <div class="admin-gate-open">
         <p class="admin-unlocked">Unlocked for this browser tab.</p>
@@ -1107,13 +1159,13 @@ function renderAdminGate() {
     gate.querySelector("#admin-lock")?.addEventListener("click", () => {
       adminUnlocked = false;
       setAdminSessionUnlocked(false);
+      coverOpsPanels();
       renderAdminPanel();
     });
     return;
   }
 
   body.hidden = true;
-  const hasPassword = Boolean(getConfiguredAdminPassword(config));
   gate.innerHTML = `
     <form class="admin-unlock-form" id="admin-unlock-form">
       <label class="field" for="admin-password">
@@ -1122,29 +1174,36 @@ function renderAdminGate() {
           id="admin-password"
           type="password"
           autocomplete="current-password"
-          placeholder="${hasPassword ? "Enter password" : "Empty stub — press Unlock (set password later)"}"
+          placeholder="Enter password"
         />
       </label>
       <button type="submit" class="admin-unlock-btn">Unlock</button>
       <p class="admin-gate-hint muted">
-        ${
-          hasPassword
-            ? "Password is set in localStorage / config (not committed)."
-            : "No password set yet — Unlock opens the tools. Set one later via the field inside Admin or localStorage key <code>rinnai-parts-admin-password-v1</code>."
-        }
+        Unlocks Admin tools for this browser tab (sessionStorage). Password is verified against a baked-in hash — not stored as plaintext.
       </p>
     </form>
   `;
-  gate.querySelector("#admin-unlock-form")?.addEventListener("submit", (e) => {
+  gate.querySelector("#admin-unlock-form")?.addEventListener("submit", async (e) => {
     e.preventDefault();
-    const attempt = document.querySelector("#admin-password")?.value ?? "";
-    const result = tryUnlockAdmin(attempt, config);
-    if (!result.ok) {
-      window.alert("Incorrect password.");
-      return;
+    revealOpsPanels();
+    const attempt =
+      gate.querySelector("#admin-password")?.value ??
+      document.querySelector("#admin-password")?.value ??
+      "";
+    const submitBtn = gate.querySelector(".admin-unlock-btn");
+    if (submitBtn) submitBtn.disabled = true;
+    try {
+      const result = await tryUnlockAdmin(attempt);
+      if (!result.ok) {
+        window.alert("Incorrect password.");
+        return;
+      }
+      adminUnlocked = true;
+      revealOpsPanels();
+      renderAdminPanel();
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
     }
-    adminUnlocked = true;
-    renderAdminPanel();
   });
 }
 
@@ -1223,7 +1282,6 @@ function renderAdminBody() {
   const deleted = Object.values(overrides.deleted || {});
   const queue = overrides.changeQueue || [];
   const path = loadPriceListPath(config);
-  const storedPw = getConfiguredAdminPassword(config);
 
   const flagRows = flagged.length
     ? flagged
@@ -1293,18 +1351,6 @@ function renderAdminBody() {
   body.innerHTML = `
     <div class="admin-grid">
       <div class="admin-card">
-        <h3>Password (local only)</h3>
-        <p class="muted">Stored in <code>localStorage</code> — leave blank for stub unlock. Never commit a real password.</p>
-        <div class="admin-inline">
-          <input id="admin-set-password" type="password" placeholder="${
-            storedPw ? "Password is set — enter to replace" : "Set password (optional)"
-          }" autocomplete="new-password" />
-          <button type="button" class="admin-btn" id="admin-save-password">Save password</button>
-          <button type="button" class="admin-btn" id="admin-clear-password">Clear</button>
-        </div>
-      </div>
-
-      <div class="admin-card">
         <h3>Price list path / endpoint</h3>
         <p class="muted">Hint for where the workbook lives (Office PC). Browser import uses a file picker; path is config for ingest.</p>
         <div class="admin-inline">
@@ -1361,20 +1407,6 @@ function renderAdminBody() {
     </div>
   `;
 
-  body.querySelector("#admin-save-password")?.addEventListener("click", () => {
-    const val = document.querySelector("#admin-set-password")?.value ?? "";
-    setLocalAdminPassword(val);
-    window.alert(
-      val
-        ? "Password saved in localStorage for this browser."
-        : "Password cleared (stub unlock)."
-    );
-    renderAdminPanel();
-  });
-  body.querySelector("#admin-clear-password")?.addEventListener("click", () => {
-    setLocalAdminPassword("");
-    renderAdminPanel();
-  });
   body.querySelector("#admin-save-path")?.addEventListener("click", () => {
     const val = document.querySelector("#admin-price-path")?.value ?? "";
     savePriceListPath(val);
@@ -1568,10 +1600,29 @@ function applyPendingImport() {
   );
 }
 
+function resetToHome() {
+  const input = document.querySelector("#query-input");
+  if (input) input.value = "";
+  if (modelPicker?.setValue) {
+    modelPicker.setValue(null);
+  } else {
+    const pin = document.querySelector("#model-pin");
+    const modelInput = document.querySelector("#model-input");
+    if (pin) pin.value = "";
+    if (modelInput) modelInput.value = "";
+    const clearBtn = document.querySelector("#model-clear");
+    if (clearBtn) clearBtn.hidden = true;
+    runSearch();
+  }
+  input?.focus();
+}
+
 function bindEvents() {
   const form = document.querySelector("#search-form");
   const input = document.querySelector("#query-input");
   const margin = document.querySelector("#margin-select");
+
+  document.querySelector("#home-logo")?.addEventListener("click", resetToHome);
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -1625,6 +1676,7 @@ function bindEvents() {
   }
 
   updateCartBadge();
+  bindOpsPanelsReveal();
   renderAdminPanel();
 }
 
