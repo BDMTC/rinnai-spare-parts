@@ -14,6 +14,10 @@ import {
   isNotPurchasableCode,
 } from "./search.js";
 import {
+  expandDisplayTitle,
+  plainEnglishSummary,
+} from "./display-name.js";
+import {
   computePrices,
   formatAud,
   DEFAULT_MARGIN_PERCENT,
@@ -1226,6 +1230,14 @@ function renderResults(query, pin) {
       duoRole,
     } = row;
     const notPurchasable = isNotPurchasableCode(part.code);
+    const display = expandDisplayTitle(part.name || "", abbrevIndex);
+    const displayTitle = display.title || part.name || part.code || "";
+    const showOfficialName =
+      Boolean(part.name) &&
+      display.expanded &&
+      String(display.title || "").toLowerCase() !==
+        String(part.name || "").toLowerCase();
+    const summaryLine = plainEnglishSummary(part, assemblyIndex, abbrevIndex);
     const li = document.createElement("li");
     li.className = "result";
     if (isPrimary && isDuoAssembly) {
@@ -1388,7 +1400,16 @@ function renderResults(query, pin) {
                 : subOfKicker
           }
           <p class="result-code">${highlight(part.code, query)}</p>
-          <h2 class="result-name">${highlight(part.name, query)}</h2>
+          <h2 class="result-name">${highlight(displayTitle, query)}</h2>
+          ${
+            showOfficialName
+              ? `<p class="result-official" title="Official price-list wording">${highlight(
+                  part.name,
+                  query
+                )}</p>`
+              : ""
+          }
+          <p class="result-summary">${escapeHtml(summaryLine)}</p>
           <div class="result-tags">${categoryBit}</div>
         </div>
         <div class="result-head-actions">
