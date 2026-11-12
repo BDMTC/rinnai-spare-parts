@@ -47,7 +47,7 @@ Then open **`dist/index.html`** (double-click in Explorer, or drag into Chrome/E
 | Description | Column **A** (from Excel row 6 down) |
 | Part / order code | Column **C** |
 | Sheets | **All** workbook sheets are scanned |
-| Margin | On-screen selector; **default 20%** |
+| Margin | On-screen selector; **default 25%** |
 | Sell ex GST | `net × (1 + margin%/100)` |
 | Inc GST | `ex GST × 1.10` (AU GST 10%) |
 
@@ -107,7 +107,7 @@ If the folder is missing (cloud agent, fresh clone), the index still lists match
 - **Part-name abbreviations**: bidirectional short↔long search (`part-name-abbreviations.json`) with **matched …** chips on result cards
 - **MTC logo home**: banner logo click clears search + model pin
 - Header **?** beginner help tips; thumbs-up **feedback** blurb (offline `localStorage` + optional mailto / JSON export)
-- Margin **0–100%** in **5%** steps (default 20%)
+- Margin **0–100%** in **5%** steps (default 25%)
 - **Quote list** (header icon + overlay): Add to Quote on each result (top-right), email/copy/save/clear
 - **Flag item for problem** on each result card → mailto stores for Beau review (that part)
 - **Admin / development** (hashed PBKDF2 password gate): clear flags, suspend/delete parts, price-list path, workbook import with count-diff review — localStorage overlay + change queue for AI ingest sync

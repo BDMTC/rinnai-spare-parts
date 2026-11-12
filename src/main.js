@@ -771,7 +771,7 @@ function renderShell() {
             </article>
             <article class="help-tip">
               <h3 class="help-tip-title">2. Set margin</h3>
-              <p class="help-tip-copy">Use Margin % for your sell markup. Default is 30%.</p>
+              <p class="help-tip-copy">Use Margin % for your sell markup. Default is ${DEFAULT_MARGIN_PERCENT}%.</p>
               <img class="help-tip-img" src="${tipMarginUrl}" alt="Margin percent dropdown" width="420" height="180" decoding="async" />
             </article>
             <article class="help-tip">
