@@ -770,13 +770,14 @@ input[type="number"]:focus {
   border: 1px solid #fdba74;
 }
 
-/* One shared 2-col grid so both ":" and values share the same columns.
-   (Per-row 18.5ch grids diverge when p vs h2 font metrics differ.) */
+/* Shared 3-col grid: [label] [:] [value]
+   Labels right-aligned in col 1 so shorter label pads left; both ":" share col 2. */
 .result-identity {
   display: grid;
-  grid-template-columns: max-content minmax(0, 1fr);
-  column-gap: 0.55rem;
+  grid-template-columns: max-content max-content minmax(0, 1fr);
+  column-gap: 0.35rem;
   row-gap: 0.2rem;
+  justify-items: stretch;
   align-items: baseline;
   margin: 0;
   font-family: var(--font-mono);
@@ -788,6 +789,7 @@ input[type="number"]:focus {
 }
 
 .result-field-label,
+.result-field-colon,
 .result-field-value {
   font-family: inherit;
   font-size: inherit;
@@ -798,10 +800,19 @@ input[type="number"]:focus {
 }
 
 .result-field-label {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
   text-align: right;
   white-space: nowrap;
   color: var(--ink-muted);
-  font-weight: 550;
+  font-weight: 550; /* both labels equal; values stay 600 */
+}
+
+.result-field-colon {
+  text-align: left;
+  color: var(--ink-muted);
+  user-select: none;
 }
 
 .result-field-value {
@@ -812,6 +823,7 @@ input[type="number"]:focus {
 
 .result-field-value mark {
   font: inherit;
+  font-weight: inherit;
 }
 
 .result-official {
