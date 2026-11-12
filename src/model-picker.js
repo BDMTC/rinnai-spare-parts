@@ -3,7 +3,8 @@
  *
  * Restricted / NLA rows stay visible (greyed) and arrow-highlightable, but
  * keyboard confirm (Enter) must NOT select them — only an explicit mouse click
- * opens the unlock confirm dialog.
+ * opens the unlock confirm dialog. Ranking always puts unrestricted / active
+ * pins first; restricted (NLA, export-only, use-up, Only for xyz, Desc 2) last.
  */
 
 import { getModelLabel, getModelDisplayName } from "./search.js";
@@ -105,7 +106,7 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
         )
       );
     }
-    return results.slice(0, limit);
+    return rankSuggestions(results).slice(0, limit);
   }
 
   for (const series of listSeries(seriesDoc)) {
@@ -184,7 +185,19 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
     );
   }
 
-  results.sort((a, b) => {
+  return rankSuggestions(results).slice(0, limit);
+}
+
+/**
+ * Unrestricted first (existing relevance inside the band), then restricted/greyed.
+ * @param {Array<object>} results
+ */
+function rankSuggestions(results) {
+  return results.sort((a, b) => {
+    // Active / unrestricted first; NLA / export / use-up / restricted grey rows last
+    const aRestricted = a.restricted ? 1 : 0;
+    const bRestricted = b.restricted ? 1 : 0;
+    if (aRestricted !== bRestricted) return aRestricted - bRestricted;
     // Always prefer series pins ahead of individual models when both match
     if (a.kind !== b.kind) {
       const aSeries = a.kind === "series" ? 1 : 0;
@@ -194,8 +207,6 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
     if (b.score !== a.score) return b.score - a.score;
     return String(a.label).localeCompare(String(b.label));
   });
-
-  return results.slice(0, limit);
 }
 
 function seriesSubtitle(series, count) {
