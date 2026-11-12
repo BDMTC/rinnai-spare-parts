@@ -1334,7 +1334,7 @@ function renderResults(query, pin) {
       ? `<span class="category-tag">${escapeHtml(part.category)}</span>`
       : "";
 
-    const cardActions =
+    const addQuoteBtn =
       part.kind === "discount-segment"
         ? ""
         : `<div class="result-card-actions">
@@ -1344,13 +1344,17 @@ function renderResults(query, pin) {
               data-code="${escapeHtml(part.code)}"
               ${notPurchasable ? "disabled aria-disabled=\"true\"" : ""}
             >${notPurchasable ? "Not available" : "Add to Quote"}</button>
-            <button
+          </div>`;
+
+    const flagBtn =
+      part.kind === "discount-segment"
+        ? ""
+        : `<button
               type="button"
               class="flag-part-btn"
               data-code="${escapeHtml(part.code)}"
               data-title="${escapeHtml(part.name || part.code)}"
-            >Flag item for problem</button>
-          </div>`;
+            >Flag item for problem</button>`;
 
     li.innerHTML = `
       <div class="result-head">
@@ -1384,7 +1388,7 @@ function renderResults(query, pin) {
         </div>
         <div class="result-head-actions">
           <div class="result-flags">${duoBadge}${fitBadge}${notAvailableBadge}${flagBadge}</div>
-          ${cardActions}
+          ${addQuoteBtn}
         </div>
       </div>
       <div class="result-body">
@@ -1398,7 +1402,10 @@ function renderResults(query, pin) {
       </div>
       <div class="result-foot">
         <div class="match-row">Matched on ${matchBits || '<span class="muted">—</span>'}</div>
-        <span class="diagram-ref muted">Sheet: ${escapeHtml(part.sheet || "—")}</span>
+        <div class="result-foot-actions">
+          <span class="diagram-ref muted">Sheet: ${escapeHtml(part.sheet || "—")}</span>
+          ${flagBtn}
+        </div>
       </div>
     `;
     list.appendChild(li);
