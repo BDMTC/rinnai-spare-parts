@@ -119,7 +119,7 @@ const DISPLAY_BY_GROUP = {
   "nat-gas": "natural gas",
 };
 
-/** Phrase rewrites applied before token expand (longest first). */
+/** Phrase rewrites applied before token expand (longest first — sorted once). */
 const PHRASE_REWRITES = [
   { from: "hex exch", to: "heat exchanger" },
   { from: "heat exchanger", to: "heat exchanger" },
@@ -144,7 +144,10 @@ const PHRASE_REWRITES = [
   { from: "fan com", to: "fan combustion" }, // catalogue typo / truncate of COMB
   { from: "pc board", to: "circuit board" },
   { from: "printed circuit board", to: "circuit board" },
-];
+].sort((a, b) => b.from.length - a.from.length);
+
+/** @type {WeakMap<object, Map<string, { groupId: string, display: string }>>} */
+const shortFormMapCache = new WeakMap();
 
 const SMALL_WORDS = new Set([
   "a",
@@ -214,6 +217,9 @@ function formatDisplayTitle(rawTokens) {
  * @param {{ groups?: Array }|null} abbrevIndex
  */
 function buildShortFormMap(abbrevIndex) {
+  if (abbrevIndex && shortFormMapCache.has(abbrevIndex)) {
+    return shortFormMapCache.get(abbrevIndex);
+  }
   /** @type {Map<string, { groupId: string, display: string }>} */
   const map = new Map();
   for (const group of abbrevIndex?.groups || []) {
@@ -235,6 +241,9 @@ function buildShortFormMap(abbrevIndex) {
       if (!map.has(f)) map.set(f, { groupId: group.id, display });
     }
   }
+  if (abbrevIndex && typeof abbrevIndex === "object") {
+    shortFormMapCache.set(abbrevIndex, map);
+  }
   return map;
 }
 
@@ -252,11 +261,8 @@ export function expandDisplayTitle(name, abbrevIndex) {
 
   let work = normalise(official);
 
-  // Phrase-level rewrites (longest first)
-  const phrases = [...PHRASE_REWRITES].sort(
-    (a, b) => b.from.length - a.from.length
-  );
-  for (const { from, to } of phrases) {
+  // Phrase-level rewrites (module list already longest-first)
+  for (const { from, to } of PHRASE_REWRITES) {
     const needle = ` ${from} `;
     let hay = ` ${work} `;
     if (!hay.includes(needle)) continue;
@@ -529,13 +535,10 @@ export function plainEnglishSummary(
 ) {
   if (!part) return "Spare part from the price list.";
   const code = String(part.code || "").trim();
-  const nameN = normalise(part.name);
-  const display = expandDisplayTitle(part.name || "", abbrevIndex);
-  const displayTitle = display.title || part.name || part.code || "";
   const parent = code ? assemblyIndex?.parentByCode?.get(code) : null;
   const child = code ? assemblyIndex?.childByCode?.get(code) : null;
 
-  // Richer blurbs from confirmed assembly maps
+  // Richer blurbs from confirmed assembly maps (no display-title expand needed)
   if (parent?.conceptId === "fan") {
     return "Combustion fan — the only fan assembly on this unit.";
   }
@@ -608,8 +611,12 @@ export function plainEnglishSummary(
     return `Sub-component${parentNote || " of a mapped assembly"}.`;
   }
 
+  // ~6.5k curated blurbs — prefer these before expanding display titles
   const curated = curatedBlurb(code, blurbDoc);
   if (curated) return curated;
 
+  const nameN = normalise(part.name);
+  const display = expandDisplayTitle(part.name || "", abbrevIndex);
+  const displayTitle = display.title || part.name || part.code || "";
   return heuristicSummaryFromName(nameN, displayTitle);
 }

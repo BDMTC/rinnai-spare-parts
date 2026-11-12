@@ -6,11 +6,21 @@ import catalogue from "../public/data/catalogue.json" with { type: "json" };
 import abbrevs from "../public/data/part-name-abbreviations.json" with { type: "json" };
 import hierarchy from "../public/data/assembly-hierarchy.json" with { type: "json" };
 import partBlurbs from "../public/data/part-blurbs.json" with { type: "json" };
-import { buildAbbrevIndex, buildAssemblyIndex, searchParts } from "../src/search.js";
+import {
+  buildAbbrevIndex,
+  buildAssemblyIndex,
+  buildPartSearchCache,
+  searchParts,
+} from "../src/search.js";
 import { plainEnglishSummary } from "../src/display-name.js";
 
 const abbrevIndex = buildAbbrevIndex(abbrevs);
 const assemblyIndex = buildAssemblyIndex(hierarchy);
+const partSearchCache = buildPartSearchCache(catalogue.parts || [], {
+  abbrevIndex,
+  assemblyIndex,
+  partBlurbs,
+});
 
 function partByCode(code) {
   return (catalogue.parts || []).find((p) => String(p.code) === String(code));
@@ -57,6 +67,7 @@ for (const { q, expectCode, expectHint } of queries) {
     abbrevIndex,
     assemblyIndex,
     partBlurbs,
+    partSearchCache,
     limit: 8,
   });
   const top = rows.slice(0, 5).map((r) => ({
