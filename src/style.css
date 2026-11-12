@@ -209,6 +209,8 @@ body::before {
 }
 
 .search-panel {
+  position: relative;
+  z-index: 40;
   display: grid;
   gap: 0.9rem;
   padding: 1.15rem;
@@ -310,7 +312,7 @@ input[type="number"]:focus {
 
 .model-listbox {
   position: absolute;
-  z-index: 30;
+  z-index: 50;
   left: 0;
   right: 0;
   top: calc(100% + 0.35rem);
