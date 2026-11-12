@@ -794,6 +794,24 @@ input[type="number"]:focus {
   line-height: 1.25;
 }
 
+.result-field-label {
+  font-family: var(--font-ui, inherit);
+  font-weight: 550;
+  font-size: 0.78em;
+  letter-spacing: 0.01em;
+  color: var(--ink-muted);
+  margin-right: 0.25rem;
+}
+
+.result-code .result-field-label {
+  font-size: 0.82rem;
+}
+
+.result-name .result-field-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
 .result-official {
   margin: 0.2rem 0 0;
   font-family: var(--font-mono);

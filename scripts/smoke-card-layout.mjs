@@ -55,6 +55,12 @@ async function inspectTop() {
     return {
       code: el.querySelector(".result-code")?.textContent?.trim(),
       name: el.querySelector(".result-name")?.textContent?.trim(),
+      hasCodeLabel: /Rinnai part code:/i.test(
+        el.querySelector(".result-code")?.textContent || ""
+      ),
+      hasDescLabel: /Rinnai description:/i.test(
+        el.querySelector(".result-name")?.textContent || ""
+      ),
       summaryInHead: Boolean(el.querySelector(".result-head .result-summary")),
       summaryInBody: Boolean(el.querySelector(".result-body .result-summary")),
       summary: el.querySelector(".result-summary")?.textContent?.trim(),
@@ -85,7 +91,9 @@ report.ok =
   !report.unpinned.summaryInHead &&
   !report.pinned.hasAliasesHeading &&
   report.pinned.summaryInBody &&
-  report.pinned.code === "92093550";
+  report.pinned.hasCodeLabel &&
+  report.pinned.hasDescLabel &&
+  /92093550/.test(report.pinned.code || "");
 
 console.log(JSON.stringify(report, null, 2));
 await browser.close();
