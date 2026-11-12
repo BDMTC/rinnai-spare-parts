@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="220" viewBox="0 0 560 220" role="img" aria-label="Pin a model tip">
+  <rect width="560" height="220" rx="14" fill="#f3f7fb"/>
+  <rect x="18" y="28" width="360" height="120" rx="12" fill="#ffffff" stroke="#c5d0db"/>
+  <text x="34" y="54" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="650" fill="#5a6b7a">Model</text>
+  <rect x="34" y="66" width="300" height="42" rx="10" fill="#fff" stroke="#4f90c8" stroke-width="2"/>
+  <text x="48" y="93" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#122033">HD200e</text>
+  <rect x="34" y="116" width="300" height="0" fill="none"/>
+  <rect x="46" y="118" width="276" height="74" rx="8" fill="#fff" stroke="#c5d0db"/>
+  <rect x="52" y="126" width="264" height="28" rx="6" fill="#dceaf6"/>
+  <text x="64" y="145" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="650" fill="#1a2f9a">HD200e · VRM2632WC</text>
+  <text x="64" y="172" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b7a">HD200i · Infinity internal</text>
+  <path d="M410 90 L470 90" stroke="#f47921" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="470,84 486,90 470,96" fill="#f47921"/>
+  <text x="400" y="68" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#9a3f0c">Type, then pick</text>
+</svg>

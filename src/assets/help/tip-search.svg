@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="560" height="210" viewBox="0 0 560 210" role="img" aria-label="Search tip">
+  <rect width="560" height="210" rx="14" fill="#f3f7fb"/>
+  <rect x="18" y="24" width="420" height="100" rx="12" fill="#ffffff" stroke="#c5d0db"/>
+  <text x="34" y="50" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="650" fill="#5a6b7a">Search</text>
+  <rect x="34" y="62" width="280" height="42" rx="10" fill="#fff" stroke="#4f90c8" stroke-width="2"/>
+  <text x="48" y="89" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#122033">brkt</text>
+  <rect x="322" y="62" width="96" height="42" rx="10" fill="#1a2f9a"/>
+  <text x="344" y="89" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="650" fill="#fff">Search</text>
+  <rect x="34" y="140" width="250" height="34" rx="8" fill="#dceaf6"/>
+  <text x="48" y="162" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="650" fill="#1a2f9a">matched BRKT (bracket)</text>
+  <path d="M300 157 L350 157" stroke="#f47921" stroke-width="3" stroke-linecap="round"/>
+  <polygon points="350,151 366,157 350,163" fill="#f47921"/>
+  <text x="378" y="150" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="700" fill="#9a3f0c">Short or long</text>
+  <text x="378" y="170" font-family="Segoe UI, Arial, sans-serif" font-size="12" fill="#5a6b7a">aliases both work</text>
+</svg>

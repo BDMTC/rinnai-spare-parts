@@ -51,6 +51,30 @@
       "officialPatterns": ["VALVE GAS", "GAS VALVE", "VALVE GAS SERVO"],
       "preferPatterns": ["VALVE GAS", "GAS VALVE"],
       "notes": "Gas path valves; keep distinct from water-flow / bypass servo."
+    },
+    {
+      "id": "heat-exchanger",
+      "terms": [
+        "heat exchanger",
+        "heat exchange",
+        "heat exch",
+        "heatex",
+        "heat-ex",
+        "hex",
+        "hex exch",
+        "hex exchanger"
+      ],
+      "officialPatterns": [
+        "HEAT EXCH",
+        "HEX EXCH",
+        "HEAT EXCHANGER"
+      ],
+      "preferPatterns": [
+        "HEAT EXCH",
+        "HEX EXCH",
+        "HEAT EXCHANGER"
+      ],
+      "notes": "Trade heat exchanger / heat exchange → price-list HEAT EXCH / HEX EXCH. Assembly ranking demotes TOP / GASKET / O-RING / SEAL rows unless the query asks for them."
     }
   ]
 }

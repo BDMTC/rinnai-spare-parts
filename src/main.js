@@ -1,7 +1,22 @@
 import "./style.css";
 import mtcgasLogoUrl from "./assets/mtcgas-australia-logo.png?inline";
 import mtcTeamHqUrl from "./assets/mtc-team-hq.jpg?inline";
-import { searchParts, getModelLabel, buildAbbrevIndex } from "./search.js";
+import tipPinModelUrl from "./assets/help/tip-pin-model.svg?inline";
+import tipMarginUrl from "./assets/help/tip-margin.svg?inline";
+import tipSearchUrl from "./assets/help/tip-search.svg?inline";
+import tipHomeLogoUrl from "./assets/help/tip-home-logo.svg?inline";
+import tipQuoteUrl from "./assets/help/tip-quote.svg?inline";
+import {
+  searchParts,
+  getModelLabel,
+  buildAbbrevIndex,
+  buildAssemblyIndex,
+  isNotPurchasableCode,
+} from "./search.js";
+import {
+  expandDisplayTitle,
+  plainEnglishSummary,
+} from "./display-name.js";
 import {
   computePrices,
   formatAud,
@@ -55,13 +70,24 @@ import {
 } from "./admin-overrides.js";
 import { buildFlagIssueMailto } from "./flag-issue.js";
 import {
+  appendFeedback,
+  buildFeedbackMailto,
+  downloadFeedbackJson,
+  loadFeedback,
+} from "./feedback.js";
+import {
   parsePriceWorkbook,
   pricesToCatalogueParts,
   diffPriceImport,
   buildReviewedParts,
 } from "./price-import.js";
+import { loadBootData } from "./boot-data.js";
 
-const app = document.querySelector("#app");
+// Resolved at boot (not import time) so the file:// classic IIFE can sit in <head>
+// with defer, or at end of <body>, without racing #app.
+function getApp() {
+  return document.querySelector("#app");
+}
 
 /** @type {object|null} */
 let baseCatalogue = null;
@@ -79,6 +105,12 @@ let tradeAliases = null;
 let partAbbrevs = null;
 /** @type {ReturnType<typeof buildAbbrevIndex>|null} */
 let abbrevIndex = null;
+/** @type {object|null} */
+let assemblyHierarchy = null;
+/** @type {ReturnType<typeof buildAssemblyIndex>|null} */
+let assemblyIndex = null;
+/** @type {object|null} */
+let partBlurbs = null;
 let lastResults = [];
 let marginPercent = DEFAULT_MARGIN_PERCENT;
 let gstRate = DEFAULT_GST_RATE;
@@ -94,12 +126,6 @@ let overrides = loadOverrides();
 let adminUnlocked = isAdminSessionUnlocked();
 /** @type {null | { incomingParts: object[], diff: object, sourceFile: string, meta: object, skipCodes: Set<string> }} */
 let pendingImport = null;
-
-async function loadJson(url) {
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Could not load ${url} (${res.status})`);
-  return res.json();
-}
 
 function escapeHtml(str) {
   return String(str)
@@ -337,6 +363,68 @@ function closeCart() {
   else if (dialog) dialog.removeAttribute("open");
 }
 
+function openHelp() {
+  const dialog = document.querySelector("#help-dialog");
+  if (!dialog) return;
+  if (typeof dialog.showModal === "function") dialog.showModal();
+  else dialog.setAttribute("open", "");
+}
+
+function closeHelp() {
+  const dialog = document.querySelector("#help-dialog");
+  if (dialog && typeof dialog.close === "function") dialog.close();
+  else if (dialog) dialog.removeAttribute("open");
+}
+
+function openFeedback() {
+  const dialog = document.querySelector("#feedback-dialog");
+  if (!dialog) return;
+  const flash = document.querySelector("#feedback-flash");
+  if (flash) {
+    flash.hidden = true;
+    flash.textContent = "";
+  }
+  if (typeof dialog.showModal === "function") dialog.showModal();
+  else dialog.setAttribute("open", "");
+  document.querySelector("#feedback-name")?.focus();
+}
+
+function closeFeedback() {
+  const dialog = document.querySelector("#feedback-dialog");
+  if (dialog && typeof dialog.close === "function") dialog.close();
+  else if (dialog) dialog.removeAttribute("open");
+}
+
+function showFeedbackFlash(message) {
+  const flash = document.querySelector("#feedback-flash");
+  if (!flash) return;
+  flash.textContent = message;
+  flash.hidden = !message;
+}
+
+function submitFeedback(opts = {}) {
+  const nameInput = document.querySelector("#feedback-name");
+  const commentInput = document.querySelector("#feedback-comment");
+  const name = nameInput?.value ?? "";
+  const comment = commentInput?.value ?? "";
+  let entry;
+  try {
+    entry = appendFeedback({ name, comment });
+  } catch (err) {
+    showFeedbackFlash(err.message || "Please fill in your name and comment.");
+    if (!String(name).trim()) nameInput?.focus();
+    else commentInput?.focus();
+    return null;
+  }
+  if (nameInput) nameInput.value = "";
+  if (commentInput) commentInput.value = "";
+  showFeedbackFlash("Thanks — saved on this device.");
+  if (opts.mailto) {
+    openMailto(buildFeedbackMailto(entry));
+  }
+  return entry;
+}
+
 function handleAddToQuote(part) {
   if (!part?.code) return;
   cartLines = addToCart(cartLines, {
@@ -462,7 +550,7 @@ function renderShell() {
     "price list";
   const pricePath = loadPriceListPath(config);
 
-  app.innerHTML = `
+  getApp().innerHTML = `
     <div class="page">
       <header class="topbar">
         <div class="brand">
@@ -487,6 +575,20 @@ function renderShell() {
           </div>
         </div>
         <div class="topbar-actions">
+          <button
+            type="button"
+            class="cart-trigger help-trigger"
+            id="help-open"
+            aria-label="Open help tips"
+            title="Help"
+          >
+            <svg class="cart-trigger-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                fill="currentColor"
+                d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H8c0-2.21 1.79-4 4-4s4 1.79 4 4c0 .88-.36 1.68-.93 2.25z"
+              />
+            </svg>
+          </button>
           <button
             type="button"
             class="cart-trigger"
@@ -654,6 +756,93 @@ function renderShell() {
         </div>
       </dialog>
 
+      <dialog class="cart-dialog help-dialog" id="help-dialog" aria-labelledby="help-dialog-title">
+        <div class="help-dialog-inner">
+          <header class="cart-dialog-bar">
+            <div>
+              <p class="cart-dialog-kicker">Tips</p>
+              <h2 class="cart-dialog-title" id="help-dialog-title">Quick help</h2>
+            </div>
+            <button type="button" class="cart-dialog-close" id="help-close" aria-label="Close help">Close</button>
+          </header>
+          <div class="help-body">
+            <article class="help-tip">
+              <h3 class="help-tip-title">1. Pin a model</h3>
+              <p class="help-tip-copy">Type a model (e.g. HD200e) and pick it from the list.</p>
+              <img class="help-tip-img" src="${tipPinModelUrl}" alt="Model field with typeahead pick list" width="560" height="220" decoding="async" />
+            </article>
+            <article class="help-tip">
+              <h3 class="help-tip-title">2. Set margin</h3>
+              <p class="help-tip-copy">Use Margin % for your sell markup. Default is ${DEFAULT_MARGIN_PERCENT}%.</p>
+              <img class="help-tip-img" src="${tipMarginUrl}" alt="Margin percent dropdown" width="420" height="180" decoding="async" />
+            </article>
+            <article class="help-tip">
+              <h3 class="help-tip-title">3. Search</h3>
+              <p class="help-tip-copy">Part code or trade words work. Short and long aliases both match (e.g. brkt / bracket).</p>
+              <img class="help-tip-img" src="${tipSearchUrl}" alt="Search box with matched alias chip" width="560" height="210" decoding="async" />
+            </article>
+            <article class="help-tip">
+              <h3 class="help-tip-title">4. Back to main page</h3>
+              <p class="help-tip-copy">Click the MTC logo to clear search and the model pin.</p>
+              <img class="help-tip-img" src="${tipHomeLogoUrl}" alt="MTC logo home button" width="480" height="180" decoding="async" />
+            </article>
+            <article class="help-tip">
+              <h3 class="help-tip-title">5. Quote button</h3>
+              <p class="help-tip-copy">Add to Quote builds a list. The cart icon opens it so you can email or copy.</p>
+              <img class="help-tip-img" src="${tipQuoteUrl}" alt="Quote cart icon and Add to Quote button" width="520" height="200" decoding="async" />
+            </article>
+          </div>
+        </div>
+      </dialog>
+
+      <dialog class="cart-dialog help-dialog feedback-dialog" id="feedback-dialog" aria-labelledby="feedback-dialog-title">
+        <div class="help-dialog-inner">
+          <header class="cart-dialog-bar">
+            <div>
+              <p class="cart-dialog-kicker">Feedback</p>
+              <h2 class="cart-dialog-title" id="feedback-dialog-title">Questions · comments · suggestions</h2>
+            </div>
+            <button type="button" class="cart-dialog-close" id="feedback-close" aria-label="Close feedback">Close</button>
+          </header>
+          <form class="feedback-form" id="feedback-form">
+            <p class="feedback-lead">
+              How can we improve this tool for you? Drop a note for Beau — it stays on this device (and you can email or export it).
+            </p>
+            <p class="cart-flash" id="feedback-flash" hidden></p>
+            <label class="cart-job-field" for="feedback-name">
+              <span class="cart-job-label">Your name</span>
+              <input
+                id="feedback-name"
+                class="cart-job-input"
+                type="text"
+                name="name"
+                autocomplete="name"
+                required
+                maxlength="120"
+                placeholder="e.g. Sam from stores"
+              />
+            </label>
+            <label class="cart-job-field" for="feedback-comment">
+              <span class="cart-job-label">Comment</span>
+              <textarea
+                id="feedback-comment"
+                class="cart-job-input feedback-comment"
+                name="comment"
+                required
+                maxlength="4000"
+                rows="5"
+                placeholder="What would make this easier day-to-day?"
+              ></textarea>
+            </label>
+            <div class="cart-actions feedback-actions">
+              <button type="submit" class="cart-action cart-action--primary" id="feedback-save">Save feedback</button>
+              <button type="button" class="cart-action" id="feedback-email">Save &amp; email Beau</button>
+              <button type="button" class="cart-action" id="feedback-export">Export JSON</button>
+            </div>
+          </form>
+        </div>
+      </dialog>
+
       <div
         class="ops-panels"
         id="ops-panels"
@@ -765,6 +954,27 @@ function renderShell() {
             </div>
           </section>
         </div>
+      </div>
+
+      <div class="feedback-blurb">
+        <button
+          type="button"
+          class="feedback-like"
+          id="feedback-open"
+          aria-haspopup="dialog"
+          aria-controls="feedback-dialog"
+          title="Questions, comments, suggestions"
+        >
+          <span class="feedback-like-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" focusable="false">
+              <path
+                fill="currentColor"
+                d="M2 21h4V9H2v12zm19.07-9.62c.28-.45.43-.97.43-1.51 0-1.52-1.23-2.75-2.75-2.75H13.4l.79-3.78.03-.32c0-.41-.17-.79-.44-1.06L12.87 1 6.93 6.94C6.54 7.33 6.3 7.87 6.3 8.45V18c0 1.1.9 2 2 2h8.35c.83 0 1.55-.5 1.86-1.22l3.12-7.29c.16-.37.24-.77.24-1.17 0-.22-.03-.43-.08-.64l.28.2z"
+              />
+            </svg>
+          </span>
+          <span class="feedback-like-copy">Like if you found this useful</span>
+        </button>
       </div>
 
       <footer class="footer">
@@ -911,6 +1121,9 @@ function runSearch() {
     pin,
     tradeAliases,
     abbrevIndex,
+    assemblyIndex,
+    assemblyHierarchy,
+    partBlurbs,
     isPartVisible,
   });
   renderResults(q, pin);
@@ -981,13 +1194,19 @@ function renderResults(query, pin) {
       : "";
     pinBit = ` · pinned ${getModelLabel(activePin.model)}${seriesBit}`;
   }
-  const primary = lastResults.find((r) => r.isPrimary);
-  const primaryBit =
-    hasPin && primary
-      ? ` · Primary ${primary.part.code}`
+  const primaries = lastResults.filter((r) => r.isPrimary);
+  const duoPrimaries = primaries.filter((r) => r.isDuoAssembly);
+  const primaryBit = duoPrimaries.length >= 2
+    ? ` · Primary duo ${duoPrimaries
+        .map((r) => `${r.duoLabel || ""} ${r.part.code}`.trim())
+        .join(" + ")}`
+    : hasPin && primaries[0]
+      ? ` · Primary ${primaries[0].part.code}`
       : hasPin
         ? " · no exact Primary for this pin"
-        : "";
+        : primaries[0]
+          ? ` · Primary ${primaries[0].part.code}`
+          : "";
   meta.textContent = `${lastResults.length} part${lastResults.length === 1 ? "" : "s"}${pinBit}${primaryBit} · margin ${marginPercent}%`;
 
   if (!lastResults.length) {
@@ -1005,11 +1224,38 @@ function renderResults(query, pin) {
       isPrimary,
       fitTier,
       fitReason,
+      isSubComponent,
+      subOf,
+      isDuoAssembly,
+      duoLabel,
+      duoPartnerCode,
+      duoNeedBothNote,
+      duoRole,
     } = row;
+    const notPurchasable = isNotPurchasableCode(part.code);
+    const display = expandDisplayTitle(part.name || "", abbrevIndex);
+    const displayTitle = display.title || part.name || part.code || "";
+    const showOfficialName =
+      Boolean(part.name) &&
+      display.expanded &&
+      String(display.title || "").toLowerCase() !==
+        String(part.name || "").toLowerCase();
+    const summaryLine = plainEnglishSummary(
+      part,
+      assemblyIndex,
+      abbrevIndex,
+      partBlurbs
+    );
     const li = document.createElement("li");
     li.className = "result";
-    if (isPrimary) {
+    if (isPrimary && isDuoAssembly) {
+      li.classList.add("result--primary", "result--duo");
+      if (duoRole === "top") li.classList.add("result--duo-top");
+      if (duoRole === "bottom") li.classList.add("result--duo-bottom");
+    } else if (isPrimary) {
       li.classList.add("result--primary");
+    } else if (isSubComponent) {
+      li.classList.add("result--subcomponent");
     } else if (hasPin && fitTier === "exact") {
       li.classList.add("result--fits");
     } else if (hasPin && fitTier === "related") {
@@ -1017,56 +1263,72 @@ function renderResults(query, pin) {
     } else if (hasPin && fitsSelectedModel === false) {
       li.classList.add("result--other-model");
     }
+    if (notPurchasable) li.classList.add("result--not-available");
     if (part.adminFlagged) li.classList.add("result--flagged");
 
-    const storedAliases = part.aliases || [];
-    const abbrevLabels = row.abbrevLabels || [];
-    const aliasChips = [];
-    for (const a of storedAliases) {
-      aliasChips.push(
-        `<span class="alias">${highlight(a, query)}</span>`
+    const fitChips = [];
+    if (fittedModels.length) {
+      for (const m of fittedModels) {
+        const active = hasPin && activePin.modelIds.includes(m.id);
+        const cls = active ? "model-tag model-tag--active" : "model-tag";
+        fitChips.push(
+          `<span class="${cls}">${escapeHtml(m.sku || m.name)}</span>`
+        );
+      }
+    } else if (hasPin && fitReason) {
+      fitChips.push(
+        `<span class="model-tag model-tag--fit">${escapeHtml(fitReason)}</span>`
       );
     }
-    for (const label of abbrevLabels) {
-      aliasChips.push(
-        `<span class="alias alias--abbrev">${escapeHtml(label)}</span>`
-      );
-    }
-    const tradeAliasesForPart = aliasChips.length
-      ? aliasChips.join("")
-      : `<span class="muted">No stored part aliases — global abbrev search still applies</span>`;
 
-    const chassisBit =
-      hasPin && fitReason
-        ? `<span class="muted fit-reason">${escapeHtml(fitReason)}</span>`
-        : "";
+    const duoBadge = isDuoAssembly
+      ? `<span class="badge badge--duo">${escapeHtml(
+          duoLabel || (duoRole === "top" ? "TOP" : "BTM")
+        )}</span>`
+      : "";
 
-    const modelsHtml = fittedModels.length
-      ? fittedModels
-          .map((m) => {
-            const active = hasPin && activePin.modelIds.includes(m.id);
-            const cls = active
-              ? "model-tag model-tag--active"
-              : "model-tag";
-            return `<span class="${cls}">${escapeHtml(m.sku || m.name)}</span>`;
-          })
-          .join("")
-      : chassisBit || `<span class="muted">Fit inferred from chassis in description</span>`;
-
-    const fitBadge = !hasPin
-      ? ""
-      : isPrimary
-        ? `<span class="badge badge--primary">Primary</span>`
-        : fitTier === "exact"
-          ? `<span class="badge badge--fit">${
-              activePin.kind === "series" ? "Fits series" : "Fits pinned model"
-            }</span>`
-          : fitTier === "related"
-            ? `<span class="badge badge--related">Related family</span>`
-            : `<span class="badge badge--other">Other model</span>`;
+    const fitBadge = isDuoAssembly
+      ? `<span class="badge badge--primary">Primary pair</span>`
+      : !hasPin
+        ? isPrimary
+          ? `<span class="badge badge--primary">Primary</span>`
+          : ""
+        : isPrimary
+          ? `<span class="badge badge--primary">Primary</span>`
+          : fitTier === "exact"
+            ? `<span class="badge badge--fit">${
+                activePin.kind === "series" ? "Fits series" : "Fits pinned model"
+              }</span>`
+            : fitTier === "related"
+              ? `<span class="badge badge--related">Related family</span>`
+              : `<span class="badge badge--other">Other model</span>`;
 
     const flagBadge = part.adminFlagged
       ? `<span class="badge badge--flag">Flagged</span>`
+      : "";
+
+    const notAvailableBadge = notPurchasable
+      ? `<span class="badge badge--not-available" aria-label="Not available for purchase">Not available</span>`
+      : "";
+
+    const subOfParents = subOf?.parents?.length
+      ? subOf.parents
+      : subOf
+        ? [{ code: subOf.code, shortName: subOf.shortName, name: subOf.name }]
+        : [];
+    const subOfKicker =
+      isSubComponent && subOfParents.length
+        ? `<p class="subcomponent-note subcomponent-note--blink">sub-component of ${escapeHtml(
+            subOfParents
+              .map((p) => `${p.code} ${p.shortName || p.name || ""}`.trim())
+              .join(" / ")
+          )}</p>`
+        : isSubComponent
+          ? `<p class="subcomponent-note subcomponent-note--blink">sub-component</p>`
+          : "";
+
+    const subBadge = isSubComponent
+      ? `<span class="badge badge--sub">Sub-component</span>`
       : "";
 
     const matchBits = matchedOn
@@ -1077,7 +1339,7 @@ function renderResults(query, pin) {
       ? `<span class="category-tag">${escapeHtml(part.category)}</span>`
       : "";
 
-    const cardActions =
+    const addQuoteBtn =
       part.kind === "discount-segment"
         ? ""
         : `<div class="result-card-actions">
@@ -1085,48 +1347,82 @@ function renderResults(query, pin) {
               type="button"
               class="add-quote-btn"
               data-code="${escapeHtml(part.code)}"
-            >Add to Quote</button>
-            <button
+              ${notPurchasable ? "disabled aria-disabled=\"true\"" : ""}
+            >${notPurchasable ? "Not available" : "Add to Quote"}</button>
+          </div>`;
+
+    const flagBtn =
+      part.kind === "discount-segment"
+        ? ""
+        : `<button
               type="button"
               class="flag-part-btn"
               data-code="${escapeHtml(part.code)}"
               data-title="${escapeHtml(part.name || part.code)}"
-            >Flag item for problem</button>
-          </div>`;
+            >Flag item for problem</button>`;
 
     li.innerHTML = `
       <div class="result-head">
         <div class="result-head-main">
           ${
-            isPrimary
-              ? `<p class="primary-kicker">Most likely for ${escapeHtml(
-                  activePin.series?.label ||
-                    activePin.model?.sku ||
-                    "pinned model"
+            isPrimary && isDuoAssembly
+              ? `<p class="primary-kicker primary-kicker--duo">${escapeHtml(
+                  duoNeedBothNote ||
+                    "Check if both TOP and BTM are required; if not, order the singular one"
+                )} · this card is ${escapeHtml(
+                  duoLabel || (duoRole === "top" ? "TOP" : "BTM")
+                )}${
+                  duoPartnerCode
+                    ? ` · partner ${escapeHtml(duoPartnerCode)}`
+                    : ""
+                }</p>`
+              : isPrimary
+                ? `<p class="primary-kicker">${
+                    hasPin
+                      ? `Most likely for ${escapeHtml(
+                          activePin.series?.label ||
+                            activePin.model?.sku ||
+                            "pinned model"
+                        )}`
+                      : "Most likely complete assembly"
+                  }</p>`
+                : subOfKicker
+          }
+          <div class="result-identity">
+            <span class="result-field-label">Rinnai part code</span>
+            <span class="result-field-colon" aria-hidden="true">:</span>
+            <span class="result-field-value result-code">${highlight(part.code, query)}</span>
+            <span class="result-field-label">Rinnai description</span>
+            <span class="result-field-colon" aria-hidden="true">:</span>
+            <span class="result-field-value result-name">${highlight(displayTitle, query)}</span>
+          </div>
+          ${
+            showOfficialName
+              ? `<p class="result-official" title="Official price-list wording">${highlight(
+                  part.name,
+                  query
                 )}</p>`
               : ""
           }
-          <p class="result-code">${highlight(part.code, query)}</p>
-          <h2 class="result-name">${highlight(part.name, query)}</h2>
-          <div class="result-tags">${categoryBit}</div>
+          <div class="result-tags">${categoryBit}${fitChips.join("")}</div>
         </div>
         <div class="result-head-actions">
-          <div class="result-flags">${fitBadge}${flagBadge}</div>
-          ${cardActions}
+          <div class="result-flags">${duoBadge}${subBadge}${fitBadge}${notAvailableBadge}${flagBadge}</div>
+          ${addQuoteBtn}
         </div>
       </div>
       <div class="result-body">
         ${renderPriceBlock(part)}
-        <div class="result-block">
-          <h3>Aliases</h3>
-          <div class="alias-row">${tradeAliasesForPart}</div>
-          <h3 class="subhead">Model fit</h3>
-          <div class="model-row">${modelsHtml}</div>
+        <div class="result-block result-block--summary">
+          <p class="result-summary">${escapeHtml(summaryLine)}</p>
         </div>
       </div>
       <div class="result-foot">
         <div class="match-row">Matched on ${matchBits || '<span class="muted">—</span>'}</div>
-        <span class="diagram-ref muted">Sheet: ${escapeHtml(part.sheet || "—")}</span>
+        <div class="result-foot-actions">
+          <span class="diagram-ref muted">Sheet: ${escapeHtml(part.sheet || "—")}</span>
+          ${flagBtn}
+        </div>
       </div>
     `;
     list.appendChild(li);
@@ -1694,6 +1990,54 @@ function bindEvents() {
     });
   }
 
+  const helpOpen = document.querySelector("#help-open");
+  const helpClose = document.querySelector("#help-close");
+  const helpDialog = document.querySelector("#help-dialog");
+  helpOpen?.addEventListener("click", openHelp);
+  helpClose?.addEventListener("click", closeHelp);
+  if (helpDialog) {
+    helpDialog.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      closeHelp();
+    });
+    helpDialog.addEventListener("click", (e) => {
+      if (e.target === helpDialog) closeHelp();
+    });
+  }
+
+  const feedbackOpen = document.querySelector("#feedback-open");
+  const feedbackClose = document.querySelector("#feedback-close");
+  const feedbackDialog = document.querySelector("#feedback-dialog");
+  const feedbackForm = document.querySelector("#feedback-form");
+  feedbackOpen?.addEventListener("click", openFeedback);
+  feedbackClose?.addEventListener("click", closeFeedback);
+  feedbackForm?.addEventListener("submit", (e) => {
+    e.preventDefault();
+    submitFeedback({ mailto: false });
+  });
+  document.querySelector("#feedback-email")?.addEventListener("click", () => {
+    submitFeedback({ mailto: true });
+  });
+  document.querySelector("#feedback-export")?.addEventListener("click", () => {
+    const n = downloadFeedbackJson();
+    showFeedbackFlash(
+      n
+        ? `Exported ${n} feedback entr${n === 1 ? "y" : "ies"}.`
+        : "No feedback saved yet — submit one first."
+    );
+  });
+  if (feedbackDialog) {
+    feedbackDialog.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      closeFeedback();
+    });
+    feedbackDialog.addEventListener("click", (e) => {
+      if (e.target === feedbackDialog) closeFeedback();
+    });
+  }
+  // Touch localStorage early so export/status stay consistent after boot.
+  loadFeedback();
+
   updateCartBadge();
   bindOpsPanelsReveal();
   renderAdminPanel();
@@ -1702,16 +2046,16 @@ function bindEvents() {
 async function boot() {
   renderShell();
   try {
-    const [cat, cfg, prices, series, trade, abbrevs] = await Promise.all([
-      loadJson("/data/catalogue.json"),
-      loadJson("/data/config.json"),
-      loadJson("/data/prices.json"),
-      loadJson("/data/series-aliases.json"),
-      loadJson("/data/trade-aliases.json").catch(() => ({ aliases: [] })),
-      loadJson("/data/part-name-abbreviations.json").catch(() => ({
-        groups: [],
-      })),
-    ]);
+    const {
+      catalogue: cat,
+      config: cfg,
+      prices,
+      series,
+      trade,
+      abbrevs,
+      assemblyHierarchy: hierarchyDoc,
+      partBlurbs: blurbsDoc,
+    } = await loadBootData();
     baseCatalogue = cat;
     config = cfg;
     pricesMeta = prices.meta || null;
@@ -1719,6 +2063,9 @@ async function boot() {
     tradeAliases = trade;
     partAbbrevs = abbrevs;
     abbrevIndex = buildAbbrevIndex(abbrevs);
+    assemblyHierarchy = hierarchyDoc || null;
+    assemblyIndex = buildAssemblyIndex(assemblyHierarchy);
+    partBlurbs = blurbsDoc || null;
     overrides = loadOverrides();
     refreshCatalogueFromOverrides();
     marginPercent = clampMarginPercent(
@@ -1734,14 +2081,23 @@ async function boot() {
     populateDataSources();
     bindEvents();
   } catch (err) {
-    app.innerHTML = `
+    const root = getApp();
+    if (root) {
+      root.innerHTML = `
       <div class="fatal">
         <h1>Catalogue failed to load</h1>
         <p>${escapeHtml(err.message)}</p>
-        <p>Expected files under <code>/data/</code> — run <code>npm run ingest</code> if JSON is missing.</p>
+        <p>Expected files under <code>data/</code> — run <code>npm run ingest</code> if JSON is missing. For double-click open, use <code>npm run build:file</code> then open <code>dist/index.html</code>.</p>
       </div>
     `;
+    }
   }
 }
 
-boot();
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => {
+    boot();
+  });
+} else {
+  boot();
+}

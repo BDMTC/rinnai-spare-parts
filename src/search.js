@@ -12,6 +12,50 @@
 
 import { documentKeysForPin } from "./series.js";
 import { unitClassOf, seriesKeyMatchesTag, normalise as normaliseKey } from "./documents.js";
+import {
+  expandDisplayTitle,
+  plainEnglishSummary,
+} from "./display-name.js";
+
+/** Stopwords ignored when matching layman queries against blurbs / display titles. */
+const LAYMAN_STOP = new Set([
+  "a",
+  "an",
+  "and",
+  "for",
+  "from",
+  "of",
+  "on",
+  "or",
+  "the",
+  "this",
+  "that",
+  "to",
+  "with",
+  "unit",
+]);
+
+/**
+ * True when the query phrase (or its content tokens) hits a layman field.
+ * Allows "only fan on this unit" to match "…the only fan assembly on this unit."
+ * Content tokens must appear in order so "top half…" does not credit a BTM blurb
+ * that only mentions "top" later in the sentence.
+ */
+function laymanFieldHit(fieldN, q, qTokens) {
+  if (!fieldN || !q || q.length < 3) return false;
+  if (fieldN === q || fieldN.includes(q)) return true;
+  const content = (qTokens || []).filter(
+    (t) => t.length >= 3 && !LAYMAN_STOP.has(t)
+  );
+  if (content.length < 2) return false;
+  let pos = 0;
+  for (const t of content) {
+    const i = fieldN.indexOf(t, pos);
+    if (i < 0) return false;
+    pos = i + t.length;
+  }
+  return true;
+}
 
 function normalise(text) {
   return String(text || "")
@@ -611,6 +655,397 @@ function conflictsPinUnitClass(haystack, chassis, pinCtx, matchedKey) {
 }
 
 /**
+ * Typical sellable Rinnai AU part code = exactly 8 digits.
+ * Non-8-digit / RA-supplier-style identifiers are not purchaseable (Beau).
+ * @param {string|null|undefined} code
+ */
+export function isSellablePartCode(code) {
+  return /^\d{8}$/.test(String(code || "").trim());
+}
+
+/**
+ * @param {string|null|undefined} code
+ */
+export function isNotPurchasableCode(code) {
+  const c = String(code || "").trim();
+  if (!c) return false;
+  if (isSellablePartCode(c)) return false;
+  // Hyphenated supplier / RA-style, letter prefixes, or any non-8-digit token
+  return true;
+}
+
+/**
+ * Build lookup indexes from assembly-hierarchy.json.
+ * @param {object|null|undefined} hierarchyDoc
+ */
+export function buildAssemblyIndex(hierarchyDoc) {
+  const concepts = [];
+  /** @type {Map<string, object>} */
+  const childByCode = new Map();
+  const parentByCode = new Map();
+  const demotionCues = (hierarchyDoc?.demotionCues || [])
+    .map((c) => normalise(c))
+    .filter(Boolean);
+
+  for (const raw of hierarchyDoc?.concepts || []) {
+    if (!raw?.id) continue;
+    concepts.push({
+      id: String(raw.id),
+      queryTerms: (raw.queryTerms || []).map(normalise).filter(Boolean),
+      assemblyNamePatterns: (raw.assemblyNamePatterns || [])
+        .map(normalise)
+        .filter(Boolean),
+    });
+  }
+
+  for (const raw of hierarchyDoc?.assemblies || []) {
+    const parentCode = String(raw.parentCode || "").trim();
+    if (!parentCode) continue;
+    const duoRaw = raw.duoGroup || null;
+    const parent = {
+      parentCode,
+      parentName: String(raw.parentName || "").trim(),
+      shortName: String(raw.shortName || raw.parentName || parentCode).trim(),
+      conceptId: raw.conceptId ? String(raw.conceptId) : null,
+      seriesTokens: (raw.seriesTokens || [])
+        .map((t) => alnum(t))
+        .filter(Boolean),
+      assemblyRole: raw.assemblyRole ? String(raw.assemblyRole) : null,
+      demoteForBareConcept: Boolean(raw.demoteForBareConcept),
+      duoGroup: duoRaw
+        ? {
+            id: String(duoRaw.id || "").trim(),
+            role: String(duoRaw.role || "").trim(), // top | bottom
+            partnerCode: String(duoRaw.partnerCode || "").trim(),
+            label: String(duoRaw.label || duoRaw.role || "").trim(),
+            needBothNote: String(
+              duoRaw.needBothNote ||
+                "Check if both TOP and BTM are required; if not, order the singular one"
+            ).trim(),
+          }
+        : null,
+      children: [],
+    };
+    parentByCode.set(parentCode, parent);
+
+    for (const ch of raw.children || []) {
+      const code = String(ch.code || "").trim();
+      if (!code) continue;
+      const link = {
+        code,
+        role: ch.role ? String(ch.role) : null,
+        shared: Boolean(ch.shared),
+        parentCode,
+        parentName: parent.parentName,
+        shortName: parent.shortName,
+        conceptId: parent.conceptId,
+        seriesTokens: parent.seriesTokens,
+      };
+      parent.children.push(link);
+
+      // Shared children (e.g. HEX gasket 142) may sit under multiple parent loops.
+      const existing = childByCode.get(code);
+      if (!existing) {
+        childByCode.set(code, {
+          code,
+          role: link.role,
+          shared: link.shared,
+          parents: [
+            {
+              parentCode,
+              parentName: parent.parentName,
+              shortName: parent.shortName,
+              conceptId: parent.conceptId,
+              seriesTokens: parent.seriesTokens,
+            },
+          ],
+          // Back-compat single-parent fields = first parent
+          parentCode,
+          parentName: parent.parentName,
+          shortName: parent.shortName,
+          conceptId: parent.conceptId,
+          seriesTokens: parent.seriesTokens,
+        });
+      } else {
+        existing.shared = existing.shared || link.shared || true;
+        if (
+          !existing.parents.some((p) => p.parentCode === parentCode)
+        ) {
+          existing.parents.push({
+            parentCode,
+            parentName: parent.parentName,
+            shortName: parent.shortName,
+            conceptId: parent.conceptId,
+            seriesTokens: parent.seriesTokens,
+          });
+        }
+      }
+    }
+  }
+
+  return { concepts, childByCode, parentByCode, demotionCues };
+}
+
+/**
+ * Which assembly concept (if any) the query is aiming at.
+ * @returns {object|null}
+ */
+export function matchAssemblyConcept(hierarchyIndex, query) {
+  if (!hierarchyIndex?.concepts?.length) return null;
+  const q = normalise(query);
+  if (!q) return null;
+  let best = null;
+  for (const concept of hierarchyIndex.concepts) {
+    for (const term of concept.queryTerms) {
+      if (!term) continue;
+      let strength = 0;
+      if (q === term) strength = 100;
+      else if (q.includes(term) || (term.length >= 4 && term.includes(q))) {
+        strength = Math.min(95, 50 + term.length);
+      }
+      if (strength > 0 && (!best || strength > best.strength)) {
+        best = { concept, term, strength };
+      }
+    }
+  }
+  return best;
+}
+
+/**
+ * True when the typed query already names a demotion cue (gasket, top, …)
+ * so we should not demote those rows.
+ */
+function queryAsksForCue(q, cue) {
+  if (!q || !cue) return false;
+  if (cue.includes(" ")) return ` ${q} `.includes(` ${cue} `) || q.includes(cue);
+  const toks = q.split(" ").filter(Boolean);
+  return toks.includes(cue);
+}
+
+/**
+ * Name looks like a sub-piece of an assembly concept (TOP / GASKET / …).
+ */
+function nameHasDemotionCue(nameN, cues, q) {
+  if (!nameN || !cues?.length) return null;
+  for (const cue of cues) {
+    if (!cue) continue;
+    if (queryAsksForCue(q, cue)) continue;
+    if (cue.includes(" ")) {
+      if (nameN.includes(cue)) return cue;
+      continue;
+    }
+    const toks = nameN.split(" ").filter(Boolean);
+    if (toks.includes(cue)) return cue;
+  }
+  return null;
+}
+
+function nameMatchesAssemblyPatterns(nameN, patterns) {
+  if (!nameN || !patterns?.length) return false;
+  const padded = ` ${nameN} `;
+  return patterns.some((p) => {
+    if (!p) return false;
+    // Prefer whole-phrase containment so "front panel" does not hit "brkt front panel" wait —
+    // actually "brkt front panel" legitimately contains the phrase; require start-ish /
+    // assembly-shaped: pattern at token boundary and not preceded by brace/brkt noise.
+    if (!padded.includes(` ${p} `) && nameN !== p) return false;
+    if (/^(brkt|brace|bracket|gasket|o ring|o-ring|seal)\b/.test(nameN)) {
+      return false;
+    }
+    return true;
+  });
+}
+
+/**
+ * Pin chassis tokens for scoping assembly maps (N3237, VRM2632, …).
+ */
+function pinChassisTokens(pinCtx) {
+  if (!pinCtx) return [];
+  const out = new Set();
+  for (const k of pinCtx.keys || []) {
+    const n = alnum(k);
+    if (n) out.add(n);
+  }
+  for (const c of pinCtx.cores || []) {
+    if (c) out.add(String(c));
+  }
+  return [...out];
+}
+
+function assemblyInPinScope(entry, pinTokens) {
+  if (!pinTokens?.length) return true;
+  const series = entry?.seriesTokens || [];
+  if (!series.length) return true;
+  for (const tok of series) {
+    for (const pin of pinTokens) {
+      if (pin === tok) return true;
+      if (pin.includes(tok) || tok.includes(pin)) return true;
+      // capacity core soft match (3237 inside N3237 / KM3237)
+      const core = capacityCore(tok);
+      if (core && pin.includes(core)) return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * Score / annotate assembly vs sub-component for a matched part.
+ * @returns {{
+ *   delta: number,
+ *   assemblyRank: number,
+ *   isSubComponent: boolean,
+ *   isAssembly: boolean,
+ *   subOf: null|{code: string, shortName: string, name: string, parents?: Array<{code: string, shortName: string, name: string}>},
+ *   reason: string|null
+ * }}
+ */
+export function scoreAssemblyRole(part, query, hierarchyIndex, pinCtx = null) {
+  const empty = {
+    delta: 0,
+    assemblyRank: 0,
+    isSubComponent: false,
+    isAssembly: false,
+    subOf: null,
+    reason: null,
+  };
+  if (!hierarchyIndex || !query) return empty;
+
+  const conceptHit = matchAssemblyConcept(hierarchyIndex, query);
+  if (!conceptHit) return empty;
+
+  const q = normalise(query);
+  const nameN = normalise(part.name);
+  const code = String(part.code || "").trim();
+  const pinTokens = pinChassisTokens(pinCtx);
+  const hasPin = Boolean(pinCtx);
+  const concept = conceptHit.concept;
+  const child = hierarchyIndex.childByCode.get(code);
+  const parent = hierarchyIndex.parentByCode.get(code);
+
+  // Explicit child of a mapped parent (may be shared across multiple loops)
+  if (child) {
+    const parentLinks = child.parents?.length
+      ? child.parents
+      : [
+          {
+            parentCode: child.parentCode,
+            parentName: child.parentName,
+            shortName: child.shortName,
+            seriesTokens: child.seriesTokens,
+          },
+        ];
+    const scoped = parentLinks.some((p) =>
+      assemblyInPinScope(
+        { seriesTokens: p.seriesTokens || child.seriesTokens },
+        pinTokens
+      )
+    );
+    // Free search: always demote known children. Pinned: only chassis-scoped.
+    if (!hasPin || scoped) {
+      const parents = parentLinks.map((p) => {
+        const parentRec = hierarchyIndex.parentByCode.get(p.parentCode);
+        return {
+          code: p.parentCode,
+          shortName: p.shortName || parentRec?.shortName || p.parentCode,
+          name:
+            p.parentName ||
+            parentRec?.parentName ||
+            p.shortName ||
+            p.parentCode,
+        };
+      });
+      const label = parents
+        .map((p) => `${p.code} ${p.shortName}`.trim())
+        .join(" / ");
+      return {
+        delta: hasPin && scoped ? -55 : -45,
+        assemblyRank: -2,
+        isSubComponent: true,
+        isAssembly: false,
+        subOf: {
+          code: parents[0].code,
+          shortName: parents[0].shortName,
+          name: parents[0].name,
+          parents,
+        },
+        reason: `sub-component of ${label}`,
+      };
+    }
+  }
+
+  // Mapped parent / top-half assembly
+  if (parent && (!parent.conceptId || parent.conceptId === concept.id)) {
+    const scoped = assemblyInPinScope(parent, pinTokens);
+    if (hasPin && !scoped) {
+      // Other chassis assembly — leave alone beyond heuristics below
+    } else if (parent.demoteForBareConcept || parent.assemblyRole === "top-half") {
+      const cue = nameHasDemotionCue(nameN, hierarchyIndex.demotionCues, q);
+      if (cue) {
+        return {
+          delta: hasPin && scoped ? -35 : -28,
+          assemblyRank: -1,
+          isSubComponent: true,
+          isAssembly: false,
+          subOf: null,
+          reason: `partial assembly (${cue})`,
+        };
+      }
+    } else {
+      return {
+        delta: hasPin && scoped ? 70 : 55,
+        assemblyRank: 3,
+        isSubComponent: false,
+        isAssembly: true,
+        subOf: null,
+        reason: "complete assembly",
+      };
+    }
+  }
+
+  // Heuristic: name matches concept patterns
+  if (!nameMatchesAssemblyPatterns(nameN, concept.assemblyNamePatterns)) {
+    return empty;
+  }
+
+  const cue = nameHasDemotionCue(nameN, hierarchyIndex.demotionCues, q);
+  if (cue) {
+    // Infer parent note from hierarchy when possible (same chassis token)
+    let subOf = null;
+    const chassis = extractChassisTokens(part.name);
+    for (const [, p] of hierarchyIndex.parentByCode) {
+      if (p.conceptId && p.conceptId !== concept.id) continue;
+      if (p.demoteForBareConcept) continue;
+      if (!assemblyInPinScope(p, chassis.length ? chassis : pinTokens)) continue;
+      if (hasPin && !assemblyInPinScope(p, pinTokens)) continue;
+      subOf = {
+        code: p.parentCode,
+        shortName: p.shortName,
+        name: p.parentName || p.shortName,
+      };
+      break;
+    }
+    return {
+      delta: -30,
+      assemblyRank: -1,
+      isSubComponent: true,
+      isAssembly: false,
+      subOf,
+      reason: `demotion cue ${cue}`,
+    };
+  }
+
+  // Clean assembly-shaped name for this concept (heuristic — below mapped parents)
+  return {
+    delta: hasPin ? 28 : 22,
+    assemblyRank: 1,
+    isSubComponent: false,
+    isAssembly: true,
+    subOf: null,
+    reason: "assembly name match",
+  };
+}
+
+/**
  * Trade-alias hit quality against a part name.
  * @returns {{ strength: number, label: string|null, preferred: boolean }}
  */
@@ -659,6 +1094,9 @@ function scoreTradeHit(partNameN, tradeHits) {
  *   tradeAliases?: object|null,
  *   partAbbrevs?: object|null,
  *   abbrevIndex?: object|null,
+ *   assemblyHierarchy?: object|null,
+ *   assemblyIndex?: object|null,
+ *   partBlurbs?: object|null,
  *   isPartVisible?: ((part: object) => boolean)|null,
  * }} [opts]
  * @returns {Array<object>}
@@ -694,6 +1132,14 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
     : { singles: [], phrases: [] };
   /** Whole query is itself a locked form — don't token-flood on words like "with"/"panel". */
   const exactAbbrevQuery = Boolean(abbrevIndex?.formToGroup.has(q));
+  const assemblyIndex =
+    opts.assemblyIndex ||
+    (opts.assemblyHierarchy
+      ? buildAssemblyIndex(opts.assemblyHierarchy)
+      : null);
+  const assemblyConcept = assemblyIndex
+    ? matchAssemblyConcept(assemblyIndex, query)
+    : null;
   const modelsById = Object.fromEntries(
     (catalogue.models || []).map((m) => [m.id, m])
   );
@@ -722,6 +1168,15 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
     const aliasesX = aliasesExpanded.map((a) => a.text);
     const categoryN = normalise(part.category);
     const sheetN = normalise(part.sheet);
+    // Layman fields: expanded card title + plain-English blurb (always searchable,
+    // but scored below strong code/name so they don't steal Primary).
+    const display = expandDisplayTitle(part.name || "", abbrevIndex);
+    const displayN = normalise(display.title);
+    const displayDistinct =
+      Boolean(displayN) && displayN !== nameN && display.expanded;
+    const blurbN = normalise(
+      plainEnglishSummary(part, assemblyIndex, abbrevIndex, opts.partBlurbs)
+    );
     const partModelIds = part.modelIds || [];
 
     const fit = scorePartFit(part, pinCtx);
@@ -810,6 +1265,18 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
         matchedOn.push("category");
       }
 
+      // Expanded display title (when it differs from official name)
+      if (displayDistinct && laymanFieldHit(displayN, q, qTokens)) {
+        score += displayN === q ? 48 : 38;
+        matchedOn.push("display-title");
+      }
+
+      // Plain-English blurb — layman phrases that miss trade/PL jargon
+      if (blurbN && laymanFieldHit(blurbN, q, qTokens)) {
+        score += blurbN === q ? 42 : 36;
+        matchedOn.push("blurb");
+      }
+
       // Token overlap — trade official patterns + single-token abbrev synonyms
       const extraTokens = hasTrade
         ? tradeHits.flatMap((h) =>
@@ -838,8 +1305,13 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
           sheetN,
           ...aliasesX,
         ].join(" ");
+        const laymanHaystack = [displayDistinct ? displayN : "", blurbN]
+          .filter(Boolean)
+          .join(" ");
         let hits = 0;
         let weighed = 0;
+        let laymanHits = 0;
+        let laymanWeighed = 0;
         let abbrevTokenHit = false;
         for (const t of searchTokens) {
           const isAbbrevForm = abbrevForms.singles.includes(t);
@@ -858,6 +1330,9 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
             ) {
               abbrevTokenHit = true;
             }
+          } else if (laymanHaystack && laymanHaystack.includes(t)) {
+            laymanHits += 1;
+            laymanWeighed += t.length >= 4 ? 2 : 1;
           }
         }
         for (const ph of abbrevForms.phrases) {
@@ -887,6 +1362,17 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
               abbrevIndex
             );
           }
+        } else if (laymanHits > 0) {
+          // Blurb / display-title tokens only — capped below name/code token path
+          const denom = Math.max(1, qTokens.length);
+          score += Math.round(
+            (laymanHits / Math.max(denom, searchTokens.length)) * 22
+          );
+          score += Math.min(12, laymanWeighed);
+          const blurbTokHit =
+            Boolean(blurbN) && searchTokens.some((t) => blurbN.includes(t));
+          const tag = blurbTokHit ? "blurb" : "display-title";
+          if (!matchedOn.includes(tag)) matchedOn.push(tag);
         }
       }
 
@@ -922,6 +1408,13 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
       }
     }
 
+    const assembly = scoreAssemblyRole(part, query, assemblyIndex, pinCtx);
+    if (assembly.delta) {
+      score += assembly.delta;
+      if (assembly.isAssembly) matchedOn.push("assembly");
+      else if (assembly.isSubComponent) matchedOn.push("sub-component");
+    }
+
     const fittedModels = partModelIds
       .map((id) => modelsById[id])
       .filter(Boolean);
@@ -940,6 +1433,10 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
       );
     }
 
+    const parentRec = assemblyIndex?.parentByCode?.get(
+      String(part.code || "").trim()
+    );
+
     results.push({
       part,
       score,
@@ -950,13 +1447,27 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
       aliasStrength,
       abbrevLabels,
       fitRank,
+      assemblyRank: assembly.assemblyRank || 0,
+      isAssembly: Boolean(assembly.isAssembly),
+      isSubComponent: Boolean(assembly.isSubComponent),
+      subOf: assembly.subOf || null,
+      assemblyReason: assembly.reason,
+      duoGroup: parentRec?.duoGroup || null,
       fittedModels,
       isPrimary: false,
+      isDuoAssembly: false,
+      duoRole: null,
+      duoLabel: null,
+      duoPartnerCode: null,
+      duoNeedBothNote: null,
     });
   }
 
   results.sort((a, b) => {
     if (hasPin && b.fitRank !== a.fitRank) return b.fitRank - a.fitRank;
+    if (assemblyConcept && b.assemblyRank !== a.assemblyRank) {
+      return b.assemblyRank - a.assemblyRank;
+    }
     if (hasPin && b.aliasStrength !== a.aliasStrength) {
       return b.aliasStrength - a.aliasStrength;
     }
@@ -965,14 +1476,127 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
   });
 
   const sliced = results.slice(0, limit);
-  if (hasPin && sliced.length) {
-    // Primary = top exact-fit hit when present; else top related; else none
-    const primaryIdx = sliced.findIndex((r) => r.fitTier === "exact");
-    const idx = primaryIdx >= 0 ? primaryIdx : sliced[0].fitTier === "related" ? 0 : -1;
-    if (idx >= 0) sliced[idx].isPrimary = true;
+  if (sliced.length) {
+    if (hasPin) {
+      // Prefer complete assembly among exact-fit when query targets an assembly concept
+      if (assemblyConcept) {
+        const assemblyExact = sliced.findIndex(
+          (r) => r.fitTier === "exact" && r.isAssembly && !r.isSubComponent
+        );
+        if (assemblyExact >= 0) {
+          sliced[assemblyExact].isPrimary = true;
+        } else {
+          const primaryIdx = sliced.findIndex((r) => r.fitTier === "exact");
+          const idx =
+            primaryIdx >= 0
+              ? primaryIdx
+              : sliced[0].fitTier === "related"
+                ? 0
+                : -1;
+          if (idx >= 0) sliced[idx].isPrimary = true;
+        }
+      } else {
+        const primaryIdx = sliced.findIndex((r) => r.fitTier === "exact");
+        const idx =
+          primaryIdx >= 0
+            ? primaryIdx
+            : sliced[0].fitTier === "related"
+              ? 0
+              : -1;
+        if (idx >= 0) sliced[idx].isPrimary = true;
+      }
+    } else if (assemblyConcept) {
+      const assemblyIdx = sliced.findIndex(
+        (r) => r.isAssembly && !r.isSubComponent
+      );
+      if (assemblyIdx >= 0) sliced[assemblyIdx].isPrimary = true;
+    }
+
+    markAssemblyDuos(sliced, assemblyIndex, assemblyConcept, { hasPin });
   }
 
   return sliced;
+}
+
+/**
+ * When a concept needs TOP+BTM halves (e.g. N3237 HEX), highlight both cards
+ * together and label roles so admin knows both are required.
+ * With a model/series pin, skip foreign-chassis duos so they don't steal
+ * Primary from an exact-fit single HEX (HD200e + hex → 92093550, not N3237).
+ */
+function markAssemblyDuos(
+  sliced,
+  assemblyIndex,
+  assemblyConcept,
+  { hasPin = false } = {}
+) {
+  if (!sliced?.length || !assemblyIndex?.parentByCode || !assemblyConcept) {
+    return;
+  }
+  const conceptId = assemblyConcept.concept?.id;
+  const byCode = new Map(sliced.map((r) => [String(r.part.code || ""), r]));
+
+  /** @type {Map<string, Array<object>>} */
+  const groups = new Map();
+  for (const row of sliced) {
+    const duo = row.duoGroup;
+    if (!duo?.id || !duo.partnerCode) continue;
+    const parent = assemblyIndex.parentByCode.get(String(row.part.code || ""));
+    if (parent?.conceptId && conceptId && parent.conceptId !== conceptId) {
+      continue;
+    }
+    if (!groups.has(duo.id)) groups.set(duo.id, []);
+    groups.get(duo.id).push(row);
+  }
+
+  for (const [, members] of groups) {
+    // Ensure partner rows are included when present in the result set
+    const codes = new Set(members.map((r) => String(r.part.code || "")));
+    for (const row of [...members]) {
+      const partnerCode = row.duoGroup?.partnerCode;
+      if (!partnerCode || codes.has(partnerCode)) continue;
+      const partner = byCode.get(partnerCode);
+      if (!partner) continue;
+      members.push(partner);
+      codes.add(partnerCode);
+    }
+    if (members.length < 2) continue;
+
+    // Pinned to another chassis: leave exact-fit Primary alone
+    if (hasPin) {
+      const duoFitsPin = members.some(
+        (r) => r.fitTier === "exact" || r.fitTier === "related"
+      );
+      if (!duoFitsPin) continue;
+    }
+
+    // Clear lone Primary — both halves share Primary/duo highlight
+    for (const row of sliced) row.isPrimary = false;
+
+    for (const row of members) {
+      const duo =
+        row.duoGroup ||
+        assemblyIndex.parentByCode.get(String(row.part.code || ""))?.duoGroup;
+      if (!duo) continue;
+      row.isPrimary = true;
+      row.isDuoAssembly = true;
+      row.duoRole = duo.role || null;
+      row.duoLabel = duo.label || (duo.role === "top" ? "TOP" : "BTM");
+      row.duoPartnerCode = duo.partnerCode || null;
+      row.duoNeedBothNote =
+        duo.needBothNote ||
+        "Check if both TOP and BTM are required; if not, order the singular one";
+      row.assemblyRank = Math.max(row.assemblyRank || 0, 4);
+    }
+
+    // Keep the duo at the top: TOP then BTM, then the rest
+    const roleOrder = (r) =>
+      r.duoRole === "top" ? 0 : r.duoRole === "bottom" ? 1 : 2;
+    members.sort((a, b) => roleOrder(a) - roleOrder(b));
+    const duoCodes = new Set(members.map((r) => String(r.part.code || "")));
+    const rest = sliced.filter((r) => !duoCodes.has(String(r.part.code || "")));
+    sliced.splice(0, sliced.length, ...members, ...rest);
+  }
 }
 
 export function getModelLabel(model) {

@@ -69,19 +69,102 @@ function serveLocalDataSheets() {
   };
 }
 
-export default defineConfig({
-  plugins: [serveLocalDataSheets()],
-  server: {
-    host: "0.0.0.0",
-    port: 5173,
-    strictPort: true,
-    fs: {
-      allow: [__dirname, dataSheetsDir],
+/**
+ * file:// builds must use a classic (non-module) script — Chrome/Edge treat
+ * each local file as an opaque origin, so type="module" fails on double-click.
+ */
+function classicScriptForFileBuild(isFileBuild) {
+  if (!isFileBuild) return null;
+  return {
+    name: "classic-script-for-file-build",
+    enforce: "post",
+    transformIndexHtml(html) {
+      let out = html
+        .replace(/\s*type="module"/g, "")
+        .replace(/\s*crossorigin/g, "")
+        .replace(/<link rel="modulepreload"[^>]*>/g, "");
+
+      // Module scripts are deferred; classic <script> in <head> runs before #app exists.
+      const re =
+        /<script\b[^>]*\bsrc="([^"]*assets\/[^"]+\.js)"[^>]*>\s*<\/script>/i;
+      const match = out.match(re);
+      if (match) {
+        out = out.replace(re, "");
+        const tag = `<script defer src="${match[1]}"></script>`;
+        if (/<\/body>/i.test(out)) {
+          out = out.replace(/<\/body>/i, `    ${tag}\n  </body>`);
+        } else {
+          out += `\n${tag}\n`;
+        }
+      }
+      return out;
     },
-  },
-  preview: {
-    host: "0.0.0.0",
-    port: 5173,
-    strictPort: true,
-  },
+  };
+}
+
+/** Swap fetch boot loader for the baked-JSON loader in --mode file. */
+function aliasBootDataForFile(isFileBuild) {
+  if (!isFileBuild) return null;
+  const target = path.resolve(__dirname, "src/boot-data.file.js");
+  return {
+    name: "alias-boot-data-for-file",
+    enforce: "pre",
+    resolveId(source) {
+      if (
+        source === "./boot-data.js" ||
+        source === "boot-data.js" ||
+        source.endsWith("/boot-data.js")
+      ) {
+        return target;
+      }
+      return null;
+    },
+  };
+}
+
+export default defineConfig(({ mode }) => {
+  const isFileBuild = mode === "file";
+
+  return {
+    base: isFileBuild ? "./" : "/",
+    plugins: [
+      aliasBootDataForFile(isFileBuild),
+      serveLocalDataSheets(),
+      classicScriptForFileBuild(isFileBuild),
+    ].filter(Boolean),
+    server: {
+      host: "0.0.0.0",
+      port: 5173,
+      strictPort: true,
+      fs: {
+        allow: [__dirname, dataSheetsDir],
+      },
+    },
+    preview: {
+      host: "0.0.0.0",
+      port: 5173,
+      strictPort: true,
+    },
+    build: isFileBuild
+      ? {
+          outDir: "dist",
+          emptyOutDir: true,
+          cssCodeSplit: false,
+          modulePreload: false,
+          assetsInlineLimit: 8192,
+          chunkSizeWarningLimit: 5000,
+          rollupOptions: {
+            output: {
+              format: "iife",
+              name: "RinnaiPartsApp",
+              inlineDynamicImports: true,
+              entryFileNames: "assets/app.js",
+              assetFileNames: "assets/[name]-[hash][extname]",
+            },
+          },
+        }
+      : {
+          outDir: "dist",
+        },
+  };
 });

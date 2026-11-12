@@ -16,10 +16,42 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import XLSX from "xlsx";
 import { applyModelRestrictionFields } from "../src/restriction.js";
+import { applyReuItemNumberFormat } from "../src/reu-format.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(__dirname, "..");
 const configPath = path.join(root, "public/data/config.json");
+const siteActiveUnrestrictPath = path.join(
+  root,
+  "public/data/model-site-active-unrestrict.json"
+);
+
+/**
+ * Site-listed AU marketing codes that stay selectable even when Column D still
+ * says NLA / customer-only. Export/butane siblings are intentionally omitted.
+ * @returns {Set<string>}
+ */
+function loadSiteActiveUnrestrictCodes() {
+  if (!fs.existsSync(siteActiveUnrestrictPath)) return new Set();
+  const doc = readJson(siteActiveUnrestrictPath);
+  const codes = (doc.marketingCodes || [])
+    .map((row) => String(row.marketingCode || "").trim().toUpperCase())
+    .filter(Boolean);
+  return new Set(codes);
+}
+
+/**
+ * Clear Description 2 restriction text for allowlisted site-active AU SKUs.
+ * @param {object} model
+ * @param {Set<string>} unrestrictCodes
+ */
+function applySiteActiveUnrestrict(model, unrestrictCodes) {
+  const code = String(model?.marketingCode || "").trim().toUpperCase();
+  if (!code || !unrestrictCodes.has(code)) return model;
+  model.description2 = null;
+  model.notes = null;
+  return applyModelRestrictionFields(model);
+}
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
@@ -98,6 +130,8 @@ function ingestModels(workbookPath) {
 
   const models = [];
   const seen = new Set();
+  const siteActiveUnrestrict = loadSiteActiveUnrestrictCodes();
+  let siteActiveCleared = 0;
 
   for (const row of rows) {
     const marketingCode = String(row["Marketing Code"] ?? "").trim();
@@ -116,27 +150,30 @@ function ingestModels(workbookPath) {
     }
     seen.add(id);
 
-    models.push(
-      applyModelRestrictionFields({
-        id,
-        brand: "Rinnai",
-        marketingCode: marketingCode || null,
-        itemNumber: itemNumber || null,
-        name: description || marketingCode || itemNumber,
-        sku: marketingCode || itemNumber,
-        description: description || null,
-        description2: description2 || null,
-        stockingType,
-        family: null,
-        fuel: null,
-        diagramUrl: null,
-        diagramPath: null,
-        notes: description2 || null,
-        restricted: false,
-        restrictionKind: null,
-        restrictionLabel: null,
-      })
-    );
+    const model = applyModelRestrictionFields({
+      id,
+      brand: "Rinnai",
+      marketingCode: marketingCode || null,
+      itemNumber: itemNumber || null,
+      name: description || marketingCode || itemNumber,
+      sku: marketingCode || itemNumber,
+      description: description || null,
+      description2: description2 || null,
+      stockingType,
+      family: null,
+      fuel: null,
+      diagramUrl: null,
+      diagramPath: null,
+      notes: description2 || null,
+      restricted: false,
+      restrictionKind: null,
+      restrictionLabel: null,
+    });
+    applyReuItemNumberFormat(model);
+    const beforeRestricted = model.restricted;
+    applySiteActiveUnrestrict(model, siteActiveUnrestrict);
+    if (beforeRestricted && !model.restricted) siteActiveCleared += 1;
+    models.push(model);
   }
 
   const restrictedCount = models.filter((m) => m.restricted).length;
@@ -151,8 +188,9 @@ function ingestModels(workbookPath) {
       updated: new Date().toISOString().slice(0, 10),
       count: models.length,
       restrictedCount,
+      siteActiveUnrestrictCleared: siteActiveCleared,
       notes:
-        "Fields preserved from REU-Model-History.xlsx. restricted* derived from Description 2 (NLA / export only / use-up / only-for). family/fuel/diagrams left null until Beau supplies them.",
+        "Fields preserved from REU-Model-History.xlsx. Item Numbers normalised to Rinnai hyphen schema (REU-…-50-AKN) via src/reu-format.js. restricted* derived from Description 2 (NLA / export only / use-up / only-for), then cleared for site-active AU codes in model-site-active-unrestrict.json. family/fuel/diagrams left null until Beau supplies them.",
     },
     models,
   };
@@ -343,7 +381,7 @@ function buildCatalogue(modelsDoc, pricesDoc, config) {
       updated: new Date().toISOString().slice(0, 10),
       notes:
         "Models from REU Model History. Parts from price list (all product sheets). Aliases/diagrams TBD.",
-      defaultMarginPercent: config.defaultMarginPercent ?? 20,
+      defaultMarginPercent: config.defaultMarginPercent ?? 25,
       gstRate: config.gstRate ?? 0.1,
       modelCount: modelsDoc.models.length,
       restrictedModelCount: modelsDoc.models.filter((m) => m.restricted).length,

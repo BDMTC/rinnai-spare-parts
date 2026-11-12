@@ -7,8 +7,10 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:file": "vite build --mode file",
     "preview": "vite preview",
     "ingest": "node scripts/ingest-source-data.mjs",
+    "sync:tech-sheets": "node scripts/sync-tech-sheets.mjs",
     "extract:pl-covers": "node scripts/extract-pl-cover-aliases.mjs"
   },
   "devDependencies": {
