@@ -3,7 +3,7 @@
   "locale": "en-AU",
   "currency": "AUD",
   "gstRate": 0.1,
-  "defaultMarginPercent": 20,
+  "defaultMarginPercent": 25,
   "marginNote": "Sell ex GST = net invoice ex GST × (1 + margin%/100). Inc GST = ex GST × 1.10.",
   "priceList": {
     "label": "Rinnai Spare Parts Price List",

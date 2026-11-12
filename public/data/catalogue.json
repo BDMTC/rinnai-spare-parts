@@ -5,7 +5,7 @@
     "locale": "en-AU",
     "updated": "2026-11-11",
     "notes": "Models from REU Model History. Parts from price list (all product sheets). Aliases/diagrams TBD.",
-    "defaultMarginPercent": 20,
+    "defaultMarginPercent": 25,
     "gstRate": 0.1,
     "modelCount": 454,
     "restrictedModelCount": 288,

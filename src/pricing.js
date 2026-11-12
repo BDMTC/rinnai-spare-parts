@@ -3,7 +3,7 @@
  * Base = net invoice ex GST. Sell ex GST = net × (1 + margin%/100). GST = 10%.
  */
 
-export const DEFAULT_MARGIN_PERCENT = 20;
+export const DEFAULT_MARGIN_PERCENT = 25;
 export const DEFAULT_GST_RATE = 0.1;
 /** Inclusive range for the on-screen margin selector (5% steps). */
 export const MARGIN_PERCENT_MIN = 0;

@@ -343,7 +343,7 @@ function buildCatalogue(modelsDoc, pricesDoc, config) {
       updated: new Date().toISOString().slice(0, 10),
       notes:
         "Models from REU Model History. Parts from price list (all product sheets). Aliases/diagrams TBD.",
-      defaultMarginPercent: config.defaultMarginPercent ?? 20,
+      defaultMarginPercent: config.defaultMarginPercent ?? 25,
       gstRate: config.gstRate ?? 0.1,
       modelCount: modelsDoc.models.length,
       restrictedModelCount: modelsDoc.models.filter((m) => m.restricted).length,
