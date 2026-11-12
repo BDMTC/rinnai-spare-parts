@@ -4,7 +4,7 @@ Local-first spare parts search for MTC Gas admin. Find parts by **order code**, 
 
 No backend required. Data loads from static JSON under `public/data/`.
 
-**Tip:** PR [#18](https://github.com/BDMTC/rinnai-spare-parts/pull/18) · branch `cursor/part-blurbs-enrichment-e386` @ `c10f35a` (offline `part-blurbs.json`; stacked on [#17](https://github.com/BDMTC/rinnai-spare-parts/pull/17)). Canonical TDD: Project Context `docs/rinnai-parts-tdd.md` (not this repo).
+**Tip:** PR [#18](https://github.com/BDMTC/rinnai-spare-parts/pull/18) · branch `cursor/part-blurbs-enrichment-e386` (offline `part-blurbs.json`; stacked on [#17](https://github.com/BDMTC/rinnai-spare-parts/pull/17)). Canonical TDD + live tip SHA: Project Context `docs/rinnai-parts-tdd.md` (not this repo).
 
 ## How to run
 
