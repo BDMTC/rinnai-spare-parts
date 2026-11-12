@@ -1,0 +1,81 @@
+{
+  "version": 1,
+  "updated": "2026-11-12",
+  "title": "Site-listed AU models forced unrestricted in the picker",
+  "source": "docs/rinnai-site-vs-greyed-units.md section A (site-listed + AU greys)",
+  "notes": "Clears Description 2 / notes restriction flags for these marketing codes so the model picker treats them as normal selectable units. Export/butane siblings from section B stay grey. Survives re-ingest via scripts/ingest-source-data.mjs.",
+  "marketingCodes": [
+    {
+      "marketingCode": "B26N50A",
+      "itemNumber": "REUA2626WB50AKN",
+      "siteUnit": "B26 Black (REU-A2626WB)",
+      "formerDescription2": "WHEN NLA PLS USE *INF26N50B"
+    },
+    {
+      "marketingCode": "B26N75A",
+      "itemNumber": "REUA2626WB75AKN",
+      "siteUnit": "B26 Black (REU-A2626WB)",
+      "formerDescription2": "*NLA*"
+    },
+    {
+      "marketingCode": "INF16N50MA",
+      "itemNumber": "REUAM1620WD50AKN",
+      "siteUnit": "Infinity 16 (REU-AM1620WD)",
+      "formerDescription2": "**NLA** PLS USE *INF16N50B"
+    },
+    {
+      "marketingCode": "B20N50A",
+      "itemNumber": "REUA2024WB50AKN",
+      "siteUnit": "Infinity 20 (REU-A2024WB)",
+      "formerDescription2": "**NLA** PLS USE *INF20N50B"
+    },
+    {
+      "marketingCode": "B20N60A",
+      "itemNumber": "REUA2024WB60AKN",
+      "siteUnit": "Infinity 20 (REU-A2024WB)",
+      "formerDescription2": "**NLA** PLS USE *INF20N60B"
+    },
+    {
+      "marketingCode": "INF26N50MA",
+      "itemNumber": "REUAM2626WD50AKN",
+      "siteUnit": "Infinity 26 (REU-AM2626WD)",
+      "formerDescription2": "WHEN NLA PLS USE *INF26N50B"
+    },
+    {
+      "marketingCode": "INF26N50MABLK",
+      "itemNumber": "REUAM2626WD50AKNBLK",
+      "siteUnit": "Infinity 26 (REU-AM2626WD)",
+      "formerDescription2": "**ONLY FOR REECE,USE-UP/NLA**"
+    },
+    {
+      "marketingCode": "INF26N60MABLK",
+      "itemNumber": "REUAM2626WD60AKNBLK",
+      "siteUnit": "Infinity 26 (REU-AM2626WD)",
+      "formerDescription2": "**ONLY FOR REECE,USE-UP/NLA**"
+    },
+    {
+      "marketingCode": "INF32L50M",
+      "itemNumber": "REUVRM3237WG50KL",
+      "siteUnit": "S32 Solar Booster (REU-VRM3237WG)",
+      "formerDescription2": "NLA PLS USE *INF32L50MA"
+    },
+    {
+      "marketingCode": "INF32L60M",
+      "itemNumber": "REUVRM3237WG60KL",
+      "siteUnit": "S32 Solar Booster (REU-VRM3237WG)",
+      "formerDescription2": "NLA PLS USE *INF32L60MA"
+    },
+    {
+      "marketingCode": "INF32N50M",
+      "itemNumber": "REUVRM3237WG50KN",
+      "siteUnit": "S32 Solar Booster (REU-VRM3237WG)",
+      "formerDescription2": "NLA PLS USE *INF32N50MA"
+    },
+    {
+      "marketingCode": "INF32N60M",
+      "itemNumber": "REUVRM3237WG60KN",
+      "siteUnit": "S32 Solar Booster (REU-VRM3237WG)",
+      "formerDescription2": "NLA PLS USE *INF32N60MA"
+    }
+  ]
+}

@@ -53,6 +53,7 @@
     "Run: npm run ingest (authoritative production catalogue). Admin browser import is a local overlay + change-queue intent only.",
     "Restart or refresh the app — search uses public/data/prices.json and public/data/models.json (plus localStorage admin overlays).",
     "Series aliases (HD28 ↔ VCM2837 etc.) are hand-maintained in public/data/series-aliases.json — not overwritten by ingest.",
+    "Site-active AU model unrestrict list (public/data/model-site-active-unrestrict.json) clears Description 2 greying for listed marketing codes during ingest — export/butane siblings stay grey.",
     "Trade aliases (flow servo → WATER FLOW SENSOR etc.) are hand-maintained in public/data/trade-aliases.json — not overwritten by ingest.",
     "Data-sheet PDFs: keep under data-sheets/ (e.g. C:\\Temp\\rinnai-spare-parts\\data-sheets\\). Index stays available in code; main search UI no longer lists sheets.",
     "Tech sheet refresh: npm run sync:tech-sheets -- --mirror <path-to-rinnai-tech-latest> (map in public/data/tech-sheet-sync.json). Use --index-only to rewrite document-index.json without copying PDFs.",
