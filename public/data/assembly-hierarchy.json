@@ -93,7 +93,7 @@
         "role": "top",
         "partnerCode": "92099477",
         "label": "TOP",
-        "needBothNote": "Whole HEX needs TOP + BTM"
+        "needBothNote": "Check if both TOP and BTM are required; if not, order the singular one"
       },
       "children": [
         {
@@ -129,7 +129,7 @@
         "role": "bottom",
         "partnerCode": "92099423",
         "label": "BTM",
-        "needBothNote": "Whole HEX needs TOP + BTM"
+        "needBothNote": "Check if both TOP and BTM are required; if not, order the singular one"
       },
       "children": [
         {

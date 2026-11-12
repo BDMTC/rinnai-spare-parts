@@ -675,7 +675,8 @@ export function buildAssemblyIndex(hierarchyDoc) {
             partnerCode: String(duoRaw.partnerCode || "").trim(),
             label: String(duoRaw.label || duoRaw.role || "").trim(),
             needBothNote: String(
-              duoRaw.needBothNote || "Whole assembly needs both halves"
+              duoRaw.needBothNote ||
+                "Check if both TOP and BTM are required; if not, order the singular one"
             ).trim(),
           }
         : null,
@@ -1482,7 +1483,9 @@ function markAssemblyDuos(sliced, assemblyIndex, assemblyConcept) {
       row.duoRole = duo.role || null;
       row.duoLabel = duo.label || (duo.role === "top" ? "TOP" : "BTM");
       row.duoPartnerCode = duo.partnerCode || null;
-      row.duoNeedBothNote = duo.needBothNote || "Whole assembly needs both halves";
+      row.duoNeedBothNote =
+        duo.needBothNote ||
+        "Check if both TOP and BTM are required; if not, order the singular one";
       row.assemblyRank = Math.max(row.assemblyRank || 0, 4);
     }
 
