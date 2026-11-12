@@ -495,14 +495,38 @@ function heuristicSummaryFromName(nameN, displayTitle) {
 }
 
 /**
+ * Resolve an offline curated blurb from part-blurbs.json.
+ * @param {string} code
+ * @param {object|null|undefined} blurbDoc
+ * @returns {string|null}
+ */
+function curatedBlurb(code, blurbDoc) {
+  if (!code || !blurbDoc) return null;
+  const entry = blurbDoc.blurbs?.[code] || blurbDoc[code];
+  if (!entry) return null;
+  if (typeof entry === "string") {
+    const t = entry.trim();
+    return t || null;
+  }
+  const t = String(entry.text || "").trim();
+  return t || null;
+}
+
+/**
  * Short plain-English summary for every result card.
- * Assembly maps add richer / uniqueness copy when present; otherwise heuristics.
+ * Order: assembly-map facts → curated offline blurbs → name heuristics.
  * @param {object} part
  * @param {{ parentByCode?: Map, childByCode?: Map }|null} assemblyIndex
  * @param {{ groups?: Array }|null} [abbrevIndex]
+ * @param {object|null} [blurbDoc] part-blurbs.json
  * @returns {string}
  */
-export function plainEnglishSummary(part, assemblyIndex, abbrevIndex = null) {
+export function plainEnglishSummary(
+  part,
+  assemblyIndex,
+  abbrevIndex = null,
+  blurbDoc = null
+) {
   if (!part) return "Spare part from the price list.";
   const code = String(part.code || "").trim();
   const nameN = normalise(part.name);
@@ -583,6 +607,9 @@ export function plainEnglishSummary(part, assemblyIndex, abbrevIndex = null) {
     }
     return `Sub-component${parentNote || " of a mapped assembly"}.`;
   }
+
+  const curated = curatedBlurb(code, blurbDoc);
+  if (curated) return curated;
 
   return heuristicSummaryFromName(nameN, displayTitle);
 }

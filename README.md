@@ -4,7 +4,7 @@ Local-first spare parts search for MTC Gas admin. Find parts by **order code**, 
 
 No backend required. Data loads from static JSON under `public/data/`.
 
-**Tip (PR [#17](https://github.com/BDMTC/rinnai-spare-parts/pull/17)):** branch `cursor/layman-card-blurbs-e386` (layman titles/blurbs + searchable blurbs; on #15 assembly tip). Canonical TDD lives in Project Context `docs/rinnai-parts-tdd.md` (not this repo) — see that header for the live tip SHA.
+**Tip:** branch `cursor/part-blurbs-enrichment-e386` (offline `part-blurbs.json` enrichment) stacked on PR [#17](https://github.com/BDMTC/rinnai-spare-parts/pull/17) `cursor/layman-card-blurbs-e386`. Canonical TDD lives in Project Context `docs/rinnai-parts-tdd.md` (not this repo) — see that header for the live tip SHA.
 
 ## How to run
 
@@ -73,6 +73,7 @@ Admin can also **Import & review** a workbook in-browser (same A/C/K row-6 rules
 | `public/data/document-index.json` | Portable PDF index (paths + series tags) — **no binaries** |
 | `public/data/tech-sheet-sync.json` | Map of Tech-mirror PLs to replace/add into local sheets |
 | `public/data/part-name-abbreviations.json` | Bidirectional short↔long part-name search aliases |
+| `public/data/part-blurbs.json` | Offline layman card blurbs (assembly-rich still wins when mapped) |
 | `data-sheets/` | Local PDFs only (gitignored). Vite serves at `/data-sheets/` |
 
 ## Local data sheets (PDF open)
