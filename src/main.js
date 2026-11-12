@@ -1266,39 +1266,20 @@ function renderResults(query, pin) {
     if (notPurchasable) li.classList.add("result--not-available");
     if (part.adminFlagged) li.classList.add("result--flagged");
 
-    const storedAliases = part.aliases || [];
-    const abbrevLabels = row.abbrevLabels || [];
-    const aliasChips = [];
-    for (const a of storedAliases) {
-      aliasChips.push(
-        `<span class="alias">${highlight(a, query)}</span>`
+    const fitChips = [];
+    if (fittedModels.length) {
+      for (const m of fittedModels) {
+        const active = hasPin && activePin.modelIds.includes(m.id);
+        const cls = active ? "model-tag model-tag--active" : "model-tag";
+        fitChips.push(
+          `<span class="${cls}">${escapeHtml(m.sku || m.name)}</span>`
+        );
+      }
+    } else if (hasPin && fitReason) {
+      fitChips.push(
+        `<span class="model-tag model-tag--fit">${escapeHtml(fitReason)}</span>`
       );
     }
-    for (const label of abbrevLabels) {
-      aliasChips.push(
-        `<span class="alias alias--abbrev">${escapeHtml(label)}</span>`
-      );
-    }
-    const tradeAliasesForPart = aliasChips.length
-      ? aliasChips.join("")
-      : `<span class="muted">No stored part aliases — global abbrev search still applies</span>`;
-
-    const chassisBit =
-      hasPin && fitReason
-        ? `<span class="muted fit-reason">${escapeHtml(fitReason)}</span>`
-        : "";
-
-    const modelsHtml = fittedModels.length
-      ? fittedModels
-          .map((m) => {
-            const active = hasPin && activePin.modelIds.includes(m.id);
-            const cls = active
-              ? "model-tag model-tag--active"
-              : "model-tag";
-            return `<span class="${cls}">${escapeHtml(m.sku || m.name)}</span>`;
-          })
-          .join("")
-      : chassisBit || `<span class="muted">Fit inferred from chassis in description</span>`;
 
     const duoBadge = isDuoAssembly
       ? `<span class="badge badge--duo">${escapeHtml(
@@ -1417,8 +1398,7 @@ function renderResults(query, pin) {
                 )}</p>`
               : ""
           }
-          <p class="result-summary">${escapeHtml(summaryLine)}</p>
-          <div class="result-tags">${categoryBit}</div>
+          <div class="result-tags">${categoryBit}${fitChips.join("")}</div>
         </div>
         <div class="result-head-actions">
           <div class="result-flags">${duoBadge}${subBadge}${fitBadge}${notAvailableBadge}${flagBadge}</div>
@@ -1427,11 +1407,8 @@ function renderResults(query, pin) {
       </div>
       <div class="result-body">
         ${renderPriceBlock(part)}
-        <div class="result-block">
-          <h3>Aliases</h3>
-          <div class="alias-row">${tradeAliasesForPart}</div>
-          <h3 class="subhead">Model fit</h3>
-          <div class="model-row">${modelsHtml}</div>
+        <div class="result-block result-block--summary">
+          <p class="result-summary">${escapeHtml(summaryLine)}</p>
         </div>
       </div>
       <div class="result-foot">
