@@ -1362,12 +1362,13 @@ function renderResults(query, pin) {
           ${
             isPrimary && isDuoAssembly
               ? `<p class="primary-kicker primary-kicker--duo">${escapeHtml(
-                  duoNeedBothNote || "Whole assembly needs TOP + BTM"
+                  duoNeedBothNote ||
+                    "Check if both TOP and BTM are required; if not, order the singular one"
                 )} · this card is ${escapeHtml(
                   duoLabel || (duoRole === "top" ? "TOP" : "BTM")
                 )}${
                   duoPartnerCode
-                    ? ` · also need ${escapeHtml(duoPartnerCode)}`
+                    ? ` · partner ${escapeHtml(duoPartnerCode)}`
                     : ""
                 }</p>`
               : isPrimary
