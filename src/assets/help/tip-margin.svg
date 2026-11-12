@@ -4,7 +4,7 @@
   <rect x="40" y="36" width="200" height="108" rx="12" fill="#ffffff" stroke="#c5d0db"/>
   <text x="56" y="62" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="650" fill="#5a6b7a">Margin %</text>
   <rect x="56" y="74" width="168" height="42" rx="10" fill="#fff" stroke="#4f90c8" stroke-width="2"/>
-  <text x="70" y="101" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#122033">30% (default)</text>
+  <text x="70" y="101" font-family="Segoe UI, Arial, sans-serif" font-size="16" fill="#122033">25% (default)</text>
   <path d="M270 95 L320 95" stroke="#f47921" stroke-width="3" stroke-linecap="round"/>
   <polygon points="320,89 336,95 320,101" fill="#f47921"/>
   <text x="268" y="74" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="700" fill="#9a3f0c">Your sell markup</text>
