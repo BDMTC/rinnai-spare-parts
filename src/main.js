@@ -1388,8 +1388,16 @@ function renderResults(query, pin) {
                   }</p>`
                 : subOfKicker
           }
-          <p class="result-code"><span class="result-field-label">Rinnai part code:</span> ${highlight(part.code, query)}</p>
-          <h2 class="result-name"><span class="result-field-label">Rinnai description:</span> ${highlight(displayTitle, query)}</h2>
+          <div class="result-identity">
+            <p class="result-identity-row result-code">
+              <span class="result-field-label">Rinnai part code:</span>
+              <span class="result-field-value">${highlight(part.code, query)}</span>
+            </p>
+            <h2 class="result-identity-row result-name">
+              <span class="result-field-label">Rinnai description:</span>
+              <span class="result-field-value">${highlight(displayTitle, query)}</span>
+            </h2>
+          </div>
           ${
             showOfficialName
               ? `<p class="result-official" title="Official price-list wording">${highlight(
