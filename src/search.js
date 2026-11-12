@@ -161,3 +161,39 @@ export function getModelLabel(model) {
   const sku = model.sku || model.marketingCode;
   return sku ? `${model.name} (${sku})` : model.name;
 }
+
+/**
+ * Prefer marketing display names (HD200e / HD200i) when series or name implies them.
+ * @param {object} model
+ * @param {object|null} [series]
+ */
+export function getModelDisplayName(model, series = null) {
+  if (!model) return "";
+  const sku = String(model.sku || model.marketingCode || "");
+  const name = String(model.name || model.description || "");
+  const nameU = name.toUpperCase().replace(/\s+/g, "");
+
+  // Explicit HD200E / HD200I / HD28E / HD28I in description
+  const named = nameU.match(/\bHD(\d+)([EI])\b/) || nameU.match(/HD(\d+)([EI])(?=[^A-Z]|$)/);
+  if (named) {
+    const label = `HD${named[1]}${named[2].toLowerCase()}`;
+    return sku ? `${label} · ${sku}` : label;
+  }
+
+  if (series?.label && /^HD\d+[ei]$/i.test(series.label)) {
+    return sku ? `${series.label} · ${sku}` : series.label;
+  }
+
+  // Heuristic from sku: HD28E* / HD28I* / HD200I*
+  const skuU = sku.toUpperCase();
+  if (/^HD\d+I/.test(skuU)) {
+    const n = skuU.match(/^HD(\d+)/)?.[1];
+    if (n) return `HD${n}i · ${sku}`;
+  }
+  if (/^HD\d+E/.test(skuU)) {
+    const n = skuU.match(/^HD(\d+)/)?.[1];
+    if (n) return `HD${n}e · ${sku}`;
+  }
+
+  return getModelLabel(model);
+}

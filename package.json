@@ -8,7 +8,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "ingest": "node scripts/ingest-source-data.mjs"
+    "ingest": "node scripts/ingest-source-data.mjs",
+    "extract:pl-covers": "node scripts/extract-pl-cover-aliases.mjs"
   },
   "devDependencies": {
     "vite": "^8.3.6",
