@@ -943,7 +943,17 @@ input[type="number"]:focus {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: flex-end;
   gap: 0.55rem;
+  margin-left: auto;
+}
+
+.result-foot-actions .diagram-ref {
+  margin: 0;
+}
+
+.result-foot-actions .flag-part-btn {
+  flex-shrink: 0;
 }
 
 .add-quote-btn,
