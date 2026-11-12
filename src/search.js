@@ -12,6 +12,50 @@
 
 import { documentKeysForPin } from "./series.js";
 import { unitClassOf, seriesKeyMatchesTag, normalise as normaliseKey } from "./documents.js";
+import {
+  expandDisplayTitle,
+  plainEnglishSummary,
+} from "./display-name.js";
+
+/** Stopwords ignored when matching layman queries against blurbs / display titles. */
+const LAYMAN_STOP = new Set([
+  "a",
+  "an",
+  "and",
+  "for",
+  "from",
+  "of",
+  "on",
+  "or",
+  "the",
+  "this",
+  "that",
+  "to",
+  "with",
+  "unit",
+]);
+
+/**
+ * True when the query phrase (or its content tokens) hits a layman field.
+ * Allows "only fan on this unit" to match "…the only fan assembly on this unit."
+ * Content tokens must appear in order so "top half…" does not credit a BTM blurb
+ * that only mentions "top" later in the sentence.
+ */
+function laymanFieldHit(fieldN, q, qTokens) {
+  if (!fieldN || !q || q.length < 3) return false;
+  if (fieldN === q || fieldN.includes(q)) return true;
+  const content = (qTokens || []).filter(
+    (t) => t.length >= 3 && !LAYMAN_STOP.has(t)
+  );
+  if (content.length < 2) return false;
+  let pos = 0;
+  for (const t of content) {
+    const i = fieldN.indexOf(t, pos);
+    if (i < 0) return false;
+    pos = i + t.length;
+  }
+  return true;
+}
 
 function normalise(text) {
   return String(text || "")
@@ -1123,6 +1167,15 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
     const aliasesX = aliasesExpanded.map((a) => a.text);
     const categoryN = normalise(part.category);
     const sheetN = normalise(part.sheet);
+    // Layman fields: expanded card title + plain-English blurb (always searchable,
+    // but scored below strong code/name so they don't steal Primary).
+    const display = expandDisplayTitle(part.name || "", abbrevIndex);
+    const displayN = normalise(display.title);
+    const displayDistinct =
+      Boolean(displayN) && displayN !== nameN && display.expanded;
+    const blurbN = normalise(
+      plainEnglishSummary(part, assemblyIndex, abbrevIndex)
+    );
     const partModelIds = part.modelIds || [];
 
     const fit = scorePartFit(part, pinCtx);
@@ -1211,6 +1264,18 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
         matchedOn.push("category");
       }
 
+      // Expanded display title (when it differs from official name)
+      if (displayDistinct && laymanFieldHit(displayN, q, qTokens)) {
+        score += displayN === q ? 48 : 38;
+        matchedOn.push("display-title");
+      }
+
+      // Plain-English blurb — layman phrases that miss trade/PL jargon
+      if (blurbN && laymanFieldHit(blurbN, q, qTokens)) {
+        score += blurbN === q ? 42 : 36;
+        matchedOn.push("blurb");
+      }
+
       // Token overlap — trade official patterns + single-token abbrev synonyms
       const extraTokens = hasTrade
         ? tradeHits.flatMap((h) =>
@@ -1239,8 +1304,13 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
           sheetN,
           ...aliasesX,
         ].join(" ");
+        const laymanHaystack = [displayDistinct ? displayN : "", blurbN]
+          .filter(Boolean)
+          .join(" ");
         let hits = 0;
         let weighed = 0;
+        let laymanHits = 0;
+        let laymanWeighed = 0;
         let abbrevTokenHit = false;
         for (const t of searchTokens) {
           const isAbbrevForm = abbrevForms.singles.includes(t);
@@ -1259,6 +1329,9 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
             ) {
               abbrevTokenHit = true;
             }
+          } else if (laymanHaystack && laymanHaystack.includes(t)) {
+            laymanHits += 1;
+            laymanWeighed += t.length >= 4 ? 2 : 1;
           }
         }
         for (const ph of abbrevForms.phrases) {
@@ -1288,6 +1361,17 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
               abbrevIndex
             );
           }
+        } else if (laymanHits > 0) {
+          // Blurb / display-title tokens only — capped below name/code token path
+          const denom = Math.max(1, qTokens.length);
+          score += Math.round(
+            (laymanHits / Math.max(denom, searchTokens.length)) * 22
+          );
+          score += Math.min(12, laymanWeighed);
+          const blurbTokHit =
+            Boolean(blurbN) && searchTokens.some((t) => blurbN.includes(t));
+          const tag = blurbTokHit ? "blurb" : "display-title";
+          if (!matchedOn.includes(tag)) matchedOn.push(tag);
         }
       }
 
