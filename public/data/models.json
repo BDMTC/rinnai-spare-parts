@@ -7,9 +7,9 @@
     "locale": "en-AU",
     "updated": "2026-11-12",
     "count": 454,
-    "restrictedCount": 276,
+    "restrictedCount": 269,
     "notes": "Fields preserved from REU-Model-History.xlsx. restricted* derived from Description 2 (NLA / export only / use-up / only-for), then cleared for site-active AU codes in model-site-active-unrestrict.json. family/fuel/diagrams left null until Beau supplies them.",
-    "siteActiveUnrestrictCleared": 12
+    "siteActiveUnrestrictCleared": 19
   },
   "models": [
     {
@@ -2338,16 +2338,16 @@
       "name": "C'FLOW HD32E (50) BUTANE",
       "sku": "HD32EB50",
       "description": "C'FLOW HD32E (50) BUTANE",
-      "description2": "*UNAVAILABLE USE HD250B75",
+      "description2": null,
       "stockingType": "A",
       "family": null,
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*UNAVAILABLE USE HD250B75",
-      "restricted": true,
-      "restrictionKind": "nla",
-      "restrictionLabel": "No longer available"
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd32eb75",
@@ -2357,16 +2357,16 @@
       "name": "C'FLOW HD32E (75) BUTANE",
       "sku": "HD32EB75",
       "description": "C'FLOW HD32E (75) BUTANE",
-      "description2": "*UNAVAILABLE USE HD250B75",
+      "description2": null,
       "stockingType": "A",
       "family": null,
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*UNAVAILABLE USE HD250B75",
-      "restricted": true,
-      "restrictionKind": "nla",
-      "restrictionLabel": "No longer available"
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hd32el50",
@@ -2604,16 +2604,16 @@
       "name": "*C'FLOW HDC211I (75) BUTANE",
       "sku": "HDC211IB50",
       "description": "*C'FLOW HDC211I (75) BUTANE",
-      "description2": "*NLA*",
+      "description2": null,
       "stockingType": "O",
       "family": null,
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*",
-      "restricted": true,
-      "restrictionKind": "nla",
-      "restrictionLabel": "No longer available"
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc211ib75",
@@ -2623,16 +2623,16 @@
       "name": "*C'FLOW HDC211I (75) BUTANE",
       "sku": "HDC211IB75",
       "description": "*C'FLOW HDC211I (75) BUTANE",
-      "description2": "*NLA*",
+      "description2": null,
       "stockingType": "O",
       "family": null,
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*",
-      "restricted": true,
-      "restrictionKind": "nla",
-      "restrictionLabel": "No longer available"
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc211il42",
@@ -2642,16 +2642,16 @@
       "name": "*C'FLOW HDC211I (42) LP",
       "sku": "HDC211IL42",
       "description": "*C'FLOW HDC211I (42) LP",
-      "description2": "*NLA*",
+      "description2": null,
       "stockingType": "O",
       "family": null,
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*",
-      "restricted": true,
-      "restrictionKind": "nla",
-      "restrictionLabel": "No longer available"
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc211il50",
@@ -2699,16 +2699,16 @@
       "name": "*C'FLOW HDC211I (42) NG",
       "sku": "HDC211IN42",
       "description": "*C'FLOW HDC211I (42) NG",
-      "description2": "*NLA*",
+      "description2": null,
       "stockingType": "O",
       "family": null,
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*",
-      "restricted": true,
-      "restrictionKind": "nla",
-      "restrictionLabel": "No longer available"
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc211in50",
@@ -2718,16 +2718,16 @@
       "name": "*C'FLOW HDC211I (50) NG",
       "sku": "HDC211IN50",
       "description": "*C'FLOW HDC211I (50) NG",
-      "description2": "*NLA*",
+      "description2": null,
       "stockingType": "O",
       "family": null,
       "fuel": null,
       "diagramUrl": null,
       "diagramPath": null,
-      "notes": "*NLA*",
-      "restricted": true,
-      "restrictionKind": "nla",
-      "restrictionLabel": "No longer available"
+      "notes": null,
+      "restricted": false,
+      "restrictionKind": null,
+      "restrictionLabel": null
     },
     {
       "id": "hdc211in75",
