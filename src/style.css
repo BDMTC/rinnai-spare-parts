@@ -627,8 +627,7 @@ input[type="number"]:focus {
   opacity: 1;
 }
 
-.result--subcomponent .result-code,
-.result--subcomponent .result-name {
+.result--subcomponent .result-field-value {
   color: var(--sub-ink);
 }
 
@@ -653,12 +652,7 @@ input[type="number"]:focus {
   border-color: var(--primary);
 }
 
-.result--primary .result-code {
-  color: var(--primary-ink);
-  font-size: 1.05rem;
-}
-
-.result--primary .result-name {
+.result--primary .result-field-value {
   color: var(--primary-ink);
 }
 
@@ -776,39 +770,47 @@ input[type="number"]:focus {
   border: 1px solid #fdba74;
 }
 
-.result-code {
+.result-identity {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
   margin: 0;
-  font-family: var(--font-mono);
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--accent-ink);
-  letter-spacing: 0.02em;
 }
 
-.result-name {
-  margin: 0.2rem 0 0;
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 650;
-  letter-spacing: -0.02em;
-  line-height: 1.25;
+.result-identity-row {
+  display: grid;
+  grid-template-columns: 18.5ch minmax(0, 1fr);
+  column-gap: 0.55rem;
+  align-items: baseline;
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  line-height: 1.35;
+  color: var(--accent-ink);
+}
+
+.result-field-label,
+.result-field-value {
+  font: inherit;
+  color: inherit;
 }
 
 .result-field-label {
-  font-family: var(--font-ui, inherit);
-  font-weight: 550;
-  font-size: 0.78em;
-  letter-spacing: 0.01em;
+  text-align: right;
+  white-space: nowrap;
   color: var(--ink-muted);
-  margin-right: 0.25rem;
+  font-weight: 550;
 }
 
-.result-code .result-field-label {
-  font-size: 0.82rem;
+.result-field-value {
+  min-width: 0;
+  text-align: left;
 }
 
-.result-name .result-field-label {
-  font-size: 0.78rem;
+h2.result-identity-row {
+  font-size: 0.95rem;
   font-weight: 600;
 }
 
