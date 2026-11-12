@@ -1,15 +1,15 @@
 {
   "version": 1,
-  "status": "hex-gasket-confirmed-sample-loops-pending",
+  "status": "beau-locked",
   "meta": {
-    "title": "Assembly → sub-component hierarchy (HEX gasket confirmed; other loops pending)",
+    "title": "Assembly → sub-component hierarchy",
     "updated": "2026-11-12",
-    "sourceRule": "Exploded diagram: lone numbered callout = standalone part; closed dashed loop enclosing several numbered parts = parent assembly, enclosed numbers = children. Do not invent parent/child from ASSY naming or price-list adjacency alone. Shared children may belong to more than one parent loop and remain available alone.",
+    "sourceRule": "Exploded diagram: lone numbered callout = standalone part; closed dashed loop enclosing several numbered parts = parent assembly, enclosed numbers = children. Shared children may belong to more than one parent loop and remain available alone. Kit parents (e.g. PANEL FRONT 040/042) are valid even with no separate standalone panel SKU.",
     "sourceSheets": [
       "data-sheets/Rinnai Data Sheets/ED_N Series 2020 IN32 Enviro.pdf",
       "data-sheets/Rinnai Data Sheets/PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf"
     ],
-    "notes": "Beau confirmed 142/92099479 shared child of TOP+BTM. Do NOT wire full ranking until other sample loops are OK'd. When wiring: also embossed Not available badge for RA/non-8-digit codes. See Project docs/assembly-search-ranking.md."
+    "notes": "Beau locked 2026-11-12: HEX TOP/BTM + shared gasket 142; front panel 040/042; fan 110; electrode 150. RA/non-8-digit → embossed Not available badge."
   },
   "concepts": [
     {
@@ -26,6 +26,45 @@
         "hex exch",
         "heat exchanger"
       ]
+    },
+    {
+      "id": "front-panel",
+      "queryTerms": [
+        "front panel",
+        "panel front",
+        "front cover",
+        "fascia"
+      ],
+      "assemblyNamePatterns": [
+        "panel front",
+        "front panel"
+      ]
+    },
+    {
+      "id": "fan",
+      "queryTerms": [
+        "fan",
+        "fan comb",
+        "combustion fan",
+        "fan assy"
+      ],
+      "assemblyNamePatterns": [
+        "fan comb",
+        "fan casing",
+        "fan assy"
+      ]
+    },
+    {
+      "id": "electrode",
+      "queryTerms": [
+        "electrode",
+        "electrode assy",
+        "flame rod",
+        "igniter electrode"
+      ],
+      "assemblyNamePatterns": [
+        "electrode"
+      ]
     }
   ],
   "demotionCues": [
@@ -35,7 +74,8 @@
     "oring",
     "seal",
     "top",
-    "half"
+    "half",
+    "brace"
   ],
   "assemblies": [
     {
@@ -51,10 +91,9 @@
       "children": [
         {
           "itemNo": "137",
-          "code": null,
+          "code": "92099592",
           "role": "insulation",
-          "sheetName": "HEX insulation / INSULATION THERMAL HEX N3237",
-          "notes": "Inside 130/131 dashed loop. RA may be 92099592 on price list / blank on some PL rows."
+          "sheetName": "HEX insulation / INSULATION THERMAL HEX N3237"
         },
         {
           "itemNo": "142",
@@ -64,18 +103,16 @@
           "availableAlone": true,
           "sharedParentCodes": ["92099423", "92099477"],
           "sheetName": "GASKET HEAT EXCH N3237",
-          "priceListName": "GASKET HEX EXCH BTM N3237",
-          "notes": "Beau confirmed: shared child of TOP 130/92099423 and BTM 140/92099477; also available alone as 142."
+          "priceListName": "GASKET HEX EXCH BTM N3237"
         }
-      ],
-      "notes": "Dashed loop around primary HEX body; callouts 130/131 on the loop. Beau confirmed parent."
+      ]
     },
     {
       "status": "beau-confirmed",
       "confidence": "high",
       "parentItemNos": ["140"],
       "parentCode": "92099477",
-      "parentName": "HEAT EXCH BTM N3237",
+      "parentName": "HEX EXCH BTM N3237",
       "shortName": "HEX EXCH BTM",
       "conceptId": "heat-exchanger",
       "seriesTokens": ["N3237"],
@@ -89,20 +126,92 @@
           "availableAlone": true,
           "sharedParentCodes": ["92099423", "92099477"],
           "sheetName": "GASKET HEAT EXCH N3237",
-          "priceListName": "GASKET HEX EXCH BTM N3237",
-          "notes": "Beau confirmed shared child of TOP+BTM; available alone as 142."
+          "priceListName": "GASKET HEX EXCH BTM N3237"
         }
-      ],
-      "notes": "Beau confirmed BTM HEX parent; gasket 142 shared with TOP."
+      ]
     },
     {
-      "status": "diagram-supported",
-      "confidence": "medium",
+      "status": "beau-confirmed",
+      "confidence": "high",
+      "parentItemNos": ["040"],
+      "parentCode": "92099399",
+      "parentName": "PANEL FRONT N3237FFC",
+      "shortName": "PANEL FRONT FFC",
+      "conceptId": "front-panel",
+      "seriesTokens": ["N3237", "N3237FFC"],
+      "diagramPage": "ED_N Series 2020 IN32 Enviro.pdf p1",
+      "kitParent": true,
+      "children": [
+        { "itemNo": "044", "code": "92099405", "role": "brace" },
+        { "itemNo": "045", "code": null, "role": "gasket", "supplierNo": "580-0632000" },
+        { "itemNo": "046", "code": null, "role": "gasket", "supplierNo": "580-1051000" },
+        { "itemNo": "010", "code": null, "role": "screw", "supplierNo": "501-0211000" },
+        { "itemNo": "011", "code": null, "role": "screw", "supplierNo": "501-889-000" }
+      ],
+      "notes": "Kit/parent loop — no separate standalone front panel besides 040 itself."
+    },
+    {
+      "status": "beau-confirmed",
+      "confidence": "high",
+      "parentItemNos": ["042"],
+      "parentCode": "92099401",
+      "parentName": "PANEL FRONT N3237WC",
+      "shortName": "PANEL FRONT WC",
+      "conceptId": "front-panel",
+      "seriesTokens": ["N3237", "N3237WC"],
+      "diagramPage": "ED_N Series 2020 IN32 Enviro.pdf p2",
+      "kitParent": true,
+      "children": [
+        { "itemNo": "044", "code": "92099405", "role": "brace" },
+        { "itemNo": "045", "code": null, "role": "gasket", "supplierNo": "580-0632000" },
+        { "itemNo": "047", "code": null, "role": "gasket", "supplierNo": "580-0633000" },
+        { "itemNo": "010", "code": null, "role": "screw", "supplierNo": "501-0211000" },
+        { "itemNo": "011", "code": null, "role": "screw", "supplierNo": "501-889-000" }
+      ]
+    },
+    {
+      "status": "beau-confirmed",
+      "confidence": "high",
+      "parentItemNos": ["042"],
+      "parentCode": "92099403",
+      "parentName": "PANEL FRONT N3237W",
+      "shortName": "PANEL FRONT W",
+      "conceptId": "front-panel",
+      "seriesTokens": ["N3237", "N3237W"],
+      "diagramPage": "ED_N Series 2020 IN32 Enviro.pdf p2",
+      "kitParent": true,
+      "children": [
+        { "itemNo": "044", "code": "92099405", "role": "brace" },
+        { "itemNo": "045", "code": null, "role": "gasket", "supplierNo": "580-0632000" },
+        { "itemNo": "047", "code": null, "role": "gasket", "supplierNo": "580-0633000" },
+        { "itemNo": "010", "code": null, "role": "screw", "supplierNo": "501-0211000" },
+        { "itemNo": "011", "code": null, "role": "screw", "supplierNo": "501-889-000" }
+      ]
+    },
+    {
+      "status": "beau-confirmed",
+      "confidence": "high",
+      "parentItemNos": ["110"],
+      "parentCode": "92099409",
+      "parentName": "FAN COMB ASSY N3237",
+      "shortName": "FAN COMB ASSY",
+      "conceptId": "fan",
+      "seriesTokens": ["N3237"],
+      "diagramPage": "ED_N Series 2020 IN32 Enviro.pdf p3",
+      "children": [
+        { "itemNo": "111", "code": "92099411", "role": "gasket" },
+        { "itemNo": "112", "code": "92099413", "role": "o-ring" },
+        { "itemNo": "113", "code": null, "role": "bolt", "supplierNo": "501-799-000" }
+      ]
+    },
+    {
+      "status": "beau-confirmed",
+      "confidence": "high",
       "parentItemNos": ["150"],
       "parentCode": "92099483",
       "parentName": "ELECTRODE ASSY N3237",
       "shortName": "ELECTRODE ASSY",
-      "conceptId": null,
+      "conceptId": "electrode",
       "seriesTokens": ["N3237"],
       "diagramPage": "ED_N Series 2020 IN32 Enviro.pdf p3",
       "children": [
@@ -112,44 +221,7 @@
         { "itemNo": "154", "code": null, "role": "bracket" },
         { "itemNo": "155", "code": null, "role": "bracket" },
         { "itemNo": "156", "code": null, "role": "sleeve" }
-      ],
-      "notes": "Sample loop: electrode ASSY dashed group on ED p3. Medium confidence pending Beau eyeball."
-    },
-    {
-      "status": "diagram-supported",
-      "confidence": "medium",
-      "parentItemNos": ["110"],
-      "parentCode": "92099409",
-      "parentName": "FAN COMB ASSY N3237",
-      "shortName": "FAN COMB ASSY",
-      "conceptId": null,
-      "seriesTokens": ["N3237"],
-      "diagramPage": "ED_N Series 2020 IN32 Enviro.pdf p3",
-      "children": [
-        { "itemNo": "111", "code": "92099411", "role": "gasket" },
-        { "itemNo": "112", "code": "92099413", "role": "o-ring" },
-        { "itemNo": "113", "code": null, "role": "bolt" }
-      ],
-      "notes": "Sample loop: fan combustion ASSY. Confirm 110 is the loop parent (not 111)."
-    },
-    {
-      "status": "diagram-supported",
-      "confidence": "high",
-      "parentItemNos": ["040"],
-      "parentCode": "92099399",
-      "parentName": "PANEL FRONT N3237FFC",
-      "shortName": "PANEL FRONT FFC",
-      "conceptId": null,
-      "seriesTokens": ["N3237", "N3237FFC"],
-      "diagramPage": "ED_N Series 2020 IN32 Enviro.pdf p1 (FFC casing)",
-      "children": [
-        { "itemNo": "044", "code": "92099405", "role": "brace" },
-        { "itemNo": "045", "code": null, "role": "gasket" },
-        { "itemNo": "046", "code": null, "role": "gasket" },
-        { "itemNo": "010", "code": null, "role": "screw" },
-        { "itemNo": "011", "code": null, "role": "screw" }
-      ],
-      "notes": "Clear casing loop on FFC sheet. WC/W use parent item 042 instead."
+      ]
     }
   ]
 }

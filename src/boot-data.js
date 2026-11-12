@@ -25,19 +25,33 @@ async function fetchJson(relPath) {
  *   series: object,
  *   trade: object,
  *   abbrevs: object,
+ *   assemblyHierarchy: object,
  * }>}
  */
 export async function loadBootData() {
-  const [catalogue, config, prices, series, trade, abbrevs] = await Promise.all([
-    fetchJson("data/catalogue.json"),
-    fetchJson("data/config.json"),
-    fetchJson("data/prices.json"),
-    fetchJson("data/series-aliases.json"),
-    fetchJson("data/trade-aliases.json").catch(() => ({ aliases: [] })),
-    fetchJson("data/part-name-abbreviations.json").catch(() => ({
-      groups: [],
-    })),
-  ]);
+  const [catalogue, config, prices, series, trade, abbrevs, assemblyHierarchy] =
+    await Promise.all([
+      fetchJson("data/catalogue.json"),
+      fetchJson("data/config.json"),
+      fetchJson("data/prices.json"),
+      fetchJson("data/series-aliases.json"),
+      fetchJson("data/trade-aliases.json").catch(() => ({ aliases: [] })),
+      fetchJson("data/part-name-abbreviations.json").catch(() => ({
+        groups: [],
+      })),
+      fetchJson("data/assembly-hierarchy.json").catch(() => ({
+        assemblies: [],
+        concepts: [],
+      })),
+    ]);
 
-  return { catalogue, config, prices, series, trade, abbrevs };
+  return {
+    catalogue,
+    config,
+    prices,
+    series,
+    trade,
+    abbrevs,
+    assemblyHierarchy,
+  };
 }

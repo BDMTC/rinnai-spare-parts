@@ -578,6 +578,30 @@ input[type="number"]:focus {
   transform: translateY(-1px);
 }
 
+/* Sub-components: distinct from Primary orange */
+.result--subcomponent {
+  border-color: rgba(1, 52, 116, 0.35);
+  background:
+    linear-gradient(180deg, #f4f8fc 0%, #e7eef6 100%);
+  box-shadow: 0 0 0 1px rgba(26, 47, 154, 0.08), 0 8px 20px rgba(1, 52, 116, 0.06);
+}
+
+.result--subcomponent .result-code {
+  color: var(--mtc-field-dark);
+}
+
+.subcomponent-note {
+  margin: 0.2rem 0 0;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  color: var(--mtc-field-bright);
+}
+
+.result--not-available {
+  position: relative;
+}
+
 .result--primary:hover {
   border-color: var(--primary);
 }
@@ -809,6 +833,29 @@ input[type="number"]:focus {
   text-transform: uppercase;
   padding: 0.4rem 0.75rem;
   box-shadow: 0 4px 12px rgba(244, 121, 33, 0.35);
+}
+
+/* Embossed Not available — RA / non-8-digit (Beau locked) */
+.badge--not-available {
+  background: linear-gradient(180deg, #e8edf2 0%, #d5dde6 55%, #c8d0da 100%);
+  color: #3a4a5a;
+  font-size: 0.78rem;
+  font-weight: 750;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 0.38rem 0.7rem;
+  border: 1px solid rgba(90, 107, 122, 0.35);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.75),
+    inset 0 -1px 0 rgba(60, 75, 90, 0.18),
+    0 1px 2px rgba(18, 32, 51, 0.08);
+}
+
+.add-quote-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: #c5d0db;
+  color: #3d4f5f;
 }
 
 .badge--fit {
