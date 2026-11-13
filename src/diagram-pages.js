@@ -189,8 +189,8 @@ const SERIES_DIAGRAM_DEFAULT = {
     label: "Efinity ECF Issue 4 (ECF14 shared)",
   },
   hdc211e: {
-    page: "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
-    label: "HDC211e KM3237WDC Combined SP & EPD",
+    page: "pl-reu-km3237wdc-hdc211e-issue03__p5",
+    label: "HDC211e KM3237WDC Issue 03",
   },
   hdc211i: {
     page: "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p4",
@@ -419,6 +419,8 @@ const ED_STEM_TO_PDF = {
   "pl-hotflo-ehfa-spare-parts": "EHFA  SPARE PARTS.pdf",
   "pl-ihf10": "IHF10-Spare-Parts-List.pdf",
   "pl-reu-km3237wdc-hdc211e": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+  "pl-reu-km3237wdc-hdc211e-issue03":
+    "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf",
   "pl-reu-km3237ffudc-hdc211i":
     "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
   "pl-reu-nb3237-hdc32":

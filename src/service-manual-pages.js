@@ -35,6 +35,10 @@ import infinity16 from "./assets/service-manual-pages/infinity16__p1.jpg";
 import infinity20 from "./assets/service-manual-pages/infinity20__p1.jpg";
 import hdc32e from "./assets/service-manual-pages/hdc32e__p1.jpg";
 import hdc32i from "./assets/service-manual-pages/hdc32i__p1.jpg";
+import hd28e from "./assets/service-manual-pages/hd28e__p1.jpg";
+import hd28i from "./assets/service-manual-pages/hd28i__p1.jpg";
+import infinity28 from "./assets/service-manual-pages/infinity28__p1.jpg";
+import hd32 from "./assets/service-manual-pages/hd32__p1.jpg";
 
 /** @type {Record<string, Record<string, string>>} */
 const SM_PACK_GLOBS = {
@@ -132,6 +136,14 @@ const SM_PACK_GLOBS = {
   ),
   "sm-nb3237": import.meta.glob(
     "./assets/service-manual-pages/sm-nb3237__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-vcm2837": import.meta.glob(
+    "./assets/service-manual-pages/sm-vcm2837__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-am3237": import.meta.glob(
+    "./assets/service-manual-pages/sm-am3237__p*.jpg",
     { eager: true, import: "default" }
   ),
 };
@@ -361,6 +373,30 @@ const SERIES_SERVICE_MANUALS = {
     source:
       "SM - RINNAI - N SERIES INFINITY ENVIRO32 REU-NB3237 - ISSUE 1 - JULY 2025.pdf",
     packId: "sm-nb3237",
+  },
+  hd28e: {
+    url: hd28e,
+    label: "SM - RINNAI - REUVCM2837FF,FFC,WC - ISSUE 2 - FEB 2026.pdf p1",
+    source: "SM - RINNAI - REUVCM2837FF,FFC,WC - ISSUE 2 - FEB 2026.pdf",
+    packId: "sm-vcm2837",
+  },
+  hd28i: {
+    url: hd28i,
+    label: "SM - RINNAI - REUVCM2837FF,FFC,WC - ISSUE 2 - FEB 2026.pdf p1",
+    source: "SM - RINNAI - REUVCM2837FF,FFC,WC - ISSUE 2 - FEB 2026.pdf",
+    packId: "sm-vcm2837",
+  },
+  infinity28: {
+    url: infinity28,
+    label: "SM - RINNAI - REUVCM2837FF,FFC,WC - ISSUE 2 - FEB 2026.pdf p1",
+    source: "SM - RINNAI - REUVCM2837FF,FFC,WC - ISSUE 2 - FEB 2026.pdf",
+    packId: "sm-vcm2837",
+  },
+  hd32: {
+    url: hd32,
+    label: "SM - RINNAI - REUAM3237W,WC - ISSUE 4 - FEB 2026.pdf p1",
+    source: "SM - RINNAI - REUAM3237W,WC - ISSUE 4 - FEB 2026.pdf",
+    packId: "sm-am3237",
   },
 };
 
