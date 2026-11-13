@@ -7,7 +7,11 @@ import tipSearchUrl from "./assets/help/tip-search.svg?inline";
 import tipHomeLogoUrl from "./assets/help/tip-home-logo.svg?inline";
 import tipQuoteUrl from "./assets/help/tip-quote.svg?inline";
 import { seriesUnitShotUrl } from "./series-unit-shots.js";
-import { resolvePartDiagram } from "./diagram-pages.js";
+import {
+  resolvePartDiagram,
+  diagramPdfFileName,
+  diagramPageSiblings,
+} from "./diagram-pages.js";
 import { resolveSeriesServiceManual } from "./service-manual-pages.js";
 import { resolveCalloutBox } from "./diagram-callouts.js";
 import {
@@ -815,17 +819,26 @@ function renderShell() {
             <div class="search-visuals-slot" aria-hidden="false">
               <div class="search-visuals" id="search-visuals">
                 <div class="search-visual search-visual--series" id="series-visual">
-                  <img
-                    id="series-visual-img"
-                    alt=""
+                  <span class="search-visual-click-hint" id="series-click-hint" hidden>click me</span>
+                  <button
+                    type="button"
+                    class="series-thumb-btn"
+                    id="series-thumb-btn"
                     hidden
-                    decoding="async"
-                  />
+                    aria-label="Open service manual full size"
+                  >
+                    <img
+                      id="series-visual-img"
+                      alt=""
+                      decoding="async"
+                    />
+                  </button>
                   <p class="search-visual-placeholder" id="series-visual-ph">
                     Pin a series
                   </p>
                 </div>
                 <div class="search-visual search-visual--diagram" id="diagram-visual">
+                  <span class="search-visual-click-hint" id="diagram-click-hint" hidden>click me</span>
                   <button
                     type="button"
                     class="diagram-thumb-btn"
@@ -1364,24 +1377,39 @@ function updateSearchVisuals(query, pin) {
         document.querySelector("#series-pin")?.value
     );
   const seriesUrl = seriesUnitShotUrl(seriesId);
+  const seriesSm = seriesId ? resolveSeriesServiceManual(seriesId) : null;
   const seriesImg = document.querySelector("#series-visual-img");
   const seriesPh = document.querySelector("#series-visual-ph");
-  if (seriesImg && seriesPh) {
+  const seriesThumb = document.querySelector("#series-thumb-btn");
+  const seriesHint = document.querySelector("#series-click-hint");
+  const seriesFrame = document.querySelector("#series-visual");
+  const seriesClickable = Boolean(seriesUrl && seriesSm);
+  if (seriesImg && seriesPh && seriesThumb) {
     if (seriesUrl) {
       seriesImg.src = seriesUrl;
       seriesImg.alt = activePin?.series
         ? `${activePin.series.label || seriesId} unit`
         : "Pinned series unit";
-      seriesImg.hidden = false;
+      seriesThumb.hidden = false;
+      seriesThumb.disabled = !seriesClickable;
+      seriesThumb.setAttribute(
+        "aria-label",
+        seriesClickable
+          ? "Open service manual full size"
+          : "Series unit photo"
+      );
       seriesPh.hidden = true;
     } else {
       seriesImg.removeAttribute("src");
       seriesImg.alt = "";
-      seriesImg.hidden = true;
+      seriesThumb.hidden = true;
+      seriesThumb.disabled = true;
       seriesPh.hidden = false;
       seriesPh.textContent = "Pin a series";
     }
   }
+  if (seriesFrame) seriesFrame.classList.toggle("is-clickable", seriesClickable);
+  if (seriesHint) seriesHint.hidden = !seriesClickable;
 
   const hasQuery = Boolean(String(query || "").trim());
   const hasPin2 = activePin?.kind === "model";
@@ -1438,6 +1466,9 @@ function updateSearchVisuals(query, pin) {
   const thumbBtn = document.querySelector("#diagram-thumb-btn");
   const diagramImg = document.querySelector("#diagram-visual-img");
   const diagramPh = document.querySelector("#diagram-visual-ph");
+  const diagramHint = document.querySelector("#diagram-click-hint");
+  const diagramFrame = document.querySelector("#diagram-visual");
+  const diagramClickable = Boolean(panel?.url);
   if (thumbBtn && diagramImg && diagramPh) {
     if (panel?.url) {
       diagramImg.src = panel.url;
@@ -1465,6 +1496,29 @@ function updateSearchVisuals(query, pin) {
       }
     }
   }
+  if (diagramFrame) {
+    diagramFrame.classList.toggle("is-clickable", diagramClickable);
+  }
+  if (diagramHint) diagramHint.hidden = !diagramClickable;
+}
+
+/** Open series SM lightbox from the left unit-shot (when SM exists). */
+function openSeriesManualLightbox() {
+  const seriesId =
+    currentPin()?.series?.id ||
+    seriesIdFromPinValue(
+      seriesPicker?.getValue?.() ||
+        document.querySelector("#series-pin")?.value
+    );
+  const sm = resolveSeriesServiceManual(seriesId);
+  if (!sm?.url) return;
+  activeDiagram = {
+    ...sm,
+    callout: null,
+    calloutPageKey: null,
+    highlight: null,
+  };
+  openDiagramLightbox();
 }
 
 function syncCalloutHighlight() {
@@ -1510,6 +1564,17 @@ function syncLightboxChrome() {
   if (prevBtn) prevBtn.disabled = !state || state.pageIndex <= 0;
   if (nextBtn) {
     nextBtn.disabled = !state || state.pageIndex >= pages.length - 1;
+  }
+  if (state && !LIGHTBOX_PDFS[state.pdfFileName]) {
+    const inferred = resolveLightboxPdfFileName({
+      pdfFileName: state.pdfFileName,
+      pageKey: state.pages?.[state.pageIndex]?.pageKey,
+      calloutPageKey: state.calloutPageKey,
+      label: state.label,
+      pages: state.pages,
+      pageIndex: state.pageIndex,
+    });
+    if (inferred) state.pdfFileName = inferred;
   }
   const canDownload = Boolean(
     state?.pdfFileName && LIGHTBOX_PDFS[state.pdfFileName]
@@ -1558,22 +1623,62 @@ function stepLightboxPage(delta) {
   showLightboxPage(lightboxState.pageIndex + delta);
 }
 
+function resolveLightboxPdfFileName(diagram) {
+  if (!diagram) return null;
+  const direct =
+    diagram.pdfFileName || diagram.source || diagram.pdf || null;
+  if (direct && LIGHTBOX_PDFS[direct]) return direct;
+  const inferred = diagramPdfFileName(
+    diagram.pageKey ||
+      diagram.calloutPageKey ||
+      diagram.label ||
+      diagram.pages?.[diagram.pageIndex ?? 0]?.pageKey ||
+      null
+  );
+  if (inferred && LIGHTBOX_PDFS[inferred]) return inferred;
+  if (direct) return direct;
+  return inferred || null;
+}
+
+function resolveLightboxPages(diagram) {
+  if (!diagram?.url) return [];
+  let pages =
+    diagram.pages?.length > 0
+      ? diagram.pages
+      : [
+          {
+            page: 1,
+            url: diagram.url,
+            pageKey: diagram.pageKey || "doc",
+          },
+        ];
+  // Expand sibling ED pages when only a single fallback page landed.
+  if (pages.length <= 1) {
+    const seed =
+      diagram.pageKey ||
+      diagram.calloutPageKey ||
+      diagram.label ||
+      pages[0]?.pageKey ||
+      null;
+    const siblings = diagramPageSiblings(seed);
+    if (siblings.length > 1) pages = siblings;
+  }
+  return pages;
+}
+
 function openDiagramLightbox() {
   if (!activeDiagram?.url) return;
   const dialog = document.querySelector("#diagram-lightbox");
   const img = document.querySelector("#diagram-lightbox-img");
   if (!dialog || !img) return;
 
-  const pages =
-    activeDiagram.pages?.length > 0
-      ? activeDiagram.pages
-      : [
-          {
-            page: 1,
-            url: activeDiagram.url,
-            pageKey: activeDiagram.pageKey || "doc",
-          },
-        ];
+  const pages = resolveLightboxPages(activeDiagram);
+  const pdfFileName = resolveLightboxPdfFileName(activeDiagram);
+  let pageIndex = activeDiagram.pageIndex ?? 0;
+  if (pages.length && activeDiagram.pageKey) {
+    const hit = pages.findIndex((p) => p.pageKey === activeDiagram.pageKey);
+    if (hit >= 0) pageIndex = hit;
+  }
   lightboxState = {
     kind: activeDiagram.kind,
     label: activeDiagram.label,
@@ -1581,11 +1686,8 @@ function openDiagramLightbox() {
     calloutPageKey: activeDiagram.calloutPageKey || activeDiagram.pageKey || null,
     highlight: activeDiagram.highlight || null,
     pages,
-    pageIndex: Math.max(
-      0,
-      Math.min(pages.length - 1, activeDiagram.pageIndex ?? 0)
-    ),
-    pdfFileName: activeDiagram.pdfFileName || activeDiagram.source || null,
+    pageIndex: Math.max(0, Math.min(pages.length - 1, pageIndex)),
+    pdfFileName,
   };
 
   dialog.setAttribute(
@@ -2646,6 +2748,7 @@ function bindEvents() {
   // Touch localStorage early so export/status stay consistent after boot.
   loadFeedback();
 
+  const seriesThumb = document.querySelector("#series-thumb-btn");
   const diagramThumb = document.querySelector("#diagram-thumb-btn");
   const diagramLightbox = document.querySelector("#diagram-lightbox");
   const diagramLightboxClose = document.querySelector("#diagram-lightbox-close");
@@ -2654,6 +2757,10 @@ function bindEvents() {
   const diagramLightboxDownload = document.querySelector(
     "#diagram-lightbox-download"
   );
+  seriesThumb?.addEventListener("click", () => {
+    if (seriesThumb.disabled || seriesThumb.hidden) return;
+    openSeriesManualLightbox();
+  });
   diagramThumb?.addEventListener("click", openDiagramLightbox);
   diagramLightboxClose?.addEventListener("click", closeDiagramLightbox);
   diagramLightboxPrev?.addEventListener("click", () => stepLightboxPage(-1));
