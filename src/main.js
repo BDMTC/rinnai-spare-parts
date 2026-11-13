@@ -721,7 +721,7 @@ function renderShell() {
                     aria-autocomplete="list"
                     aria-controls="series-listbox"
                     aria-expanded="false"
-                    placeholder="HD200e, Infinity 26, HD210e…"
+                    placeholder="Choose which series from the list first."
                     spellcheck="false"
                     autocomplete="off"
                   />
@@ -777,7 +777,7 @@ function renderShell() {
                       aria-autocomplete="list"
                       aria-controls="item-listbox"
                       aria-expanded="false"
-                      placeholder="Pin a series first…"
+                      placeholder="Choose the series above first"
                       spellcheck="false"
                       autocomplete="off"
                       disabled
