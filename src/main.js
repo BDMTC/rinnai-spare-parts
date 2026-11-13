@@ -879,7 +879,7 @@ function renderShell() {
             <aside
               class="news-ticker"
               id="news-ticker"
-              aria-label="Weather, Queensland news, and Rinnai updates"
+              aria-label="Weather, Brisbane traffic, Queensland news, and Rinnai updates"
             >
               <span class="news-ticker-label">Ticker</span>
               <div class="news-ticker-viewport">

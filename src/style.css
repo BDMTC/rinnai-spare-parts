@@ -567,12 +567,24 @@ a.news-ticker-item:focus-visible {
   color: var(--mtc-field-bright);
 }
 
+.news-ticker-item--traffic .news-ticker-kind {
+  color: #9a3f0c;
+}
+
 .news-ticker-item--news .news-ticker-kind {
   color: #9a5b12;
 }
 
 .news-ticker-item--rinnai .news-ticker-kind {
   color: #b91c1c;
+}
+
+.news-ticker-item--offline .news-ticker-kind {
+  color: var(--ink-muted);
+}
+
+span.news-ticker-item {
+  cursor: default;
 }
 
 .news-ticker-text {

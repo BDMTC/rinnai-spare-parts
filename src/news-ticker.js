@@ -1,7 +1,8 @@
 /**
  * Pin2-side news ticker — Brisbane/SE QLD weekly weather (per-day items),
- * urgent QLD news, Rinnai AU announcements. Every item is a hyperlink.
- * Public feeds only; file:// / CORS failures fall back to demo stubs.
+ * top Brisbane traffic incidents, urgent QLD news, Rinnai AU announcements.
+ * Every item is a hyperlink. Public feeds only; file:// / CORS failures fall
+ * back to demo stubs.
  */
 
 const WEATHER_LABEL = "Brisbane / SE QLD";
@@ -12,69 +13,186 @@ const ABC_NEWS_HOME = "https://www.abc.net.au/news/";
 const RSS2JSON = "https://api.rss2json.com/v1/api.json?rss_url=";
 const RINNAI_NEWS_URL = "https://www.rinnai.com.au/news";
 const ALLORIGINS_RAW = "https://api.allorigins.win/raw?url=";
+/** Public QLDTraffic GeoJSON (CORS *); no API key. */
+const TRAFFIC_GEOJSON_URL =
+  "https://data.qldtraffic.qld.gov.au/events_v2.geojson";
+const TRAFFIC_PAGE_URL = "https://qldtraffic.qld.gov.au/";
+const TRAFFIC_TOP_N = 10;
 
 const DAY_NAMES = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 const QLD_HINT =
   /\b(qld|queensland|brisbane|gold coast|sunshine coast|toowoomba|cairns|townsville|rockhampton|mackay|bundaberg|ipswich|logan|moreton|seq|south.?east queensland)\b/i;
 
+/** Exact locality tokens for Brisbane + inner SEQ (matched on locality only). */
+const BNE_LOCALITIES = new Set(
+  [
+    "brisbane",
+    "brisbane city",
+    "south brisbane",
+    "north brisbane",
+    "fortitude valley",
+    "west end",
+    "chermside",
+    "indooroopilly",
+    "capalaba",
+    "beenleigh",
+    "springfield",
+    "springfield lakes",
+    "springfield central",
+    "forest lake",
+    "carindale",
+    "mt gravatt",
+    "mount gravatt",
+    "upper mt gravatt",
+    "sunnybank",
+    "sunnybank hills",
+    "eight mile plains",
+    "rochedale",
+    "rocklea",
+    "oxley",
+    "darra",
+    "wacol",
+    "richlands",
+    "inala",
+    "acacia ridge",
+    "coopers plains",
+    "salisbury",
+    "yeerongpilly",
+    "yeronga",
+    "fairfield",
+    "annerley",
+    "anstead",
+    "bellbowrie",
+    "kenmore",
+    "fig tree pocket",
+    "toowong",
+    "paddington",
+    "ashgrove",
+    "the gap",
+    "mitchelton",
+    "keperra",
+    "everton park",
+    "albany creek",
+    "aspley",
+    "bridgeman downs",
+    "carseldine",
+    "zillmere",
+    "nundah",
+    "clayfield",
+    "hamilton",
+    "ascot",
+    "hendra",
+    "eagle farm",
+    "pinkenba",
+    "murarrie",
+    "cannon hill",
+    "morningside",
+    "balmoral",
+    "bulimba",
+    "hawthorne",
+    "norman park",
+    "coorparoo",
+    "greenslopes",
+    "holland park",
+    "wishart",
+    "mansfield",
+    "macgregor",
+    "slacks creek",
+    "springwood",
+    "daisy hill",
+    "shailer park",
+    "loganholme",
+    "waterford",
+    "bethania",
+    "edens landing",
+    "holmview",
+    "browns plains",
+    "park ridge",
+    "marsden",
+    "woodridge",
+    "kingston",
+    "loganlea",
+    "meadowbrook",
+    "underwood",
+    "kuraby",
+    "stretton",
+    "calamvale",
+    "algester",
+    "pallara",
+    "heathwood",
+    "larapinta",
+    "doolandella",
+    "durack",
+    "willawong",
+    "archerfield",
+    "moorooka",
+    "woolloongabba",
+    "kangaroo point",
+    "east brisbane",
+    "camp hill",
+    "carina",
+    "carina heights",
+    "tingalpa",
+    "wynnum",
+    "manly",
+    "lota",
+    "cleveland",
+    "ormiston",
+    "wellington point",
+    "birkdale",
+    "thorneside",
+    "redland bay",
+    "victoria point",
+    "thornlands",
+    "alexandra hills",
+    "sheldon",
+    "mt cotton",
+    "mount cotton",
+    "moggill",
+    "riverview",
+    "rosewood",
+    "bundamba",
+    "booval",
+    "yamanto",
+    "goodna",
+    "ipswich",
+    "logan",
+    "elimbah",
+    "morayfield",
+    "griffin",
+    "murrumba downs",
+    "tallegalla",
+    "mount walker",
+    "cedar vale",
+  ].map((s) => s.toLowerCase())
+);
+
 /**
- * @typedef {{ kind: string, text: string, href: string, source?: string }} TickerItem
+ * @typedef {{ kind: string, text: string, href?: string, source?: string }} TickerItem
  */
 
-/** Demo stubs — always available for file:// / offline. */
-export const TICKER_STUBS = Object.freeze([
-  {
-    kind: "weather",
-    text: "Brisbane / SE QLD · Fri 21–29° · Light rain shower",
-    href: WEATHER_PAGE_URL,
-  },
-  {
-    kind: "weather",
-    text: "Brisbane / SE QLD · Sat 21–26° · Light rain shower",
-    href: WEATHER_PAGE_URL,
-  },
-  {
-    kind: "weather",
-    text: "Brisbane / SE QLD · Sun 20–31° · Thundery outbreaks in nearby",
-    href: WEATHER_PAGE_URL,
-  },
-  {
-    kind: "weather",
-    text: "Brisbane / SE QLD · Mon 19–28° · Partly cloudy",
-    href: WEATHER_PAGE_URL,
-  },
-  {
-    kind: "weather",
-    text: "Brisbane / SE QLD · Tue 18–27° · Sunny",
-    href: WEATHER_PAGE_URL,
-  },
-  {
-    kind: "weather",
-    text: "Brisbane / SE QLD · Wed 19–28° · Cloudy",
-    href: WEATHER_PAGE_URL,
-  },
-  {
-    kind: "weather",
-    text: "Brisbane / SE QLD · Thu 20–29° · Light rain shower",
-    href: WEATHER_PAGE_URL,
-  },
-  {
-    kind: "news",
-    text: "QLD · Demo headline — SES urges caution after SE QLD storms (offline stub)",
-    href: ABC_NEWS_HOME,
-  },
-  {
-    kind: "news",
-    text: "QLD · Demo headline — SEQ traffic delays after overnight rain (offline stub)",
-    href: ABC_NEWS_HOME,
-  },
-  {
-    kind: "rinnai",
-    text: "Rinnai · Check rinnai.com.au/news for product alerts (no live feed)",
-    href: RINNAI_NEWS_URL,
-  },
-]);
+/**
+ * Offline / feed-fail wink only — short title nod, never full song lyrics
+ * (copyright). No href (not a link).
+ * @type {TickerItem}
+ */
+export const OFFLINE_STUB = Object.freeze({
+  kind: "offline",
+  text: "Don't worry, be happy… (offline — no feed)",
+  href: "",
+  source: "stub",
+});
+
+/** @deprecated use OFFLINE_STUB — kept name for older call sites */
+export const TICKER_STUBS = Object.freeze([OFFLINE_STUB]);
+
+/**
+ * @returns {TickerItem[]}
+ */
+function offlineStubItems() {
+  return [{ ...OFFLINE_STUB }];
+}
 
 /**
  * @param {string} url
@@ -228,6 +346,109 @@ function absoluteRinnaiUrl(href) {
 }
 
 /**
+ * @param {any} feature QLDTraffic GeoJSON feature
+ * @returns {boolean}
+ */
+export function isBrisbaneAreaTraffic(feature) {
+  const p = feature?.properties || {};
+  const rs = p.road_summary || {};
+  if (/metropolitan/i.test(String(rs.district || ""))) return true;
+  if (
+    /\b(brisbane|ipswich|logan|moreton bay|redland)\b/i.test(
+      String(rs.local_government_area || "")
+    )
+  ) {
+    return true;
+  }
+  // Locality only (split on / ,) — avoid false hits like "Hamilton Plains" (Whitsundays).
+  const parts = String(rs.locality || "")
+    .toLowerCase()
+    .split(/[/,]/)
+    .map((s) => s.trim())
+    .filter(Boolean);
+  return parts.some((loc) => BNE_LOCALITIES.has(loc));
+}
+
+/**
+ * Rank: High → Medium → Low, then crash/congestion/hazard/flood before
+ * roadworks, then newest last_updated.
+ * @param {any} feature
+ * @returns {number}
+ */
+function trafficRankScore(feature) {
+  const p = feature?.properties || {};
+  const pri = String(p.event_priority || "").toLowerCase();
+  const priScore = pri === "high" ? 0 : pri === "medium" ? 1 : 2;
+  const type = `${p.event_type || ""} ${p.event_subtype || ""}`.toLowerCase();
+  let typeScore = 5;
+  if (/\bcrash\b/.test(type)) typeScore = 0;
+  else if (/\bcongestion\b/.test(type)) typeScore = 1;
+  else if (/\bflood/.test(type)) typeScore = 2;
+  else if (/\bhazard\b/.test(type)) typeScore = 3;
+  else if (/\bspecial event\b/.test(type)) typeScore = 4;
+  const updated = Date.parse(p.last_updated || "") || 0;
+  // Lower is better for sort; bake recency as negative ms fraction.
+  return priScore * 1e12 + typeScore * 1e10 - updated;
+}
+
+/**
+ * Full-text traffic ticker line — never character-truncated.
+ * @param {any} feature
+ * @returns {TickerItem|null}
+ */
+export function formatTrafficItem(feature) {
+  const p = feature?.properties || {};
+  const rs = p.road_summary || {};
+  const kind = [p.event_type, p.event_subtype].filter(Boolean).join(" / ");
+  const road = String(rs.road_name || "").replace(/\s+/g, " ").trim();
+  const locality = String(rs.locality || "").replace(/\s+/g, " ").trim();
+  const advice = String(p.advice || "").replace(/\s+/g, " ").trim();
+  const desc = String(p.description || "").replace(/\s+/g, " ").trim();
+  const bits = ["Traffic"];
+  if (kind) bits.push(kind);
+  if (road) bits.push(road);
+  if (locality) bits.push(locality);
+  if (advice) bits.push(advice);
+  if (desc) bits.push(desc);
+  const text = bits.join(" · ");
+  if (text === "Traffic") return null;
+  const hrefRaw = String(p.web_link || "").trim();
+  const href = /^https?:\/\//i.test(hrefRaw) ? hrefRaw : TRAFFIC_PAGE_URL;
+  return { kind: "traffic", text, href };
+}
+
+/**
+ * Top N Brisbane-area incidents from QLDTraffic GeoJSON.
+ * @param {any} data FeatureCollection
+ * @param {number} [limit]
+ * @returns {TickerItem[]}
+ */
+export function pickTopBrisbaneTraffic(data, limit = TRAFFIC_TOP_N) {
+  const features = Array.isArray(data?.features) ? data.features : [];
+  return features
+    .filter((f) => String(f?.properties?.status || "") === "Published")
+    .filter(isBrisbaneAreaTraffic)
+    .sort((a, b) => trafficRankScore(a) - trafficRankScore(b))
+    .slice(0, limit)
+    .map(formatTrafficItem)
+    .filter(Boolean);
+}
+
+/**
+ * @returns {Promise<TickerItem[]>}
+ */
+async function fetchBrisbaneTraffic() {
+  const res = await fetchSoft(TRAFFIC_GEOJSON_URL, 25000);
+  if (!res) return [];
+  try {
+    const data = await res.json();
+    return pickTopBrisbaneTraffic(data, TRAFFIC_TOP_N);
+  } catch {
+    return [];
+  }
+}
+
+/**
  * Scrape public Rinnai AU /news cards (title + article href).
  * @returns {Promise<TickerItem[]>}
  */
@@ -289,8 +510,14 @@ async function fetchRinnaiNews() {
  * @returns {Promise<TickerItem[]>}
  */
 export async function loadTickerItems() {
-  const [weather, news, rinnai] = await Promise.all([
+  const offline =
+    typeof navigator !== "undefined" && navigator && navigator.onLine === false;
+
+  if (offline) return offlineStubItems();
+
+  const [weather, traffic, news, rinnai] = await Promise.all([
     fetchWeeklyWeather(),
+    fetchBrisbaneTraffic(),
     fetchQldNews(),
     fetchRinnaiNews(),
   ]);
@@ -298,29 +525,14 @@ export async function loadTickerItems() {
   /** @type {TickerItem[]} */
   const out = [];
 
-  if (weather.length) {
-    for (const w of weather) out.push({ ...w, source: "wttr.in" });
-  } else {
-    for (const s of TICKER_STUBS.filter((x) => x.kind === "weather")) {
-      out.push({ ...s, source: "stub" });
-    }
-  }
+  for (const w of weather) out.push({ ...w, source: "wttr.in" });
+  for (const t of traffic) out.push({ ...t, source: "qldtraffic" });
+  for (const n of news) out.push({ ...n, source: "abc-rss2json" });
+  for (const r of rinnai) out.push({ ...r, source: "rinnai.com.au" });
 
-  if (news.length) {
-    for (const n of news) out.push({ ...n, source: "abc-rss2json" });
-  } else {
-    for (const s of TICKER_STUBS.filter((x) => x.kind === "news")) {
-      out.push({ ...s, source: "stub" });
-    }
-  }
-
-  if (rinnai.length) {
-    for (const r of rinnai) out.push({ ...r, source: "rinnai.com.au" });
-  }
-
-  if (!out.length) {
-    return TICKER_STUBS.map((s) => ({ ...s, source: "stub" }));
-  }
+  // No live rows (CORS / file:// / feed fail) → short wink, not fake feeds
+  // and not copyrighted lyrics.
+  if (!out.length) return offlineStubItems();
   return out;
 }
 
@@ -332,17 +544,29 @@ function renderTickerDom(root, items) {
   if (!root) return;
   const track = root.querySelector(".news-ticker-track");
   if (!track) return;
-  const kindLabel = { weather: "Weather", news: "News", rinnai: "Rinnai" };
+  const kindLabel = {
+    weather: "Weather",
+    traffic: "Traffic",
+    news: "News",
+    rinnai: "Rinnai",
+    offline: "Offline",
+  };
   const html = items
     .map((it) => {
       const k = kindLabel[it.kind] || "Update";
-      const href = String(it.href || "").trim() || "#";
-      const safeHref = /^https?:\/\//i.test(href) ? href : "#";
-      return `<a class="news-ticker-item news-ticker-item--${escapeAttr(
-        it.kind
-      )}" href="${escapeHtml(safeHref)}" target="_blank" rel="noopener noreferrer"><span class="news-ticker-kind">${escapeHtml(
+      const href = String(it.href || "").trim();
+      const safeHref = /^https?:\/\//i.test(href) ? href : "";
+      const inner = `<span class="news-ticker-kind">${escapeHtml(
         k
-      )}</span><span class="news-ticker-text">${escapeHtml(it.text)}</span></a>`;
+      )}</span><span class="news-ticker-text">${escapeHtml(it.text)}</span>`;
+      const cls = `news-ticker-item news-ticker-item--${escapeAttr(it.kind)}`;
+      if (safeHref) {
+        return `<a class="${cls}" href="${escapeHtml(
+          safeHref
+        )}" target="_blank" rel="noopener noreferrer">${inner}</a>`;
+      }
+      // Offline wink / no URL — not a link (Beau: no verse dump, no fake href).
+      return `<span class="${cls}">${inner}</span>`;
     })
     .join('<span class="news-ticker-sep" aria-hidden="true">·</span>');
   // Duplicate for seamless marquee
@@ -377,17 +601,11 @@ export function bindNewsTicker(scope = document) {
       const items = await loadTickerItems();
       renderTickerDom(root, items);
     } catch {
-      renderTickerDom(
-        root,
-        TICKER_STUBS.map((s) => ({ ...s, source: "stub" }))
-      );
+      renderTickerDom(root, offlineStubItems());
     }
   };
 
-  renderTickerDom(
-    root,
-    TICKER_STUBS.map((s) => ({ ...s, source: "stub" }))
-  );
+  renderTickerDom(root, offlineStubItems());
   void refresh();
   timer = window.setInterval(() => void refresh(), 30 * 60 * 1000);
   root.addEventListener(
