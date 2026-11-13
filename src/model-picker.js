@@ -292,6 +292,29 @@ function seriesPinLabel(series, commercialName = "") {
   return short || commercial;
 }
 
+/**
+ * Colour External (green) / Internal (yellow) in Pin 1 series labels.
+ * @param {string} text
+ * @returns {string} HTML (escaped, with install spans)
+ */
+export function highlightInstallLabelHtml(text) {
+  return escapeHtml(String(text || "")).replace(
+    /\b(External|Internal)\b/g,
+    (word) => {
+      const kind = word.toLowerCase() === "external" ? "external" : "internal";
+      return `<span class="pin-install pin-install--${kind}">${word}</span>`;
+    }
+  );
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
 function seriesSubtitle(series, count) {
   const bits = [];
   if (series.provisional) bits.push("provisional");
@@ -390,11 +413,42 @@ export function bindModelPicker(root, ctx) {
     root.querySelector("#model-clear");
   if (!input || !hidden || !list) return null;
 
+  const row = input.closest(".model-picker-row") || input.parentElement;
+  let richLabel = null;
+  if (mode === "series" && row) {
+    richLabel = row.querySelector(".model-picker-rich-label");
+    if (!richLabel) {
+      richLabel = document.createElement("div");
+      richLabel.className = "model-picker-rich-label";
+      richLabel.setAttribute("aria-hidden", "true");
+      row.appendChild(richLabel);
+    }
+  }
+
   let open = false;
   let activeIndex = -1;
   /** @type {Array<object>} */
   let suggestions = [];
   let unlockPending = false;
+
+  function updateRichLabel() {
+    if (!richLabel) return;
+    const show =
+      mode === "series" &&
+      Boolean(hidden.value) &&
+      !open &&
+      document.activeElement !== input &&
+      /\b(External|Internal)\b/.test(input.value);
+    if (show) {
+      richLabel.innerHTML = highlightInstallLabelHtml(input.value);
+      richLabel.hidden = false;
+      root.classList.add("has-rich-label");
+    } else {
+      richLabel.innerHTML = "";
+      richLabel.hidden = true;
+      root.classList.remove("has-rich-label");
+    }
+  }
 
   function setPin(value, label) {
     hidden.value = value || "";
@@ -402,6 +456,7 @@ export function bindModelPicker(root, ctx) {
     else if (!value) input.value = "";
     updateClear();
     updateDisabled();
+    updateRichLabel();
     ctx.onChange();
   }
 
@@ -427,6 +482,7 @@ export function bindModelPicker(root, ctx) {
   function setOpen(next) {
     open = next;
     root.classList.toggle("is-open", next);
+    updateRichLabel();
   }
 
   function closeList() {
@@ -474,8 +530,12 @@ export function bindModelPicker(root, ctx) {
         : s.kind === "series"
           ? "Series"
           : "Item №";
+      const labelHtml =
+        mode === "series"
+          ? highlightInstallLabelHtml(s.label)
+          : escapeHtml(s.label);
       li.innerHTML = `
-        <span class="model-option-label">${escapeHtml(s.label)}</span>
+        <span class="model-option-label">${labelHtml}</span>
         <span class="model-option-sub">${escapeHtml(s.subtitle || "")}</span>
         <span class="model-option-kind">${escapeHtml(kindLabel)}</span>
       `;
@@ -564,21 +624,15 @@ export function bindModelPicker(root, ctx) {
     input.blur();
   }
 
-  function escapeHtml(str) {
-    return String(str)
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;");
-  }
-
   input.addEventListener("focus", () => {
+    updateRichLabel();
     if (!unlockPending && !input.disabled) refreshSuggestions();
   });
 
   input.addEventListener("input", () => {
     if (hidden.value) hidden.value = "";
     updateClear();
+    updateRichLabel();
     refreshSuggestions();
     ctx.onChange();
   });
@@ -625,6 +679,7 @@ export function bindModelPicker(root, ctx) {
         );
       }
       updateClear();
+      updateRichLabel();
     }, 120);
   });
 
@@ -639,6 +694,7 @@ export function bindModelPicker(root, ctx) {
 
   updateClear();
   updateDisabled();
+  updateRichLabel();
 
   return {
     getValue: () => hidden.value || null,

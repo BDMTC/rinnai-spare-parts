@@ -30,6 +30,8 @@
   --sub-ink: #14532d;
   --sub-soft: #e8f8ee;
   --sub-border: #22c55e;
+  --install-external: #15803d;
+  --install-internal: #ca8a04;
   --warn: #9a5b12;
   --warn-soft: #f6e6cf;
   --other: #6b7280;
@@ -352,6 +354,45 @@ input[type="number"]:focus {
 .model-picker-row #series-input,
 .model-picker-row #item-input {
   padding-right: 2.4rem;
+}
+
+/* Pin 1: coloured External / Internal over the selected series value */
+.model-picker-rich-label {
+  position: absolute;
+  inset: 0 2.4rem 0 0;
+  display: flex;
+  align-items: center;
+  padding: 0.85rem 0.95rem;
+  pointer-events: none;
+  font: inherit;
+  font-weight: 650;
+  color: var(--ink);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.model-picker.has-rich-label:not(:focus-within) #series-input {
+  color: transparent;
+  caret-color: transparent;
+}
+
+.pin-install {
+  font-weight: 750;
+}
+
+.pin-install--external {
+  color: var(--install-external);
+}
+
+.pin-install--internal {
+  color: var(--install-internal);
+}
+
+.model-option-label .pin-install--external,
+.model-option-label .pin-install--internal {
+  font-weight: 750;
 }
 
 .model-clear {
