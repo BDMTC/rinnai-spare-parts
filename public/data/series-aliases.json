@@ -4,51 +4,19 @@
     "title": "Rinnai series aliases",
     "locale": "en-AU",
     "updated": "2026-11-13",
-    "notes": "Marketing ↔ chassis / document keys for model pin + typeahead. Confirmed: HD28↔VCM2837; AU HD200e↔VRM2632WC; HD200i↔REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 external↔AM2626WD/WDL (owns Infinity 26 / INF26 / AM2626); Infinity 26 internal↔INF26I/FFUG; Infinity 26 Plus↔REUV2630WD/VRM2630WD; Infinity 26 Smartstart↔VR2626WGP; Infinity 32 Enviro↔KM3237WD; HD210e↔N3237WC; HD210i↔N3237FFC; Infinity 32 Enviro+↔N3237W (not all N3237). Commercial CF: HD32↔AM3237WC; HDC32↔NB3237; HDC211↔KM3237WDC/FFUDC; HD250e↔VRM3237WC; alias commercial on HD/HDC series. NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau)."
+    "notes": "Marketing ↔ chassis / document keys for model pin + typeahead. Confirmed: HD28e↔VCM2837WC; HD28i↔VCM2837FFC/FFUC; Infinity 28↔VCM2837FF (not FFC); Solar 28 booster↔VCM2837FF S28*; no umbrella HD28 pin (RSP-75). AU HD200e↔VRM2632WC; HD200i↔REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 external↔AM2626WD/WDL (owns Infinity 26 / INF26 / AM2626); Infinity 26 internal↔INF26I/FFUG; Infinity 26 Plus↔REUV2630WD/VRM2630WD; Infinity 26 Smartstart↔VR2626WGP; Infinity 32 Enviro↔KM3237WD; HD210e↔N3237WC; HD210i↔N3237FFC; Infinity 32 Enviro+↔N3237W (not all N3237). Commercial CF: HD32↔AM3237WC; HDC32↔NB3237; HDC211↔KM3237WDC/FFUDC; HD250e↔VRM3237WC; alias commercial on HD/HDC series. NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau)."
   },
   "series": [
     {
-      "id": "hd28",
-      "label": "HD28",
+      "id": "hd28e",
+      "label": "HD28e",
       "aliases": [
         "HD28",
         "HD-28",
         "HD28e",
         "HD28E",
-        "HD28i",
-        "HD28I",
-        "REU-VCM2837",
-        "REU-VCM2837WC",
-        "REU-VCM2837FFC",
-        "REU-VCM2837FFUC",
-        "VCM2837",
-        "REUVCM2837"
-      ],
-      "match": {
-        "marketingCodePrefixes": ["HD28"],
-        "itemNumberIncludes": ["REUVCM2837", "VCM2837"]
-      },
-      "documentKeys": [
-        "HD28",
-        "REU-VCM2837",
-        "REU-VCM2837WC",
-        "REU-VCM2837FFC",
-        "REU-VCM2837FFUC",
-        "VCM2837",
-        "VCM2837WC",
-        "VCM2837FFC",
-        "VCM2837FFUC",
-        "REUVCM2837"
-      ],
-      "notes": "HD28 continuous-flow platform shares REU-VCM2837 / VCM2837 chassis codes. WC (external / HD28e) and FFC/FFUC (internal / HD28i) are distinct unit classes — keep both document keys."
-    },
-    {
-      "id": "hd28e",
-      "label": "HD28e",
-      "aliases": [
-        "HD28e",
-        "HD28E",
         "HD 28E",
+        "Heavy Duty 28 External",
         "commercial",
         "Commercial",
         "REU-VCM2837WC",
@@ -57,6 +25,7 @@
       ],
       "match": {
         "marketingCodePrefixes": ["HD28E"],
+        "marketingCodeExcludePrefixes": ["INF28", "S28"],
         "itemNumberIncludes": ["REUVCM2837WC", "VCM2837WC"],
         "unitClasses": ["WC", "WCAK"]
       },
@@ -67,24 +36,35 @@
         "VCM2837WC",
         "REUVCM2837WC"
       ],
-      "notes": "HD28 external (WC). Marketing codes HD28E*."
+      "notes": "HD28 external (WC). Pin 1 = Heavy Duty 28 External. Bare HD28 typeahead alias only — match stays HD28E* / VCM2837WC. Infinity 28 (FF) and Solar 28 (S28*) excluded."
     },
     {
       "id": "hd28i",
       "label": "HD28i",
       "aliases": [
+        "HD28",
+        "HD-28",
         "HD28i",
         "HD28I",
         "HD 28I",
+        "Heavy Duty 28 Internal",
         "commercial",
         "Commercial",
         "REU-VCM2837FFC",
         "VCM2837FFC",
-        "REUVCM2837FFC"
+        "REUVCM2837FFC",
+        "REU-VCM2837FFUC",
+        "VCM2837FFUC"
       ],
       "match": {
         "marketingCodePrefixes": ["HD28I"],
-        "itemNumberIncludes": ["REUVCM2837FFC", "VCM2837FFC", "REUVCM2837FFUC", "VCM2837FFUC"],
+        "marketingCodeExcludePrefixes": ["INF28", "S28"],
+        "itemNumberIncludes": [
+          "REUVCM2837FFC",
+          "VCM2837FFC",
+          "REUVCM2837FFUC",
+          "VCM2837FFUC"
+        ],
         "unitClasses": ["FFC", "FFUC"]
       },
       "documentKeys": [
@@ -95,7 +75,58 @@
         "VCM2837FFC",
         "VCM2837FFUC"
       ],
-      "notes": "HD28 internal (FFC/FFUC). Marketing codes HD28I*."
+      "notes": "HD28 internal (FFC/FFUC). Pin 1 = Heavy Duty 28 Internal. Do not swallow Infinity 28 VCM2837FF or Solar 28 S28*."
+    },
+    {
+      "id": "infinity28",
+      "label": "Infinity 28",
+      "aliases": [
+        "Infinity 28",
+        "INF28",
+        "INF 28",
+        "REU-VCM2837FF",
+        "VCM2837FF",
+        "REUVCM2837FF"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["INF28"],
+        "marketingCodeExcludePrefixes": ["S28", "HD28"],
+        "itemNumberIncludes": ["REUVCM2837FF", "VCM2837FF"],
+        "unitClasses": ["FF"]
+      },
+      "documentKeys": [
+        "Infinity 28",
+        "INF28",
+        "REU-VCM2837FF",
+        "VCM2837FF",
+        "REUVCM2837FF"
+      ],
+      "notes": "Infinity 28 internal FF (INF28* → REU-VCM2837FF-*). Distinct from HD28i FFC/FFUC and Solar 28 S28* boosters on the same FF chassis packing."
+    },
+    {
+      "id": "solar28",
+      "label": "Solar 28",
+      "aliases": [
+        "Solar 28",
+        "S28",
+        "Booster Solar 28",
+        "REU-VCM2837FF",
+        "VCM2837FF",
+        "REUVCM2837FF"
+      ],
+      "match": {
+        "marketingCodePrefixes": ["S28"],
+        "marketingCodeExcludePrefixes": ["INF28", "HD28"],
+        "itemNumberIncludes": ["REUVCM2837FF", "VCM2837FF"],
+        "unitClasses": ["FF"]
+      },
+      "documentKeys": [
+        "Solar 28",
+        "S28",
+        "REU-VCM2837FF",
+        "VCM2837FF"
+      ],
+      "notes": "Solar Infinity booster 28 INT (S28I*) on REU-VCM2837FF-70-*. Kept out of HD28 and Infinity 28 pins."
     },
     {
       "id": "hd200e",

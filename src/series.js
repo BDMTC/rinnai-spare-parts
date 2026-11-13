@@ -3,7 +3,7 @@
  * Data: public/data/series-aliases.json
  */
 
-/** Longer suffixes first so FFUC wins over FFC/FFU, WCAK over WC, etc. */
+/** Longer suffixes first so FFUC/FFC/FFU win over bare FF, WCAK over WC, etc. */
 const UNIT_CLASS_SUFFIXES = [
   "WCAK",
   "FFUDC",
@@ -12,11 +12,13 @@ const UNIT_CLASS_SUFFIXES = [
   "FFUD",
   "FFC",
   "FFU",
+  "FF",
   "WDC",
   "WDL",
   "WC",
   "WD",
   "WG",
+  "WS",
 ];
 
 function normalise(text) {
