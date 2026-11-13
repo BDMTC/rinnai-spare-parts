@@ -712,59 +712,6 @@ function renderShell() {
             Commercial outlet temp (60°C+) — must not be installed on a domestic system.
           </p>
 
-          <div class="dataplate-zone" id="dataplate-zone">
-            <span class="field-label" id="dataplate-label">Dataplate</span>
-            <div
-              class="dataplate-drop"
-              id="dataplate-drop"
-              role="button"
-              tabindex="0"
-              aria-labelledby="dataplate-label"
-              aria-describedby="dataplate-drop-hint"
-            >
-              <input
-                type="file"
-                id="dataplate-file"
-                accept="image/*"
-                capture="environment"
-                hidden
-              />
-              <img id="dataplate-preview" class="dataplate-preview" alt="" hidden />
-              <p class="dataplate-drop-hint" id="dataplate-drop-hint">
-                Drop a dataplate photo here, or click to upload / take a photo.
-                Suggests Pin 1 series + Pin 2 Item Number — confirm chips before lock.
-              </p>
-            </div>
-            <p class="dataplate-status" id="dataplate-status" hidden></p>
-            <label class="dataplate-paste" for="dataplate-text">
-              <span class="dataplate-paste-label">Or paste / type dataplate text</span>
-              <textarea
-                id="dataplate-text"
-                rows="2"
-                spellcheck="false"
-                placeholder="e.g. REU-AM2626WD-50-AKN or HD210EN50"
-              ></textarea>
-            </label>
-            <div class="dataplate-chips" id="dataplate-chips" hidden>
-              <div class="dataplate-chip-group">
-                <span class="dataplate-chip-heading">Pin 1 · Series</span>
-                <div class="dataplate-chip-row" id="dataplate-series-chips"></div>
-              </div>
-              <div class="dataplate-chip-group">
-                <span class="dataplate-chip-heading">Pin 2 · Item Number</span>
-                <div class="dataplate-chip-row" id="dataplate-item-chips"></div>
-              </div>
-              <div class="dataplate-chip-actions">
-                <button type="button" class="dataplate-confirm" id="dataplate-confirm" disabled>
-                  Confirm pins
-                </button>
-                <button type="button" class="dataplate-clear" id="dataplate-clear">
-                  Clear dataplate
-                </button>
-              </div>
-            </div>
-          </div>
-
           <div class="pin-margin-row">
             <div class="field series-field">
               <span class="field-label" id="series-label">Pin 1 · Series</span>
@@ -915,6 +862,49 @@ function renderShell() {
                     Pin a series
                   </p>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dataplate-zone" id="dataplate-zone">
+            <span class="field-label" id="dataplate-label">Dataplate</span>
+            <div
+              class="dataplate-drop"
+              id="dataplate-drop"
+              role="button"
+              tabindex="0"
+              aria-labelledby="dataplate-label"
+              aria-describedby="dataplate-drop-hint"
+            >
+              <input
+                type="file"
+                id="dataplate-file"
+                accept="image/*"
+                capture="environment"
+                hidden
+              />
+              <img id="dataplate-preview" class="dataplate-preview" alt="" hidden />
+              <p class="dataplate-drop-hint" id="dataplate-drop-hint">
+                Drop a dataplate photo from the portal here, or take a photo of a dataplate.
+              </p>
+            </div>
+            <p class="dataplate-status" id="dataplate-status" hidden></p>
+            <div class="dataplate-chips" id="dataplate-chips" hidden>
+              <div class="dataplate-chip-group">
+                <span class="dataplate-chip-heading">Pin 1 · Series</span>
+                <div class="dataplate-chip-row" id="dataplate-series-chips"></div>
+              </div>
+              <div class="dataplate-chip-group">
+                <span class="dataplate-chip-heading">Pin 2 · Item Number</span>
+                <div class="dataplate-chip-row" id="dataplate-item-chips"></div>
+              </div>
+              <div class="dataplate-chip-actions">
+                <button type="button" class="dataplate-confirm" id="dataplate-confirm" disabled>
+                  Confirm pins
+                </button>
+                <button type="button" class="dataplate-clear" id="dataplate-clear">
+                  Clear dataplate
+                </button>
               </div>
             </div>
           </div>
