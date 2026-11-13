@@ -49,6 +49,9 @@ import ehpaAr from "./assets/service-manual-pages/ehpa-ar__p1.jpg";
 import ehpsBe from "./assets/service-manual-pages/ehps-be__p1.jpg";
 import ehpgGr from "./assets/service-manual-pages/ehpg-gr__p1.jpg";
 import ehpaVma from "./assets/service-manual-pages/ehpa-vma__p1.jpg";
+import ehpaVm from "./assets/service-manual-pages/ehpa-vm__p1.jpg";
+import envirofloShpr50 from "./assets/service-manual-pages/enviroflo-shpr50__p1.jpg";
+import envirofloShpl70 from "./assets/service-manual-pages/enviroflo-shpl70__p1.jpg";
 import chp from "./assets/service-manual-pages/chp__p1.jpg";
 
 /** @type {Record<string, Record<string, string>>} */
@@ -191,6 +194,18 @@ const SM_PACK_GLOBS = {
   ),
   "sm-ehpa-vma": import.meta.glob(
     "./assets/service-manual-pages/sm-ehpa-vma__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-ehpa-vm": import.meta.glob(
+    "./assets/service-manual-pages/sm-ehpa-vm__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-enviroflo-shpr50": import.meta.glob(
+    "./assets/service-manual-pages/sm-enviroflo-shpr50__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-enviroflo-shpl70": import.meta.glob(
+    "./assets/service-manual-pages/sm-enviroflo-shpl70__p*.jpg",
     { eager: true, import: "default" }
   ),
   "sm-chp": import.meta.glob(
@@ -520,6 +535,29 @@ const SERIES_SERVICE_MANUALS = {
     source:
       "SM - RINNAI - ENVIROFLO HEAT PUMP - VMA V2 - ISSUE 3 - JUN 2024.pdf",
     packId: "sm-ehpa-vma",
+  },
+  "ehpa-vm": {
+    url: ehpaVm,
+    label:
+      "SM - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 2 - NOV 2021.pdf p1",
+    source: "SM - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 2 - NOV 2021.pdf",
+    packId: "sm-ehpa-vm",
+  },
+  "enviroflo-shpr50": {
+    url: envirofloShpr50,
+    label:
+      "SM - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - 250L, 315L - ISSUE 1 - JUL 2025.pdf p1",
+    source:
+      "SM - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - 250L, 315L - ISSUE 1 - JUL 2025.pdf",
+    packId: "sm-enviroflo-shpr50",
+  },
+  "enviroflo-shpl70": {
+    url: envirofloShpl70,
+    label:
+      "SM - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - SEP 2025.pdf p1",
+    source:
+      "SM - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - SEP 2025.pdf",
+    packId: "sm-enviroflo-shpl70",
   },
   chp: {
     url: chp,
