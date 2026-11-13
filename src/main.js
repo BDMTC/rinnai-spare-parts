@@ -627,6 +627,66 @@ function clearCartAndClose() {
   closeCart();
 }
 
+/** Pin snapshot for flag-issue mailto body (type / series / item when set). */
+function flagPinsLabel() {
+  const bits = [];
+  const system = systemTypeFromValue(currentSystemTypeValue());
+  if (system) bits.push(`Type: ${system.label}`);
+  const pin = currentPin();
+  if (pin.kind === "series" || pin.kind === "model") {
+    if (pin.series?.label) bits.push(`Series: ${pin.series.label}`);
+  }
+  if (pin.kind === "model" && pin.model) {
+    const item =
+      String(pin.model.itemNumber || "").trim() ||
+      pin.model.sku ||
+      pin.model.marketingCode ||
+      getModelLabel(pin.model);
+    if (item) bits.push(`Item Number: ${item}`);
+  }
+  return bits.length ? bits.join(" · ") : null;
+}
+
+function dismissFlagConfirm(card) {
+  card?.querySelector(".flag-confirm-overlay")?.remove();
+}
+
+/**
+ * Card-sized confirm overlay. Yes keeps user activation for mailto.
+ * @param {HTMLElement} card
+ * @param {{ code?: string, title?: string, name?: string }} part
+ */
+function showFlagConfirm(card, part) {
+  if (!card) return;
+  document.querySelectorAll(".flag-confirm-overlay").forEach((el) => el.remove());
+
+  const overlay = document.createElement("div");
+  overlay.className = "flag-confirm-overlay";
+  overlay.setAttribute("role", "dialog");
+  overlay.setAttribute("aria-modal", "true");
+  overlay.setAttribute(
+    "aria-label",
+    "Are you sure you want to flag this item as a problem or issue?"
+  );
+  overlay.innerHTML = `
+    <p class="flag-confirm-copy">Are you sure you want to flag this item as a problem or issue?</p>
+    <div class="flag-confirm-actions">
+      <button type="button" class="flag-confirm-yes">Yes</button>
+      <button type="button" class="flag-confirm-no">No</button>
+    </div>
+  `;
+  card.appendChild(overlay);
+  overlay.querySelector(".flag-confirm-no")?.addEventListener("click", () => {
+    dismissFlagConfirm(card);
+  });
+  overlay.querySelector(".flag-confirm-yes")?.addEventListener("click", () => {
+    // Keep mailto inside this click so Chromium retains user activation.
+    submitFlagPart(part);
+    dismissFlagConfirm(card);
+  });
+  overlay.querySelector(".flag-confirm-yes")?.focus();
+}
+
 function submitFlagPart(part) {
   const code = String(part?.code || "").trim();
   const title = String(part?.title || part?.name || code).trim();
@@ -634,13 +694,16 @@ function submitFlagPart(part) {
   const payload = {
     code: code || title,
     title: title || code,
+    description: title || code,
+    pins: flagPinsLabel(),
   };
   overrides = flagPart(overrides, payload);
   persistOverrides();
   renderAdminPanel();
-  runSearch();
-  // Open mail client after DOM updates so navigation is not cancelled.
+  // Mailto before runSearch so the Yes click's user activation is not lost
+  // when the results list re-renders and tears down the card.
   openMailto(buildFlagIssueMailto(payload));
+  runSearch();
 }
 
 function renderShell() {
@@ -2336,7 +2399,9 @@ function renderResults(query, pin) {
       const code = btn.dataset.code;
       const row = lastResults.find((r) => r.part?.code === code);
       const part = row?.part;
-      submitFlagPart({
+      const card = btn.closest(".result");
+      if (!card) return;
+      showFlagConfirm(card, {
         code: part?.code || code,
         title: part?.name || btn.dataset.title || code,
       });

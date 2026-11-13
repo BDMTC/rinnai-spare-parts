@@ -1279,12 +1279,14 @@ input[type="number"]:focus {
 }
 
 .result {
+  position: relative;
   background: var(--panel-solid);
   border: 1px solid var(--line);
   border-radius: var(--radius);
   padding: 1rem 1.1rem;
   box-shadow: 0 8px 24px rgba(21, 32, 43, 0.04);
   transition: border-color 160ms ease, transform 180ms ease, opacity 160ms ease;
+  overflow: hidden;
 }
 
 .result:hover {
@@ -1831,6 +1833,81 @@ input[type="number"]:focus {
 
 .flag-part-btn:active {
   transform: translateY(1px);
+}
+
+/* Exact card cover — Flag confirm Yes/No before mailto */
+.flag-confirm-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 1rem 1.15rem;
+  box-sizing: border-box;
+  border-radius: inherit;
+  background: rgba(255, 250, 245, 0.97);
+  text-align: center;
+}
+
+.result--primary > .flag-confirm-overlay,
+.result--duo > .flag-confirm-overlay {
+  background: rgba(255, 244, 232, 0.98);
+}
+
+.result--subcomponent > .flag-confirm-overlay {
+  background: rgba(243, 252, 246, 0.98);
+}
+
+.flag-confirm-copy {
+  margin: 0;
+  max-width: 22rem;
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--ink);
+}
+
+.flag-confirm-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.65rem;
+}
+
+.flag-confirm-yes,
+.flag-confirm-no {
+  appearance: none;
+  border-radius: 8px;
+  font: inherit;
+  font-size: 0.85rem;
+  font-weight: 650;
+  padding: 0.45rem 1.15rem;
+  cursor: pointer;
+  min-width: 4.5rem;
+}
+
+.flag-confirm-yes {
+  border: 1px solid #9a3f0c;
+  background: #f47921;
+  color: #fff;
+}
+
+.flag-confirm-yes:hover {
+  filter: brightness(0.96);
+}
+
+.flag-confirm-no {
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+}
+
+.flag-confirm-no:hover {
+  background: #f3f5f7;
 }
 
 .match-row {
