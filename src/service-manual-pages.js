@@ -40,6 +40,10 @@ const SM_PACK_GLOBS = {
     "./assets/service-manual-pages/sm-new-a-series-cf__p*.jpg",
     { eager: true, import: "default" }
   ),
+  "sm-v2626w-v2630wc": import.meta.glob(
+    "./assets/service-manual-pages/sm-v2626w-v2630wc__p*.jpg",
+    { eager: true, import: "default" }
+  ),
 };
 
 /**
@@ -92,9 +96,9 @@ const SERIES_SERVICE_MANUALS = {
   },
   "infinity26-plus": {
     url: infinity26Plus,
-    label: "SM INF26_INF32 Enviro WH 190810.pdf p1",
-    source: "SM INF26_INF32 Enviro WH 190810.pdf",
-    packId: "sm-inf26-inf32-enviro-wh-190810",
+    label: "smV2626W_V2630WC.pdf p1",
+    source: "smV2626W_V2630WC.pdf",
+    packId: "sm-v2626w-v2630wc",
   },
   "infinity26-smartstart": {
     url: infinity26Smartstart,

@@ -214,6 +214,7 @@ const ED_STEM_TO_PDF = {
   "edpl-reu-vr2632ffug": "EDPL REU-VR2632FFUG.pdf",
   "edpl-v2632ffu-ffuc": "EDPL V2632FFU_FFUC.pdf",
   "edpl-reuv2630wd-inf26plus": "EDPL REUV2630WD INF26Plus.pdf",
+  "edpl-vrm2630": "EDPL VRM2630.pdf",
   "edpl-smartstart": "EDPL Smartstart.pdf",
   "edpl-vr-vrm3237": "EDPL VR_VRM3237.pdf",
   "pled-infinity-32-enviro-plus-n-series-e":

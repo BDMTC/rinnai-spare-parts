@@ -69,6 +69,14 @@ export const LIGHTBOX_PDFS = {
     id: "New-A-Series-CF-Parts-List",
     fileName: "New A Series CF Parts List.pdf",
   },
+  "smV2626W_V2630WC.pdf": {
+    id: "smV2626W-V2630WC",
+    fileName: "smV2626W_V2630WC.pdf",
+  },
+  "EDPL VRM2630.pdf": {
+    id: "EDPL-VRM2630",
+    fileName: "EDPL VRM2630.pdf",
+  },
 };
 
 /**
