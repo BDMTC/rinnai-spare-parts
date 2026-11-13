@@ -112,6 +112,14 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "EDPL VR_VRM3237.pdf p5",
     label: "EDPL VR_VRM3237 (HD250e)",
   },
+  infinity32: {
+    page: "EDPL VR_VRM3237.pdf p1",
+    label: "EDPL VR_VRM3237 (Infinity 32)",
+  },
+  v3237: {
+    page: "EDPL REUV3237.pdf p1",
+    label: "EDPL REUV3237 (V3237)",
+  },
   ehfa160: {
     page: "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
     label: "Hotflo EHFA160 spare parts",

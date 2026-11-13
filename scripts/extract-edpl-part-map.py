@@ -114,8 +114,17 @@ CF_SHEETS = [
     {
         "file": "EDPL VR_VRM3237.pdf",
         "stem": "edpl-vr-vrm3237",
-        "seriesIds": ["hd250e"],
-        "chassisTokens": ["VRM3237", "VR3237", "VRM3237WC", "VRM3237WG", "HD250E", "HD250e"],
+        "seriesIds": ["infinity32", "hd250e"],
+        "chassisTokens": [
+            "VR3237WG",
+            "REUVR3237WG",
+            "VRM3237",
+            "VR3237",
+            "VRM3237WC",
+            "VRM3237WG",
+            "HD250E",
+            "HD250e",
+        ],
         "priority": 10,
     },
     {
@@ -128,8 +137,16 @@ CF_SHEETS = [
     {
         "file": "PL - RINNAI - EDPLVRM3237 - ISSUE 4 - JUNE 2025.pdf",
         "stem": "edpl-vrm3237-issue4",
-        "seriesIds": ["hd250e"],
-        "chassisTokens": ["VRM3237", "VRM3237WC", "VRM3237WG", "REUVRM3237", "HD250"],
+        "seriesIds": ["infinity32", "hd250e"],
+        "chassisTokens": [
+            "VR3237WG",
+            "REUVR3237WG",
+            "VRM3237",
+            "VRM3237WC",
+            "VRM3237WG",
+            "REUVRM3237",
+            "HD250",
+        ],
         "priority": 11,
     },
     {
@@ -149,9 +166,9 @@ CF_SHEETS = [
     {
         "file": "EDPL REUV3237.pdf",
         "stem": "edpl-reuv3237",
-        "seriesIds": ["hd250e"],
-        "chassisTokens": ["REUV3237", "V3237"],
-        "priority": 4,
+        "seriesIds": ["v3237"],
+        "chassisTokens": ["REUV3237WG", "V3237WG", "REUV3237", "V3237"],
+        "priority": 8,
     },
     # N-series / HD210 / Infinity 32 Enviro(+)
     {
@@ -381,9 +398,9 @@ CF_SHEETS = [
     {
         "file": "REU-V3237WG Parts List.pdf",
         "stem": "pl-reu-v3237wg",
-        "seriesIds": ["hd250e"],
-        "chassisTokens": ["V3237WG", "REU-V3237WG"],
-        "priority": 4,
+        "seriesIds": ["infinity32", "v3237"],
+        "chassisTokens": ["VR3237WG", "REUVR3237WG", "V3237WG", "REU-V3237WG", "REUV3237WG"],
+        "priority": 7,
     },
     {
         "file": "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf",
@@ -882,6 +899,8 @@ def main():
             "infinity16": ("edpl-vr1620", 1),
             "infinity20": ("edpl-vr2024", 1),
             "hd250e": ("edpl-vr-vrm3237", 5),
+            "infinity32": ("edpl-vr-vrm3237", 1),
+            "v3237": ("edpl-reuv3237", 1),
             "infinity32-enviro": ("ed-n-series-2020-in32-enviro", 1),
             "infinity32-enviro-plus-n": ("ed-n-series-2020-in32-enviro", 1),
             "hd210e": ("ed-n-series-2020-in32-enviro", 1),

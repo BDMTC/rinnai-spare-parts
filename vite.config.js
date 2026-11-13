@@ -235,6 +235,10 @@ function lightboxPdfDataScripts() {
     { id: "EDPL-B16", file: "EDPL B16.pdf" },
     { id: "EDPL-2425W", file: "EDPL 2425W.pdf" },
     { id: "REU-VRM2024", file: "REU-VRM2024.pdf" },
+    {
+      id: "smREUV3237W-VM3237WC-April09",
+      file: "smREUV3237W_VM3237WC April09.pdf",
+    },
   ];
 
   function buildScriptSource(fileName) {

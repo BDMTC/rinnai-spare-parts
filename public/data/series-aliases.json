@@ -796,6 +796,54 @@
       "notes": "AU EnviroSmart continuous-flow (REU-K2430WG). Marketing ENVSMT*. Cover-true SM smK2430WAK.pdf; PL EDPL REU-K2430WG.pdf. K2403 PDF on disk is a misnamed K2430 sheet \u2014 not a separate series."
     },
     {
+      "id": "infinity32",
+      "label": "Infinity 32",
+      "aliases": [
+        "Infinity 32",
+        "INF32",
+        "INF 32",
+        "REU-VR3237WG",
+        "VR3237WG",
+        "REUVR3237WG",
+        "VR3237"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUVR3237WG",
+          "VR3237WG"
+        ]
+      },
+      "documentKeys": [
+        "Infinity 32",
+        "INF32",
+        "VR3237WG",
+        "REU-VR3237WG"
+      ],
+      "notes": "AU Infinity 32 external on REU-VR3237WG (INF32*). Chassis-only match so AM3237 / KM3237 / N3237 / VRM3237WG stay out. Cover-true SM: smVR3237WG_WC.pdf (shared with HD250e VRM3237WC); PL: EDPL VR_VRM3237 / EDPLVRM3237 Issue 4 / REU-V3237WG Parts List. Solar VR3237WS and VRM3237WG not on SM cover."
+    },
+    {
+      "id": "v3237",
+      "label": "V3237",
+      "aliases": [
+        "V3237",
+        "REU-V3237WG",
+        "V3237WG",
+        "REUV3237WG"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUV3237WG",
+          "V3237WG"
+        ]
+      },
+      "documentKeys": [
+        "V3237",
+        "V3237WG",
+        "REU-V3237WG"
+      ],
+      "notes": "Heritage Infinity 32 / HD250 predecessor on REU-V3237WG. Chassis-only so VR3237WG (Infinity 32) and VRM3237 stay out. Cover-true SM: smREUV3237W_VM3237WC April09.pdf; PL: EDPL REUV3237.pdf."
+    },
+    {
       "id": "infinity32-enviro",
       "label": "Infinity 32 Enviro",
       "aliases": [
