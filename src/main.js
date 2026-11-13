@@ -8,6 +8,8 @@ import tipHomeLogoUrl from "./assets/help/tip-home-logo.svg?inline";
 import tipQuoteUrl from "./assets/help/tip-quote.svg?inline";
 import { seriesUnitShotUrl } from "./series-unit-shots.js";
 import { resolvePartDiagram } from "./diagram-pages.js";
+import { resolveSeriesServiceManual } from "./service-manual-pages.js";
+import { resolveCalloutBox } from "./diagram-callouts.js";
 import {
   searchParts,
   getModelLabel,
@@ -825,7 +827,7 @@ function renderShell() {
                     class="diagram-thumb-btn"
                     id="diagram-thumb-btn"
                     hidden
-                    aria-label="Open exploded diagram full size"
+                    aria-label="Open document full size"
                   >
                     <img
                       id="diagram-visual-img"
@@ -834,7 +836,7 @@ function renderShell() {
                     />
                   </button>
                   <p class="search-visual-placeholder" id="diagram-visual-ph">
-                    Search for a part
+                    Pin a series
                   </p>
                 </div>
               </div>
@@ -842,10 +844,15 @@ function renderShell() {
           </div>
         </form>
 
-        <dialog class="diagram-lightbox" id="diagram-lightbox" aria-label="Exploded diagram">
+        <dialog class="diagram-lightbox" id="diagram-lightbox" aria-label="Document page">
           <div class="diagram-lightbox-inner">
-            <button type="button" class="diagram-lightbox-close" id="diagram-lightbox-close" aria-label="Close diagram">×</button>
-            <img id="diagram-lightbox-img" alt="Exploded diagram page" decoding="async" />
+            <button type="button" class="diagram-lightbox-close" id="diagram-lightbox-close" aria-label="Close">×</button>
+            <div class="diagram-lightbox-stage" id="diagram-lightbox-stage">
+              <div class="diagram-lightbox-frame" id="diagram-lightbox-frame">
+                <img id="diagram-lightbox-img" alt="Document page" decoding="async" />
+                <div class="diagram-callout-highlight" id="diagram-callout-highlight" hidden></div>
+              </div>
+            </div>
             <p class="diagram-lightbox-caption" id="diagram-lightbox-caption"></p>
           </div>
         </dialog>
@@ -1311,11 +1318,22 @@ function updateDomesticTempWarn() {
   }
 }
 
-/** @type {{ url: string, label: string, callout: string|null }|null} */
+/**
+ * Right-panel doc visual: SM (Pin1) or ED (Pin2 + search hit).
+ * @type {{
+ *   kind: 'sm'|'ed',
+ *   url: string,
+ *   label: string,
+ *   callout?: string|null,
+ *   pageKey?: string|null,
+ *   highlight?: { x: number, y: number, w: number, h: number }|null
+ * }|null}
+ */
 let activeDiagram = null;
 
 /**
- * Under-Margin dual panel: series promo (left) + primary-hit ED page (right).
+ * Under-Margin dual panel: series promo (left) + SM/ED (right).
+ * Pin1 only → service manual cover. Pin2 + part hit → ED page (SM if no ED).
  * Sized by Pin2+Search height — does not grow the search card.
  */
 function updateSearchVisuals(query, pin) {
@@ -1347,23 +1365,53 @@ function updateSearchVisuals(query, pin) {
   }
 
   const hasQuery = Boolean(String(query || "").trim());
+  const hasPin2 = activePin?.kind === "model";
   const primary =
     hasQuery && lastResults?.length
       ? lastResults.find((r) => r.isPrimary) || lastResults[0]
       : null;
-  const diagram = primary
-    ? resolvePartDiagram(primary.part, assemblyIndex, { pin: activePin })
-    : null;
-  activeDiagram = diagram;
+
+  /** @type {typeof activeDiagram} */
+  let panel = null;
+  if (hasPin2 && primary) {
+    const ed = resolvePartDiagram(primary.part, assemblyIndex, {
+      pin: activePin,
+    });
+    if (ed?.url) {
+      const pageKey = ed.pageKey || ed.label || null;
+      const highlight = resolveCalloutBox(pageKey, ed.callout);
+      panel = {
+        kind: "ed",
+        url: ed.url,
+        label: ed.label,
+        callout: ed.callout,
+        pageKey,
+        highlight,
+      };
+    } else {
+      const sm = resolveSeriesServiceManual(seriesId);
+      if (sm) panel = { ...sm, callout: null, highlight: null };
+    }
+  } else if (seriesId) {
+    const sm = resolveSeriesServiceManual(seriesId);
+    if (sm) panel = { ...sm, callout: null, highlight: null };
+  }
+  activeDiagram = panel;
 
   const thumbBtn = document.querySelector("#diagram-thumb-btn");
   const diagramImg = document.querySelector("#diagram-visual-img");
   const diagramPh = document.querySelector("#diagram-visual-ph");
   if (thumbBtn && diagramImg && diagramPh) {
-    if (diagram?.url) {
-      diagramImg.src = diagram.url;
-      const calloutBit = diagram.callout ? ` · item ${diagram.callout}` : "";
-      diagramImg.alt = `Exploded diagram${calloutBit}`;
+    if (panel?.url) {
+      diagramImg.src = panel.url;
+      if (panel.kind === "ed") {
+        const calloutBit = panel.callout ? ` · item ${panel.callout}` : "";
+        diagramImg.alt = `Exploded diagram${calloutBit}`;
+        thumbBtn.setAttribute("aria-label", "Open exploded diagram full size");
+      } else {
+        diagramImg.alt = `Service manual — ${panel.label || seriesId}`;
+        thumbBtn.setAttribute("aria-label", "Open service manual full size");
+      }
       thumbBtn.hidden = false;
       diagramPh.hidden = true;
     } else {
@@ -1371,11 +1419,32 @@ function updateSearchVisuals(query, pin) {
       diagramImg.alt = "";
       thumbBtn.hidden = true;
       diagramPh.hidden = false;
-      diagramPh.textContent = hasQuery
-        ? "No diagram for this hit yet"
-        : "Search for a part";
+      if (!seriesId) {
+        diagramPh.textContent = "Pin a series";
+      } else if (hasPin2 && hasQuery) {
+        diagramPh.textContent = "No diagram for this hit yet";
+      } else {
+        diagramPh.textContent = "No service manual yet";
+      }
     }
   }
+}
+
+function syncCalloutHighlight() {
+  const highlightEl = document.querySelector("#diagram-callout-highlight");
+  const img = document.querySelector("#diagram-lightbox-img");
+  const frame = document.querySelector("#diagram-lightbox-frame");
+  if (!highlightEl || !img || !frame) return;
+  const box = activeDiagram?.kind === "ed" ? activeDiagram.highlight : null;
+  if (!box || !img.naturalWidth) {
+    highlightEl.hidden = true;
+    return;
+  }
+  highlightEl.hidden = false;
+  highlightEl.style.left = `${box.x * 100}%`;
+  highlightEl.style.top = `${box.y * 100}%`;
+  highlightEl.style.width = `${box.w * 100}%`;
+  highlightEl.style.height = `${box.h * 100}%`;
 }
 
 function openDiagramLightbox() {
@@ -1383,25 +1452,42 @@ function openDiagramLightbox() {
   const dialog = document.querySelector("#diagram-lightbox");
   const img = document.querySelector("#diagram-lightbox-img");
   const caption = document.querySelector("#diagram-lightbox-caption");
+  const highlightEl = document.querySelector("#diagram-callout-highlight");
   if (!dialog || !img) return;
+  if (highlightEl) highlightEl.hidden = true;
+  img.onload = () => syncCalloutHighlight();
   img.src = activeDiagram.url;
-  img.alt = activeDiagram.label || "Exploded diagram page";
+  const isEd = activeDiagram.kind === "ed";
+  img.alt = activeDiagram.label || (isEd ? "Exploded diagram page" : "Service manual page");
   if (caption) {
-    const calloutBit = activeDiagram.callout
-      ? ` · callout ${activeDiagram.callout}`
-      : "";
-    caption.textContent = `${activeDiagram.label || "Exploded diagram"}${calloutBit}`;
+    if (isEd) {
+      const calloutBit = activeDiagram.callout
+        ? ` · callout ${activeDiagram.callout}`
+        : "";
+      caption.textContent = `${activeDiagram.label || "Exploded diagram"}${calloutBit}`;
+    } else {
+      caption.textContent = `Service manual — ${activeDiagram.label || ""}`.trim();
+    }
   }
+  dialog.setAttribute(
+    "aria-label",
+    isEd ? "Exploded diagram" : "Service manual"
+  );
   if (typeof dialog.showModal === "function") dialog.showModal();
   else dialog.setAttribute("open", "");
+  // If cached, onload may not fire
+  if (img.complete) syncCalloutHighlight();
 }
 
 function closeDiagramLightbox() {
   const dialog = document.querySelector("#diagram-lightbox");
   const img = document.querySelector("#diagram-lightbox-img");
+  const highlightEl = document.querySelector("#diagram-callout-highlight");
   if (dialog && typeof dialog.close === "function") dialog.close();
   else if (dialog) dialog.removeAttribute("open");
+  if (highlightEl) highlightEl.hidden = true;
   if (img) {
+    img.onload = null;
     img.removeAttribute("src");
     img.alt = "";
   }

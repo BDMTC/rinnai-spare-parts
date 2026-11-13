@@ -358,13 +358,43 @@ body::before {
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 }
 
+.diagram-lightbox-stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-height: calc(96vh - 4.5rem);
+  overflow: auto;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.diagram-lightbox-frame {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  line-height: 0;
+}
+
+.diagram-lightbox-frame img,
 .diagram-lightbox-inner img {
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   max-height: calc(96vh - 4.5rem);
+  height: auto;
   object-fit: contain;
   background: #fff;
   border-radius: 8px;
+}
+
+.diagram-callout-highlight {
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px solid rgba(244, 121, 33, 0.95);
+  background: rgba(244, 121, 33, 0.22);
+  border-radius: 4px;
+  pointer-events: none;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.55);
 }
 
 .diagram-lightbox-caption {
