@@ -12,8 +12,10 @@
  *   HD210EN42 → Heavy Duty 210 External Nat Gas 42 Degree
  *   EHFA160S18 → Hotflo EHFA160 Vitreous Enamel S18
  *   ECF14I50 → Efinity ECF 14 Internal 50 Degree
- *   DDUPS2580N → Demand Duo Grundfos Circulation Pump 2580 Nat Gas
+ *   DDUPS2580N → Demand Duo Grundfos Circulation Pump 2580 Brass Body
  *   series HD200e → Heavy Duty 200 External
+ *
+ * DDUPS / DDUPM trailing N is pump body material (brass), not Nat Gas.
  */
 
 const FUEL_WORDS = {
@@ -26,6 +28,19 @@ const FUEL_WORDS = {
   B: "Butane",
   BUTANE: "Butane",
 };
+
+/** Grundfos / DDUPS·DDUPM body letter — not fuel. Beau: N = brass body. */
+const DDUPS_BODY_WORDS = {
+  N: "Brass Body",
+};
+
+/**
+ * @param {string} skuU alnum-upper SKU
+ * @returns {boolean}
+ */
+function isDdupsBodySku(skuU) {
+  return /^(?:DDUPS|DDUPM)\d+[A-Z]?$/.test(String(skuU || ""));
+}
 
 /**
  * @param {object|null|undefined} model
@@ -71,13 +86,20 @@ export function getModelShortCode(model) {
  */
 export function getModelFuelKind(model, series = null) {
   if (!model) return "";
+  const sku = String(model.sku || model.marketingCode || "")
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, "");
+  // DDUPS/DDUPM trailing letter is body material, never NG/LPG colouring.
+  if (isDdupsBodySku(sku) || isDdupsBodySku(
+    String(model.itemNumber || "").toUpperCase().replace(/[^A-Z0-9]/g, "")
+  )) {
+    return "";
+  }
+
   const commercial = getModelCommercialName(model, series);
   const fromText = fuelKindFromText(commercial);
   if (fromText) return fromText;
 
-  const sku = String(model.sku || model.marketingCode || "")
-    .toUpperCase()
-    .replace(/[^A-Z0-9]/g, "");
   const peeled = peelFuelTemp(sku);
   if (peeled?.fuel) {
     const fromPeel = fuelKindFromText(peeled.fuel);
@@ -470,24 +492,24 @@ function deriveCommercialNameFromSku(sku, model, series) {
     ]);
   }
 
-  // Demand Duo accessories
+  // Demand Duo accessories — trailing N on DDUPS/DDUPM = brass body (not Nat Gas)
   m = raw.match(/^DDUPS(\d+)([NLB])?$/);
   if (m) {
-    const fuel = m[2] ? FUEL_WORDS[m[2]] || m[2] : "";
+    const body = m[2] ? DDUPS_BODY_WORDS[m[2]] || m[2] : "";
     return joinCommercial([
       "Demand Duo Grundfos Circulation Pump",
       m[1],
-      fuel,
+      body,
     ]);
   }
   m = raw.match(/^DDUPM(\d+)([NLB])?$/);
   if (m) {
-    const fuel = m[2] ? FUEL_WORDS[m[2]] || m[2] : "";
+    const body = m[2] ? DDUPS_BODY_WORDS[m[2]] || m[2] : "";
     return joinCommercial([
       "Demand Duo Grundfos Circulation Pump",
       "Multi",
       m[1],
-      fuel,
+      body,
     ]);
   }
   m = raw.match(/^DD(\d+)TSTAT$/);

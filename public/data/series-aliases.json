@@ -1269,7 +1269,7 @@
         "DDUPS",
         "Demand Duo"
       ],
-      "notes": "RSP-115: Demand Duo accessory family — Grundfos circulation pumps (not chassis / Pin3).",
+      "notes": "RSP-115/123: Demand Duo accessory family — Grundfos circulation pumps (not chassis). Trailing N on DDUPS/DDUPM = brass body (not Nat Gas). Pin3 Item Number shows that SKU card only.",
       "systemType": "demand-duo",
       "familyKey": "commercial_demand_duo",
       "accessoryFamily": true
