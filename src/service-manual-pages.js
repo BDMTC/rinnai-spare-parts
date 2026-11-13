@@ -32,6 +32,10 @@ const SM_PACK_GLOBS = {
     "./assets/service-manual-pages/sm-smartstart__p*.jpg",
     { eager: true, import: "default" }
   ),
+  "sm-inbuilt-smartstart": import.meta.glob(
+    "./assets/service-manual-pages/sm-inbuilt-smartstart__p*.jpg",
+    { eager: true, import: "default" }
+  ),
   "sm-vr3237wg-wc": import.meta.glob(
     "./assets/service-manual-pages/sm-vr3237wg-wc__p*.jpg",
     { eager: true, import: "default" }
@@ -102,9 +106,9 @@ const SERIES_SERVICE_MANUALS = {
   },
   "infinity26-smartstart": {
     url: infinity26Smartstart,
-    label: "SM Smartstart.pdf p1",
-    source: "SM Smartstart.pdf",
-    packId: "sm-smartstart",
+    label: "SM Inbuilt Smartstart.pdf p1",
+    source: "SM Inbuilt Smartstart.pdf",
+    packId: "sm-inbuilt-smartstart",
   },
   "infinity32-enviro": {
     url: infinity32Enviro,
