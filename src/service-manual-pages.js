@@ -14,6 +14,7 @@ import hd210e from "./assets/service-manual-pages/hd210e__p1.jpg";
 import hd210i from "./assets/service-manual-pages/hd210i__p1.jpg";
 import hd250e from "./assets/service-manual-pages/hd250e__p1.jpg";
 import infinityB from "./assets/service-manual-pages/infinity-b__p1.jpg";
+import envirosmart from "./assets/service-manual-pages/envirosmart__p1.jpg";
 
 /** @type {Record<string, Record<string, string>>} */
 const SM_PACK_GLOBS = {
@@ -51,6 +52,10 @@ const SM_PACK_GLOBS = {
   ),
   "sm-hw-cf-bm-b26": import.meta.glob(
     "./assets/service-manual-pages/sm-hw-cf-bm-b26__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-k2430wak": import.meta.glob(
+    "./assets/service-manual-pages/sm-k2430wak__p*.jpg",
     { eager: true, import: "default" }
   ),
 };
@@ -150,6 +155,12 @@ const SERIES_SERVICE_MANUALS = {
     label: "HW_CF_BM_SM_Issue_1_AUG BM2626 & B26 Series.pdf p1",
     source: "HW_CF_BM_SM_Issue_1_AUG BM2626 & B26 Series.pdf",
     packId: "sm-hw-cf-bm-b26",
+  },
+  envirosmart: {
+    url: envirosmart,
+    label: "smK2430WAK.pdf p1",
+    source: "smK2430WAK.pdf",
+    packId: "sm-k2430wak",
   },
 };
 

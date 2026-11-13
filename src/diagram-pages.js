@@ -108,6 +108,10 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "PL - RINNAI - 2025 BM SERIES - INFINITY B - ISSUE 1 - AUG 2025.pdf p1",
     label: "2025 BM Series Infinity B Issue 1",
   },
+  envirosmart: {
+    page: "EDPL REU-K2430WG.pdf p1",
+    label: "EDPL REU-K2430WG (EnviroSmart)",
+  },
 };
 
 /** Chassis tokens that imply the VRM2632WC common ED. */
@@ -258,6 +262,7 @@ const ED_STEM_TO_PDF = {
     "HW_CF_A_Series_Parts_List_Issue_1_Jan_2018.pdf",
   "pl-rinnai-2025-bm-series-infinity-b":
     "PL - RINNAI - 2025 BM SERIES - INFINITY B - ISSUE 1 - AUG 2025.pdf",
+  "edpl-reu-k2430wg": "EDPL REU-K2430WG.pdf",
   "pled-infinity-32-enviro-plus-n-series-e":
     "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
   "pl-reu-vcm2837-wc-external": "Parts List REU-VCM2837 WC External.pdf",

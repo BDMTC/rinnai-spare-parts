@@ -31,6 +31,8 @@ UNIQUE_SM = {
     "sm-v2626w-v2630wc": "smV2626W_V2630WC.pdf",
     # Infinity B family (cover lists BM2626 / B26 / B20 / B16 / B12)
     "sm-hw-cf-bm-b26": "HW_CF_BM_SM_Issue_1_AUG BM2626 & B26 Series.pdf",
+    # EnviroSmart K2430
+    "sm-k2430wak": "smK2430WAK.pdf",
 }
 
 # Optional series thumb covers copied from pack page 1
@@ -40,6 +42,7 @@ SERIES_THUMBS = {
     "infinity26-plus": "sm-v2626w-v2630wc",
     "infinity26-smartstart": "sm-inbuilt-smartstart",
     "infinity-b": "sm-hw-cf-bm-b26",
+    "envirosmart": "sm-k2430wak",
 }
 
 TARGET_WIDTH = 900

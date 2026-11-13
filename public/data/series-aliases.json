@@ -4,7 +4,7 @@
     "title": "Rinnai series aliases",
     "locale": "en-AU",
     "updated": "2026-11-13",
-    "notes": "Marketing \u2194 chassis / document keys for model pin + typeahead. Confirmed: HD28e\u2194VCM2837WC; HD28i\u2194VCM2837FFC/FFUC; Infinity 28\u2194VCM2837FF (not FFC); Solar 28 booster\u2194VCM2837FF S28*; no umbrella HD28 pin (RSP-75). AU HD200e\u2194VRM2632WC; HD200i\u2194REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 external\u2194AM2626WD/WDL (owns Infinity 26 / INF26 / AM2626); Infinity 26 internal\u2194INF26I/FFUG; Infinity 26 Plus\u2194REUV2630WD/VRM2630WD; Infinity 26 Smartstart\u2194VR2626WGP; Infinity 32 Enviro\u2194KM3237WD; HD210e\u2194N3237WC; HD210i\u2194N3237FFC; Infinity 32 Enviro+\u2194N3237W (not all N3237). Commercial CF: HD32\u2194AM3237WC; HDC32\u2194NB3237; HDC211\u2194KM3237WDC/FFUDC; HD250e\u2194VRM3237WC; alias commercial on HD/HDC series. NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau). RSP-95: +17 Hot Water series (Hotflo/Efinity/heat pump/solar/commercial matched-only). RSP-115: Demand Duo split into accessory families ddups/ddtstat/dduvc (not chassis). Weekend RR: +Infinity B (BM chassis) Pin1 series."
+    "notes": "Marketing \u2194 chassis / document keys for model pin + typeahead. Confirmed: HD28e\u2194VCM2837WC; HD28i\u2194VCM2837FFC/FFUC; Infinity 28\u2194VCM2837FF (not FFC); Solar 28 booster\u2194VCM2837FF S28*; no umbrella HD28 pin (RSP-75). AU HD200e\u2194VRM2632WC; HD200i\u2194REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 external\u2194AM2626WD/WDL (owns Infinity 26 / INF26 / AM2626); Infinity 26 internal\u2194INF26I/FFUG; Infinity 26 Plus\u2194REUV2630WD/VRM2630WD; Infinity 26 Smartstart\u2194VR2626WGP; Infinity 32 Enviro\u2194KM3237WD; HD210e\u2194N3237WC; HD210i\u2194N3237FFC; Infinity 32 Enviro+\u2194N3237W (not all N3237). Commercial CF: HD32\u2194AM3237WC; HDC32\u2194NB3237; HDC211\u2194KM3237WDC/FFUDC; HD250e\u2194VRM3237WC; alias commercial on HD/HDC series. NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau). RSP-95: +17 Hot Water series (Hotflo/Efinity/heat pump/solar/commercial matched-only). RSP-115: Demand Duo split into accessory families ddups/ddtstat/dduvc (not chassis). Weekend RR: +Infinity B (BM chassis) Pin1 series. Weekend RR: +EnviroSmart (K2430WG) Pin1 series."
   },
   "series": [
     {
@@ -504,6 +504,40 @@
         "REU-BM1220W"
       ],
       "notes": "AU Infinity B family (REU-BM1220W / BM1620W / BM2024W / BM2626W + solar BM1620WS / BM2626WS). Pin match is chassis Item Number only \u2014 marketing INF12/16/20/26*B codes collide with AM/heritage INF prefixes so they are not used as prefixes. Bare B26 typeahead alias avoided (heritage A2626/VR2626WB). Cover-true SM: HW_CF_BM_SM BM2626 & B26 Series; PL: 2025 BM SERIES Infinity B Issue 1."
+    },
+    {
+      "id": "envirosmart",
+      "label": "EnviroSmart",
+      "aliases": [
+        "EnviroSmart",
+        "Enviro Smart",
+        "ENVSMT",
+        "ENVSMTL",
+        "ENVSMTN",
+        "REU-K2430WG",
+        "K2430WG",
+        "K2430",
+        "REUK2430WG"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "ENVSMT"
+        ],
+        "itemNumberIncludes": [
+          "REUK2430WG",
+          "K2430WG"
+        ],
+        "unitClasses": [
+          "WG"
+        ]
+      },
+      "documentKeys": [
+        "EnviroSmart",
+        "K2430",
+        "K2430WG",
+        "REU-K2430WG"
+      ],
+      "notes": "AU EnviroSmart continuous-flow (REU-K2430WG). Marketing ENVSMT*. Cover-true SM smK2430WAK.pdf; PL EDPL REU-K2430WG.pdf. K2403 PDF on disk is a misnamed K2430 sheet \u2014 not a separate series."
     },
     {
       "id": "infinity32-enviro",

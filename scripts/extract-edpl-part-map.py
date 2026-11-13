@@ -313,19 +313,20 @@ CF_SHEETS = [
         "priority": 3,
     },
 
+    # Misnamed on-disk copy of K2430 sheet — keep for bbox only, no series
     {
         "file": "EDPL REU-K2403WG.pdf",
         "stem": "edpl-reu-k2403wg",
         "seriesIds": [],
-        "chassisTokens": ["K2403WG", "REU-K2403WG"],
-        "priority": 2,
+        "chassisTokens": ["K2403WG"],
+        "priority": 1,
     },
     {
         "file": "EDPL REU-K2430WG.pdf",
         "stem": "edpl-reu-k2430wg",
-        "seriesIds": [],
-        "chassisTokens": ["K2430WG", "REU-K2430WG"],
-        "priority": 2,
+        "seriesIds": ["envirosmart"],
+        "chassisTokens": ["K2430WG", "REU-K2430WG", "ENVSMT"],
+        "priority": 12,
     },
     {
         "file": "New A Series CF Parts List.pdf",
@@ -814,6 +815,7 @@ def main():
             "infinity26-plus": ("edpl-reuv2630wd-inf26plus", 6),
             "infinity26-smartstart": ("pl-ed-inf26-smartstart-vr2626wgp", 1),
             "infinity-b": ("pl-rinnai-2025-bm-series-infinity-b", 1),
+            "envirosmart": ("edpl-reu-k2430wg", 1),
             "hd250e": ("edpl-vr-vrm3237", 5),
             "infinity32-enviro": ("ed-n-series-2020-in32-enviro", 1),
             "infinity32-enviro-plus-n": ("ed-n-series-2020-in32-enviro", 1),
