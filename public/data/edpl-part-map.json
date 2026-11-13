@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T14:21:26.811414+00:00",
+  "generatedAt": "2026-11-13T14:29:13.412441+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
@@ -17,7 +17,8 @@
     "cfHotfloLeftovers": "VCM2837 FF Issue4 (hd28i/inf28) + AM3237WC HD32 + Hotflo 250SL/T/400S/80-400S (pl-reu-vcm2837-ff-issue4, pl-reu-am3237wc-hd32, pl-hotflo-ehf-250sl-315l, pl-hotflo-ehf-250t-315t, pl-hotflo-ehf-400s, pl-hotflo-hfe-160t-400t, pl-hotflo-hfe-80-400s-issue10)",
     "hdc32Hdc211i": "NB3237 HDC32e/i + KM3237FFUDC HDC211i + VCM2837 WC Issue5 hd28e (pl-reu-nb3237-hdc32, pl-reu-km3237ffudc-hdc211i, pl-reu-vcm2837-wc-issue5)",
     "smHdc32_2402Polish": "NB3237 SM pack for hdc32e/i + infinity24-2402 diagram registry (no invented RA)",
-    "smVcmAmHdc211e": "VCM2837 SM (hd28e/i + inf28) + AM3237 SM (hd32) + HDC211e Issue03 PL (sm-vcm2837, sm-am3237, pl-reu-km3237wdc-hdc211e-issue03)"
+    "smVcmAmHdc211e": "VCM2837 SM (hd28e/i + inf28) + AM3237 SM (hd32) + HDC211e Issue03 PL (sm-vcm2837, sm-am3237, pl-reu-km3237wdc-hdc211e-issue03)",
+    "vr2632ffugIssue4": "PL VR2632FFUG_VRM2632FFUC Issue 4 \u2192 pl-vr2632ffug-vrm2632ffuc-issue4 (68 rows, 60 in catalogue)"
   },
   "totals": {
     "sheetsConfigured": 49,
@@ -2534,6 +2535,41 @@
       ],
       "priority": 25,
       "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf"
+    },
+    {
+      "file": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+      "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+      "status": "ok",
+      "pages": 7,
+      "diagramPages": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "listPages": [
+        1,
+        2,
+        3
+      ],
+      "defaultDiagramPage": 4,
+      "rowsExtracted": 68,
+      "rowsInCatalogue": 60,
+      "rowsWithListBox": 68,
+      "seriesIds": [
+        "hd200i",
+        "infinity26-internal"
+      ],
+      "chassisTokens": [
+        "VR2632FFUG",
+        "REU-VR2632FFUG",
+        "VRM2632FFUC",
+        "REU-VRM2632FFUC",
+        "HD200I",
+        "HD200i"
+      ],
+      "priority": 26,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf"
     }
   ],
   "parts": {
@@ -3358,6 +3394,29 @@
       }
     ],
     "92086909": [
+      {
+        "callout": "7",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "SEAL PANEL FRONT TOP"
+      },
       {
         "callout": "2",
         "page": "SM REU3203.pdf p54",
@@ -4311,6 +4370,29 @@
     ],
     "92063361": [
       {
+        "callout": "8",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "MAIN BODY PACKING SIDE"
+      },
+      {
         "callout": "1",
         "page": "SM 24WA.pdf p61",
         "pageKey": "pl-sm-24wa__p61",
@@ -4840,6 +4922,29 @@
       }
     ],
     "92073352": [
+      {
+        "callout": "9",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "INF20 CABLE ENTRY (NEW)"
+      },
       {
         "callout": "4",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p1",
@@ -5832,6 +5937,29 @@
       }
     ],
     "92099984": [
+      {
+        "callout": "10",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "SEAL HARNESS EASY CONN"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p1",
@@ -7105,6 +7233,29 @@
     ],
     "92099986": [
       {
+        "callout": "11",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "HARNESS EASY CONN"
+      },
+      {
         "callout": "2",
         "page": "EDPL REU-K2430WG.pdf p1",
         "pageKey": "edpl-reu-k2430wg__p1",
@@ -8166,6 +8317,29 @@
     ],
     "92086736": [
       {
+        "callout": "100",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "GAS CONTROL"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -8517,6 +8691,29 @@
       }
     ],
     "92099956": [
+      {
+        "callout": "101",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "SCREW TEST POINT"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p1",
@@ -9783,6 +9980,29 @@
       }
     ],
     "92081587": [
+      {
+        "callout": "102",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "INLET GAS 3/4"
+      },
       {
         "callout": "2",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p1",
@@ -11322,6 +11542,29 @@
     ],
     "92092212": [
       {
+        "callout": "103",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "BURNER ASSY LP"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -11704,6 +11947,29 @@
     ],
     "92099904": [
       {
+        "callout": "103",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "BURNER ASSY NG"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -11909,6 +12175,29 @@
       }
     ],
     "92099906": [
+      {
+        "callout": "109",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "DAMPER LP"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
@@ -12164,6 +12453,29 @@
     ],
     "92099908": [
       {
+        "callout": "109",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "DAMPER NG"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -12417,6 +12729,29 @@
       }
     ],
     "92094318": [
+      {
+        "callout": "110",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "MANIFOLD LP"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
@@ -12773,6 +13108,29 @@
       }
     ],
     "92086974": [
+      {
+        "callout": "116",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "ELECTRODE"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p1",
@@ -14268,6 +14626,29 @@
     ],
     "92095598": [
       {
+        "callout": "117",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "FLAME ROD"
+      },
+      {
         "callout": "1",
         "page": "PL & ED INF26 Smartstart VR2626WGP.pdf p5",
         "pageKey": "pl-ed-inf26-smartstart-vr2626wgp__p5",
@@ -14814,6 +15195,29 @@
     ],
     "92087015": [
       {
+        "callout": "118",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "PACKING ELECTRODE"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf p4",
         "pageKey": "edpl-hd250e-reuvrm3237wc-issue4__p4",
@@ -15230,6 +15634,29 @@
       }
     ],
     "92087006": [
+      {
+        "callout": "119",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "ELECTRODE HOLDER RH"
+      },
       {
         "callout": "1",
         "page": "SM REU3203.pdf p54",
@@ -16195,6 +16622,29 @@
     ],
     "92098870": [
       {
+        "callout": "127",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "CONNECTING COMB FAN"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -16600,6 +17050,29 @@
       }
     ],
     "92098888": [
+      {
+        "callout": "128",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "PACKING FAN CONECTING"
+      },
       {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -18285,6 +18758,29 @@
       }
     ],
     "92093552": [
+      {
+        "callout": "402",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "RECTIFIER WATER"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p2",
@@ -20054,6 +20550,29 @@
       }
     ],
     "92083773": [
+      {
+        "callout": "406",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "FILTER WATER  LARGE"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p2",
@@ -22142,6 +22661,29 @@
     ],
     "92093806": [
       {
+        "callout": "408",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "OUTLET WATER 3/4"
+      },
+      {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
         "pageKey": "edpl-reu-k2430wg__p1",
@@ -23662,6 +24204,29 @@
     ],
     "92099918": [
       {
+        "callout": "700",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "PCB MAIN"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -23959,6 +24524,29 @@
       }
     ],
     "92093699": [
+      {
+        "callout": "701",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "SURGE ARRESTOR"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p3",
@@ -25347,6 +25935,29 @@
     ],
     "92095030": [
       {
+        "callout": "704",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "THERMISTOR"
+      },
+      {
         "callout": "3",
         "page": "EDPL REU-K2430WG.pdf p1",
         "pageKey": "edpl-reu-k2430wg__p1",
@@ -26077,6 +26688,29 @@
       }
     ],
     "92095026": [
+      {
+        "callout": "706",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "SPARKER"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p3",
@@ -27437,6 +28071,29 @@
     ],
     "92099920": [
       {
+        "callout": "707",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "LEAD HT"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -27642,6 +28299,29 @@
       }
     ],
     "92087030": [
+      {
+        "callout": "708",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "SLEEVE ELECTRODE"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p3",
@@ -29568,6 +30248,29 @@
     ],
     "92095031": [
       {
+        "callout": "709",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "THERMISTOR 2"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -29942,6 +30645,29 @@
       }
     ],
     "92086388": [
+      {
+        "callout": "710",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "BRKT THERMISTOR"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p3",
@@ -33398,6 +34124,29 @@
     "92096123": [
       {
         "callout": "717",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "BRKT HEATER A"
+      },
+      {
+        "callout": "717",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
         "pdf": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf",
@@ -33571,6 +34320,29 @@
       }
     ],
     "92096225": [
+      {
+        "callout": "718",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "BRKT HEATER B"
+      },
       {
         "callout": "2",
         "page": "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf p4",
@@ -34361,6 +35133,29 @@
       }
     ],
     "92089051": [
+      {
+        "callout": "720",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "ELEC CORD"
+      },
       {
         "callout": "4",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p3",
@@ -35947,6 +36742,29 @@
     ],
     "92099985": [
       {
+        "callout": "723",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "HARNESS RELAY"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -36251,6 +37069,29 @@
     ],
     "92099924": [
       {
+        "callout": "724",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "SENSOR HARNESS"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -36456,6 +37297,29 @@
       }
     ],
     "92092189": [
+      {
+        "callout": "725",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "FUSE THERMAL"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
@@ -36760,6 +37624,29 @@
       }
     ],
     "92099988": [
+      {
+        "callout": "726",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "SENSOR MR"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p3",
@@ -38154,6 +39041,29 @@
     ],
     "92099989": [
       {
+        "callout": "727",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "HARNESS SPARKER"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -38457,6 +39367,29 @@
       }
     ],
     "92099961": [
+      {
+        "callout": "729",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p3",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "HARNESS REMOTE CONTROL"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p3",
@@ -39781,6 +40714,29 @@
     ],
     "92095033": [
       {
+        "callout": "731",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p3",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "HARNESS RELAY"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf p4",
         "pageKey": "edpl-hd250e-reuvrm3237wc-issue4__p4",
@@ -40239,6 +41195,29 @@
       }
     ],
     "92095032": [
+      {
+        "callout": "733",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p3",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "RELAY"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p3",
@@ -40879,6 +41858,29 @@
       }
     ],
     "92062249": [
+      {
+        "callout": "810",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p3",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "O RING THERMISTOR"
+      },
       {
         "callout": "2",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p4",
@@ -42894,6 +43896,29 @@
       }
     ],
     "90195165": [
+      {
+        "callout": "812",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p3",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "O-RING"
+      },
       {
         "callout": "2",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p4",
@@ -44958,6 +45983,29 @@
       }
     ],
     "92071182": [
+      {
+        "callout": "813",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p3",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "O RING IN/OUT WATER"
+      },
       {
         "callout": "2",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p4",
@@ -47120,6 +48168,29 @@
     ],
     "92062199": [
       {
+        "callout": "814",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p3",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "O RING HEAT EXCH"
+      },
+      {
         "callout": "3",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p4",
         "pageKey": "pl-reu-km3237wdc-hdc211e-issue03__p4",
@@ -49144,6 +50215,29 @@
     ],
     "92062207": [
       {
+        "callout": "815",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p3",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "O RING HEAT EXCH"
+      },
+      {
         "callout": "3",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p4",
         "pageKey": "pl-reu-km3237wdc-hdc211e-issue03__p4",
@@ -51039,6 +52133,29 @@
       }
     ],
     "92062348": [
+      {
+        "callout": "816",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p3",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "O RING"
+      },
       {
         "callout": "4",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p4",
@@ -52991,6 +54108,29 @@
     ],
     "92072859": [
       {
+        "callout": "817",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p3",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "O RING GAS CON"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - HDC211e - REU-KM3237WDC - ISSUE 03 - JUNE 2025.pdf p4",
         "pageKey": "pl-reu-km3237wdc-hdc211e-issue03__p4",
@@ -54893,6 +56033,29 @@
     ],
     "92096502": [
       {
+        "callout": "818",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p3",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "O RING GAS CONTROL"
+      },
+      {
         "callout": "2",
         "page": "PL & ED INF26 Smartstart VR2626WGP.pdf p5",
         "pageKey": "pl-ed-inf26-smartstart-vr2626wgp__p5",
@@ -55738,6 +56901,29 @@
     "92099896": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "OUTER CASE  EURO WHITE"
+      },
+      {
+        "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
         "pdf": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf",
@@ -55817,6 +57003,29 @@
     "92099898": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "OUTER CASE TITAN METALLIC"
+      },
+      {
+        "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
         "pdf": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf",
@@ -55894,6 +57103,29 @@
       }
     ],
     "92099900": [
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "PANEL FRONT EURO WHITE"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
@@ -56051,6 +57283,29 @@
     ],
     "92099902": [
       {
+        "callout": "6",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "PANEL FRONT TITAN METALLIC"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -56206,6 +57461,29 @@
       }
     ],
     "92094319": [
+      {
+        "callout": "110",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "MANIFOLD NG"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
@@ -56661,6 +57939,29 @@
     ],
     "92071570": [
       {
+        "callout": "122",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "TUBE PRESSURE"
+      },
+      {
         "callout": "209",
         "page": "SM 24WA.pdf p61",
         "pageKey": "pl-sm-24wa__p61",
@@ -57006,6 +58307,29 @@
     ],
     "92099914": [
       {
+        "callout": "125",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p1",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p1",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "FAN COMB ASSY"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -57161,6 +58485,29 @@
       }
     ],
     "92092106": [
+      {
+        "callout": "143",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "HEAT EXCHANGER ASSEMBLY"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
@@ -57318,6 +58665,29 @@
     ],
     "92099995": [
       {
+        "callout": "144",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "SPIGOT FLUE FEMALE"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -57474,6 +58844,29 @@
     ],
     "92099993": [
       {
+        "callout": "144",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "SPIGOT FLUE MALE"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -57629,6 +59022,29 @@
       }
     ],
     "92099968": [
+      {
+        "callout": "400",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "INLET WATER 3/4"
+      },
       {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -58167,6 +59583,29 @@
     ],
     "92092114": [
       {
+        "callout": "401",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "WATER FLOW SENSOR  W/O HEATER"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -58420,6 +59859,29 @@
       }
     ],
     "92092122": [
+      {
+        "callout": "403",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "BYPASS SERVO ASSY"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
@@ -58722,6 +60184,29 @@
       }
     ],
     "92081751": [
+      {
+        "callout": "411",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "VALVE PRESS RELIEF"
+      },
       {
         "callout": "1",
         "page": "SM 2006.pdf p62",
@@ -59954,6 +61439,29 @@
     "92099991": [
       {
         "callout": "719",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "THERMISTOR FAN"
+      },
+      {
+        "callout": "719",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
         "pdf": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf",
@@ -60129,6 +61637,29 @@
       }
     ],
     "92094003": [
+      {
+        "callout": "721",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p2",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p2",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "HARNESS FUSE"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
@@ -60384,6 +61915,29 @@
     ],
     "92099990": [
       {
+        "callout": "730",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p3",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "HARNESS POWER"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -60637,6 +62191,29 @@
       }
     ],
     "92071448": [
+      {
+        "callout": "811",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p3",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "O RING R/VALVE/THERM"
+      },
       {
         "callout": "811",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
@@ -67205,6 +68782,29 @@
       }
     ],
     "92099237": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf p3",
+        "pageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-vr2632ffug-vrm2632ffuc-issue4__p3",
+        "pdf": "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
+        "stem": "pl-vr2632ffug-vrm2632ffuc-issue4",
+        "seriesIds": [
+          "hd200i",
+          "infinity26-internal"
+        ],
+        "chassisTokens": [
+          "VR2632FFUG",
+          "REU-VR2632FFUG",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC",
+          "HD200I",
+          "HD200i"
+        ],
+        "priority": 26,
+        "name": "*"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",

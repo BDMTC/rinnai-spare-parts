@@ -282,7 +282,7 @@
         "FFUG",
         "FFUC"
       ],
-      "notes": "Confirmed Beau: HD200i \u2194 REU-VR2632FFUG / REU-VRM2632FFUC (Infinity internal / FFUC). Aliases + documentKeys include FFUG mates for typeahead/docs; model pin match stays HD200I*/FFUC so INF26 is not swallowed. relatedFamilies flags wider FFU heritage for later cross-family parts search."
+      "notes": "Confirmed Beau: HD200i \u2194 REU-VR2632FFUG / REU-VRM2632FFUC (Infinity internal / FFUC). Aliases + documentKeys include FFUG mates for typeahead/docs; model pin match stays HD200I*/FFUC so INF26 is not swallowed. relatedFamilies flags wider FFU heritage for later cross-family parts search. Pin1 default diagram: VR2632FFUG_VRM2632FFUC Issue 4 (June 2025)."
     },
     {
       "id": "infinity26",

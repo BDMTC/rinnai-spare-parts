@@ -45,8 +45,8 @@ const SERIES_DIAGRAM_DEFAULT = {
     label: "EDPL REU-VRM2632WC (HD200e)",
   },
   hd200i: {
-    page: "EDPL REU-VR2632FFUG.pdf p5",
-    label: "EDPL REU-VR2632FFUG (HD200i)",
+    page: "pl-vr2632ffug-vrm2632ffuc-issue4__p4",
+    label: "PL VR2632FFUG_VRM2632FFUC Issue 4 (HD200i)",
   },
   "infinity26-internal": {
     page: "EDPL V2632FFU_FFUC.pdf p5",
@@ -387,6 +387,8 @@ const ED_STEM_TO_PDF = {
   "edpl-vrm2632ffu": "EDPL VRM2632FFU.pdf",
   "edpl-vrm2632ffu-issue4":
     "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf",
+  "pl-vr2632ffug-vrm2632ffuc-issue4":
+    "PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf",
   "edpl-vm3237wc": "EDPL VM3237WC.pdf",
   "edpl-reuvm3237wc": "EDPL REUVM3237WC.pdf",
   "edpl-reuv3237": "EDPL REUV3237.pdf",
