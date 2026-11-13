@@ -151,6 +151,8 @@ function lightboxPdfDataScripts() {
       id: "Hotflo-EHFA160-Spare-Parts-List-S111418B",
       file: "Hotflo EHFA160 Spare Parts List S111418B.pdf",
     },
+    { id: "EHFA-SPARE-PARTS", file: "EHFA  SPARE PARTS.pdf" },
+    { id: "smVR3237WG-WC", file: "smVR3237WG_WC.pdf" },
   ];
 
   function buildScriptSource(fileName) {

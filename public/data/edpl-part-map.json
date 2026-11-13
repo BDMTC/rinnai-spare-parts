@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T12:18:18.393934+00:00",
+  "generatedAt": "2026-11-13T12:23:31.082550+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
@@ -8,14 +8,15 @@
     "sourceRule": "Callout NO + RA/catalogue 8-digit from parts-list text; diagram page = first image-ish page of sheet (OCR optional); listPage + text-layer word bbox kept for PL highlight",
     "resolve": "Pick first hit matching pin seriesId / chassis token; else highest priority",
     "plHighlight": "listPage + listPageKey + listBox (pymupdf words); lightbox opens PL page when JPEG exists",
-    "hotfloEhfa160": "Matrix PL+ED proof (RSP-131 stretch); single page; carry-forward model rows"
+    "hotfloEhfa160": "Matrix PL+ED proof (RSP-131 stretch); single page; carry-forward model rows",
+    "hotfloMatrix": "EHFA160 + EHFA SPARE PARTS (250/315) matrix PL/ED; carry-forward rows"
   },
   "totals": {
     "sheetsConfigured": 48,
     "sheetsOk": 48,
     "sheetsMissing": 0,
-    "uniqueCodes": 718,
-    "codesInCatalogue": 476,
+    "uniqueCodes": 726,
+    "codesInCatalogue": 484,
     "codesInCatalogueWithPageAsset": 373,
     "codesInCatalogueWithListBox": 463,
     "codesInCatalogueWithListPageAsset": 203,
@@ -24,7 +25,8 @@
     "codesMultiChassis": 631,
     "cataloguePartsTotal": 6571,
     "hotfloEhfa160Codes": 14,
-    "hotfloEhfa160InCatalogue": 13
+    "hotfloEhfa160InCatalogue": 13,
+    "hotfloMatrixSheetsOk": 2
   },
   "sheets": [
     {
@@ -1570,6 +1572,33 @@
       ],
       "priority": 20,
       "path": "data-sheets/Rinnai Data Sheets/Hotflo EHFA160 Spare Parts List S111418B.pdf"
+    },
+    {
+      "file": "EHFA  SPARE PARTS.pdf",
+      "stem": "pl-hotflo-ehfa-spare-parts",
+      "status": "ok",
+      "pages": 1,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        1
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 176,
+      "rowsInCatalogue": 15,
+      "rowsWithListBox": 16,
+      "seriesIds": [
+        "ehfa315",
+        "ehfa250"
+      ],
+      "chassisTokens": [
+        "EHFA",
+        "Hotflo EHFA",
+        "HOTFLO EHFA"
+      ],
+      "priority": 18,
+      "path": "data-sheets/Rinnai Data Sheets/EHFA  SPARE PARTS.pdf"
     }
   ],
   "parts": {
@@ -116443,6 +116472,43 @@
     "95110036": [
       {
         "callout": "3",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.60329,
+          "y": 0.40835,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA250S24",
+          "EHFA250S24H",
+          "EHFA250S36",
+          "EHFA250S36H",
+          "EHFA250S48",
+          "EHFA250S48H",
+          "EHFA315S24",
+          "EHFA315S24H",
+          "EHFA315S36",
+          "EHFA315S36H",
+          "EHFA315S48"
+        ],
+        "priority": 18,
+        "name": "ELECTRICAL COVER BOTTOM"
+      },
+      {
+        "callout": "3",
         "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
         "pageKey": "pl-hotflo-ehfa160__p1",
         "listPage": 1,
@@ -116474,6 +116540,51 @@
       }
     ],
     "95110378": [
+      {
+        "callout": "6",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.74615,
+          "y": 0.53797,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA250S24",
+          "EHFA250S24H",
+          "EHFA250S36",
+          "EHFA250S36H",
+          "EHFA250S48",
+          "EHFA250S48H",
+          "EHFA250T36",
+          "EHFA250T36H",
+          "EHFA250T48",
+          "EHFA250T48H",
+          "EHFA315S24",
+          "EHFA315S24H",
+          "EHFA315S36",
+          "EHFA315S36H",
+          "EHFA315S48",
+          "EHFA315T36",
+          "EHFA315T36H",
+          "EHFA315T48",
+          "EHFA315T48H"
+        ],
+        "priority": 18,
+        "name": "THERMOSTAT BOTTOM"
+      },
       {
         "callout": "6",
         "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
@@ -116511,6 +116622,51 @@
     "95110048": [
       {
         "callout": "7",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.79377,
+          "y": 0.53797,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA250S24",
+          "EHFA250S24H",
+          "EHFA250S36",
+          "EHFA250S36H",
+          "EHFA250S48",
+          "EHFA250S48H",
+          "EHFA250T36",
+          "EHFA250T36H",
+          "EHFA250T48",
+          "EHFA250T48H",
+          "EHFA315S24",
+          "EHFA315S24H",
+          "EHFA315S36",
+          "EHFA315S36H",
+          "EHFA315S48",
+          "EHFA315T36",
+          "EHFA315T36H",
+          "EHFA315T48",
+          "EHFA315T48H"
+        ],
+        "priority": 18,
+        "name": "PTR VALVE"
+      },
+      {
+        "callout": "7",
         "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
         "pageKey": "pl-hotflo-ehfa160__p1",
         "listPage": 1,
@@ -116546,6 +116702,51 @@
     "95110032": [
       {
         "callout": "8",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.84139,
+          "y": 0.53797,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA250S24",
+          "EHFA250S24H",
+          "EHFA250S36",
+          "EHFA250S36H",
+          "EHFA250S48",
+          "EHFA250S48H",
+          "EHFA250T36",
+          "EHFA250T36H",
+          "EHFA250T48",
+          "EHFA250T48H",
+          "EHFA315S24",
+          "EHFA315S24H",
+          "EHFA315S36",
+          "EHFA315S36H",
+          "EHFA315S48",
+          "EHFA315T36",
+          "EHFA315T36H",
+          "EHFA315T48",
+          "EHFA315T48H"
+        ],
+        "priority": 18,
+        "name": "PLUG TOP"
+      },
+      {
+        "callout": "8",
         "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
         "pageKey": "pl-hotflo-ehfa160__p1",
         "listPage": 1,
@@ -116579,6 +116780,51 @@
       }
     ],
     "95110471": [
+      {
+        "callout": "9",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.88901,
+          "y": 0.53797,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA250S24",
+          "EHFA250S24H",
+          "EHFA250S36",
+          "EHFA250S36H",
+          "EHFA250S48",
+          "EHFA250S48H",
+          "EHFA250T36",
+          "EHFA250T36H",
+          "EHFA250T48",
+          "EHFA250T48H",
+          "EHFA315S24",
+          "EHFA315S24H",
+          "EHFA315S36",
+          "EHFA315S36H",
+          "EHFA315S48",
+          "EHFA315T36",
+          "EHFA315T36H",
+          "EHFA315T48",
+          "EHFA315T48H"
+        ],
+        "priority": 18,
+        "name": "PORT COVERS"
+      },
       {
         "callout": "9",
         "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
@@ -116742,6 +116988,40 @@
     "95110149": [
       {
         "callout": "3",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.60329,
+          "y": 0.50094,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA250T36",
+          "EHFA250T36H",
+          "EHFA250T48",
+          "EHFA250T48H",
+          "EHFA315T36",
+          "EHFA315T36H",
+          "EHFA315T48",
+          "EHFA315T48H"
+        ],
+        "priority": 18,
+        "name": "ELECTRICAL COVER BOTTOM"
+      },
+      {
+        "callout": "3",
         "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
         "pageKey": "pl-hotflo-ehfa160__p1",
         "listPage": 1,
@@ -116769,6 +117049,40 @@
       }
     ],
     "95110395": [
+      {
+        "callout": "4",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.65091,
+          "y": 0.50094,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA250T36",
+          "EHFA250T36H",
+          "EHFA250T48",
+          "EHFA250T48H",
+          "EHFA315T36",
+          "EHFA315T36H",
+          "EHFA315T48",
+          "EHFA315T48H"
+        ],
+        "priority": 18,
+        "name": "ELECTRICAL COVER TOP"
+      },
       {
         "callout": "4",
         "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
@@ -116800,6 +117114,40 @@
     "95110379": [
       {
         "callout": "5",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.69853,
+          "y": 0.50094,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA250T36",
+          "EHFA250T36H",
+          "EHFA250T48",
+          "EHFA250T48H",
+          "EHFA315T36",
+          "EHFA315T36H",
+          "EHFA315T48",
+          "EHFA315T48H"
+        ],
+        "priority": 18,
+        "name": "THERMOSTAT TOP"
+      },
+      {
+        "callout": "5",
         "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
         "pageKey": "pl-hotflo-ehfa160__p1",
         "listPage": 1,
@@ -116824,6 +117172,284 @@
         ],
         "priority": 20,
         "name": "THERMOSTAT TOP"
+      }
+    ],
+    "95110420": [
+      {
+        "callout": "1",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.50805,
+          "y": 0.36205,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa250"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA250S24",
+          "EHFA250S36",
+          "EHFA250S48",
+          "EHFA250T36",
+          "EHFA250T48"
+        ],
+        "priority": 18,
+        "name": "ANODE"
+      }
+    ],
+    "95110045": [
+      {
+        "callout": "2",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.55567,
+          "y": 0.37131,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA250S24",
+          "EHFA250S24H",
+          "EHFA315S24",
+          "EHFA315S24H"
+        ],
+        "priority": 18,
+        "name": "ELEMENT"
+      }
+    ],
+    "95110029": [
+      {
+        "callout": "10",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.93663,
+          "y": 0.53797,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA250S24",
+          "EHFA250S24H",
+          "EHFA250S36",
+          "EHFA250S36H",
+          "EHFA250S48",
+          "EHFA250S48H",
+          "EHFA250T36",
+          "EHFA250T36H",
+          "EHFA250T48",
+          "EHFA250T48H",
+          "EHFA315S24",
+          "EHFA315S24H",
+          "EHFA315S36",
+          "EHFA315S36H",
+          "EHFA315S48",
+          "EHFA315T36",
+          "EHFA315T36H",
+          "EHFA315T48",
+          "EHFA315T48H"
+        ],
+        "priority": 18,
+        "name": "END CAP"
+      }
+    ],
+    "95110421": [
+      {
+        "callout": "1",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.50805,
+          "y": 0.38057,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa250"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA250S24H",
+          "EHFA250S36H",
+          "EHFA250S48H",
+          "EHFA250T36H",
+          "EHFA250T48H"
+        ],
+        "priority": 18,
+        "name": "ANODE"
+      }
+    ],
+    "95110046": [
+      {
+        "callout": "2",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.55567,
+          "y": 0.40835,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA250S36",
+          "EHFA250S36H",
+          "EHFA250T36",
+          "EHFA250T36H",
+          "EHFA315S36",
+          "EHFA315S36H",
+          "EHFA315T36",
+          "EHFA315T36H"
+        ],
+        "priority": 18,
+        "name": "ELEMENT"
+      }
+    ],
+    "95110600": [
+      {
+        "callout": "2",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.55567,
+          "y": 0.44538,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA250S48",
+          "EHFA250S48H",
+          "EHFA250T48",
+          "EHFA250T48H",
+          "EHFA315S48",
+          "EHFA315S36H",
+          "EHFA315T48",
+          "EHFA315T48H"
+        ],
+        "priority": 18,
+        "name": "ELEMENT"
+      }
+    ],
+    "95110422": [
+      {
+        "callout": "1",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.50805,
+          "y": 0.54723,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA315S24",
+          "EHFA315S36",
+          "EHFA315S48",
+          "EHFA315T36",
+          "EHFA315T48"
+        ],
+        "priority": 18,
+        "name": "ANODE"
+      }
+    ],
+    "95110423": [
+      {
+        "callout": "1",
+        "page": "EHFA  SPARE PARTS.pdf p1",
+        "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa-spare-parts__p1",
+        "listBox": {
+          "x": 0.50805,
+          "y": 0.56575,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "EHFA  SPARE PARTS.pdf",
+        "stem": "pl-hotflo-ehfa-spare-parts",
+        "seriesIds": [
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA",
+          "Hotflo EHFA",
+          "HOTFLO EHFA",
+          "EHFA315S24H",
+          "EHFA315S36H",
+          "EHFA315T36H",
+          "EHFA315T48H"
+        ],
+        "priority": 18,
+        "name": "ANODE"
       }
     ]
   }

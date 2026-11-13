@@ -53,6 +53,14 @@ export const LIGHTBOX_PDFS = {
     id: "Hotflo-EHFA160-Spare-Parts-List-S111418B",
     fileName: "Hotflo EHFA160 Spare Parts List S111418B.pdf",
   },
+  "EHFA  SPARE PARTS.pdf": {
+    id: "EHFA-SPARE-PARTS",
+    fileName: "EHFA  SPARE PARTS.pdf",
+  },
+  "smVR3237WG_WC.pdf": {
+    id: "smVR3237WG-WC",
+    fileName: "smVR3237WG_WC.pdf",
+  },
 };
 
 /**

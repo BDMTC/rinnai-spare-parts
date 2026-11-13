@@ -21,6 +21,13 @@ UNIQUE_SM = {
     "sm-vr2632ffug-vrm2632ffuc": "smVR2632FFUG_VRM2632FFUC.pdf",
     "sm-inf26-inf32-enviro-wh-190810": "SM INF26_INF32 Enviro WH 190810.pdf",
     "sm-smartstart": "SM Smartstart.pdf",
+    # HD250e / VR3237 family (weekend stretch)
+    "sm-vr3237wg-wc": "smVR3237WG_WC.pdf",
+}
+
+# Optional series thumb covers copied from pack page 1
+SERIES_THUMBS = {
+    "hd250e": "sm-vr3237wg-wc",
 }
 
 TARGET_WIDTH = 900
@@ -66,6 +73,19 @@ for stem, file_name in UNIQUE_SM.items():
         f"  total {manifest['packs'][stem]['totalBytes'] / 1e6:.2f} MB"
     )
 
+for series_id, pack_stem in SERIES_THUMBS.items():
+    src = SM_OUT / f"{pack_stem}__p1.jpg"
+    dest = SM_OUT / f"{series_id}__p1.jpg"
+    if not src.exists():
+        print("THUMB SKIP missing pack p1", src.name)
+        continue
+    if dest.exists() and dest.stat().st_size > 8_000:
+        print("thumb exists", dest.name)
+        continue
+    dest.write_bytes(src.read_bytes())
+    print("thumb", dest.name, dest.stat().st_size)
+
 out = ROOT / "artifacts" / "rsp-84-sm-pages-manifest.json"
+out.parent.mkdir(parents=True, exist_ok=True)
 out.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
 print("wrote", out)
