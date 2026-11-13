@@ -424,8 +424,13 @@ export function bindModelPicker(root, ctx) {
     }
   }
 
+  function setOpen(next) {
+    open = next;
+    root.classList.toggle("is-open", next);
+  }
+
   function closeList() {
-    open = false;
+    setOpen(false);
     activeIndex = -1;
     list.hidden = true;
     list.innerHTML = "";
@@ -445,7 +450,7 @@ export function bindModelPicker(root, ctx) {
       empty.setAttribute("role", "presentation");
       list.appendChild(empty);
       list.hidden = false;
-      open = true;
+      setOpen(true);
       input.setAttribute("aria-expanded", "true");
       return;
     }
@@ -481,7 +486,7 @@ export function bindModelPicker(root, ctx) {
       list.appendChild(li);
     });
     list.hidden = false;
-    open = true;
+    setOpen(true);
     input.setAttribute("aria-expanded", "true");
     if (activeIndex >= 0) {
       input.setAttribute("aria-activedescendant", `${prefix}-opt-${activeIndex}`);

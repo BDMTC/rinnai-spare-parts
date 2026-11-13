@@ -329,12 +329,28 @@ input[type="number"]:focus {
   z-index: 2;
 }
 
+/* Pin 1 listbox must paint over Pin 2’s input (later sibling). Same stacking
+   idea as hero-over-admin: lift the open picker’s context, not only the ul. */
+#series-picker {
+  z-index: 6;
+}
+
+#item-picker {
+  z-index: 3;
+}
+
+.model-picker.is-open {
+  z-index: 20;
+}
+
 .model-picker-row {
   position: relative;
   display: grid;
 }
 
-.model-picker-row #model-input {
+.model-picker-row #model-input,
+.model-picker-row #series-input,
+.model-picker-row #item-input {
   padding-right: 2.4rem;
 }
 
