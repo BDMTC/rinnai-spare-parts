@@ -56,6 +56,65 @@ export function getModelShortCode(model) {
 }
 
 /**
+ * Fuel kind for Pin 2 grouping / colouring.
+ * @param {object|null|undefined} model
+ * @param {object|null|undefined} [series]
+ * @returns {"nat-gas"|"lpg"|"butane"|""}
+ */
+export function getModelFuelKind(model, series = null) {
+  if (!model) return "";
+  const commercial = getModelCommercialName(model, series);
+  const fromText = fuelKindFromText(commercial);
+  if (fromText) return fromText;
+
+  const sku = String(model.sku || model.marketingCode || "")
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, "");
+  const peeled = peelFuelTemp(sku);
+  if (peeled?.fuel) {
+    const fromPeel = fuelKindFromText(peeled.fuel);
+    if (fromPeel) return fromPeel;
+  }
+
+  // Marketing SKU mid-fuel letter: HD210EN50 / HD28IL50 / INF26N60
+  const skuFuel = sku.match(
+    /(?:^|[A-Z0-9])([EI])?([NLB]|NG|LP|LPG)(?=\d{2,3}|$)/
+  );
+  if (skuFuel) {
+    const mapped = FUEL_WORDS[normFuel(skuFuel[2])] || "";
+    const fromSku = fuelKindFromText(mapped);
+    if (fromSku) return fromSku;
+  }
+
+  // Item Number packing: …-50-AKN / …-AKL / …N / …L
+  const item = String(model.itemNumber || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+  const pack = item.match(/(?:AK|UA|ZK|K)?([NLB])(?:BLK)?$/);
+  if (pack) {
+    const mapped = FUEL_WORDS[pack[1]] || "";
+    const fromItem = fuelKindFromText(mapped);
+    if (fromItem) return fromItem;
+  }
+
+  return "";
+}
+
+/**
+ * @param {string} text
+ * @returns {"nat-gas"|"lpg"|"butane"|""}
+ */
+function fuelKindFromText(text) {
+  const s = String(text || "");
+  if (/\bNat\s*Gas\b/i.test(s) || /\bNatural\s*Gas\b/i.test(s)) return "nat-gas";
+  if (/\bLPG\b/i.test(s) || /\bLP\b/i.test(s)) return "lpg";
+  if (/\bButane\b/i.test(s)) return "butane";
+  const u = s.toUpperCase().replace(/\s+/g, "");
+  if (u === "N" || u === "NG" || u === "NAT") return "nat-gas";
+  if (u === "L" || u === "LP" || u === "LPG") return "lpg";
+  if (u === "B" || u === "BUTANE") return "butane";
+  return "";
+}
+
+/**
  * Series-level commercial name (no fuel / outlet temp).
  * e.g. HD200e → Heavy Duty 200 External; Infinity 26 Plus → Infinity 26 Plus
  *

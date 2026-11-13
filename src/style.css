@@ -32,6 +32,8 @@
   --sub-border: #22c55e;
   --install-external: #15803d;
   --install-internal: #ca8a04;
+  --fuel-nat-gas: #1d4ed8;
+  --fuel-lpg: #b91c1c;
   --warn: #9a5b12;
   --warn-soft: #f6e6cf;
   --other: #6b7280;
@@ -403,6 +405,24 @@ input[type="number"]:focus {
 
 .model-option-label .pin-install--external,
 .model-option-label .pin-install--internal {
+  font-weight: 750;
+}
+
+.pin-fuel {
+  display: inline;
+  font-weight: 750;
+}
+
+.pin-fuel--nat-gas {
+  color: var(--fuel-nat-gas);
+}
+
+.pin-fuel--lpg {
+  color: var(--fuel-lpg);
+}
+
+.model-option-sub .pin-fuel--nat-gas,
+.model-option-sub .pin-fuel--lpg {
   font-weight: 750;
 }
 
