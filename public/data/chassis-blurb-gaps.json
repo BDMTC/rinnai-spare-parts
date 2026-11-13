@@ -1,0 +1,1223 @@
+{
+  "version": 1,
+  "meta": {
+    "title": "Chassis blurb gaps — needs Beau",
+    "updated": "2026-11-13",
+    "tip": "cursor/chassis-model-blurbs-1bba",
+    "notes": "Former “…this chassis…” fan/filter/front-panel blurbs with no chassis token after EDPL + PL name + series-aliases + models Item Number search. Do not invent. Beau to supply model OR-list.",
+    "count": 173
+  },
+  "gaps": [
+    {
+      "code": "90300013",
+      "name": "HEATER ASSY INC FAN ES",
+      "category": "HEATING",
+      "sheet": "Heating",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "94298549",
+      "name": "SCREW PULLEY FAN RD",
+      "category": "LIFESTYLE INDOOR",
+      "sheet": "Lifestyle Indoor",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "30093029",
+      "name": "RELAY DUEL DD FAN",
+      "category": "COMMERCIAL HOT WATER",
+      "sheet": "Commercial Hot Water",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "30093031",
+      "name": "SWITCH AIR PRESSURE DD FAN",
+      "category": "COMMERCIAL HOT WATER",
+      "sheet": "Commercial Hot Water",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "30093033",
+      "name": "CONTACTOR 25AMP DD FAN",
+      "category": "COMMERCIAL HOT WATER",
+      "sheet": "Commercial Hot Water",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "30093082",
+      "name": "PLUG FAN POWER DILUTION",
+      "category": "COMMERCIAL HOT WATER",
+      "sheet": "Commercial Hot Water",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "85003021",
+      "name": "FILTER LOWER NC",
+      "category": "COOLING",
+      "sheet": "Cooling",
+      "what": "Filter"
+    },
+    {
+      "code": "94320050",
+      "name": "FILTER UPPER MC",
+      "category": "COOLING",
+      "sheet": "Cooling",
+      "what": "Filter"
+    },
+    {
+      "code": "938",
+      "name": "FAN AXIAL EC 630 0.97KW MOQ12",
+      "category": "CLIMATE APAC",
+      "sheet": "Climate Apac",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "1666",
+      "name": "FAN EC TWIN 9 X 7 0.75KW",
+      "category": "CLIMATE APAC",
+      "sheet": "Climate Apac",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "2634",
+      "name": "FAN AXIAL EC AKSG 500 N.5HF A6",
+      "category": "CLIMATE APAC",
+      "sheet": "Climate Apac",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "P005028-SA-12-18KW",
+      "name": "FILTER RAIL 12-18AVR 50MM SUBA",
+      "category": "CLIMATE APAC",
+      "sheet": "Climate Apac",
+      "what": "Filter"
+    },
+    {
+      "code": "P005028-SA-20-23KW",
+      "name": "FILTER RAIL 20-23AVR 50MM SUBA",
+      "category": "CLIMATE APAC",
+      "sheet": "Climate Apac",
+      "what": "Filter"
+    },
+    {
+      "code": "R-HPU012-023-SA",
+      "name": "INTEGRAL FILTER FRAMES 50MM SA",
+      "category": "CLIMATE APAC",
+      "sheet": "Climate Apac",
+      "what": "Filter"
+    },
+    {
+      "code": "R-HPU024-045-SA",
+      "name": "INTEGRAL FILTER FRAMES 50MM SA",
+      "category": "CLIMATE APAC",
+      "sheet": "Climate Apac",
+      "what": "Filter"
+    },
+    {
+      "code": "R-HPU033-038-SA",
+      "name": "INTEGRAL FILTER FRAMES 50MM SA",
+      "category": "CLIMATE APAC",
+      "sheet": "Climate Apac",
+      "what": "Filter"
+    },
+    {
+      "code": "R-HPU065-075-SA",
+      "name": "INTEGRAL FILTER FRAMES 50MM SA",
+      "category": "CLIMATE APAC",
+      "sheet": "Climate Apac",
+      "what": "Filter"
+    },
+    {
+      "code": "R-HPU085-095-SA",
+      "name": "INTEGRAL FILTER FRAMES 50MM SA",
+      "category": "CLIMATE APAC",
+      "sheet": "Climate Apac",
+      "what": "Filter"
+    },
+    {
+      "code": "A070023",
+      "name": "*FAN ASSEMBLY",
+      "category": "CLIMATE APAC",
+      "sheet": "Climate Apac",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80080236",
+      "name": "FAN WHEEL 9X7 EL",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80080237",
+      "name": "FAN WHEEL 10X10 EL",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "81008837",
+      "name": "FAN ASSY 533-6-23 BRIVIS SERV",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "81014478",
+      "name": "FAN SD/SENSOR 820MM",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "81014479",
+      "name": "FAN SD/SENSOR 1185MM",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "81021155",
+      "name": "FAN ASSY D538-6-23 BRIVIS",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "81021156",
+      "name": "FAN ASSY D538-11-30 BRIVIS",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "81023167",
+      "name": "FILTER EMC CORCOM 10 EDK1",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Filter"
+    },
+    {
+      "code": "81023168",
+      "name": "LOOM FILTER EMC",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Filter"
+    },
+    {
+      "code": "81061208",
+      "name": "FAN ASSY D536-11-HP BRIVIS",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "81061642",
+      "name": "FAN ASSY D640-8-30 BRIVIS",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "81063332",
+      "name": "FAN ASSY D538-8-30 BRIVIS",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "81063333",
+      "name": "FAN ASSY D538-5-30 BRIVIS",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "89001018",
+      "name": "FAN B50/70BAL",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "B008836",
+      "name": "FAN ASSY D538-11-23 BRIVIS",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "B012301",
+      "name": "FAN AUSWING D533-10-33 BSA 1/2",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "B012302",
+      "name": "FAN AUSWING D639-8-18 BSA 1/2",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "B013992",
+      "name": "FAN SD/CNTRL 297",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "81062927",
+      "name": "*FILTER EMC (FN2060-10-06)",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Filter"
+    },
+    {
+      "code": "B008469",
+      "name": "*FILTER SOLENOID ELBI (SERVICE",
+      "category": "CLIMATE EVAPORATE",
+      "sheet": "Climate Evaporate",
+      "what": "Filter"
+    },
+    {
+      "code": "80019749",
+      "name": "FAN ASSY TWIN 8X8INCH 600W",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84000035",
+      "name": "FAN AXIAL ODU MON3H071 HONRA50",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84000301",
+      "name": "FAN IDU DINSD261/351M",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84000309",
+      "name": "FAN IDU DINSD501M",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84000311",
+      "name": "FAN IDU DINSD701M",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84001539",
+      "name": "FAN CROSS HINBT25 FAN CROSS",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84001542",
+      "name": "FAN CROSS HINBT32",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84001545",
+      "name": "FAN CROSS HINBT50",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84001632",
+      "name": "BLADE FAN HONBT25-32",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84001635",
+      "name": "BLADE FAN HONBT50",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84002011",
+      "name": "FAN IDU Q25 J25 T25",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84002085",
+      "name": "FAN ODU HONQ25B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84002087",
+      "name": "FAN ODU HONQ35B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84002089",
+      "name": "FAN ODU HONQ50/70B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84002217",
+      "name": "FAN ODU HONRQ80B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84002229",
+      "name": "PANEL FRONT HINRQ25B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84002231",
+      "name": "PANEL FRONT HINRQ35B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84002375",
+      "name": "FAN ASSY IDU CIN70",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84002397",
+      "name": "FRONT PANEL HONRA50",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84002553",
+      "name": "FAN CENTRIFUGE",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84002613",
+      "name": "FAN AXIAL FLOW",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84002615",
+      "name": "FAN AXIAL FLOW",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84002683",
+      "name": "FAN CROSS FLOW HINRP20",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84002685",
+      "name": "FAN CROSS FLOW HINRP60",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84002689",
+      "name": "FAN AXIAL FLOW HONRP",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84002833",
+      "name": "PANEL FRONT ASSY HINRP20",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84002853",
+      "name": "PANEL FRONT ASSY HINRP50/60",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84002995",
+      "name": "FAN CENTRIFUGE CIN100/120/140R",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003013",
+      "name": "FAN CENT CIN20-50RM",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003073",
+      "name": "FAN AXIAL FLOW MON5H13B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003075",
+      "name": "PANEL FRONT MON5H13B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84003079",
+      "name": "PANEL SIDE FRONT RHS MON5H13B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84003099",
+      "name": "PANEL FRONT FINRP50B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84003115",
+      "name": "FAN FINRP50B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003155",
+      "name": "PANEL FRONT MON6H18B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84003197",
+      "name": "FAN CIN020-50RMB",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003211",
+      "name": "GRILLE FAN VRF 20kW",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003213",
+      "name": "PANEL FAN FRONT LHS VRF 20kW",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003231",
+      "name": "PANEL FRONT RHS VRF 20kW",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84003273",
+      "name": "FAN CROSS FLOW HINRMVRF 15-36",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003277",
+      "name": "PANEL FRONT ASSY HINRMVRF15-36",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84003289",
+      "name": "PANEL FRONT ASSY HINRMVRF45-56",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84003291",
+      "name": "FAN CROSS FLOW HINRMVRF 45-56",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003385",
+      "name": "PANEL FRONT HINRPX50-60",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84003387",
+      "name": "FILTER SUBASSY HINRPX50-60",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Filter"
+    },
+    {
+      "code": "84003391",
+      "name": "FAN HINRPX50-60",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003417",
+      "name": "PANEL FRONT ASSY HONRPX25",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84003419",
+      "name": "FAN AXIAL FLOW HONRPX25",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003443",
+      "name": "FAN AXIAL FLOW HONRPX35",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003518",
+      "name": "PANEL FRONT RHS MON4H09B1LA",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84003573",
+      "name": "FAN CENTRIFUGE DINSD35MBA",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003581",
+      "name": "FAN CENTRIFUGE DINSD50MBA",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003646",
+      "name": "PANEL FRONT HINRTX90",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84003648",
+      "name": "FILTER SUBASSY HINRTX90",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Filter"
+    },
+    {
+      "code": "84003664",
+      "name": "FAN HINRTX90",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "84003716",
+      "name": "FILTER HINRVX50",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Filter"
+    },
+    {
+      "code": "84003718",
+      "name": "PANEL FRONT HINRVX50",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84003728",
+      "name": "PANEL FRONT HINRVX70",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84003732",
+      "name": "FILTER HINRVX70",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Filter"
+    },
+    {
+      "code": "84003770",
+      "name": "PANEL FRONT HONRVX50",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "84003784",
+      "name": "PANEL FRONT HONRVX70",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "85001015",
+      "name": "FILTER SC25B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Filter"
+    },
+    {
+      "code": "85001017",
+      "name": "FILTER SC34B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Filter"
+    },
+    {
+      "code": "85001029",
+      "name": "FAN IDU SC25B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "85001053",
+      "name": "PANEL FRONT IDU SC25B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "85001057",
+      "name": "PANEL FRONT IDU SC34B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "85001093",
+      "name": "FAN ODU SC50B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "85001095",
+      "name": "FAN ODU SC34B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "85002117",
+      "name": "FILTER HIN RJ25",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Filter"
+    },
+    {
+      "code": "85002119",
+      "name": "PANEL FRONT HIN RJ25",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "85002129",
+      "name": "FAN IDU HIN RJ35",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "85002131",
+      "name": "FILTER HIN RJ35",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Filter"
+    },
+    {
+      "code": "85002133",
+      "name": "PANEL FRONT HIN RJ35",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "85002141",
+      "name": "PANEL FRONT HIN RJ50",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Front panel / fascia"
+    },
+    {
+      "code": "B019784",
+      "name": "FAN ASSY TWIN 241-241-041 750W",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "B019793",
+      "name": "FAN ASSY TWIN 8-8 425W",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "B023015",
+      "name": "MOT/FAN/HSG FB10X10-600-16 ECM",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "B059622",
+      "name": "FAN TWIN FD9X7M-600-064P",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "85001027",
+      "name": "*FAN IDU SC34B",
+      "category": "CLIMATE REFRIGERATION",
+      "sheet": "Climate Refrigeration",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80000127",
+      "name": "FAN WHEEL 10X10",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80010454",
+      "name": "T/STAT O/H FAN 57 DEG C ASSY",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80014403",
+      "name": "FAN WHEEL 9X7 PLASTIC",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80015099",
+      "name": "DEFLECTOR FAN 65X125 (SERVICE)",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80021341",
+      "name": "JOINER FLUE FAN OUTLET HEXXX",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80021342",
+      "name": "LOOM EXTENSION MAIN FAN XXXXX",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80021822",
+      "name": "FAN CAB ASSY S/PRO 21/22 INT",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80021890",
+      "name": "FAN CAB ASSY S/PRO 5/630 INT",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80021942",
+      "name": "FAN CAB ASSY S/PRO 21/22INT-XA",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80021944",
+      "name": "FAN CAB ASSY S/PRO 30 INT-XA",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80023686",
+      "name": "PANEL FAN CAB POP CMX20",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80023687",
+      "name": "PANEL FAN CAB FLUE CMX20",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80024701",
+      "name": "LOOM CSX FAN CABINET",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80024813",
+      "name": "PANEL FAN CAB POP CMX30",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80024814",
+      "name": "PANEL FAN CAB FLUE CMX30",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80061304",
+      "name": "COVER TERMINAL/FAN CC3",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80061654",
+      "name": "PANEL FAN CAB POP SP435",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80062406",
+      "name": "FAN CAB ASSY 2PW20N XA",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80062407",
+      "name": "FAN CAB ASSY 2PW26N",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80062408",
+      "name": "FAN CAB ASSY 2PW26N XA",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80062438",
+      "name": "FAN CAB ASSY 2PW15N",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80062439",
+      "name": "FAN CAB ASSY 2PW20N",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80062531",
+      "name": "FAN HSG DOOR DF320N",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80063421",
+      "name": "CAB END FAN KE315/20",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80063428",
+      "name": "CAB END FAN KEX28",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80064106",
+      "name": "FAN CAB SIDE BLANK SP5/6UN S",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80064107",
+      "name": "FAN CAB POP SP5/6UN S",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80064235",
+      "name": "FAN CAB SIDE SP5/6UN L",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80064236",
+      "name": "FAN CAB POP 14INCH SP5/6-UN L",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80064237",
+      "name": "FAN CAB POP 16INCH SP5/6UN L",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80064238",
+      "name": "FAN CAB POP 18INCH SP5/635UN",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80064391",
+      "name": "FAN CAB POP SP5/6UN S XA",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80064562",
+      "name": "CAB FAN TOP SP415/421U V3",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80064563",
+      "name": "CAB FAN TOP SP430/435U V3",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80065231",
+      "name": "FAN ASSY 425W 3SP 9X7T",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80065257",
+      "name": "FAN ASS 600W 3SP 10X10",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80065258",
+      "name": "FAN ASSY 600W 3SP 10X10T",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80065326",
+      "name": "CAB FAN BASE SP421 V2",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80065327",
+      "name": "FAN CAB TRAY SP421",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80065332",
+      "name": "FAN HSG FLANGE SP43x V2",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80065334",
+      "name": "FAN CAB TRAY SP43x V2",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80065347",
+      "name": "FAN CAB POP SP430 V2",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80065348",
+      "name": "FAN CAB POP SP415/21",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80065439",
+      "name": "CAB END FAN KEX315/20C",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80065783",
+      "name": "FAN CAB ASSY SP421IN",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80065785",
+      "name": "FAN CAB ASSY SP430IN",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80065787",
+      "name": "FAN CAB ASSY SP435IN",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80080238",
+      "name": "FAN ASSY KIT 2PWN15/20 ELG",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "B021342",
+      "name": "LOOM EXTENSION MAIN FAN XXXXX",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "B024701",
+      "name": "LOOM CSX FAN CABINET",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "B061304",
+      "name": "COVER TERMINAL/FAN CC3",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "B062531",
+      "name": "FAN HSG DOOR DF320N",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80000112",
+      "name": "*FAN & LIMITCNTRL 8 INCH 200MM",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "80024757",
+      "name": "*FAN HSG/MOTORASSY 9X7 CSX25 3",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    },
+    {
+      "code": "B015099SP",
+      "name": "*DEFLECTOR FAN 65X125 (SERVICE",
+      "category": "CLIMATE TEMPERATURE",
+      "sheet": "Climate Temperature",
+      "what": "Fan assembly"
+    }
+  ]
+}
