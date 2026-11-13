@@ -1,15 +1,18 @@
 /**
- * Readable commercial unit names for model-pin typeahead.
+ * Readable commercial unit names for model-pin typeahead (all system types).
  *
- * Prefer a cleaned catalogue description when it already reads commercially;
- * otherwise derive from marketing code / series + install + fuel + outlet temp.
+ * Prefer structured catalogue patterns (C'FLOW) or SKU derivation; then a
+ * useful free-text description. Do not collapse every Pin3 row to the bare
+ * series label (that made Hotflo / GHF / heat pump / DD look like codes only).
  *
  * Series pins use a shorter form (family + install / variant only — no fuel
  * or outlet temp): HD200e → Heavy Duty 200 External.
  *
  * Examples:
  *   HD210EN42 → Heavy Duty 210 External Nat Gas 42 Degree
- *   HD210EN50 → Heavy Duty 210 External Nat Gas 50 Degree
+ *   EHFA160S18 → Hotflo EHFA160 Vitreous Enamel S18
+ *   ECF14I50 → Efinity ECF 14 Internal 50 Degree
+ *   DDUPS2580N → Demand Duo Grundfos Circulation Pump 2580 Nat Gas
  *   series HD200e → Heavy Duty 200 External
  */
 
@@ -32,7 +35,9 @@ const FUEL_WORDS = {
 export function getModelCommercialName(model, series = null) {
   if (!model) return "";
   const sku = String(model.sku || model.marketingCode || "").trim();
-  const rawDesc = String(model.description || model.name || "").trim();
+  // Prefer description alone — name often appends " · SKU" which is noise here.
+  const rawDesc = String(model.description || "").trim() ||
+    stripTrailingSku(String(model.name || "").trim(), sku);
 
   const fromDesc = commercialFromCatalogueDescription(rawDesc, series);
   if (fromDesc) return fromDesc;
@@ -40,10 +45,13 @@ export function getModelCommercialName(model, series = null) {
   const fromSku = deriveCommercialNameFromSku(sku, model, series);
   if (fromSku) return fromSku;
 
-  const fromSeries = commercialFromSeriesOnly(series, rawDesc);
-  if (fromSeries) return fromSeries;
+  const usable = usableCatalogueCommercial(rawDesc, sku);
+  if (usable) return usable;
 
-  return cleanStars(rawDesc) || sku;
+  const fromSeriesSku = commercialFromSeriesAndSku(series, sku);
+  if (fromSeriesSku) return fromSeriesSku;
+
+  return sku;
 }
 
 /**
@@ -123,6 +131,8 @@ function fuelKindFromText(text) {
  */
 export function getSeriesCommercialName(series) {
   if (!series) return "";
+  const explicit = String(series.commercialName || "").trim();
+  if (explicit) return explicit;
   const fromLabel = expandSeriesLabel(series.label);
   if (fromLabel) return fromLabel;
   const fromId = expandSeriesLabel(series.id);
@@ -373,11 +383,137 @@ function deriveCommercialNameFromSku(sku, model, series) {
     ]);
   }
 
+  // Hotflo electric storage: EHFA160S18 / EHFD160S24H / EHF25S18P
+  m = raw.match(/^(EHF[AD]?)(\d+)S(\d+)(H)?(P)?$/);
+  if (m) {
+    const [, prefix, litres, element, hard, plug] = m;
+    const family =
+      prefix === "EHFA"
+        ? `Hotflo EHFA${litres}`
+        : prefix === "EHFD"
+          ? `Hotflo EHFD${litres}`
+          : `Hotflo EHF${litres}`;
+    return joinCommercial([
+      family,
+      "Vitreous Enamel",
+      plug ? "Plug In" : "",
+      `S${element}${hard || ""}${plug || ""}`,
+    ]);
+  }
+
+  // Gas storage GHF4: GHF4135N / GHF4135LH
+  m = raw.match(/^GHF(\d)(\d{3})([NLB])(H)?$/);
+  if (m) {
+    const fuel = FUEL_WORDS[m[3]] || m[3];
+    return joinCommercial([
+      `GHF${m[1]}`,
+      Number(m[2]),
+      fuel,
+      m[4] ? "H" : "",
+    ]);
+  }
+
+  // Heat pumps: EHPA300VM / EHPA250VMAH / EHPG215VM / EHPT180VM / EHPS215VM
+  m = raw.match(/^(EHPA|EHPG|EHPT|EHPS)(\d+)(VMA|VM)?(H)?$/);
+  if (m) {
+    const [, prefix, litres, mid, h] = m;
+    const family =
+      prefix === "EHPA" && mid === "VMA"
+        ? "Enviroflo VMA"
+        : prefix === "EHPA"
+          ? "Heat Pump AR EHPA"
+          : prefix === "EHPG"
+            ? "Heat Pump GR EHPG"
+            : prefix === "EHPT"
+              ? "Heat Pump A EHPT"
+              : "Heat Pump B/E EHPS";
+    return joinCommercial([
+      family,
+      `${Number(litres)}L`,
+      mid && mid !== "VMA" ? mid : "",
+      mid === "VMA" ? "" : "",
+      h ? "H" : "",
+    ]);
+  }
+
+  // Commercial heat pump: CHP020H → 20kW Horizontal
+  m = raw.match(/^CHP(\d+)(H)?$/);
+  if (m) {
+    const kw = Number(m[1]);
+    return joinCommercial([
+      "Commercial Heat Pump",
+      `${kw}kW`,
+      m[2] ? "Horizontal" : "",
+    ]);
+  }
+
+  // Efinity electric CF: ECF14I50
+  m = raw.match(/^ECF(\d+)([EI])(\d{2,3})$/);
+  if (m) {
+    const install = m[2] === "I" ? "Internal" : "External";
+    return joinCommercial([
+      "Efinity ECF",
+      Number(m[1]),
+      install,
+      `${Number(m[3])} Degree`,
+    ]);
+  }
+
+  // Solar split tanks: SG215A / SG175
+  m = raw.match(/^SG(\d+)(A)?$/);
+  if (m) {
+    return joinCommercial([
+      "Solar Split",
+      Number(m[1]),
+      m[2] ? "A" : "",
+      "Ground Mounted",
+    ]);
+  }
+
+  // Demand Duo accessories
+  m = raw.match(/^DDUPS(\d+)([NLB])?$/);
+  if (m) {
+    const fuel = m[2] ? FUEL_WORDS[m[2]] || m[2] : "";
+    return joinCommercial([
+      "Demand Duo Grundfos Circulation Pump",
+      m[1],
+      fuel,
+    ]);
+  }
+  m = raw.match(/^DDUPM(\d+)([NLB])?$/);
+  if (m) {
+    const fuel = m[2] ? FUEL_WORDS[m[2]] || m[2] : "";
+    return joinCommercial([
+      "Demand Duo Grundfos Circulation Pump",
+      "Multi",
+      m[1],
+      fuel,
+    ]);
+  }
+  m = raw.match(/^DD(\d+)TSTAT$/);
+  if (m) {
+    const scope =
+      m[1] === "1"
+        ? "DD1"
+        : m[1] === "234"
+          ? "DD234"
+          : m[1] === "56"
+            ? "DD56 cascading"
+            : `DD${m[1]}`;
+    return joinCommercial(["Demand Duo Pump Controller", scope]);
+  }
+  m = raw.match(/^(?:DDUVC|UVC)(\d+)$/);
+  if (m) {
+    return joinCommercial(["Demand Duo UV Sterilisation", m[1]]);
+  }
+
   // Series-assisted fallback: peel fuel+temp off the end when series label known
-  if (series?.label) {
+  if (series?.label || series?.commercialName) {
     const peeled = peelFuelTemp(raw);
     if (peeled) {
-      const base = expandSeriesLabel(series.label);
+      const base =
+        String(series.commercialName || "").trim() ||
+        expandSeriesLabel(series.label);
       if (base) {
         return joinCommercial([
           base,
@@ -544,9 +680,68 @@ function expandSeriesLabel(label) {
 }
 
 function commercialFromSeriesOnly(series, rawDesc) {
+  const explicit = String(series?.commercialName || "").trim();
+  if (explicit) return explicit;
   const expanded = expandSeriesLabel(series?.label || "");
   if (expanded) return expanded;
   return cleanStars(rawDesc);
+}
+
+/**
+ * Series base + remaining SKU when we lack a tighter derivation.
+ * Keeps Pin3 rows distinguishable (not every row = same series label).
+ * @param {object|null|undefined} series
+ * @param {string} sku
+ */
+function commercialFromSeriesAndSku(series, sku) {
+  const base =
+    String(series?.commercialName || "").trim() ||
+    expandSeriesLabel(series?.label || "") ||
+    String(series?.label || "").trim();
+  if (!base) return "";
+  const skuU = String(sku || "").trim();
+  if (!skuU) return base;
+  const baseN = skuU.replace(/[^A-Z0-9]/gi, "").toUpperCase();
+  const labelN = base.replace(/[^A-Z0-9]/gi, "").toUpperCase();
+  if (labelN && baseN.includes(labelN) && baseN !== labelN) {
+    // SKU already carries series tokens — still show base + full SKU short form
+    return joinCommercial([base, skuU]);
+  }
+  if (skuU.toUpperCase() === base.toUpperCase()) return base;
+  return joinCommercial([base, skuU]);
+}
+
+/**
+ * @param {string} desc
+ * @param {string} sku
+ */
+function usableCatalogueCommercial(desc, sku) {
+  const cleaned = cleanStars(desc);
+  if (!cleaned) return "";
+  if (/^PRODUCT\s*NAME$/i.test(cleaned)) return "";
+  if (/^NOTE\s*:/i.test(cleaned)) return "";
+  const descN = cleaned.replace(/[^A-Z0-9]/gi, "").toUpperCase();
+  const skuN = String(sku || "").replace(/[^A-Z0-9]/gi, "").toUpperCase();
+  if (skuN && descN === skuN) return "";
+  if (cleaned.length < 6) return "";
+  return titleCaseCommercial(expandFuelTokens(cleaned));
+}
+
+/**
+ * @param {string} name
+ * @param {string} sku
+ */
+function stripTrailingSku(name, sku) {
+  const n = String(name || "").trim();
+  const s = String(sku || "").trim();
+  if (!n) return "";
+  if (!s) return n;
+  const re = new RegExp(`\\s*[·•-]\\s*${escapeRegExp(s)}\\s*$`, "i");
+  return n.replace(re, "").trim() || n;
+}
+
+function escapeRegExp(text) {
+  return String(text || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function peelFuelTemp(skuU) {

@@ -91,6 +91,9 @@ export function edplHitMatchesPin3(hit, ctx) {
  */
 export function buildPin3ChassisPartAllowSet(pin, edplPartMap) {
   if (!pin || pin.kind !== "model") return null;
+  // Accessory families (Demand Duo DDUPS / DDTSTAT / UVC) are not chassis —
+  // never hard-fence search to an empty PL/ED set for those SKUs.
+  if (pin.series?.accessoryFamily) return null;
   const ctx = pin3MatchContext(pin);
   if (!ctx.seriesId && !ctx.tokens.length) return new Set();
 

@@ -4,7 +4,7 @@
     "title": "Rinnai series aliases",
     "locale": "en-AU",
     "updated": "2026-11-13",
-    "notes": "Marketing ↔ chassis / document keys for model pin + typeahead. Confirmed: HD28e↔VCM2837WC; HD28i↔VCM2837FFC/FFUC; Infinity 28↔VCM2837FF (not FFC); Solar 28 booster↔VCM2837FF S28*; no umbrella HD28 pin (RSP-75). AU HD200e↔VRM2632WC; HD200i↔REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 external↔AM2626WD/WDL (owns Infinity 26 / INF26 / AM2626); Infinity 26 internal↔INF26I/FFUG; Infinity 26 Plus↔REUV2630WD/VRM2630WD; Infinity 26 Smartstart↔VR2626WGP; Infinity 32 Enviro↔KM3237WD; HD210e↔N3237WC; HD210i↔N3237FFC; Infinity 32 Enviro+↔N3237W (not all N3237). Commercial CF: HD32↔AM3237WC; HDC32↔NB3237; HDC211↔KM3237WDC/FFUDC; HD250e↔VRM3237WC; alias commercial on HD/HDC series. NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau). RSP-95: +17 Hot Water series (Hotflo/Efinity/heat pump/solar/commercial matched-only)."
+    "notes": "Marketing ↔ chassis / document keys for model pin + typeahead. Confirmed: HD28e↔VCM2837WC; HD28i↔VCM2837FFC/FFUC; Infinity 28↔VCM2837FF (not FFC); Solar 28 booster↔VCM2837FF S28*; no umbrella HD28 pin (RSP-75). AU HD200e↔VRM2632WC; HD200i↔REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 external↔AM2626WD/WDL (owns Infinity 26 / INF26 / AM2626); Infinity 26 internal↔INF26I/FFUG; Infinity 26 Plus↔REUV2630WD/VRM2630WD; Infinity 26 Smartstart↔VR2626WGP; Infinity 32 Enviro↔KM3237WD; HD210e↔N3237WC; HD210i↔N3237FFC; Infinity 32 Enviro+↔N3237W (not all N3237). Commercial CF: HD32↔AM3237WC; HDC32↔NB3237; HDC211↔KM3237WDC/FFUDC; HD250e↔VRM3237WC; alias commercial on HD/HDC series. NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau). RSP-95: +17 Hot Water series (Hotflo/Efinity/heat pump/solar/commercial matched-only). RSP-115: Demand Duo split into accessory families ddups/ddtstat/dduvc (not chassis)."
   },
   "series": [
     {
@@ -1247,38 +1247,100 @@
       "familyKey": "commercial_other_hw"
     },
     {
-      "id": "demand-duo",
-      "label": "Demand Duo",
+      "id": "ddups",
+      "label": "DDUPS",
+      "commercialName": "Grundfos circulation pumps",
       "aliases": [
-        "Demand Duo",
-        "DDUVC",
         "DDUPS",
+        "Grundfos",
+        "circulation pump",
+        "Demand Duo pumps",
+        "Demand Duo"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "DDUPS",
+          "DDUPM"
+        ]
+      },
+      "documentKeys": [
+        "DDUPS2580N",
+        "DDUPS32100N",
+        "DDUPS",
+        "Demand Duo"
+      ],
+      "notes": "RSP-115: Demand Duo accessory family — Grundfos circulation pumps (not chassis / Pin3).",
+      "systemType": "demand-duo",
+      "familyKey": "commercial_demand_duo",
+      "accessoryFamily": true
+    },
+    {
+      "id": "ddtstat",
+      "label": "DDTSTAT",
+      "commercialName": "Pump controllers",
+      "aliases": [
+        "DDTSTAT",
+        "DDStats",
         "DD1TSTAT",
         "DD234TSTAT",
-        "DD56TSTAT"
+        "DD56TSTAT",
+        "56tstat",
+        "56TSTAT",
+        "pump controller",
+        "Demand Duo"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "DD1TSTAT",
+          "DD234TSTAT",
+          "DD56TSTAT",
+          "DDTSTAT"
+        ]
+      },
+      "documentKeys": [
+        "DD1TSTAT",
+        "DD234TSTAT",
+        "DD56TSTAT",
+        "56TSTAT",
+        "DDTSTAT",
+        "Demand Duo"
+      ],
+      "notes": "RSP-115: Demand Duo accessory family — pump controllers (DD56TSTAT for DD combo 5 & 6 / cascading). Not chassis / Pin3.",
+      "systemType": "demand-duo",
+      "familyKey": "commercial_demand_duo",
+      "accessoryFamily": true
+    },
+    {
+      "id": "dduvc",
+      "label": "UVC / DDUVC",
+      "commercialName": "UV sterilisation systems",
+      "aliases": [
+        "UVC",
+        "DDUVC",
+        "UV",
+        "UV steriliser",
+        "UV sterilization",
+        "Demand Duo"
       ],
       "match": {
         "marketingCodePrefixes": [
           "DDUVC",
-          "DDUPS",
-          "DD1TSTAT",
-          "DD234TSTAT",
-          "DD56TSTAT"
+          "UVC"
         ]
       },
       "documentKeys": [
         "DDUVC1200",
         "DDUVC1700",
-        "DDUPS2580N",
-        "DDUPS32100N",
-        "DD1TSTAT",
-        "DD234TSTAT",
-        "DD56TSTAT",
+        "UVC1200",
+        "UVC1700",
+        "UVC",
+        "DDUVC",
         "Demand Duo"
       ],
-      "notes": "RSP-95 matched: Demand Duo valves/stats/packs only — no invented DD tank links.",
+      "notes": "RSP-115: Demand Duo accessory family — UV sterilisation (DDUVC finished goods + UVC spares). Not chassis / Pin3.",
       "systemType": "demand-duo",
-      "familyKey": "commercial_demand_duo"
+      "familyKey": "commercial_demand_duo",
+      "accessoryFamily": true
     }
   ]
 }

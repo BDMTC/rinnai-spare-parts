@@ -1607,8 +1607,10 @@ function updateSearchVisuals(query, pin) {
       seriesPicker?.getValue?.() ||
         document.querySelector("#series-pin")?.value
     );
-  const idleEmpty = !seriesId;
   const seriesUrl = seriesUnitShotUrl(seriesId);
+  // Keep Rinnai + Carlton idle art until real content exists. Clearing idle on
+  // Pin2 alone (3-pin) left empty broken frames for series without unit shots
+  // / SM (Demand Duo accessories, Hotflo, etc.).
   const seriesImg = document.querySelector("#series-visual-img");
   const seriesPh = document.querySelector("#series-visual-ph");
   const seriesThumb = document.querySelector("#series-thumb-btn");
@@ -1618,15 +1620,16 @@ function updateSearchVisuals(query, pin) {
   // frame itself opens something. SM/ED live on the right frame — do not
   // advertise the unit photo as clickable just because an SM exists.
   const seriesClickable = false;
+  const showSeriesIdle = !seriesUrl;
   if (seriesImg && seriesPh && seriesThumb) {
-    if (idleEmpty) {
+    if (showSeriesIdle) {
       seriesImg.src = rinnaiLogoUrl;
       seriesImg.alt = "Rinnai";
       seriesThumb.hidden = false;
       seriesThumb.disabled = true;
       seriesThumb.setAttribute("aria-label", "Rinnai logo");
       seriesPh.hidden = true;
-    } else if (seriesUrl) {
+    } else {
       seriesImg.src = seriesUrl;
       seriesImg.alt = activePin?.series
         ? `${activePin.series.label || seriesId} unit`
@@ -1640,18 +1643,11 @@ function updateSearchVisuals(query, pin) {
           : "Series unit photo"
       );
       seriesPh.hidden = true;
-    } else {
-      seriesImg.removeAttribute("src");
-      seriesImg.alt = "";
-      seriesThumb.hidden = true;
-      seriesThumb.disabled = true;
-      seriesPh.hidden = false;
-      seriesPh.textContent = "Pin a series";
     }
   }
   if (seriesFrame) {
     seriesFrame.classList.toggle("is-clickable", seriesClickable);
-    seriesFrame.classList.toggle("is-empty-art", idleEmpty);
+    seriesFrame.classList.toggle("is-empty-art", showSeriesIdle);
   }
   if (seriesHint) seriesHint.hidden = !seriesClickable;
 
@@ -1664,7 +1660,7 @@ function updateSearchVisuals(query, pin) {
 
   /** @type {typeof activeDiagram} */
   let panel = null;
-  if (!idleEmpty && hasPin3 && primary) {
+  if (seriesId && hasPin3 && primary) {
     const ed = resolvePartDiagram(primary.part, assemblyIndex, {
       pin: activePin,
     });
@@ -1694,7 +1690,7 @@ function updateSearchVisuals(query, pin) {
         };
       }
     }
-  } else if (!idleEmpty && seriesId) {
+  } else if (seriesId) {
     const sm = resolveSeriesServiceManual(seriesId);
     if (sm) {
       panel = {
@@ -1713,8 +1709,9 @@ function updateSearchVisuals(query, pin) {
   const diagramHint = document.querySelector("#diagram-click-hint");
   const diagramFrame = document.querySelector("#diagram-visual");
   const diagramClickable = Boolean(panel?.url);
+  const showDiagramIdle = !panel?.url;
   if (thumbBtn && diagramImg && diagramPh) {
-    if (idleEmpty) {
+    if (showDiagramIdle) {
       diagramImg.src = emptyFrameLoopUrl;
       diagramImg.alt = "";
       // Stealth hotlink only — no green click-me, border flash, or cursor change.
@@ -1723,7 +1720,7 @@ function updateSearchVisuals(query, pin) {
       thumbBtn.dataset.stealthYoutube = "1";
       thumbBtn.setAttribute("aria-label", "Decorative animation");
       diagramPh.hidden = true;
-    } else if (panel?.url) {
+    } else {
       diagramImg.src = panel.url;
       thumbBtn.disabled = false;
       delete thumbBtn.dataset.stealthYoutube;
@@ -1737,23 +1734,11 @@ function updateSearchVisuals(query, pin) {
       }
       thumbBtn.hidden = false;
       diagramPh.hidden = true;
-    } else {
-      diagramImg.removeAttribute("src");
-      diagramImg.alt = "";
-      thumbBtn.hidden = true;
-      thumbBtn.disabled = true;
-      delete thumbBtn.dataset.stealthYoutube;
-      diagramPh.hidden = false;
-      if (hasPin3 && hasQuery) {
-        diagramPh.textContent = "No diagram for this hit yet";
-      } else {
-        diagramPh.textContent = "No service manual yet";
-      }
     }
   }
   if (diagramFrame) {
     diagramFrame.classList.toggle("is-clickable", diagramClickable);
-    diagramFrame.classList.toggle("is-empty-art", idleEmpty);
+    diagramFrame.classList.toggle("is-empty-art", showDiagramIdle);
   }
   if (diagramHint) diagramHint.hidden = !diagramClickable;
 }
@@ -2119,7 +2104,9 @@ function renderResults(query, pin) {
   }
   if (itemPinWarn) {
     // Encourage Pin 3 when series-only; stronger copy for HEX / assembly concepts.
-    itemPinWarn.hidden = !(hasQuery && seriesOnly);
+    // Accessory families (Demand Duo DDUPS/DDTSTAT/UVC) are not chassis — no Pin3 nudge.
+    const accessorySeries = Boolean(activePin?.series?.accessoryFamily);
+    itemPinWarn.hidden = !(hasQuery && seriesOnly && !accessorySeries);
     if (!itemPinWarn.hidden) {
       const conceptId = assemblyConcept?.concept?.id || null;
       const conceptName = conceptId

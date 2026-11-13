@@ -1,7 +1,12 @@
 /**
  * Series alias helpers — marketing name ↔ chassis / document keys.
  * Data: public/data/series-aliases.json
+ *
+ * Accessory families (e.g. Demand Duo DDUPS / DDTSTAT / UVC) are Pin2 groups
+ * of finished-goods SKUs shown as part cards — not chassis for Pin3 fencing.
  */
+
+import { getModelCommercialName } from "./model-commercial-name.js";
 
 /** Longer suffixes first so FFUC/FFC/FFU win over bare FF, WCAK over WC, etc. */
 const UNIT_CLASS_SUFFIXES = [
@@ -156,6 +161,70 @@ export function modelIdsForSeries(catalogue, series) {
   return (catalogue?.models || [])
     .filter((m) => modelBelongsToSeries(m, series))
     .map((m) => m.id);
+}
+
+/**
+ * Pin2 accessory family (not a unit chassis / Pin3 Item Number series).
+ * @param {object|null|undefined} series
+ */
+export function isAccessoryFamilySeries(series) {
+  return Boolean(series?.accessoryFamily);
+}
+
+/**
+ * Finished-goods accessory SKUs for a family, shaped as catalogue parts so
+ * Pin2 select can render them as normal part cards (no price until priced).
+ * @param {object} catalogue
+ * @param {object|null|undefined} series
+ * @returns {object[]}
+ */
+export function accessorySkuPartsForSeries(catalogue, series) {
+  if (!isAccessoryFamilySeries(series)) return [];
+  const models = (catalogue?.models || []).filter((m) =>
+    modelBelongsToSeries(m, series)
+  );
+  return models.map((model) => {
+    const code = String(
+      model.sku || model.marketingCode || model.itemNumber || model.id || ""
+    ).trim();
+    const commercial = getModelCommercialName(model, series);
+    const name =
+      commercial ||
+      String(
+        model.name ||
+          model.description ||
+          `${series.label || "Accessory"} · ${code}`
+      ).trim();
+    return {
+      id: `accessory-sku:${model.id}`,
+      code,
+      name,
+      aliases: [
+        model.marketingCode,
+        model.itemNumber,
+        model.sku,
+        series.label,
+        series.commercialName,
+        ...(series.aliases || []),
+      ].filter(Boolean),
+      modelIds: [model.id],
+      category: "DEMAND DUO ACCESSORY",
+      sheet: "Demand Duo accessory family",
+      kind: "part",
+      accessorySku: true,
+      netInvoiceExGst: null,
+      discountPercent: null,
+      diagramRef: {
+        url: model.diagramUrl || null,
+        path: model.diagramPath || null,
+        callout: null,
+      },
+      notes:
+        model.notes ||
+        "Finished-goods accessory SKU (family browse — not a chassis Item Number).",
+      _accessoryModel: model,
+    };
+  });
 }
 
 /**
