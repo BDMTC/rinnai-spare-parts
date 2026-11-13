@@ -171,6 +171,51 @@ assert(
   `Pin3 DD56TSTAT sole card, got ${tstatOnly.join(",")}`
 );
 
+// UI visibility allow-set is built from catalogue.parts only — synthetic
+// accessory SKUs must still pass (mirrors main.js getIsPartVisible).
+const priceCodes = new Set(
+  (catalogue.parts || []).map((p) => String(p.code || "").trim()).filter(Boolean)
+);
+const uiVisible = (part) => {
+  if (part?.accessorySku) return true;
+  return priceCodes.has(String(part?.code || "").trim());
+};
+const allAccessoryModels = (catalogue.models || []).filter((m) => {
+  const pin = resolveModelPin(catalogue, seriesDoc, m.id);
+  return pin.kind === "model" && isAccessoryFamilySeries(pin.series);
+});
+assert(
+  allAccessoryModels.length >= 7,
+  `expected ≥7 DD accessory models, got ${allAccessoryModels.length}`
+);
+const pin3All = [];
+for (const model of allAccessoryModels) {
+  const pin = resolveModelPin(catalogue, seriesDoc, model.id);
+  const expectCode = String(
+    model.sku || model.marketingCode || model.itemNumber || ""
+  ).trim();
+  const cards = searchParts(catalogue, "", null, {
+    pin,
+    modelIds: pin.modelIds,
+    isPartVisible: uiVisible,
+  });
+  assert(
+    cards.length === 1 && cards[0].part.code === expectCode,
+    `Pin3 ${expectCode} sole visible card, got [${cards
+      .map((r) => r.part.code)
+      .join(",")}]`
+  );
+  assert(
+    cards[0].part.accessorySku === true,
+    `${expectCode} card must be synthetic accessorySku`
+  );
+  pin3All.push(expectCode);
+}
+assert(
+  pin3All.includes("DD1TSTAT"),
+  "DD1TSTAT must be among Pin3 sole-card smoke set"
+);
+
 // DDUPS trailing N = stainless body, never Nat Gas fuel colouring
 assert(
   /Stainless Body/i.test(getModelCommercialName(modelPin.model, modelPin.series)),

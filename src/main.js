@@ -272,6 +272,8 @@ function getIsPartVisible() {
     activeModelIds: pin.modelIds,
   });
   const isPartVisible = makeAdminPartFilter(overrides, baseVis);
+  // Pre-index price-list rows only. Demand Duo finished-goods accessory SKUs
+  // are synthetic (not in catalogue.parts) — must still pass through.
   const allowed = new Set();
   for (const part of catalogue?.parts || []) {
     if (!isPartVisible(part)) continue;
@@ -281,6 +283,9 @@ function getIsPartVisible() {
     if (code) allowed.add(`code:${code}`);
   }
   visiblePartFilter = (part) => {
+    if (part?.accessorySku) {
+      return isPartVisible(part);
+    }
     const id = String(part?.id || "").trim();
     if (id && allowed.has(`id:${id}`)) return true;
     const code = String(part?.code || "").trim();
