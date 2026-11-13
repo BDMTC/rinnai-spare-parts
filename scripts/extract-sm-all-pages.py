@@ -23,11 +23,14 @@ UNIQUE_SM = {
     "sm-smartstart": "SM Smartstart.pdf",
     # HD250e / VR3237 family (weekend stretch)
     "sm-vr3237wg-wc": "smVR3237WG_WC.pdf",
+    # Infinity 26 / A-AM domestic (cover lists INF26 AM2626 — not Enviro KM)
+    "sm-new-a-series-cf": "New A Series CF Parts List.pdf",
 }
 
 # Optional series thumb covers copied from pack page 1
 SERIES_THUMBS = {
     "hd250e": "sm-vr3237wg-wc",
+    "infinity26": "sm-new-a-series-cf",
 }
 
 TARGET_WIDTH = 900
