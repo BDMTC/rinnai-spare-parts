@@ -278,6 +278,16 @@ body::before {
   background: color-mix(in srgb, var(--panel-solid) 92%, var(--accent-soft));
 }
 
+.dataplate-zone-title {
+  display: block;
+  margin: 0 0 0.15rem;
+  text-align: center;
+  font-size: 0.88rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink-muted);
+}
+
 .dataplate-drop {
   position: relative;
   display: grid;

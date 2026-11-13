@@ -867,7 +867,9 @@ function renderShell() {
           </div>
 
           <div class="dataplate-zone" id="dataplate-zone">
-            <span class="field-label" id="dataplate-label">Dataplate</span>
+            <span class="dataplate-zone-title" id="dataplate-label"
+              >Optionally, you can try searching model by OCR:</span
+            >
             <div
               class="dataplate-drop"
               id="dataplate-drop"
