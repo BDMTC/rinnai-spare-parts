@@ -172,6 +172,57 @@ export function isAccessoryFamilySeries(series) {
 }
 
 /**
+ * One finished-goods accessory SKU shaped as a catalogue part card.
+ * @param {object|null|undefined} model
+ * @param {object|null|undefined} series
+ * @returns {object|null}
+ */
+export function accessorySkuPartForModel(model, series) {
+  if (!model || !isAccessoryFamilySeries(series)) return null;
+  const code = String(
+    model.sku || model.marketingCode || model.itemNumber || model.id || ""
+  ).trim();
+  if (!code) return null;
+  const commercial = getModelCommercialName(model, series);
+  const name =
+    commercial ||
+    String(
+      model.name ||
+        model.description ||
+        `${series.label || "Accessory"} · ${code}`
+    ).trim();
+  return {
+    id: `accessory-sku:${model.id}`,
+    code,
+    name,
+    aliases: [
+      model.marketingCode,
+      model.itemNumber,
+      model.sku,
+      series.label,
+      series.commercialName,
+      ...(series.aliases || []),
+    ].filter(Boolean),
+    modelIds: [model.id],
+    category: "DEMAND DUO ACCESSORY",
+    sheet: "Demand Duo accessory family",
+    kind: "part",
+    accessorySku: true,
+    netInvoiceExGst: null,
+    discountPercent: null,
+    diagramRef: {
+      url: model.diagramUrl || null,
+      path: model.diagramPath || null,
+      callout: null,
+    },
+    notes:
+      model.notes ||
+      "Finished-goods accessory SKU (family browse — not a chassis Item Number).",
+    _accessoryModel: model,
+  };
+}
+
+/**
  * Finished-goods accessory SKUs for a family, shaped as catalogue parts so
  * Pin2 select can render them as normal part cards (no price until priced).
  * @param {object} catalogue
@@ -180,51 +231,10 @@ export function isAccessoryFamilySeries(series) {
  */
 export function accessorySkuPartsForSeries(catalogue, series) {
   if (!isAccessoryFamilySeries(series)) return [];
-  const models = (catalogue?.models || []).filter((m) =>
-    modelBelongsToSeries(m, series)
-  );
-  return models.map((model) => {
-    const code = String(
-      model.sku || model.marketingCode || model.itemNumber || model.id || ""
-    ).trim();
-    const commercial = getModelCommercialName(model, series);
-    const name =
-      commercial ||
-      String(
-        model.name ||
-          model.description ||
-          `${series.label || "Accessory"} · ${code}`
-      ).trim();
-    return {
-      id: `accessory-sku:${model.id}`,
-      code,
-      name,
-      aliases: [
-        model.marketingCode,
-        model.itemNumber,
-        model.sku,
-        series.label,
-        series.commercialName,
-        ...(series.aliases || []),
-      ].filter(Boolean),
-      modelIds: [model.id],
-      category: "DEMAND DUO ACCESSORY",
-      sheet: "Demand Duo accessory family",
-      kind: "part",
-      accessorySku: true,
-      netInvoiceExGst: null,
-      discountPercent: null,
-      diagramRef: {
-        url: model.diagramUrl || null,
-        path: model.diagramPath || null,
-        callout: null,
-      },
-      notes:
-        model.notes ||
-        "Finished-goods accessory SKU (family browse — not a chassis Item Number).",
-      _accessoryModel: model,
-    };
-  });
+  return (catalogue?.models || [])
+    .filter((m) => modelBelongsToSeries(m, series))
+    .map((model) => accessorySkuPartForModel(model, series))
+    .filter(Boolean);
 }
 
 /**

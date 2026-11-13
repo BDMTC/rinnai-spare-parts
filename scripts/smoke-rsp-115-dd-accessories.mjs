@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
- * RSP-115: Demand Duo accessory families → part cards; Pin3 commercial names
- * for all system types; accessory series are not Pin3 chassis-fenced.
+ * RSP-115 / RSP-123: Demand Duo accessory families → part cards; Pin3 commercial
+ * names; accessory Pin3 = sole SKU card; DDUPS trailing N = brass body (not NG).
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -17,7 +17,10 @@ import {
   listSeries,
 } from "../src/series.js";
 import { searchParts } from "../src/search.js";
-import { getModelCommercialName } from "../src/model-commercial-name.js";
+import {
+  getModelCommercialName,
+  getModelFuelKind,
+} from "../src/model-commercial-name.js";
 import { buildPin3ChassisPartAllowSet } from "../src/pin3-chassis-allow.js";
 import { seriesBelongsToSystemType } from "../src/system-type.js";
 
@@ -140,6 +143,48 @@ assert(
   "accessory Pin3 must skip chassis hard fence"
 );
 
+// Pin3 accessory Item Number → only that SKU card (not family dump / other parts)
+const pin3Cards = searchParts(catalogue, "", null, {
+  pin: modelPin,
+  modelIds: modelPin.modelIds,
+});
+assert(
+  pin3Cards.length === 1 && pin3Cards[0].part.code === "DDUPS2580N",
+  `Pin3 DDUPS2580N must be sole card, got ${pin3Cards.map((r) => r.part.code).join(",")}`
+);
+const pin3PumpQ = searchParts(catalogue, "pump", null, {
+  pin: modelPin,
+  modelIds: modelPin.modelIds,
+});
+assert(
+  pin3PumpQ.length === 1 && pin3PumpQ[0].part.code === "DDUPS2580N",
+  "Pin3 accessory search must stay on the pinned SKU only"
+);
+
+const tstatModel = resolveModelPin(catalogue, seriesDoc, "dd56tstat");
+const tstatOnly = searchParts(catalogue, "", null, {
+  pin: tstatModel,
+  modelIds: tstatModel.modelIds,
+}).map((r) => r.part.code);
+assert(
+  tstatOnly.length === 1 && tstatOnly[0] === "DD56TSTAT",
+  `Pin3 DD56TSTAT sole card, got ${tstatOnly.join(",")}`
+);
+
+// DDUPS trailing N = brass body, never Nat Gas fuel colouring
+assert(
+  /Brass Body/i.test(getModelCommercialName(modelPin.model, modelPin.series)),
+  "DDUPS2580N commercial must say Brass Body"
+);
+assert(
+  !/Nat Gas/i.test(getModelCommercialName(modelPin.model, modelPin.series)),
+  "DDUPS2580N must not say Nat Gas"
+);
+assert(
+  getModelFuelKind(modelPin.model, modelPin.series) === "",
+  "DDUPS2580N fuelKind must be empty (not nat-gas)"
+);
+
 // Sanity: commercial helper on a few SKUs
 assert(
   /Pump Controller DD56/i.test(
@@ -154,6 +199,7 @@ assert(
 console.log("ok smoke-rsp-115-dd-accessories", {
   pin2: pin2.map((s) => s.series?.id),
   ddupsCards: codes.filter((c) => /^DDUPS/i.test(c)),
+  pin3Only: pin3Cards[0].part.code,
   hotfloSub: ehfa.subtitle,
   ddSub: ddItem.subtitle,
 });

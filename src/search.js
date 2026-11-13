@@ -17,6 +17,7 @@
 
 import {
   documentKeysForPin,
+  accessorySkuPartForModel,
   accessorySkuPartsForSeries,
   isAccessoryFamilySeries,
 } from "./series.js";
@@ -1256,15 +1257,24 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
 
   const results = [];
 
-  // Accessory-family Pin2 (Demand Duo DDUPS / DDTSTAT / UVC): surface finished-goods
-  // SKUs as normal part cards. They are not chassis — skip Pin3 PL/ED fence.
-  const accessoryParts =
-    pinCtx?.kind === "series" && isAccessoryFamilySeries(pinCtx.series)
+  // Accessory families (Demand Duo DDUPS / DDTSTAT / UVC): finished-goods SKUs
+  // as part cards. Not chassis — Pin3 PL/ED fence is skipped elsewhere.
+  // Pin2 (series) → family browse. Pin3 (Item Number) → that SKU only.
+  const accessoryPin3Only =
+    pinCtx?.kind === "model" && isAccessoryFamilySeries(pinCtx.series);
+  const accessoryParts = accessoryPin3Only
+    ? (() => {
+        const one = accessorySkuPartForModel(pinCtx.model, pinCtx.series);
+        return one ? [one] : [];
+      })()
+    : pinCtx?.kind === "series" && isAccessoryFamilySeries(pinCtx.series)
       ? accessorySkuPartsForSeries(catalogue, pinCtx.series)
       : [];
-  const partPool = accessoryParts.length
-    ? [...accessoryParts, ...(catalogue.parts || [])]
-    : catalogue.parts || [];
+  const partPool = accessoryPin3Only
+    ? accessoryParts
+    : accessoryParts.length
+      ? [...accessoryParts, ...(catalogue.parts || [])]
+      : catalogue.parts || [];
   // Avoid duplicate cards when a real price row shares an accessory code.
   const seenCodes = new Set();
 
