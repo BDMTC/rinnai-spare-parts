@@ -33,6 +33,8 @@ UNIQUE_SM = {
     "sm-hw-cf-bm-b26": "HW_CF_BM_SM_Issue_1_AUG BM2626 & B26 Series.pdf",
     # EnviroSmart K2430
     "sm-k2430wak": "smK2430WAK.pdf",
+    # Infinity 16/20 heritage VR (cover lists VR1620WG/WB/WS + VR2024WG)
+    "sm-vreu-vr1620-vr2024": "smvREUVR1616W_VR2024_v2.pdf",
 }
 
 # Optional series thumb covers copied from pack page 1
@@ -43,6 +45,8 @@ SERIES_THUMBS = {
     "infinity26-smartstart": "sm-inbuilt-smartstart",
     "infinity-b": "sm-hw-cf-bm-b26",
     "envirosmart": "sm-k2430wak",
+    "infinity16": "sm-vreu-vr1620-vr2024",
+    "infinity20": "sm-vreu-vr1620-vr2024",
 }
 
 TARGET_WIDTH = 900
