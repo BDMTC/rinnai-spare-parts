@@ -188,6 +188,18 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
     label: "Efinity ECF Issue 4 (ECF14 shared)",
   },
+  "ehpt-a": {
+    page: "pl-ehpt-180vm-issue3__p1",
+    label: "EHPT 180VM Issue 3 (A Series HP)",
+  },
+  "ehpa-ar": {
+    page: "pl-ehpa-ar-issue5__p1",
+    label: "EHPA AR Series Issue 5",
+  },
+  "ehps-be": {
+    page: "pl-ehps-215vm-issue4__p1",
+    label: "EHPS 215VM Issue 4 (B Series; E Series shares SM)",
+  },
   hdc211e: {
     page: "pl-reu-km3237wdc-hdc211e-issue03__p5",
     label: "HDC211e KM3237WDC Issue 03",
@@ -466,6 +478,16 @@ const ED_STEM_TO_PDF = {
   "pl-sm-2402": "SM 2402.pdf",
   "pl-sm-24wa": "SM 24WA.pdf",
   "pl-sm-reu3203": "SM REU3203.pdf",
+  "pl-ehpt-180vm-issue3":
+    "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+  "pl-ehpt-250vm-issue1":
+    "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+  "pl-ehpa-ar-issue5":
+    "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+  "pl-ehps-215vm-issue4":
+    "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+  "pl-ehps-265vmt-issue4":
+    "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
 };
 
 /**

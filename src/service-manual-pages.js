@@ -44,6 +44,9 @@ import vrm2024 from "./assets/service-manual-pages/vrm2024__p1.jpg";
 import vrm2626 from "./assets/service-manual-pages/vrm2626__p1.jpg";
 import vrm3237wg from "./assets/service-manual-pages/vrm3237wg__p1.jpg";
 import efinityEcf from "./assets/service-manual-pages/efinity-ecf__p1.jpg";
+import ehptA from "./assets/service-manual-pages/ehpt-a__p1.jpg";
+import ehpaAr from "./assets/service-manual-pages/ehpa-ar__p1.jpg";
+import ehpsBe from "./assets/service-manual-pages/ehps-be__p1.jpg";
 
 /** @type {Record<string, Record<string, string>>} */
 const SM_PACK_GLOBS = {
@@ -165,6 +168,18 @@ const SM_PACK_GLOBS = {
   ),
   "sm-efinity-ecf": import.meta.glob(
     "./assets/service-manual-pages/sm-efinity-ecf__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-ehpt-a": import.meta.glob(
+    "./assets/service-manual-pages/sm-ehpt-a__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-ehpa-ar": import.meta.glob(
+    "./assets/service-manual-pages/sm-ehpa-ar__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-ehps-be": import.meta.glob(
+    "./assets/service-manual-pages/sm-ehps-be__p*.jpg",
     { eager: true, import: "default" }
   ),
 };
@@ -450,6 +465,30 @@ const SERIES_SERVICE_MANUALS = {
     label: "SM - RINNAI - ECF EFINITY - ELECTRIC CFHW - ISSUE 3 - AUG 2026.pdf p1",
     source: "SM - RINNAI - ECF EFINITY - ELECTRIC CFHW - ISSUE 3 - AUG 2026.pdf",
     packId: "sm-efinity-ecf",
+  },
+  "ehpt-a": {
+    url: ehptA,
+    label:
+      "SM - RINNAI - A SERIES HEAT PUMP - EHPT 180 - 250 VM - ISSUE 2  - APR 2024.pdf p1",
+    source:
+      "SM - RINNAI - A SERIES HEAT PUMP - EHPT 180 - 250 VM - ISSUE 2  - APR 2024.pdf",
+    packId: "sm-ehpt-a",
+  },
+  "ehpa-ar": {
+    url: ehpaAr,
+    label:
+      "SM - RINNAI - AR SERIES HEAT PUMP EHPAxxVM -  ISSUE 3 - DEC 2025.pdf p1",
+    source:
+      "SM - RINNAI - AR SERIES HEAT PUMP EHPAxxVM -  ISSUE 3 - DEC 2025.pdf",
+    packId: "sm-ehpa-ar",
+  },
+  "ehps-be": {
+    url: ehpsBe,
+    label:
+      "SM - RINNAI - B  E SERIES HEAT PUMP - EHPS (VM VMT) - ISSUE 1 - NOV 2023.pdf p1",
+    source:
+      "SM - RINNAI - B  E SERIES HEAT PUMP - EHPS (VM VMT) - ISSUE 1 - NOV 2023.pdf",
+    packId: "sm-ehps-be",
   },
 };
 

@@ -1780,7 +1780,7 @@
         "EHPA340",
         "AR SERIES"
       ],
-      "notes": "RSP-95 matched: EHPA300/340 VM* \u2192 AR series PL.",
+      "notes": "HP wave1: AR Series EHPA300/340 Issue5 PL; cover-true SM AR EHPAxxVM Issue3.",
       "systemType": "heat-pump-hot-water",
       "familyKey": "heat_pump"
     },
@@ -1851,9 +1851,11 @@
         "EHPT",
         "EHPT180",
         "EHPT180VM",
+        "EHPT250",
+        "EHPT250VM",
         "A SERIES"
       ],
-      "notes": "RSP-95 matched: EHPT180VM \u2192 A series heat pump SM.",
+      "notes": "HP wave1: EHPT180VM Issue3 + EHPT250VM Issue1 PLs; cover-true SM A Series EHPT 180-250 VM Issue2.",
       "systemType": "heat-pump-hot-water",
       "familyKey": "heat_pump"
     },
@@ -1863,6 +1865,7 @@
       "aliases": [
         "EHPS",
         "EHPS215",
+        "EHPS265",
         "B E Series Heat Pump"
       ],
       "match": {
@@ -1873,9 +1876,11 @@
       "documentKeys": [
         "EHPS",
         "EHPS215",
-        "EHPS215VM"
+        "EHPS215VM",
+        "EHPS265",
+        "EHPS265VMT"
       ],
-      "notes": "RSP-95 matched: EHPS215VM \u2192 B/E series heat pump SM.",
+      "notes": "HP wave1: EHPS215VM Issue4 + EHPS265VMT Issue4 PLs; cover-true SM B/E Series EHPS Issue1.",
       "systemType": "heat-pump-hot-water",
       "familyKey": "heat_pump"
     },

@@ -246,6 +246,38 @@ function lightboxPdfDataScripts() {
     { id: "SM-V26", file: "SM V26.pdf" },
     { id: "SM-V26FFU", file: "SM V26FFU.pdf" },
     { id: "VR2024WB-B20-NON50", file: "VR2024WB-50-AK B20 NON50.pdf" },
+    {
+      id: "PL-EHPT-180VM-ISSUE3",
+      file: "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+    },
+    {
+      id: "PL-EHPT-250VM-ISSUE1",
+      file: "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+    },
+    {
+      id: "PL-EHPA-AR-ISSUE5",
+      file: "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+    },
+    {
+      id: "PL-EHPS-215VM-ISSUE4",
+      file: "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+    },
+    {
+      id: "PL-EHPS-265VMT-ISSUE4",
+      file: "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+    },
+    {
+      id: "SM-EHPT-A-ISSUE2",
+      file: "SM - RINNAI - A SERIES HEAT PUMP - EHPT 180 - 250 VM - ISSUE 2  - APR 2024.pdf",
+    },
+    {
+      id: "SM-EHPA-AR-ISSUE3",
+      file: "SM - RINNAI - AR SERIES HEAT PUMP EHPAxxVM -  ISSUE 3 - DEC 2025.pdf",
+    },
+    {
+      id: "SM-EHPS-BE-ISSUE1",
+      file: "SM - RINNAI - B  E SERIES HEAT PUMP - EHPS (VM VMT) - ISSUE 1 - NOV 2023.pdf",
+    },
   ];
 
   function buildScriptSource(fileName) {

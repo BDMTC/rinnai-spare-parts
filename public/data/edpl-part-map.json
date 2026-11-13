@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T14:29:13.412441+00:00",
+  "generatedAt": "2026-11-13T14:34:49.577146+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
@@ -18,14 +18,66 @@
     "hdc32Hdc211i": "NB3237 HDC32e/i + KM3237FFUDC HDC211i + VCM2837 WC Issue5 hd28e (pl-reu-nb3237-hdc32, pl-reu-km3237ffudc-hdc211i, pl-reu-vcm2837-wc-issue5)",
     "smHdc32_2402Polish": "NB3237 SM pack for hdc32e/i + infinity24-2402 diagram registry (no invented RA)",
     "smVcmAmHdc211e": "VCM2837 SM (hd28e/i + inf28) + AM3237 SM (hd32) + HDC211e Issue03 PL (sm-vcm2837, sm-am3237, pl-reu-km3237wdc-hdc211e-issue03)",
-    "vr2632ffugIssue4": "PL VR2632FFUG_VRM2632FFUC Issue 4 \u2192 pl-vr2632ffug-vrm2632ffuc-issue4 (68 rows, 60 in catalogue)"
+    "vr2632ffugIssue4": "PL VR2632FFUG_VRM2632FFUC Issue 4 \u2192 pl-vr2632ffug-vrm2632ffuc-issue4 (68 rows, 60 in catalogue)",
+    "hpWave1AArBe": {
+      "pl": [
+        {
+          "stem": "pl-ehpt-180vm-issue3",
+          "rows": 19,
+          "inCat": 16
+        },
+        {
+          "stem": "pl-ehpt-250vm-issue1",
+          "rows": 16,
+          "inCat": 16
+        },
+        {
+          "stem": "pl-ehpa-ar-issue5",
+          "rows": 21,
+          "inCat": 20
+        },
+        {
+          "stem": "pl-ehps-215vm-issue4",
+          "rows": 16,
+          "inCat": 16
+        },
+        {
+          "stem": "pl-ehps-265vmt-issue4",
+          "rows": 16,
+          "inCat": 16
+        }
+      ],
+      "sm": [
+        {
+          "stem": "sm-ehpt-a",
+          "pages": 40,
+          "series": [
+            "ehpt-a"
+          ]
+        },
+        {
+          "stem": "sm-ehpa-ar",
+          "pages": 40,
+          "series": [
+            "ehpa-ar"
+          ]
+        },
+        {
+          "stem": "sm-ehps-be",
+          "pages": 48,
+          "series": [
+            "ehps-be"
+          ]
+        }
+      ]
+    }
   },
   "totals": {
     "sheetsConfigured": 49,
     "sheetsOk": 49,
     "sheetsMissing": 0,
-    "uniqueCodes": 1051,
-    "codesInCatalogue": 746,
+    "uniqueCodes": 1105,
+    "codesInCatalogue": 796,
     "codesInCatalogueWithPageAsset": 467,
     "codesInCatalogueWithListBox": 467,
     "codesInCatalogueWithListPageAsset": 467,
@@ -2570,6 +2622,144 @@
       ],
       "priority": 26,
       "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - VR2632FFUG_VRM2632FFUC - ISSUE 4 - JUNE 2025.pdf"
+    },
+    {
+      "file": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+      "stem": "pl-ehpt-180vm-issue3",
+      "status": "ok",
+      "pages": 2,
+      "diagramPages": [
+        2
+      ],
+      "listPages": [
+        1
+      ],
+      "defaultDiagramPage": 2,
+      "rowsExtracted": 19,
+      "rowsInCatalogue": 16,
+      "rowsWithListBox": 19,
+      "seriesIds": [
+        "ehpt-a"
+      ],
+      "chassisTokens": [
+        "EHPT180VM",
+        "EHPT180",
+        "EHPT",
+        "A SERIES"
+      ],
+      "priority": 30,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf"
+    },
+    {
+      "file": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+      "stem": "pl-ehpt-250vm-issue1",
+      "status": "ok",
+      "pages": 2,
+      "diagramPages": [
+        2
+      ],
+      "listPages": [
+        1
+      ],
+      "defaultDiagramPage": 2,
+      "rowsExtracted": 16,
+      "rowsInCatalogue": 16,
+      "rowsWithListBox": 16,
+      "seriesIds": [
+        "ehpt-a"
+      ],
+      "chassisTokens": [
+        "EHPT250VM",
+        "EHPT250",
+        "EHPT",
+        "A SERIES"
+      ],
+      "priority": 28,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf"
+    },
+    {
+      "file": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+      "stem": "pl-ehpa-ar-issue5",
+      "status": "ok",
+      "pages": 2,
+      "diagramPages": [
+        2
+      ],
+      "listPages": [
+        1
+      ],
+      "defaultDiagramPage": 2,
+      "rowsExtracted": 21,
+      "rowsInCatalogue": 20,
+      "rowsWithListBox": 21,
+      "seriesIds": [
+        "ehpa-ar"
+      ],
+      "chassisTokens": [
+        "EHPA300VM",
+        "EHPA300VMH",
+        "EHPA340VM",
+        "EHPA340VMH",
+        "EHPA300",
+        "EHPA340",
+        "AR SERIES"
+      ],
+      "priority": 30,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf"
+    },
+    {
+      "file": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+      "stem": "pl-ehps-215vm-issue4",
+      "status": "ok",
+      "pages": 2,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        2
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 16,
+      "rowsInCatalogue": 16,
+      "rowsWithListBox": 16,
+      "seriesIds": [
+        "ehps-be"
+      ],
+      "chassisTokens": [
+        "EHPS215VM",
+        "EHPS215",
+        "EHPS",
+        "B SERIES"
+      ],
+      "priority": 30,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf"
+    },
+    {
+      "file": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+      "stem": "pl-ehps-265vmt-issue4",
+      "status": "ok",
+      "pages": 2,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        2
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 16,
+      "rowsInCatalogue": 16,
+      "rowsWithListBox": 16,
+      "seriesIds": [
+        "ehps-be"
+      ],
+      "chassisTokens": [
+        "EHPS265VMT",
+        "EHPS265",
+        "EHPS",
+        "E SERIES"
+      ],
+      "priority": 29,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf"
     }
   ],
   "parts": {
@@ -138661,6 +138851,29 @@
     ],
     "95110048": [
       {
+        "callout": "21",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "VALVE PTR 1/2\" 1000KPA"
+      },
+      {
         "callout": "13",
         "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
         "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
@@ -151436,6 +151649,1914 @@
         ],
         "priority": 24,
         "name": "109 DAMPER NG VCM2837WC"
+      }
+    ],
+    "92540041": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p1",
+        "pageKey": "pl-ehpt-250vm-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-250vm-issue1__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "Evaporator Output Tube Assembly"
+      },
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p1",
+        "pageKey": "pl-ehpt-180vm-issue3__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-180vm-issue3__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Evaporator Output Tube Assembly"
+      }
+    ],
+    "92540035": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p1",
+        "pageKey": "pl-ehpt-250vm-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-250vm-issue1__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "Sensor Exhaust EHPT"
+      },
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p1",
+        "pageKey": "pl-ehpt-180vm-issue3__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-180vm-issue3__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Sensor Exhaust EHPT"
+      }
+    ],
+    "92540031": [
+      {
+        "callout": "5",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p1",
+        "pageKey": "pl-ehpt-250vm-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-250vm-issue1__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "Sensor Ambient EHPT"
+      },
+      {
+        "callout": "5",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p1",
+        "pageKey": "pl-ehpt-180vm-issue3__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-180vm-issue3__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Sensor Ambient EHPT"
+      }
+    ],
+    "92540033": [
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p1",
+        "pageKey": "pl-ehpt-250vm-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-250vm-issue1__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "Sensor Coil EHPT"
+      },
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p1",
+        "pageKey": "pl-ehpt-180vm-issue3__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-180vm-issue3__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Sensor Coil EHPT"
+      }
+    ],
+    "92540021": [
+      {
+        "callout": "10",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p1",
+        "pageKey": "pl-ehpt-250vm-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-250vm-issue1__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "Rubber Fixing Block"
+      },
+      {
+        "callout": "10",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p1",
+        "pageKey": "pl-ehpt-180vm-issue3__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-180vm-issue3__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Rubber Fixing Block"
+      }
+    ],
+    "92540037": [
+      {
+        "callout": "12",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p1",
+        "pageKey": "pl-ehpt-250vm-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-250vm-issue1__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "Power Cable with Plug"
+      },
+      {
+        "callout": "12",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p1",
+        "pageKey": "pl-ehpt-180vm-issue3__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-180vm-issue3__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Power Cable with Plug"
+      }
+    ],
+    "92540039": [
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p1",
+        "pageKey": "pl-ehpt-250vm-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-250vm-issue1__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "Anode EHPT"
+      },
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p1",
+        "pageKey": "pl-ehpt-180vm-issue3__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-180vm-issue3__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Anode EHPT"
+      }
+    ],
+    "92540023": [
+      {
+        "callout": "21",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p2",
+        "pageKey": "pl-ehpt-250vm-issue1__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-250vm-issue1__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "Motor Bracket Components"
+      },
+      {
+        "callout": "21",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p1",
+        "pageKey": "pl-ehpt-180vm-issue3__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-180vm-issue3__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Motor Bracket Components"
+      }
+    ],
+    "92540028": [
+      {
+        "callout": "23",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p1",
+        "pageKey": "pl-ehpt-180vm-issue3__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-180vm-issue3__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "SHROUD TOP EHPT180VM"
+      }
+    ],
+    "92540067": [
+      {
+        "callout": "23",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p2",
+        "pageKey": "pl-ehpt-250vm-issue1__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-250vm-issue1__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "Front Cover"
+      },
+      {
+        "callout": "24",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p1",
+        "pageKey": "pl-ehpt-180vm-issue3__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpt-180vm-issue3__p1",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Blade Fan EHPT"
+      }
+    ],
+    "92540030": [
+      {
+        "callout": "31",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpt-180vm-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-180vm-issue3__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Four Way Valve Connection Pipe"
+      }
+    ],
+    "92540032": [
+      {
+        "callout": "33",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpt-180vm-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-180vm-issue3__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "LID TOP EHPT180VM"
+      }
+    ],
+    "92540025": [
+      {
+        "callout": "37",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p2",
+        "pageKey": "pl-ehpt-250vm-issue1__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-250vm-issue1__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "Line Retaining Block"
+      },
+      {
+        "callout": "37",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpt-180vm-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-180vm-issue3__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Line Retaining Block"
+      }
+    ],
+    "92540075": [
+      {
+        "callout": "39",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p2",
+        "pageKey": "pl-ehpt-250vm-issue1__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-250vm-issue1__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "Sensor Temp Water Bottom EHPT"
+      },
+      {
+        "callout": "39",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpt-180vm-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-180vm-issue3__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Sensor Temp Water Bottom EHPT"
+      }
+    ],
+    "92540077": [
+      {
+        "callout": "40",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p2",
+        "pageKey": "pl-ehpt-250vm-issue1__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-250vm-issue1__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "Sensor Temp Water Middle EHPT"
+      },
+      {
+        "callout": "40",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpt-180vm-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-180vm-issue3__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Sensor Temp Water Middle EHPT"
+      }
+    ],
+    "92540019": [
+      {
+        "callout": "41",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p2",
+        "pageKey": "pl-ehpt-250vm-issue1__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-250vm-issue1__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "PCB Main Inc Relay EHPT"
+      },
+      {
+        "callout": "41",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpt-180vm-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-180vm-issue3__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "PCB Main Inc Relay EHPT"
+      }
+    ],
+    "92540027": [
+      {
+        "callout": "42",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p2",
+        "pageKey": "pl-ehpt-250vm-issue1__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-250vm-issue1__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "Capacitor Compressor EHPT"
+      },
+      {
+        "callout": "42",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpt-180vm-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-180vm-issue3__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Capacitor Compressor EHPT"
+      }
+    ],
+    "92540029": [
+      {
+        "callout": "43",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p2",
+        "pageKey": "pl-ehpt-250vm-issue1__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-250vm-issue1__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "Reversing Valve Coil"
+      },
+      {
+        "callout": "43",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpt-180vm-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-180vm-issue3__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "Reversing Valve Coil"
+      }
+    ],
+    "95112496": [
+      {
+        "callout": "52",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Bracket"
+      },
+      {
+        "callout": "52",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Bracket"
+      },
+      {
+        "callout": "45",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf p2",
+        "pageKey": "pl-ehpt-250vm-issue1__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-250vm-issue1__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+        "stem": "pl-ehpt-250vm-issue1",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT250VM",
+          "EHPT250",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 28,
+        "name": "PTR VALVE DN20 850KPA"
+      },
+      {
+        "callout": "45",
+        "page": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpt-180vm-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpt-180vm-issue3__p2",
+        "pdf": "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpt-180vm-issue3",
+        "seriesIds": [
+          "ehpt-a"
+        ],
+        "chassisTokens": [
+          "EHPT180VM",
+          "EHPT180",
+          "EHPT",
+          "A SERIES"
+        ],
+        "priority": 30,
+        "name": "PTR VALVE DN20 850KPA"
+      }
+    ],
+    "95112661": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "Lid Top EHPA300VM / 340VM"
+      }
+    ],
+    "95112659": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "OUTER WRAP"
+      }
+    ],
+    "92540107": [
+      {
+        "callout": "3",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "COIL 4-WAY VALVE"
+      }
+    ],
+    "95112681": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "COIL EEV FOR DPF1.3C 1M DUNAN"
+      }
+    ],
+    "95112678": [
+      {
+        "callout": "5",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "FAN MOTOR"
+      }
+    ],
+    "95112684": [
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "MAIN CONTROLLER"
+      }
+    ],
+    "95112687": [
+      {
+        "callout": "7",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "COMPRESSOR CAPACITOR"
+      }
+    ],
+    "95112685": [
+      {
+        "callout": "8",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "DISPLAY KIT"
+      }
+    ],
+    "92540164": [
+      {
+        "callout": "8",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "WEATHERPROOF COVER"
+      }
+    ],
+    "92540085": [
+      {
+        "callout": "10",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "ELEMENT 2.4KW*"
+      }
+    ],
+    "92540081": [
+      {
+        "callout": "11",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "GASKET ELEMENT"
+      }
+    ],
+    "92540083": [
+      {
+        "callout": "13",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "UPPER TANK SENSOR"
+      }
+    ],
+    "92540087": [
+      {
+        "callout": "15",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "COVER ELECT WATERPROOF"
+      }
+    ],
+    "92540117": [
+      {
+        "callout": "16",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "ELBOW HOSE DRAIN"
+      }
+    ],
+    "95112830": [
+      {
+        "callout": "17",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "SENSOR TEMP AMBIENT TA RED"
+      }
+    ],
+    "95112831": [
+      {
+        "callout": "18",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "SENSOR TEMP SUCTION TS BLACK"
+      }
+    ],
+    "95112832": [
+      {
+        "callout": "19",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "SENSOR TEMP DISCHARGE TD"
+      }
+    ],
+    "95112833": [
+      {
+        "callout": "20",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "SENSOR TEMP EVAP TE BLUE"
+      }
+    ],
+    "92540118": [
+      {
+        "callout": "22",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "Clamp Hose Drain Pipe EHPG/A"
+      }
+    ],
+    "92540120": [
+      {
+        "callout": "23",
+        "page": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf p1",
+        "pageKey": "pl-ehpa-ar-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-ehpa-ar-issue5__p1",
+        "pdf": "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+        "stem": "pl-ehpa-ar-issue5",
+        "seriesIds": [
+          "ehpa-ar"
+        ],
+        "chassisTokens": [
+          "EHPA300VM",
+          "EHPA300VMH",
+          "EHPA340VM",
+          "EHPA340VMH",
+          "EHPA300",
+          "EHPA340",
+          "AR SERIES"
+        ],
+        "priority": 30,
+        "name": "Pipe Condensate Drain Pipe 2m"
+      }
+    ],
+    "92540055": [
+      {
+        "callout": "17",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Electronic Expansion Valve"
+      },
+      {
+        "callout": "17",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Electronic Expansion Valve"
+      }
+    ],
+    "92540059": [
+      {
+        "callout": "19",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Sensor Temp Coil Exhaust EHPS"
+      },
+      {
+        "callout": "19",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Sensor Temp Coil Exhaust EHPS"
+      }
+    ],
+    "92540063": [
+      {
+        "callout": "20",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Anode EHPS"
+      },
+      {
+        "callout": "20",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Anode EHPS"
+      }
+    ],
+    "92540057": [
+      {
+        "callout": "21",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Element 2kW EHPS"
+      },
+      {
+        "callout": "21",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Element 2kW EHPS"
+      }
+    ],
+    "92540047": [
+      {
+        "callout": "26",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Bellows"
+      },
+      {
+        "callout": "26",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Bellows"
+      }
+    ],
+    "92540069": [
+      {
+        "callout": "28",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Blade Fan EHPS"
+      },
+      {
+        "callout": "28",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Blade Fan EHPS"
+      }
+    ],
+    "92540071": [
+      {
+        "callout": "29",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Top Shroud"
+      },
+      {
+        "callout": "29",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Top Shroud"
+      }
+    ],
+    "92540073": [
+      {
+        "callout": "30",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Top Cap"
+      },
+      {
+        "callout": "30",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Top Cap"
+      }
+    ],
+    "92540053": [
+      {
+        "callout": "31",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Electrical Box"
+      },
+      {
+        "callout": "31",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Electrical Box"
+      }
+    ],
+    "92540051": [
+      {
+        "callout": "33",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Capacitor Compressor EHPS"
+      },
+      {
+        "callout": "33",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Capacitor Compressor EHPS"
+      }
+    ],
+    "92540043": [
+      {
+        "callout": "34",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Electrical Box Cover"
+      },
+      {
+        "callout": "34",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Electrical Box Cover"
+      }
+    ],
+    "92540049": [
+      {
+        "callout": "36",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Capacitor Fan EHPS"
+      },
+      {
+        "callout": "36",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Capacitor Fan EHPS"
+      }
+    ],
+    "92540065": [
+      {
+        "callout": "43",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Water Tank Outer Casing 265L"
+      },
+      {
+        "callout": "43",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Water Tank Outer Casing 215L"
+      }
+    ],
+    "92540045": [
+      {
+        "callout": "46",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Upper Channel"
+      },
+      {
+        "callout": "46",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Upper Channel"
+      }
+    ],
+    "92540046": [
+      {
+        "callout": "56",
+        "page": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-265vmt-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-265vmt-issue4__p2",
+        "pdf": "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-265vmt-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS265VMT",
+          "EHPS265",
+          "EHPS",
+          "E SERIES"
+        ],
+        "priority": 29,
+        "name": "Instruction Manual 265L"
+      },
+      {
+        "callout": "56",
+        "page": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf p2",
+        "pageKey": "pl-ehps-215vm-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehps-215vm-issue4__p2",
+        "pdf": "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+        "stem": "pl-ehps-215vm-issue4",
+        "seriesIds": [
+          "ehps-be"
+        ],
+        "chassisTokens": [
+          "EHPS215VM",
+          "EHPS215",
+          "EHPS",
+          "B SERIES"
+        ],
+        "priority": 30,
+        "name": "Instruction Manual 215L"
       }
     ]
   }

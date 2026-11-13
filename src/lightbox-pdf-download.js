@@ -177,6 +177,48 @@ export const LIGHTBOX_PDFS = {
     id: "EDPL-REU-K2430WG",
     fileName: "EDPL REU-K2430WG.pdf",
   },
+  "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf": {
+    id: "PL-EHPT-180VM-ISSUE3",
+    fileName:
+      "PL - RINNAI - A SERIES HEAT PUMP - EHPT 180VM - ISSUE 3 - MAY 2026.pdf",
+  },
+  "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf": {
+    id: "PL-EHPT-250VM-ISSUE1",
+    fileName:
+      "PL - RINNAI - A SERIES HEAT PUMP - EHPT 250VM - ISSUE 1 - FEB 2024.pdf",
+  },
+  "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf": {
+    id: "PL-EHPA-AR-ISSUE5",
+    fileName:
+      "PL - RINNAI - AR SERIES_EHPA300VM EHPA340VM - ISSUE 5 - AUG 2026.pdf",
+  },
+  "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf": {
+    id: "PL-EHPS-215VM-ISSUE4",
+    fileName:
+      "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
+  },
+  "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf": {
+    id: "PL-EHPS-265VMT-ISSUE4",
+    fileName:
+      "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+  },
+  "SM - RINNAI - A SERIES HEAT PUMP - EHPT 180 - 250 VM - ISSUE 2  - APR 2024.pdf":
+    {
+      id: "SM-EHPT-A-ISSUE2",
+      fileName:
+        "SM - RINNAI - A SERIES HEAT PUMP - EHPT 180 - 250 VM - ISSUE 2  - APR 2024.pdf",
+    },
+  "SM - RINNAI - AR SERIES HEAT PUMP EHPAxxVM -  ISSUE 3 - DEC 2025.pdf": {
+    id: "SM-EHPA-AR-ISSUE3",
+    fileName:
+      "SM - RINNAI - AR SERIES HEAT PUMP EHPAxxVM -  ISSUE 3 - DEC 2025.pdf",
+  },
+  "SM - RINNAI - B  E SERIES HEAT PUMP - EHPS (VM VMT) - ISSUE 1 - NOV 2023.pdf":
+    {
+      id: "SM-EHPS-BE-ISSUE1",
+      fileName:
+        "SM - RINNAI - B  E SERIES HEAT PUMP - EHPS (VM VMT) - ISSUE 1 - NOV 2023.pdf",
+    },
 };
 
 /**
