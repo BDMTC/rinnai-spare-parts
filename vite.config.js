@@ -218,6 +218,8 @@ function lightboxPdfDataScripts() {
       id: "PL-2025-BM-SERIES-INFINITY-B-ISSUE1",
       file: "PL - RINNAI - 2025 BM SERIES - INFINITY B - ISSUE 1 - AUG 2025.pdf",
     },
+    { id: "smK2430WAK", file: "smK2430WAK.pdf" },
+    { id: "EDPL-REU-K2430WG", file: "EDPL REU-K2430WG.pdf" },
   ];
 
   function buildScriptSource(fileName) {

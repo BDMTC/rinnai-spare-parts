@@ -169,6 +169,14 @@ export const LIGHTBOX_PDFS = {
     fileName:
       "PL - RINNAI - 2025 BM SERIES - INFINITY B - ISSUE 1 - AUG 2025.pdf",
   },
+  "smK2430WAK.pdf": {
+    id: "smK2430WAK",
+    fileName: "smK2430WAK.pdf",
+  },
+  "EDPL REU-K2430WG.pdf": {
+    id: "EDPL-REU-K2430WG",
+    fileName: "EDPL REU-K2430WG.pdf",
+  },
 };
 
 /**
