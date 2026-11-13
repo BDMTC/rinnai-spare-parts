@@ -710,6 +710,8 @@ export function buildAssemblyIndex(hierarchyDoc) {
       seriesTokens: (raw.seriesTokens || [])
         .map((t) => alnum(t))
         .filter(Boolean),
+      diagramPage: raw.diagramPage ? String(raw.diagramPage).trim() : null,
+      parentItemNos: (raw.parentItemNos || []).map((n) => String(n).trim()),
       assemblyRole: raw.assemblyRole ? String(raw.assemblyRole) : null,
       demoteForBareConcept: Boolean(raw.demoteForBareConcept),
       duoGroup: duoRaw

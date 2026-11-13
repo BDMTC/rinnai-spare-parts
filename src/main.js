@@ -6,6 +6,8 @@ import tipMarginUrl from "./assets/help/tip-margin.svg?inline";
 import tipSearchUrl from "./assets/help/tip-search.svg?inline";
 import tipHomeLogoUrl from "./assets/help/tip-home-logo.svg?inline";
 import tipQuoteUrl from "./assets/help/tip-quote.svg?inline";
+import { seriesUnitShotUrl } from "./series-unit-shots.js";
+import { resolvePartDiagram } from "./diagram-pages.js";
 import {
   searchParts,
   getModelLabel,
@@ -694,7 +696,7 @@ function renderShell() {
             Commercial outlet temp (60°C+) — must not be installed on a domestic system.
           </p>
 
-          <div class="controls-row controls-row--dual-pin">
+          <div class="pin-margin-row">
             <div class="field series-field">
               <span class="field-label" id="series-label">Pin 1 · Series</span>
               <div class="model-picker" id="series-picker">
@@ -749,58 +751,104 @@ function renderShell() {
             </label>
           </div>
 
-          <div class="field item-field">
-            <span class="field-label" id="item-label">Pin 2 · Item Number</span>
-            <div class="model-picker" id="item-picker">
-              <div class="model-picker-row">
-                <input
-                  id="item-input"
-                  type="text"
-                  role="combobox"
-                  aria-labelledby="item-label"
-                  aria-autocomplete="list"
-                  aria-controls="item-listbox"
-                  aria-expanded="false"
-                  placeholder="Pin a series first…"
-                  spellcheck="false"
-                  autocomplete="off"
-                  disabled
-                />
-                <button
-                  type="button"
-                  class="model-clear"
-                  id="item-clear"
-                  aria-label="Clear Item Number pin"
-                  hidden
-                >
-                  ×
-                </button>
+          <div class="pin2-search-visuals-row">
+            <div class="pin2-search-col">
+              <div class="field item-field">
+                <span class="field-label" id="item-label">Pin 2 · Item Number</span>
+                <div class="model-picker" id="item-picker">
+                  <div class="model-picker-row">
+                    <input
+                      id="item-input"
+                      type="text"
+                      role="combobox"
+                      aria-labelledby="item-label"
+                      aria-autocomplete="list"
+                      aria-controls="item-listbox"
+                      aria-expanded="false"
+                      placeholder="Pin a series first…"
+                      spellcheck="false"
+                      autocomplete="off"
+                      disabled
+                    />
+                    <button
+                      type="button"
+                      class="model-clear"
+                      id="item-clear"
+                      aria-label="Clear Item Number pin"
+                      hidden
+                    >
+                      ×
+                    </button>
+                  </div>
+                  <input type="hidden" id="item-pin" name="item" value="" />
+                  <ul
+                    class="model-listbox"
+                    id="item-listbox"
+                    role="listbox"
+                    hidden
+                  ></ul>
+                </div>
               </div>
-              <input type="hidden" id="item-pin" name="item" value="" />
-              <ul
-                class="model-listbox"
-                id="item-listbox"
-                role="listbox"
-                hidden
-              ></ul>
+
+              <label class="field query-field" for="query-input">
+                <span class="field-label">Search</span>
+                <div class="query-row">
+                  <input
+                    id="query-input"
+                    name="q"
+                    type="search"
+                    placeholder="Trade term, part code, or description…"
+                    spellcheck="false"
+                    autofocus
+                  />
+                  <button type="submit" class="search-btn">Search</button>
+                </div>
+              </label>
+            </div>
+
+            <div class="search-visuals-slot" aria-hidden="false">
+              <div class="search-visuals" id="search-visuals">
+                <div class="search-visual search-visual--series" id="series-visual">
+                  <img
+                    id="series-visual-img"
+                    alt=""
+                    hidden
+                    decoding="async"
+                  />
+                  <p class="search-visual-placeholder" id="series-visual-ph">
+                    Pin a series
+                  </p>
+                </div>
+                <div class="search-visual search-visual--diagram" id="diagram-visual">
+                  <button
+                    type="button"
+                    class="diagram-thumb-btn"
+                    id="diagram-thumb-btn"
+                    hidden
+                    aria-label="Open exploded diagram full size"
+                  >
+                    <img
+                      id="diagram-visual-img"
+                      alt=""
+                      decoding="async"
+                    />
+                  </button>
+                  <p class="search-visual-placeholder" id="diagram-visual-ph">
+                    Search for a part
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-
-          <label class="field query-field" for="query-input">
-            <span class="field-label">Search</span>
-            <div class="query-row">
-              <input
-                id="query-input"
-                name="q"
-                type="search"
-                placeholder="Trade term, part code, or description…"
-                spellcheck="false"
-                autofocus
-              />
-              <button type="submit" class="search-btn">Search</button>
-            </div>
-          </label>
         </form>
+
+        <dialog class="diagram-lightbox" id="diagram-lightbox" aria-label="Exploded diagram">
+          <div class="diagram-lightbox-inner">
+            <button type="button" class="diagram-lightbox-close" id="diagram-lightbox-close" aria-label="Close diagram">×</button>
+            <img id="diagram-lightbox-img" alt="Exploded diagram page" decoding="async" />
+            <p class="diagram-lightbox-caption" id="diagram-lightbox-caption"></p>
+          </div>
+        </dialog>
 
         <p class="pin-warn" id="pin-warn" hidden>
           No series or Item Number pinned — results are unranked for a specific unit. Pin a series, then the full Item Number, for a Primary part code.
@@ -1263,6 +1311,102 @@ function updateDomesticTempWarn() {
   }
 }
 
+/** @type {{ url: string, label: string, callout: string|null }|null} */
+let activeDiagram = null;
+
+/**
+ * Under-Margin dual panel: series promo (left) + primary-hit ED page (right).
+ * Sized by Pin2+Search height — does not grow the search card.
+ */
+function updateSearchVisuals(query, pin) {
+  const activePin = pin || currentPin();
+  const seriesId =
+    activePin?.series?.id ||
+    seriesIdFromPinValue(
+      seriesPicker?.getValue?.() ||
+        document.querySelector("#series-pin")?.value
+    );
+  const seriesUrl = seriesUnitShotUrl(seriesId);
+  const seriesImg = document.querySelector("#series-visual-img");
+  const seriesPh = document.querySelector("#series-visual-ph");
+  if (seriesImg && seriesPh) {
+    if (seriesUrl) {
+      seriesImg.src = seriesUrl;
+      seriesImg.alt = activePin?.series
+        ? `${activePin.series.label || seriesId} unit`
+        : "Pinned series unit";
+      seriesImg.hidden = false;
+      seriesPh.hidden = true;
+    } else {
+      seriesImg.removeAttribute("src");
+      seriesImg.alt = "";
+      seriesImg.hidden = true;
+      seriesPh.hidden = false;
+      seriesPh.textContent = "Pin a series";
+    }
+  }
+
+  const hasQuery = Boolean(String(query || "").trim());
+  const primary =
+    hasQuery && lastResults?.length
+      ? lastResults.find((r) => r.isPrimary) || lastResults[0]
+      : null;
+  const diagram = primary
+    ? resolvePartDiagram(primary.part, assemblyIndex)
+    : null;
+  activeDiagram = diagram;
+
+  const thumbBtn = document.querySelector("#diagram-thumb-btn");
+  const diagramImg = document.querySelector("#diagram-visual-img");
+  const diagramPh = document.querySelector("#diagram-visual-ph");
+  if (thumbBtn && diagramImg && diagramPh) {
+    if (diagram?.url) {
+      diagramImg.src = diagram.url;
+      const calloutBit = diagram.callout ? ` · item ${diagram.callout}` : "";
+      diagramImg.alt = `Exploded diagram${calloutBit}`;
+      thumbBtn.hidden = false;
+      diagramPh.hidden = true;
+    } else {
+      diagramImg.removeAttribute("src");
+      diagramImg.alt = "";
+      thumbBtn.hidden = true;
+      diagramPh.hidden = false;
+      diagramPh.textContent = hasQuery
+        ? "No diagram for this hit yet"
+        : "Search for a part";
+    }
+  }
+}
+
+function openDiagramLightbox() {
+  if (!activeDiagram?.url) return;
+  const dialog = document.querySelector("#diagram-lightbox");
+  const img = document.querySelector("#diagram-lightbox-img");
+  const caption = document.querySelector("#diagram-lightbox-caption");
+  if (!dialog || !img) return;
+  img.src = activeDiagram.url;
+  img.alt = activeDiagram.label || "Exploded diagram page";
+  if (caption) {
+    const calloutBit = activeDiagram.callout
+      ? ` · callout ${activeDiagram.callout}`
+      : "";
+    caption.textContent = `${activeDiagram.label || "Exploded diagram"}${calloutBit}`;
+  }
+  if (typeof dialog.showModal === "function") dialog.showModal();
+  else dialog.setAttribute("open", "");
+}
+
+function closeDiagramLightbox() {
+  const dialog = document.querySelector("#diagram-lightbox");
+  const img = document.querySelector("#diagram-lightbox-img");
+  if (dialog && typeof dialog.close === "function") dialog.close();
+  else if (dialog) dialog.removeAttribute("open");
+  if (img) {
+    img.removeAttribute("src");
+    img.alt = "";
+  }
+}
+
 function populateDataSources() {
   const modelsEl = document.querySelector("#ds-models");
   const pricesEl = document.querySelector("#ds-prices");
@@ -1319,6 +1463,7 @@ function runSearch() {
     isPartVisible: getIsPartVisible(),
   });
   renderResults(q, pin);
+  updateSearchVisuals(q, pin);
 }
 
 function renderPriceBlock(part) {
@@ -1392,6 +1537,7 @@ function renderResults(query, pin) {
   if (!hasQuery && !hasPin) {
     meta.textContent = "";
     empty.hidden = true;
+    updateSearchVisuals(query, activePin);
     return;
   }
 
@@ -2250,6 +2396,25 @@ function bindEvents() {
   // Touch localStorage early so export/status stay consistent after boot.
   loadFeedback();
 
+  const diagramThumb = document.querySelector("#diagram-thumb-btn");
+  const diagramLightbox = document.querySelector("#diagram-lightbox");
+  const diagramLightboxClose = document.querySelector("#diagram-lightbox-close");
+  diagramThumb?.addEventListener("click", openDiagramLightbox);
+  diagramLightboxClose?.addEventListener("click", closeDiagramLightbox);
+  if (diagramLightbox) {
+    diagramLightbox.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      closeDiagramLightbox();
+    });
+    diagramLightbox.addEventListener("click", (e) => {
+      if (e.target === diagramLightbox) closeDiagramLightbox();
+    });
+  }
+
+  updateSearchVisuals(
+    document.querySelector("#query-input")?.value || "",
+    currentPin()
+  );
   updateCartBadge();
   bindOpsPanelsReveal();
   renderAdminPanel();
