@@ -298,10 +298,34 @@ body::before {
 }
 
 /* Thin green frame + “click me” in the existing Margin→visuals gap.
-   Absolute hint uses negative top so the search card footprint does not grow. */
+   Absolute hint uses negative top so the search card footprint does not grow.
+   Border + label flash together when the frame actually opens something. */
+@keyframes search-visual-click-border-flash {
+  0%,
+  100% {
+    border-color: #1f9a4a;
+    box-shadow: inset 0 0 0 1px #1f9a4a;
+  }
+  50% {
+    border-color: color-mix(in srgb, #1f9a4a 22%, var(--line));
+    box-shadow: inset 0 0 0 1px transparent;
+  }
+}
+
+@keyframes search-visual-click-hint-flash {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+}
+
 .search-visual.is-clickable {
   border-color: #1f9a4a;
   box-shadow: inset 0 0 0 1px #1f9a4a;
+  animation: search-visual-click-border-flash 1.1s ease-in-out infinite;
 }
 
 .search-visual-click-hint {
@@ -321,6 +345,17 @@ body::before {
   line-height: 1;
   pointer-events: none;
   user-select: none;
+}
+
+.search-visual.is-clickable .search-visual-click-hint:not([hidden]) {
+  animation: search-visual-click-hint-flash 1.1s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-visual.is-clickable,
+  .search-visual.is-clickable .search-visual-click-hint:not([hidden]) {
+    animation: none;
+  }
 }
 
 .search-visual img {

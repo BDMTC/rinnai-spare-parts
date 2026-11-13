@@ -63,8 +63,9 @@ const pin1Hints = await page.evaluate(() => ({
   diagramHint: !(document.querySelector("#diagram-click-hint")?.hidden ?? true),
 }));
 console.log("pin1Hints", pin1Hints);
-if (!pin1Hints.seriesClickable || !pin1Hints.seriesHint) {
-  console.error("FAIL series click-me missing on Pin1");
+// Left unit shot is display-only; only right SM gets click-me on Pin1.
+if (pin1Hints.seriesClickable || pin1Hints.seriesHint) {
+  console.error("FAIL series click-me should be off on Pin1 (unit shot not clickable)");
   await browser.close();
   process.exit(1);
 }
@@ -90,6 +91,7 @@ const pin2Hints = await page.evaluate(() => ({
   seriesClickable: document
     .querySelector("#series-visual")
     ?.classList.contains("is-clickable"),
+  seriesHint: !(document.querySelector("#series-click-hint")?.hidden ?? true),
   diagramClickable: document
     .querySelector("#diagram-visual")
     ?.classList.contains("is-clickable"),
@@ -98,6 +100,11 @@ const pin2Hints = await page.evaluate(() => ({
     document.querySelector("#diagram-click-hint")?.textContent || "",
 }));
 console.log("pin2Hints", pin2Hints);
+if (pin2Hints.seriesClickable || pin2Hints.seriesHint) {
+  console.error("FAIL series click-me should stay off when ED is shown");
+  await browser.close();
+  process.exit(1);
+}
 if (!pin2Hints.diagramClickable || !pin2Hints.diagramHint) {
   console.error("FAIL diagram click-me missing on ED");
   await browser.close();
