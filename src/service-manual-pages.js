@@ -7,6 +7,10 @@ import hd200i from "./assets/service-manual-pages/hd200i__p1.jpg";
 import infinity26 from "./assets/service-manual-pages/infinity26__p1.jpg";
 import infinityA from "./assets/service-manual-pages/infinity-a__p1.jpg";
 import vr2426 from "./assets/service-manual-pages/vr2426__p1.jpg";
+import infinity16V from "./assets/service-manual-pages/infinity16-v__p1.jpg";
+import infinity20V from "./assets/service-manual-pages/infinity20-v__p1.jpg";
+import infinityV1616 from "./assets/service-manual-pages/infinity-v1616__p1.jpg";
+import v3232 from "./assets/service-manual-pages/v3232__p1.jpg";
 import infinity26Internal from "./assets/service-manual-pages/infinity26-internal__p1.jpg";
 import infinity26Plus from "./assets/service-manual-pages/infinity26-plus__p1.jpg";
 import infinity26Smartstart from "./assets/service-manual-pages/infinity26-smartstart__p1.jpg";
@@ -68,6 +72,18 @@ const SM_PACK_GLOBS = {
   ),
   "sm-vr2426w-vr2632wc": import.meta.glob(
     "./assets/service-manual-pages/sm-vr2426w-vr2632wc__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-v1620-v2024": import.meta.glob(
+    "./assets/service-manual-pages/sm-v1620-v2024__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-v1616-v2018-v2020": import.meta.glob(
+    "./assets/service-manual-pages/sm-v1616-v2018-v2020__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-v3232w-wc": import.meta.glob(
+    "./assets/service-manual-pages/sm-v3232w-wc__p*.jpg",
     { eager: true, import: "default" }
   ),
 };
@@ -197,6 +213,30 @@ const SERIES_SERVICE_MANUALS = {
     label: "SMVR2426W_VR2632WC.pdf p1",
     source: "SMVR2426W_VR2632WC.pdf",
     packId: "sm-vr2426w-vr2632wc",
+  },
+  "infinity16-v": {
+    url: infinity16V,
+    label: "smv1616W.pdf p1",
+    source: "smv1616W.pdf",
+    packId: "sm-v1620-v2024",
+  },
+  "infinity20-v": {
+    url: infinity20V,
+    label: "smv1616W.pdf p1",
+    source: "smv1616W.pdf",
+    packId: "sm-v1620-v2024",
+  },
+  "infinity-v1616": {
+    url: infinityV1616,
+    label: "SM V16_18_20.pdf p1",
+    source: "SM V16_18_20.pdf",
+    packId: "sm-v1616-v2018-v2020",
+  },
+  v3232: {
+    url: v3232,
+    label: "SM V32.pdf p1",
+    source: "SM V32.pdf",
+    packId: "sm-v3232w-wc",
   },
 };
 

@@ -310,7 +310,9 @@
           "REUAM2626WD",
           "AM2626WD",
           "REUAM2626WDL",
-          "AM2626WDL"
+          "AM2626WDL",
+          "REUKM2635WD",
+          "KM2635WD"
         ],
         "unitClasses": [
           "WD",
@@ -325,9 +327,11 @@
         "AM2626WD",
         "AM2626WDL",
         "REU-AM2626WD",
-        "REU-AM2626WDL"
+        "REU-AM2626WDL",
+        "KM2635WD",
+        "REU-KM2635WD"
       ],
-      "notes": "Active AU Infinity 26 external / Touch (AM2626WD / AM2626WDL). Owns bare Infinity 26 / INF26 / AM2626 typeahead. Heritage VR2626WG INF26L/N/B rows stay in-series via marketing prefix + WG; Smartstart WGP and INF26I/P/S/E stay out. Smaller A/AM sizes (AM1220/1620/2024 + A*WB) live under Infinity A."
+      "notes": "Active AU Infinity 26 external / Touch (AM2626WD / AM2626WDL). Owns bare Infinity 26 / INF26 / AM2626 typeahead. Heritage VR2626WG INF26L/N/B rows stay in-series via marketing prefix + WG; heritage Enviro KM2635WD (ENV26*/INF26E*) via chassis Item Number. Smartstart WGP and INF26I/P/S stay out. Smaller A/AM sizes (AM1220/1620/2024 + A*WB) live under Infinity A."
     },
     {
       "id": "infinity-a",
@@ -648,6 +652,114 @@
         "REU-VR2024WG"
       ],
       "notes": "Heritage AU Infinity 20 on REU-VR2024WG (INF20*). Pin match is chassis Item Number only \u2014 marketing INF20* collides with AM2024 / BM2024. VR2024WB excluded (not on cover-true SM). Cover-true SM: smvREUVR1616W_VR2024_v2.pdf (shared with Infinity 16); PL: EDPL VR2024.pdf."
+    },
+    {
+      "id": "infinity16-v",
+      "label": "Infinity 16 (V)",
+      "aliases": [
+        "Infinity 16 (V)",
+        "REU-V1620WG",
+        "V1620WG",
+        "REUV1620WG",
+        "REU-V1620WB",
+        "V1620WB",
+        "REU-V1620WS",
+        "V1620WS"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUV1620WG",
+          "V1620WG",
+          "REUV1620WB",
+          "V1620WB",
+          "REUV1620WS",
+          "V1620WS"
+        ]
+      },
+      "documentKeys": [
+        "Infinity 16 (V)",
+        "V1620WG",
+        "V1620WB",
+        "V1620WS",
+        "REU-V1620WG"
+      ],
+      "notes": "Pre-VR Infinity 16 on REU-V1620WG/WB/WS. Chassis-only match so VR1620 / AM / BM stay on their pins. Cover-true SM: smv1616W.pdf (shared with Infinity 20 (V)); PL: EDPL REUV1620WG.pdf."
+    },
+    {
+      "id": "infinity20-v",
+      "label": "Infinity 20 (V)",
+      "aliases": [
+        "Infinity 20 (V)",
+        "REU-V2024WG",
+        "V2024WG",
+        "REUV2024WG"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUV2024WG",
+          "V2024WG"
+        ]
+      },
+      "documentKeys": [
+        "Infinity 20 (V)",
+        "V2024WG",
+        "REU-V2024WG"
+      ],
+      "notes": "Pre-VR Infinity 20 on REU-V2024WG. Chassis-only match. Cover-true SM: smv1616W.pdf (shared with Infinity 16 (V)); PL: EDPL REUV2024WG.pdf."
+    },
+    {
+      "id": "infinity-v1616",
+      "label": "Infinity 16/18/20 (V1616)",
+      "aliases": [
+        "Infinity 16/18/20 (V1616)",
+        "REU-V1616W",
+        "V1616W",
+        "REU-V2018W",
+        "V2018W",
+        "REU-V2020W",
+        "V2020W"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUV1616WAK",
+          "V1616WAK",
+          "REUV2018W",
+          "V2018W",
+          "REUV2020W",
+          "V2020W"
+        ]
+      },
+      "documentKeys": [
+        "V1616W",
+        "V2018W",
+        "V2020W",
+        "REU-V1616W",
+        "REU-V2018W",
+        "REU-V2020W"
+      ],
+      "notes": "Early Infinity 16/18/20 on REU-V1616W / V2018W / V2020W. Chassis fragments avoid V1616WF bleed (V1616WAK not bare V1616W). Does NOT include V1620WG/V2024WG (separate pin). Cover-true SM: SM V16_18_20.pdf; PL: EDPL V1616W_2018W_2020W.pdf."
+    },
+    {
+      "id": "v3232",
+      "label": "V3232",
+      "aliases": [
+        "V3232",
+        "REU-V3232W",
+        "V3232W",
+        "INF32A"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUV3232WAK",
+          "V3232WAK"
+        ]
+      },
+      "documentKeys": [
+        "V3232",
+        "V3232W",
+        "REU-V3232W"
+      ],
+      "notes": "Heritage Infinity 32 on REU-V3232W (INF32A*). Chassis fragments use V3232WAK so V3232WC (HD250AL) stays on HD250e. Cover-true SM: SM V32.pdf; PL: EDPL V3232W_WC.pdf. Not modern HD32/AM3237."
     },
     {
       "id": "envirosmart",

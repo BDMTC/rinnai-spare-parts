@@ -232,9 +232,9 @@ CF_SHEETS = [
     {
         "file": "EDPL REUV2024WG.pdf",
         "stem": "edpl-reuv2024wg",
-        "seriesIds": [],
+        "seriesIds": ["infinity20-v"],
         "chassisTokens": ["REUV2024WG", "V2024WG"],
-        "priority": 3,
+        "priority": 7,
     },
     {
         "file": "EDPL VR2024.pdf",
@@ -246,9 +246,9 @@ CF_SHEETS = [
     {
         "file": "EDPL REUV1620WG.pdf",
         "stem": "edpl-reuv1620wg",
-        "seriesIds": [],
-        "chassisTokens": ["REUV1620WG", "V1620WG"],
-        "priority": 3,
+        "seriesIds": ["infinity16-v"],
+        "chassisTokens": ["REUV1620WG", "V1620WG", "V1620WB", "V1620WS"],
+        "priority": 7,
     },
     {
         "file": "EDPL VR1620.pdf",
@@ -268,16 +268,16 @@ CF_SHEETS = [
     {
         "file": "EDPL REUV1620W.pdf",
         "stem": "edpl-reuv1620w",
-        "seriesIds": [],
+        "seriesIds": ["infinity-v1616"],
         "chassisTokens": ["REUV1620W", "V1620W"],
-        "priority": 2,
+        "priority": 4,
     },
     {
         "file": "EDPL V1616W_2018W_2020W.pdf",
         "stem": "edpl-v1616w-2018w-2020w",
-        "seriesIds": [],
-        "chassisTokens": ["V1616W", "V2018W", "V2020W"],
-        "priority": 2,
+        "seriesIds": ["infinity-v1616"],
+        "chassisTokens": ["V1616W", "V2018W", "V2020W", "REUV1616W", "REUV2018W", "REUV2020W"],
+        "priority": 7,
     },
     {
         "file": "EDPL V1616WF.pdf",
@@ -290,15 +290,22 @@ CF_SHEETS = [
         "file": "EDPL 2425W.pdf",
         "stem": "edpl-2425w",
         "seriesIds": [],
-        "chassisTokens": ["2425W", "V2425W"],
+        "chassisTokens": ["2425W", "V2425W", "REU2425W"],
         "priority": 2,
     },
     {
         "file": "EDPL B16.pdf",
         "stem": "edpl-b16",
+        "seriesIds": ["infinity16"],
+        "chassisTokens": ["VR1620WB", "REUVR1620WB", "B16"],
+        "priority": 7,
+    },
+    {
+        "file": "REU-VRM2024.pdf",
+        "stem": "edpl-reu-vrm2024",
         "seriesIds": [],
-        "chassisTokens": ["B16", "BM1616", "INFINITY-B16"],
-        "priority": 5,
+        "chassisTokens": ["VRM2024WG", "REUVRM2024WG", "VRM2024"],
+        "priority": 6,
     },
     {
         "file": "EDPL B24.pdf",
@@ -310,9 +317,9 @@ CF_SHEETS = [
     {
         "file": "EDPL V3232W_WC.pdf",
         "stem": "edpl-v3232w-wc",
-        "seriesIds": [],
-        "chassisTokens": ["V3232W", "V3232WC"],
-        "priority": 3,
+        "seriesIds": ["v3232"],
+        "chassisTokens": ["V3232W", "V3232WC", "REUV3232W", "REUV3232WC"],
+        "priority": 8,
     },
     {
         "file": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -882,6 +889,10 @@ def main():
             "infinity26": ("edpl-reuv2630wd-inf26plus", 6),
             "infinity-a": ("pl-hw-cf-a-series-issue1", 1),
             "vr2426": ("edpl-vr2426-vr2626", 1),
+            "infinity16-v": ("edpl-reuv1620wg", 1),
+            "infinity20-v": ("edpl-reuv2024wg", 1),
+            "infinity-v1616": ("edpl-v1616w-2018w-2020w", 1),
+            "v3232": ("edpl-v3232w-wc", 1),
             # hd28e: no shipped page pack yet — keep native pageKey / callout only
         }
 

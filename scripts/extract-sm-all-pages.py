@@ -37,6 +37,12 @@ UNIQUE_SM = {
     "sm-vreu-vr1620-vr2024": "smvREUVR1616W_VR2024_v2.pdf",
     # B24 / VR2426WB+WS (cover also lists VR2626WG / VRM2630WD — those stay other series)
     "sm-vr2426w-vr2632wc": "SMVR2426W_VR2632WC.pdf",
+    # Pre-VR Infinity 16/20 (V1620WG/WB/WS + V2024WG)
+    "sm-v1620-v2024": "smv1616W.pdf",
+    # Early V1616 / V2018 / V2020
+    "sm-v1616-v2018-v2020": "SM V16_18_20.pdf",
+    # Heritage V3232W / HD250e V3232WC
+    "sm-v3232w-wc": "SM V32.pdf",
 }
 
 # Optional series thumb covers copied from pack page 1
@@ -51,6 +57,10 @@ SERIES_THUMBS = {
     "infinity16": "sm-vreu-vr1620-vr2024",
     "infinity20": "sm-vreu-vr1620-vr2024",
     "vr2426": "sm-vr2426w-vr2632wc",
+    "infinity16-v": "sm-v1620-v2024",
+    "infinity20-v": "sm-v1620-v2024",
+    "infinity-v1616": "sm-v1616-v2018-v2020",
+    "v3232": "sm-v3232w-wc",
 }
 
 TARGET_WIDTH = 900
