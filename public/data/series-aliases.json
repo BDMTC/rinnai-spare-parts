@@ -861,7 +861,9 @@
         "FLOWMASTER",
         "IHF10"
       ],
-      "notes": "RSP-95 matched: Flowmaster FM10LA/NA. Continuous-flow instantaneous; not Hotflo storage. No REU unit class."
+      "notes": "RSP-95 matched: Flowmaster FM10LA/NA. Continuous-flow instantaneous; not Hotflo storage. No REU unit class.",
+      "systemType": "continuous-flow-hot-water",
+      "familyKey": "continuous_flow"
     },
     {
       "id": "efinity-ecf",
@@ -894,7 +896,9 @@
         "ECF29I60",
         "Efinity"
       ],
-      "notes": "RSP-95 matched: electric continuous-flow Efinity ECF14/19/29. One PL per SKU."
+      "notes": "RSP-95 matched: electric continuous-flow Efinity ECF14/19/29. One PL per SKU.",
+      "systemType": "pending:electric-continuous-flow",
+      "familyKey": "electric_cf"
     },
     {
       "id": "ehfa160",
@@ -916,7 +920,9 @@
         "Hotflo EHFA160",
         "HOTFLO EHFA160"
       ],
-      "notes": "RSP-95 matched: EHFA160S* → PL Hotflo EHFA160. Proof part 95110104 (ELEMENT 2.4KW EHFA160). No REU chassis."
+      "notes": "RSP-95 matched: EHFA160S* → PL Hotflo EHFA160. Proof part 95110104 (ELEMENT 2.4KW EHFA160). No REU chassis.",
+      "systemType": "pending:hotflo-electric-storage",
+      "familyKey": "hotflo_electric_storage"
     },
     {
       "id": "ehfd160",
@@ -936,7 +942,9 @@
         "Hotflo EHFD160",
         "EHFD"
       ],
-      "notes": "RSP-95 matched: EHFD160S* → PL Hotflo EHFD160."
+      "notes": "RSP-95 matched: EHFD160S* → PL Hotflo EHFD160.",
+      "systemType": "pending:hotflo-electric-storage",
+      "familyKey": "hotflo_electric_storage"
     },
     {
       "id": "ehfa250",
@@ -957,7 +965,9 @@
         "EHFA",
         "Hotflo EHFA250"
       ],
-      "notes": "RSP-95 matched: EHFA250S24/36 → EHFA SPARE PARTS.pdf; S48 → EHF 250SL 315L PL. documentKeys include EHFA for shared desktop sheet."
+      "notes": "RSP-95 matched: EHFA250S24/36 → EHFA SPARE PARTS.pdf; S48 → EHF 250SL 315L PL. documentKeys include EHFA for shared desktop sheet.",
+      "systemType": "pending:hotflo-electric-storage",
+      "familyKey": "hotflo_electric_storage"
     },
     {
       "id": "ehfa315",
@@ -977,7 +987,9 @@
         "EHF315",
         "Hotflo EHFA315"
       ],
-      "notes": "RSP-95 matched: EHFA315S* → PL Hotflo EHF 250SL 315L."
+      "notes": "RSP-95 matched: EHFA315S* → PL Hotflo EHF 250SL 315L.",
+      "systemType": "pending:hotflo-electric-storage",
+      "familyKey": "hotflo_electric_storage"
     },
     {
       "id": "ehfa400",
@@ -997,7 +1009,9 @@
         "Hotflo EHFA400",
         "EHFA 400"
       ],
-      "notes": "RSP-95 matched: EHFA400S* → PL Hotflo EHFA 400L."
+      "notes": "RSP-95 matched: EHFA400S* → PL Hotflo EHFA 400L.",
+      "systemType": "pending:hotflo-electric-storage",
+      "familyKey": "hotflo_electric_storage"
     },
     {
       "id": "ehf25",
@@ -1024,7 +1038,9 @@
         "EHF25",
         "Hotflo EHF25"
       ],
-      "notes": "RSP-95 matched: EHF25S* (filename_stem→EHF 250SL 315L PL). Exclude EHFA/EHFD/EHP* prefixes so storage siblings stay distinct."
+      "notes": "RSP-95 matched: EHF25S* (filename_stem→EHF 250SL 315L PL). Exclude EHFA/EHFD/EHP* prefixes so storage siblings stay distinct.",
+      "systemType": "pending:hotflo-electric-storage",
+      "familyKey": "hotflo_electric_storage"
     },
     {
       "id": "ghf4",
@@ -1047,7 +1063,9 @@
         "GHF4135N",
         "Hotflo GHF4"
       ],
-      "notes": "RSP-95 matched: GHF4135* → PL Hotflo GHF4 135L/170L."
+      "notes": "RSP-95 matched: GHF4135* → PL Hotflo GHF4 135L/170L.",
+      "systemType": "pending:gas-storage-hot-water",
+      "familyKey": "storage_other"
     },
     {
       "id": "ehpa-ar",
@@ -1072,7 +1090,9 @@
         "EHPA340",
         "AR SERIES"
       ],
-      "notes": "RSP-95 matched: EHPA300/340 VM* → AR series PL."
+      "notes": "RSP-95 matched: EHPA300/340 VM* → AR series PL.",
+      "systemType": "pending:heat-pump-hot-water",
+      "familyKey": "heat_pump"
     },
     {
       "id": "ehpa-vma",
@@ -1094,7 +1114,9 @@
         "Enviroflo",
         "VMA"
       ],
-      "notes": "RSP-95 matched: EHPA250VMA/H → Enviroflo VMA V2 PL."
+      "notes": "RSP-95 matched: EHPA250VMA/H → Enviroflo VMA V2 PL.",
+      "systemType": "pending:heat-pump-hot-water",
+      "familyKey": "heat_pump"
     },
     {
       "id": "ehpg-gr",
@@ -1118,7 +1140,9 @@
         "EHPG300VM",
         "GR SERIES"
       ],
-      "notes": "RSP-95 matched: EHPGxxVM → GR series SPL/SM."
+      "notes": "RSP-95 matched: EHPGxxVM → GR series SPL/SM.",
+      "systemType": "pending:heat-pump-hot-water",
+      "familyKey": "heat_pump"
     },
     {
       "id": "ehpt-a",
@@ -1139,7 +1163,9 @@
         "EHPT180VM",
         "A SERIES"
       ],
-      "notes": "RSP-95 matched: EHPT180VM → A series heat pump SM."
+      "notes": "RSP-95 matched: EHPT180VM → A series heat pump SM.",
+      "systemType": "pending:heat-pump-hot-water",
+      "familyKey": "heat_pump"
     },
     {
       "id": "ehps-be",
@@ -1159,7 +1185,9 @@
         "EHPS215",
         "EHPS215VM"
       ],
-      "notes": "RSP-95 matched: EHPS215VM → B/E series heat pump SM."
+      "notes": "RSP-95 matched: EHPS215VM → B/E series heat pump SM.",
+      "systemType": "pending:heat-pump-hot-water",
+      "familyKey": "heat_pump"
     },
     {
       "id": "solar-sg",
@@ -1189,7 +1217,9 @@
         "SG320A",
         "Solar Split"
       ],
-      "notes": "RSP-95 matched: SGxxx(A) solar split PLs. Matched-only — no invented SE links."
+      "notes": "RSP-95 matched: SGxxx(A) solar split PLs. Matched-only — no invented SE links.",
+      "systemType": "pending:solar-hot-water",
+      "familyKey": "solar"
     },
     {
       "id": "chp",
@@ -1212,7 +1242,9 @@
         "CHP020H",
         "CHP040H"
       ],
-      "notes": "RSP-95 matched: CHP020H/CHP040H → commercial heat pump SM."
+      "notes": "RSP-95 matched: CHP020H/CHP040H → commercial heat pump SM.",
+      "systemType": "pending:commercial-heat-pump",
+      "familyKey": "commercial_other_hw"
     },
     {
       "id": "demand-duo",
@@ -1244,7 +1276,9 @@
         "DD56TSTAT",
         "Demand Duo"
       ],
-      "notes": "RSP-95 matched: Demand Duo valves/stats/packs only — no invented DD tank links."
+      "notes": "RSP-95 matched: Demand Duo valves/stats/packs only — no invented DD tank links.",
+      "systemType": "pending:demand-duo",
+      "familyKey": "commercial_demand_duo"
     }
   ]
 }
