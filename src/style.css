@@ -271,6 +271,8 @@ body::before {
   position: relative;
   min-height: 0;
   min-width: 0;
+  /* Allow “click me” hints to sit in the Margin→frames gap without growing the card. */
+  overflow: visible;
 }
 
 .search-visuals {
@@ -279,20 +281,46 @@ body::before {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.4rem;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .search-visual {
   position: relative;
   min-width: 0;
   min-height: 0;
-  overflow: hidden;
+  overflow: visible;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: color-mix(in srgb, var(--panel-solid) 88%, var(--ink-muted));
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Thin green frame + “click me” in the existing Margin→visuals gap.
+   Absolute hint uses negative top so the search card footprint does not grow. */
+.search-visual.is-clickable {
+  border-color: #1f9a4a;
+  box-shadow: inset 0 0 0 1px #1f9a4a;
+}
+
+.search-visual-click-hint {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: -0.72rem;
+  z-index: 2;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: #1f9a4a;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
 }
 
 .search-visual img {
@@ -320,6 +348,7 @@ body::before {
   line-height: 1.3;
 }
 
+.series-thumb-btn,
 .diagram-thumb-btn {
   display: block;
   width: 100%;
@@ -333,9 +362,21 @@ body::before {
   overflow: hidden;
 }
 
+.series-thumb-btn:disabled {
+  cursor: default;
+}
+
+.series-thumb-btn:focus-visible,
 .diagram-thumb-btn:focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 2px;
+}
+
+/* Keep image clipped while frame border stays visible (overflow visible on parent). */
+.series-thumb-btn,
+.diagram-thumb-btn,
+.search-visual > .search-visual-placeholder {
+  border-radius: inherit;
 }
 
 .diagram-lightbox {

@@ -143,6 +143,9 @@ const VRM2632WC_TOKENS = [
 export function diagramPageKey(diagramPage) {
   const raw = String(diagramPage || "").trim();
   if (!raw) return null;
+  // Already a page asset key (e.g. edpl-reu-vrm2632wc__p5) — do not re-slugify
+  // or "__p5" becomes "-p5" and sibling/PDF lookup breaks.
+  if (/^[a-z0-9-]+__p\d+$/i.test(raw)) return raw.toLowerCase();
   const m = raw.match(/^(.+?)\s+p(\d+)\s*$/i);
   if (!m) {
     const slug = slugifyDiagramStem(raw);
@@ -186,11 +189,12 @@ export function diagramPageUrl(keyOrPage) {
  * @returns {{ page: number, url: string, pageKey: string }[]}
  */
 export function diagramPageSiblings(pageKeyOrLabel) {
+  const raw = pageKeyOrLabel ? String(pageKeyOrLabel).trim() : "";
+  // Prefer an exact DIAGRAM_PAGE_URLS key before diagramPageKey slugify.
   const key =
+    (raw && DIAGRAM_PAGE_URLS[raw] ? raw : null) ||
     diagramPageKey(pageKeyOrLabel) ||
-    (pageKeyOrLabel && DIAGRAM_PAGE_URLS[String(pageKeyOrLabel).trim()]
-      ? String(pageKeyOrLabel).trim()
-      : null);
+    null;
   if (!key) return [];
   const stemMatch = String(key).match(/^(.*)__p(\d+)$/i);
   if (!stemMatch) {
@@ -215,12 +219,14 @@ export function diagramPageSiblings(pageKeyOrLabel) {
  * @returns {string|null}
  */
 export function diagramPdfFileName(pageKeyOrLabel) {
-  const key =
-    diagramPageKey(pageKeyOrLabel) ||
-    (pageKeyOrLabel ? String(pageKeyOrLabel).trim() : "");
+  const raw = pageKeyOrLabel ? String(pageKeyOrLabel).trim() : "";
+  if (!raw) return null;
+  const fromLabel = inferPdfFromLabel(raw);
+  if (fromLabel) return fromLabel;
+  const key = diagramPageKey(raw) || "";
   if (!key) return null;
   const stem = String(key).replace(/__p\d+$/i, "");
-  return ED_STEM_TO_PDF[stem] || inferPdfFromLabel(pageKeyOrLabel);
+  return ED_STEM_TO_PDF[stem] || null;
 }
 
 /** @type {Record<string, string>} */
