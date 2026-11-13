@@ -208,6 +208,18 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "pl-ehpa-vma-issue7__p2",
     label: "Enviroflo VMA V2 Issue 7",
   },
+  "ehpa-vm": {
+    page: "pl-ehpa-vm-issue13__p2",
+    label: "Enviroflo EHPA VM/VMH Issue 13",
+  },
+  "enviroflo-shpr50": {
+    page: "pl-enviroflo-shpr50-issue1__p1",
+    label: "Enviroflo Split SHPR50 Issue 1",
+  },
+  "enviroflo-shpl70": {
+    page: "pl-enviroflo-shpl70-issue1__p1",
+    label: "Enviroflo Split SHPL70 Issue 1",
+  },
   chp: {
     page: "pl-chp-issue6__p1",
     label: "Commercial Heat Pump CHP020/040 Issue 6",
@@ -508,6 +520,20 @@ const ED_STEM_TO_PDF = {
     "SPL - RINNAI - GR SERIES_EHPGxxVM - ISSUE 5 - MAY 2026.pdf",
   "pl-ehpa-vma-issue7":
     "PL - RINNAI - ENVIROFLO VMA V2 HEAT PUMP - ISSUE 7 - AUG 2024.pdf",
+  "pl-ehpa-vm-issue13":
+    "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+  "pl-enviroflo-shpr50-issue1":
+    "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+  "pl-enviroflo-shpl70-issue1":
+    "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf",
+  "pl-ehpg-180vm10-issue3":
+    "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+  "pl-ehpg-265lvm10-issue2":
+    "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+  "pl-ehpg-280vmh-issue2":
+    "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+  "pl-ehpg-300vm10-issue2":
+    "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
   "pl-chp-issue6": "PL - COMMERCIAL HEAT PUMP - ISSUE 6 - OCT 2025.pdf",
 };
 

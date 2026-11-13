@@ -1825,15 +1825,94 @@
       },
       "documentKeys": [
         "EHPG",
+        "EHPG180VM10",
         "EHPG215VM",
         "EHPG250VMP",
         "EHPG265VM",
+        "EHPG265LVM10",
         "EHPG265VMT",
         "EHPG280VM",
+        "EHPG280VMH",
         "EHPG300VM",
+        "EHPG300VM10",
         "GR SERIES"
       ],
-      "notes": "HP wave2: EHPG265VMT Issue4 + EHPG250VMP Issue3 + EHPGxxVM SPL Issue5; cover-true SM GR Series Issue1.",
+      "notes": "HP wave2+3: EHPG265VMT/250VMP/xxVM + 10A VM10/VMH SPLs; cover-true SM GR Series Issue1.",
+      "systemType": "heat-pump-hot-water",
+      "familyKey": "heat_pump"
+    },
+    {
+      "id": "ehpa-vm",
+      "label": "Enviroflo VM/VMH",
+      "aliases": [
+        "EHPA250VM",
+        "EHPA315VM",
+        "EHPA250VMH",
+        "EHPA315VMH",
+        "Enviroflo"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "EHPA250VM",
+          "EHPA315VM"
+        ],
+        "marketingCodeExcludePrefixes": [
+          "EHPA250VMA",
+          "EHPA315VMA"
+        ]
+      },
+      "documentKeys": [
+        "EHPA250VM",
+        "EHPA250VMH",
+        "EHPA315VM",
+        "EHPA315VMH",
+        "Enviroflo"
+      ],
+      "notes": "HP wave3: Enviroflo classic Issue13 PL (EHPA250/315 VM/VMH); cover-true SM Enviroflo Issue2.",
+      "systemType": "heat-pump-hot-water",
+      "familyKey": "heat_pump"
+    },
+    {
+      "id": "enviroflo-shpr50",
+      "label": "Enviroflo Split SHPR50",
+      "aliases": [
+        "SHPR50",
+        "Enviroflo Split",
+        "Enviroflo"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "SHPR50"
+        ]
+      },
+      "documentKeys": [
+        "SHPR50",
+        "Enviroflo Split",
+        "Enviroflo"
+      ],
+      "notes": "HP wave3: Enviroflo Split SHPR50 Issue1 PL; cover-true SM SHPR50 Issue1.",
+      "systemType": "heat-pump-hot-water",
+      "familyKey": "heat_pump"
+    },
+    {
+      "id": "enviroflo-shpl70",
+      "label": "Enviroflo Split SHPL70",
+      "aliases": [
+        "SHPL70",
+        "Enviroflo Split",
+        "Enviroflo"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "SHPL70"
+        ]
+      },
+      "documentKeys": [
+        "SHPL70",
+        "Enviroflo Split",
+        "Enviroflo"
+      ],
+      "notes": "HP wave3: Enviroflo Split SHPL70 Issue1 PL; cover-true SM SHPL70 Issue1.",
       "systemType": "heat-pump-hot-water",
       "familyKey": "heat_pump"
     },

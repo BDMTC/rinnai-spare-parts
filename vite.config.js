@@ -310,6 +310,46 @@ function lightboxPdfDataScripts() {
       id: "SM-CHP-ISSUE2",
       file: "SM - RINNAI - COMM HEAT PUMP CHP020 CHP040 - ISSUE 2 - OCT 2025.pdf",
     },
+    {
+      id: "PL-EHPA-VM-ISSUE13",
+      file: "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+    },
+    {
+      id: "PL-ENVIROFLO-SHPR50-ISSUE1",
+      file: "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+    },
+    {
+      id: "PL-ENVIROFLO-SHPL70-ISSUE1",
+      file: "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf",
+    },
+    {
+      id: "SPL-EHPG-180VM10-ISSUE3",
+      file: "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+    },
+    {
+      id: "SPL-EHPG-265LVM10-ISSUE2",
+      file: "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+    },
+    {
+      id: "SPL-EHPG-280VMH-ISSUE2",
+      file: "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+    },
+    {
+      id: "SPL-EHPG-300VM10-ISSUE2",
+      file: "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+    },
+    {
+      id: "SM-EHPA-VM-ISSUE2",
+      file: "SM - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 2 - NOV 2021.pdf",
+    },
+    {
+      id: "SM-ENVIROFLO-SHPR50-ISSUE1",
+      file: "SM - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - 250L, 315L - ISSUE 1 - JUL 2025.pdf",
+    },
+    {
+      id: "SM-ENVIROFLO-SHPL70-ISSUE1",
+      file: "SM - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - SEP 2025.pdf",
+    },
   ];
 
   function buildScriptSource(fileName) {

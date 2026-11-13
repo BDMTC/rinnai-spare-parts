@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T14:38:15.257580+00:00",
+  "generatedAt": "2026-11-13T14:42:53.999993+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
@@ -122,14 +122,76 @@
           ]
         }
       ]
+    },
+    "hpWave3EnvirofloSplitGrAmp": {
+      "pl": [
+        {
+          "stem": "pl-ehpa-vm-issue13",
+          "rows": 19,
+          "inCat": 18
+        },
+        {
+          "stem": "pl-enviroflo-shpr50-issue1",
+          "rows": 28,
+          "inCat": 28
+        },
+        {
+          "stem": "pl-enviroflo-shpl70-issue1",
+          "rows": 11,
+          "inCat": 11
+        },
+        {
+          "stem": "pl-ehpg-180vm10-issue3",
+          "rows": 27,
+          "inCat": 25
+        },
+        {
+          "stem": "pl-ehpg-265lvm10-issue2",
+          "rows": 29,
+          "inCat": 27
+        },
+        {
+          "stem": "pl-ehpg-280vmh-issue2",
+          "rows": 27,
+          "inCat": 26
+        },
+        {
+          "stem": "pl-ehpg-300vm10-issue2",
+          "rows": 29,
+          "inCat": 27
+        }
+      ],
+      "sm": [
+        {
+          "stem": "sm-ehpa-vm",
+          "pages": 40,
+          "series": [
+            "ehpa-vm"
+          ]
+        },
+        {
+          "stem": "sm-enviroflo-shpr50",
+          "pages": 64,
+          "series": [
+            "enviroflo-shpr50"
+          ]
+        },
+        {
+          "stem": "sm-enviroflo-shpl70",
+          "pages": 42,
+          "series": [
+            "enviroflo-shpl70"
+          ]
+        }
+      ]
     }
   },
   "totals": {
     "sheetsConfigured": 49,
     "sheetsOk": 49,
     "sheetsMissing": 0,
-    "uniqueCodes": 1173,
-    "codesInCatalogue": 859,
+    "uniqueCodes": 1229,
+    "codesInCatalogue": 911,
     "codesInCatalogueWithPageAsset": 467,
     "codesInCatalogueWithListBox": 467,
     "codesInCatalogueWithListPageAsset": 467,
@@ -2957,6 +3019,200 @@
       ],
       "priority": 30,
       "path": "data-sheets/Rinnai Data Sheets/PL - COMMERCIAL HEAT PUMP - ISSUE 6 - OCT 2025.pdf"
+    },
+    {
+      "file": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+      "stem": "pl-ehpa-vm-issue13",
+      "status": "ok",
+      "pages": 2,
+      "diagramPages": [
+        1,
+        2
+      ],
+      "listPages": [
+        2
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 19,
+      "rowsInCatalogue": 18,
+      "rowsWithListBox": 19,
+      "seriesIds": [
+        "ehpa-vm"
+      ],
+      "chassisTokens": [
+        "EHPA250VM",
+        "EHPA250VMH",
+        "EHPA315VM",
+        "EHPA315VMH",
+        "EHPA",
+        "Enviroflo"
+      ],
+      "priority": 28,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF"
+    },
+    {
+      "file": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+      "stem": "pl-enviroflo-shpr50-issue1",
+      "status": "ok",
+      "pages": 1,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        1
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 28,
+      "rowsInCatalogue": 28,
+      "rowsWithListBox": 28,
+      "seriesIds": [
+        "enviroflo-shpr50"
+      ],
+      "chassisTokens": [
+        "SHPR50",
+        "Enviroflo Split",
+        "Enviroflo"
+      ],
+      "priority": 30,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf"
+    },
+    {
+      "file": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf",
+      "stem": "pl-enviroflo-shpl70-issue1",
+      "status": "ok",
+      "pages": 1,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        1
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 11,
+      "rowsInCatalogue": 11,
+      "rowsWithListBox": 11,
+      "seriesIds": [
+        "enviroflo-shpl70"
+      ],
+      "chassisTokens": [
+        "SHPL70",
+        "Enviroflo Split",
+        "Enviroflo"
+      ],
+      "priority": 30,
+      "path": "data-sheets/Rinnai Data Sheets/PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf"
+    },
+    {
+      "file": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+      "stem": "pl-ehpg-180vm10-issue3",
+      "status": "ok",
+      "pages": 3,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        2,
+        3
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 27,
+      "rowsInCatalogue": 25,
+      "rowsWithListBox": 27,
+      "seriesIds": [
+        "ehpg-gr"
+      ],
+      "chassisTokens": [
+        "EHPG180VM10",
+        "EHPG180",
+        "EHPG",
+        "GR SERIES"
+      ],
+      "priority": 27,
+      "path": "data-sheets/Rinnai Data Sheets/SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf"
+    },
+    {
+      "file": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+      "stem": "pl-ehpg-265lvm10-issue2",
+      "status": "ok",
+      "pages": 3,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        2,
+        3
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 29,
+      "rowsInCatalogue": 27,
+      "rowsWithListBox": 29,
+      "seriesIds": [
+        "ehpg-gr"
+      ],
+      "chassisTokens": [
+        "EHPG265LVM10",
+        "EHPG265L",
+        "EHPG",
+        "GR SERIES"
+      ],
+      "priority": 27,
+      "path": "data-sheets/Rinnai Data Sheets/SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf"
+    },
+    {
+      "file": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+      "stem": "pl-ehpg-280vmh-issue2",
+      "status": "ok",
+      "pages": 3,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        2,
+        3
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 27,
+      "rowsInCatalogue": 26,
+      "rowsWithListBox": 27,
+      "seriesIds": [
+        "ehpg-gr"
+      ],
+      "chassisTokens": [
+        "EHPG280VMH",
+        "EHPG280",
+        "EHPG",
+        "GR SERIES"
+      ],
+      "priority": 27,
+      "path": "data-sheets/Rinnai Data Sheets/SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf"
+    },
+    {
+      "file": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+      "stem": "pl-ehpg-300vm10-issue2",
+      "status": "ok",
+      "pages": 3,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        2,
+        3
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 29,
+      "rowsInCatalogue": 27,
+      "rowsWithListBox": 29,
+      "seriesIds": [
+        "ehpg-gr"
+      ],
+      "chassisTokens": [
+        "EHPG300VM10",
+        "EHPG300",
+        "EHPG",
+        "GR SERIES"
+      ],
+      "priority": 27,
+      "path": "data-sheets/Rinnai Data Sheets/SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf"
     }
   ],
   "parts": {
@@ -139049,6 +139305,86 @@
     "95110048": [
       {
         "callout": "46",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-300vm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Valve PTR 1/2\" 1000KPA EHFA"
+      },
+      {
+        "callout": "46",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-280vmh-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Valve PTR 1/2\" 1000KPA EHFA"
+      },
+      {
+        "callout": "46",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Valve PTR 1/2\" 1000KPA EHFA"
+      },
+      {
+        "callout": "46",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-180vm10-issue3__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Valve PTR 1/2\" 1000KPA EHFA"
+      },
+      {
+        "callout": "46",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
         "pageKey": "pl-ehpg-250vmp-issue3__p2",
         "listPage": 2,
@@ -139952,6 +140288,28 @@
     ],
     "95110420": [
       {
+        "callout": "2",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "ANODE"
+      },
+      {
         "callout": "1",
         "page": "EHFA  SPARE PARTS.pdf p1",
         "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
@@ -139983,6 +140341,28 @@
       }
     ],
     "95110045": [
+      {
+        "callout": "5",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "ELEMENT"
+      },
       {
         "callout": "2",
         "page": "EHFA  SPARE PARTS.pdf p1",
@@ -140062,6 +140442,28 @@
       }
     ],
     "95110421": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "ANODE"
+      },
       {
         "callout": "1",
         "page": "EHFA  SPARE PARTS.pdf p1",
@@ -140167,6 +140569,28 @@
     ],
     "95110422": [
       {
+        "callout": "2",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "ANODE"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
         "pageKey": "pl-hotflo-ehfa400__p1",
@@ -140220,6 +140644,28 @@
       }
     ],
     "95110423": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "ANODE"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
@@ -152779,6 +153225,86 @@
     "92540107": [
       {
         "callout": "38",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Coil 4-Way Valve EHPG"
+      },
+      {
+        "callout": "38",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Coil 4-Way Valve EHPG"
+      },
+      {
+        "callout": "38",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Coil 4-Way Valve EHPG"
+      },
+      {
+        "callout": "38",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Coil 4-Way Valve EHPG"
+      },
+      {
+        "callout": "38",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
         "pageKey": "pl-ehpg-250vmp-issue3__p2",
         "listPage": 2,
@@ -152842,6 +153368,86 @@
       }
     ],
     "95112681": [
+      {
+        "callout": "30",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Coil EEV For DPF1.3C 1M Dunan"
+      },
+      {
+        "callout": "30",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Coil EEV For DPF1.3C 1M Dunan"
+      },
+      {
+        "callout": "30",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Coil EEV For DPF1.3C 1M Dunan"
+      },
+      {
+        "callout": "30",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Coil EEV For DPF1.3C 1M Dunan"
+      },
       {
         "callout": "30",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
@@ -153034,6 +153640,26 @@
     "92540085": [
       {
         "callout": "7",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Element 2.4kW EHPG"
+      },
+      {
+        "callout": "7",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p1",
         "pageKey": "pl-ehpg-250vmp-issue3__p1",
         "listPage": 1,
@@ -153099,6 +153725,46 @@
     "92540081": [
       {
         "callout": "4",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Gasket Element EHPG"
+      },
+      {
+        "callout": "4",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Gasket Element EHPG"
+      },
+      {
+        "callout": "4",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p1",
         "pageKey": "pl-ehpg-250vmp-issue3__p1",
         "listPage": 1,
@@ -153162,6 +153828,86 @@
       }
     ],
     "92540083": [
+      {
+        "callout": "6",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Tank EHPG - Mid"
+      },
+      {
+        "callout": "6",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Tank EHPG - Mid"
+      },
+      {
+        "callout": "6",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Tank EHPG - Mid"
+      },
+      {
+        "callout": "6",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Tank EHPG - Mid"
+      },
       {
         "callout": "13",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
@@ -153274,6 +154020,86 @@
     "92540117": [
       {
         "callout": "47",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-300vm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Drain Elbow Brass Barbed EHPG"
+      },
+      {
+        "callout": "47",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-280vmh-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Drain Elbow Brass Barbed EHPG"
+      },
+      {
+        "callout": "47",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Drain Elbow Brass Barbed EHPG"
+      },
+      {
+        "callout": "47",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-180vm10-issue3__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Drain Elbow Brass Barbed EHPG"
+      },
+      {
+        "callout": "47",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
         "pageKey": "pl-ehpg-250vmp-issue3__p2",
         "listPage": 2,
@@ -153337,6 +154163,86 @@
       }
     ],
     "95112830": [
+      {
+        "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Ambient TA Red"
+      },
+      {
+        "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Ambient TA Red"
+      },
+      {
+        "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Ambient TA Red"
+      },
+      {
+        "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Ambient TA Red"
+      },
       {
         "callout": "29",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
@@ -153404,6 +154310,86 @@
     "95112831": [
       {
         "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Suction TS Black"
+      },
+      {
+        "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Suction TS Black"
+      },
+      {
+        "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Suction TS Black"
+      },
+      {
+        "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Suction TS Black"
+      },
+      {
+        "callout": "29",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
         "pageKey": "pl-ehpg-250vmp-issue3__p2",
         "listPage": 2,
@@ -153467,6 +154453,86 @@
       }
     ],
     "95112832": [
+      {
+        "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Discharge TD White"
+      },
+      {
+        "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Discharge TD White"
+      },
+      {
+        "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Discharge TD White"
+      },
+      {
+        "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Discharge TD White"
+      },
       {
         "callout": "29",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
@@ -153534,6 +154600,86 @@
     "95112833": [
       {
         "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Evap TE Blue"
+      },
+      {
+        "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Evap TE Blue"
+      },
+      {
+        "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Evap TE Blue"
+      },
+      {
+        "callout": "29",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Sensor Temp Evap TE Blue"
+      },
+      {
+        "callout": "29",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
         "pageKey": "pl-ehpg-250vmp-issue3__p2",
         "listPage": 2,
@@ -153599,6 +154745,86 @@
     "92540118": [
       {
         "callout": "48",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-300vm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Clamp Hose Drain Pipe EHPG/A"
+      },
+      {
+        "callout": "48",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-280vmh-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Clamp Hose Drain Pipe EHPG/A"
+      },
+      {
+        "callout": "48",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Clamp Hose Drain Pipe EHPG/A"
+      },
+      {
+        "callout": "48",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-180vm10-issue3__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Clamp Hose Drain Pipe EHPG/A"
+      },
+      {
+        "callout": "48",
         "page": "PL - RINNAI - GR SERIES HEAT PUMP - EHPG265VMT - ISSUE 4 - DEC 2025.pdf p2",
         "pageKey": "pl-ehpg-265vmt-issue4__p2",
         "listPage": 2,
@@ -153642,6 +154868,86 @@
       }
     ],
     "92540120": [
+      {
+        "callout": "49",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-300vm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Hose Drain Pipe Clear 2m EHPG/A"
+      },
+      {
+        "callout": "49",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-280vmh-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Hose Drain Pipe Clear 2m EHPG/A"
+      },
+      {
+        "callout": "49",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Hose Drain Pipe Clear 2m EHPG/A"
+      },
+      {
+        "callout": "49",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-180vm10-issue3__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Hose Drain Pipe Clear 2m EHPG/A"
+      },
       {
         "callout": "49",
         "page": "PL - RINNAI - GR SERIES HEAT PUMP - EHPG265VMT - ISSUE 4 - DEC 2025.pdf p2",
@@ -154319,6 +155625,86 @@
     "92540089": [
       {
         "callout": "11",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Thermostat Klixon O/L EHPG"
+      },
+      {
+        "callout": "11",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Thermostat Klixon O/L EHPG"
+      },
+      {
+        "callout": "11",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Thermostat Klixon O/L EHPG"
+      },
+      {
+        "callout": "11",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Thermostat Klixon O/L EHPG"
+      },
+      {
+        "callout": "11",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
         "pageKey": "pl-ehpg-250vmp-issue3__p2",
         "listPage": 2,
@@ -154447,6 +155833,86 @@
     "92540095": [
       {
         "callout": "23",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Capacitor Compressor EHPG"
+      },
+      {
+        "callout": "23",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Capacitor Compressor EHPG"
+      },
+      {
+        "callout": "23",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Capacitor Compressor EHPG"
+      },
+      {
+        "callout": "23",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Capacitor Compressor EHPG"
+      },
+      {
+        "callout": "23",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
         "pageKey": "pl-ehpg-250vmp-issue3__p2",
         "listPage": 2,
@@ -154487,6 +155953,86 @@
       }
     ],
     "92540097": [
+      {
+        "callout": "24",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "PCB Main EHPG"
+      },
+      {
+        "callout": "24",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "PCB Main EHPG"
+      },
+      {
+        "callout": "24",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "PCB Main EHPG"
+      },
+      {
+        "callout": "24",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "PCB Main EHPG"
+      },
       {
         "callout": "24",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
@@ -154531,6 +156077,86 @@
     "92540099": [
       {
         "callout": "26",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Lid Top EHPG"
+      },
+      {
+        "callout": "26",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Lid Top EHPG"
+      },
+      {
+        "callout": "26",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Lid Top EHPG"
+      },
+      {
+        "callout": "26",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Lid Top EHPG"
+      },
+      {
+        "callout": "26",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
         "pageKey": "pl-ehpg-250vmp-issue3__p2",
         "listPage": 2,
@@ -154572,6 +156198,86 @@
     ],
     "92540101": [
       {
+        "callout": "28",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Shroud Top + Grille EHPG"
+      },
+      {
+        "callout": "28",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Shroud Top + Grille EHPG"
+      },
+      {
+        "callout": "28",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Shroud Top + Grille EHPG"
+      },
+      {
+        "callout": "28",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Shroud Top + Grille EHPG"
+      },
+      {
         "callout": "27",
         "page": "PL - RINNAI - GR SERIES HEAT PUMP - EHPG265VMT - ISSUE 4 - DEC 2025.pdf p1",
         "pageKey": "pl-ehpg-265vmt-issue4__p1",
@@ -154593,6 +156299,26 @@
       }
     ],
     "92540103": [
+      {
+        "callout": "32",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Anode MG EHPG215VM / EHPG265VM"
+      },
       {
         "callout": "32",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
@@ -154637,6 +156363,86 @@
     "92542063": [
       {
         "callout": "41",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-300vm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Fan Motor Support EHPG"
+      },
+      {
+        "callout": "41",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Fan Motor Support EHPG"
+      },
+      {
+        "callout": "41",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Fan Motor Support EHPG"
+      },
+      {
+        "callout": "41",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Fan Motor Support EHPG"
+      },
+      {
+        "callout": "41",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
         "pageKey": "pl-ehpg-250vmp-issue3__p2",
         "listPage": 2,
@@ -154677,6 +156483,86 @@
       }
     ],
     "92540109": [
+      {
+        "callout": "42",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-300vm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Motor Fan EHPG"
+      },
+      {
+        "callout": "42",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Motor Fan EHPG"
+      },
+      {
+        "callout": "42",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Motor Fan EHPG"
+      },
+      {
+        "callout": "42",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Motor Fan EHPG"
+      },
       {
         "callout": "42",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
@@ -154721,6 +156607,86 @@
     "92540111": [
       {
         "callout": "43",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-300vm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Blade Fan EHPG"
+      },
+      {
+        "callout": "43",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Blade Fan EHPG"
+      },
+      {
+        "callout": "43",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Blade Fan EHPG"
+      },
+      {
+        "callout": "43",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Blade Fan EHPG"
+      },
+      {
+        "callout": "43",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
         "pageKey": "pl-ehpg-250vmp-issue3__p2",
         "listPage": 2,
@@ -154763,6 +156729,86 @@
     "92540113": [
       {
         "callout": "44",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-300vm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Fan Shroud Air Flow EHPG"
+      },
+      {
+        "callout": "44",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Fan Shroud Air Flow EHPG"
+      },
+      {
+        "callout": "44",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Fan Shroud Air Flow EHPG"
+      },
+      {
+        "callout": "44",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Fan Shroud Air Flow EHPG"
+      },
+      {
+        "callout": "44",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
         "pageKey": "pl-ehpg-250vmp-issue3__p2",
         "listPage": 2,
@@ -154803,6 +156849,86 @@
       }
     ],
     "92540115": [
+      {
+        "callout": "45",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-300vm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Seal Fan Shroud Air Flow EHPG"
+      },
+      {
+        "callout": "45",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-280vmh-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Seal Fan Shroud Air Flow EHPG"
+      },
+      {
+        "callout": "45",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Seal Fan Shroud Air Flow EHPG"
+      },
+      {
+        "callout": "45",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-180vm10-issue3__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Seal Fan Shroud Air Flow EHPG"
+      },
       {
         "callout": "45",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
@@ -154889,6 +157015,26 @@
       }
     ],
     "95110060": [
+      {
+        "callout": "50",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-280vmh-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Not shown"
+      },
       {
         "callout": "50",
         "page": "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf p2",
@@ -155046,6 +157192,28 @@
     ],
     "95111059": [
       {
+        "callout": "7",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "AIR VENT"
+      },
+      {
         "callout": "9",
         "page": "PL - RINNAI - ENVIROFLO VMA V2 HEAT PUMP - ISSUE 7 - AUG 2024.pdf p1",
         "pageKey": "pl-ehpa-vma-issue7__p1",
@@ -155068,6 +157236,28 @@
     ],
     "95112284": [
       {
+        "callout": "8",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "PUMP"
+      },
+      {
         "callout": "10",
         "page": "PL - RINNAI - ENVIROFLO VMA V2 HEAT PUMP - ISSUE 7 - AUG 2024.pdf p1",
         "pageKey": "pl-ehpa-vma-issue7__p1",
@@ -155089,6 +157279,28 @@
       }
     ],
     "95112619": [
+      {
+        "callout": "9",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "BRAIDED HOSE WFO459/450 1/2F/F"
+      },
       {
         "callout": "11",
         "page": "PL - RINNAI - ENVIROFLO VMA V2 HEAT PUMP - ISSUE 7 - AUG 2024.pdf p1",
@@ -155266,6 +157478,28 @@
     ],
     "95111067": [
       {
+        "callout": "12",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "SENSOR DISCHARGE EHPA SERIES"
+      },
+      {
         "callout": "19",
         "page": "PL - RINNAI - ENVIROFLO VMA V2 HEAT PUMP - ISSUE 7 - AUG 2024.pdf p1",
         "pageKey": "pl-ehpa-vma-issue7__p1",
@@ -155288,6 +157522,28 @@
     ],
     "95111068": [
       {
+        "callout": "13",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "SENSOR EVAP EHPA SERIES"
+      },
+      {
         "callout": "20",
         "page": "PL - RINNAI - ENVIROFLO VMA V2 HEAT PUMP - ISSUE 7 - AUG 2024.pdf p1",
         "pageKey": "pl-ehpa-vma-issue7__p1",
@@ -155309,6 +157565,28 @@
       }
     ],
     "95111069": [
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "SENSOR TANK EHPA SERIES"
+      },
       {
         "callout": "21",
         "page": "PL - RINNAI - ENVIROFLO VMA V2 HEAT PUMP - ISSUE 7 - AUG 2024.pdf p1",
@@ -156094,6 +158372,1495 @@
         ],
         "priority": 30,
         "name": "Reversing Valve"
+      }
+    ],
+    "95110905": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "HEAT PUMP MODULE ASSY"
+      }
+    ],
+    "95111118": [
+      {
+        "callout": "3",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "LID HEAT PUMP MODULE"
+      }
+    ],
+    "95110932": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "OUTER CASE HEAT PUMP MODULE"
+      }
+    ],
+    "95111403": [
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "PLASTIC ELECTRICAL COVER ASSY"
+      }
+    ],
+    "95110978": [
+      {
+        "callout": "10",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "EC FAN MOTOR ELCO"
+      }
+    ],
+    "95110904": [
+      {
+        "callout": "11",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "CONTROL BOX ASSY"
+      }
+    ],
+    "95111070": [
+      {
+        "callout": "15",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "SENSOR AMBIENT EHPA SERIES"
+      }
+    ],
+    "95112143": [
+      {
+        "callout": "16",
+        "page": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF p2",
+        "pageKey": "pl-ehpa-vm-issue13__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpa-vm-issue13__p2",
+        "pdf": "PL - RINNAI - ENVIROFLO HEAT PUMP - ISSUE 13 - AUG 2024.PDF",
+        "stem": "pl-ehpa-vm-issue13",
+        "seriesIds": [
+          "ehpa-vm"
+        ],
+        "chassisTokens": [
+          "EHPA250VM",
+          "EHPA250VMH",
+          "EHPA315VM",
+          "EHPA315VMH",
+          "EHPA",
+          "Enviroflo"
+        ],
+        "priority": 28,
+        "name": "RUN CAPACITOR NX18"
+      }
+    ],
+    "92542001": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Cover Panel Front SHPR50"
+      }
+    ],
+    "92542003": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Grille Fan SHPR50"
+      }
+    ],
+    "92542005": [
+      {
+        "callout": "3",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Cover Plate RHS SHPR50"
+      }
+    ],
+    "92542007": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Cover Side Top Front SHPR50"
+      }
+    ],
+    "92542009": [
+      {
+        "callout": "5",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Cover Side Top Rear SHPR50"
+      }
+    ],
+    "92542011": [
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Nuts Cover Side Top SHPR50"
+      }
+    ],
+    "92542013": [
+      {
+        "callout": "7",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Cover Top SHPR50"
+      }
+    ],
+    "92542015": [
+      {
+        "callout": "8",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Cover Bottom RHS SHPR50"
+      }
+    ],
+    "92542017": [
+      {
+        "callout": "9",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Nipple Drain L-Shape SHPR50"
+      }
+    ],
+    "92542019": [
+      {
+        "callout": "101",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Inverter Assy SHPR50"
+      }
+    ],
+    "92542021": [
+      {
+        "callout": "102",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Reactor SHPR50"
+      }
+    ],
+    "92542023": [
+      {
+        "callout": "103",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Sensor Temp Heat Exch SHPR50"
+      }
+    ],
+    "92542025": [
+      {
+        "callout": "104",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Sensor Temp Dishcharge SHPR50"
+      }
+    ],
+    "92542027": [
+      {
+        "callout": "105",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Motor ODU SHPR50"
+      }
+    ],
+    "92542029": [
+      {
+        "callout": "106",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Fan ODU SHPR50"
+      }
+    ],
+    "92542031": [
+      {
+        "callout": "107",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Valve Elec Expansion SHPR50"
+      }
+    ],
+    "92542033": [
+      {
+        "callout": "108",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Composite Lead Wire Set"
+      }
+    ],
+    "92542035": [
+      {
+        "callout": "202",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Thermistor Water Hot Out"
+      }
+    ],
+    "92542037": [
+      {
+        "callout": "203",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Thermistor Water Cold In"
+      }
+    ],
+    "92542039": [
+      {
+        "callout": "204",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Thermistr Temp Heatexch SHPR50"
+      }
+    ],
+    "92542041": [
+      {
+        "callout": "205",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Connector Port SHPR50"
+      }
+    ],
+    "92542043": [
+      {
+        "callout": "206",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Plug Drain SHPR50"
+      }
+    ],
+    "92542045": [
+      {
+        "callout": "302",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Cable Glands"
+      }
+    ],
+    "92542047": [
+      {
+        "callout": "304",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Thermistor Temp Tank SHPR50"
+      }
+    ],
+    "92542049": [
+      {
+        "callout": "305",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Base Cover"
+      }
+    ],
+    "92542051": [
+      {
+        "callout": "307",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "PCB Assy SHPR50"
+      }
+    ],
+    "92542053": [
+      {
+        "callout": "308",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Controller Remote SHPR50"
+      }
+    ],
+    "92542055": [
+      {
+        "callout": "309",
+        "page": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpr50-issue1__p1",
+        "pdf": "PL - RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPR50 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpr50-issue1",
+        "seriesIds": [
+          "enviroflo-shpr50"
+        ],
+        "chassisTokens": [
+          "SHPR50",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Loom Controller Remote SHPR50"
+      }
+    ],
+    "92540131": [
+      {
+        "callout": "1",
+        "page": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "pdf": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpl70-issue1",
+        "seriesIds": [
+          "enviroflo-shpl70"
+        ],
+        "chassisTokens": [
+          "SHPL70",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Grille Mesh Cover SHPL70"
+      }
+    ],
+    "92540133": [
+      {
+        "callout": "2",
+        "page": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "pdf": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpl70-issue1",
+        "seriesIds": [
+          "enviroflo-shpl70"
+        ],
+        "chassisTokens": [
+          "SHPL70",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Box Cable Junction SHPL70"
+      }
+    ],
+    "92540135": [
+      {
+        "callout": "3",
+        "page": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "pdf": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpl70-issue1",
+        "seriesIds": [
+          "enviroflo-shpl70"
+        ],
+        "chassisTokens": [
+          "SHPL70",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Box Controller SHPL70"
+      }
+    ],
+    "92540137": [
+      {
+        "callout": "4",
+        "page": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "pdf": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpl70-issue1",
+        "seriesIds": [
+          "enviroflo-shpl70"
+        ],
+        "chassisTokens": [
+          "SHPL70",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Motor SHPL70"
+      }
+    ],
+    "92540139": [
+      {
+        "callout": "5",
+        "page": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "pdf": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpl70-issue1",
+        "seriesIds": [
+          "enviroflo-shpl70"
+        ],
+        "chassisTokens": [
+          "SHPL70",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "PCB SHPL70"
+      }
+    ],
+    "92540141": [
+      {
+        "callout": "6",
+        "page": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "pdf": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpl70-issue1",
+        "seriesIds": [
+          "enviroflo-shpl70"
+        ],
+        "chassisTokens": [
+          "SHPL70",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Reactor SHPL70"
+      }
+    ],
+    "92540143": [
+      {
+        "callout": "7",
+        "page": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "pdf": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpl70-issue1",
+        "seriesIds": [
+          "enviroflo-shpl70"
+        ],
+        "chassisTokens": [
+          "SHPL70",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Plate Heat Exchanger"
+      }
+    ],
+    "92540145": [
+      {
+        "callout": "13",
+        "page": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "pdf": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpl70-issue1",
+        "seriesIds": [
+          "enviroflo-shpl70"
+        ],
+        "chassisTokens": [
+          "SHPL70",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Needle Valve"
+      }
+    ],
+    "92540147": [
+      {
+        "callout": "16",
+        "page": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "pdf": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpl70-issue1",
+        "seriesIds": [
+          "enviroflo-shpl70"
+        ],
+        "chassisTokens": [
+          "SHPL70",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Controller SHPL70"
+      }
+    ],
+    "92540149": [
+      {
+        "callout": "17",
+        "page": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "pdf": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpl70-issue1",
+        "seriesIds": [
+          "enviroflo-shpl70"
+        ],
+        "chassisTokens": [
+          "SHPL70",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Electronic Expansion Valve Coil"
+      }
+    ],
+    "92540151": [
+      {
+        "callout": "20",
+        "page": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf p1",
+        "pageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "listPage": 1,
+        "listPageKey": "pl-enviroflo-shpl70-issue1__p1",
+        "pdf": "PL- RINNAI - ENVIROFLO SPLIT HEAT PUMP - SHPL70 - ISSUE 1 - AUG 2025.pdf",
+        "stem": "pl-enviroflo-shpl70-issue1",
+        "seriesIds": [
+          "enviroflo-shpl70"
+        ],
+        "chassisTokens": [
+          "SHPL70",
+          "Enviroflo Split",
+          "Enviroflo"
+        ],
+        "priority": 30,
+        "name": "Sensor Temp Set 1.2m SHPL70"
+      }
+    ],
+    "92542057": [
+      {
+        "callout": "7",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Element 1.0kW EHPG VM10"
+      },
+      {
+        "callout": "7",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Element 1.0kW EHPG VM10"
+      },
+      {
+        "callout": "7",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Element 1.0kW EHPG VM10"
+      }
+    ],
+    "92542059": [
+      {
+        "callout": "9",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Cover Elect Waterproof EHPG VM10"
+      },
+      {
+        "callout": "9",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Cover Elect Waterproof EHPG VM10"
+      },
+      {
+        "callout": "9",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Cover Elect Waterproof EHPG VM10"
+      },
+      {
+        "callout": "9",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Cover Elect Waterproof EHPG VM10"
+      }
+    ],
+    "92540092": [
+      {
+        "callout": "17",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Faceplate HMI Display EHPG"
+      },
+      {
+        "callout": "17",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Faceplate HMI Display EHPG"
+      },
+      {
+        "callout": "17",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Faceplate HMI Display EHPG"
+      },
+      {
+        "callout": "17",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Faceplate HMI Display EHPG"
+      }
+    ],
+    "92540093": [
+      {
+        "callout": "21",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Cover Display EHPG"
+      },
+      {
+        "callout": "21",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Cover Display EHPG"
+      },
+      {
+        "callout": "21",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Cover Display EHPG"
+      },
+      {
+        "callout": "21",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Cover Display EHPG"
+      }
+    ],
+    "92542061": [
+      {
+        "callout": "32",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-180vm10-issue3__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Anode MG EHPG180VM10"
+      }
+    ],
+    "92542067": [
+      {
+        "callout": "50",
+        "page": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-180vm10-issue3__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-180vm10-issue3__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG180VM10 -10AMP - ISSUE 3 - MAY 2026.pdf",
+        "stem": "pl-ehpg-180vm10-issue3",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG180VM10",
+          "EHPG180",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Not shown"
+      }
+    ],
+    "92540162": [
+      {
+        "callout": "3",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Cord Power Plug (10AMP) EHPG"
+      },
+      {
+        "callout": "3",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Cord Power Plug (10AMP) EHPG"
+      }
+    ],
+    "92542065": [
+      {
+        "callout": "50",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-300vm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Not shown"
+      },
+      {
+        "callout": "32",
+        "page": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-280vmh-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-280vmh-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG280VMH - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-280vmh-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG280VMH",
+          "EHPG280",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Anode AL EHPG280VMH"
+      },
+      {
+        "callout": "50",
+        "page": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf p3",
+        "pageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "listPage": 3,
+        "listPageKey": "pl-ehpg-265lvm10-issue2__p3",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG265LVM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-265lvm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG265LVM10",
+          "EHPG265L",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Not shown"
+      }
+    ],
+    "92540105": [
+      {
+        "callout": "32",
+        "page": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf p2",
+        "pageKey": "pl-ehpg-300vm10-issue2__p2",
+        "listPage": 2,
+        "listPageKey": "pl-ehpg-300vm10-issue2__p2",
+        "pdf": "SPL - RINNAI - GR SERIES_EHPG300VM10 -10AMP - ISSUE 2 - MAY 2026.pdf",
+        "stem": "pl-ehpg-300vm10-issue2",
+        "seriesIds": [
+          "ehpg-gr"
+        ],
+        "chassisTokens": [
+          "EHPG300VM10",
+          "EHPG300",
+          "EHPG",
+          "GR SERIES"
+        ],
+        "priority": 27,
+        "name": "Anode MG EHPG280VM / EHPG300VM"
       }
     ]
   }
