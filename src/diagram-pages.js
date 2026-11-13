@@ -223,8 +223,49 @@ function escapeRegExp(text) {
 }
 
 /**
- * @param {{ page: string, callout?: string|null, label?: string }} hit
- * @returns {{ url: string, label: string, callout: string|null, pageKey: string|null }|null}
+ * Merge unique page siblings from one or more pack seeds (PL + ED stems).
+ * @param {...(string|null|undefined)} seeds
+ * @returns {{ page: number, url: string, pageKey: string }[]}
+ */
+function mergeDiagramPageSiblings(...seeds) {
+  /** @type {Map<string, { page: number, url: string, pageKey: string }>} */
+  const byKey = new Map();
+  for (const seed of seeds) {
+    if (!seed) continue;
+    for (const p of diagramPageSiblings(seed)) {
+      if (!byKey.has(p.pageKey)) byKey.set(p.pageKey, p);
+    }
+  }
+  return [...byKey.values()].sort((a, b) => {
+    const stemA = a.pageKey.replace(/__p\d+$/i, "");
+    const stemB = b.pageKey.replace(/__p\d+$/i, "");
+    if (stemA !== stemB) return stemA.localeCompare(stemB);
+    return a.page - b.page;
+  });
+}
+
+/**
+ * @param {{
+ *   page: string,
+ *   callout?: string|null,
+ *   label?: string,
+ *   listPage?: number|null,
+ *   listPageKey?: string|null,
+ *   listBox?: { x: number, y: number, w: number, h: number }|null,
+ *   pdf?: string|null,
+ * }} hit
+ * @returns {{
+ *   url: string,
+ *   label: string,
+ *   callout: string|null,
+ *   pageKey: string|null,
+ *   listPageKey?: string|null,
+ *   listBox?: { x: number, y: number, w: number, h: number }|null,
+ *   pages: { page: number, url: string, pageKey: string }[],
+ *   pageIndex: number,
+ *   pdfFileName: string|null,
+ *   calloutPageKey: string|null,
+ * }|null}
  */
 function toDiagramResult(hit) {
   if (!hit?.page) return null;
@@ -232,7 +273,20 @@ function toDiagramResult(hit) {
   if (!url) return null;
   const pageKey =
     diagramPageKey(hit.pageKey) || diagramPageKey(hit.page) || null;
-  const pages = diagramPageSiblings(pageKey || hit.page);
+  const listPageKey = hit.listPageKey
+    ? diagramPageKey(hit.listPageKey) || String(hit.listPageKey)
+    : null;
+  const listUrl = listPageKey ? diagramPageUrl(listPageKey) : null;
+  const listBox =
+    listUrl && hit.listBox && Number.isFinite(Number(hit.listBox.x))
+      ? {
+          x: Number(hit.listBox.x),
+          y: Number(hit.listBox.y),
+          w: Number(hit.listBox.w),
+          h: Number(hit.listBox.h),
+        }
+      : null;
+  const pages = mergeDiagramPageSiblings(pageKey || hit.page, listPageKey);
   const pageIndex = Math.max(
     0,
     pages.findIndex((p) => p.pageKey === pageKey)
@@ -242,13 +296,18 @@ function toDiagramResult(hit) {
     label: String(hit.label || hit.page),
     callout: hit.callout != null ? String(hit.callout) : null,
     pageKey,
+    listPageKey: listBox ? listPageKey : null,
+    listBox,
     pages: pages.length
       ? pages
       : pageKey
         ? [{ page: 1, url, pageKey }]
         : [{ page: 1, url, pageKey: "ed" }],
     pageIndex: pages.length ? pageIndex : 0,
-    pdfFileName: diagramPdfFileName(pageKey || hit.page),
+    pdfFileName:
+      diagramPdfFileName(pageKey || hit.page) ||
+      (hit.pdf ? String(hit.pdf) : null) ||
+      diagramPdfFileName(listPageKey),
     calloutPageKey: pageKey,
   };
 }
@@ -331,10 +390,37 @@ function seriesDefaultForHit(edplHit) {
 }
 
 /**
+ * @param {object} hit  raw edpl-part-map hit
+ */
+function toPickResult(hit) {
+  return {
+    page: hit.pageKey || hit.page,
+    pageKey: hit.pageKey,
+    callout: hit.callout,
+    label: hit.page || hit.pdf,
+    seriesIds: hit.seriesIds || [],
+    listPage: hit.listPage ?? null,
+    listPageKey: hit.listPageKey || null,
+    listBox: hit.listBox || null,
+    pdf: hit.pdf || hit.listPdf || null,
+  };
+}
+
+/**
  * Pick chassis-scoped EDPL hit for a part code.
  * @param {string} code
  * @param {object|null|undefined} pin
- * @returns {{ page: string, pageKey?: string, callout?: string, label?: string, seriesIds?: string[] }|null}
+ * @returns {{
+ *   page: string,
+ *   pageKey?: string,
+ *   callout?: string,
+ *   label?: string,
+ *   seriesIds?: string[],
+ *   listPage?: number|null,
+ *   listPageKey?: string|null,
+ *   listBox?: object|null,
+ *   pdf?: string|null,
+ * }|null}
  */
 export function pickEdplPartHit(code, pin) {
   const raw = String(code || "").trim();
@@ -347,13 +433,7 @@ export function pickEdplPartHit(code, pin) {
     for (const hit of hits) {
       const seriesIds = (hit.seriesIds || []).map((s) => String(s).toLowerCase());
       if (seriesId && seriesIds.includes(seriesId)) {
-        return {
-          page: hit.pageKey || hit.page,
-          pageKey: hit.pageKey,
-          callout: hit.callout,
-          label: hit.page || hit.pdf,
-          seriesIds: hit.seriesIds || [],
-        };
+        return toPickResult(hit);
       }
     }
     for (const hit of hits) {
@@ -363,26 +443,13 @@ export function pickEdplPartHit(code, pin) {
           tokens.some((t) => t.includes(c) || c.includes(t))
         )
       ) {
-        return {
-          page: hit.pageKey || hit.page,
-          pageKey: hit.pageKey,
-          callout: hit.callout,
-          label: hit.page || hit.pdf,
-          seriesIds: hit.seriesIds || [],
-        };
+        return toPickResult(hit);
       }
     }
   }
 
   // No pin / no chassis match → highest-priority hit (extract order)
-  const hit = hits[0];
-  return {
-    page: hit.pageKey || hit.page,
-    pageKey: hit.pageKey,
-    callout: hit.callout,
-    label: hit.page || hit.pdf,
-    seriesIds: hit.seriesIds || [],
-  };
+  return toPickResult(hits[0]);
 }
 
 /**
@@ -430,7 +497,7 @@ export function resolvePartDiagram(part, assemblyIndex, opts = {}) {
     const hit = toDiagramResult(edplHit);
     if (hit) return { kind: "ed", ...hit };
     // Map has callout/page label but no rendered JPEG for that stem — keep
-    // callout and fall back to series/existing page pack image (Beau B).
+    // callout and fall back to series/existing page packs image (Beau B).
     const fallbackPage =
       diagramFromPin(opts.pin || null) ||
       seriesDefaultForHit(edplHit) ||
@@ -440,6 +507,10 @@ export function resolvePartDiagram(part, assemblyIndex, opts = {}) {
         page: fallbackPage.page,
         label: edplHit.label || fallbackPage.label || fallbackPage.page,
         callout: edplHit.callout,
+        listPage: edplHit.listPage,
+        listPageKey: edplHit.listPageKey,
+        listBox: edplHit.listBox,
+        pdf: edplHit.pdf,
       });
       if (fb) return { kind: "ed", ...fb };
     }

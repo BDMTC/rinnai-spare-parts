@@ -1618,6 +1618,7 @@ function updateDomesticTempWarn() {
 
 /**
  * Right-panel doc visual: SM (Pin2) or ED (Pin3 + search hit).
+ * PL part-number highlight lives on lightbox (listPageKey + listBox).
  * @type {{
  *   kind: 'sm'|'ed',
  *   url: string,
@@ -1625,6 +1626,8 @@ function updateDomesticTempWarn() {
  *   callout?: string|null,
  *   pageKey?: string|null,
  *   calloutPageKey?: string|null,
+ *   listPageKey?: string|null,
+ *   listBox?: { x: number, y: number, w: number, h: number }|null,
  *   highlight?: { x: number, y: number, w: number, h: number }|null,
  *   pages?: { page: number, url: string, pageKey: string }[],
  *   pageIndex?: number,
@@ -1633,7 +1636,7 @@ function updateDomesticTempWarn() {
  */
 let activeDiagram = null;
 
-/** @type {{ pages: { page: number, url: string, pageKey: string }[], pageIndex: number, kind: 'sm'|'ed', label: string, callout?: string|null, calloutPageKey?: string|null, highlight?: object|null, pdfFileName?: string|null }|null} */
+/** @type {{ pages: { page: number, url: string, pageKey: string }[], pageIndex: number, kind: 'sm'|'ed', label: string, callout?: string|null, calloutPageKey?: string|null, listPageKey?: string|null, listBox?: object|null, calloutBox?: object|null, pdfFileName?: string|null }|null} */
 let lightboxState = null;
 
 /**
@@ -1709,7 +1712,10 @@ function updateSearchVisuals(query, pin) {
     });
     if (ed?.url) {
       const pageKey = ed.pageKey || ed.label || null;
-      const highlight = resolveCalloutBox(pageKey, ed.callout);
+      const calloutHighlight = resolveCalloutBox(
+        ed.calloutPageKey || pageKey,
+        ed.callout
+      );
       panel = {
         kind: "ed",
         url: ed.url,
@@ -1717,7 +1723,10 @@ function updateSearchVisuals(query, pin) {
         callout: ed.callout,
         pageKey,
         calloutPageKey: ed.calloutPageKey || pageKey,
-        highlight,
+        listPageKey: ed.listPageKey || null,
+        listBox: ed.listBox || null,
+        // Panel thumb stays on ED; lightbox may open on PL with listBox.
+        highlight: calloutHighlight,
         pages: ed.pages || [{ page: 1, url: ed.url, pageKey: pageKey || "ed" }],
         pageIndex: ed.pageIndex ?? 0,
         pdfFileName: ed.pdfFileName || null,
@@ -1791,18 +1800,29 @@ function openSeriesManualLightbox() {
   // Left frame is not clickable yet (SM/ED open from the right frame only).
 }
 
+function activeLightboxHighlight(state) {
+  if (!state || state.kind !== "ed") return { box: null, kind: null };
+  const curKey = state.pages?.[state.pageIndex]?.pageKey || null;
+  if (!curKey) return { box: null, kind: null };
+  if (state.listPageKey && state.listBox && curKey === state.listPageKey) {
+    return { box: state.listBox, kind: "pl" };
+  }
+  if (
+    state.calloutPageKey &&
+    state.calloutBox &&
+    curKey === state.calloutPageKey
+  ) {
+    return { box: state.calloutBox, kind: "ed" };
+  }
+  return { box: null, kind: null };
+}
+
 function syncCalloutHighlight() {
   const highlightEl = document.querySelector("#diagram-callout-highlight");
   const img = document.querySelector("#diagram-lightbox-img");
   const frame = document.querySelector("#diagram-lightbox-frame");
   if (!highlightEl || !img || !frame) return;
-  const state = lightboxState;
-  const onCalloutPage =
-    state?.kind === "ed" &&
-    state.highlight &&
-    state.calloutPageKey &&
-    state.pages?.[state.pageIndex]?.pageKey === state.calloutPageKey;
-  const box = onCalloutPage ? state.highlight : null;
+  const { box } = activeLightboxHighlight(lightboxState);
   if (!box || !img.naturalWidth) {
     highlightEl.hidden = true;
     return;
@@ -1856,12 +1876,16 @@ function syncLightboxChrome() {
   if (caption && state) {
     const cur = pages[state.pageIndex];
     if (state.kind === "ed") {
-      const onCallout =
-        state.callout &&
-        state.calloutPageKey &&
-        cur?.pageKey === state.calloutPageKey;
-      const calloutBit = onCallout ? ` · callout ${state.callout}` : "";
-      caption.textContent = `${state.label || "Exploded diagram"} · p${cur?.page ?? "?"}${calloutBit}`;
+      const { kind } = activeLightboxHighlight(state);
+      const mark =
+        kind === "pl"
+          ? " · part number"
+          : kind === "ed" && state.callout
+            ? ` · callout ${state.callout}`
+            : "";
+      const kindLabel =
+        kind === "pl" ? "Parts list" : state.label || "Exploded diagram";
+      caption.textContent = `${kindLabel} · p${cur?.page ?? "?"}${mark}`;
     } else {
       caption.textContent = `Service manual — ${state.pdfFileName || state.label || ""} · p${cur?.page ?? "?"}`.trim();
     }
@@ -1880,9 +1904,12 @@ function showLightboxPage(index) {
   if (highlightEl) highlightEl.hidden = true;
   img.onload = () => syncCalloutHighlight();
   img.src = cur.url;
+  const { kind } = activeLightboxHighlight(lightboxState);
   img.alt =
     lightboxState.kind === "ed"
-      ? `Exploded diagram page ${cur.page}`
+      ? kind === "pl"
+        ? `Parts list page ${cur.page}`
+        : `Exploded diagram page ${cur.page}`
       : `Service manual page ${cur.page}`;
   syncLightboxChrome();
   if (img.complete) syncCalloutHighlight();
@@ -1947,17 +1974,34 @@ function openDiagramLightbox() {
 
   const pages = resolveLightboxPages(activeDiagram);
   const pdfFileName = resolveLightboxPdfFileName(activeDiagram);
+
+  const listPageKey = activeDiagram.listPageKey || null;
+  const listBox = activeDiagram.listBox || null;
+  const listIdx =
+    listPageKey && listBox
+      ? pages.findIndex((p) => p.pageKey === listPageKey)
+      : -1;
+  const preferPl = listIdx >= 0;
+
   let pageIndex = activeDiagram.pageIndex ?? 0;
-  if (pages.length && activeDiagram.pageKey) {
+  if (preferPl) {
+    pageIndex = listIdx;
+  } else if (pages.length && activeDiagram.pageKey) {
     const hit = pages.findIndex((p) => p.pageKey === activeDiagram.pageKey);
     if (hit >= 0) pageIndex = hit;
   }
+
+  const calloutPageKey =
+    activeDiagram.calloutPageKey || activeDiagram.pageKey || null;
+
   lightboxState = {
     kind: activeDiagram.kind,
     label: activeDiagram.label,
     callout: activeDiagram.callout || null,
-    calloutPageKey: activeDiagram.calloutPageKey || activeDiagram.pageKey || null,
-    highlight: activeDiagram.highlight || null,
+    calloutPageKey,
+    calloutBox: activeDiagram.highlight || null,
+    listPageKey,
+    listBox,
     pages,
     pageIndex: Math.max(0, Math.min(pages.length - 1, pageIndex)),
     pdfFileName,
@@ -1965,7 +2009,11 @@ function openDiagramLightbox() {
 
   dialog.setAttribute(
     "aria-label",
-    activeDiagram.kind === "ed" ? "Exploded diagram" : "Service manual"
+    preferPl
+      ? "Parts list"
+      : activeDiagram.kind === "ed"
+        ? "Exploded diagram"
+        : "Service manual"
   );
   showLightboxPage(lightboxState.pageIndex);
   if (typeof dialog.showModal === "function") dialog.showModal();

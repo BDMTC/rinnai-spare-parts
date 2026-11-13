@@ -417,6 +417,70 @@ def detect_diagram_pages(doc) -> list[int]:
     return list(range(start, doc.page_count + 1))
 
 
+def normalize_box(
+    x0: float, y0: float, x1: float, y1: float, page_w: float, page_h: float, *, pad: float = 0.006
+) -> dict:
+    """Normalized fraction box with a little pad so the highlight reads on JPEG."""
+    if page_w <= 0 or page_h <= 0:
+        return {"x": 0.0, "y": 0.0, "w": 0.0, "h": 0.0}
+    x = max(0.0, (x0 / page_w) - pad)
+    y = max(0.0, (y0 / page_h) - pad)
+    w = min(1.0 - x, ((x1 - x0) / page_w) + 2 * pad)
+    h = min(1.0 - y, ((y1 - y0) / page_h) + 2 * pad)
+    return {
+        "x": round(x, 5),
+        "y": round(y, 5),
+        "w": round(max(w, 0.008), 5),
+        "h": round(max(h, 0.006), 5),
+    }
+
+
+def code_word_boxes(page) -> dict[str, dict]:
+    """
+    Text-layer word bboxes for RA 8-digit codes on a parts-list page.
+    Returns code → {x,y,w,h} as fractions of page size (JPEG-aligned).
+    """
+    rect = page.rect
+    pw, ph = float(rect.width), float(rect.height)
+    found: dict[str, dict] = {}
+    for w in page.get_text("words") or []:
+        # words tuple: x0, y0, x1, y1, word, block, line, word_no
+        if len(w) < 5:
+            continue
+        text = str(w[4]).strip()
+        if not re.fullmatch(r"\d{8}", text):
+            continue
+        box = normalize_box(float(w[0]), float(w[1]), float(w[2]), float(w[3]), pw, ph)
+        # Prefer first occurrence (top of table) when duplicates exist
+        found.setdefault(text, box)
+    return found
+
+
+def callout_word_boxes(page) -> dict[str, dict]:
+    """
+    Text-layer bboxes for short numeric callouts on ED pages (when text exists).
+    Keys are unpadded callout strings ("140"). Sparse — many ED pages are image-only.
+    """
+    rect = page.rect
+    pw, ph = float(rect.width), float(rect.height)
+    found: dict[str, dict] = {}
+    for w in page.get_text("words") or []:
+        if len(w) < 5:
+            continue
+        text = str(w[4]).strip().rstrip(".")
+        if not re.fullmatch(r"\d{1,3}", text):
+            continue
+        key = str(int(text))
+        box = normalize_box(
+            float(w[0]), float(w[1]), float(w[2]), float(w[3]), pw, ph, pad=0.008
+        )
+        # Prefer smaller boxes (likely the label, not a large table cell)
+        prev = found.get(key)
+        if not prev or (box["w"] * box["h"]) < (prev["w"] * prev["h"]):
+            found[key] = box
+    return found
+
+
 def parse_part_rows(text: str) -> list[dict]:
     """
     Parse EDPL parts-list text into {callout, code, name}.
@@ -604,6 +668,9 @@ def main():
     do_ocr = "--ocr" in sys.argv
     # Default: no diagram JPEG render (Beau B — existing page packs only).
     do_render = "--render-pages" in sys.argv
+    # PL page JPEGs for lightbox part-number highlight (RSP-131).
+    # Default ON for stems that already ship any diagram JPEG; --no-render-list-pages to skip.
+    do_render_list = "--no-render-list-pages" not in sys.argv
     ocr = None
     if do_ocr:
         from rapidocr_onnxruntime import RapidOCR
@@ -611,7 +678,11 @@ def main():
         ocr = RapidOCR()
         print("OCR enabled")
     if not do_render:
-        print("Page JPEG render skipped (use --render-pages to enable)")
+        print("Diagram JPEG render skipped (use --render-pages to enable)")
+    if do_render_list:
+        print("List-page JPEG render enabled for stems with existing page packs")
+    else:
+        print("List-page JPEG render skipped (--no-render-list-pages)")
 
     catalogue = json.loads(
         (ROOT / "public" / "data" / "catalogue.json").read_text(encoding="utf-8")
@@ -626,6 +697,8 @@ def main():
     # code → list of hits (multi-chassis)
     by_code: dict[str, list[dict]] = defaultdict(list)
     callout_boxes: dict[str, dict] = {}  # pageKey → {callout: box}
+    list_pages_rendered = 0
+    list_boxes_total = 0
 
     for spec in CF_SHEETS:
         pdf = find_pdf(spec["file"], spec.get("altDirs"))
@@ -638,15 +711,32 @@ def main():
         default_diagram = diagram_pages[0] if diagram_pages else max(1, doc.page_count)
         stem = spec["stem"]
 
-        # Extract rows from text-heavy pages
+        # Extract rows + text-layer RA code bboxes from parts-list pages
         rows = []
+        # (listPage 1-based) → code → box
+        page_code_boxes: dict[int, dict[str, dict]] = {}
+        list_pages: list[int] = []
         for i in range(doc.page_count):
-            text = doc[i].get_text("text") or ""
+            page = doc[i]
+            text = page.get_text("text") or ""
             if len(text.strip()) < 80:
+                # Still try sparse ED callout text-layer boxes
+                if i + 1 in diagram_pages:
+                    cos = callout_word_boxes(page)
+                    if cos:
+                        key = f"{stem}__p{i + 1}"
+                        callout_boxes.setdefault(key, {}).update(cos)
                 continue
             page_rows = parse_part_rows(text)
+            boxes = code_word_boxes(page)
+            if boxes:
+                page_code_boxes[i + 1] = boxes
+            if page_rows:
+                list_pages.append(i + 1)
             for r in page_rows:
                 r["listPage"] = i + 1
+                if r["code"] in boxes:
+                    r["listBox"] = boxes[r["code"]]
             rows.extend(page_rows)
 
         # Deduplicate rows by (callout, code) keeping first
@@ -676,6 +766,19 @@ def main():
                     p.stem
                     for p in DIAGRAM_DIR.glob(f"{stem}__p*.jpg")
                 ]
+
+        # Render parts-list pages into the same stem pack when this stem already
+        # ships diagram JPEGs (lightbox Prev/Next across PL + ED).
+        stem_has_pack = bool(list(DIAGRAM_DIR.glob(f"{stem}__p*.jpg"))) or bool(
+            asset_keys
+        )
+        if do_render_list and stem_has_pack and list_pages:
+            unique_list = sorted(set(list_pages))
+            written = ensure_diagram_jpegs(pdf, stem, unique_list)
+            list_pages_rendered += len(unique_list)
+            for key in written:
+                if key not in asset_keys:
+                    asset_keys.append(key)
 
         # OCR callouts → page when requested (optional; default path skips)
         callout_to_page: dict[str, int] = {}
@@ -735,11 +838,22 @@ def main():
             return native, f"{spec['file']} p{diag_page}", diag_page
 
         sheet_codes_in_cat = 0
+        sheet_list_boxes = 0
         for r in rows:
             code = r["code"]
             # Prefer OCR page for this callout; else default diagram page of sheet
             diag_page = callout_to_page.get(r["callout"], default_diagram)
             page_key, page_label, diag_page = resolve_page_key(diag_page)
+            list_page = r.get("listPage")
+            list_box = r.get("listBox")
+            if not list_box and list_page and list_page in page_code_boxes:
+                list_box = page_code_boxes[list_page].get(code)
+            list_page_key = (
+                f"{stem}__p{list_page}" if isinstance(list_page, int) else None
+            )
+            if list_box:
+                sheet_list_boxes += 1
+                list_boxes_total += 1
             hit = {
                 "code": code,
                 "callout": r["callout"],
@@ -750,7 +864,9 @@ def main():
                 "page": page_label,
                 "pageKey": page_key,
                 "diagramPage": diag_page,
-                "listPage": r.get("listPage"),
+                "listPage": list_page,
+                "listPageKey": list_page_key,
+                "listBox": list_box,
                 "seriesIds": list(spec.get("seriesIds") or []),
                 "chassisTokens": list(spec.get("chassisTokens") or []),
                 "priority": int(spec.get("priority") or 0),
@@ -767,9 +883,11 @@ def main():
                 "path": str(pdf.relative_to(ROOT)).replace("\\", "/"),
                 "pages": page_count,
                 "diagramPages": diagram_pages,
+                "listPages": sorted(set(list_pages)),
                 "defaultDiagramPage": default_diagram,
                 "rowsExtracted": len(rows),
                 "rowsInCatalogue": sheet_codes_in_cat,
+                "rowsWithListBox": sheet_list_boxes,
                 "seriesIds": spec.get("seriesIds") or [],
                 "chassisTokens": spec.get("chassisTokens") or [],
                 "priority": spec.get("priority"),
@@ -778,19 +896,60 @@ def main():
         )
         print(
             f"OK {spec['file']}: rows={len(rows)} inCat={sheet_codes_in_cat} "
-            f"diagramPages={diagram_pages}"
+            f"listBoxes={sheet_list_boxes} diagramPages={diagram_pages} "
+            f"listPages={sorted(set(list_pages))}"
         )
 
+    def list_jpeg_exists(hit: dict) -> bool:
+        lpk = hit.get("listPageKey")
+        return bool(lpk and (DIAGRAM_DIR / f"{lpk}.jpg").exists())
+
+    def enrich_list_from_pack(hit: dict, pool: list[dict]) -> dict:
+        """
+        Prefer a same-series pack-backed listPage/listBox when the priority sheet
+        has no PL JPEG (Issue PDFs often win priority but ship no page pack).
+        Diagram pageKey stays on the priority hit.
+        """
+        if list_jpeg_exists(hit) and hit.get("listBox"):
+            return hit
+        series = {str(s).lower() for s in (hit.get("seriesIds") or [])}
+        candidates = []
+        for other in pool:
+            if other is hit:
+                continue
+            if not list_jpeg_exists(other):
+                continue
+            if not other.get("listBox"):
+                continue
+            other_series = {str(s).lower() for s in (other.get("seriesIds") or [])}
+            if series and other_series and not (series & other_series):
+                continue
+            candidates.append(other)
+        if not candidates:
+            return hit
+        # Prefer highest priority pack-backed sibling
+        donor = sorted(candidates, key=lambda h: (-h["priority"], h["pdf"]))[0]
+        enriched = dict(hit)
+        enriched["listPage"] = donor.get("listPage")
+        enriched["listPageKey"] = donor.get("listPageKey")
+        enriched["listBox"] = donor.get("listBox")
+        # Keep donor pdf/stem only for list provenance when native had no box asset
+        enriched["listPdf"] = donor.get("pdf")
+        enriched["listStem"] = donor.get("stem")
+        return enriched
+
     # Compact runtime map: code → [hits…] sorted by priority desc
-    # Keys shortened to keep the file:// bundle lean.
+    # Keep listPage + listBox for PL highlight (RSP-131) — do not strip.
     parts_map = {}
     multi = 0
     for code, hits in by_code.items():
         hits_sorted = sorted(hits, key=lambda h: (-h["priority"], h["pdf"]))
         if len(hits_sorted) > 1:
             multi += 1
-        parts_map[code] = [
-            {
+        hits_sorted = [enrich_list_from_pack(h, hits_sorted) for h in hits_sorted]
+        compact = []
+        for h in hits_sorted:
+            entry = {
                 "callout": h["callout"],
                 "page": h["page"],
                 "pageKey": h["pageKey"],
@@ -800,27 +959,43 @@ def main():
                 "chassisTokens": h["chassisTokens"],
                 "priority": h["priority"],
             }
-            for h in hits_sorted
-        ]
+            if h.get("listPage") is not None:
+                entry["listPage"] = h["listPage"]
+            if h.get("listPageKey"):
+                entry["listPageKey"] = h["listPageKey"]
+            if h.get("listBox"):
+                entry["listBox"] = h["listBox"]
+            if h.get("listPdf"):
+                entry["listPdf"] = h["listPdf"]
+            compact.append(entry)
+        parts_map[code] = compact
 
     in_cat = sum(1 for c in parts_map if c in part_codes)
     with_page_asset = 0
+    with_list_box = 0
+    with_list_page_asset = 0
     for c, hits in parts_map.items():
         if c not in part_codes:
             continue
         pk = hits[0]["pageKey"]
         if (DIAGRAM_DIR / f"{pk}.jpg").exists():
             with_page_asset += 1
+        if hits[0].get("listBox"):
+            with_list_box += 1
+        lpk = hits[0].get("listPageKey")
+        if lpk and (DIAGRAM_DIR / f"{lpk}.jpg").exists():
+            with_list_page_asset += 1
 
     out = {
-        "version": 1,
+        "version": 2,
         "generatedAt": datetime.now(timezone.utc).isoformat(),
         "meta": {
             "title": "Continuous-flow EDPL part → page + callout map",
             "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
             "ocr": do_ocr,
-            "sourceRule": "Callout NO + RA/catalogue 8-digit from parts-list text; diagram page = first image-ish page of sheet (OCR optional)",
+            "sourceRule": "Callout NO + RA/catalogue 8-digit from parts-list text; diagram page = first image-ish page of sheet (OCR optional); listPage + text-layer word bbox kept for PL highlight",
             "resolve": "Pick first hit matching pin seriesId / chassis token; else highest priority",
+            "plHighlight": "listPage + listPageKey + listBox (pymupdf words); lightbox opens PL page when JPEG exists",
         },
         "totals": {
             "sheetsConfigured": len(CF_SHEETS),
@@ -829,6 +1004,10 @@ def main():
             "uniqueCodes": len(parts_map),
             "codesInCatalogue": in_cat,
             "codesInCatalogueWithPageAsset": with_page_asset,
+            "codesInCatalogueWithListBox": with_list_box,
+            "codesInCatalogueWithListPageAsset": with_list_page_asset,
+            "listBoxesExtracted": list_boxes_total,
+            "listPagesRendered": list_pages_rendered,
             "codesMultiChassis": multi,
             "cataloguePartsTotal": len(part_codes),
         },
@@ -841,9 +1020,11 @@ def main():
                     "status",
                     "pages",
                     "diagramPages",
+                    "listPages",
                     "defaultDiagramPage",
                     "rowsExtracted",
                     "rowsInCatalogue",
+                    "rowsWithListBox",
                     "seriesIds",
                     "chassisTokens",
                     "priority",
@@ -858,6 +1039,7 @@ def main():
 
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(out, indent=2), encoding="utf-8")
+    OUT_REPORT.parent.mkdir(parents=True, exist_ok=True)
     OUT_REPORT.write_text(
         json.dumps({"totals": out["totals"], "sheets": sheets_out}, indent=2),
         encoding="utf-8",
@@ -865,21 +1047,26 @@ def main():
     print("Wrote", OUT_JSON)
     print("Totals", json.dumps(out["totals"], indent=2))
 
-    # Merge OCR callout boxes into diagram-callouts.json when OCR ran
-    if do_ocr and callout_boxes:
+    # Merge text-layer (and optional OCR) callout boxes into diagram-callouts.json
+    if callout_boxes:
         callouts_path = ROOT / "public" / "data" / "diagram-callouts.json"
         existing = json.loads(callouts_path.read_text(encoding="utf-8"))
         pages = existing.setdefault("pages", {})
         for key, cos in callout_boxes.items():
             prev = pages.get(key, {}).get("callouts", {})
-            merged = {**prev, **cos}
+            # Prefer existing OCR/manual boxes; fill gaps from text-layer
+            merged = {**cos, **prev}
             pages[key] = {
                 "source": pages.get(key, {}).get("source")
-                or f"ocr extract-edpl-part-map.py",
+                or ("ocr extract-edpl-part-map.py" if do_ocr else "text-layer extract-edpl-part-map.py"),
                 "callouts": merged,
             }
         existing["meta"] = existing.get("meta") or {}
         existing["meta"]["updated"] = datetime.now(timezone.utc).date().isoformat()
+        existing["meta"]["notes"] = (
+            "Normalized callout boxes (x,y,w,h as fractions of page image). "
+            "ED lightbox highlight; PL part-number boxes live on edpl-part-map listBox."
+        )
         callouts_path.write_text(json.dumps(existing, indent=2), encoding="utf-8")
         print("Updated diagram-callouts.json pages", len(callout_boxes))
 

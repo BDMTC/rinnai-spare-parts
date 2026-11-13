@@ -1,7 +1,7 @@
 {
   "version": 1,
   "meta": {
-    "notes": "Normalized callout boxes (x,y,w,h as fractions of page image). Built via OCR + manual fill for stubborn labels. Used by ED lightbox highlight only.",
+    "notes": "Normalized callout boxes (x,y,w,h as fractions of page image). ED lightbox highlight; PL part-number boxes live on edpl-part-map listBox.",
     "updated": "2026-11-13"
   },
   "pages": {
@@ -266,6 +266,603 @@
           "y": 0.3094,
           "w": 0.03,
           "h": 0.02245
+        }
+      }
+    },
+    "edpl-reuv2630wd-inf26plus__p1": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "1": {
+          "x": 0.86027,
+          "y": 0.82231,
+          "w": 0.02882,
+          "h": 0.03602
+        }
+      }
+    },
+    "pl-ed-inf26-smartstart-vr2626wgp__p8": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "721": {
+          "x": 0.51758,
+          "y": 0.10122,
+          "w": 0.03484,
+          "h": 0.02794
+        },
+        "719": {
+          "x": 0.66291,
+          "y": 0.27916,
+          "w": 0.03484,
+          "h": 0.02794
+        },
+        "716": {
+          "x": 0.77831,
+          "y": 0.39648,
+          "w": 0.03484,
+          "h": 0.02794
+        },
+        "720": {
+          "x": 0.78351,
+          "y": 0.42381,
+          "w": 0.03484,
+          "h": 0.02794
+        },
+        "717": {
+          "x": 0.80033,
+          "y": 0.45408,
+          "w": 0.03484,
+          "h": 0.02794
+        },
+        "726": {
+          "x": 0.48827,
+          "y": 0.39321,
+          "w": 0.03484,
+          "h": 0.02794
+        },
+        "713": {
+          "x": 0.24435,
+          "y": 0.3446,
+          "w": 0.03484,
+          "h": 0.02794
+        },
+        "718": {
+          "x": 0.27403,
+          "y": 0.62609,
+          "w": 0.03484,
+          "h": 0.02794
+        },
+        "511": {
+          "x": 0.17586,
+          "y": 0.6055,
+          "w": 0.03484,
+          "h": 0.02794
+        },
+        "711": {
+          "x": 0.08703,
+          "y": 0.50468,
+          "w": 0.03484,
+          "h": 0.02794
+        },
+        "712": {
+          "x": 0.08703,
+          "y": 0.74485,
+          "w": 0.03484,
+          "h": 0.02794
+        },
+        "724": {
+          "x": 0.19126,
+          "y": 0.69946,
+          "w": 0.03484,
+          "h": 0.02794
+        },
+        "725": {
+          "x": 0.44395,
+          "y": 0.65811,
+          "w": 0.03484,
+          "h": 0.02794
+        },
+        "710": {
+          "x": 0.50862,
+          "y": 0.8747,
+          "w": 0.03484,
+          "h": 0.02794
+        },
+        "714": {
+          "x": 0.69455,
+          "y": 0.86837,
+          "w": 0.03484,
+          "h": 0.02794
+        }
+      }
+    },
+    "edpl-hd250e-reuvrm3237wc-issue4__p4": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "4": {
+          "x": 0.71227,
+          "y": 0.03701,
+          "w": 0.02534,
+          "h": 0.03221
+        },
+        "7": {
+          "x": 0.52562,
+          "y": 0.94746,
+          "w": 0.02534,
+          "h": 0.03221
+        }
+      }
+    },
+    "edpl-hd250e-reuvrm3237wc-issue4__p5": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "4": {
+          "x": 0.71227,
+          "y": 0.03701,
+          "w": 0.02534,
+          "h": 0.03221
+        },
+        "5": {
+          "x": 0.49293,
+          "y": 0.94746,
+          "w": 0.02534,
+          "h": 0.03221
+        },
+        "7": {
+          "x": 0.52562,
+          "y": 0.94746,
+          "w": 0.02534,
+          "h": 0.03221
+        }
+      }
+    },
+    "edpl-hd250e-reuvrm3237wc-issue4__p6": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "4": {
+          "x": 0.71227,
+          "y": 0.03701,
+          "w": 0.02534,
+          "h": 0.03221
+        },
+        "6": {
+          "x": 0.49293,
+          "y": 0.94746,
+          "w": 0.02534,
+          "h": 0.03221
+        },
+        "7": {
+          "x": 0.52563,
+          "y": 0.94746,
+          "w": 0.02534,
+          "h": 0.03221
+        }
+      }
+    },
+    "edpl-hd250e-reuvrm3237wc-issue4__p7": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "4": {
+          "x": 0.71227,
+          "y": 0.03701,
+          "w": 0.02534,
+          "h": 0.03221
+        },
+        "7": {
+          "x": 0.49293,
+          "y": 0.94746,
+          "w": 0.02534,
+          "h": 0.03221
+        }
+      }
+    },
+    "edpl-reuv2024wg__p7": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "6": {
+          "x": 0.48818,
+          "y": 0.95497,
+          "w": 0.02345,
+          "h": 0.02658
+        }
+      }
+    },
+    "edpl-reuv2024wg__p8": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "7": {
+          "x": 0.48818,
+          "y": 0.95497,
+          "w": 0.02345,
+          "h": 0.02658
+        }
+      }
+    },
+    "edpl-reuv2024wg__p9": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "8": {
+          "x": 0.48818,
+          "y": 0.95497,
+          "w": 0.02345,
+          "h": 0.02658
+        }
+      }
+    },
+    "edpl-reuv1620wg__p5": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "6": {
+          "x": 0.48818,
+          "y": 0.95497,
+          "w": 0.02345,
+          "h": 0.02658
+        }
+      }
+    },
+    "edpl-reuv1620wg__p6": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "7": {
+          "x": 0.48818,
+          "y": 0.95497,
+          "w": 0.02345,
+          "h": 0.02658
+        }
+      }
+    },
+    "edpl-reuv1620wg__p7": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "8": {
+          "x": 0.48818,
+          "y": 0.95497,
+          "w": 0.02345,
+          "h": 0.02658
+        }
+      }
+    },
+    "edpl-v1616wf__p4": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "4": {
+          "x": 0.48867,
+          "y": 0.9551,
+          "w": 0.02271,
+          "h": 0.02649
+        }
+      }
+    },
+    "edpl-v1616wf__p5": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "5": {
+          "x": 0.48867,
+          "y": 0.9551,
+          "w": 0.02271,
+          "h": 0.02649
+        }
+      }
+    },
+    "edpl-v1616wf__p6": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "6": {
+          "x": 0.48867,
+          "y": 0.9551,
+          "w": 0.02271,
+          "h": 0.02649
+        }
+      }
+    },
+    "edpl-v1616wf__p7": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "7": {
+          "x": 0.48867,
+          "y": 0.9551,
+          "w": 0.02271,
+          "h": 0.02649
+        }
+      }
+    },
+    "edpl-2425w__p3": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "51": {
+          "x": 0.48321,
+          "y": 0.95631,
+          "w": 0.03339,
+          "h": 0.02791
+        },
+        "2": {
+          "x": 0.74057,
+          "y": 0.95631,
+          "w": 0.02472,
+          "h": 0.02791
+        },
+        "26": {
+          "x": 0.10131,
+          "y": 0.05424,
+          "w": 0.05985,
+          "h": 0.03986
+        }
+      }
+    },
+    "edpl-2425w__p4": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "52": {
+          "x": 0.48321,
+          "y": 0.95631,
+          "w": 0.03339,
+          "h": 0.02791
+        },
+        "2": {
+          "x": 0.74057,
+          "y": 0.95631,
+          "w": 0.02472,
+          "h": 0.02791
+        }
+      }
+    },
+    "edpl-2425w__p5": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "53": {
+          "x": 0.48321,
+          "y": 0.95631,
+          "w": 0.03339,
+          "h": 0.02791
+        },
+        "2": {
+          "x": 0.74057,
+          "y": 0.95631,
+          "w": 0.02472,
+          "h": 0.02791
+        }
+      }
+    },
+    "edpl-2425w__p6": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "54": {
+          "x": 0.48321,
+          "y": 0.95631,
+          "w": 0.03339,
+          "h": 0.02791
+        },
+        "2": {
+          "x": 0.74057,
+          "y": 0.95631,
+          "w": 0.02472,
+          "h": 0.02791
+        }
+      }
+    },
+    "edpl-reu-k2403wg__p5": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "5": {
+          "x": 0.47712,
+          "y": 0.93684,
+          "w": 0.02441,
+          "h": 0.03014
+        }
+      }
+    },
+    "edpl-reu-k2403wg__p6": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "6": {
+          "x": 0.47712,
+          "y": 0.93684,
+          "w": 0.02441,
+          "h": 0.03014
+        }
+      }
+    },
+    "edpl-reu-k2403wg__p7": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "7": {
+          "x": 0.47712,
+          "y": 0.93684,
+          "w": 0.02441,
+          "h": 0.03014
+        }
+      }
+    },
+    "edpl-reu-k2403wg__p8": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "8": {
+          "x": 0.47712,
+          "y": 0.93684,
+          "w": 0.02441,
+          "h": 0.03014
+        }
+      }
+    },
+    "edpl-reu-k2403wg__p9": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "9": {
+          "x": 0.47712,
+          "y": 0.93684,
+          "w": 0.02441,
+          "h": 0.03014
+        }
+      }
+    },
+    "edpl-reu-k2430wg__p5": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "5": {
+          "x": 0.47712,
+          "y": 0.93684,
+          "w": 0.02441,
+          "h": 0.03014
+        }
+      }
+    },
+    "edpl-reu-k2430wg__p6": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "6": {
+          "x": 0.47712,
+          "y": 0.93684,
+          "w": 0.02441,
+          "h": 0.03014
+        }
+      }
+    },
+    "edpl-reu-k2430wg__p7": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "7": {
+          "x": 0.47712,
+          "y": 0.93684,
+          "w": 0.02441,
+          "h": 0.03014
+        }
+      }
+    },
+    "edpl-reu-k2430wg__p8": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "8": {
+          "x": 0.47712,
+          "y": 0.93684,
+          "w": 0.02441,
+          "h": 0.03014
+        }
+      }
+    },
+    "edpl-reu-k2430wg__p9": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "9": {
+          "x": 0.47712,
+          "y": 0.93684,
+          "w": 0.02441,
+          "h": 0.03014
+        }
+      }
+    },
+    "pl-new-a-series-cf__p26": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "26": {
+          "x": 0.48453,
+          "y": 0.95191,
+          "w": 0.03094,
+          "h": 0.02897
+        },
+        "7": {
+          "x": 0.07295,
+          "y": 0.042,
+          "w": 0.0454,
+          "h": 0.04489
+        }
+      }
+    },
+    "pl-new-a-series-cf__p27": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "27": {
+          "x": 0.48453,
+          "y": 0.95191,
+          "w": 0.03094,
+          "h": 0.02897
+        }
+      }
+    },
+    "pl-new-a-series-cf__p74": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "74": {
+          "x": 0.48453,
+          "y": 0.95191,
+          "w": 0.03094,
+          "h": 0.02897
+        }
+      }
+    },
+    "pl-new-a-series-cf__p75": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "75": {
+          "x": 0.48453,
+          "y": 0.95191,
+          "w": 0.03094,
+          "h": 0.02897
+        }
+      }
+    },
+    "pl-hw-cf-bm-sm-b26__p23": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "23": {
+          "x": 0.48453,
+          "y": 0.95191,
+          "w": 0.03094,
+          "h": 0.02897
+        },
+        "7": {
+          "x": 0.41158,
+          "y": 0.042,
+          "w": 0.0454,
+          "h": 0.04489
+        }
+      }
+    },
+    "pl-hw-cf-bm-sm-b26__p24": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "24": {
+          "x": 0.48453,
+          "y": 0.95191,
+          "w": 0.03094,
+          "h": 0.02897
+        }
+      }
+    },
+    "pl-hw-cf-bm-sm-b26__p27": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "27": {
+          "x": 0.48453,
+          "y": 0.95191,
+          "w": 0.03094,
+          "h": 0.02897
+        },
+        "10": {
+          "x": 0.17716,
+          "y": 0.042,
+          "w": 0.06501,
+          "h": 0.04489
+        }
+      }
+    },
+    "pl-hw-cf-bm-sm-b26__p66": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "66": {
+          "x": 0.48453,
+          "y": 0.95191,
+          "w": 0.03094,
+          "h": 0.02897
+        }
+      }
+    },
+    "pl-hw-cf-bm-sm-b26__p67": {
+      "source": "text-layer extract-edpl-part-map.py",
+      "callouts": {
+        "67": {
+          "x": 0.48453,
+          "y": 0.95191,
+          "w": 0.03094,
+          "h": 0.02897
         }
       }
     }
