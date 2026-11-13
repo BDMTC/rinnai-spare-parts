@@ -558,7 +558,38 @@
         "REU-BM1620W",
         "REU-BM1220W"
       ],
-      "notes": "AU Infinity B family (REU-BM1220W / BM1620W / BM2024W / BM2626W + solar BM1620WS / BM2626WS). Pin match is chassis Item Number only \u2014 marketing INF12/16/20/26*B codes collide with AM/heritage INF prefixes so they are not used as prefixes. Bare B26 typeahead alias avoided (heritage A2626/VR2626WB). Cover-true SM: HW_CF_BM_SM BM2626 & B26 Series; PL: 2025 BM SERIES Infinity B Issue 1."
+      "notes": "AU Infinity B family (REU-BM1220W / BM1620W / BM2024W / BM2626W + solar BM1620WS / BM2626WS). Pin match is chassis Item Number only \u2014 marketing INF12/16/20/26*B codes collide with AM/heritage INF prefixes so they are not used as prefixes. Bare B26 typeahead alias avoided (heritage A2626/VR2626WB). Cover-true SM: HW_CF_BM_SM BM2626 & B26 Series; PL: 2025 BM SERIES Infinity B Issue 1. Heritage B24 on VR2426WB is a separate pin (vr2426)."
+    },
+    {
+      "id": "vr2426",
+      "label": "B24",
+      "aliases": [
+        "B24",
+        "VR2426",
+        "REU-VR2426WB",
+        "VR2426WB",
+        "REU-VR2426WS",
+        "VR2426WS",
+        "REUVR2426WB",
+        "REUVR2426WS"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUVR2426WB",
+          "VR2426WB",
+          "REUVR2426WS",
+          "VR2426WS"
+        ]
+      },
+      "documentKeys": [
+        "B24",
+        "VR2426",
+        "VR2426WB",
+        "VR2426WS",
+        "REU-VR2426WB",
+        "REU-VR2426WS"
+      ],
+      "notes": "Heritage AU B24 / solar booster on REU-VR2426WB / VR2426WS (marketing B24* + S26*70). Pin match is chassis Item Number only \u2014 do not swallow VR2626WG (Infinity 26) or BM B-series. Cover-true SM: SMVR2426W_VR2632WC.pdf; PL: EDPL VR2426_VR2626.pdf / EDPL B24.pdf."
     },
     {
       "id": "infinity16",

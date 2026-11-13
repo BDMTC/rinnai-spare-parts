@@ -223,6 +223,8 @@ function lightboxPdfDataScripts() {
     { id: "smvREUVR1616W-VR2024-v2", file: "smvREUVR1616W_VR2024_v2.pdf" },
     { id: "EDPL-VR1620", file: "EDPL VR1620.pdf" },
     { id: "EDPL-VR2024", file: "EDPL VR2024.pdf" },
+    { id: "SMVR2426W-VR2632WC", file: "SMVR2426W_VR2632WC.pdf" },
+    { id: "EDPL-B24", file: "EDPL B24.pdf" },
   ];
 
   function buildScriptSource(fileName) {

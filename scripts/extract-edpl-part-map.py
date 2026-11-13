@@ -203,9 +203,17 @@ CF_SHEETS = [
     {
         "file": "EDPL VR2426_VR2626.pdf",
         "stem": "edpl-vr2426-vr2626",
-        "seriesIds": ["infinity26", "infinity26-smartstart"],
-        "chassisTokens": ["VR2426", "VR2626", "VR2626WG"],
-        "priority": 5,
+        "seriesIds": ["vr2426", "infinity26", "infinity26-smartstart"],
+        "chassisTokens": [
+            "VR2426WB",
+            "VR2426WS",
+            "REUVR2426WB",
+            "REUVR2426WS",
+            "VR2426",
+            "VR2626",
+            "VR2626WG",
+        ],
+        "priority": 8,
     },
     {
         "file": "EDPL REUV2626WG.pdf",
@@ -295,9 +303,9 @@ CF_SHEETS = [
     {
         "file": "EDPL B24.pdf",
         "stem": "edpl-b24",
-        "seriesIds": [],
-        "chassisTokens": ["B24", "BM2426", "INFINITY-B24"],
-        "priority": 5,
+        "seriesIds": ["vr2426"],
+        "chassisTokens": ["VR2426WB", "REUVR2426WB", "B24"],
+        "priority": 9,
     },
     {
         "file": "EDPL V3232W_WC.pdf",
@@ -873,6 +881,7 @@ def main():
             "hd210i": ("ed-n-series-2020-in32-enviro", 1),
             "infinity26": ("edpl-reuv2630wd-inf26plus", 6),
             "infinity-a": ("pl-hw-cf-a-series-issue1", 1),
+            "vr2426": ("edpl-vr2426-vr2626", 1),
             # hd28e: no shipped page pack yet — keep native pageKey / callout only
         }
 

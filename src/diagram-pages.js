@@ -68,6 +68,10 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "HW_CF_A_Series_Parts_List_Issue_1_Jan_2018.pdf p1",
     label: "HW CF A Series Parts List Issue 1 (Infinity A)",
   },
+  vr2426: {
+    page: "EDPL VR2426_VR2626.pdf p1",
+    label: "EDPL VR2426_VR2626 (B24)",
+  },
   hd32: {
     page: "New A Series CF Parts List.pdf p56",
     label: "New A Series CF Parts List (HD32e)",
@@ -277,6 +281,7 @@ const ED_STEM_TO_PDF = {
   "edpl-reu-k2430wg": "EDPL REU-K2430WG.pdf",
   "edpl-vr1620": "EDPL VR1620.pdf",
   "edpl-vr2024": "EDPL VR2024.pdf",
+  "edpl-b24": "EDPL B24.pdf",
   "pled-infinity-32-enviro-plus-n-series-e":
     "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
   "pl-reu-vcm2837-wc-external": "Parts List REU-VCM2837 WC External.pdf",
