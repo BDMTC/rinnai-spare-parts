@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T13:32:03.524314+00:00",
+  "generatedAt": "2026-11-13T13:38:52.160984+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
@@ -8,14 +8,15 @@
     "sourceRule": "Callout NO + RA/catalogue 8-digit from parts-list text; diagram page = first image-ish page of sheet (OCR optional); listPage + text-layer word bbox kept for PL highlight",
     "resolve": "Pick first hit matching pin seriesId / chassis token; else highest priority",
     "plHighlight": "listPage + listPageKey + listBox (pymupdf words); lightbox opens PL page when JPEG exists",
-    "hotfloPreserve": "Non-CF ehf*/ghf*/efinity hits from prior JSON are merged back after CF extract"
+    "hotfloPreserve": "Non-CF ehf*/ghf*/efinity hits from prior JSON are merged back after CF extract",
+    "ihf10Fm10": "Flowmaster FM10 / Hotflo IHF10 Instantaneous \u2014 cover-true SM IHF10.pdf + IHF10-Spare-Parts-List.pdf Issue 3 (RSP-131 stretch #84)"
   },
   "totals": {
     "sheetsConfigured": 49,
     "sheetsOk": 49,
     "sheetsMissing": 0,
-    "uniqueCodes": 732,
-    "codesInCatalogue": 467,
+    "uniqueCodes": 776,
+    "codesInCatalogue": 531,
     "codesInCatalogueWithPageAsset": 467,
     "codesInCatalogueWithListBox": 467,
     "codesInCatalogueWithListPageAsset": 467,
@@ -23,7 +24,9 @@
     "listPagesRendered": 156,
     "codesMultiChassis": 628,
     "cataloguePartsTotal": 6571,
-    "hotfloHitsPreserved": 30
+    "hotfloHitsPreserved": 30,
+    "ihf10Fm10Codes": 45,
+    "ihf10Fm10InCatalogue": 44
   },
   "sheets": [
     {
@@ -1670,6 +1673,38 @@
       ],
       "priority": 7,
       "path": "data-sheets/_duplicates_quarantine/REU-VCM2837 - External  PARTS LIST.pdf"
+    },
+    {
+      "file": "IHF10-Spare-Parts-List.pdf",
+      "stem": "pl-ihf10",
+      "status": "ok",
+      "pages": 5,
+      "diagramPages": [
+        3
+      ],
+      "listPages": [
+        1,
+        2
+      ],
+      "defaultDiagramPage": 3,
+      "rowsExtracted": 45,
+      "rowsInCatalogue": 44,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "fm10"
+      ],
+      "chassisTokens": [
+        "IHF10",
+        "FM10",
+        "FM10LA",
+        "FM10NA",
+        "Flowmaster",
+        "FLOWMASTER"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/IHF10-Spare-Parts-List.pdf",
+      "sourceSm": "IHF10.pdf",
+      "notes": "RA codes from IHF10.pdf \u00a711 text; PL JPEG pack from IHF10-Spare-Parts-List.pdf"
     }
   ],
   "parts": {
@@ -18370,6 +18405,30 @@
       }
     ],
     "92083773": [
+      {
+        "callout": "28a",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 2,
+        "listPageKey": "pl-ihf10__p2",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "FILTER WATER 0 LARGE",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 25
+      },
       {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
@@ -128183,6 +128242,1150 @@
         ],
         "priority": 18,
         "name": "ANODE"
+      }
+    ],
+    "92099801": [
+      {
+        "callout": "1",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "PANEL FRONT IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099823": [
+      {
+        "callout": "2",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "SCREW PANEL FRONT IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099833": [
+      {
+        "callout": "6",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "PILOT ASSY LP IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099805": [
+      {
+        "callout": "6",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "PILOT ASSY NG IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099830": [
+      {
+        "callout": "6.1",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "PILOT HEAD IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099839": [
+      {
+        "callout": "6.2",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "ELECTRODE IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099813": [
+      {
+        "callout": "6.3",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "FLAME ROD IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099815": [
+      {
+        "callout": "6.4",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "INJECTOR PILOT LP IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099840": [
+      {
+        "callout": "6.4",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "INJECTOR PILOT NG IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099807": [
+      {
+        "callout": "7",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "BURNER MAIN ASSY LP IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099802": [
+      {
+        "callout": "7",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "BURNER MAIN ASSY NG IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099828": [
+      {
+        "callout": "7.1",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "INJECTOR MAIN LP IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099809": [
+      {
+        "callout": "7.1",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "INJECTOR MAIN NG IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099803": [
+      {
+        "callout": "9",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "THERMISTOR IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099822": [
+      {
+        "callout": "10",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "HEAT EXCH IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099834": [
+      {
+        "callout": "10.1",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "VALVE PRESS RELIEF IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099818": [
+      {
+        "callout": "11",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "OHS IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099835": [
+      {
+        "callout": "13",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "FLUE TERMINAL MAIN IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099811": [
+      {
+        "callout": "14",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "FLUE BAFFLE IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099804": [
+      {
+        "callout": "15",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "FLUE SPACERS IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099814": [
+      {
+        "callout": "16",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "FLUE TERMINAL TOP IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099825": [
+      {
+        "callout": "17",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "GAS CONTROL LP IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099816": [
+      {
+        "callout": "17",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "GAS CONTROL NG IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099827": [
+      {
+        "callout": "17.1",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "VALVE GAS MOD LP IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099836": [
+      {
+        "callout": "17.1",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "VALVE GAS MOD NG IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099858": [
+      {
+        "callout": "18A",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "DIAPHRAGM WATER GOVERNOR",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099831": [
+      {
+        "callout": "18",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "WATER SECTION IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099812": [
+      {
+        "callout": "19",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "VALVE GAS SERVO IHF10 NG",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099851": [
+      {
+        "callout": "19",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "VALVE GAS SERVO IHF10 LPG",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099837": [
+      {
+        "callout": "21",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "BATTERY CASE IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099824": [
+      {
+        "callout": "22",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "PCB MAIN IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099817": [
+      {
+        "callout": "23",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "HARNESS WIRING IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099806": [
+      {
+        "callout": "25",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 1,
+        "listPageKey": "pl-ihf10__p1",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "PCB TEMP IHF 10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 24
+      }
+    ],
+    "92099829": [
+      {
+        "callout": "27",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 2,
+        "listPageKey": "pl-ihf10__p2",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "CLIP RETAINING IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 25
+      }
+    ],
+    "92099819": [
+      {
+        "callout": "28",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 2,
+        "listPageKey": "pl-ihf10__p2",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "INLET WATER IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 25
+      }
+    ],
+    "92099838": [
+      {
+        "callout": "29",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 2,
+        "listPageKey": "pl-ihf10__p2",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "RESTRICTOR WATER IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 25
+      }
+    ],
+    "92099808": [
+      {
+        "callout": "30",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 2,
+        "listPageKey": "pl-ihf10__p2",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "INLET PIPE IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 25
+      }
+    ],
+    "92099826": [
+      {
+        "callout": "33",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 2,
+        "listPageKey": "pl-ihf10__p2",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "TEST POINT REG INLET LP IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 25
+      }
+    ],
+    "92099820": [
+      {
+        "callout": "34",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 2,
+        "listPageKey": "pl-ihf10__p2",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "TEST POINT REG INLET NG IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 25
+      }
+    ],
+    "92099821": [
+      {
+        "callout": "35",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 2,
+        "listPageKey": "pl-ihf10__p2",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "REGULATOR LP IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 25
+      }
+    ],
+    "92099810": [
+      {
+        "callout": "35",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 2,
+        "listPageKey": "pl-ihf10__p2",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "REGULATOR NG IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 25
+      }
+    ],
+    "92099832": [
+      {
+        "callout": "36",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 2,
+        "listPageKey": "pl-ihf10__p2",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "ADAPTOR GAS IHF10",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 25
+      }
+    ],
+    "92099850": [
+      {
+        "callout": "37",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 2,
+        "listPageKey": "pl-ihf10__p2",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "GASKET",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 25
+      }
+    ],
+    "92099852": [
+      {
+        "callout": "38",
+        "page": "IHF10-Spare-Parts-List.pdf p3",
+        "pageKey": "pl-ihf10__p3",
+        "listPage": 2,
+        "listPageKey": "pl-ihf10__p2",
+        "pdf": "IHF10-Spare-Parts-List.pdf",
+        "stem": "pl-ihf10",
+        "seriesIds": [
+          "fm10"
+        ],
+        "chassisTokens": [
+          "IHF10",
+          "FM10",
+          "FM10LA",
+          "FM10NA",
+          "Flowmaster",
+          "FLOWMASTER"
+        ],
+        "priority": 22,
+        "name": "WATER FLOW ADJUSTMENT KIT",
+        "sourceSm": "IHF10.pdf",
+        "sourceSmPage": 25
       }
     ]
   }

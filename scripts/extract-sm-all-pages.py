@@ -52,6 +52,8 @@ UNIQUE_SM = {
     "sm-reu3203": "SM REU3203.pdf",
     "sm-v26": "SM V26.pdf",
     "sm-v26ffu": "SM V26FFU.pdf",
+    # Flowmaster FM10 / Hotflo IHF10 Instantaneous (cover: TO SUIT MODEL IHF10)
+    "sm-ihf10": "IHF10.pdf",
 }
 
 # Optional series thumb covers copied from pack page 1
@@ -79,6 +81,7 @@ SERIES_THUMBS = {
     "v2626": "sm-v26",
     "smartstart": "sm-smartstart",
     "v2632ffu": "sm-v26ffu",
+    "fm10": "sm-ihf10",
 }
 
 TARGET_WIDTH = 900

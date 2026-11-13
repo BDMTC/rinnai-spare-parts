@@ -18,6 +18,7 @@ import infinity323203 from "./assets/service-manual-pages/infinity32-3203__p1.jp
 import v2626 from "./assets/service-manual-pages/v2626__p1.jpg";
 import smartstart from "./assets/service-manual-pages/smartstart__p1.jpg";
 import v2632ffu from "./assets/service-manual-pages/v2632ffu__p1.jpg";
+import fm10 from "./assets/service-manual-pages/fm10__p1.jpg";
 import infinity26Internal from "./assets/service-manual-pages/infinity26-internal__p1.jpg";
 import infinity26Plus from "./assets/service-manual-pages/infinity26-plus__p1.jpg";
 import infinity26Smartstart from "./assets/service-manual-pages/infinity26-smartstart__p1.jpg";
@@ -121,6 +122,10 @@ const SM_PACK_GLOBS = {
   ),
   "sm-v26ffu": import.meta.glob(
     "./assets/service-manual-pages/sm-v26ffu__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-ihf10": import.meta.glob(
+    "./assets/service-manual-pages/sm-ihf10__p*.jpg",
     { eager: true, import: "default" }
   ),
 };
@@ -328,6 +333,12 @@ const SERIES_SERVICE_MANUALS = {
     label: "SM V26FFU.pdf p1",
     source: "SM V26FFU.pdf",
     packId: "sm-v26ffu",
+  },
+  fm10: {
+    url: fm10,
+    label: "IHF10.pdf p1",
+    source: "IHF10.pdf",
+    packId: "sm-ihf10",
   },
 };
 

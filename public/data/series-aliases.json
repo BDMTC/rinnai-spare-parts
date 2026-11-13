@@ -1544,7 +1544,7 @@
         "FLOWMASTER",
         "IHF10"
       ],
-      "notes": "RSP-95 matched: Flowmaster FM10LA/NA. Continuous-flow instantaneous; not Hotflo storage. No REU unit class.",
+      "notes": "RSP-95 matched: Flowmaster FM10LA/NA. Continuous-flow instantaneous; not Hotflo storage. No REU unit class. Cover-true SM IHF10.pdf (TO SUIT MODEL IHF10) + IHF10-Spare-Parts-List.pdf Issue 3 — same chassis as Hotflo IHF10 / DI Flowmaster FM10–IHF10 PLs.",
       "systemType": "continuous-flow-hot-water",
       "familyKey": "continuous_flow"
     },

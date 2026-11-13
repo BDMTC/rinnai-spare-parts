@@ -156,6 +156,10 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
     label: "Hotflo EHFA160 spare parts",
   },
+  fm10: {
+    page: "IHF10-Spare-Parts-List.pdf p3",
+    label: "IHF10 / Flowmaster FM10 exploded",
+  },
   ehfa250: {
     page: "EHFA  SPARE PARTS.pdf p1",
     label: "Hotflo EHFA spare parts (250)",
@@ -353,6 +357,7 @@ const ED_STEM_TO_PDF = {
   "pl-reu-vcm2837-wc-external": "Parts List REU-VCM2837 WC External.pdf",
   "pl-hotflo-ehfa160": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
   "pl-hotflo-ehfa-spare-parts": "EHFA  SPARE PARTS.pdf",
+  "pl-ihf10": "IHF10-Spare-Parts-List.pdf",
 };
 
 /**
