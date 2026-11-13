@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:file": "vite build --mode file",
+    "ocr:vendor": "node scripts/build-ocr-sidecar.mjs",
+    "build": "npm run ocr:vendor && vite build",
+    "build:file": "npm run ocr:vendor && vite build --mode file",
     "preview": "vite preview",
     "ingest": "node scripts/ingest-source-data.mjs",
     "sync:tech-sheets": "node scripts/sync-tech-sheets.mjs",
@@ -17,5 +18,8 @@
     "playwright": "^1.65.0",
     "vite": "^8.3.6",
     "xlsx": "^0.18.5"
+  },
+  "dependencies": {
+    "tesseract.js": "^5.1.1"
   }
 }
