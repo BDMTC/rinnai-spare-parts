@@ -2,76 +2,32 @@
  * Exploded-diagram page images for the search-panel thumb + lightbox.
  * Seed + continuous-flow extensions from document-index ED/EDPL sheets on disk.
  * Also honours part.diagramRef.url / .path when set.
+ *
+ * Part → page + callout bulk map: public/data/edpl-part-map.json
+ * (PDF text extract; chassis-scoped). Highlight boxes are separate / optional.
  */
-import edNSeriesP1 from "./assets/diagram-pages/ed-n-series-2020-in32-enviro__p1.jpg";
-import edNSeriesP2 from "./assets/diagram-pages/ed-n-series-2020-in32-enviro__p2.jpg";
-import edNSeriesP3 from "./assets/diagram-pages/ed-n-series-2020-in32-enviro__p3.jpg";
-import edplVrm2632wcP4 from "./assets/diagram-pages/edpl-reu-vrm2632wc__p4.jpg";
-import edplVrm2632wcP5 from "./assets/diagram-pages/edpl-reu-vrm2632wc__p5.jpg";
-import edplVrm2632wcP6 from "./assets/diagram-pages/edpl-reu-vrm2632wc__p6.jpg";
-import edplVrm2632wcP7 from "./assets/diagram-pages/edpl-reu-vrm2632wc__p7.jpg";
-import edplVr2632ffugP4 from "./assets/diagram-pages/edpl-reu-vr2632ffug__p4.jpg";
-import edplVr2632ffugP5 from "./assets/diagram-pages/edpl-reu-vr2632ffug__p5.jpg";
-import edplVr2632ffugP6 from "./assets/diagram-pages/edpl-reu-vr2632ffug__p6.jpg";
-import edplVr2632ffugP7 from "./assets/diagram-pages/edpl-reu-vr2632ffug__p7.jpg";
-import edplV2632ffuFfucP4 from "./assets/diagram-pages/edpl-v2632ffu-ffuc__p4.jpg";
-import edplV2632ffuFfucP5 from "./assets/diagram-pages/edpl-v2632ffu-ffuc__p5.jpg";
-import edplV2632ffuFfucP6 from "./assets/diagram-pages/edpl-v2632ffu-ffuc__p6.jpg";
-import edplV2632ffuFfucP7 from "./assets/diagram-pages/edpl-v2632ffu-ffuc__p7.jpg";
-import edplInf26PlusP6 from "./assets/diagram-pages/edpl-reuv2630wd-inf26plus__p6.jpg";
-import edplInf26PlusP7 from "./assets/diagram-pages/edpl-reuv2630wd-inf26plus__p7.jpg";
-import edplInf26PlusP8 from "./assets/diagram-pages/edpl-reuv2630wd-inf26plus__p8.jpg";
-import edplSmartstartP3 from "./assets/diagram-pages/edpl-smartstart__p3.jpg";
-import edplSmartstartP4 from "./assets/diagram-pages/edpl-smartstart__p4.jpg";
-import edplSmartstartP5 from "./assets/diagram-pages/edpl-smartstart__p5.jpg";
-import edplVrVrm3237P4 from "./assets/diagram-pages/edpl-vr-vrm3237__p4.jpg";
-import edplVrVrm3237P5 from "./assets/diagram-pages/edpl-vr-vrm3237__p5.jpg";
-import edplVrVrm3237P6 from "./assets/diagram-pages/edpl-vr-vrm3237__p6.jpg";
-import edplVrVrm3237P7 from "./assets/diagram-pages/edpl-vr-vrm3237__p7.jpg";
-import pledNSeriesP6 from "./assets/diagram-pages/pled-infinity-32-enviro-plus-n-series-e__p6.jpg";
-import pledNSeriesP7 from "./assets/diagram-pages/pled-infinity-32-enviro-plus-n-series-e__p7.jpg";
-import pledNSeriesP8 from "./assets/diagram-pages/pled-infinity-32-enviro-plus-n-series-e__p8.jpg";
-import pledNSeriesP9 from "./assets/diagram-pages/pled-infinity-32-enviro-plus-n-series-e__p9.jpg";
+import edplPartMap from "../public/data/edpl-part-map.json";
+
+/** Eager URL map for every rendered ED page JPEG under assets/diagram-pages. */
+const pageModules = import.meta.glob("./assets/diagram-pages/*.jpg", {
+  eager: true,
+  import: "default",
+});
 
 /** @type {Record<string, string>} */
-const DIAGRAM_PAGE_URLS = {
-  "ed-n-series-2020-in32-enviro__p1": edNSeriesP1,
-  "ed-n-series-2020-in32-enviro__p2": edNSeriesP2,
-  "ed-n-series-2020-in32-enviro__p3": edNSeriesP3,
-  "edpl-reu-vrm2632wc__p4": edplVrm2632wcP4,
-  "edpl-reu-vrm2632wc__p5": edplVrm2632wcP5,
-  "edpl-reu-vrm2632wc__p6": edplVrm2632wcP6,
-  "edpl-reu-vrm2632wc__p7": edplVrm2632wcP7,
-  "edpl-reu-vr2632ffug__p4": edplVr2632ffugP4,
-  "edpl-reu-vr2632ffug__p5": edplVr2632ffugP5,
-  "edpl-reu-vr2632ffug__p6": edplVr2632ffugP6,
-  "edpl-reu-vr2632ffug__p7": edplVr2632ffugP7,
-  "edpl-v2632ffu-ffuc__p4": edplV2632ffuFfucP4,
-  "edpl-v2632ffu-ffuc__p5": edplV2632ffuFfucP5,
-  "edpl-v2632ffu-ffuc__p6": edplV2632ffuFfucP6,
-  "edpl-v2632ffu-ffuc__p7": edplV2632ffuFfucP7,
-  "edpl-reuv2630wd-inf26plus__p6": edplInf26PlusP6,
-  "edpl-reuv2630wd-inf26plus__p7": edplInf26PlusP7,
-  "edpl-reuv2630wd-inf26plus__p8": edplInf26PlusP8,
-  "edpl-smartstart__p3": edplSmartstartP3,
-  "edpl-smartstart__p4": edplSmartstartP4,
-  "edpl-smartstart__p5": edplSmartstartP5,
-  "edpl-vr-vrm3237__p4": edplVrVrm3237P4,
-  "edpl-vr-vrm3237__p5": edplVrVrm3237P5,
-  "edpl-vr-vrm3237__p6": edplVrVrm3237P6,
-  "edpl-vr-vrm3237__p7": edplVrVrm3237P7,
-  "pled-infinity-32-enviro-plus-n-series-e__p6": pledNSeriesP6,
-  "pled-infinity-32-enviro-plus-n-series-e__p7": pledNSeriesP7,
-  "pled-infinity-32-enviro-plus-n-series-e__p8": pledNSeriesP8,
-  "pled-infinity-32-enviro-plus-n-series-e__p9": pledNSeriesP9,
-};
+const DIAGRAM_PAGE_URLS = {};
+for (const [modPath, url] of Object.entries(pageModules)) {
+  const base = String(modPath).split("/").pop() || "";
+  const key = base.replace(/\.jpg$/i, "").toLowerCase();
+  if (key) DIAGRAM_PAGE_URLS[key] = url;
+}
 
 /**
- * Known part code → ED page (from chassis EDPL parts list / callouts).
+ * Legacy hardmap (kept as last-chance override before series default).
+ * Prefer edpl-part-map.json for catalogue coverage.
  * @type {Record<string, { page: string, callout?: string }>}
  */
 const PART_DIAGRAM_PAGES = {
-  // HD200e / REU-VRM2632WC — HEX is callout 140 on ED page 5
   "92093550": {
     page: "EDPL REU-VRM2632WC.pdf p5",
     callout: "140",
@@ -80,7 +36,7 @@ const PART_DIAGRAM_PAGES = {
 
 /**
  * Pin1 series id → default / common ED page when the primary hit has no
- * assembly/diagramRef mapping yet.
+ * assembly/diagramRef / edpl-part-map mapping yet.
  * @type {Record<string, { page: string, label?: string }>}
  */
 const SERIES_DIAGRAM_DEFAULT = {
@@ -226,7 +182,13 @@ export function diagramPdfFileName(pageKeyOrLabel) {
   const key = diagramPageKey(raw) || "";
   if (!key) return null;
   const stem = String(key).replace(/__p\d+$/i, "");
-  return ED_STEM_TO_PDF[stem] || null;
+  if (ED_STEM_TO_PDF[stem]) return ED_STEM_TO_PDF[stem];
+  // Fall back to edpl-part-map sheet registry
+  const sheets = edplPartMap?.sheets || [];
+  for (const s of sheets) {
+    if (s?.stem === stem && s?.file) return s.file;
+  }
+  return null;
 }
 
 /** @type {Record<string, string>} */
@@ -240,6 +202,7 @@ const ED_STEM_TO_PDF = {
   "edpl-vr-vrm3237": "EDPL VR_VRM3237.pdf",
   "pled-infinity-32-enviro-plus-n-series-e":
     "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
+  "pl-reu-vcm2837-wc-external": "Parts List REU-VCM2837 WC External.pdf",
 };
 
 /**
@@ -265,9 +228,10 @@ function escapeRegExp(text) {
  */
 function toDiagramResult(hit) {
   if (!hit?.page) return null;
-  const url = diagramPageUrl(hit.page);
+  const url = diagramPageUrl(hit.page) || diagramPageUrl(hit.pageKey);
   if (!url) return null;
-  const pageKey = diagramPageKey(hit.page);
+  const pageKey =
+    diagramPageKey(hit.pageKey) || diagramPageKey(hit.page) || null;
   const pages = diagramPageSiblings(pageKey || hit.page);
   const pageIndex = Math.max(
     0,
@@ -322,9 +286,109 @@ function diagramFromPin(pin) {
 }
 
 /**
+ * Normalise chassis / series tokens for matching.
+ * @param {string} text
+ */
+function normToken(text) {
+  return String(text || "")
+    .toUpperCase()
+    .replace(/[^A-Z0-9]+/g, "");
+}
+
+/**
+ * Pin context tokens for chassis-scoped EDPL pick.
+ * @param {object|null|undefined} pin
+ */
+function pinMatchContext(pin) {
+  if (!pin || pin.kind === "none") {
+    return { seriesId: "", tokens: [] };
+  }
+  const seriesId = pin.series?.id ? String(pin.series.id).toLowerCase() : "";
+  const tokens = [
+    seriesId,
+    pin.series?.label,
+    ...(pin.series?.documentKeys || []),
+    ...(pin.series?.aliases || []),
+    pin.model?.itemNumber,
+    pin.model?.sku,
+    pin.model?.id,
+  ]
+    .filter(Boolean)
+    .map(normToken)
+    .filter(Boolean);
+  return { seriesId, tokens };
+}
+
+/**
+ * @param {{ seriesIds?: string[] }|null|undefined} edplHit
+ */
+function seriesDefaultForHit(edplHit) {
+  for (const id of edplHit?.seriesIds || []) {
+    const key = String(id || "").toLowerCase();
+    if (key && SERIES_DIAGRAM_DEFAULT[key]) return SERIES_DIAGRAM_DEFAULT[key];
+  }
+  return null;
+}
+
+/**
+ * Pick chassis-scoped EDPL hit for a part code.
+ * @param {string} code
+ * @param {object|null|undefined} pin
+ * @returns {{ page: string, pageKey?: string, callout?: string, label?: string, seriesIds?: string[] }|null}
+ */
+export function pickEdplPartHit(code, pin) {
+  const raw = String(code || "").trim();
+  if (!raw) return null;
+  const hits = edplPartMap?.parts?.[raw];
+  if (!Array.isArray(hits) || !hits.length) return null;
+
+  const { seriesId, tokens } = pinMatchContext(pin);
+  if (seriesId || tokens.length) {
+    for (const hit of hits) {
+      const seriesIds = (hit.seriesIds || []).map((s) => String(s).toLowerCase());
+      if (seriesId && seriesIds.includes(seriesId)) {
+        return {
+          page: hit.pageKey || hit.page,
+          pageKey: hit.pageKey,
+          callout: hit.callout,
+          label: hit.page || hit.pdf,
+          seriesIds: hit.seriesIds || [],
+        };
+      }
+    }
+    for (const hit of hits) {
+      const chassis = (hit.chassisTokens || []).map(normToken);
+      if (
+        chassis.some((c) =>
+          tokens.some((t) => t.includes(c) || c.includes(t))
+        )
+      ) {
+        return {
+          page: hit.pageKey || hit.page,
+          pageKey: hit.pageKey,
+          callout: hit.callout,
+          label: hit.page || hit.pdf,
+          seriesIds: hit.seriesIds || [],
+        };
+      }
+    }
+  }
+
+  // No pin / no chassis match → highest-priority hit (extract order)
+  const hit = hits[0];
+  return {
+    page: hit.pageKey || hit.page,
+    pageKey: hit.pageKey,
+    callout: hit.callout,
+    label: hit.page || hit.pdf,
+    seriesIds: hit.seriesIds || [],
+  };
+}
+
+/**
  * Resolve the best diagram page image for a part (Primary hit).
- * Prefer explicit diagramRef, then known part pages, assembly hierarchy,
- * then dual-pin chassis → common ED fallback.
+ * Prefer explicit diagramRef, then edpl-part-map (chassis-scoped), known hardmap,
+ * assembly hierarchy, then dual-pin chassis → common ED fallback.
  *
  * @param {object|null|undefined} part
  * @param {object|null|undefined} assemblyIndex  from buildAssemblyIndex
@@ -361,6 +425,26 @@ export function resolvePartDiagram(part, assemblyIndex, opts = {}) {
   }
 
   const code = String(part.code || "").trim();
+  const edplHit = pickEdplPartHit(code, opts.pin || null);
+  if (edplHit) {
+    const hit = toDiagramResult(edplHit);
+    if (hit) return { kind: "ed", ...hit };
+    // Map has callout/page label but no rendered JPEG for that stem — keep
+    // callout and fall back to series/existing page pack image (Beau B).
+    const fallbackPage =
+      diagramFromPin(opts.pin || null) ||
+      seriesDefaultForHit(edplHit) ||
+      null;
+    if (fallbackPage) {
+      const fb = toDiagramResult({
+        page: fallbackPage.page,
+        label: edplHit.label || fallbackPage.label || fallbackPage.page,
+        callout: edplHit.callout,
+      });
+      if (fb) return { kind: "ed", ...fb };
+    }
+  }
+
   if (code && PART_DIAGRAM_PAGES[code]) {
     const hit = toDiagramResult(PART_DIAGRAM_PAGES[code]);
     if (hit) return { kind: "ed", ...hit };
@@ -403,4 +487,13 @@ export function resolvePartDiagram(part, assemblyIndex, opts = {}) {
   }
 
   return null;
+}
+
+/** Coverage helpers for reports / smoke. */
+export function edplPartMapTotals() {
+  return edplPartMap?.totals || null;
+}
+
+export function edplMappedCodeCount() {
+  return Object.keys(edplPartMap?.parts || {}).length;
 }
