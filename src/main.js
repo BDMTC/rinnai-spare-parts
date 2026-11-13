@@ -93,6 +93,7 @@ import {
   enqueueChange,
 } from "./admin-overrides.js";
 import { buildFlagIssueMailto } from "./flag-issue.js";
+import { bindNewsTicker } from "./news-ticker.js";
 import {
   appendFeedback,
   buildFeedbackMailto,
@@ -837,41 +838,54 @@ function renderShell() {
             </label>
           </div>
 
-          <div class="field series-field">
-            <span class="field-label" id="series-label">Pin 2 · Series</span>
-            <div class="model-picker" id="series-picker">
-              <div class="model-picker-row">
-                <input
-                  id="series-input"
-                  type="text"
-                  role="combobox"
-                  aria-labelledby="series-label"
-                  aria-autocomplete="list"
-                  aria-controls="series-listbox"
-                  aria-expanded="false"
-                  placeholder="Choose the type of system above first"
-                  spellcheck="false"
-                  autocomplete="off"
-                  disabled
-                />
-                <button
-                  type="button"
-                  class="model-clear"
-                  id="series-clear"
-                  aria-label="Clear series pin"
+          <div class="pin2-ticker-row">
+            <div class="field series-field">
+              <span class="field-label" id="series-label">Pin 2 · Series</span>
+              <div class="model-picker" id="series-picker">
+                <div class="model-picker-row">
+                  <input
+                    id="series-input"
+                    type="text"
+                    role="combobox"
+                    aria-labelledby="series-label"
+                    aria-autocomplete="list"
+                    aria-controls="series-listbox"
+                    aria-expanded="false"
+                    placeholder="Choose the type of system above first"
+                    spellcheck="false"
+                    autocomplete="off"
+                    disabled
+                  />
+                  <button
+                    type="button"
+                    class="model-clear"
+                    id="series-clear"
+                    aria-label="Clear series pin"
+                    hidden
+                  >
+                    ×
+                  </button>
+                </div>
+                <input type="hidden" id="series-pin" name="series" value="" />
+                <ul
+                  class="model-listbox"
+                  id="series-listbox"
+                  role="listbox"
                   hidden
-                >
-                  ×
-                </button>
+                ></ul>
               </div>
-              <input type="hidden" id="series-pin" name="series" value="" />
-              <ul
-                class="model-listbox"
-                id="series-listbox"
-                role="listbox"
-                hidden
-              ></ul>
             </div>
+
+            <aside
+              class="news-ticker"
+              id="news-ticker"
+              aria-label="Weather, Brisbane traffic, Queensland news, and Rinnai updates"
+            >
+              <span class="news-ticker-label">Ticker</span>
+              <div class="news-ticker-viewport">
+                <div class="news-ticker-track" role="list"></div>
+              </div>
+            </aside>
           </div>
 
           <div class="pin3-search-visuals-row pin2-search-visuals-row">
@@ -1128,8 +1142,16 @@ function renderShell() {
             <article class="help-tip">
               <h3 class="help-tip-title">1. Three pins — type, series, Item Number</h3>
               <p class="help-tip-copy">
-                <strong>Pin 1 = Type of system</strong> (ruling class; Continuous Flow Hot Water Systems for CF units).
-                Flashing <strong>Everything</strong> at the bottom of Pin 1 overrides Pins 2–3 and searches every part by the search term only.
+                <strong>Pin 1 · Type of system</strong> is the ruling class for the whole search.
+                Pick the family you are working on first (e.g. Continuous Flow Hot Water Systems for Infinity / HD / REU CF units).
+                That narrows Pin 2 series and Pin 3 Item Numbers to that class so results stay on the right product line.
+              </p>
+              <p class="help-tip-copy">
+                At the <strong>bottom</strong> of the Pin 1 list is a flashing
+                <strong>Everything</strong> option. Choose it when you do not want a system class:
+                it <strong>overrides Pins 2 and 3</strong> and searches <em>every</em> part in the catalogue by your search term only.
+              </p>
+              <p class="help-tip-copy">
                 <strong>Pin 2 = Series</strong> (e.g. Infinity 26, HD210e) with the commercial name.
                 <strong>Pin 3 = full Item Number</strong> only (e.g. <code>REU-AM2626WD-50-AKN</code> or <code>HD210EN42</code>), filtered to that series — locked until Pin 2 is set; commercial names stay visible in the list.
                 Part search scopes to that Item Number’s chassis once Pin 3 is set. For HEX / heat-exchanger style concept searches, pin Pin 3 so one orange Primary doesn’t hide other chassis.
@@ -3022,6 +3044,11 @@ function bindEvents() {
   updateCartBadge();
   bindOpsPanelsReveal();
   renderAdminPanel();
+  try {
+    bindNewsTicker(document);
+  } catch {
+    /* ticker must never break boot / file:// */
+  }
 }
 
 async function boot() {
