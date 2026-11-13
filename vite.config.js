@@ -278,6 +278,38 @@ function lightboxPdfDataScripts() {
       id: "SM-EHPS-BE-ISSUE1",
       file: "SM - RINNAI - B  E SERIES HEAT PUMP - EHPS (VM VMT) - ISSUE 1 - NOV 2023.pdf",
     },
+    {
+      id: "PL-EHPG-265VMT-ISSUE4",
+      file: "PL - RINNAI - GR SERIES HEAT PUMP - EHPG265VMT - ISSUE 4 - DEC 2025.pdf",
+    },
+    {
+      id: "PL-EHPG-250VMP-ISSUE3",
+      file: "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf",
+    },
+    {
+      id: "SPL-EHPG-XXVM-ISSUE5",
+      file: "SPL - RINNAI - GR SERIES_EHPGxxVM - ISSUE 5 - MAY 2026.pdf",
+    },
+    {
+      id: "PL-EHPA-VMA-ISSUE7",
+      file: "PL - RINNAI - ENVIROFLO VMA V2 HEAT PUMP - ISSUE 7 - AUG 2024.pdf",
+    },
+    {
+      id: "PL-CHP-ISSUE6",
+      file: "PL - COMMERCIAL HEAT PUMP - ISSUE 6 - OCT 2025.pdf",
+    },
+    {
+      id: "SM-EHPG-GR-ISSUE1",
+      file: "SM - RINNAI - GR SERIES HEAT PUMP EHPGxxVM, VMT, VMP - ISSUE 1 - MARCH 2025.pdf",
+    },
+    {
+      id: "SM-EHPA-VMA-ISSUE3",
+      file: "SM - RINNAI - ENVIROFLO HEAT PUMP - VMA V2 - ISSUE 3 - JUN 2024.pdf",
+    },
+    {
+      id: "SM-CHP-ISSUE2",
+      file: "SM - RINNAI - COMM HEAT PUMP CHP020 CHP040 - ISSUE 2 - OCT 2025.pdf",
+    },
   ];
 
   function buildScriptSource(fileName) {

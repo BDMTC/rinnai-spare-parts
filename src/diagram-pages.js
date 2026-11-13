@@ -200,6 +200,18 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "pl-ehps-215vm-issue4__p1",
     label: "EHPS 215VM Issue 4 (B Series; E Series shares SM)",
   },
+  "ehpg-gr": {
+    page: "pl-ehpg-265vmt-issue4__p3",
+    label: "EHPG265VMT Issue 4 (GR Series)",
+  },
+  "ehpa-vma": {
+    page: "pl-ehpa-vma-issue7__p2",
+    label: "Enviroflo VMA V2 Issue 7",
+  },
+  chp: {
+    page: "pl-chp-issue6__p1",
+    label: "Commercial Heat Pump CHP020/040 Issue 6",
+  },
   hdc211e: {
     page: "pl-reu-km3237wdc-hdc211e-issue03__p5",
     label: "HDC211e KM3237WDC Issue 03",
@@ -488,6 +500,15 @@ const ED_STEM_TO_PDF = {
     "PL - RINNAI - B SERIES HEAT PUMP - EHPS 215VM - ISSUE 4 - NOV 2025.pdf",
   "pl-ehps-265vmt-issue4":
     "PL - RINNAI - E SERIES HEAT PUMP - EHPS 265VMT - ISSUE 4 - NOV 2025.pdf",
+  "pl-ehpg-265vmt-issue4":
+    "PL - RINNAI - GR SERIES HEAT PUMP - EHPG265VMT - ISSUE 4 - DEC 2025.pdf",
+  "pl-ehpg-250vmp-issue3":
+    "PL- RINNAI - GR SERIES HEAT PUMP - EHPG250VMP - ISSUE 3 - DEC 2025.pdf",
+  "pl-ehpg-xxvm-issue5":
+    "SPL - RINNAI - GR SERIES_EHPGxxVM - ISSUE 5 - MAY 2026.pdf",
+  "pl-ehpa-vma-issue7":
+    "PL - RINNAI - ENVIROFLO VMA V2 HEAT PUMP - ISSUE 7 - AUG 2024.pdf",
+  "pl-chp-issue6": "PL - COMMERCIAL HEAT PUMP - ISSUE 6 - OCT 2025.pdf",
 };
 
 /**

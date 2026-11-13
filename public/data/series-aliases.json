@@ -1804,7 +1804,7 @@
         "Enviroflo",
         "VMA"
       ],
-      "notes": "RSP-95 matched: EHPA250VMA/H \u2192 Enviroflo VMA V2 PL.",
+      "notes": "HP wave2: Enviroflo VMA V2 Issue7 PL; cover-true SM Enviroflo VMA V2 Issue3.",
       "systemType": "heat-pump-hot-water",
       "familyKey": "heat_pump"
     },
@@ -1826,11 +1826,14 @@
       "documentKeys": [
         "EHPG",
         "EHPG215VM",
+        "EHPG250VMP",
+        "EHPG265VM",
+        "EHPG265VMT",
         "EHPG280VM",
         "EHPG300VM",
         "GR SERIES"
       ],
-      "notes": "RSP-95 matched: EHPGxxVM \u2192 GR series SPL/SM.",
+      "notes": "HP wave2: EHPG265VMT Issue4 + EHPG250VMP Issue3 + EHPGxxVM SPL Issue5; cover-true SM GR Series Issue1.",
       "systemType": "heat-pump-hot-water",
       "familyKey": "heat_pump"
     },
@@ -1937,7 +1940,7 @@
         "CHP020H",
         "CHP040H"
       ],
-      "notes": "RSP-95 matched: CHP020H/CHP040H \u2192 commercial heat pump SM.",
+      "notes": "HP wave2: Commercial Heat Pump Issue6 PL (CHP020/040); cover-true SM CHP020/040 Issue2.",
       "systemType": "commercial-heat-pump",
       "familyKey": "commercial_other_hw"
     },

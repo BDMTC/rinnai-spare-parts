@@ -47,6 +47,9 @@ import efinityEcf from "./assets/service-manual-pages/efinity-ecf__p1.jpg";
 import ehptA from "./assets/service-manual-pages/ehpt-a__p1.jpg";
 import ehpaAr from "./assets/service-manual-pages/ehpa-ar__p1.jpg";
 import ehpsBe from "./assets/service-manual-pages/ehps-be__p1.jpg";
+import ehpgGr from "./assets/service-manual-pages/ehpg-gr__p1.jpg";
+import ehpaVma from "./assets/service-manual-pages/ehpa-vma__p1.jpg";
+import chp from "./assets/service-manual-pages/chp__p1.jpg";
 
 /** @type {Record<string, Record<string, string>>} */
 const SM_PACK_GLOBS = {
@@ -180,6 +183,18 @@ const SM_PACK_GLOBS = {
   ),
   "sm-ehps-be": import.meta.glob(
     "./assets/service-manual-pages/sm-ehps-be__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-ehpg-gr": import.meta.glob(
+    "./assets/service-manual-pages/sm-ehpg-gr__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-ehpa-vma": import.meta.glob(
+    "./assets/service-manual-pages/sm-ehpa-vma__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-chp": import.meta.glob(
+    "./assets/service-manual-pages/sm-chp__p*.jpg",
     { eager: true, import: "default" }
   ),
 };
@@ -489,6 +504,30 @@ const SERIES_SERVICE_MANUALS = {
     source:
       "SM - RINNAI - B  E SERIES HEAT PUMP - EHPS (VM VMT) - ISSUE 1 - NOV 2023.pdf",
     packId: "sm-ehps-be",
+  },
+  "ehpg-gr": {
+    url: ehpgGr,
+    label:
+      "SM - RINNAI - GR SERIES HEAT PUMP EHPGxxVM, VMT, VMP - ISSUE 1 - MARCH 2025.pdf p1",
+    source:
+      "SM - RINNAI - GR SERIES HEAT PUMP EHPGxxVM, VMT, VMP - ISSUE 1 - MARCH 2025.pdf",
+    packId: "sm-ehpg-gr",
+  },
+  "ehpa-vma": {
+    url: ehpaVma,
+    label:
+      "SM - RINNAI - ENVIROFLO HEAT PUMP - VMA V2 - ISSUE 3 - JUN 2024.pdf p1",
+    source:
+      "SM - RINNAI - ENVIROFLO HEAT PUMP - VMA V2 - ISSUE 3 - JUN 2024.pdf",
+    packId: "sm-ehpa-vma",
+  },
+  chp: {
+    url: chp,
+    label:
+      "SM - RINNAI - COMM HEAT PUMP CHP020 CHP040 - ISSUE 2 - OCT 2025.pdf p1",
+    source:
+      "SM - RINNAI - COMM HEAT PUMP CHP020 CHP040 - ISSUE 2 - OCT 2025.pdf",
+    packId: "sm-chp",
   },
 };
 
