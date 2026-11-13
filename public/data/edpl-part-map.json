@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T12:23:31.082550+00:00",
+  "generatedAt": "2026-11-13T12:27:46.137971+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
@@ -8,7 +8,6 @@
     "sourceRule": "Callout NO + RA/catalogue 8-digit from parts-list text; diagram page = first image-ish page of sheet (OCR optional); listPage + text-layer word bbox kept for PL highlight",
     "resolve": "Pick first hit matching pin seriesId / chassis token; else highest priority",
     "plHighlight": "listPage + listPageKey + listBox (pymupdf words); lightbox opens PL page when JPEG exists",
-    "hotfloEhfa160": "Matrix PL+ED proof (RSP-131 stretch); single page; carry-forward model rows",
     "hotfloMatrix": "EHFA160 + EHFA SPARE PARTS (250/315) matrix PL/ED; carry-forward rows"
   },
   "totals": {
@@ -17,15 +16,13 @@
     "sheetsMissing": 0,
     "uniqueCodes": 726,
     "codesInCatalogue": 484,
-    "codesInCatalogueWithPageAsset": 373,
+    "codesInCatalogueWithPageAsset": 412,
     "codesInCatalogueWithListBox": 463,
-    "codesInCatalogueWithListPageAsset": 203,
+    "codesInCatalogueWithListPageAsset": 242,
     "listBoxesExtracted": 4624,
-    "listPagesRendered": 21,
+    "listPagesRendered": 25,
     "codesMultiChassis": 631,
     "cataloguePartsTotal": 6571,
-    "hotfloEhfa160Codes": 14,
-    "hotfloEhfa160InCatalogue": 13,
     "hotfloMatrixSheetsOk": 2
   },
   "sheets": [
@@ -1589,8 +1586,8 @@
       "rowsInCatalogue": 15,
       "rowsWithListBox": 16,
       "seriesIds": [
-        "ehfa315",
-        "ehfa250"
+        "ehfa250",
+        "ehfa315"
       ],
       "chassisTokens": [
         "EHFA",
@@ -15402,13 +15399,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.54435,
+          "y": 0.58883,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -15472,13 +15470,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.54435,
+          "y": 0.58883,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -16392,13 +16391,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.58883,
+          "y": 0.63331,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -16462,13 +16462,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.58883,
+          "y": 0.63331,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "406",
@@ -17932,13 +17933,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.72227,
+          "y": 0.76675,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -18002,13 +18004,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.72227,
+          "y": 0.76675,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "402",
@@ -19829,13 +19832,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.4938,
-          "y": 0.76675,
+          "y": 0.81124,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -19899,13 +19903,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.4938,
-          "y": 0.76675,
+          "y": 0.81124,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -24404,13 +24409,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49371,
-          "y": 0.32194,
+          "y": 0.36641,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -24474,13 +24480,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49371,
-          "y": 0.32194,
+          "y": 0.36641,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "121",
@@ -26128,13 +26135,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49371,
-          "y": 0.36642,
+          "y": 0.41089,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -26152,13 +26160,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49371,
-          "y": 0.36642,
+          "y": 0.41089,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "717",
@@ -32304,13 +32313,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.61107,
+          "y": 0.65554,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -32374,13 +32384,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.61107,
+          "y": 0.65554,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "414",
@@ -35971,13 +35982,14 @@
         ],
         "priority": 8,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49376,
-          "y": 0.4109,
+          "x": 0.49378,
+          "y": 0.45539,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -36041,13 +36053,14 @@
         ],
         "priority": 7,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49376,
-          "y": 0.4109,
+          "x": 0.49378,
+          "y": 0.45539,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "816",
@@ -37632,13 +37645,14 @@
         ],
         "priority": 8,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49378,
-          "y": 0.67779,
+          "x": 0.4938,
+          "y": 0.72227,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -37702,13 +37716,14 @@
         ],
         "priority": 7,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49378,
-          "y": 0.67779,
+          "x": 0.4938,
+          "y": 0.72227,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "818",
@@ -39379,13 +39394,14 @@
         ],
         "priority": 8,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49376,
-          "y": 0.45539,
+          "x": 0.49378,
+          "y": 0.49987,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -39449,13 +39465,14 @@
         ],
         "priority": 7,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49376,
-          "y": 0.45539,
+          "x": 0.49378,
+          "y": 0.49987,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "812",
@@ -41192,13 +41209,14 @@
         ],
         "priority": 8,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49376,
-          "y": 0.47763,
+          "x": 0.49378,
+          "y": 0.52211,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "2",
@@ -41262,13 +41280,14 @@
         ],
         "priority": 7,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49376,
-          "y": 0.47763,
+          "x": 0.49378,
+          "y": 0.52211,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "813",
@@ -42845,13 +42864,14 @@
         ],
         "priority": 8,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49376,
-          "y": 0.49987,
+          "x": 0.49378,
+          "y": 0.54435,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -42915,13 +42935,14 @@
         ],
         "priority": 7,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49376,
-          "y": 0.49987,
+          "x": 0.49378,
+          "y": 0.54435,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "814",
@@ -44469,13 +44490,14 @@
         ],
         "priority": 8,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49376,
-          "y": 0.43315,
+          "x": 0.49378,
+          "y": 0.47763,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -44539,13 +44561,14 @@
         ],
         "priority": 7,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49376,
-          "y": 0.43315,
+          "x": 0.49378,
+          "y": 0.47763,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "815",
@@ -46073,13 +46096,14 @@
         ],
         "priority": 8,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49376,
-          "y": 0.52211,
+          "x": 0.49378,
+          "y": 0.56659,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "2",
@@ -46143,13 +46167,14 @@
         ],
         "priority": 7,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49376,
-          "y": 0.52211,
+          "x": 0.49378,
+          "y": 0.56659,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "811",
@@ -53331,13 +53356,14 @@
         ],
         "priority": 8,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.58883,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -53353,14 +53379,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "edpl-v2632ffu-ffuc__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
-          "x": 0.46464,
-          "y": 0.38476,
-          "w": 0.07572,
-          "h": 0.02212
+          "x": 0.49376,
+          "y": 0.58883,
+          "w": 0.08618,
+          "h": 0.02815
         },
-        "listPdf": "EDPL V2632FFU_FFUC.pdf"
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "101",
@@ -53376,14 +53402,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "edpl-v2632ffu-ffuc__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
-          "x": 0.46464,
-          "y": 0.38476,
-          "w": 0.07572,
-          "h": 0.02212
+          "x": 0.49376,
+          "y": 0.58883,
+          "w": 0.08618,
+          "h": 0.02815
         },
-        "listPdf": "EDPL V2632FFU_FFUC.pdf"
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -53401,13 +53427,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.58883,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "101",
@@ -53491,14 +53518,14 @@
         ],
         "priority": 5,
         "listPage": 1,
-        "listPageKey": "edpl-v2632ffu-ffuc__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
-          "x": 0.46464,
-          "y": 0.38476,
-          "w": 0.07572,
-          "h": 0.02212
+          "x": 0.49376,
+          "y": 0.58883,
+          "w": 0.08618,
+          "h": 0.02815
         },
-        "listPdf": "EDPL V2632FFU_FFUC.pdf"
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "101",
@@ -53514,14 +53541,14 @@
         ],
         "priority": 5,
         "listPage": 1,
-        "listPageKey": "edpl-v2632ffu-ffuc__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
-          "x": 0.46464,
-          "y": 0.38476,
-          "w": 0.07572,
-          "h": 0.02212
+          "x": 0.49376,
+          "y": 0.58883,
+          "w": 0.08618,
+          "h": 0.02815
         },
-        "listPdf": "EDPL V2632FFU_FFUC.pdf"
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -53628,14 +53655,14 @@
         ],
         "priority": 2,
         "listPage": 1,
-        "listPageKey": "edpl-v2632ffu-ffuc__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
-          "x": 0.46464,
-          "y": 0.38476,
-          "w": 0.07572,
-          "h": 0.02212
+          "x": 0.49376,
+          "y": 0.58883,
+          "w": 0.08618,
+          "h": 0.02815
         },
-        "listPdf": "EDPL V2632FFU_FFUC.pdf"
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "101",
@@ -53649,14 +53676,14 @@
         ],
         "priority": 2,
         "listPage": 1,
-        "listPageKey": "edpl-v2632ffu-ffuc__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
-          "x": 0.46464,
-          "y": 0.38476,
-          "w": 0.07572,
-          "h": 0.02212
+          "x": 0.49376,
+          "y": 0.58883,
+          "w": 0.08618,
+          "h": 0.02815
         },
-        "listPdf": "EDPL V2632FFU_FFUC.pdf"
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -53672,14 +53699,14 @@
         ],
         "priority": 2,
         "listPage": 1,
-        "listPageKey": "edpl-v2632ffu-ffuc__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
-          "x": 0.46464,
-          "y": 0.38476,
-          "w": 0.07572,
-          "h": 0.02212
+          "x": 0.49376,
+          "y": 0.58883,
+          "w": 0.08618,
+          "h": 0.02815
         },
-        "listPdf": "EDPL V2632FFU_FFUC.pdf"
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "101",
@@ -53695,14 +53722,14 @@
         ],
         "priority": 2,
         "listPage": 1,
-        "listPageKey": "edpl-v2632ffu-ffuc__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
-          "x": 0.46464,
-          "y": 0.38476,
-          "w": 0.07572,
-          "h": 0.02212
+          "x": 0.49376,
+          "y": 0.58883,
+          "w": 0.08618,
+          "h": 0.02815
         },
-        "listPdf": "EDPL V2632FFU_FFUC.pdf"
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92092089": [
@@ -55711,13 +55738,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49371,
-          "y": 0.2997,
+          "y": 0.34417,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -55735,13 +55763,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49371,
-          "y": 0.2997,
+          "y": 0.34417,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "706",
@@ -56818,13 +56847,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.43315,
+          "y": 0.47762,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -56888,13 +56918,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.43315,
+          "y": 0.47762,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "138",
@@ -58367,13 +58398,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.63331,
+          "y": 0.67779,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -58391,13 +58423,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.63331,
+          "y": 0.67779,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92099237": [
@@ -89016,13 +89049,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49371,
-          "y": 0.83334,
+          "y": 0.87781,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -89040,13 +89074,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49371,
-          "y": 0.83334,
+          "y": 0.87781,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92099585": [
@@ -89817,13 +89852,14 @@
         ],
         "priority": 8,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.54435,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -89839,13 +89875,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-rinnai-2025-bm-series-infinity-b__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
-          "x": 0.16204,
-          "y": 0.35081,
-          "w": 0.05749,
-          "h": 0.02275
-        }
+          "x": 0.49376,
+          "y": 0.54435,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "7",
@@ -89861,13 +89898,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-rinnai-2025-bm-series-infinity-b__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
-          "x": 0.16204,
-          "y": 0.35081,
-          "w": 0.05749,
-          "h": 0.02275
-        }
+          "x": 0.49376,
+          "y": 0.54435,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -89885,13 +89923,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.54435,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -89906,14 +89945,15 @@
           "B26SERIES"
         ],
         "priority": 5,
-        "listPage": 61,
-        "listPageKey": "pl-hw-cf-bm-sm-b26__p61",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
-          "x": 0.39708,
-          "y": 0.63079,
-          "w": 0.06715,
-          "h": 0.02689
-        }
+          "x": 0.49376,
+          "y": 0.54435,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "7",
@@ -89928,14 +89968,15 @@
           "B26SERIES"
         ],
         "priority": 5,
-        "listPage": 61,
-        "listPageKey": "pl-hw-cf-bm-sm-b26__p61",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
-          "x": 0.39708,
-          "y": 0.63079,
-          "w": 0.06715,
-          "h": 0.02689
-        }
+          "x": 0.49376,
+          "y": 0.54435,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098996": [
@@ -90082,13 +90123,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49373,
           "y": 0.32194,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -90106,13 +90148,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49373,
           "y": 0.32194,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098908": [
@@ -90733,13 +90776,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.67779,
+          "y": 0.72227,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -90757,13 +90801,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.67779,
+          "y": 0.72227,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098945": [
@@ -92026,13 +92071,14 @@
         ],
         "priority": 8,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49376,
-          "y": 0.54435,
+          "x": 0.49378,
+          "y": 0.58883,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -92047,14 +92093,15 @@
           "B-SERIES"
         ],
         "priority": 7,
-        "listPage": 3,
-        "listPageKey": "pl-rinnai-2025-bm-series-infinity-b__p3",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.16204,
-          "y": 0.46944,
-          "w": 0.05749,
-          "h": 0.02275
-        }
+          "x": 0.49378,
+          "y": 0.58883,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "822",
@@ -92069,14 +92116,15 @@
           "B-SERIES"
         ],
         "priority": 7,
-        "listPage": 3,
-        "listPageKey": "pl-rinnai-2025-bm-series-infinity-b__p3",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.16204,
-          "y": 0.46944,
-          "w": 0.05749,
-          "h": 0.02275
-        }
+          "x": 0.49378,
+          "y": 0.58883,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -92094,13 +92142,14 @@
         ],
         "priority": 7,
         "listPage": 4,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p4",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.49376,
-          "y": 0.54435,
+          "x": 0.49378,
+          "y": 0.58883,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -92115,14 +92164,15 @@
           "B26SERIES"
         ],
         "priority": 5,
-        "listPage": 65,
-        "listPageKey": "pl-hw-cf-bm-sm-b26__p65",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.39687,
-          "y": 0.5707,
-          "w": 0.06715,
-          "h": 0.02689
-        }
+          "x": 0.49378,
+          "y": 0.58883,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "822",
@@ -92137,14 +92187,15 @@
           "B26SERIES"
         ],
         "priority": 5,
-        "listPage": 65,
-        "listPageKey": "pl-hw-cf-bm-sm-b26__p65",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-wc-external__p4",
         "listBox": {
-          "x": 0.39687,
-          "y": 0.5707,
-          "w": 0.06715,
-          "h": 0.02689
-        }
+          "x": 0.49378,
+          "y": 0.58883,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098935": [
@@ -93013,13 +93064,14 @@
         ],
         "priority": 8,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49373,
           "y": 0.36642,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -93037,13 +93089,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49373,
           "y": 0.36642,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92093344": [
@@ -93088,13 +93141,14 @@
         ],
         "priority": 8,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49373,
           "y": 0.38866,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -93112,13 +93166,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49373,
           "y": 0.38866,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098322": [
@@ -93163,13 +93218,14 @@
         ],
         "priority": 8,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.47763,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -93187,13 +93243,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.47763,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098370": [
@@ -93238,13 +93295,14 @@
         ],
         "priority": 8,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.49987,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -93262,13 +93320,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.49987,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92093356": [
@@ -93313,13 +93372,14 @@
         ],
         "priority": 8,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.52211,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -93337,13 +93397,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.52211,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92093358": [
@@ -93388,13 +93449,14 @@
         ],
         "priority": 8,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.56659,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -93412,13 +93474,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.56659,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92093350": [
@@ -93463,13 +93526,14 @@
         ],
         "priority": 8,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.61107,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -93487,13 +93551,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.61107,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92093354": [
@@ -93538,13 +93603,14 @@
         ],
         "priority": 8,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.63331,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -93562,13 +93628,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.63331,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098324": [
@@ -93613,13 +93680,14 @@
         ],
         "priority": 8,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.65555,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -93637,13 +93705,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49376,
           "y": 0.65555,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098326": [
@@ -93688,13 +93757,14 @@
         ],
         "priority": 8,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49371,
           "y": 0.8111,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -93712,13 +93782,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49371,
           "y": 0.8111,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098328": [
@@ -93763,13 +93834,14 @@
         ],
         "priority": 8,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49371,
           "y": 0.83334,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -93787,13 +93859,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49371,
           "y": 0.83334,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098330": [
@@ -93838,13 +93911,14 @@
         ],
         "priority": 8,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49374,
           "y": 0.90007,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -93862,13 +93936,14 @@
         ],
         "priority": 7,
         "listPage": 1,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p1",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p1",
         "listBox": {
           "x": 0.49374,
           "y": 0.90007,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098332": [
@@ -93913,13 +93988,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49373,
           "y": 0.2997,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -93937,13 +94013,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49373,
           "y": 0.2997,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098372": [
@@ -93988,13 +94065,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49373,
-          "y": 0.34418,
+          "y": 0.38866,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -94012,13 +94090,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49373,
-          "y": 0.34418,
+          "y": 0.38866,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92093366": [
@@ -94063,13 +94142,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49375,
-          "y": 0.4109,
+          "y": 0.45539,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -94087,13 +94167,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49375,
-          "y": 0.4109,
+          "y": 0.45539,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098374": [
@@ -94138,13 +94219,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49376,
-          "y": 0.45539,
+          "y": 0.49987,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -94162,13 +94244,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49376,
-          "y": 0.45539,
+          "y": 0.49987,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92093364": [
@@ -94213,13 +94296,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.52211,
+          "y": 0.56659,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -94237,13 +94321,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.52211,
+          "y": 0.56659,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098346": [
@@ -94288,13 +94373,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.56659,
+          "y": 0.61107,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -94312,13 +94398,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.56659,
+          "y": 0.61107,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098348": [
@@ -94363,13 +94450,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.61107,
+          "y": 0.65555,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -94387,13 +94475,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49378,
-          "y": 0.61107,
+          "y": 0.65555,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098350": [
@@ -94438,13 +94527,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49371,
-          "y": 0.8111,
+          "y": 0.85557,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -94462,13 +94552,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49371,
-          "y": 0.8111,
+          "y": 0.85557,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92093368": [
@@ -94513,13 +94604,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49371,
-          "y": 0.83334,
+          "y": 0.87781,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -94537,13 +94629,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49371,
-          "y": 0.83334,
+          "y": 0.87781,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92093369": [
@@ -94588,13 +94681,14 @@
         ],
         "priority": 8,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49371,
-          "y": 0.85558,
+          "y": 0.90006,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -94612,13 +94706,14 @@
         ],
         "priority": 7,
         "listPage": 2,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p2",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p2",
         "listBox": {
           "x": 0.49371,
-          "y": 0.85558,
+          "y": 0.90006,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92093372": [
@@ -94663,13 +94758,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49371,
-          "y": 0.34418,
+          "y": 0.38865,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -94687,13 +94783,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49371,
-          "y": 0.34418,
+          "y": 0.38865,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92093362": [
@@ -94738,13 +94835,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.47763,
+          "y": 0.5221,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -94762,13 +94860,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.47763,
+          "y": 0.5221,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92099732": [
@@ -94921,13 +95020,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.49987,
+          "y": 0.54434,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -94945,13 +95045,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.49987,
+          "y": 0.54434,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098354": [
@@ -94996,13 +95097,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.52211,
+          "y": 0.56658,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -95020,13 +95122,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.52211,
+          "y": 0.56658,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92093348": [
@@ -95071,13 +95174,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.54435,
+          "y": 0.58882,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -95095,13 +95199,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.54435,
+          "y": 0.58882,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098356": [
@@ -95146,13 +95251,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.56659,
+          "y": 0.61106,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -95170,13 +95276,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.56659,
+          "y": 0.61106,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92093360": [
@@ -95221,13 +95328,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.58883,
+          "y": 0.6333,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -95245,13 +95353,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.58883,
+          "y": 0.6333,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098358": [
@@ -95296,13 +95405,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.63331,
+          "y": 0.67778,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -95320,13 +95430,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.63331,
+          "y": 0.67778,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92099730": [
@@ -95479,13 +95590,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.65555,
+          "y": 0.70002,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -95501,13 +95613,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-rinnai-2025-bm-series-infinity-b__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
-          "x": 0.16204,
-          "y": 0.33762,
-          "w": 0.05749,
-          "h": 0.02275
-        }
+          "x": 0.49375,
+          "y": 0.70002,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "720",
@@ -95523,13 +95636,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-rinnai-2025-bm-series-infinity-b__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
-          "x": 0.16204,
-          "y": 0.33762,
-          "w": 0.05749,
-          "h": 0.02275
-        }
+          "x": 0.49375,
+          "y": 0.70002,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -95547,13 +95661,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.65555,
+          "y": 0.70002,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -95568,14 +95683,15 @@
           "B26SERIES"
         ],
         "priority": 5,
-        "listPage": 65,
-        "listPageKey": "pl-hw-cf-bm-sm-b26__p65",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
-          "x": 0.39717,
-          "y": 0.39186,
-          "w": 0.06715,
-          "h": 0.02689
-        }
+          "x": 0.49375,
+          "y": 0.70002,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "720",
@@ -95590,14 +95706,15 @@
           "B26SERIES"
         ],
         "priority": 5,
-        "listPage": 65,
-        "listPageKey": "pl-hw-cf-bm-sm-b26__p65",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
-          "x": 0.39717,
-          "y": 0.39186,
-          "w": 0.06715,
-          "h": 0.02689
-        }
+          "x": 0.49375,
+          "y": 0.70002,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098360": [
@@ -95642,13 +95759,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.67779,
+          "y": 0.72226,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -95666,13 +95784,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.67779,
+          "y": 0.72226,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098376": [
@@ -95717,13 +95836,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.70003,
+          "y": 0.7445,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -95741,13 +95861,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.70003,
+          "y": 0.7445,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098362": [
@@ -95792,13 +95913,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.72227,
+          "y": 0.76674,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -95816,13 +95938,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.72227,
+          "y": 0.76674,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098364": [
@@ -95867,13 +95990,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.74451,
+          "y": 0.78898,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -95891,13 +96015,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.74451,
+          "y": 0.78898,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098378": [
@@ -95942,13 +96067,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.76675,
+          "y": 0.81122,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -95966,13 +96092,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49375,
-          "y": 0.76675,
+          "y": 0.81122,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098380": [
@@ -96017,13 +96144,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49371,
-          "y": 0.78886,
+          "y": 0.83333,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -96041,13 +96169,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49371,
-          "y": 0.78886,
+          "y": 0.83333,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92098382": [
@@ -96092,13 +96221,14 @@
         ],
         "priority": 8,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49371,
-          "y": 0.8111,
+          "y": 0.85557,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       },
       {
         "callout": "1",
@@ -96116,13 +96246,14 @@
         ],
         "priority": 7,
         "listPage": 3,
-        "listPageKey": "pl-reu-vcm2837-external-quarantine__p3",
+        "listPageKey": "pl-reu-vcm2837-wc-external__p3",
         "listBox": {
           "x": 0.49371,
-          "y": 0.8111,
+          "y": 0.85557,
           "w": 0.08618,
           "h": 0.02815
-        }
+        },
+        "listPdf": "Parts List REU-VCM2837 WC External.pdf"
       }
     ],
     "92099244": [

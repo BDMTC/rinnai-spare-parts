@@ -36,6 +36,10 @@ const SM_PACK_GLOBS = {
     "./assets/service-manual-pages/sm-vr3237wg-wc__p*.jpg",
     { eager: true, import: "default" }
   ),
+  "sm-new-a-series-cf": import.meta.glob(
+    "./assets/service-manual-pages/sm-new-a-series-cf__p*.jpg",
+    { eager: true, import: "default" }
+  ),
 };
 
 /**
@@ -76,9 +80,9 @@ const SERIES_SERVICE_MANUALS = {
   },
   infinity26: {
     url: infinity26,
-    label: "SM INF26_INF32 Enviro WH 190810.pdf p1",
-    source: "SM INF26_INF32 Enviro WH 190810.pdf",
-    packId: "sm-inf26-inf32-enviro-wh-190810",
+    label: "New A Series CF Parts List.pdf p1",
+    source: "New A Series CF Parts List.pdf",
+    packId: "sm-new-a-series-cf",
   },
   "infinity26-internal": {
     url: infinity26Internal,

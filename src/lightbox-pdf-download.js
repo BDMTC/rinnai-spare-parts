@@ -61,6 +61,14 @@ export const LIGHTBOX_PDFS = {
     id: "smVR3237WG-WC",
     fileName: "smVR3237WG_WC.pdf",
   },
+  "Parts List REU-VCM2837 WC External.pdf": {
+    id: "Parts-List-REU-VCM2837-WC-External",
+    fileName: "Parts List REU-VCM2837 WC External.pdf",
+  },
+  "New A Series CF Parts List.pdf": {
+    id: "New-A-Series-CF-Parts-List",
+    fileName: "New A Series CF Parts List.pdf",
+  },
 };
 
 /**

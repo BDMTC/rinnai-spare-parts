@@ -153,6 +153,14 @@ function lightboxPdfDataScripts() {
     },
     { id: "EHFA-SPARE-PARTS", file: "EHFA  SPARE PARTS.pdf" },
     { id: "smVR3237WG-WC", file: "smVR3237WG_WC.pdf" },
+    {
+      id: "Parts-List-REU-VCM2837-WC-External",
+      file: "Parts List REU-VCM2837 WC External.pdf",
+    },
+    {
+      id: "New-A-Series-CF-Parts-List",
+      file: "New A Series CF Parts List.pdf",
+    },
   ];
 
   function buildScriptSource(fileName) {
