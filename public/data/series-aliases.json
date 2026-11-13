@@ -985,6 +985,71 @@
       "notes": "Smartstart CUG1 preheat accessory (marketing SMARTSTART). Cover-true SM: SM Smartstart.pdf; PL: EDPL Smartstart.pdf. Not Infinity 26 Smartstart inbuilt (VR2626WGP)."
     },
     {
+      "id": "vrm2024",
+      "label": "Infinity 20 (VRM2024)",
+      "aliases": [
+        "Infinity 20 (VRM2024)",
+        "REU-VRM2024WG",
+        "VRM2024WG",
+        "VRM2024",
+        "REUVRM2024WG"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUVRM2024WG",
+          "VRM2024WG"
+        ]
+      },
+      "documentKeys": [
+        "VRM2024",
+        "VRM2024WG",
+        "REU-VRM2024WG"
+      ],
+      "notes": "Mid-gen Infinity 20 on REU-VRM2024WG (INF20*M). Chassis-only so VR2024WG (Infinity 20) and VR2024WB stay out. Local PL: REU-VRM2024.pdf. No cover-true SM on disk yet."
+    },
+    {
+      "id": "vrm3237wg",
+      "label": "Infinity 32 (VRM3237WG)",
+      "aliases": [
+        "Infinity 32 (VRM3237WG)",
+        "REU-VRM3237WG",
+        "VRM3237WG",
+        "REUVRM3237WG"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUVRM3237WG",
+          "VRM3237WG"
+        ]
+      },
+      "documentKeys": [
+        "VRM3237WG",
+        "REU-VRM3237WG"
+      ],
+      "notes": "Mid-gen Infinity 32 on REU-VRM3237WG (INF32*M). Chassis-only so VR3237WG (Infinity 32) and VRM3237WC (HD250e) stay out. Local PL headers on EDPL VR_VRM3237 / EDPLVRM3237 Issue 4. No cover-true SM (smVR3237WG_WC covers VR3237WG + VRM3237WC only)."
+    },
+    {
+      "id": "vr2024wb",
+      "label": "B20 (VR2024WB)",
+      "aliases": [
+        "B20 (VR2024WB)",
+        "REU-VR2024WB",
+        "VR2024WB",
+        "REUVR2024WB"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUVR2024WB",
+          "VR2024WB"
+        ]
+      },
+      "documentKeys": [
+        "VR2024WB",
+        "REU-VR2024WB"
+      ],
+      "notes": "Heritage B20 on REU-VR2024WB. Chassis-only so VR2024WG (Infinity 20) stays out. Bare B20 typeahead stays on Infinity B (BM). Local PL: VR2024WB-50-AK B20 NON50.pdf. No cover-true SM on disk (excluded from smvREUVR1616W_VR2024_v2)."
+    },
+    {
       "id": "infinity32-enviro",
       "label": "Infinity 32 Enviro",
       "aliases": [

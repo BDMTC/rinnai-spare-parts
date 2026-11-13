@@ -96,6 +96,18 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "EDPL Smartstart.pdf p1",
     label: "EDPL Smartstart (CUG1)",
   },
+  vrm2024: {
+    page: "REU-VRM2024.pdf p1",
+    label: "REU-VRM2024 (VRM2024WG)",
+  },
+  vrm3237wg: {
+    page: "EDPL VR_VRM3237.pdf p1",
+    label: "EDPL VR_VRM3237 (VRM3237WG)",
+  },
+  vr2024wb: {
+    page: "VR2024WB-50-AK B20 NON50.pdf p1",
+    label: "VR2024WB B20 NON50 PL",
+  },
   hd32: {
     page: "New A Series CF Parts List.pdf p56",
     label: "New A Series CF Parts List (HD32e)",
@@ -323,6 +335,7 @@ const ED_STEM_TO_PDF = {
   "edpl-reuv2024wg": "EDPL REUV2024WG.pdf",
   "edpl-reuv1620w": "EDPL REUV1620W.pdf",
   "edpl-reu-vrm2024": "REU-VRM2024.pdf",
+  "edpl-vr2024wb-b20": "VR2024WB-50-AK B20 NON50.pdf",
   "pled-infinity-32-enviro-plus-n-series-e":
     "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
   "pl-reu-vcm2837-wc-external": "Parts List REU-VCM2837 WC External.pdf",

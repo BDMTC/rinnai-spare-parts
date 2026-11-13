@@ -114,7 +114,7 @@ CF_SHEETS = [
     {
         "file": "EDPL VR_VRM3237.pdf",
         "stem": "edpl-vr-vrm3237",
-        "seriesIds": ["infinity32", "hd250e"],
+        "seriesIds": ["infinity32", "hd250e", "vrm3237wg"],
         "chassisTokens": [
             "VR3237WG",
             "REUVR3237WG",
@@ -137,7 +137,7 @@ CF_SHEETS = [
     {
         "file": "PL - RINNAI - EDPLVRM3237 - ISSUE 4 - JUNE 2025.pdf",
         "stem": "edpl-vrm3237-issue4",
-        "seriesIds": ["infinity32", "hd250e"],
+        "seriesIds": ["infinity32", "hd250e", "vrm3237wg"],
         "chassisTokens": [
             "VR3237WG",
             "REUVR3237WG",
@@ -320,9 +320,16 @@ CF_SHEETS = [
     {
         "file": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
-        "seriesIds": [],
+        "seriesIds": ["vrm2024"],
         "chassisTokens": ["VRM2024WG", "REUVRM2024WG", "VRM2024"],
-        "priority": 6,
+        "priority": 10,
+    },
+    {
+        "file": "VR2024WB-50-AK B20 NON50.pdf",
+        "stem": "edpl-vr2024wb-b20",
+        "seriesIds": ["vr2024wb"],
+        "chassisTokens": ["VR2024WB", "REUVR2024WB", "B20"],
+        "priority": 10,
     },
     {
         "file": "EDPL B24.pdf",
@@ -914,6 +921,9 @@ def main():
             "v3232": ("edpl-v3232w-wc", 1),
             "v2626": ("edpl-reuv2626w-reuv2632wc", 1),
             "smartstart": ("edpl-smartstart", 1),
+            "vrm2024": ("edpl-reu-vrm2024", 1),
+            "vrm3237wg": ("edpl-vr-vrm3237", 1),
+            "vr2024wb": ("edpl-vr2024wb-b20", 1),
             # hd28e: no shipped page pack yet — keep native pageKey / callout only
         }
 
