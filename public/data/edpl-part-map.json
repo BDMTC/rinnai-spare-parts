@@ -1,27 +1,30 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T12:13:52.594556+00:00",
+  "generatedAt": "2026-11-13T12:18:18.393934+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
     "ocr": false,
     "sourceRule": "Callout NO + RA/catalogue 8-digit from parts-list text; diagram page = first image-ish page of sheet (OCR optional); listPage + text-layer word bbox kept for PL highlight",
     "resolve": "Pick first hit matching pin seriesId / chassis token; else highest priority",
-    "plHighlight": "listPage + listPageKey + listBox (pymupdf words); lightbox opens PL page when JPEG exists"
+    "plHighlight": "listPage + listPageKey + listBox (pymupdf words); lightbox opens PL page when JPEG exists",
+    "hotfloEhfa160": "Matrix PL+ED proof (RSP-131 stretch); single page; carry-forward model rows"
   },
   "totals": {
     "sheetsConfigured": 48,
     "sheetsOk": 48,
     "sheetsMissing": 0,
-    "uniqueCodes": 704,
-    "codesInCatalogue": 463,
+    "uniqueCodes": 718,
+    "codesInCatalogue": 476,
     "codesInCatalogueWithPageAsset": 373,
     "codesInCatalogueWithListBox": 463,
     "codesInCatalogueWithListPageAsset": 203,
     "listBoxesExtracted": 4624,
     "listPagesRendered": 21,
     "codesMultiChassis": 631,
-    "cataloguePartsTotal": 6571
+    "cataloguePartsTotal": 6571,
+    "hotfloEhfa160Codes": 14,
+    "hotfloEhfa160InCatalogue": 13
   },
   "sheets": [
     {
@@ -1541,6 +1544,32 @@
       ],
       "priority": 7,
       "path": "data-sheets/_duplicates_quarantine/REU-VCM2837 - External  PARTS LIST.pdf"
+    },
+    {
+      "file": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+      "stem": "pl-hotflo-ehfa160",
+      "status": "ok",
+      "pages": 1,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        1
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 68,
+      "rowsInCatalogue": 13,
+      "rowsWithListBox": 14,
+      "seriesIds": [
+        "ehfa160"
+      ],
+      "chassisTokens": [
+        "EHFA160",
+        "Hotflo EHFA160",
+        "HOTFLO EHFA160"
+      ],
+      "priority": 20,
+      "path": "data-sheets/Rinnai Data Sheets/Hotflo EHFA160 Spare Parts List S111418B.pdf"
     }
   ],
   "parts": {
@@ -116349,6 +116378,452 @@
           "w": 0.06715,
           "h": 0.02689
         }
+      }
+    ],
+    "95110649": [
+      {
+        "callout": "1",
+        "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+        "pageKey": "pl-hotflo-ehfa160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa160__p1",
+        "listBox": {
+          "x": 0.49827,
+          "y": 0.46585,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+        "stem": "pl-hotflo-ehfa160",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHFA160",
+          "Hotflo EHFA160",
+          "HOTFLO EHFA160",
+          "EHFA160S18",
+          "EHFA160S24",
+          "EHFA160S36",
+          "EHFA160T36"
+        ],
+        "priority": 20,
+        "name": "ANODE"
+      }
+    ],
+    "95110118": [
+      {
+        "callout": "2",
+        "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+        "pageKey": "pl-hotflo-ehfa160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa160__p1",
+        "listBox": {
+          "x": 0.5452,
+          "y": 0.47298,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+        "stem": "pl-hotflo-ehfa160",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHFA160",
+          "Hotflo EHFA160",
+          "HOTFLO EHFA160",
+          "EHFA160S18",
+          "EHFA160S18H"
+        ],
+        "priority": 20,
+        "name": "ELEMENT"
+      }
+    ],
+    "95110036": [
+      {
+        "callout": "3",
+        "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+        "pageKey": "pl-hotflo-ehfa160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa160__p1",
+        "listBox": {
+          "x": 0.59659,
+          "y": 0.50149,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+        "stem": "pl-hotflo-ehfa160",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHFA160",
+          "Hotflo EHFA160",
+          "HOTFLO EHFA160",
+          "EHFA160S18",
+          "EHFA160S18H",
+          "EHFA160S24",
+          "EHFA160S24H",
+          "EHFA160S36",
+          "EHFA160S36H"
+        ],
+        "priority": 20,
+        "name": "ELECTRICAL COVER BOTTOM"
+      }
+    ],
+    "95110378": [
+      {
+        "callout": "6",
+        "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+        "pageKey": "pl-hotflo-ehfa160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa160__p1",
+        "listBox": {
+          "x": 0.75187,
+          "y": 0.51452,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+        "stem": "pl-hotflo-ehfa160",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHFA160",
+          "Hotflo EHFA160",
+          "HOTFLO EHFA160",
+          "EHFA160S18",
+          "EHFA160S18H",
+          "EHFA160S24",
+          "EHFA160S24H",
+          "EHFA160S36",
+          "EHFA160S36H",
+          "EHFA160T36",
+          "EHFA160T36H"
+        ],
+        "priority": 20,
+        "name": "THERMOSTAT BOTTOM"
+      }
+    ],
+    "95110048": [
+      {
+        "callout": "7",
+        "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+        "pageKey": "pl-hotflo-ehfa160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa160__p1",
+        "listBox": {
+          "x": 0.80375,
+          "y": 0.51452,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+        "stem": "pl-hotflo-ehfa160",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHFA160",
+          "Hotflo EHFA160",
+          "HOTFLO EHFA160",
+          "EHFA160S18",
+          "EHFA160S18H",
+          "EHFA160S24",
+          "EHFA160S24H",
+          "EHFA160S36",
+          "EHFA160S36H",
+          "EHFA160T36",
+          "EHFA160T36H"
+        ],
+        "priority": 20,
+        "name": "PTR VALVE"
+      }
+    ],
+    "95110032": [
+      {
+        "callout": "8",
+        "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+        "pageKey": "pl-hotflo-ehfa160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa160__p1",
+        "listBox": {
+          "x": 0.84872,
+          "y": 0.51452,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+        "stem": "pl-hotflo-ehfa160",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHFA160",
+          "Hotflo EHFA160",
+          "HOTFLO EHFA160",
+          "EHFA160S18",
+          "EHFA160S18H",
+          "EHFA160S24",
+          "EHFA160S24H",
+          "EHFA160S36",
+          "EHFA160S36H",
+          "EHFA160T36",
+          "EHFA160T36H"
+        ],
+        "priority": 20,
+        "name": "PLUG TOP"
+      }
+    ],
+    "95110471": [
+      {
+        "callout": "9",
+        "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+        "pageKey": "pl-hotflo-ehfa160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa160__p1",
+        "listBox": {
+          "x": 0.89182,
+          "y": 0.51452,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+        "stem": "pl-hotflo-ehfa160",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHFA160",
+          "Hotflo EHFA160",
+          "HOTFLO EHFA160",
+          "EHFA160S18",
+          "EHFA160S18H",
+          "EHFA160S24",
+          "EHFA160S24H",
+          "EHFA160S36",
+          "EHFA160S36H",
+          "EHFA160T36",
+          "EHFA160T36H"
+        ],
+        "priority": 20,
+        "name": "PORT COVERS"
+      }
+    ],
+    "95110097": [
+      {
+        "callout": "10",
+        "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+        "pageKey": "pl-hotflo-ehfa160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa160__p1",
+        "listBox": {
+          "x": 0.93552,
+          "y": 0.51452,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+        "stem": "pl-hotflo-ehfa160",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHFA160",
+          "Hotflo EHFA160",
+          "HOTFLO EHFA160",
+          "EHFA160S18",
+          "EHFA160S18H",
+          "EHFA160S24",
+          "EHFA160S24H",
+          "EHFA160S36",
+          "EHFA160S36H",
+          "EHFA160T36",
+          "EHFA160T36H"
+        ],
+        "priority": 20,
+        "name": "END CAP"
+      }
+    ],
+    "95110652": [
+      {
+        "callout": "1",
+        "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+        "pageKey": "pl-hotflo-ehfa160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa160__p1",
+        "listBox": {
+          "x": 0.49827,
+          "y": 0.48011,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+        "stem": "pl-hotflo-ehfa160",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHFA160",
+          "Hotflo EHFA160",
+          "HOTFLO EHFA160",
+          "EHFA160S18H",
+          "EHFA160S24H",
+          "EHFA160S36H",
+          "EHFA160T36H"
+        ],
+        "priority": 20,
+        "name": "ANODE"
+      }
+    ],
+    "95110104": [
+      {
+        "callout": "2",
+        "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+        "pageKey": "pl-hotflo-ehfa160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa160__p1",
+        "listBox": {
+          "x": 0.5452,
+          "y": 0.50149,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+        "stem": "pl-hotflo-ehfa160",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHFA160",
+          "Hotflo EHFA160",
+          "HOTFLO EHFA160",
+          "EHFA160S24",
+          "EHFA160S24H"
+        ],
+        "priority": 20,
+        "name": "ELEMENT"
+      }
+    ],
+    "95110105": [
+      {
+        "callout": "2",
+        "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+        "pageKey": "pl-hotflo-ehfa160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa160__p1",
+        "listBox": {
+          "x": 0.5452,
+          "y": 0.53,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+        "stem": "pl-hotflo-ehfa160",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHFA160",
+          "Hotflo EHFA160",
+          "HOTFLO EHFA160",
+          "EHFA160S36",
+          "EHFA160S36H",
+          "EHFA160T36",
+          "EHFA160T36H"
+        ],
+        "priority": 20,
+        "name": "ELEMENT"
+      }
+    ],
+    "95110149": [
+      {
+        "callout": "3",
+        "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+        "pageKey": "pl-hotflo-ehfa160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa160__p1",
+        "listBox": {
+          "x": 0.59659,
+          "y": 0.55728,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+        "stem": "pl-hotflo-ehfa160",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHFA160",
+          "Hotflo EHFA160",
+          "HOTFLO EHFA160",
+          "EHFA160T36",
+          "EHFA160T36H"
+        ],
+        "priority": 20,
+        "name": "ELECTRICAL COVER BOTTOM"
+      }
+    ],
+    "95110395": [
+      {
+        "callout": "4",
+        "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+        "pageKey": "pl-hotflo-ehfa160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa160__p1",
+        "listBox": {
+          "x": 0.64781,
+          "y": 0.55728,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+        "stem": "pl-hotflo-ehfa160",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHFA160",
+          "Hotflo EHFA160",
+          "HOTFLO EHFA160",
+          "EHFA160T36",
+          "EHFA160T36H"
+        ],
+        "priority": 20,
+        "name": "ELECTRICAL COVER TOP"
+      }
+    ],
+    "95110379": [
+      {
+        "callout": "5",
+        "page": "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+        "pageKey": "pl-hotflo-ehfa160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa160__p1",
+        "listBox": {
+          "x": 0.69696,
+          "y": 0.55728,
+          "w": 0.04719,
+          "h": 0.02734
+        },
+        "pdf": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+        "stem": "pl-hotflo-ehfa160",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHFA160",
+          "Hotflo EHFA160",
+          "HOTFLO EHFA160",
+          "EHFA160T36",
+          "EHFA160T36H"
+        ],
+        "priority": 20,
+        "name": "THERMOSTAT TOP"
       }
     ]
   }

@@ -147,6 +147,10 @@ function lightboxPdfDataScripts() {
       file: "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
     },
     { id: "ED-N-Series-2020-IN32-Enviro", file: "ED_N Series 2020 IN32 Enviro.pdf" },
+    {
+      id: "Hotflo-EHFA160-Spare-Parts-List-S111418B",
+      file: "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+    },
   ];
 
   function buildScriptSource(fileName) {

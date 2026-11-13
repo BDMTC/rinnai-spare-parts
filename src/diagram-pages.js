@@ -80,6 +80,10 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "EDPL VR_VRM3237.pdf p5",
     label: "EDPL VR_VRM3237 (HD250e)",
   },
+  ehfa160: {
+    page: "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
+    label: "Hotflo EHFA160 spare parts",
+  },
 };
 
 /** Chassis tokens that imply the VRM2632WC common ED. */
@@ -203,6 +207,7 @@ const ED_STEM_TO_PDF = {
   "pled-infinity-32-enviro-plus-n-series-e":
     "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
   "pl-reu-vcm2837-wc-external": "Parts List REU-VCM2837 WC External.pdf",
+  "pl-hotflo-ehfa160": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
 };
 
 /**

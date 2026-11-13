@@ -49,6 +49,10 @@ export const LIGHTBOX_PDFS = {
     id: "ED-N-Series-2020-IN32-Enviro",
     fileName: "ED_N Series 2020 IN32 Enviro.pdf",
   },
+  "Hotflo EHFA160 Spare Parts List S111418B.pdf": {
+    id: "Hotflo-EHFA160-Spare-Parts-List-S111418B",
+    fileName: "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+  },
 };
 
 /**
