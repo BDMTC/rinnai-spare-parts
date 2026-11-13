@@ -876,51 +876,16 @@ function renderShell() {
               </div>
             </div>
 
-            <div class="news-ticker-wrap">
-              <aside
-                class="news-ticker"
-                id="news-ticker"
-                aria-label="Weather, Brisbane traffic, Queensland news, and Rinnai updates"
-              >
-                <span class="news-ticker-label">Ticker</span>
-                <div class="news-ticker-viewport">
-                  <div class="news-ticker-track" role="list"></div>
-                </div>
-              </aside>
-              <div
-                class="news-ticker-speed"
-                role="group"
-                aria-label="Ticker speed"
-              >
-                <button
-                  type="button"
-                  class="news-ticker-speed-btn"
-                  id="ticker-speed-up"
-                  aria-label="Faster ticker"
-                  title="Faster"
-                >
-                  +
-                </button>
-                <button
-                  type="button"
-                  class="news-ticker-speed-btn news-ticker-speed-btn--mid"
-                  id="ticker-speed-mid"
-                  aria-label="Half speed"
-                  title="50% speed"
-                >
-                  mid
-                </button>
-                <button
-                  type="button"
-                  class="news-ticker-speed-btn"
-                  id="ticker-speed-down"
-                  aria-label="Slower ticker"
-                  title="Slower"
-                >
-                  −
-                </button>
+            <aside
+              class="news-ticker"
+              id="news-ticker"
+              aria-label="Weather, Brisbane traffic, Queensland news, and Rinnai updates"
+            >
+              <span class="news-ticker-label">Ticker</span>
+              <div class="news-ticker-viewport">
+                <div class="news-ticker-track" role="list"></div>
               </div>
-            </div>
+            </aside>
           </div>
 
           <div class="pin3-search-visuals-row pin2-search-visuals-row">
