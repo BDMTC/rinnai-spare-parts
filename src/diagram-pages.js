@@ -64,6 +64,10 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "New A Series CF Parts List.pdf p56",
     label: "New A Series CF Parts List (Infinity 26)",
   },
+  "infinity-a": {
+    page: "HW_CF_A_Series_Parts_List_Issue_1_Jan_2018.pdf p1",
+    label: "HW CF A Series Parts List Issue 1 (Infinity A)",
+  },
   hd32: {
     page: "New A Series CF Parts List.pdf p56",
     label: "New A Series CF Parts List (HD32e)",

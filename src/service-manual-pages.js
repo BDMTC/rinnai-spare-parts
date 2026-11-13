@@ -5,6 +5,7 @@
 import hd200e from "./assets/service-manual-pages/hd200e__p1.jpg";
 import hd200i from "./assets/service-manual-pages/hd200i__p1.jpg";
 import infinity26 from "./assets/service-manual-pages/infinity26__p1.jpg";
+import infinityA from "./assets/service-manual-pages/infinity-a__p1.jpg";
 import infinity26Internal from "./assets/service-manual-pages/infinity26-internal__p1.jpg";
 import infinity26Plus from "./assets/service-manual-pages/infinity26-plus__p1.jpg";
 import infinity26Smartstart from "./assets/service-manual-pages/infinity26-smartstart__p1.jpg";
@@ -104,6 +105,12 @@ const SERIES_SERVICE_MANUALS = {
   },
   infinity26: {
     url: infinity26,
+    label: "New A Series CF Parts List.pdf p1",
+    source: "New A Series CF Parts List.pdf",
+    packId: "sm-new-a-series-cf",
+  },
+  "infinity-a": {
+    url: infinityA,
     label: "New A Series CF Parts List.pdf p1",
     source: "New A Series CF Parts List.pdf",
     packId: "sm-new-a-series-cf",

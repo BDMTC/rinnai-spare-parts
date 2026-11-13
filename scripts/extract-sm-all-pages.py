@@ -41,6 +41,7 @@ UNIQUE_SM = {
 SERIES_THUMBS = {
     "hd250e": "sm-vr3237wg-wc",
     "infinity26": "sm-new-a-series-cf",
+    "infinity-a": "sm-new-a-series-cf",
     "infinity26-plus": "sm-v2626w-v2630wc",
     "infinity26-smartstart": "sm-inbuilt-smartstart",
     "infinity-b": "sm-hw-cf-bm-b26",

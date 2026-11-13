@@ -327,7 +327,62 @@
         "REU-AM2626WD",
         "REU-AM2626WDL"
       ],
-      "notes": "Active AU Infinity 26 external / Touch (AM2626WD / AM2626WDL). Owns bare Infinity 26 / INF26 / AM2626 typeahead. Heritage VR2626WG INF26L/N/B rows stay in-series via marketing prefix + WG; Smartstart WGP and INF26I/P/S/E stay out."
+      "notes": "Active AU Infinity 26 external / Touch (AM2626WD / AM2626WDL). Owns bare Infinity 26 / INF26 / AM2626 typeahead. Heritage VR2626WG INF26L/N/B rows stay in-series via marketing prefix + WG; Smartstart WGP and INF26I/P/S/E stay out. Smaller A/AM sizes (AM1220/1620/2024 + A*WB) live under Infinity A."
+    },
+    {
+      "id": "infinity-a",
+      "label": "Infinity A",
+      "aliases": [
+        "Infinity A",
+        "Infinity A Series",
+        "A Series",
+        "AM Series",
+        "REU-AM1220WD",
+        "REU-AM1620WD",
+        "REU-AM2024WD",
+        "AM1220",
+        "AM1620",
+        "AM2024",
+        "REU-A1620WB",
+        "REU-A2024WB",
+        "REU-A2626WB",
+        "A1620WB",
+        "A2024WB",
+        "A2626WB"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUAM1220WD",
+          "AM1220WD",
+          "REUAM1620WD",
+          "AM1620WD",
+          "REUAM2024WD",
+          "AM2024WD",
+          "REUA1620WB",
+          "A1620WB",
+          "REUA2024WB",
+          "A2024WB",
+          "REUA2626WB",
+          "A2626WB",
+          "REUA1620WS",
+          "A1620WS",
+          "REUA2626WS",
+          "A2626WS"
+        ]
+      },
+      "documentKeys": [
+        "Infinity A",
+        "AM1220",
+        "AM1620",
+        "AM2024",
+        "A1620WB",
+        "A2024WB",
+        "A2626WB",
+        "REU-AM1220WD",
+        "REU-AM1620WD",
+        "REU-AM2024WD"
+      ],
+      "notes": "AU Infinity A family (REU-AM1220WD / AM1620WD / AM2024WD + A1620WB / A2024WB / A2626WB + solar A*WS). Pin match is chassis Item Number only \u2014 marketing INF12/16/20*MA and B16/B20/B26*A collide with VR/BM prefixes. AM2626WD/WDL owned by Infinity 26. Cover-true SM: New A Series CF Parts List; PL: HW_CF_A_Series_Parts_List_Issue_1_Jan_2018."
     },
     {
       "id": "infinity26-internal",
