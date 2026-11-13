@@ -23,8 +23,10 @@ UNIQUE_SM = {
     "sm-smartstart": "SM Smartstart.pdf",  # CUG1 preheat — not Inf26 VR2626WGP
     # Infinity 26 Smartstart inbuilt (cover lists REU-VR2626WGP)
     "sm-inbuilt-smartstart": "SM Inbuilt Smartstart.pdf",
-    # HD250e / VR3237 family (weekend stretch)
+    # HD250e / Infinity 32 VR3237 family (weekend stretch)
     "sm-vr3237wg-wc": "smVR3237WG_WC.pdf",
+    # Heritage V3237WG / VM3237WC
+    "sm-v3237w-vm3237wc": "smREUV3237W_VM3237WC April09.pdf",
     # Infinity 26 / A-AM domestic (cover lists INF26 AM2626 — not Enviro KM)
     "sm-new-a-series-cf": "New A Series CF Parts List.pdf",
     # Infinity 26 Plus (cover lists REU-VM2630WD — not Enviro KM)
@@ -48,6 +50,8 @@ UNIQUE_SM = {
 # Optional series thumb covers copied from pack page 1
 SERIES_THUMBS = {
     "hd250e": "sm-vr3237wg-wc",
+    "infinity32": "sm-vr3237wg-wc",
+    "v3237": "sm-v3237w-vm3237wc",
     "infinity26": "sm-new-a-series-cf",
     "infinity-a": "sm-new-a-series-cf",
     "infinity26-plus": "sm-v2626w-v2630wc",

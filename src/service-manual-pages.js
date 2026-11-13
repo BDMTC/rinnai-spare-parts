@@ -19,6 +19,8 @@ import infinity32EnviroPlusN from "./assets/service-manual-pages/infinity32-envi
 import hd210e from "./assets/service-manual-pages/hd210e__p1.jpg";
 import hd210i from "./assets/service-manual-pages/hd210i__p1.jpg";
 import hd250e from "./assets/service-manual-pages/hd250e__p1.jpg";
+import infinity32 from "./assets/service-manual-pages/infinity32__p1.jpg";
+import v3237 from "./assets/service-manual-pages/v3237__p1.jpg";
 import infinityB from "./assets/service-manual-pages/infinity-b__p1.jpg";
 import envirosmart from "./assets/service-manual-pages/envirosmart__p1.jpg";
 import infinity16 from "./assets/service-manual-pages/infinity16__p1.jpg";
@@ -48,6 +50,10 @@ const SM_PACK_GLOBS = {
   ),
   "sm-vr3237wg-wc": import.meta.glob(
     "./assets/service-manual-pages/sm-vr3237wg-wc__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-v3237w-vm3237wc": import.meta.glob(
+    "./assets/service-manual-pages/sm-v3237w-vm3237wc__p*.jpg",
     { eager: true, import: "default" }
   ),
   "sm-new-a-series-cf": import.meta.glob(
@@ -183,6 +189,18 @@ const SERIES_SERVICE_MANUALS = {
     label: "smVR3237WG_WC.pdf p1",
     source: "smVR3237WG_WC.pdf",
     packId: "sm-vr3237wg-wc",
+  },
+  infinity32: {
+    url: infinity32,
+    label: "smVR3237WG_WC.pdf p1",
+    source: "smVR3237WG_WC.pdf",
+    packId: "sm-vr3237wg-wc",
+  },
+  v3237: {
+    url: v3237,
+    label: "smREUV3237W_VM3237WC April09.pdf p1",
+    source: "smREUV3237W_VM3237WC April09.pdf",
+    packId: "sm-v3237w-vm3237wc",
   },
   "infinity-b": {
     url: infinityB,
