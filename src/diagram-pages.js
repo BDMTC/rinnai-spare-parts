@@ -60,21 +60,29 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "PL & ED INF26 Smartstart VR2626WGP.pdf p1",
     label: "PL & ED INF26 Smartstart VR2626WGP",
   },
+  infinity26: {
+    page: "New A Series CF Parts List.pdf p56",
+    label: "New A Series CF Parts List (Infinity 26)",
+  },
+  hd32: {
+    page: "New A Series CF Parts List.pdf p56",
+    label: "New A Series CF Parts List (HD32e)",
+  },
   "infinity32-enviro": {
-    page: "ED_N Series 2020 IN32 Enviro.pdf p1",
-    label: "ED_N Series 2020 IN32 Enviro",
+    page: "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p1",
+    label: "EDPL INF32 ENVIRO KM3237WD Issue 4",
   },
   "infinity32-enviro-plus-n": {
-    page: "ED_N Series 2020 IN32 Enviro.pdf p1",
-    label: "ED_N Series 2020 IN32 Enviro",
+    page: "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf p1",
+    label: "N3237 Infinity 32 Enviro Plus N Issue 3",
   },
   hd210e: {
-    page: "ED_N Series 2020 IN32 Enviro.pdf p1",
-    label: "ED_N Series 2020 IN32 Enviro (HD210e)",
+    page: "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf p1",
+    label: "N3237 Infinity 32 Enviro Plus N Issue 3 (HD210e)",
   },
   hd210i: {
-    page: "ED_N Series 2020 IN32 Enviro.pdf p1",
-    label: "ED_N Series 2020 IN32 Enviro (HD210i)",
+    page: "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf p1",
+    label: "N3237 Infinity 32 Enviro Plus N Issue 3 (HD210i)",
   },
   hd250e: {
     page: "EDPL VR_VRM3237.pdf p5",
@@ -218,6 +226,13 @@ const ED_STEM_TO_PDF = {
   "edpl-smartstart": "EDPL Smartstart.pdf",
   "pl-ed-inf26-smartstart-vr2626wgp":
     "PL & ED INF26 Smartstart VR2626WGP.pdf",
+  "pl-new-a-series-cf": "New A Series CF Parts List.pdf",
+  "edpl-inf32-enviro-km3237wd-issue4":
+    "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf",
+  "edpl-enviro-km2635wd-issue4":
+    "PL - RINNAI - ENVIRO KM2635WD - ISSUE 04 - JUNE 2025.pdf",
+  "pl-n3237-inf32-enviro-plus-issue3":
+    "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf",
   "edpl-vr-vrm3237": "EDPL VR_VRM3237.pdf",
   "pled-infinity-32-enviro-plus-n-series-e":
     "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",

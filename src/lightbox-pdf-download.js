@@ -77,6 +77,20 @@ export const LIGHTBOX_PDFS = {
     id: "New-A-Series-CF-Parts-List",
     fileName: "New A Series CF Parts List.pdf",
   },
+  "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf": {
+    id: "PL-INF32-ENVIRO-KM3237WD-ISSUE4",
+    fileName:
+      "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf",
+  },
+  "PL - RINNAI - ENVIRO KM2635WD - ISSUE 04 - JUNE 2025.pdf": {
+    id: "PL-ENVIRO-KM2635WD-ISSUE04",
+    fileName: "PL - RINNAI - ENVIRO KM2635WD - ISSUE 04 - JUNE 2025.pdf",
+  },
+  "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf": {
+    id: "PL-N3237-Inf32-Enviro-Plus-N-Issue3",
+    fileName:
+      "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf",
+  },
   "smV2626W_V2630WC.pdf": {
     id: "smV2626W-V2630WC",
     fileName: "smV2626W_V2630WC.pdf",
