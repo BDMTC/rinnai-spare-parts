@@ -96,8 +96,13 @@ export function suggestSeriesPins(catalogue, seriesDoc, query, opts = {}) {
   const qNorm = normalise(qRaw);
   const results = [];
 
-  const primaryEmpty =
+  // CF-only curated empty-query shortlist (legacy Pin2). Other Pin1 classes
+  // are small — show every series in the scoped class when the query is empty.
+  // Without this gate, Demand Duo / Hotflo / CHP / etc. look empty on open
+  // because their series ids are not on the CF primaryEmpty list.
+  const primaryEmptyCf =
     /^(hd28e|hd28i|hd200e|hd200i|hd210e|hd210i|hd32|hdc32e?|hdc32i|hd250e|hdc211e?|hdc211i|infinity26|infinity28|infinity32|solar28)/i;
+  const curateEmptyCf = scopedId === "continuous-flow-hot-water";
 
   for (const series of listSeries(seriesDoc)) {
     if (!seriesBelongsToSystemType(series, scopedId)) continue;
@@ -112,7 +117,7 @@ export function suggestSeriesPins(catalogue, seriesDoc, query, opts = {}) {
 
     let score;
     if (!qNorm) {
-      if (!primaryEmpty.test(series.id)) continue;
+      if (curateEmptyCf && !primaryEmptyCf.test(series.id)) continue;
       score = 10;
     } else {
       score = scoreMatch(tokens, qNorm, qRaw);
