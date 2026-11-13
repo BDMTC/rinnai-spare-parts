@@ -81,22 +81,43 @@ const cards = searchParts(catalogue, "", null, {
 const codes = cards.map((r) => r.part.code);
 assert(codes.includes("DDUPS2580N"), "DDUPS2580N card on Pin2 select");
 assert(codes.includes("DDUPS32100N"), "DDUPS32100N card on Pin2 select");
+assert(
+  codes.length === 2 && cards.every((r) => r.part.accessorySku),
+  `DDUPS Pin2 must be only 2 pump SKUs, got [${codes.join(",")}]`
+);
 
 const tstatPin = resolveModelPin(catalogue, seriesDoc, "series:ddtstat");
-const tstatCards = searchParts(catalogue, "", null, {
+const tstatRows = searchParts(catalogue, "", null, {
   pin: tstatPin,
   modelIds: tstatPin.modelIds,
-}).map((r) => r.part.code);
+});
+const tstatCards = tstatRows.map((r) => r.part.code);
 assert(tstatCards.includes("DD56TSTAT"), "DD56TSTAT card");
 assert(tstatCards.includes("DD1TSTAT"), "DD1TSTAT card");
+assert(tstatCards.includes("DD234TSTAT"), "DD234TSTAT card");
+assert(
+  tstatCards.length === 3 && tstatRows.every((r) => r.part.accessorySku),
+  `DDTSTAT Pin2 must be only 3 TSTAT SKUs, got [${tstatCards.join(",")}]`
+);
+assert(
+  !tstatCards.some((c) =>
+    ["B062347", "84002345", "90182341", "80080234"].includes(c)
+  ),
+  "DDTSTAT Pin2 must not leak Climate/Logfires family-234 parts"
+);
 
 const uvcPin = resolveModelPin(catalogue, seriesDoc, "series:dduvc");
-const uvcCards = searchParts(catalogue, "", null, {
+const uvcRows = searchParts(catalogue, "", null, {
   pin: uvcPin,
   modelIds: uvcPin.modelIds,
-}).map((r) => r.part.code);
+});
+const uvcCards = uvcRows.map((r) => r.part.code);
 assert(uvcCards.includes("DDUVC1200"), "DDUVC1200 card");
 assert(uvcCards.includes("DDUVC1700"), "DDUVC1700 card");
+assert(
+  uvcCards.length === 2 && uvcRows.every((r) => r.part.accessorySku),
+  `DDUVC Pin2 must be only 2 UV SKUs, got [${uvcCards.join(",")}]`
+);
 
 // Pin3 commercial names — CF unchanged quality + non-CF not bare series-only
 const hd = suggestItemNumberPins(catalogue, seriesDoc, "hd200e", "", {
