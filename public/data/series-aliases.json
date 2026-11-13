@@ -4,7 +4,7 @@
     "title": "Rinnai series aliases",
     "locale": "en-AU",
     "updated": "2026-11-13",
-    "notes": "Marketing ↔ chassis / document keys for model pin + typeahead. Confirmed: HD28e↔VCM2837WC; HD28i↔VCM2837FFC/FFUC; Infinity 28↔VCM2837FF (not FFC); Solar 28 booster↔VCM2837FF S28*; no umbrella HD28 pin (RSP-75). AU HD200e↔VRM2632WC; HD200i↔REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 external↔AM2626WD/WDL (owns Infinity 26 / INF26 / AM2626); Infinity 26 internal↔INF26I/FFUG; Infinity 26 Plus↔REUV2630WD/VRM2630WD; Infinity 26 Smartstart↔VR2626WGP; Infinity 32 Enviro↔KM3237WD; HD210e↔N3237WC; HD210i↔N3237FFC; Infinity 32 Enviro+↔N3237W (not all N3237). Commercial CF: HD32↔AM3237WC; HDC32↔NB3237; HDC211↔KM3237WDC/FFUDC; HD250e↔VRM3237WC; alias commercial on HD/HDC series. NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau)."
+    "notes": "Marketing ↔ chassis / document keys for model pin + typeahead. Confirmed: HD28e↔VCM2837WC; HD28i↔VCM2837FFC/FFUC; Infinity 28↔VCM2837FF (not FFC); Solar 28 booster↔VCM2837FF S28*; no umbrella HD28 pin (RSP-75). AU HD200e↔VRM2632WC; HD200i↔REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 external↔AM2626WD/WDL (owns Infinity 26 / INF26 / AM2626); Infinity 26 internal↔INF26I/FFUG; Infinity 26 Plus↔REUV2630WD/VRM2630WD; Infinity 26 Smartstart↔VR2626WGP; Infinity 32 Enviro↔KM3237WD; HD210e↔N3237WC; HD210i↔N3237FFC; Infinity 32 Enviro+↔N3237W (not all N3237). Commercial CF: HD32↔AM3237WC; HDC32↔NB3237; HDC211↔KM3237WDC/FFUDC; HD250e↔VRM3237WC; alias commercial on HD/HDC series. NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau). RSP-95: +17 Hot Water series (Hotflo/Efinity/heat pump/solar/commercial matched-only)."
   },
   "series": [
     {
@@ -24,10 +24,21 @@
         "REUVCM2837WC"
       ],
       "match": {
-        "marketingCodePrefixes": ["HD28E"],
-        "marketingCodeExcludePrefixes": ["INF28", "S28"],
-        "itemNumberIncludes": ["REUVCM2837WC", "VCM2837WC"],
-        "unitClasses": ["WC", "WCAK"]
+        "marketingCodePrefixes": [
+          "HD28E"
+        ],
+        "marketingCodeExcludePrefixes": [
+          "INF28",
+          "S28"
+        ],
+        "itemNumberIncludes": [
+          "REUVCM2837WC",
+          "VCM2837WC"
+        ],
+        "unitClasses": [
+          "WC",
+          "WCAK"
+        ]
       },
       "documentKeys": [
         "HD28e",
@@ -57,15 +68,23 @@
         "VCM2837FFUC"
       ],
       "match": {
-        "marketingCodePrefixes": ["HD28I"],
-        "marketingCodeExcludePrefixes": ["INF28", "S28"],
+        "marketingCodePrefixes": [
+          "HD28I"
+        ],
+        "marketingCodeExcludePrefixes": [
+          "INF28",
+          "S28"
+        ],
         "itemNumberIncludes": [
           "REUVCM2837FFC",
           "VCM2837FFC",
           "REUVCM2837FFUC",
           "VCM2837FFUC"
         ],
-        "unitClasses": ["FFC", "FFUC"]
+        "unitClasses": [
+          "FFC",
+          "FFUC"
+        ]
       },
       "documentKeys": [
         "HD28i",
@@ -89,10 +108,20 @@
         "REUVCM2837FF"
       ],
       "match": {
-        "marketingCodePrefixes": ["INF28"],
-        "marketingCodeExcludePrefixes": ["S28", "HD28"],
-        "itemNumberIncludes": ["REUVCM2837FF", "VCM2837FF"],
-        "unitClasses": ["FF"]
+        "marketingCodePrefixes": [
+          "INF28"
+        ],
+        "marketingCodeExcludePrefixes": [
+          "S28",
+          "HD28"
+        ],
+        "itemNumberIncludes": [
+          "REUVCM2837FF",
+          "VCM2837FF"
+        ],
+        "unitClasses": [
+          "FF"
+        ]
       },
       "documentKeys": [
         "Infinity 28",
@@ -115,10 +144,20 @@
         "REUVCM2837FF"
       ],
       "match": {
-        "marketingCodePrefixes": ["S28"],
-        "marketingCodeExcludePrefixes": ["INF28", "HD28"],
-        "itemNumberIncludes": ["REUVCM2837FF", "VCM2837FF"],
-        "unitClasses": ["FF"]
+        "marketingCodePrefixes": [
+          "S28"
+        ],
+        "marketingCodeExcludePrefixes": [
+          "INF28",
+          "HD28"
+        ],
+        "itemNumberIncludes": [
+          "REUVCM2837FF",
+          "VCM2837FF"
+        ],
+        "unitClasses": [
+          "FF"
+        ]
       },
       "documentKeys": [
         "Solar 28",
@@ -146,15 +185,22 @@
         "VRM2632"
       ],
       "match": {
-        "marketingCodePrefixes": ["HD200"],
-        "marketingCodeExcludePrefixes": ["HD200I"],
+        "marketingCodePrefixes": [
+          "HD200"
+        ],
+        "marketingCodeExcludePrefixes": [
+          "HD200I"
+        ],
         "itemNumberIncludes": [
           "REUVRM2632WC",
           "VRM2632WC",
           "REUVRM2632WCAK",
           "VRM2632WCAK"
         ],
-        "unitClasses": ["WC", "WCAK"]
+        "unitClasses": [
+          "WC",
+          "WCAK"
+        ]
       },
       "documentKeys": [
         "HD200e",
@@ -199,7 +245,9 @@
         "VRM2632"
       ],
       "match": {
-        "marketingCodePrefixes": ["HD200I"],
+        "marketingCodePrefixes": [
+          "HD200I"
+        ],
         "itemNumberIncludes": [
           "REUVRM2632FFUC",
           "VRM2632FFUC",
@@ -208,7 +256,9 @@
           "REUV2632FFUC",
           "V2632FFUC"
         ],
-        "unitClasses": ["FFUC"]
+        "unitClasses": [
+          "FFUC"
+        ]
       },
       "documentKeys": [
         "HD200i",
@@ -227,7 +277,11 @@
         "V2632FFUG",
         "VRM2632"
       ],
-      "relatedFamilies": ["FFU", "FFUG", "FFUC"],
+      "relatedFamilies": [
+        "FFU",
+        "FFUG",
+        "FFUC"
+      ],
       "notes": "Confirmed Beau: HD200i ↔ REU-VR2632FFUG / REU-VRM2632FFUC (Infinity internal / FFUC). Aliases + documentKeys include FFUG mates for typeahead/docs; model pin match stays HD200I*/FFUC so INF26 is not swallowed. relatedFamilies flags wider FFU heritage for later cross-family parts search."
     },
     {
@@ -246,14 +300,23 @@
         "REUAM2626WDL"
       ],
       "match": {
-        "marketingCodePrefixes": ["INF26L", "INF26N", "INF26B", "INF26T"],
+        "marketingCodePrefixes": [
+          "INF26L",
+          "INF26N",
+          "INF26B",
+          "INF26T"
+        ],
         "itemNumberIncludes": [
           "REUAM2626WD",
           "AM2626WD",
           "REUAM2626WDL",
           "AM2626WDL"
         ],
-        "unitClasses": ["WD", "WDL", "WG"]
+        "unitClasses": [
+          "WD",
+          "WDL",
+          "WG"
+        ]
       },
       "documentKeys": [
         "Infinity 26",
@@ -285,8 +348,12 @@
         "VRM2632"
       ],
       "match": {
-        "marketingCodePrefixes": ["INF26I"],
-        "marketingCodeExcludePrefixes": ["S26"],
+        "marketingCodePrefixes": [
+          "INF26I"
+        ],
+        "marketingCodeExcludePrefixes": [
+          "S26"
+        ],
         "itemNumberIncludes": [
           "REUVRM2632FFUG",
           "VRM2632FFUG",
@@ -295,7 +362,9 @@
           "REUV2632FFUG",
           "V2632FFUG"
         ],
-        "unitClasses": ["FFUG"]
+        "unitClasses": [
+          "FFUG"
+        ]
       },
       "documentKeys": [
         "INF26I",
@@ -327,7 +396,10 @@
         "VM2630WD"
       ],
       "match": {
-        "marketingCodePrefixes": ["INF26P", "K26P"],
+        "marketingCodePrefixes": [
+          "INF26P",
+          "K26P"
+        ],
         "itemNumberIncludes": [
           "REUV2630WD",
           "REUVRM2630WD",
@@ -335,7 +407,9 @@
           "REUVM2630WD",
           "VM2630WD"
         ],
-        "unitClasses": ["WD"]
+        "unitClasses": [
+          "WD"
+        ]
       },
       "documentKeys": [
         "Infinity 26 Plus",
@@ -360,8 +434,14 @@
         "REUVR2626WGP"
       ],
       "match": {
-        "marketingCodePrefixes": ["INF26S", "INF26SS"],
-        "itemNumberIncludes": ["REUVR2626WGP", "VR2626WGP"]
+        "marketingCodePrefixes": [
+          "INF26S",
+          "INF26SS"
+        ],
+        "itemNumberIncludes": [
+          "REUVR2626WGP",
+          "VR2626WGP"
+        ]
       },
       "documentKeys": [
         "Infinity 26 Smartstart",
@@ -388,10 +468,24 @@
         "REUKM3237"
       ],
       "match": {
-        "marketingCodePrefixes": ["ENV32"],
-        "itemNumberIncludes": ["REUKM3237WD", "KM3237WD"],
-        "unitClasses": ["WD"],
-        "marketingCodeExcludePrefixes": ["HDC211", "HD210", "INF32EEL", "INF32EEN", "INF32EIL", "INF32EIN"]
+        "marketingCodePrefixes": [
+          "ENV32"
+        ],
+        "itemNumberIncludes": [
+          "REUKM3237WD",
+          "KM3237WD"
+        ],
+        "unitClasses": [
+          "WD"
+        ],
+        "marketingCodeExcludePrefixes": [
+          "HDC211",
+          "HD210",
+          "INF32EEL",
+          "INF32EEN",
+          "INF32EIL",
+          "INF32EIN"
+        ]
       },
       "documentKeys": [
         "Infinity 32 Enviro",
@@ -418,9 +512,16 @@
         "REUN3237WC"
       ],
       "match": {
-        "marketingCodePrefixes": ["HD210E"],
-        "itemNumberIncludes": ["REUN3237WC", "N3237WC"],
-        "unitClasses": ["WC"]
+        "marketingCodePrefixes": [
+          "HD210E"
+        ],
+        "itemNumberIncludes": [
+          "REUN3237WC",
+          "N3237WC"
+        ],
+        "unitClasses": [
+          "WC"
+        ]
       },
       "documentKeys": [
         "HD210e",
@@ -445,9 +546,16 @@
         "REUN3237FFC"
       ],
       "match": {
-        "marketingCodePrefixes": ["HD210I"],
-        "itemNumberIncludes": ["REUN3237FFC", "N3237FFC"],
-        "unitClasses": ["FFC"]
+        "marketingCodePrefixes": [
+          "HD210I"
+        ],
+        "itemNumberIncludes": [
+          "REUN3237FFC",
+          "N3237FFC"
+        ],
+        "unitClasses": [
+          "FFC"
+        ]
       },
       "documentKeys": [
         "HD210i",
@@ -473,7 +581,14 @@
         "REUN3237WD"
       ],
       "match": {
-        "marketingCodeExcludePrefixes": ["HD210", "HDC211", "INF32EEL", "INF32EEN", "INF32EIL", "INF32EIN"],
+        "marketingCodeExcludePrefixes": [
+          "HD210",
+          "HDC211",
+          "INF32EEL",
+          "INF32EEN",
+          "INF32EIL",
+          "INF32EIN"
+        ],
         "itemNumberIncludes": [
           "REUN3237WD",
           "N3237WD",
@@ -509,9 +624,17 @@
         "REUAM3237"
       ],
       "match": {
-        "marketingCodePrefixes": ["HD32"],
-        "itemNumberIncludes": ["REUAM3237WC", "AM3237WC"],
-        "unitClasses": ["WC", "WCAK"]
+        "marketingCodePrefixes": [
+          "HD32"
+        ],
+        "itemNumberIncludes": [
+          "REUAM3237WC",
+          "AM3237WC"
+        ],
+        "unitClasses": [
+          "WC",
+          "WCAK"
+        ]
       },
       "documentKeys": [
         "HD32",
@@ -541,9 +664,17 @@
         "REUNB3237"
       ],
       "match": {
-        "marketingCodePrefixes": ["HDC32E"],
-        "itemNumberIncludes": ["REUNB3237WC", "NB3237WC"],
-        "unitClasses": ["WC", "WCAK"]
+        "marketingCodePrefixes": [
+          "HDC32E"
+        ],
+        "itemNumberIncludes": [
+          "REUNB3237WC",
+          "NB3237WC"
+        ],
+        "unitClasses": [
+          "WC",
+          "WCAK"
+        ]
       },
       "documentKeys": [
         "HDC32",
@@ -572,9 +703,16 @@
         "REUNB3237"
       ],
       "match": {
-        "marketingCodePrefixes": ["HDC32I"],
-        "itemNumberIncludes": ["REUNB3237FFC", "NB3237FFC"],
-        "unitClasses": ["FFC"]
+        "marketingCodePrefixes": [
+          "HDC32I"
+        ],
+        "itemNumberIncludes": [
+          "REUNB3237FFC",
+          "NB3237FFC"
+        ],
+        "unitClasses": [
+          "FFC"
+        ]
       },
       "documentKeys": [
         "HDC32",
@@ -602,9 +740,16 @@
         "REUKM3237WDC"
       ],
       "match": {
-        "marketingCodePrefixes": ["HDC211E"],
-        "itemNumberIncludes": ["REUKM3237WDC", "KM3237WDC"],
-        "unitClasses": ["WDC"]
+        "marketingCodePrefixes": [
+          "HDC211E"
+        ],
+        "itemNumberIncludes": [
+          "REUKM3237WDC",
+          "KM3237WDC"
+        ],
+        "unitClasses": [
+          "WDC"
+        ]
       },
       "documentKeys": [
         "HDC211",
@@ -631,9 +776,16 @@
         "REUKM3237FFUDC"
       ],
       "match": {
-        "marketingCodePrefixes": ["HDC211I"],
-        "itemNumberIncludes": ["REUKM3237FFUDC", "KM3237FFUDC"],
-        "unitClasses": ["FFUDC"]
+        "marketingCodePrefixes": [
+          "HDC211I"
+        ],
+        "itemNumberIncludes": [
+          "REUKM3237FFUDC",
+          "KM3237FFUDC"
+        ],
+        "unitClasses": [
+          "FFUDC"
+        ]
       },
       "documentKeys": [
         "HDC211",
@@ -660,9 +812,18 @@
         "VRM3237"
       ],
       "match": {
-        "marketingCodePrefixes": ["HD250"],
-        "itemNumberIncludes": ["REUVRM3237WC", "VRM3237WC", "REUV3232WC"],
-        "unitClasses": ["WC", "WCAK"]
+        "marketingCodePrefixes": [
+          "HD250"
+        ],
+        "itemNumberIncludes": [
+          "REUVRM3237WC",
+          "VRM3237WC",
+          "REUV3232WC"
+        ],
+        "unitClasses": [
+          "WC",
+          "WCAK"
+        ]
       },
       "documentKeys": [
         "HD250",
@@ -676,6 +837,448 @@
         "REUVRM3237WG"
       ],
       "notes": "Tech ingest: HD250e ↔ VRM3237WC (plus older V3232WC heritage on some SKUs)."
+    },
+    {
+      "id": "fm10",
+      "label": "Flowmaster FM10",
+      "aliases": [
+        "FM10",
+        "FM10LA",
+        "FM10NA",
+        "Flowmaster",
+        "FLOWMASTER"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "FM10"
+        ]
+      },
+      "documentKeys": [
+        "FM10",
+        "FM10LA",
+        "FM10NA",
+        "Flowmaster",
+        "FLOWMASTER",
+        "IHF10"
+      ],
+      "notes": "RSP-95 matched: Flowmaster FM10LA/NA. Continuous-flow instantaneous; not Hotflo storage. No REU unit class.",
+      "systemType": "continuous-flow-hot-water",
+      "familyKey": "continuous_flow"
+    },
+    {
+      "id": "efinity-ecf",
+      "label": "Efinity ECF",
+      "aliases": [
+        "Efinity",
+        "ECF",
+        "ECF14",
+        "ECF19",
+        "ECF29",
+        "Electric CF"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "ECF14",
+          "ECF19",
+          "ECF29"
+        ]
+      },
+      "documentKeys": [
+        "ECF",
+        "ECF14",
+        "ECF14I50",
+        "ECF14I60",
+        "ECF19",
+        "ECF19I50",
+        "ECF19I60",
+        "ECF29",
+        "ECF29I50",
+        "ECF29I60",
+        "Efinity"
+      ],
+      "notes": "RSP-95 matched: electric continuous-flow Efinity ECF14/19/29. One PL per SKU.",
+      "systemType": "pending:electric-continuous-flow",
+      "familyKey": "electric_cf"
+    },
+    {
+      "id": "ehfa160",
+      "label": "Hotflo EHFA160",
+      "aliases": [
+        "EHFA160",
+        "Hotflo EHFA160",
+        "HOTFLO EHFA160",
+        "Hotflo",
+        "HOTFLO"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "EHFA160"
+        ]
+      },
+      "documentKeys": [
+        "EHFA160",
+        "Hotflo EHFA160",
+        "HOTFLO EHFA160"
+      ],
+      "notes": "RSP-95 matched: EHFA160S* → PL Hotflo EHFA160. Proof part 95110104 (ELEMENT 2.4KW EHFA160). No REU chassis.",
+      "systemType": "pending:hotflo-electric-storage",
+      "familyKey": "hotflo_electric_storage"
+    },
+    {
+      "id": "ehfd160",
+      "label": "Hotflo EHFD160",
+      "aliases": [
+        "EHFD160",
+        "Hotflo EHFD160",
+        "HOTFLO EHFD160"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "EHFD160"
+        ]
+      },
+      "documentKeys": [
+        "EHFD160",
+        "Hotflo EHFD160",
+        "EHFD"
+      ],
+      "notes": "RSP-95 matched: EHFD160S* → PL Hotflo EHFD160.",
+      "systemType": "pending:hotflo-electric-storage",
+      "familyKey": "hotflo_electric_storage"
+    },
+    {
+      "id": "ehfa250",
+      "label": "Hotflo EHFA250",
+      "aliases": [
+        "EHFA250",
+        "Hotflo EHFA250",
+        "HOTFLO EHFA250",
+        "EHFA"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "EHFA250"
+        ]
+      },
+      "documentKeys": [
+        "EHFA250",
+        "EHFA",
+        "Hotflo EHFA250"
+      ],
+      "notes": "RSP-95 matched: EHFA250S24/36 → EHFA SPARE PARTS.pdf; S48 → EHF 250SL 315L PL. documentKeys include EHFA for shared desktop sheet.",
+      "systemType": "pending:hotflo-electric-storage",
+      "familyKey": "hotflo_electric_storage"
+    },
+    {
+      "id": "ehfa315",
+      "label": "Hotflo EHFA315",
+      "aliases": [
+        "EHFA315",
+        "Hotflo EHFA315",
+        "HOTFLO EHFA315"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "EHFA315"
+        ]
+      },
+      "documentKeys": [
+        "EHFA315",
+        "EHF315",
+        "Hotflo EHFA315"
+      ],
+      "notes": "RSP-95 matched: EHFA315S* → PL Hotflo EHF 250SL 315L.",
+      "systemType": "pending:hotflo-electric-storage",
+      "familyKey": "hotflo_electric_storage"
+    },
+    {
+      "id": "ehfa400",
+      "label": "Hotflo EHFA400",
+      "aliases": [
+        "EHFA400",
+        "Hotflo EHFA400",
+        "HOTFLO EHFA400"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "EHFA400"
+        ]
+      },
+      "documentKeys": [
+        "EHFA400",
+        "Hotflo EHFA400",
+        "EHFA 400"
+      ],
+      "notes": "RSP-95 matched: EHFA400S* → PL Hotflo EHFA 400L.",
+      "systemType": "pending:hotflo-electric-storage",
+      "familyKey": "hotflo_electric_storage"
+    },
+    {
+      "id": "ehf25",
+      "label": "Hotflo EHF25",
+      "aliases": [
+        "EHF25",
+        "Hotflo EHF25",
+        "HOTFLO EHF25"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "EHF25"
+        ],
+        "marketingCodeExcludePrefixes": [
+          "EHFA",
+          "EHFD",
+          "EHPA",
+          "EHPG",
+          "EHPT",
+          "EHPS"
+        ]
+      },
+      "documentKeys": [
+        "EHF25",
+        "Hotflo EHF25"
+      ],
+      "notes": "RSP-95 matched: EHF25S* (filename_stem→EHF 250SL 315L PL). Exclude EHFA/EHFD/EHP* prefixes so storage siblings stay distinct.",
+      "systemType": "pending:hotflo-electric-storage",
+      "familyKey": "hotflo_electric_storage"
+    },
+    {
+      "id": "ghf4",
+      "label": "Hotflo GHF4",
+      "aliases": [
+        "GHF4",
+        "GHF4135",
+        "Hotflo GHF4",
+        "HOTFLO GHF4"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "GHF4"
+        ]
+      },
+      "documentKeys": [
+        "GHF4",
+        "GHF4135",
+        "GHF4135L",
+        "GHF4135N",
+        "Hotflo GHF4"
+      ],
+      "notes": "RSP-95 matched: GHF4135* → PL Hotflo GHF4 135L/170L.",
+      "systemType": "pending:gas-storage-hot-water",
+      "familyKey": "storage_other"
+    },
+    {
+      "id": "ehpa-ar",
+      "label": "Heat Pump AR EHPA",
+      "aliases": [
+        "EHPA300",
+        "EHPA340",
+        "EHPA",
+        "AR Series",
+        "Heat Pump AR"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "EHPA300",
+          "EHPA340"
+        ]
+      },
+      "documentKeys": [
+        "EHPA300VM",
+        "EHPA340VM",
+        "EHPA300",
+        "EHPA340",
+        "AR SERIES"
+      ],
+      "notes": "RSP-95 matched: EHPA300/340 VM* → AR series PL.",
+      "systemType": "pending:heat-pump-hot-water",
+      "familyKey": "heat_pump"
+    },
+    {
+      "id": "ehpa-vma",
+      "label": "Enviroflo VMA",
+      "aliases": [
+        "EHPA250VMA",
+        "Enviroflo",
+        "VMA",
+        "EHPA250"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "EHPA250VMA"
+        ]
+      },
+      "documentKeys": [
+        "EHPA250VMA",
+        "EHPA250",
+        "Enviroflo",
+        "VMA"
+      ],
+      "notes": "RSP-95 matched: EHPA250VMA/H → Enviroflo VMA V2 PL.",
+      "systemType": "pending:heat-pump-hot-water",
+      "familyKey": "heat_pump"
+    },
+    {
+      "id": "ehpg-gr",
+      "label": "Heat Pump GR EHPG",
+      "aliases": [
+        "EHPG",
+        "GR Series",
+        "EHPG215",
+        "EHPG280",
+        "EHPG300"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "EHPG"
+        ]
+      },
+      "documentKeys": [
+        "EHPG",
+        "EHPG215VM",
+        "EHPG280VM",
+        "EHPG300VM",
+        "GR SERIES"
+      ],
+      "notes": "RSP-95 matched: EHPGxxVM → GR series SPL/SM.",
+      "systemType": "pending:heat-pump-hot-water",
+      "familyKey": "heat_pump"
+    },
+    {
+      "id": "ehpt-a",
+      "label": "Heat Pump A EHPT",
+      "aliases": [
+        "EHPT",
+        "EHPT180",
+        "A Series Heat Pump"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "EHPT"
+        ]
+      },
+      "documentKeys": [
+        "EHPT",
+        "EHPT180",
+        "EHPT180VM",
+        "A SERIES"
+      ],
+      "notes": "RSP-95 matched: EHPT180VM → A series heat pump SM.",
+      "systemType": "pending:heat-pump-hot-water",
+      "familyKey": "heat_pump"
+    },
+    {
+      "id": "ehps-be",
+      "label": "Heat Pump B/E EHPS",
+      "aliases": [
+        "EHPS",
+        "EHPS215",
+        "B E Series Heat Pump"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "EHPS"
+        ]
+      },
+      "documentKeys": [
+        "EHPS",
+        "EHPS215",
+        "EHPS215VM"
+      ],
+      "notes": "RSP-95 matched: EHPS215VM → B/E series heat pump SM.",
+      "systemType": "pending:heat-pump-hot-water",
+      "familyKey": "heat_pump"
+    },
+    {
+      "id": "solar-sg",
+      "label": "Solar Split SG",
+      "aliases": [
+        "SG175",
+        "SG215",
+        "SG270",
+        "SG320",
+        "Solar Split",
+        "SG"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "SG175",
+          "SG215",
+          "SG270",
+          "SG320"
+        ]
+      },
+      "documentKeys": [
+        "SG175",
+        "SG175A",
+        "SG215",
+        "SG215A",
+        "SG270A",
+        "SG320A",
+        "Solar Split"
+      ],
+      "notes": "RSP-95 matched: SGxxx(A) solar split PLs. Matched-only — no invented SE links.",
+      "systemType": "pending:solar-hot-water",
+      "familyKey": "solar"
+    },
+    {
+      "id": "chp",
+      "label": "Commercial Heat Pump CHP",
+      "aliases": [
+        "CHP",
+        "CHP020",
+        "CHP040",
+        "Commercial Heat Pump"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "CHP020",
+          "CHP040"
+        ]
+      },
+      "documentKeys": [
+        "CHP020",
+        "CHP040",
+        "CHP020H",
+        "CHP040H"
+      ],
+      "notes": "RSP-95 matched: CHP020H/CHP040H → commercial heat pump SM.",
+      "systemType": "pending:commercial-heat-pump",
+      "familyKey": "commercial_other_hw"
+    },
+    {
+      "id": "demand-duo",
+      "label": "Demand Duo",
+      "aliases": [
+        "Demand Duo",
+        "DDUVC",
+        "DDUPS",
+        "DD1TSTAT",
+        "DD234TSTAT",
+        "DD56TSTAT"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "DDUVC",
+          "DDUPS",
+          "DD1TSTAT",
+          "DD234TSTAT",
+          "DD56TSTAT"
+        ]
+      },
+      "documentKeys": [
+        "DDUVC1200",
+        "DDUVC1700",
+        "DDUPS2580N",
+        "DDUPS32100N",
+        "DD1TSTAT",
+        "DD234TSTAT",
+        "DD56TSTAT",
+        "Demand Duo"
+      ],
+      "notes": "RSP-95 matched: Demand Duo valves/stats/packs only — no invented DD tank links.",
+      "systemType": "pending:demand-duo",
+      "familyKey": "commercial_demand_duo"
     }
   ]
 }
