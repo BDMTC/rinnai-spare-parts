@@ -1,8 +1,8 @@
 /**
  * Pin2-side news ticker — Brisbane/SE QLD weekly weather (per-day items),
  * top Brisbane traffic incidents, urgent QLD news, Rinnai AU announcements.
- * Every item is a hyperlink. Public feeds only; file:// / CORS failures fall
- * back to demo stubs.
+ * Every item is a hyperlink. Public feeds only. Offline gag only when the
+ * browser is truly offline; file:// uses direct fetch then CORS relays.
  */
 
 const WEATHER_LABEL = "Brisbane / SE QLD";
@@ -195,26 +195,49 @@ function offlineStubItems() {
 }
 
 /**
+ * file:// pages use Origin "null". Some hosts answer ACAO:* which Chromium
+ * can reject for null; others time out. Try direct, then public CORS relays.
  * @param {string} url
  * @param {number} [ms]
  * @returns {Promise<Response|null>}
  */
 async function fetchSoft(url, ms = 8000) {
-  try {
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), ms);
-    const res = await fetch(url, {
-      signal: ctrl.signal,
-      mode: "cors",
-      credentials: "omit",
-      cache: "no-store",
-    });
-    clearTimeout(t);
-    if (!res.ok) return null;
-    return res;
-  } catch {
-    return null;
+  const candidates = [url];
+  // Relays that re-emit CORS for browser / file:// null origin.
+  candidates.push(`https://corsproxy.io/?${encodeURIComponent(url)}`);
+  candidates.push(`${ALLORIGINS_RAW}${encodeURIComponent(url)}`);
+
+  for (const candidate of candidates) {
+    try {
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), ms);
+      const res = await fetch(candidate, {
+        signal: ctrl.signal,
+        mode: "cors",
+        credentials: "omit",
+        cache: "no-store",
+      });
+      clearTimeout(t);
+      if (!res.ok) continue;
+      return res;
+    } catch {
+      /* try next */
+    }
   }
+  return null;
+}
+
+/** Comfortable ticker crawl — ~42 px/s of the duplicated track half. */
+const TICKER_PX_PER_SEC = 42;
+
+/**
+ * @param {HTMLElement} track
+ */
+function syncTickerDuration(track) {
+  const half = Math.max(1, track.scrollWidth / 2);
+  // Floor keeps short stub readable; cap avoids multi-minute loops.
+  const sec = Math.max(60, Math.min(220, half / TICKER_PX_PER_SEC));
+  track.style.setProperty("--ticker-duration", `${sec.toFixed(1)}s`);
 }
 
 /**
@@ -438,7 +461,8 @@ export function pickTopBrisbaneTraffic(data, limit = TRAFFIC_TOP_N) {
  * @returns {Promise<TickerItem[]>}
  */
 async function fetchBrisbaneTraffic() {
-  const res = await fetchSoft(TRAFFIC_GEOJSON_URL, 25000);
+  // ~3 MB GeoJSON; allow headroom especially via CORS relay on file://.
+  const res = await fetchSoft(TRAFFIC_GEOJSON_URL, 45000);
   if (!res) return [];
   try {
     const data = await res.json();
@@ -509,11 +533,19 @@ async function fetchRinnaiNews() {
 /**
  * @returns {Promise<TickerItem[]>}
  */
-export async function loadTickerItems() {
-  const offline =
-    typeof navigator !== "undefined" && navigator && navigator.onLine === false;
+/**
+ * True only when the browser reports offline — not for CORS / feed blips.
+ * @returns {boolean}
+ */
+export function isTrulyOffline() {
+  return (
+    typeof navigator !== "undefined" && navigator && navigator.onLine === false
+  );
+}
 
-  if (offline) return offlineStubItems();
+export async function loadTickerItems() {
+  // Gag only when truly offline (Beau). Networked feed fails ≠ offline wink.
+  if (isTrulyOffline()) return offlineStubItems();
 
   const [weather, traffic, news, rinnai] = await Promise.all([
     fetchWeeklyWeather(),
@@ -530,9 +562,7 @@ export async function loadTickerItems() {
   for (const n of news) out.push({ ...n, source: "abc-rss2json" });
   for (const r of rinnai) out.push({ ...r, source: "rinnai.com.au" });
 
-  // No live rows (CORS / file:// / feed fail) → short wink, not fake feeds
-  // and not copyrighted lyrics.
-  if (!out.length) return offlineStubItems();
+  // Still online but nothing landed — stay quiet (no gag). Caller may retry.
   return out;
 }
 
@@ -571,6 +601,7 @@ function renderTickerDom(root, items) {
     .join('<span class="news-ticker-sep" aria-hidden="true">·</span>');
   // Duplicate for seamless marquee
   track.innerHTML = `${html}<span class="news-ticker-sep" aria-hidden="true">·</span>${html}`;
+  syncTickerDuration(track);
   root.dataset.ready = "1";
   root.removeAttribute("hidden");
 }
@@ -596,18 +627,39 @@ export function bindNewsTicker(scope = document) {
   if (!root) return;
 
   let timer = 0;
+  let lastLive = /** @type {TickerItem[]} */ ([]);
+
   const refresh = async () => {
     try {
+      if (isTrulyOffline()) {
+        renderTickerDom(root, offlineStubItems());
+        return;
+      }
       const items = await loadTickerItems();
-      renderTickerDom(root, items);
+      if (items.length) {
+        lastLive = items;
+        renderTickerDom(root, items);
+      } else if (lastLive.length) {
+        // Keep last good crawl while networked but feeds hiccup.
+        renderTickerDom(root, lastLive);
+      }
+      // else: leave empty / prior — do not paint offline gag while online
     } catch {
-      renderTickerDom(root, offlineStubItems());
+      if (isTrulyOffline()) renderTickerDom(root, offlineStubItems());
+      else if (lastLive.length) renderTickerDom(root, lastLive);
     }
   };
 
-  renderTickerDom(root, offlineStubItems());
+  // Don't flash the offline gag on first paint when networked (file:// fix).
+  if (isTrulyOffline()) {
+    renderTickerDom(root, offlineStubItems());
+  }
   void refresh();
   timer = window.setInterval(() => void refresh(), 30 * 60 * 1000);
+  window.addEventListener("online", () => void refresh());
+  window.addEventListener("offline", () => {
+    renderTickerDom(root, offlineStubItems());
+  });
   root.addEventListener(
     "remove",
     () => {
