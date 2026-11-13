@@ -72,6 +72,22 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "EDPL VR2426_VR2626.pdf p1",
     label: "EDPL VR2426_VR2626 (B24)",
   },
+  "infinity16-v": {
+    page: "EDPL REUV1620WG.pdf p1",
+    label: "EDPL REUV1620WG (Infinity 16 V)",
+  },
+  "infinity20-v": {
+    page: "EDPL REUV2024WG.pdf p1",
+    label: "EDPL REUV2024WG (Infinity 20 V)",
+  },
+  "infinity-v1616": {
+    page: "EDPL V1616W_2018W_2020W.pdf p1",
+    label: "EDPL V1616W_2018W_2020W",
+  },
+  v3232: {
+    page: "EDPL V3232W_WC.pdf p1",
+    label: "EDPL V3232W_WC",
+  },
   hd32: {
     page: "New A Series CF Parts List.pdf p56",
     label: "New A Series CF Parts List (HD32e)",
@@ -282,6 +298,15 @@ const ED_STEM_TO_PDF = {
   "edpl-vr1620": "EDPL VR1620.pdf",
   "edpl-vr2024": "EDPL VR2024.pdf",
   "edpl-b24": "EDPL B24.pdf",
+  "edpl-b16": "EDPL B16.pdf",
+  "edpl-2425w": "EDPL 2425W.pdf",
+  "edpl-v3232w-wc": "EDPL V3232W_WC.pdf",
+  "edpl-v1616wf": "EDPL V1616WF.pdf",
+  "edpl-v1616w-2018w-2020w": "EDPL V1616W_2018W_2020W.pdf",
+  "edpl-reuv1620wg": "EDPL REUV1620WG.pdf",
+  "edpl-reuv2024wg": "EDPL REUV2024WG.pdf",
+  "edpl-reuv1620w": "EDPL REUV1620W.pdf",
+  "edpl-reu-vrm2024": "REU-VRM2024.pdf",
   "pled-infinity-32-enviro-plus-n-series-e":
     "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
   "pl-reu-vcm2837-wc-external": "Parts List REU-VCM2837 WC External.pdf",

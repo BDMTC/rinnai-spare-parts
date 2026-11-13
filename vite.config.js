@@ -225,6 +225,16 @@ function lightboxPdfDataScripts() {
     { id: "EDPL-VR2024", file: "EDPL VR2024.pdf" },
     { id: "SMVR2426W-VR2632WC", file: "SMVR2426W_VR2632WC.pdf" },
     { id: "EDPL-B24", file: "EDPL B24.pdf" },
+    { id: "smv1616W", file: "smv1616W.pdf" },
+    { id: "SM-V16-18-20", file: "SM V16_18_20.pdf" },
+    { id: "SM-V32", file: "SM V32.pdf" },
+    { id: "EDPL-REUV1620WG", file: "EDPL REUV1620WG.pdf" },
+    { id: "EDPL-REUV2024WG", file: "EDPL REUV2024WG.pdf" },
+    { id: "EDPL-V1616W-2018W-2020W", file: "EDPL V1616W_2018W_2020W.pdf" },
+    { id: "EDPL-V3232W-WC", file: "EDPL V3232W_WC.pdf" },
+    { id: "EDPL-B16", file: "EDPL B16.pdf" },
+    { id: "EDPL-2425W", file: "EDPL 2425W.pdf" },
+    { id: "REU-VRM2024", file: "REU-VRM2024.pdf" },
   ];
 
   function buildScriptSource(fileName) {
