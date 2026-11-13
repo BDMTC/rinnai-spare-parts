@@ -172,6 +172,18 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
     label: "HDC211e KM3237WDC Combined SP & EPD",
   },
+  "infinity20-2006": {
+    page: "SM 2006.pdf p62",
+    label: "SM 2006 exploded (Infinity 20 Internal)",
+  },
+  "infinity24-wa": {
+    page: "SM 24WA.pdf p61",
+    label: "SM 24WA exploded (Infinity 24 WA)",
+  },
+  "infinity32-3203": {
+    page: "SM REU3203.pdf p54",
+    label: "SM REU3203 exploded (Infinity 32 3203)",
+  },
   hd28e: {
     page: "Parts List REU-VCM2837 WC External.pdf p5",
     label: "Parts List REU-VCM2837 WC External (HD28e)",
@@ -364,6 +376,9 @@ const ED_STEM_TO_PDF = {
   "pl-ihf10": "IHF10-Spare-Parts-List.pdf",
   "pl-reu-km3237wdc-hdc211e": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
   "pl-hotflo-hfe-250-315-slim": "HFE 250S 315S SPL 29032021 V8.pdf",
+  "pl-sm-2006": "SM 2006.pdf",
+  "pl-sm-24wa": "SM 24WA.pdf",
+  "pl-sm-reu3203": "SM REU3203.pdf",
 };
 
 /**

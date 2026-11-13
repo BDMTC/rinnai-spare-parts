@@ -899,7 +899,7 @@
         "2006FFU",
         "Infinity 20 Internal"
       ],
-      "notes": "Heritage Infinity 20 internal on REU-2006FFU (INF20IN). Cover-true SM: SM 2006.pdf. Chassis-only so modern Infinity 20 VR2024 stays out."
+      "notes": "Heritage Infinity 20 internal on REU-2006FFU (INF20IN). Cover-true SM: SM 2006.pdf + SM-embedded PL/ED pages. Chassis-only so modern Infinity 20 VR2024 stays out."
     },
     {
       "id": "infinity24-2402",
@@ -951,7 +951,7 @@
         "24WA",
         "Infinity 24 WA"
       ],
-      "notes": "Heritage Infinity REU-24 W-A (INF24L50 / REU-24WANCL-50). Cover-true SM: SM 24WA.pdf. Chassis fragment 24WA so 2402 stays on infinity24-2402."
+      "notes": "Heritage Infinity REU-24 W-A (INF24L50 / REU-24WANCL-50). Cover-true SM: SM 24WA.pdf + SM-embedded PL/ED pages. Chassis fragment 24WA so 2402 stays on infinity24-2402."
     },
     {
       "id": "infinity32-3203",
@@ -973,7 +973,7 @@
         "3203W",
         "Infinity 32 (3203)"
       ],
-      "notes": "Heritage Infinity high-capacity on REU-3203W (INF32NA). Cover-true SM: SM REU3203.pdf. Not V3232 / VR3237 / AM3237."
+      "notes": "Heritage Infinity high-capacity on REU-3203W (INF32NA). Cover-true SM: SM REU3203.pdf + SM-embedded PL/ED pages. Not V3232 / VR3237 / AM3237."
     },
     {
       "id": "v2626",

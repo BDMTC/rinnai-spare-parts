@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T13:47:01.918889+00:00",
+  "generatedAt": "2026-11-13T13:57:02.771633+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
@@ -11,13 +11,14 @@
     "hotfloPreserve": "Non-CF ehf*/ghf*/efinity hits from prior JSON are merged back after CF extract",
     "ihf10Fm10": "Flowmaster FM10 / Hotflo IHF10 Instantaneous \u2014 cover-true SM IHF10.pdf + IHF10-Spare-Parts-List.pdf Issue 3 (RSP-131 stretch #84)",
     "hdc211e": "HDC211e PL Pin1 from REU-KM3237WDC-AK Combined SP & EPD SEP 2018 (cover HDC211e; chassis WDC \u2014 not Enviro KM3237WD)",
-    "hotfloHfeSlim": "Hotflo HFE 250S/315S slim SPL Issue 8 \u2192 ehfa250/ehfa315 (complements EHFA SPARE PARTS)"
+    "hotfloHfeSlim": "Hotflo HFE 250S/315S slim SPL Issue 8 \u2192 ehfa250/ehfa315 (complements EHFA SPARE PARTS)",
+    "heritageSmPl": "SM-embedded PL for infinity20-2006 / infinity24-wa / infinity32-3203 (Hotflo EHFA400/EHFD/EHF25/GHF4/Efinity still wait-for Tech Issue PL sync)"
   },
   "totals": {
     "sheetsConfigured": 49,
     "sheetsOk": 49,
     "sheetsMissing": 0,
-    "uniqueCodes": 797,
+    "uniqueCodes": 843,
     "codesInCatalogue": 549,
     "codesInCatalogueWithPageAsset": 467,
     "codesInCatalogueWithListBox": 467,
@@ -1777,6 +1778,101 @@
       ],
       "priority": 16,
       "path": "data-sheets/Rinnai Data Sheets/REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf"
+    },
+    {
+      "file": "SM 2006.pdf",
+      "stem": "pl-sm-2006",
+      "status": "ok",
+      "pages": 68,
+      "diagramPages": [
+        62,
+        63,
+        64,
+        65
+      ],
+      "listPages": [
+        66,
+        67,
+        68
+      ],
+      "defaultDiagramPage": 62,
+      "rowsExtracted": 35,
+      "rowsInCatalogue": 9,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "infinity20-2006"
+      ],
+      "chassisTokens": [
+        "2006FFU",
+        "REU-2006FFU",
+        "REU2006FFU",
+        "2006"
+      ],
+      "priority": 15,
+      "path": "data-sheets/Rinnai Data Sheets/SM 2006.pdf",
+      "notes": "RA codes from SM-embedded parts list (heritage leftovers)"
+    },
+    {
+      "file": "SM 24WA.pdf",
+      "stem": "pl-sm-24wa",
+      "status": "ok",
+      "pages": 63,
+      "diagramPages": [
+        61
+      ],
+      "listPages": [
+        60,
+        62,
+        63
+      ],
+      "defaultDiagramPage": 61,
+      "rowsExtracted": 29,
+      "rowsInCatalogue": 1,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "infinity24-wa"
+      ],
+      "chassisTokens": [
+        "24WA",
+        "REU-24WA",
+        "REU24WA"
+      ],
+      "priority": 15,
+      "path": "data-sheets/Rinnai Data Sheets/SM 24WA.pdf",
+      "notes": "RA codes from SM-embedded parts list (heritage leftovers)"
+    },
+    {
+      "file": "SM REU3203.pdf",
+      "stem": "pl-sm-reu3203",
+      "status": "ok",
+      "pages": 60,
+      "diagramPages": [
+        54,
+        55,
+        56,
+        57
+      ],
+      "listPages": [
+        58,
+        59,
+        60
+      ],
+      "defaultDiagramPage": 54,
+      "rowsExtracted": 25,
+      "rowsInCatalogue": 8,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "infinity32-3203"
+      ],
+      "chassisTokens": [
+        "3203W",
+        "REU-3203W",
+        "REU3203W",
+        "3203"
+      ],
+      "priority": 15,
+      "path": "data-sheets/Rinnai Data Sheets/SM REU3203.pdf",
+      "notes": "RA codes from SM-embedded parts list (heritage leftovers)"
     }
   ],
   "parts": {
@@ -2601,6 +2697,26 @@
       }
     ],
     "92086909": [
+      {
+        "callout": "2",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 58,
+        "listPageKey": "pl-sm-reu3203__p58",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "010"
+      },
       {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -3533,6 +3649,25 @@
       }
     ],
     "92063361": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 60,
+        "listPageKey": "pl-sm-24wa__p60",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "103"
+      },
       {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -8820,6 +8955,26 @@
     ],
     "92081587": [
       {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 66,
+        "listPageKey": "pl-sm-2006__p66",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "100"
+      },
+      {
         "callout": "102",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
@@ -11748,6 +11903,26 @@
     ],
     "92086974": [
       {
+        "callout": "115",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "ELECTRODE"
+      },
+      {
         "callout": "116",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
@@ -14142,6 +14317,26 @@
       }
     ],
     "92087006": [
+      {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "118"
+      },
       {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -18666,6 +18861,26 @@
       }
     ],
     "92083773": [
+      {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "402"
+      },
       {
         "callout": "412",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -25891,6 +26106,26 @@
       }
     ],
     "92087030": [
+      {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "121"
+      },
       {
         "callout": "708",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -38579,6 +38814,26 @@
     ],
     "92062249": [
       {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "904"
+      },
+      {
         "callout": "810",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
@@ -42375,6 +42630,26 @@
       }
     ],
     "92071182": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "908"
+      },
       {
         "callout": "813",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -46327,6 +46602,26 @@
     ],
     "92062207": [
       {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "907"
+      },
+      {
         "callout": "815",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
@@ -48095,6 +48390,26 @@
       }
     ],
     "92062348": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "905"
+      },
       {
         "callout": "816",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -53483,6 +53798,45 @@
     ],
     "92071570": [
       {
+        "callout": "209",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 60,
+        "listPageKey": "pl-sm-24wa__p60",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "1"
+      },
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 67,
+        "listPageKey": "pl-sm-2006__p67",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "134"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -55507,6 +55861,26 @@
     "92081751": [
       {
         "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 67,
+        "listPageKey": "pl-sm-2006__p67",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "410"
+      },
+      {
+        "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
         "pageKey": "edpl-reu-k2430wg__p1",
         "pdf": "EDPL REU-K2430WG.pdf",
@@ -57402,6 +57776,26 @@
     "92071448": [
       {
         "callout": "2",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "903"
+      },
+      {
+        "callout": "2",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
         "pdf": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf",
@@ -58609,6 +59003,26 @@
     ],
     "92086982": [
       {
+        "callout": "2",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "116"
+      },
+      {
         "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
@@ -58738,6 +59152,26 @@
       }
     ],
     "92086990": [
+      {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "117"
+      },
       {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -60879,6 +61313,26 @@
       }
     ],
     "92073675": [
+      {
+        "callout": "4",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "714"
+      },
       {
         "callout": "1",
         "page": "EDPL Smartstart.pdf p3",
@@ -74342,6 +74796,26 @@
     "92086917": [
       {
         "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 58,
+        "listPageKey": "pl-sm-reu3203__p58",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "011"
+      },
+      {
+        "callout": "1",
         "page": "PL & ED INF26 Smartstart VR2626WGP.pdf p5",
         "pageKey": "pl-ed-inf26-smartstart-vr2626wgp__p5",
         "pdf": "PL & ED INF26 Smartstart VR2626WGP.pdf",
@@ -87618,6 +88092,26 @@
       }
     ],
     "92075126": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "901"
+      },
       {
         "callout": "2",
         "page": "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf p4",
@@ -110560,6 +111054,26 @@
     "92072776": [
       {
         "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "705"
+      },
+      {
+        "callout": "1",
         "page": "EDPL V1616W_2018W_2020W.pdf p1",
         "pageKey": "edpl-v1616w-2018w-2020w__p1",
         "pdf": "EDPL V1616W_2018W_2020W.pdf",
@@ -112142,6 +112656,26 @@
     "92081595": [
       {
         "callout": "2",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 66,
+        "listPageKey": "pl-sm-2006__p66",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "103"
+      },
+      {
+        "callout": "2",
         "page": "EDPL 2425W.pdf p3",
         "pageKey": "edpl-2425w__p3",
         "pdf": "EDPL 2425W.pdf",
@@ -112280,6 +112814,26 @@
     "92071364": [
       {
         "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 66,
+        "listPageKey": "pl-sm-2006__p66",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "105"
+      },
+      {
+        "callout": "1",
         "page": "EDPL 2425W.pdf p3",
         "pageKey": "edpl-2425w__p3",
         "pdf": "EDPL 2425W.pdf",
@@ -112324,6 +112878,26 @@
       }
     ],
     "92081629": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 66,
+        "listPageKey": "pl-sm-2006__p66",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "114"
+      },
       {
         "callout": "1",
         "page": "EDPL 2425W.pdf p3",
@@ -112372,6 +112946,26 @@
     "92081637": [
       {
         "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 66,
+        "listPageKey": "pl-sm-2006__p66",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "115"
+      },
+      {
+        "callout": "1",
         "page": "EDPL 2425W.pdf p3",
         "pageKey": "edpl-2425w__p3",
         "pdf": "EDPL 2425W.pdf",
@@ -112416,6 +113010,26 @@
       }
     ],
     "92072891": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 66,
+        "listPageKey": "pl-sm-2006__p66",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "117"
+      },
       {
         "callout": "1",
         "page": "EDPL 2425W.pdf p3",
@@ -112878,6 +113492,26 @@
     "92072701": [
       {
         "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 67,
+        "listPageKey": "pl-sm-2006__p67",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "402"
+      },
+      {
+        "callout": "1",
         "page": "EDPL 2425W.pdf p3",
         "pageKey": "edpl-2425w__p3",
         "pdf": "EDPL 2425W.pdf",
@@ -113014,6 +113648,26 @@
       }
     ],
     "92081744": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 67,
+        "listPageKey": "pl-sm-2006__p67",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "408"
+      },
       {
         "callout": "1",
         "page": "EDPL 2425W.pdf p3",
@@ -113412,6 +114066,26 @@
     "92081843": [
       {
         "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "415"
+      },
+      {
+        "callout": "1",
         "page": "EDPL 2425W.pdf p3",
         "pageKey": "edpl-2425w__p3",
         "pdf": "EDPL 2425W.pdf",
@@ -113458,6 +114132,26 @@
     "92081850": [
       {
         "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "418"
+      },
+      {
+        "callout": "1",
         "page": "EDPL 2425W.pdf p3",
         "pageKey": "edpl-2425w__p3",
         "pdf": "EDPL 2425W.pdf",
@@ -113502,6 +114196,26 @@
       }
     ],
     "92081868": [
+      {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "419"
+      },
       {
         "callout": "1",
         "page": "EDPL 2425W.pdf p3",
@@ -113687,6 +114401,26 @@
     ],
     "92081926": [
       {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "900"
+      },
+      {
         "callout": "2",
         "page": "EDPL 2425W.pdf p3",
         "pageKey": "edpl-2425w__p3",
@@ -113732,6 +114466,26 @@
       }
     ],
     "92063551": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "906"
+      },
       {
         "callout": "1",
         "page": "EDPL 2425W.pdf p3",
@@ -114351,6 +115105,26 @@
     ],
     "92086925": [
       {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 58,
+        "listPageKey": "pl-sm-reu3203__p58",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "102"
+      },
+      {
         "callout": "2",
         "page": "EDPL V3232W_WC.pdf p4",
         "pageKey": "edpl-v3232w-wc__p4",
@@ -114402,6 +115176,26 @@
       }
     ],
     "92086933": [
+      {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 58,
+        "listPageKey": "pl-sm-reu3203__p58",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "104"
+      },
       {
         "callout": "1",
         "page": "EDPL V3232W_WC.pdf p4",
@@ -114560,6 +115354,26 @@
     "92086966": [
       {
         "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 58,
+        "listPageKey": "pl-sm-reu3203__p58",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "105"
+      },
+      {
+        "callout": "1",
         "page": "EDPL V3232W_WC.pdf p4",
         "pageKey": "edpl-v3232w-wc__p4",
         "pdf": "EDPL V3232W_WC.pdf",
@@ -114612,6 +115426,26 @@
     "92087014": [
       {
         "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "119"
+      },
+      {
+        "callout": "1",
         "page": "EDPL V3232W_WC.pdf p4",
         "pageKey": "edpl-v3232w-wc__p4",
         "pdf": "EDPL V3232W_WC.pdf",
@@ -114662,6 +115496,26 @@
       }
     ],
     "92087022": [
+      {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "120"
+      },
       {
         "callout": "1",
         "page": "EDPL V3232W_WC.pdf p4",
@@ -114768,6 +115622,26 @@
     "92087055": [
       {
         "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "150"
+      },
+      {
+        "callout": "1",
         "page": "EDPL V3232W_WC.pdf p4",
         "pageKey": "edpl-v3232w-wc__p4",
         "pdf": "EDPL V3232W_WC.pdf",
@@ -114818,6 +115692,26 @@
       }
     ],
     "92087063": [
+      {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "406"
+      },
       {
         "callout": "1",
         "page": "EDPL V3232W_WC.pdf p4",
@@ -131627,6 +132521,1051 @@
         ],
         "priority": 19,
         "name": "ELEC CORD 25L 50L"
+      }
+    ],
+    "92044577": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 66,
+        "listPageKey": "pl-sm-2006__p66",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "119"
+      }
+    ],
+    "92048131": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 66,
+        "listPageKey": "pl-sm-2006__p66",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "121"
+      }
+    ],
+    "92066976": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 67,
+        "listPageKey": "pl-sm-2006__p67",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "135"
+      }
+    ],
+    "92068907": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 60,
+        "listPageKey": "pl-sm-24wa__p60",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "204"
+      },
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 67,
+        "listPageKey": "pl-sm-2006__p67",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "142"
+      }
+    ],
+    "92081702": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 67,
+        "listPageKey": "pl-sm-2006__p67",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "400"
+      }
+    ],
+    "92062280": [
+      {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "126"
+      },
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 67,
+        "listPageKey": "pl-sm-2006__p67",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "401"
+      }
+    ],
+    "92073568": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 67,
+        "listPageKey": "pl-sm-2006__p67",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "403"
+      }
+    ],
+    "92072586": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "700"
+      }
+    ],
+    "92072768": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "707"
+      }
+    ],
+    "92072750": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "711"
+      }
+    ],
+    "92072651": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "712"
+      }
+    ],
+    "92071380": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "716"
+      }
+    ],
+    "92069079": [
+      {
+        "callout": "439",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 63,
+        "listPageKey": "pl-sm-24wa__p63",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "Frost sensing switch"
+      },
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "717"
+      }
+    ],
+    "92063593": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "718"
+      }
+    ],
+    "92072735": [
+      {
+        "callout": "1",
+        "page": "SM 2006.pdf p62",
+        "pageKey": "pl-sm-2006__p62",
+        "listPage": 68,
+        "listPageKey": "pl-sm-2006__p68",
+        "pdf": "SM 2006.pdf",
+        "stem": "pl-sm-2006",
+        "seriesIds": [
+          "infinity20-2006"
+        ],
+        "chassisTokens": [
+          "2006FFU",
+          "REU-2006FFU",
+          "REU2006FFU",
+          "2006"
+        ],
+        "priority": 15,
+        "name": "720"
+      }
+    ],
+    "92071539": [
+      {
+        "callout": "100",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 60,
+        "listPageKey": "pl-sm-24wa__p60",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "Front panel assembly"
+      }
+    ],
+    "92071547": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 60,
+        "listPageKey": "pl-sm-24wa__p60",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "105"
+      }
+    ],
+    "92071562": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 60,
+        "listPageKey": "pl-sm-24wa__p60",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "200"
+      }
+    ],
+    "92067032": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 60,
+        "listPageKey": "pl-sm-24wa__p60",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "201"
+      }
+    ],
+    "92068899": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 60,
+        "listPageKey": "pl-sm-24wa__p60",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "203"
+      }
+    ],
+    "92068915": [
+      {
+        "callout": "4",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 60,
+        "listPageKey": "pl-sm-24wa__p60",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "206"
+      }
+    ],
+    "92068923": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 60,
+        "listPageKey": "pl-sm-24wa__p60",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "207"
+      }
+    ],
+    "92067024": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 60,
+        "listPageKey": "pl-sm-24wa__p60",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "210"
+      }
+    ],
+    "92068949": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 60,
+        "listPageKey": "pl-sm-24wa__p60",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "212"
+      }
+    ],
+    "92059004": [
+      {
+        "callout": "2",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 62,
+        "listPageKey": "pl-sm-24wa__p62",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "323"
+      }
+    ],
+    "92069012": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 62,
+        "listPageKey": "pl-sm-24wa__p62",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "BU124-621-2x02"
+      }
+    ],
+    "92069020": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 62,
+        "listPageKey": "pl-sm-24wa__p62",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "I"
+      }
+    ],
+    "90148206": [
+      {
+        "callout": "400",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 62,
+        "listPageKey": "pl-sm-24wa__p62",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "Electrical cord"
+      }
+    ],
+    "92069046": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 62,
+        "listPageKey": "pl-sm-24wa__p62",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "408"
+      }
+    ],
+    "92066935": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 62,
+        "listPageKey": "pl-sm-24wa__p62",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "415"
+      }
+    ],
+    "92069053": [
+      {
+        "callout": "419",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 62,
+        "listPageKey": "pl-sm-24wa__p62",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "Spark generator"
+      }
+    ],
+    "92069061": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 62,
+        "listPageKey": "pl-sm-24wa__p62",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "421"
+      }
+    ],
+    "92066992": [
+      {
+        "callout": "2",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 63,
+        "listPageKey": "pl-sm-24wa__p63",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "425"
+      }
+    ],
+    "92062223": [
+      {
+        "callout": "2",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 63,
+        "listPageKey": "pl-sm-24wa__p63",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "426"
+      }
+    ],
+    "92066984": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 63,
+        "listPageKey": "pl-sm-24wa__p63",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "430"
+      }
+    ],
+    "92066844": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 63,
+        "listPageKey": "pl-sm-24wa__p63",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "432"
+      }
+    ],
+    "92067115": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 63,
+        "listPageKey": "pl-sm-24wa__p63",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "435"
+      }
+    ],
+    "92067008": [
+      {
+        "callout": "2",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 63,
+        "listPageKey": "pl-sm-24wa__p63",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "438"
+      }
+    ],
+    "92069087": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 63,
+        "listPageKey": "pl-sm-24wa__p63",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "441"
+      }
+    ],
+    "92069095": [
+      {
+        "callout": "1",
+        "page": "SM 24WA.pdf p61",
+        "pageKey": "pl-sm-24wa__p61",
+        "listPage": 63,
+        "listPageKey": "pl-sm-24wa__p63",
+        "pdf": "SM 24WA.pdf",
+        "stem": "pl-sm-24wa",
+        "seriesIds": [
+          "infinity24-wa"
+        ],
+        "chassisTokens": [
+          "24WA",
+          "REU-24WA",
+          "REU24WA"
+        ],
+        "priority": 15,
+        "name": "445"
+      }
+    ],
+    "92086883": [
+      {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 58,
+        "listPageKey": "pl-sm-reu3203__p58",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "BODY Assy, Main  - Standard"
+      }
+    ],
+    "92086891": [
+      {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 58,
+        "listPageKey": "pl-sm-reu3203__p58",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "004"
+      }
+    ],
+    "92086598": [
+      {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 58,
+        "listPageKey": "pl-sm-reu3203__p58",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "104"
+      }
+    ],
+    "92087089": [
+      {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 59,
+        "listPageKey": "pl-sm-reu3203__p59",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "412"
+      }
+    ],
+    "92087097": [
+      {
+        "callout": "1",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 60,
+        "listPageKey": "pl-sm-reu3203__p60",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "700"
+      }
+    ],
+    "92087105": [
+      {
+        "callout": "701",
+        "page": "SM REU3203.pdf p54",
+        "pageKey": "pl-sm-reu3203__p54",
+        "listPage": 60,
+        "listPageKey": "pl-sm-reu3203__p60",
+        "pdf": "SM REU3203.pdf",
+        "stem": "pl-sm-reu3203",
+        "seriesIds": [
+          "infinity32-3203"
+        ],
+        "chassisTokens": [
+          "3203W",
+          "REU-3203W",
+          "REU3203W",
+          "3203"
+        ],
+        "priority": 15,
+        "name": "PROTECTOR, Surge"
       }
     ]
   }

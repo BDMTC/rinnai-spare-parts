@@ -1145,7 +1145,13 @@ def main():
                 for h in hits
                 if any(
                     str(s).startswith(("ehf", "ghf", "efinity", "fm10"))
-                    or str(s).lower() == "fm10"
+                    or str(s).lower()
+                    in {
+                        "fm10",
+                        "infinity20-2006",
+                        "infinity24-wa",
+                        "infinity32-3203",
+                    }
                     for s in (h.get("seriesIds") or [])
                 )
             ]
@@ -1181,7 +1187,7 @@ def main():
             "sourceRule": "Callout NO + RA/catalogue 8-digit from parts-list text; diagram page = first image-ish page of sheet (OCR optional); listPage + text-layer word bbox kept for PL highlight",
             "resolve": "Pick first hit matching pin seriesId / chassis token; else highest priority",
             "plHighlight": "listPage + listPageKey + listBox (pymupdf words); lightbox opens PL page when JPEG exists",
-            "hotfloPreserve": "Non-CF ehf*/ghf*/efinity + fm10 (IHF10) hits from prior JSON are merged back after CF extract",
+            "hotfloPreserve": "Non-CF ehf*/ghf*/efinity + fm10 (IHF10) + heritage SM-PL series hits from prior JSON are merged back after CF extract",
         },
         "totals": {
             "sheetsConfigured": len(CF_SHEETS),
