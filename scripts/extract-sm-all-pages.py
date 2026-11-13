@@ -29,6 +29,8 @@ UNIQUE_SM = {
     "sm-new-a-series-cf": "New A Series CF Parts List.pdf",
     # Infinity 26 Plus (cover lists REU-VM2630WD — not Enviro KM)
     "sm-v2626w-v2630wc": "smV2626W_V2630WC.pdf",
+    # Infinity B family (cover lists BM2626 / B26 / B20 / B16 / B12)
+    "sm-hw-cf-bm-b26": "HW_CF_BM_SM_Issue_1_AUG BM2626 & B26 Series.pdf",
 }
 
 # Optional series thumb covers copied from pack page 1
@@ -37,6 +39,7 @@ SERIES_THUMBS = {
     "infinity26": "sm-new-a-series-cf",
     "infinity26-plus": "sm-v2626w-v2630wc",
     "infinity26-smartstart": "sm-inbuilt-smartstart",
+    "infinity-b": "sm-hw-cf-bm-b26",
 }
 
 TARGET_WIDTH = 900
