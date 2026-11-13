@@ -536,10 +536,21 @@ body::before {
   display: inline-flex;
   align-items: baseline;
   gap: 0.4rem;
-  max-width: 28rem;
+  /* Full text must scroll — never ellipsize / max-width-chop. */
+  max-width: none;
   font-size: 0.78rem;
   line-height: 1.3;
   color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-color 120ms ease, color 120ms ease;
+}
+
+a.news-ticker-item:hover,
+a.news-ticker-item:focus-visible {
+  color: var(--accent-ink);
+  border-bottom-color: color-mix(in srgb, var(--accent-ink) 45%, transparent);
+  outline: none;
 }
 
 .news-ticker-kind {
@@ -565,8 +576,7 @@ body::before {
 }
 
 .news-ticker-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .news-ticker-sep {
