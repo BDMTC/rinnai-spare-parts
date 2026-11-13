@@ -825,7 +825,7 @@ function renderShell() {
                     class="series-thumb-btn"
                     id="series-thumb-btn"
                     hidden
-                    aria-label="Open service manual full size"
+                    aria-label="Series unit photo"
                   >
                     <img
                       id="series-visual-img"
@@ -1377,13 +1377,15 @@ function updateSearchVisuals(query, pin) {
         document.querySelector("#series-pin")?.value
     );
   const seriesUrl = seriesUnitShotUrl(seriesId);
-  const seriesSm = seriesId ? resolveSeriesServiceManual(seriesId) : null;
   const seriesImg = document.querySelector("#series-visual-img");
   const seriesPh = document.querySelector("#series-visual-ph");
   const seriesThumb = document.querySelector("#series-thumb-btn");
   const seriesHint = document.querySelector("#series-click-hint");
   const seriesFrame = document.querySelector("#series-visual");
-  const seriesClickable = Boolean(seriesUrl && seriesSm);
+  // Left unit shot is display-only for now. Green “click me” only when this
+  // frame itself opens something. SM/ED live on the right frame — do not
+  // advertise the unit photo as clickable just because an SM exists.
+  const seriesClickable = false;
   if (seriesImg && seriesPh && seriesThumb) {
     if (seriesUrl) {
       seriesImg.src = seriesUrl;
@@ -1395,7 +1397,7 @@ function updateSearchVisuals(query, pin) {
       seriesThumb.setAttribute(
         "aria-label",
         seriesClickable
-          ? "Open service manual full size"
+          ? "Open series unit photo full size"
           : "Series unit photo"
       );
       seriesPh.hidden = true;
@@ -1502,23 +1504,9 @@ function updateSearchVisuals(query, pin) {
   if (diagramHint) diagramHint.hidden = !diagramClickable;
 }
 
-/** Open series SM lightbox from the left unit-shot (when SM exists). */
+/** Reserved: open unit-shot lightbox from the left frame when that action ships. */
 function openSeriesManualLightbox() {
-  const seriesId =
-    currentPin()?.series?.id ||
-    seriesIdFromPinValue(
-      seriesPicker?.getValue?.() ||
-        document.querySelector("#series-pin")?.value
-    );
-  const sm = resolveSeriesServiceManual(seriesId);
-  if (!sm?.url) return;
-  activeDiagram = {
-    ...sm,
-    callout: null,
-    calloutPageKey: null,
-    highlight: null,
-  };
-  openDiagramLightbox();
+  // Left frame is not clickable yet (SM/ED open from the right frame only).
 }
 
 function syncCalloutHighlight() {
