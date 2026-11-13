@@ -440,7 +440,9 @@ export function bindModelPicker(root, ctx) {
       document.activeElement !== input &&
       /\b(External|Internal)\b/.test(input.value);
     if (show) {
-      richLabel.innerHTML = highlightInstallLabelHtml(input.value);
+      // Single child keeps "200 External" spacing — flex must not split
+      // text + colour span into separate items (collapses the space).
+      richLabel.innerHTML = `<span class="model-picker-rich-label-text">${highlightInstallLabelHtml(input.value)}</span>`;
       richLabel.hidden = false;
       root.classList.add("has-rich-label");
     } else {
