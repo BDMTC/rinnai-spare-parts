@@ -354,6 +354,7 @@ input[type="number"]:focus {
   grid-area: label;
   font-weight: 650;
   color: var(--ink);
+  line-height: 1.25;
 }
 
 .model-option-sub {

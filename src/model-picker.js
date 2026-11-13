@@ -9,6 +9,10 @@
 
 import { getModelLabel, getModelDisplayName } from "./search.js";
 import {
+  getModelCommercialName,
+  getModelShortCode,
+} from "./model-commercial-name.js";
+import {
   listSeries,
   modelBelongsToSeries,
   modelIdsForSeries,
@@ -144,6 +148,8 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
 
   for (const model of catalogue?.models || []) {
     const series = seriesForModel(catalogue, seriesDoc, model);
+    const shortCode = getModelShortCode(model);
+    const commercial = getModelCommercialName(model, series);
     const display = getModelDisplayName(model, series);
     const tokens = [
       model.id,
@@ -151,6 +157,9 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
       model.marketingCode,
       model.itemNumber,
       model.name,
+      model.description,
+      shortCode,
+      commercial,
       display,
       series?.label,
       ...(series?.aliases || []),
@@ -168,13 +177,18 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
         score += 8;
       }
     }
+    const label =
+      shortCode && commercial && commercial !== shortCode
+        ? `${shortCode} · ${commercial}`
+        : shortCode || display;
     results.push(
       withRestriction(
         {
           kind: "model",
           value: model.id,
-          label: display,
-          subtitle: modelSubtitle(model, series),
+          // Short marketing code, then readable commercial name (same title row)
+          label,
+          subtitle: modelSubtitle(model, series, commercial),
           series: series || null,
           model,
           score,
@@ -224,14 +238,26 @@ function seriesSubtitle(series, count) {
   return bits.join(" · ");
 }
 
-function modelSubtitle(model, series) {
+function modelSubtitle(model, series, commercialName = "") {
   const bits = [];
+  // Commercial name lives on the title row; subtitle keeps chassis / restriction.
   if (series?.label) bits.push(series.label);
   if (isModelRestricted(model) && model.restrictionLabel) {
     bits.push(model.restrictionLabel);
   }
   if (model.itemNumber) bits.push(model.itemNumber);
-  else if (model.sku) bits.push(model.sku);
+  // If we somehow lack a commercial title, surface it here as a fallback.
+  const shortCode = getModelShortCode(model);
+  const commercial =
+    commercialName || getModelCommercialName(model, series);
+  if (
+    commercial &&
+    commercial !== shortCode &&
+    !bits.some((b) => b === commercial)
+  ) {
+    // Only when title could not include it (no short code)
+    if (!shortCode) bits.unshift(commercial);
+  }
   return bits.join(" · ");
 }
 
@@ -251,7 +277,16 @@ export function labelForPinValue(catalogue, seriesDoc, pinValue) {
   const model = (catalogue?.models || []).find((m) => m.id === pinValue);
   if (!model) return "";
   const series = seriesForModel(catalogue, seriesDoc, model);
-  return getModelDisplayName(model, series) || getModelLabel(model);
+  const shortCode = getModelShortCode(model);
+  const commercial = getModelCommercialName(model, series);
+  if (shortCode && commercial && commercial !== shortCode) {
+    return `${shortCode} · ${commercial}`;
+  }
+  return (
+    shortCode ||
+    getModelDisplayName(model, series) ||
+    getModelLabel(model)
+  );
 }
 
 /**
