@@ -33,6 +33,17 @@ async function shot(name) {
   return dests[0];
 }
 
+async function pinContinuousFlow() {
+  const input = page.locator("#system-input");
+  await input.click();
+  await page
+    .locator("#system-listbox [role='option']")
+    .filter({ hasText: /Continuous Flow/i })
+    .first()
+    .click();
+  await page.waitForTimeout(400);
+}
+
 async function openSeriesPin(query) {
   const input = page.locator("#series-input");
   await input.click();
@@ -57,18 +68,19 @@ async function openItemPin() {
   await page.waitForTimeout(700);
 }
 
-// Pin1: type HD28 — must show External + Internal, not umbrella / INF28
+// Pin1 CF → Pin2 HD28 — must show External + Internal, not umbrella / INF28
+await pinContinuousFlow();
 await openSeriesPin("HD28");
 await shot("01-pin1-hd28-series.png");
 const pin1Text = await page.locator("#series-listbox").innerText();
-console.log("--- Pin1 HD28 ---\n" + pin1Text);
+console.log("--- Pin2 HD28 ---\n" + pin1Text);
 
-// Choose External → Pin2 WC only
+// Choose External → Pin3 WC only
 await chooseOption(/HD28e.*External/i);
 await openItemPin();
 await shot("02-pin2-hd28e-items.png");
 const pin2e = await page.locator("#item-listbox").innerText();
-console.log("--- Pin2 HD28e ---\n" + pin2e);
+console.log("--- Pin3 HD28e ---\n" + pin2e);
 
 // Clear series, pick Internal
 await page.locator("#series-clear").click();

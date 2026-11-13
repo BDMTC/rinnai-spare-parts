@@ -110,7 +110,7 @@ If the folder is missing (cloud agent, fresh clone), the index still lists match
 - Header **?** beginner help tips; thumbs-up **feedback** blurb (offline `localStorage` + optional mailto / JSON export)
 - Margin **0–100%** in **5%** steps (default 25%)
 - **Quote list** (header icon + overlay): Add to Quote on each result (top-right), email/copy/save/clear
-- **Flag item for problem** on each result card → mailto stores for Beau review (that part)
+- **Flag item for problem** on each result card → Yes/No card confirm, then mailto Beau (`beau.dougall@mtcgas.com.au`) with reason prompt (that part)
 - **Admin / development** (hashed PBKDF2 password gate): clear flags, suspend/delete parts, price-list path, workbook import with count-diff review — localStorage overlay + change queue for AI ingest sync
 - Matches part code, description, trade alias, abbrev expand, and sheet/category
 - Shows net invoice ex GST, computed ex GST at selected margin, and inc GST

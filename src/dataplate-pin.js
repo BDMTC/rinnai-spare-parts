@@ -121,12 +121,12 @@ export function mountDataplatePin(ctx) {
     renderChips();
     if (!lastMap.seriesCandidates.length && !lastMap.itemCandidates.length) {
       setStatus(
-        "No REU / HD codes recognised — try another photo, or type the Item Number in Pin 2.",
+        "No REU / HD codes recognised — try another photo, or type the Item Number in Pin 3.",
         "warn"
       );
     } else {
       setStatus(
-        "Confirm Pin 1 / Pin 2 chips below — nothing is locked until you confirm.",
+        "Confirm Pin 2 / Pin 3 chips below — nothing is locked until you confirm.",
         "ok"
       );
     }
@@ -149,7 +149,7 @@ export function mountDataplatePin(ctx) {
       });
       if (!String(text || "").trim()) {
         setStatus(
-          "OCR found no text — try another dataplate photo, or type the Item Number in Pin 2.",
+          "OCR found no text — try another dataplate photo, or type the Item Number in Pin 3.",
           "warn"
         );
         lastMap = null;
@@ -160,7 +160,7 @@ export function mountDataplatePin(ctx) {
     } catch (err) {
       console.warn("[dataplate OCR]", err);
       setStatus(
-        `OCR unavailable (${err?.message || err}). Type the Item Number in Pin 2 instead.`,
+        `OCR unavailable (${err?.message || err}). Type the Item Number in Pin 3 instead.`,
         "warn"
       );
     } finally {

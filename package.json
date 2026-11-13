@@ -12,7 +12,10 @@
     "preview": "vite preview",
     "ingest": "node scripts/ingest-source-data.mjs",
     "sync:tech-sheets": "node scripts/sync-tech-sheets.mjs",
-    "extract:pl-covers": "node scripts/extract-pl-cover-aliases.mjs"
+    "extract:pl-covers": "node scripts/extract-pl-cover-aliases.mjs",
+    "eval:pin3-chassis": "node scripts/eval-pin3-chassis-hard.mjs",
+    "eval:pin2-chassis": "npm run eval:pin3-chassis",
+    "test": "npm run eval:pin3-chassis"
   },
   "devDependencies": {
     "playwright": "^1.65.0",

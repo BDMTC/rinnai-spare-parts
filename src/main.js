@@ -47,6 +47,10 @@ import {
 } from "./series.js";
 import { bindModelPicker } from "./model-picker.js";
 import {
+  isEverythingSystem,
+  systemTypeFromValue,
+} from "./system-type.js";
+import {
   outletTempFromModel,
   isCommercialOutletTemp,
 } from "./reu-format.js";
@@ -140,6 +144,8 @@ let visiblePartFilterKey = "";
 let lastResults = [];
 let marginPercent = DEFAULT_MARGIN_PERCENT;
 let gstRate = DEFAULT_GST_RATE;
+/** @type {{ getValue: () => string|null, setValue: (v: string|null) => void, clear?: () => void, refreshEnabled?: () => void }|null} */
+let systemPicker = null;
 /** @type {{ getValue: () => string|null, setValue: (v: string|null) => void, clear?: () => void, refreshEnabled?: () => void }|null} */
 let seriesPicker = null;
 /** @type {{ getValue: () => string|null, setValue: (v: string|null) => void, clear?: () => void, refreshEnabled?: () => void }|null} */
@@ -242,6 +248,7 @@ function partVisibilityKey(pinValue) {
  * Precompute allowed part ids once per pin so keystrokes stay cheap.
  */
 function activePinValue() {
+  if (isEverythingSystem(currentSystemTypeValue())) return null;
   return (
     itemPicker?.getValue?.() ||
     document.querySelector("#item-pin")?.value ||
@@ -620,6 +627,66 @@ function clearCartAndClose() {
   closeCart();
 }
 
+/** Pin snapshot for flag-issue mailto body (type / series / item when set). */
+function flagPinsLabel() {
+  const bits = [];
+  const system = systemTypeFromValue(currentSystemTypeValue());
+  if (system) bits.push(`Type: ${system.label}`);
+  const pin = currentPin();
+  if (pin.kind === "series" || pin.kind === "model") {
+    if (pin.series?.label) bits.push(`Series: ${pin.series.label}`);
+  }
+  if (pin.kind === "model" && pin.model) {
+    const item =
+      String(pin.model.itemNumber || "").trim() ||
+      pin.model.sku ||
+      pin.model.marketingCode ||
+      getModelLabel(pin.model);
+    if (item) bits.push(`Item Number: ${item}`);
+  }
+  return bits.length ? bits.join(" · ") : null;
+}
+
+function dismissFlagConfirm(card) {
+  card?.querySelector(".flag-confirm-overlay")?.remove();
+}
+
+/**
+ * Card-sized confirm overlay. Yes keeps user activation for mailto.
+ * @param {HTMLElement} card
+ * @param {{ code?: string, title?: string, name?: string }} part
+ */
+function showFlagConfirm(card, part) {
+  if (!card) return;
+  document.querySelectorAll(".flag-confirm-overlay").forEach((el) => el.remove());
+
+  const overlay = document.createElement("div");
+  overlay.className = "flag-confirm-overlay";
+  overlay.setAttribute("role", "dialog");
+  overlay.setAttribute("aria-modal", "true");
+  overlay.setAttribute(
+    "aria-label",
+    "Are you sure you want to flag this item as a problem or issue?"
+  );
+  overlay.innerHTML = `
+    <p class="flag-confirm-copy">Are you sure you want to flag this item as a problem or issue?</p>
+    <div class="flag-confirm-actions">
+      <button type="button" class="flag-confirm-yes">Yes</button>
+      <button type="button" class="flag-confirm-no">No</button>
+    </div>
+  `;
+  card.appendChild(overlay);
+  overlay.querySelector(".flag-confirm-no")?.addEventListener("click", () => {
+    dismissFlagConfirm(card);
+  });
+  overlay.querySelector(".flag-confirm-yes")?.addEventListener("click", () => {
+    // Keep mailto inside this click so Chromium retains user activation.
+    submitFlagPart(part);
+    dismissFlagConfirm(card);
+  });
+  overlay.querySelector(".flag-confirm-yes")?.focus();
+}
+
 function submitFlagPart(part) {
   const code = String(part?.code || "").trim();
   const title = String(part?.title || part?.name || code).trim();
@@ -627,13 +694,16 @@ function submitFlagPart(part) {
   const payload = {
     code: code || title,
     title: title || code,
+    description: title || code,
+    pins: flagPinsLabel(),
   };
   overrides = flagPart(overrides, payload);
   persistOverrides();
   renderAdminPanel();
-  runSearch();
-  // Open mail client after DOM updates so navigation is not cancelled.
+  // Mailto before runSearch so the Yes click's user activation is not lost
+  // when the results list re-renders and tears down the card.
   openMailto(buildFlagIssueMailto(payload));
+  runSearch();
 }
 
 function renderShell() {
@@ -713,36 +783,36 @@ function renderShell() {
           </p>
 
           <div class="pin-margin-row">
-            <div class="field series-field">
-              <span class="field-label" id="series-label">Pin 1 · Series</span>
-              <div class="model-picker" id="series-picker">
+            <div class="field system-field">
+              <span class="field-label" id="system-label">Pin 1 · Type of system</span>
+              <div class="model-picker" id="system-picker">
                 <div class="model-picker-row">
                   <input
-                    id="series-input"
+                    id="system-input"
                     type="text"
                     role="combobox"
-                    aria-labelledby="series-label"
+                    aria-labelledby="system-label"
                     aria-autocomplete="list"
-                    aria-controls="series-listbox"
+                    aria-controls="system-listbox"
                     aria-expanded="false"
-                    placeholder="Click to choose which series from the list first."
+                    placeholder="Choose type of system first."
                     spellcheck="false"
                     autocomplete="off"
                   />
                   <button
                     type="button"
                     class="model-clear"
-                    id="series-clear"
-                    aria-label="Clear series pin"
+                    id="system-clear"
+                    aria-label="Clear type of system pin"
                     hidden
                   >
                     ×
                   </button>
                 </div>
-                <input type="hidden" id="series-pin" name="series" value="" />
+                <input type="hidden" id="system-pin" name="system" value="" />
                 <ul
                   class="model-listbox"
-                  id="series-listbox"
+                  id="system-listbox"
                   role="listbox"
                   hidden
                 ></ul>
@@ -767,10 +837,47 @@ function renderShell() {
             </label>
           </div>
 
-          <div class="pin2-search-visuals-row">
-            <div class="pin2-search-col">
+          <div class="field series-field">
+            <span class="field-label" id="series-label">Pin 2 · Series</span>
+            <div class="model-picker" id="series-picker">
+              <div class="model-picker-row">
+                <input
+                  id="series-input"
+                  type="text"
+                  role="combobox"
+                  aria-labelledby="series-label"
+                  aria-autocomplete="list"
+                  aria-controls="series-listbox"
+                  aria-expanded="false"
+                  placeholder="Choose the type of system above first"
+                  spellcheck="false"
+                  autocomplete="off"
+                  disabled
+                />
+                <button
+                  type="button"
+                  class="model-clear"
+                  id="series-clear"
+                  aria-label="Clear series pin"
+                  hidden
+                >
+                  ×
+                </button>
+              </div>
+              <input type="hidden" id="series-pin" name="series" value="" />
+              <ul
+                class="model-listbox"
+                id="series-listbox"
+                role="listbox"
+                hidden
+              ></ul>
+            </div>
+          </div>
+
+          <div class="pin3-search-visuals-row pin2-search-visuals-row">
+            <div class="pin3-search-col pin2-search-col">
               <div class="field item-field">
-                <span class="field-label" id="item-label">Pin 2 · Item Number</span>
+                <span class="field-label" id="item-label">Pin 3 · Item Number</span>
                 <div class="model-picker" id="item-picker">
                   <div class="model-picker-row">
                     <input
@@ -893,11 +1000,11 @@ function renderShell() {
             <p class="dataplate-status" id="dataplate-status" hidden></p>
             <div class="dataplate-chips" id="dataplate-chips" hidden>
               <div class="dataplate-chip-group">
-                <span class="dataplate-chip-heading">Pin 1 · Series</span>
+                <span class="dataplate-chip-heading">Pin 2 · Series</span>
                 <div class="dataplate-chip-row" id="dataplate-series-chips"></div>
               </div>
               <div class="dataplate-chip-group">
-                <span class="dataplate-chip-heading">Pin 2 · Item Number</span>
+                <span class="dataplate-chip-heading">Pin 3 · Item Number</span>
                 <div class="dataplate-chip-row" id="dataplate-item-chips"></div>
               </div>
               <div class="dataplate-chip-actions">
@@ -934,10 +1041,10 @@ function renderShell() {
         </dialog>
 
         <p class="pin-warn" id="pin-warn" hidden>
-          No series or Item Number pinned — results are unranked for a specific unit. Pin a series, then the full Item Number, for a Primary part code.
+          No series or Item Number pinned — results are unranked for a specific unit. Pin type of system, series, then the full Item Number, for a Primary part code.
         </p>
         <p class="pin-warn pin-warn--item" id="item-pin-warn" hidden>
-          Series only — pin the full Item Number (Pin 2) for chassis-scoped Primary ranking. Concept searches like HEX can mix chassis across a series.
+          Series only — pin the full Item Number (Pin 3) for chassis-scoped Primary ranking. Concept searches like HEX can mix chassis across a series.
         </p>
 
         <p class="hint" id="hint">
@@ -1019,19 +1126,21 @@ function renderShell() {
           </header>
           <div class="help-body">
             <article class="help-tip">
-              <h3 class="help-tip-title">1. Dual pin — series, then Item Number</h3>
+              <h3 class="help-tip-title">1. Three pins — type, series, Item Number</h3>
               <p class="help-tip-copy">
-                <strong>Pin 1 = Series</strong> (e.g. Infinity 26, HD210e) with the commercial name.
-                <strong>Pin 2 = full Item Number</strong> only (e.g. <code>REU-AM2626WD-50-AKN</code> or <code>HD210EN42</code>), filtered to that series — commercial names stay visible in the list.
-                Part search scopes to that Item Number’s chassis once Pin 2 is set. For HEX / heat-exchanger style concept searches, pin Pin 2 so one orange Primary doesn’t hide other chassis.
+                <strong>Pin 1 = Type of system</strong> (ruling class; Continuous Flow Hot Water Systems for CF units).
+                Flashing <strong>Everything</strong> at the bottom of Pin 1 overrides Pins 2–3 and searches every part by the search term only.
+                <strong>Pin 2 = Series</strong> (e.g. Infinity 26, HD210e) with the commercial name.
+                <strong>Pin 3 = full Item Number</strong> only (e.g. <code>REU-AM2626WD-50-AKN</code> or <code>HD210EN42</code>), filtered to that series — locked until Pin 2 is set; commercial names stay visible in the list.
+                Part search scopes to that Item Number’s chassis once Pin 3 is set. For HEX / heat-exchanger style concept searches, pin Pin 3 so one orange Primary doesn’t hide other chassis.
               </p>
-              <img class="help-tip-img" src="${tipPinModelUrl}" alt="Series and Item Number pin fields" width="560" height="220" decoding="async" />
+              <img class="help-tip-img" src="${tipPinModelUrl}" alt="Type, series, and Item Number pin fields" width="560" height="220" decoding="async" />
             </article>
             <article class="help-tip">
               <h3 class="help-tip-title">2. 60°+ commercial warning</h3>
               <p class="help-tip-copy">
                 Fuel/temp packing: <strong>50° = AU domestic</strong>; <strong>60° and higher = commercial</strong>.
-                When Pin 2 is a 60°+ unit, a flashing warning appears above the pins — that heater must not be installed on a domestic system (not legal).
+                When Pin 3 is a 60°+ unit, a flashing warning appears above the pins — that heater must not be installed on a domestic system (not legal).
               </p>
             </article>
             <article class="help-tip">
@@ -1046,7 +1155,7 @@ function renderShell() {
             </article>
             <article class="help-tip">
               <h3 class="help-tip-title">5. Back to main page</h3>
-              <p class="help-tip-copy">Click the MTC logo to clear search and both pins.</p>
+              <p class="help-tip-copy">Click the MTC logo to clear search and all pins.</p>
               <img class="help-tip-img" src="${tipHomeLogoUrl}" alt="MTC logo home button" width="480" height="180" decoding="async" />
             </article>
             <article class="help-tip">
@@ -1308,17 +1417,63 @@ function seriesIdFromPinValue(value) {
   return null;
 }
 
+function currentSystemTypeValue() {
+  return (
+    systemPicker?.getValue?.() ||
+    document.querySelector("#system-pin")?.value ||
+    null
+  );
+}
+
+/**
+ * Ensure Continuous Flow is pinned when dataplate / deep links set series/item.
+ */
+function ensureScopedSystemForPins() {
+  const current = currentSystemTypeValue();
+  if (isEverythingSystem(current)) return;
+  if (systemTypeFromValue(current)?.kind === "system") return;
+  systemPicker?.setValue?.("system:continuous-flow-hot-water");
+}
+
 function mountModelPicker() {
+  const systemRoot = document.querySelector("#system-picker");
   const seriesRoot = document.querySelector("#series-picker");
   const itemRoot = document.querySelector("#item-picker");
+  systemPicker = null;
   seriesPicker = null;
   itemPicker = null;
+
+  if (systemRoot) {
+    systemPicker = bindModelPicker(systemRoot, {
+      catalogue,
+      seriesDoc,
+      mode: "system",
+      onChange: () => {
+        const systemVal = currentSystemTypeValue();
+        if (isEverythingSystem(systemVal)) {
+          // Everything overrides Pins 2–3 — clear them and search by term only.
+          seriesPicker?.clear?.();
+          itemPicker?.clear?.();
+        } else if (!systemVal) {
+          seriesPicker?.clear?.();
+          itemPicker?.clear?.();
+        }
+        seriesPicker?.refreshEnabled?.();
+        itemPicker?.refreshEnabled?.();
+        updateDomesticTempWarn();
+        runSearch();
+      },
+      isPinUnlocked: (pinValue) => unlockedPins.has(pinValue),
+      requestUnlock,
+    });
+  }
 
   if (seriesRoot) {
     seriesPicker = bindModelPicker(seriesRoot, {
       catalogue,
       seriesDoc,
       mode: "series",
+      getSystemTypeId: () => currentSystemTypeValue(),
       onChange: () => {
         // Changing / clearing series drops Item Number pin (filtered set changes).
         const seriesVal = seriesPicker?.getValue?.() || null;
@@ -1346,6 +1501,7 @@ function mountModelPicker() {
       catalogue,
       seriesDoc,
       mode: "item",
+      getSystemTypeId: () => currentSystemTypeValue(),
       getSeriesId: () =>
         seriesIdFromPinValue(
           seriesPicker?.getValue?.() ||
@@ -1373,6 +1529,9 @@ function mountDataplateUi() {
     isPinUnlocked: (pinValue) => unlockedPins.has(pinValue),
     requestUnlock,
     onPinned: () => {
+      ensureScopedSystemForPins();
+      seriesPicker?.refreshEnabled?.();
+      itemPicker?.refreshEnabled?.();
       updateDomesticTempWarn();
       runSearch();
     },
@@ -1380,6 +1539,10 @@ function mountDataplateUi() {
 }
 
 function currentPin() {
+  // Everything override: ignore series/item — free catalogue search by term only.
+  if (isEverythingSystem(currentSystemTypeValue())) {
+    return resolveModelPin(catalogue, seriesDoc, null);
+  }
   const itemValue =
     itemPicker?.getValue?.() ||
     document.querySelector("#item-pin")?.value ||
@@ -1411,7 +1574,7 @@ function updateDomesticTempWarn() {
 }
 
 /**
- * Right-panel doc visual: SM (Pin1) or ED (Pin2 + search hit).
+ * Right-panel doc visual: SM (Pin2) or ED (Pin3 + search hit).
  * @type {{
  *   kind: 'sm'|'ed',
  *   url: string,
@@ -1433,8 +1596,8 @@ let lightboxState = null;
 /**
  * Under-Margin dual panel: series promo (left) + SM/ED (right).
  * No pins → idle art (Rinnai logo left, bundled loop GIF right).
- * Pin1 only → unit shot + service manual cover. Pin2 + part hit → ED (SM if no ED).
- * Sized by Pin2+Search height — does not grow the search card.
+ * Pin2 series → unit shot + service manual cover. Pin3 + part hit → ED (SM if no ED).
+ * Sized by Pin3+Search height — does not grow the search card.
  */
 function updateSearchVisuals(query, pin) {
   const activePin = pin || currentPin();
@@ -1493,7 +1656,7 @@ function updateSearchVisuals(query, pin) {
   if (seriesHint) seriesHint.hidden = !seriesClickable;
 
   const hasQuery = Boolean(String(query || "").trim());
-  const hasPin2 = activePin?.kind === "model";
+  const hasPin3 = activePin?.kind === "model";
   const primary =
     hasQuery && lastResults?.length
       ? lastResults.find((r) => r.isPrimary) || lastResults[0]
@@ -1501,7 +1664,7 @@ function updateSearchVisuals(query, pin) {
 
   /** @type {typeof activeDiagram} */
   let panel = null;
-  if (!idleEmpty && hasPin2 && primary) {
+  if (!idleEmpty && hasPin3 && primary) {
     const ed = resolvePartDiagram(primary.part, assemblyIndex, {
       pin: activePin,
     });
@@ -1581,7 +1744,7 @@ function updateSearchVisuals(query, pin) {
       thumbBtn.disabled = true;
       delete thumbBtn.dataset.stealthYoutube;
       diagramPh.hidden = false;
-      if (hasPin2 && hasQuery) {
+      if (hasPin3 && hasQuery) {
         diagramPh.textContent = "No diagram for this hit yet";
       } else {
         diagramPh.textContent = "No service manual yet";
@@ -1955,7 +2118,7 @@ function renderResults(query, pin) {
     pinWarn.hidden = !(hasQuery && !hasPin);
   }
   if (itemPinWarn) {
-    // Encourage Pin 2 when series-only; stronger copy for HEX / assembly concepts.
+    // Encourage Pin 3 when series-only; stronger copy for HEX / assembly concepts.
     itemPinWarn.hidden = !(hasQuery && seriesOnly);
     if (!itemPinWarn.hidden) {
       const conceptId = assemblyConcept?.concept?.id || null;
@@ -1963,8 +2126,8 @@ function renderResults(query, pin) {
         ? String(conceptId).replace(/-/g, " ")
         : null;
       itemPinWarn.textContent = conceptName
-        ? `Series only — pin the full Item Number (Pin 2) before strong Primary ranking for “${conceptName}”. HEX / assemblies can mix chassis across a series.`
-        : "Series only — pin the full Item Number (Pin 2) to scope parts to that unit’s chassis (not the whole series).";
+        ? `Series only — pin the full Item Number (Pin 3) before strong Primary ranking for “${conceptName}”. HEX / assemblies can mix chassis across a series.`
+        : "Series only — pin the full Item Number (Pin 3) to scope parts to that unit’s chassis (not the whole series).";
     }
   }
 
@@ -2172,15 +2335,7 @@ function renderResults(query, pin) {
                     : ""
                 }</p>`
               : isPrimary
-                ? `<p class="primary-kicker">${
-                    hasPin
-                      ? `Most likely for ${escapeHtml(
-                          activePin.series?.label ||
-                            activePin.model?.sku ||
-                            "pinned model"
-                        )}`
-                      : "Most likely complete assembly"
-                  }</p>`
+                ? `<p class="primary-kicker">The part you are searching for is:</p>`
                 : subOfKicker
           }
           <div class="result-identity">
@@ -2244,7 +2399,9 @@ function renderResults(query, pin) {
       const code = btn.dataset.code;
       const row = lastResults.find((r) => r.part?.code === code);
       const part = row?.part;
-      submitFlagPart({
+      const card = btn.closest(".result");
+      if (!card) return;
+      showFlagConfirm(card, {
         code: part?.code || code,
         title: part?.name || btn.dataset.title || code,
       });
@@ -2717,6 +2874,9 @@ function resetToHome() {
   else if (itemPicker?.setValue) itemPicker.setValue(null);
   if (seriesPicker?.clear) seriesPicker.clear();
   else if (seriesPicker?.setValue) seriesPicker.setValue(null);
+  if (systemPicker?.clear) systemPicker.clear();
+  else if (systemPicker?.setValue) systemPicker.setValue(null);
+  seriesPicker?.refreshEnabled?.();
   itemPicker?.refreshEnabled?.();
   dataplatePin?.clear?.();
   updateDomesticTempWarn();
