@@ -28,6 +28,19 @@ await page.goto(pathToFileURL(distHtml).href, {
 });
 await page.waitForTimeout(1200);
 
+async function pinContinuousFlow() {
+  const input = page.locator("#system-input");
+  await input.click();
+  await page
+    .locator("#system-listbox [role='option']")
+    .filter({ hasText: /Continuous Flow/i })
+    .first()
+    .click();
+  await page.waitForTimeout(400);
+}
+
+await pinContinuousFlow();
+
 async function shot(name) {
   for (const d of [path.join(mediaDir, name), path.join(localDir, name)]) {
     await page.screenshot({ path: d, fullPage: false });

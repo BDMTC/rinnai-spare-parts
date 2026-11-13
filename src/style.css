@@ -454,7 +454,12 @@ body::before {
   align-items: end;
 }
 
-.pin2-search-visuals-row {
+.series-field {
+  margin-top: 0.75rem;
+}
+
+.pin2-search-visuals-row,
+.pin3-search-visuals-row {
   display: grid;
   grid-template-columns: 1.4fr 0.7fr;
   gap: 0.75rem;
@@ -462,7 +467,8 @@ body::before {
   align-items: stretch;
 }
 
-.pin2-search-col {
+.pin2-search-col,
+.pin3-search-col {
   display: grid;
   gap: 0.75rem;
   min-width: 0;
@@ -779,9 +785,39 @@ body::before {
   opacity: 0.62;
 }
 
-.model-picker.is-disabled #item-input:disabled {
+.model-picker.is-disabled #item-input:disabled,
+.model-picker.is-disabled #series-input:disabled {
   cursor: not-allowed;
   background: color-mix(in srgb, var(--panel-solid) 85%, var(--ink-muted));
+}
+
+/* Pin 1 — flashing Everything option at bottom of system list (not default). */
+@keyframes everything-option-flash {
+  0%,
+  100% {
+    opacity: 1;
+    background: color-mix(in srgb, #f59e0b 18%, var(--panel-solid));
+    box-shadow: inset 3px 0 0 #d97706;
+  }
+  50% {
+    opacity: 0.78;
+    background: color-mix(in srgb, #fbbf24 28%, var(--panel-solid));
+    box-shadow: inset 3px 0 0 #f59e0b;
+  }
+}
+
+.model-option--everything-flash {
+  animation: everything-option-flash 1.05s ease-in-out infinite;
+  font-weight: 700;
+}
+
+.model-option--everything-flash .model-option-label {
+  color: #92400e;
+}
+
+.model-option--everything-flash.is-active,
+.model-option--everything-flash:hover {
+  background: color-mix(in srgb, #f59e0b 32%, var(--panel-solid));
 }
 
 .domestic-temp-warn {
@@ -864,8 +900,12 @@ input[type="number"]:focus {
   z-index: 2;
 }
 
-/* Pin 1 listbox must paint over Pin 2’s input (later sibling). Same stacking
+/* Higher pins’ listboxes must paint over later siblings. Same stacking
    idea as hero-over-admin: lift the open picker’s context, not only the ul. */
+#system-picker {
+  z-index: 8;
+}
+
 #series-picker {
   z-index: 6;
 }
@@ -3005,6 +3045,7 @@ mark {
   .controls-row,
   .pin-margin-row,
   .pin2-search-visuals-row,
+  .pin3-search-visuals-row,
   .query-row,
   .result-body,
   .data-sources-grid,

@@ -56,7 +56,7 @@ export function getModelShortCode(model) {
 }
 
 /**
- * Fuel kind for Pin 2 grouping / colouring.
+ * Fuel kind for Pin 3 grouping / colouring.
  * @param {object|null|undefined} model
  * @param {object|null|undefined} [series]
  * @returns {"nat-gas"|"lpg"|"butane"|""}

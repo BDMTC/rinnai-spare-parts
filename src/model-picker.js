@@ -1,7 +1,8 @@
 /**
- * Dual pin typeahead — Pin 1 series (commercial name), Pin 2 full Item Number
- * filtered to the selected series. Restricted / NLA rows stay visible (greyed);
- * keyboard Enter must NOT select them — click opens unlock confirm.
+ * Triple pin typeahead — Pin 1 Type of system, Pin 2 series (commercial name),
+ * Pin 3 full Item Number filtered to the selected series.
+ * Restricted / NLA rows stay visible (greyed); keyboard Enter must NOT select
+ * them — click opens unlock confirm.
  */
 
 import { getModelLabel, getModelDisplayName } from "./search.js";
@@ -24,6 +25,12 @@ import {
   restrictionForPin,
 } from "./restriction.js";
 import { outletTempFromModel } from "./reu-format.js";
+import {
+  suggestSystemTypePins,
+  labelForSystemTypeValue,
+  seriesBelongsToSystemType,
+  isEverythingSystem,
+} from "./system-type.js";
 
 /**
  * Score a normalised haystack against query (normalised + raw).
@@ -70,14 +77,21 @@ function withRestriction(suggestion, catalogue, seriesDoc) {
 }
 
 /**
- * Pin 1 — series only (marketing label · commercial name).
+ * Pin 2 — series only (marketing label · commercial name), filtered by Pin 1.
  * @param {object} catalogue
  * @param {object|null|undefined} seriesDoc
  * @param {string} query
- * @param {{ limit?: number }} [opts]
+ * @param {{ limit?: number, systemTypeId?: string|null }} [opts]
  */
 export function suggestSeriesPins(catalogue, seriesDoc, query, opts = {}) {
   const limit = opts.limit ?? 14;
+  const scopedId = String(opts.systemTypeId || "")
+    .replace(/^system:/, "")
+    .trim()
+    .toLowerCase();
+  // Series list only when a scoped system class is pinned (not Everything / empty).
+  if (!scopedId || scopedId === "everything") return [];
+
   const qRaw = String(query || "").trim();
   const qNorm = normalise(qRaw);
   const results = [];
@@ -86,6 +100,7 @@ export function suggestSeriesPins(catalogue, seriesDoc, query, opts = {}) {
     /^(hd28e|hd28i|hd200e|hd200i|hd210e|hd210i|hd32|hdc32e?|hdc32i|hd250e|hdc211e?|hdc211i|infinity26|infinity28|infinity32|solar28)/i;
 
   for (const series of listSeries(seriesDoc)) {
+    if (!seriesBelongsToSystemType(series, scopedId)) continue;
     const commercial = getSeriesCommercialName(series);
     const tokens = [
       series.id,
@@ -128,7 +143,7 @@ export function suggestSeriesPins(catalogue, seriesDoc, query, opts = {}) {
 }
 
 /**
- * Pin 2 — full Item Number (or marketing SKU) within the pinned series.
+ * Pin 3 — full Item Number (or marketing SKU) within the pinned series.
  * Commercial names stay visible on the subtitle / title.
  * @param {object} catalogue
  * @param {object|null|undefined} seriesDoc
@@ -276,7 +291,7 @@ function fuelSortRank(kind) {
 
 /**
  * Unrestricted first, then restricted/greyed. Series before models when mixed.
- * Pin 2 empty browse: Nat Gas block, then LPG (within active / restricted tiers).
+ * Pin 3 empty browse: Nat Gas block, then LPG (within active / restricted tiers).
  * @param {Array<object>} results
  * @param {{ groupFuel?: boolean }} [opts]
  */
@@ -320,7 +335,7 @@ function seriesPinLabel(series, commercialName = "") {
 }
 
 /**
- * Colour External (green) / Internal (yellow) in Pin 1 series labels.
+ * Colour External (green) / Internal (yellow) in Pin 2 series labels.
  * @param {string} text
  * @returns {string} HTML (escaped, with install spans)
  */
@@ -335,7 +350,7 @@ export function highlightInstallLabelHtml(text) {
 }
 
 /**
- * Colour Nat Gas (blue) / LPG (red) in Pin 2 row text (subtitle commercial names).
+ * Colour Nat Gas (blue) / LPG (red) in Pin 3 row text (subtitle commercial names).
  * @param {string} text
  * @returns {string} HTML (escaped, with fuel spans)
  */
@@ -372,7 +387,7 @@ function seriesSubtitle(series, count) {
 }
 
 /**
- * Pin 2 title: full Item Number preferred; else marketing SKU.
+ * Pin 3 title: full Item Number preferred; else marketing SKU.
  * @param {object} model
  */
 function itemPinLabel(model) {
@@ -409,6 +424,9 @@ function itemPinSubtitle(model, series, commercialName = "", shortCode = "") {
  */
 export function labelForPinValue(catalogue, seriesDoc, pinValue) {
   if (!pinValue) return "";
+  if (String(pinValue).startsWith("system:")) {
+    return labelForSystemTypeValue(pinValue);
+  }
   if (String(pinValue).startsWith("series:")) {
     const sid = String(pinValue).slice("series:".length);
     const series = listSeries(seriesDoc).find((s) => s.id === sid);
@@ -424,14 +442,15 @@ export function labelForPinValue(catalogue, seriesDoc, pinValue) {
  * Mount combobox behaviour on a pin picker root.
  *
  * Root must contain input, clear button, listbox, and hidden value input —
- * either legacy `#model-*` ids or `#series-*` / `#item-*`.
+ * `#system-*`, `#series-*`, `#item-*`, or legacy `#model-*`.
  *
  * @param {HTMLElement} root
  * @param {{
  *   catalogue: object,
  *   seriesDoc: object,
- *   mode: 'series'|'item',
+ *   mode: 'system'|'series'|'item',
  *   onChange: () => void,
+ *   getSystemTypeId?: () => string|null,
  *   getSeriesId?: () => string|null,
  *   isPinUnlocked?: (pinValue: string) => boolean,
  *   requestUnlock?: (suggestion: object) => Promise<boolean>|boolean,
@@ -439,7 +458,14 @@ export function labelForPinValue(catalogue, seriesDoc, pinValue) {
  */
 export function bindModelPicker(root, ctx) {
   const mode = ctx.mode || "series";
-  const prefix = mode === "item" ? "item" : mode === "series" ? "series" : "model";
+  const prefix =
+    mode === "item"
+      ? "item"
+      : mode === "system"
+        ? "system"
+        : mode === "series"
+          ? "series"
+          : "model";
 
   const input =
     root.querySelector(`#${prefix}-input`) ||
@@ -509,14 +535,44 @@ export function bindModelPicker(root, ctx) {
     clearBtn.hidden = !hidden.value && !input.value;
   }
 
+  function currentSystemTypeId() {
+    if (typeof ctx.getSystemTypeId === "function") return ctx.getSystemTypeId();
+    return null;
+  }
+
   function updateDisabled() {
+    if (mode === "system") {
+      input.disabled = false;
+      root.classList.remove("is-disabled");
+      input.placeholder = "Choose type of system first.";
+      return;
+    }
+    if (mode === "series") {
+      const systemId = currentSystemTypeId();
+      const everything = isEverythingSystem(systemId);
+      const disabled = !systemId || everything;
+      input.disabled = disabled;
+      root.classList.toggle("is-disabled", disabled);
+      if (!systemId) {
+        input.placeholder = "Choose the type of system above first";
+      } else if (everything) {
+        input.placeholder = "Everything overrides series pin";
+      } else {
+        input.placeholder = "Click to choose which series from the list first.";
+      }
+      return;
+    }
     if (mode !== "item") return;
+    const systemId = currentSystemTypeId();
+    const everything = isEverythingSystem(systemId);
     const seriesId =
       typeof ctx.getSeriesId === "function" ? ctx.getSeriesId() : null;
-    const disabled = !seriesId;
+    const disabled = everything || !seriesId;
     input.disabled = disabled;
     root.classList.toggle("is-disabled", disabled);
-    if (disabled) {
+    if (everything) {
+      input.placeholder = "Everything overrides Item Number pin";
+    } else if (!seriesId) {
       input.placeholder = "Choose the series above first";
     } else {
       input.placeholder = "Now choose a model.";
@@ -546,7 +602,9 @@ export function bindModelPicker(root, ctx) {
       empty.textContent =
         mode === "item"
           ? "No matching Item Numbers in this series"
-          : "No matching series";
+          : mode === "system"
+            ? "No matching system types"
+            : "No matching series";
       empty.setAttribute("role", "presentation");
       list.appendChild(empty);
       list.hidden = false;
@@ -560,6 +618,9 @@ export function bindModelPicker(root, ctx) {
       li.id = `${prefix}-opt-${i}`;
       li.className = "model-option";
       if (s.restricted) li.classList.add("model-option--restricted");
+      if (s.flash || s.kind === "everything") {
+        li.classList.add("model-option--everything-flash");
+      }
       li.setAttribute("role", "option");
       li.setAttribute("aria-selected", i === activeIndex ? "true" : "false");
       if (s.restricted) {
@@ -573,7 +634,11 @@ export function bindModelPicker(root, ctx) {
         ? s.restrictionLabel || "Restricted"
         : s.kind === "series"
           ? "Series"
-          : "Item №";
+          : s.kind === "system"
+            ? "System"
+            : s.kind === "everything"
+              ? "Override"
+              : "Item №";
       const labelHtml =
         mode === "series"
           ? highlightInstallLabelHtml(s.label)
@@ -604,10 +669,12 @@ export function bindModelPicker(root, ctx) {
   }
 
   function refreshSuggestions() {
-    if (mode === "item") {
+    if (mode === "system") {
+      suggestions = suggestSystemTypePins(input.value, { limit: 8 });
+    } else if (mode === "item") {
       const seriesId =
         typeof ctx.getSeriesId === "function" ? ctx.getSeriesId() : null;
-      if (!seriesId) {
+      if (!seriesId || isEverythingSystem(currentSystemTypeId())) {
         suggestions = [];
         activeIndex = -1;
         renderList();
@@ -625,7 +692,7 @@ export function bindModelPicker(root, ctx) {
         ctx.catalogue,
         ctx.seriesDoc,
         input.value,
-        { limit: 14 }
+        { limit: 14, systemTypeId: currentSystemTypeId() }
       );
     }
     activeIndex = suggestions.length ? 0 : -1;

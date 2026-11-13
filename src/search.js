@@ -2,12 +2,17 @@
  * Local catalogue search for Rinnai spare parts.
  *
  * Ranking (pinned model/series):
- *   1. Chassis / series fit for the pin (exact → related family → none)
+ *   1. Chassis / series fit for the pin (exact → related → none)
  *   2. Trade-alias strength (preferPatterns → officialPatterns → weak)
- *   3. Code / name / token match quality
+ *   3. Code / name / token match quality (incl. blurb / abbrev / display)
  *
  * Fit is inferred from chassis tokens in the price-list description against
  * series-aliases documentKeys (modelIds are not populated on ingest yet).
+ *
+ * Pin 3 hard fence: when an Item Number (model) pin is set, candidates are
+ * restricted to that chassis’s PL/ED part set (edpl-part-map) before ranking.
+ * Blurb / abbrev / trade still rank inside that set — they cannot pull another
+ * chassis’ BOM into results or Primary. Everything (Pin 1 override) skips this.
  */
 
 import { documentKeysForPin } from "./series.js";
@@ -16,6 +21,8 @@ import {
   expandDisplayTitle,
   plainEnglishSummary,
 } from "./display-name.js";
+import { buildPin3ChassisPartAllowSet } from "./pin3-chassis-allow.js";
+import edplPartMap from "../public/data/edpl-part-map.json" with { type: "json" };
 
 /** Stopwords ignored when matching layman queries against blurbs / display titles. */
 const LAYMAN_STOP = new Set([
@@ -1198,7 +1205,7 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
             : null
         );
   const hasPin = Boolean(pinCtx);
-  /** Series-only pin: encourage Item Number before strong orange HEX/assembly Primary. */
+  /** Series-only pin (Pin 2): encourage Item Number (Pin 3) before strong orange HEX/assembly Primary. */
   const seriesOnlyPin = pinCtx?.kind === "series";
   const tradeHits = matchTradeAliases(opts.tradeAliases, query);
   const hasTrade = tradeHits.length > 0;
@@ -1226,6 +1233,19 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
   // Prefer boot-time cache. Building here on every call reintroduces keystroke lag.
   const textCache = opts.partSearchCache || null;
 
+  // Pin3 (Item Number): hard-restrict candidates to that chassis’s PL/ED codes.
+  // Ranking (blurb/abbrev/trade/fit) runs only inside this allow-set.
+  // Everything / free search / series-only → no fence (null allow-set).
+  const pin3AllowSet =
+    opts.pin3ChassisAllowSet !== undefined
+      ? opts.pin3ChassisAllowSet
+      : opts.pin2ChassisAllowSet !== undefined
+        ? opts.pin2ChassisAllowSet
+        : buildPin3ChassisPartAllowSet(
+            opts.pin || null,
+            opts.edplPartMap || edplPartMap
+          );
+
   if (!q && !hasPin) {
     return [];
   }
@@ -1234,6 +1254,9 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
 
   for (const part of catalogue.parts || []) {
     if (isPartVisible && !isPartVisible(part)) continue;
+    if (pin3AllowSet && !pin3AllowSet.has(String(part.code || "").trim())) {
+      continue;
+    }
 
     const cached = textCache ? textCache.get(part) : null;
     const nameN = cached?.nameN ?? normalise(part.name);
@@ -1501,7 +1524,7 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
     const assembly = scoreAssemblyRole(part, query, assemblyIndex, pinCtx);
     if (assembly.delta) {
       // Series-only: demote series-wide HEX / assembly “winners” so one orange
-      // Primary cannot hide other chassis. Strong Primary needs Pin 2 (Item №).
+      // Primary cannot hide other chassis. Strong Primary needs Pin 3 (Item №).
       let assemblyDelta = assembly.delta;
       let assemblyRank = assembly.assemblyRank || 0;
       if (seriesOnlyPin && assemblyConcept) {
@@ -1582,7 +1605,7 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
   const sliced = results.slice(0, limit);
   if (sliced.length) {
     if (hasPin) {
-      // Strong orange Primary for assembly concepts needs Pin 2 (Item Number).
+      // Strong orange Primary for assembly concepts needs Pin 3 (Item Number).
       // Series-only: still mark a soft exact-fit Primary for non-assembly queries.
       if (assemblyConcept && seriesOnlyPin) {
         // No orange assembly / HEX duo Primary — pin Item Number for chassis scope.
