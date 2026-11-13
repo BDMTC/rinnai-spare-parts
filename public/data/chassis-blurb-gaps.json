@@ -1,11 +1,11 @@
 {
   "version": 1,
   "meta": {
-    "title": "Chassis blurb gaps — needs Beau",
+    "title": "Chassis blurb gaps \u2014 needs Beau",
     "updated": "2026-11-13",
     "tip": "cursor/chassis-model-blurbs-1bba",
-    "notes": "Former “…this chassis…” fan/filter/front-panel blurbs with no chassis token after EDPL + PL name + series-aliases + models Item Number search. Do not invent. Beau to supply model OR-list.",
-    "count": 173
+    "notes": "Former \u201c\u2026this chassis\u2026\u201d fan/filter/front-panel blurbs with no chassis token after EDPL + PL name + series-aliases + models Item Number search. Do not invent. Beau to supply model OR-list. RSP-112: removed DD fan 30093029/031/033/082 (Demand Duo OR-list).",
+    "count": 169
   },
   "gaps": [
     {
@@ -20,34 +20,6 @@
       "name": "SCREW PULLEY FAN RD",
       "category": "LIFESTYLE INDOOR",
       "sheet": "Lifestyle Indoor",
-      "what": "Fan assembly"
-    },
-    {
-      "code": "30093029",
-      "name": "RELAY DUEL DD FAN",
-      "category": "COMMERCIAL HOT WATER",
-      "sheet": "Commercial Hot Water",
-      "what": "Fan assembly"
-    },
-    {
-      "code": "30093031",
-      "name": "SWITCH AIR PRESSURE DD FAN",
-      "category": "COMMERCIAL HOT WATER",
-      "sheet": "Commercial Hot Water",
-      "what": "Fan assembly"
-    },
-    {
-      "code": "30093033",
-      "name": "CONTACTOR 25AMP DD FAN",
-      "category": "COMMERCIAL HOT WATER",
-      "sheet": "Commercial Hot Water",
-      "what": "Fan assembly"
-    },
-    {
-      "code": "30093082",
-      "name": "PLUG FAN POWER DILUTION",
-      "category": "COMMERCIAL HOT WATER",
-      "sheet": "Commercial Hot Water",
       "what": "Fan assembly"
     },
     {

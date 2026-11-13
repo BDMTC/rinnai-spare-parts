@@ -69,6 +69,15 @@ const SEED = {
     "LPG bypass orifice / jet for 2001 Eurosit gas valve path — fuel-specific; don’t mix with NG bypass.",
   "92095897":
     "Natural-gas manifold for HD200e external (VRM2632WC) — burner gas bar on the outdoor Infinity.",
+  // RSP-112 — Demand Duo dilution-fan circuit (Beau locked Pin1 Demand Duo).
+  "30093029":
+    "Dual relay for the Demand Duo dilution fan (DDUVC1200 OR DDUVC1700 OR DDUPS2580N OR DDUPS32100N) — switching on the DD fan circuit.",
+  "30093031":
+    "Air-pressure switch for the Demand Duo dilution fan (DDUVC1200 OR DDUVC1700 OR DDUPS2580N OR DDUPS32100N) — proves fan airflow before firing.",
+  "30093033":
+    "25 A contactor for the Demand Duo dilution fan (DDUVC1200 OR DDUVC1700 OR DDUPS2580N OR DDUPS32100N) — power switching for the DD fan motor.",
+  "30093082":
+    "Fan power plug for Demand Duo dilution (DDUVC1200 OR DDUVC1700 OR DDUPS2580N OR DDUPS32100N) — connector on the DD fan power lead.",
 };
 
 /** Longer chassis keys first. */

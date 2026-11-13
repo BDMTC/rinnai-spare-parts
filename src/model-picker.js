@@ -670,7 +670,7 @@ export function bindModelPicker(root, ctx) {
 
   function refreshSuggestions() {
     if (mode === "system") {
-      suggestions = suggestSystemTypePins(input.value, { limit: 8 });
+      suggestions = suggestSystemTypePins(input.value, { limit: 16 });
     } else if (mode === "item") {
       const seriesId =
         typeof ctx.getSeriesId === "function" ? ctx.getSeriesId() : null;
