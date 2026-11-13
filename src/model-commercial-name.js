@@ -4,9 +4,13 @@
  * Prefer a cleaned catalogue description when it already reads commercially;
  * otherwise derive from marketing code / series + install + fuel + outlet temp.
  *
+ * Series pins use a shorter form (family + install / variant only — no fuel
+ * or outlet temp): HD200e → Heavy Duty 200 External.
+ *
  * Examples:
  *   HD210EN42 → Heavy Duty 210 External Nat Gas 42 Degree
  *   HD210EN50 → Heavy Duty 210 External Nat Gas 50 Degree
+ *   series HD200e → Heavy Duty 200 External
  */
 
 const FUEL_WORDS = {
@@ -49,6 +53,22 @@ export function getModelCommercialName(model, series = null) {
 export function getModelShortCode(model) {
   if (!model) return "";
   return String(model.sku || model.marketingCode || model.id || "").trim();
+}
+
+/**
+ * Series-level commercial name (no fuel / outlet temp).
+ * e.g. HD200e → Heavy Duty 200 External; Infinity 26 Plus → Infinity 26 Plus
+ *
+ * @param {object|null|undefined} series
+ * @returns {string}
+ */
+export function getSeriesCommercialName(series) {
+  if (!series) return "";
+  const fromLabel = expandSeriesLabel(series.label);
+  if (fromLabel) return fromLabel;
+  const fromId = expandSeriesLabel(series.id);
+  if (fromId) return fromId;
+  return String(series.label || series.id || "").trim();
 }
 
 /**

@@ -11,6 +11,7 @@ import { getModelLabel, getModelDisplayName } from "./search.js";
 import {
   getModelCommercialName,
   getModelShortCode,
+  getSeriesCommercialName,
 } from "./model-commercial-name.js";
 import {
   listSeries,
@@ -99,7 +100,7 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
           {
             kind: "series",
             value: `series:${series.id}`,
-            label: series.label,
+            label: seriesPinLabel(series),
             subtitle: seriesSubtitle(series, count),
             series,
             model: null,
@@ -114,9 +115,11 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
   }
 
   for (const series of listSeries(seriesDoc)) {
+    const commercial = getSeriesCommercialName(series);
     const tokens = [
       series.id,
       series.label,
+      commercial,
       ...(series.aliases || []),
       ...(series.documentKeys || []),
     ].map(normalise);
@@ -134,7 +137,7 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
         {
           kind: "series",
           value: `series:${series.id}`,
-          label: series.label,
+          label: seriesPinLabel(series, commercial),
           subtitle: seriesSubtitle(series, count),
           series,
           model: null,
@@ -223,6 +226,21 @@ function rankSuggestions(results) {
   });
 }
 
+/**
+ * Series typeahead / pin title: short code · commercial (no fuel/temp).
+ * @param {object} series
+ * @param {string} [commercialName]
+ */
+function seriesPinLabel(series, commercialName = "") {
+  const short = String(series?.label || "").trim();
+  const commercial =
+    commercialName || getSeriesCommercialName(series);
+  if (short && commercial && commercial !== short) {
+    return `${short} · ${commercial}`;
+  }
+  return short || commercial;
+}
+
 function seriesSubtitle(series, count) {
   const bits = [];
   if (series.provisional) bits.push("provisional");
@@ -272,7 +290,8 @@ export function labelForPinValue(catalogue, seriesDoc, pinValue) {
   if (String(pinValue).startsWith("series:")) {
     const sid = String(pinValue).slice("series:".length);
     const series = listSeries(seriesDoc).find((s) => s.id === sid);
-    return series?.label || sid;
+    if (!series) return sid;
+    return seriesPinLabel(series);
   }
   const model = (catalogue?.models || []).find((m) => m.id === pinValue);
   if (!model) return "";
