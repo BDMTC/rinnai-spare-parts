@@ -227,17 +227,70 @@ async function fetchSoft(url, ms = 8000) {
   return null;
 }
 
-/** Comfortable ticker crawl — ~42 px/s of the duplicated track half. */
+/** Comfortable ticker crawl — ~42 px/s of the duplicated track half (= 100%). */
 const TICKER_PX_PER_SEC = 42;
+const TICKER_SPEED_KEY = "rinnai-ticker-speed-mult";
+const TICKER_SPEED_STEP = 0.25;
+const TICKER_SPEED_MIN = 0.25;
+const TICKER_SPEED_MAX = 2;
+/** mid button = 50% of comfortable crawl */
+const TICKER_SPEED_MID = 0.5;
+
+/** @type {number} */
+let tickerSpeedMult = 1;
+
+/**
+ * @param {unknown} raw
+ * @returns {number}
+ */
+function clampSpeedMult(raw) {
+  const n = Number(raw);
+  if (!Number.isFinite(n)) return 1;
+  const stepped = Math.round(n / TICKER_SPEED_STEP) * TICKER_SPEED_STEP;
+  return Math.min(TICKER_SPEED_MAX, Math.max(TICKER_SPEED_MIN, stepped));
+}
+
+function loadSpeedMult() {
+  try {
+    const raw = localStorage.getItem(TICKER_SPEED_KEY);
+    if (raw == null || raw === "") return 1;
+    return clampSpeedMult(raw);
+  } catch {
+    return 1;
+  }
+}
+
+/**
+ * @param {number} mult
+ */
+function saveSpeedMult(mult) {
+  tickerSpeedMult = clampSpeedMult(mult);
+  try {
+    localStorage.setItem(TICKER_SPEED_KEY, String(tickerSpeedMult));
+  } catch {
+    /* private mode / file:// quirks — still apply in-session */
+  }
+}
 
 /**
  * @param {HTMLElement} track
  */
 function syncTickerDuration(track) {
   const half = Math.max(1, track.scrollWidth / 2);
-  // Floor keeps short stub readable; cap avoids multi-minute loops.
-  const sec = Math.max(60, Math.min(220, half / TICKER_PX_PER_SEC));
+  const pxPerSec = Math.max(8, TICKER_PX_PER_SEC * tickerSpeedMult);
+  // Higher speed → shorter duration. Floor/cap keep extremes sane.
+  const sec = Math.max(30, Math.min(320, half / pxPerSec));
   track.style.setProperty("--ticker-duration", `${sec.toFixed(1)}s`);
+}
+
+/**
+ * @param {ParentNode|Document} [scope]
+ */
+function syncSpeedButtons(scope = document) {
+  const mid = scope.querySelector?.("#ticker-speed-mid");
+  if (mid instanceof HTMLElement) {
+    mid.classList.toggle("is-active", Math.abs(tickerSpeedMult - TICKER_SPEED_MID) < 0.01);
+  }
 }
 
 /**
@@ -626,8 +679,17 @@ export function bindNewsTicker(scope = document) {
   const root = scope.querySelector?.("#news-ticker") || document.querySelector("#news-ticker");
   if (!root) return;
 
+  tickerSpeedMult = loadSpeedMult();
+  syncSpeedButtons(scope);
+
   let timer = 0;
   let lastLive = /** @type {TickerItem[]} */ ([]);
+
+  const applySpeed = () => {
+    const track = root.querySelector(".news-ticker-track");
+    if (track instanceof HTMLElement) syncTickerDuration(track);
+    syncSpeedButtons(scope);
+  };
 
   const refresh = async () => {
     try {
@@ -649,6 +711,19 @@ export function bindNewsTicker(scope = document) {
       else if (lastLive.length) renderTickerDom(root, lastLive);
     }
   };
+
+  scope.querySelector?.("#ticker-speed-up")?.addEventListener("click", () => {
+    saveSpeedMult(tickerSpeedMult + TICKER_SPEED_STEP);
+    applySpeed();
+  });
+  scope.querySelector?.("#ticker-speed-down")?.addEventListener("click", () => {
+    saveSpeedMult(tickerSpeedMult - TICKER_SPEED_STEP);
+    applySpeed();
+  });
+  scope.querySelector?.("#ticker-speed-mid")?.addEventListener("click", () => {
+    saveSpeedMult(TICKER_SPEED_MID);
+    applySpeed();
+  });
 
   // Don't flash the offline gag on first paint when networked (file:// fix).
   if (isTrulyOffline()) {

@@ -460,7 +460,7 @@ body::before {
   grid-template-columns: 1.4fr 0.7fr;
   gap: 0.75rem;
   margin-top: 0.75rem;
-  align-items: stretch;
+  align-items: start;
 }
 
 .series-field {
@@ -468,12 +468,20 @@ body::before {
   min-width: 0;
 }
 
+.news-ticker-wrap {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+  /* Nudge the ticker box up a little beside Pin2. */
+  margin-top: -0.35rem;
+}
+
 .news-ticker {
   display: grid;
   grid-template-rows: auto 1fr;
   gap: 0.3rem;
   min-width: 0;
-  min-height: 100%;
+  min-height: 0;
   padding: 0.35rem 0.45rem 0.4rem;
   border: 1px solid var(--line);
   border-radius: 10px;
@@ -484,6 +492,47 @@ body::before {
       var(--panel-solid) 70%
     );
   overflow: hidden;
+}
+
+.news-ticker-speed {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.news-ticker-speed-btn {
+  font: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  min-width: 1.7rem;
+  min-height: 1.55rem;
+  padding: 0.2rem 0.4rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--panel-solid);
+  color: var(--ink-muted);
+  cursor: pointer;
+}
+
+.news-ticker-speed-btn:hover,
+.news-ticker-speed-btn:focus-visible {
+  border-color: var(--accent-ink);
+  color: var(--accent-ink);
+  outline: none;
+}
+
+.news-ticker-speed-btn.is-active {
+  border-color: var(--accent-ink);
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+
+.news-ticker-speed-btn--mid {
+  min-width: 2.4rem;
+  letter-spacing: 0.02em;
+  text-transform: lowercase;
 }
 
 .news-ticker-label {
