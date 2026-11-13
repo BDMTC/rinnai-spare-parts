@@ -57,8 +57,8 @@ const SERIES_DIAGRAM_DEFAULT = {
     label: "EDPL REUV2630WD INF26Plus",
   },
   "infinity26-smartstart": {
-    page: "EDPL Smartstart.pdf p4",
-    label: "EDPL Smartstart",
+    page: "PL & ED INF26 Smartstart VR2626WGP.pdf p1",
+    label: "PL & ED INF26 Smartstart VR2626WGP",
   },
   "infinity32-enviro": {
     page: "ED_N Series 2020 IN32 Enviro.pdf p1",
@@ -216,6 +216,8 @@ const ED_STEM_TO_PDF = {
   "edpl-reuv2630wd-inf26plus": "EDPL REUV2630WD INF26Plus.pdf",
   "edpl-vrm2630": "EDPL VRM2630.pdf",
   "edpl-smartstart": "EDPL Smartstart.pdf",
+  "pl-ed-inf26-smartstart-vr2626wgp":
+    "PL & ED INF26 Smartstart VR2626WGP.pdf",
   "edpl-vr-vrm3237": "EDPL VR_VRM3237.pdf",
   "pled-infinity-32-enviro-plus-n-series-e":
     "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",

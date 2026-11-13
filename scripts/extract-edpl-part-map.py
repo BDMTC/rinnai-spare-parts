@@ -94,20 +94,21 @@ CF_SHEETS = [
         "chassisTokens": ["VRM2630", "VRM2630WD"],
         "priority": 6,
     },
-    # Smartstart
-    {
-        "file": "EDPL Smartstart.pdf",
-        "stem": "edpl-smartstart",
-        "seriesIds": ["infinity26-smartstart"],
-        "chassisTokens": ["SMARTSTART", "VR2626WGP", "REU-VR2626WGP"],
-        "priority": 10,
-    },
+    # Infinity 26 Smartstart (VR2626WGP inbuilt) — not CUG1 preheat
     {
         "file": "PL & ED INF26 Smartstart VR2626WGP.pdf",
         "stem": "pl-ed-inf26-smartstart-vr2626wgp",
         "seriesIds": ["infinity26-smartstart"],
-        "chassisTokens": ["VR2626WGP", "SMARTSTART", "INF26S"],
-        "priority": 8,
+        "chassisTokens": ["VR2626WGP", "REU-VR2626WGP", "SMARTSTART", "INF26S"],
+        "priority": 12,
+    },
+    # CUG1 Smartstart preheat accessory PL (kept for download/bbox; not Inf26 series)
+    {
+        "file": "EDPL Smartstart.pdf",
+        "stem": "edpl-smartstart",
+        "seriesIds": [],
+        "chassisTokens": ["CUG1", "REU-CUG1"],
+        "priority": 4,
     },
     # HD250 / VR3237
     {
@@ -306,9 +307,9 @@ CF_SHEETS = [
     {
         "file": "SmartStart Parts list.pdf",
         "stem": "pl-smartstart-parts-list",
-        "seriesIds": ["infinity26-smartstart"],
-        "chassisTokens": ["SMARTSTART", "VR2626WGP"],
-        "priority": 6,
+        "seriesIds": [],
+        "chassisTokens": ["CUG1", "REU-CUG1"],
+        "priority": 3,
     },
 
     {
@@ -807,7 +808,7 @@ def main():
             "hd200i": ("edpl-reu-vr2632ffug", 5),
             "infinity26-internal": ("edpl-v2632ffu-ffuc", 5),
             "infinity26-plus": ("edpl-reuv2630wd-inf26plus", 6),
-            "infinity26-smartstart": ("edpl-smartstart", 4),
+            "infinity26-smartstart": ("pl-ed-inf26-smartstart-vr2626wgp", 1),
             "hd250e": ("edpl-vr-vrm3237", 5),
             "infinity32-enviro": ("ed-n-series-2020-in32-enviro", 1),
             "infinity32-enviro-plus-n": ("ed-n-series-2020-in32-enviro", 1),

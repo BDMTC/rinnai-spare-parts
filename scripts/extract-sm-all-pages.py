@@ -20,7 +20,9 @@ UNIQUE_SM = {
     "sm-vrm2632wc": "smVRM2632WC.pdf",
     "sm-vr2632ffug-vrm2632ffuc": "smVR2632FFUG_VRM2632FFUC.pdf",
     "sm-inf26-inf32-enviro-wh-190810": "SM INF26_INF32 Enviro WH 190810.pdf",
-    "sm-smartstart": "SM Smartstart.pdf",
+    "sm-smartstart": "SM Smartstart.pdf",  # CUG1 preheat — not Inf26 VR2626WGP
+    # Infinity 26 Smartstart inbuilt (cover lists REU-VR2626WGP)
+    "sm-inbuilt-smartstart": "SM Inbuilt Smartstart.pdf",
     # HD250e / VR3237 family (weekend stretch)
     "sm-vr3237wg-wc": "smVR3237WG_WC.pdf",
     # Infinity 26 / A-AM domestic (cover lists INF26 AM2626 — not Enviro KM)
@@ -34,6 +36,7 @@ SERIES_THUMBS = {
     "hd250e": "sm-vr3237wg-wc",
     "infinity26": "sm-new-a-series-cf",
     "infinity26-plus": "sm-v2626w-v2630wc",
+    "infinity26-smartstart": "sm-inbuilt-smartstart",
 }
 
 TARGET_WIDTH = 900
@@ -79,7 +82,10 @@ for stem, file_name in UNIQUE_SM.items():
         f"  total {manifest['packs'][stem]['totalBytes'] / 1e6:.2f} MB"
     )
 
-FORCE_THUMBS = {"infinity26-plus"}  # replace wrong Enviro cover
+FORCE_THUMBS = {
+    "infinity26-plus",  # replace wrong Enviro cover
+    "infinity26-smartstart",  # replace CUG1 preheat cover
+}
 
 for series_id, pack_stem in SERIES_THUMBS.items():
     src = SM_OUT / f"{pack_stem}__p1.jpg"

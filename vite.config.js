@@ -136,6 +136,11 @@ function lightboxPdfDataScripts() {
       file: "SM INF26_INF32 Enviro WH 190810.pdf",
     },
     { id: "SM-Smartstart", file: "SM Smartstart.pdf" },
+    { id: "SM-Inbuilt-Smartstart", file: "SM Inbuilt Smartstart.pdf" },
+    {
+      id: "PL-ED-INF26-Smartstart-VR2626WGP",
+      file: "PL & ED INF26 Smartstart VR2626WGP.pdf",
+    },
     { id: "EDPL-REU-VRM2632WC", file: "EDPL REU-VRM2632WC.pdf" },
     { id: "EDPL-REU-VR2632FFUG", file: "EDPL REU-VR2632FFUG.pdf" },
     { id: "EDPL-V2632FFU-FFUC", file: "EDPL V2632FFU_FFUC.pdf" },

@@ -17,6 +17,14 @@ export const LIGHTBOX_PDFS = {
     fileName: "SM INF26_INF32 Enviro WH 190810.pdf",
   },
   "SM Smartstart.pdf": { id: "SM-Smartstart", fileName: "SM Smartstart.pdf" },
+  "SM Inbuilt Smartstart.pdf": {
+    id: "SM-Inbuilt-Smartstart",
+    fileName: "SM Inbuilt Smartstart.pdf",
+  },
+  "PL & ED INF26 Smartstart VR2626WGP.pdf": {
+    id: "PL-ED-INF26-Smartstart-VR2626WGP",
+    fileName: "PL & ED INF26 Smartstart VR2626WGP.pdf",
+  },
   "EDPL REU-VRM2632WC.pdf": {
     id: "EDPL-REU-VRM2632WC",
     fileName: "EDPL REU-VRM2632WC.pdf",
