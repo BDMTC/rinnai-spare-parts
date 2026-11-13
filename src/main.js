@@ -1,6 +1,8 @@
 import "./style.css";
 import mtcgasLogoUrl from "./assets/mtcgas-australia-logo.png?inline";
 import mtcTeamHqUrl from "./assets/mtc-team-hq.jpg?inline";
+import rinnaiLogoUrl from "./assets/rinnai-logo.svg";
+import emptyFrameLoopUrl from "./assets/empty-frame-loop.gif";
 import tipPinModelUrl from "./assets/help/tip-pin-model.svg?inline";
 import tipMarginUrl from "./assets/help/tip-margin.svg?inline";
 import tipSearchUrl from "./assets/help/tip-search.svg?inline";
@@ -1365,7 +1367,8 @@ let lightboxState = null;
 
 /**
  * Under-Margin dual panel: series promo (left) + SM/ED (right).
- * Pin1 only → service manual cover. Pin2 + part hit → ED page (SM if no ED).
+ * No pins → idle art (Rinnai logo left, bundled loop GIF right).
+ * Pin1 only → unit shot + service manual cover. Pin2 + part hit → ED (SM if no ED).
  * Sized by Pin2+Search height — does not grow the search card.
  */
 function updateSearchVisuals(query, pin) {
@@ -1376,6 +1379,7 @@ function updateSearchVisuals(query, pin) {
       seriesPicker?.getValue?.() ||
         document.querySelector("#series-pin")?.value
     );
+  const idleEmpty = !seriesId;
   const seriesUrl = seriesUnitShotUrl(seriesId);
   const seriesImg = document.querySelector("#series-visual-img");
   const seriesPh = document.querySelector("#series-visual-ph");
@@ -1387,7 +1391,14 @@ function updateSearchVisuals(query, pin) {
   // advertise the unit photo as clickable just because an SM exists.
   const seriesClickable = false;
   if (seriesImg && seriesPh && seriesThumb) {
-    if (seriesUrl) {
+    if (idleEmpty) {
+      seriesImg.src = rinnaiLogoUrl;
+      seriesImg.alt = "Rinnai";
+      seriesThumb.hidden = false;
+      seriesThumb.disabled = true;
+      seriesThumb.setAttribute("aria-label", "Rinnai logo");
+      seriesPh.hidden = true;
+    } else if (seriesUrl) {
       seriesImg.src = seriesUrl;
       seriesImg.alt = activePin?.series
         ? `${activePin.series.label || seriesId} unit`
@@ -1410,7 +1421,10 @@ function updateSearchVisuals(query, pin) {
       seriesPh.textContent = "Pin a series";
     }
   }
-  if (seriesFrame) seriesFrame.classList.toggle("is-clickable", seriesClickable);
+  if (seriesFrame) {
+    seriesFrame.classList.toggle("is-clickable", seriesClickable);
+    seriesFrame.classList.toggle("is-empty-art", idleEmpty);
+  }
   if (seriesHint) seriesHint.hidden = !seriesClickable;
 
   const hasQuery = Boolean(String(query || "").trim());
@@ -1422,7 +1436,7 @@ function updateSearchVisuals(query, pin) {
 
   /** @type {typeof activeDiagram} */
   let panel = null;
-  if (hasPin2 && primary) {
+  if (!idleEmpty && hasPin2 && primary) {
     const ed = resolvePartDiagram(primary.part, assemblyIndex, {
       pin: activePin,
     });
@@ -1452,7 +1466,7 @@ function updateSearchVisuals(query, pin) {
         };
       }
     }
-  } else if (seriesId) {
+  } else if (!idleEmpty && seriesId) {
     const sm = resolveSeriesServiceManual(seriesId);
     if (sm) {
       panel = {
@@ -1472,8 +1486,16 @@ function updateSearchVisuals(query, pin) {
   const diagramFrame = document.querySelector("#diagram-visual");
   const diagramClickable = Boolean(panel?.url);
   if (thumbBtn && diagramImg && diagramPh) {
-    if (panel?.url) {
+    if (idleEmpty) {
+      diagramImg.src = emptyFrameLoopUrl;
+      diagramImg.alt = "";
+      thumbBtn.hidden = false;
+      thumbBtn.disabled = true;
+      thumbBtn.setAttribute("aria-label", "Decorative animation");
+      diagramPh.hidden = true;
+    } else if (panel?.url) {
       diagramImg.src = panel.url;
+      thumbBtn.disabled = false;
       if (panel.kind === "ed") {
         const calloutBit = panel.callout ? ` · item ${panel.callout}` : "";
         diagramImg.alt = `Exploded diagram${calloutBit}`;
@@ -1488,10 +1510,9 @@ function updateSearchVisuals(query, pin) {
       diagramImg.removeAttribute("src");
       diagramImg.alt = "";
       thumbBtn.hidden = true;
+      thumbBtn.disabled = true;
       diagramPh.hidden = false;
-      if (!seriesId) {
-        diagramPh.textContent = "Pin a series";
-      } else if (hasPin2 && hasQuery) {
+      if (hasPin2 && hasQuery) {
         diagramPh.textContent = "No diagram for this hit yet";
       } else {
         diagramPh.textContent = "No service manual yet";
@@ -1500,6 +1521,7 @@ function updateSearchVisuals(query, pin) {
   }
   if (diagramFrame) {
     diagramFrame.classList.toggle("is-clickable", diagramClickable);
+    diagramFrame.classList.toggle("is-empty-art", idleEmpty);
   }
   if (diagramHint) diagramHint.hidden = !diagramClickable;
 }
