@@ -1196,6 +1196,8 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
             : null
         );
   const hasPin = Boolean(pinCtx);
+  /** Series-only pin: encourage Item Number before strong orange HEX/assembly Primary. */
+  const seriesOnlyPin = pinCtx?.kind === "series";
   const tradeHits = matchTradeAliases(opts.tradeAliases, query);
   const hasTrade = tradeHits.length > 0;
   const abbrevIndex =
@@ -1496,9 +1498,18 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
 
     const assembly = scoreAssemblyRole(part, query, assemblyIndex, pinCtx);
     if (assembly.delta) {
-      score += assembly.delta;
+      // Series-only: demote series-wide HEX / assembly “winners” so one orange
+      // Primary cannot hide other chassis. Strong Primary needs Pin 2 (Item №).
+      let assemblyDelta = assembly.delta;
+      let assemblyRank = assembly.assemblyRank || 0;
+      if (seriesOnlyPin && assemblyConcept) {
+        if (assemblyDelta > 0) assemblyDelta = Math.min(12, Math.floor(assemblyDelta / 5));
+        if (assemblyRank > 0) assemblyRank = Math.min(1, assemblyRank);
+      }
+      score += assemblyDelta;
       if (assembly.isAssembly) matchedOn.push("assembly");
       else if (assembly.isSubComponent) matchedOn.push("sub-component");
+      assembly.assemblyRank = assemblyRank;
     }
 
     const fittedModels = partModelIds
@@ -1551,7 +1562,12 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
 
   results.sort((a, b) => {
     if (hasPin && b.fitRank !== a.fitRank) return b.fitRank - a.fitRank;
-    if (assemblyConcept && b.assemblyRank !== a.assemblyRank) {
+    // Series-only + assembly concept: do not let assemblyRank steal the sort
+    if (
+      assemblyConcept &&
+      !seriesOnlyPin &&
+      b.assemblyRank !== a.assemblyRank
+    ) {
       return b.assemblyRank - a.assemblyRank;
     }
     if (hasPin && b.aliasStrength !== a.aliasStrength) {
@@ -1564,8 +1580,11 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
   const sliced = results.slice(0, limit);
   if (sliced.length) {
     if (hasPin) {
-      // Prefer complete assembly among exact-fit when query targets an assembly concept
-      if (assemblyConcept) {
+      // Strong orange Primary for assembly concepts needs Pin 2 (Item Number).
+      // Series-only: still mark a soft exact-fit Primary for non-assembly queries.
+      if (assemblyConcept && seriesOnlyPin) {
+        // No orange assembly / HEX duo Primary — pin Item Number for chassis scope.
+      } else if (assemblyConcept) {
         const assemblyExact = sliced.findIndex(
           (r) => r.fitTier === "exact" && r.isAssembly && !r.isSubComponent
         );
@@ -1598,7 +1617,10 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
       if (assemblyIdx >= 0) sliced[assemblyIdx].isPrimary = true;
     }
 
-    markAssemblyDuos(sliced, assemblyIndex, assemblyConcept, { hasPin });
+    markAssemblyDuos(sliced, assemblyIndex, assemblyConcept, {
+      hasPin,
+      allowDuoPrimary: !(seriesOnlyPin && assemblyConcept),
+    });
   }
 
   return sliced;
@@ -1614,9 +1636,12 @@ function markAssemblyDuos(
   sliced,
   assemblyIndex,
   assemblyConcept,
-  { hasPin = false } = {}
+  { hasPin = false, allowDuoPrimary = true } = {}
 ) {
   if (!sliced?.length || !assemblyIndex?.parentByCode || !assemblyConcept) {
+    return;
+  }
+  if (!allowDuoPrimary) {
     return;
   }
   const conceptId = assemblyConcept.concept?.id;

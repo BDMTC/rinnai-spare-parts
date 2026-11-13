@@ -125,3 +125,47 @@ export function applyReuItemNumberFormat(model) {
   model.itemNumber = formatReuItemNumber(model.itemNumber);
   return model;
 }
+
+/**
+ * Outlet temperature (°C) from packing / marketing codes.
+ * Prefs: 50 = AU domestic; 60+ = commercial (must not install on domestic).
+ * @param {object|null|undefined} model
+ * @returns {number|null}
+ */
+export function outletTempFromModel(model) {
+  if (!model) return null;
+
+  const item = String(model.itemNumber || "").toUpperCase();
+  // REU-AM2626WD-50-AKN / REU-N3237WC-75-AKL / …-50-AKN-BLK
+  const fromItem = item.match(/-(\d{2})(?:-|$)/);
+  if (fromItem) {
+    const n = Number(fromItem[1]);
+    if (TEMPS.includes(fromItem[1])) return n;
+  }
+
+  const sku = String(model.sku || model.marketingCode || "")
+    .toUpperCase()
+    .replace(/[^A-Z0-9]/g, "");
+  if (!sku) return null;
+
+  // HD210EN75 / HD28IL50 / INF26N60MA / INF32EEN60NZ / B26L60
+  for (const t of TEMPS) {
+    const re = new RegExp(`(?:[NLB]|NG|LP|EEN|EEL|EIN|EIL)${t}(?:[A-Z]|$)`);
+    if (re.test(sku)) return Number(t);
+  }
+  // Trailing …60 / …50 before packing letters
+  for (const t of TEMPS) {
+    if (new RegExp(`${t}(?:AK|UA|KL|KN|KB|MA|M)?[A-Z0-9]*$`).test(sku)) {
+      return Number(t);
+    }
+  }
+  return null;
+}
+
+/**
+ * True when outlet temp is commercial packing (60°C or higher).
+ * @param {number|null|undefined} temp
+ */
+export function isCommercialOutletTemp(temp) {
+  return Number.isFinite(temp) && Number(temp) >= 60;
+}

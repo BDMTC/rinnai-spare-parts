@@ -13,6 +13,7 @@ import {
   buildAssemblyIndex,
   buildPartSearchCache,
   isNotPurchasableCode,
+  matchAssemblyConcept,
 } from "./search.js";
 import {
   expandDisplayTitle,
@@ -31,6 +32,10 @@ import {
   documentKeysForPin,
 } from "./series.js";
 import { bindModelPicker } from "./model-picker.js";
+import {
+  outletTempFromModel,
+  isCommercialOutletTemp,
+} from "./reu-format.js";
 import {
   makePartVisibilityFilter,
   restrictionWarningCopy,
@@ -120,8 +125,10 @@ let visiblePartFilterKey = "";
 let lastResults = [];
 let marginPercent = DEFAULT_MARGIN_PERCENT;
 let gstRate = DEFAULT_GST_RATE;
-/** @type {{ getValue: () => string|null, setValue: (v: string|null) => void }|null} */
-let modelPicker = null;
+/** @type {{ getValue: () => string|null, setValue: (v: string|null) => void, clear?: () => void, refreshEnabled?: () => void }|null} */
+let seriesPicker = null;
+/** @type {{ getValue: () => string|null, setValue: (v: string|null) => void, clear?: () => void, refreshEnabled?: () => void }|null} */
+let itemPicker = null;
 /** Session unlocks for restricted pins (model id or series:…). */
 const unlockedPins = new Set();
 /** @type {import("./cart.js").CartLine[]} */
@@ -217,12 +224,19 @@ function partVisibilityKey(pinValue) {
  * Restriction + admin visibility is pin/unlock-dependent, not query-dependent.
  * Precompute allowed part ids once per pin so keystrokes stay cheap.
  */
+function activePinValue() {
+  return (
+    itemPicker?.getValue?.() ||
+    document.querySelector("#item-pin")?.value ||
+    seriesPicker?.getValue?.() ||
+    document.querySelector("#series-pin")?.value ||
+    null
+  );
+}
+
 function getIsPartVisible() {
   const pin = currentPin();
-  const pinValue =
-    modelPicker?.getValue?.() ||
-    document.querySelector("#model-pin")?.value ||
-    null;
+  const pinValue = activePinValue();
   const key = partVisibilityKey(pinValue);
   if (visiblePartFilter && visiblePartFilterKey === key) {
     return visiblePartFilter;
@@ -254,12 +268,17 @@ function getIsPartVisible() {
 
 function pinnedLabelForQuote() {
   const pin = currentPin();
+  if (pin.kind === "model" && pin.model) {
+    const item =
+      String(pin.model.itemNumber || "").trim() ||
+      pin.model.sku ||
+      pin.model.marketingCode ||
+      getModelLabel(pin.model);
+    const seriesBit = pin.series ? ` · ${pin.series.label}` : "";
+    return `${item}${seriesBit}`;
+  }
   if (pin.kind === "series" && pin.series) {
     return `${pin.series.label} series`;
-  }
-  if (pin.kind === "model" && pin.model) {
-    const seriesBit = pin.series ? ` · ${pin.series.label}` : "";
-    return `${getModelLabel(pin.model)}${seriesBit}`;
   }
   return null;
 }
@@ -671,40 +690,41 @@ function renderShell() {
 
       <main class="hero">
         <form class="search-panel" id="search-form" autocomplete="off">
-          <div class="controls-row">
-            <div class="field model-field">
-              <span class="field-label" id="model-label">Model</span>
-              <div
-                class="model-picker"
-                id="model-picker"
-              >
+          <p class="domestic-temp-warn" id="domestic-temp-warn" hidden role="alert">
+            Commercial outlet temp (60°C+) — must not be installed on a domestic system.
+          </p>
+
+          <div class="controls-row controls-row--dual-pin">
+            <div class="field series-field">
+              <span class="field-label" id="series-label">Pin 1 · Series</span>
+              <div class="model-picker" id="series-picker">
                 <div class="model-picker-row">
                   <input
-                    id="model-input"
+                    id="series-input"
                     type="text"
                     role="combobox"
-                    aria-labelledby="model-label"
+                    aria-labelledby="series-label"
                     aria-autocomplete="list"
-                    aria-controls="model-listbox"
+                    aria-controls="series-listbox"
                     aria-expanded="false"
-                    placeholder="Type HD200e, VRM2632, HD28…"
+                    placeholder="HD200e, Infinity 26, HD210e…"
                     spellcheck="false"
                     autocomplete="off"
                   />
                   <button
                     type="button"
                     class="model-clear"
-                    id="model-clear"
-                    aria-label="Clear model pin"
+                    id="series-clear"
+                    aria-label="Clear series pin"
                     hidden
                   >
                     ×
                   </button>
                 </div>
-                <input type="hidden" id="model-pin" name="model" value="" />
+                <input type="hidden" id="series-pin" name="series" value="" />
                 <ul
                   class="model-listbox"
-                  id="model-listbox"
+                  id="series-listbox"
                   role="listbox"
                   hidden
                 ></ul>
@@ -729,6 +749,43 @@ function renderShell() {
             </label>
           </div>
 
+          <div class="field item-field">
+            <span class="field-label" id="item-label">Pin 2 · Item Number</span>
+            <div class="model-picker" id="item-picker">
+              <div class="model-picker-row">
+                <input
+                  id="item-input"
+                  type="text"
+                  role="combobox"
+                  aria-labelledby="item-label"
+                  aria-autocomplete="list"
+                  aria-controls="item-listbox"
+                  aria-expanded="false"
+                  placeholder="Pin a series first…"
+                  spellcheck="false"
+                  autocomplete="off"
+                  disabled
+                />
+                <button
+                  type="button"
+                  class="model-clear"
+                  id="item-clear"
+                  aria-label="Clear Item Number pin"
+                  hidden
+                >
+                  ×
+                </button>
+              </div>
+              <input type="hidden" id="item-pin" name="item" value="" />
+              <ul
+                class="model-listbox"
+                id="item-listbox"
+                role="listbox"
+                hidden
+              ></ul>
+            </div>
+          </div>
+
           <label class="field query-field" for="query-input">
             <span class="field-label">Search</span>
             <div class="query-row">
@@ -746,15 +803,18 @@ function renderShell() {
         </form>
 
         <p class="pin-warn" id="pin-warn" hidden>
-          No model pinned — results are unranked for a specific unit. Pin a model (e.g. HD200e) for a Primary part code.
+          No series or Item Number pinned — results are unranked for a specific unit. Pin a series, then the full Item Number, for a Primary part code.
+        </p>
+        <p class="pin-warn pin-warn--item" id="item-pin-warn" hidden>
+          Series only — pin the full Item Number (Pin 2) for chassis-scoped Primary ranking. Concept searches like HEX can mix chassis across a series.
         </p>
 
         <p class="hint" id="hint">
-          Tip: pin a model, then try
+          Tip: pin series + Item Number, then try
           <button type="button" class="chip" data-q="flow servo">flow servo</button>
           <button type="button" class="chip" data-q="thermocouple">thermocouple</button>
           <button type="button" class="chip" data-q="pcb">pcb</button>
-          <button type="button" class="chip" data-q="35401021">35401021</button>
+          <button type="button" class="chip" data-q="hex">hex</button>
           <button type="button" class="chip" data-q="gas valve">gas valve</button>
         </p>
         <p class="pricing-note">
@@ -828,27 +888,38 @@ function renderShell() {
           </header>
           <div class="help-body">
             <article class="help-tip">
-              <h3 class="help-tip-title">1. Pin a model</h3>
-              <p class="help-tip-copy">Type a model (e.g. HD200e) and pick it from the list.</p>
-              <img class="help-tip-img" src="${tipPinModelUrl}" alt="Model field with typeahead pick list" width="560" height="220" decoding="async" />
+              <h3 class="help-tip-title">1. Dual pin — series, then Item Number</h3>
+              <p class="help-tip-copy">
+                <strong>Pin 1 = Series</strong> (e.g. Infinity 26, HD210e) with the commercial name.
+                <strong>Pin 2 = full Item Number</strong> only (e.g. <code>REU-AM2626WD-50-AKN</code> or <code>HD210EN42</code>), filtered to that series — commercial names stay visible in the list.
+                Part search scopes to that Item Number’s chassis once Pin 2 is set. For HEX / heat-exchanger style concept searches, pin Pin 2 so one orange Primary doesn’t hide other chassis.
+              </p>
+              <img class="help-tip-img" src="${tipPinModelUrl}" alt="Series and Item Number pin fields" width="560" height="220" decoding="async" />
             </article>
             <article class="help-tip">
-              <h3 class="help-tip-title">2. Set margin</h3>
+              <h3 class="help-tip-title">2. 60°+ commercial warning</h3>
+              <p class="help-tip-copy">
+                Fuel/temp packing: <strong>50° = AU domestic</strong>; <strong>60° and higher = commercial</strong>.
+                When Pin 2 is a 60°+ unit, a flashing warning appears above the pins — that heater must not be installed on a domestic system (not legal).
+              </p>
+            </article>
+            <article class="help-tip">
+              <h3 class="help-tip-title">3. Set margin</h3>
               <p class="help-tip-copy">Use Margin % for your sell markup. Default is ${DEFAULT_MARGIN_PERCENT}%.</p>
               <img class="help-tip-img" src="${tipMarginUrl}" alt="Margin percent dropdown" width="420" height="180" decoding="async" />
             </article>
             <article class="help-tip">
-              <h3 class="help-tip-title">3. Search</h3>
+              <h3 class="help-tip-title">4. Search</h3>
               <p class="help-tip-copy">Part code or trade words work. Short and long aliases both match (e.g. brkt / bracket).</p>
               <img class="help-tip-img" src="${tipSearchUrl}" alt="Search box with matched alias chip" width="560" height="210" decoding="async" />
             </article>
             <article class="help-tip">
-              <h3 class="help-tip-title">4. Back to main page</h3>
-              <p class="help-tip-copy">Click the MTC logo to clear search and the model pin.</p>
+              <h3 class="help-tip-title">5. Back to main page</h3>
+              <p class="help-tip-copy">Click the MTC logo to clear search and both pins.</p>
               <img class="help-tip-img" src="${tipHomeLogoUrl}" alt="MTC logo home button" width="480" height="180" decoding="async" />
             </article>
             <article class="help-tip">
-              <h3 class="help-tip-title">5. Quote button</h3>
+              <h3 class="help-tip-title">6. Quote button</h3>
               <p class="help-tip-copy">Add to Quote builds a list. The cart icon opens it so you can email or copy.</p>
               <img class="help-tip-img" src="${tipQuoteUrl}" alt="Quote cart icon and Add to Quote button" width="520" height="200" decoding="async" />
             </article>
@@ -1100,27 +1171,96 @@ function requestUnlock(suggestion) {
   });
 }
 
+function seriesIdFromPinValue(value) {
+  const v = String(value || "");
+  if (v.startsWith("series:")) return v.slice("series:".length);
+  return null;
+}
+
 function mountModelPicker() {
-  const root = document.querySelector("#model-picker");
-  if (!root) {
-    modelPicker = null;
-    return;
+  const seriesRoot = document.querySelector("#series-picker");
+  const itemRoot = document.querySelector("#item-picker");
+  seriesPicker = null;
+  itemPicker = null;
+
+  if (seriesRoot) {
+    seriesPicker = bindModelPicker(seriesRoot, {
+      catalogue,
+      seriesDoc,
+      mode: "series",
+      onChange: () => {
+        // Changing / clearing series drops Item Number pin (filtered set changes).
+        const seriesVal = seriesPicker?.getValue?.() || null;
+        const itemVal = itemPicker?.getValue?.() || null;
+        if (!seriesVal && itemVal) {
+          itemPicker?.clear?.();
+        } else if (seriesVal && itemVal) {
+          const pin = resolveModelPin(catalogue, seriesDoc, itemVal);
+          const sid = seriesIdFromPinValue(seriesVal);
+          if (pin.series?.id && sid && pin.series.id !== sid) {
+            itemPicker?.clear?.();
+          }
+        }
+        itemPicker?.refreshEnabled?.();
+        updateDomesticTempWarn();
+        runSearch();
+      },
+      isPinUnlocked: (pinValue) => unlockedPins.has(pinValue),
+      requestUnlock,
+    });
   }
-  modelPicker = bindModelPicker(root, {
-    catalogue,
-    seriesDoc,
-    onChange: () => runSearch(),
-    isPinUnlocked: (pinValue) => unlockedPins.has(pinValue),
-    requestUnlock,
-  });
+
+  if (itemRoot) {
+    itemPicker = bindModelPicker(itemRoot, {
+      catalogue,
+      seriesDoc,
+      mode: "item",
+      getSeriesId: () =>
+        seriesIdFromPinValue(
+          seriesPicker?.getValue?.() ||
+            document.querySelector("#series-pin")?.value
+        ),
+      onChange: () => {
+        updateDomesticTempWarn();
+        runSearch();
+      },
+      isPinUnlocked: (pinValue) => unlockedPins.has(pinValue),
+      requestUnlock,
+    });
+  }
+
+  updateDomesticTempWarn();
 }
 
 function currentPin() {
-  const pinValue =
-    modelPicker?.getValue?.() ||
-    document.querySelector("#model-pin")?.value ||
+  const itemValue =
+    itemPicker?.getValue?.() ||
+    document.querySelector("#item-pin")?.value ||
     null;
-  return resolveModelPin(catalogue, seriesDoc, pinValue);
+  if (itemValue) {
+    return resolveModelPin(catalogue, seriesDoc, itemValue);
+  }
+  const seriesValue =
+    seriesPicker?.getValue?.() ||
+    document.querySelector("#series-pin")?.value ||
+    null;
+  return resolveModelPin(catalogue, seriesDoc, seriesValue);
+}
+
+/**
+ * Flashing 60°+ commercial / not-for-domestic warning above the pin area.
+ */
+function updateDomesticTempWarn() {
+  const el = document.querySelector("#domestic-temp-warn");
+  if (!el) return;
+  const pin = currentPin();
+  const temp =
+    pin.kind === "model" ? outletTempFromModel(pin.model) : null;
+  const show = isCommercialOutletTemp(temp);
+  el.hidden = !show;
+  if (show) {
+    el.textContent = `Commercial outlet temp (${temp}°C) — must not be installed on a domestic system.`;
+  }
 }
 
 function populateDataSources() {
@@ -1219,15 +1359,34 @@ function renderResults(query, pin) {
   const meta = document.querySelector("#results-meta");
   const empty = document.querySelector("#empty");
   const pinWarn = document.querySelector("#pin-warn");
+  const itemPinWarn = document.querySelector("#item-pin-warn");
   const activePin = pin || currentPin();
   const hasPin = activePin.kind !== "none";
   const hasQuery = Boolean(String(query || "").trim());
+  const seriesOnly = activePin.kind === "series";
+  const assemblyConcept =
+    hasQuery && assemblyIndex
+      ? matchAssemblyConcept(assemblyIndex, query)
+      : null;
 
   if (!list || !meta || !empty) return;
   list.innerHTML = "";
 
   if (pinWarn) {
     pinWarn.hidden = !(hasQuery && !hasPin);
+  }
+  if (itemPinWarn) {
+    // Encourage Pin 2 when series-only; stronger copy for HEX / assembly concepts.
+    itemPinWarn.hidden = !(hasQuery && seriesOnly);
+    if (!itemPinWarn.hidden) {
+      const conceptId = assemblyConcept?.concept?.id || null;
+      const conceptName = conceptId
+        ? String(conceptId).replace(/-/g, " ")
+        : null;
+      itemPinWarn.textContent = conceptName
+        ? `Series only — pin the full Item Number (Pin 2) before strong Primary ranking for “${conceptName}”. HEX / assemblies can mix chassis across a series.`
+        : "Series only — pin the full Item Number (Pin 2) to scope parts to that unit’s chassis (not the whole series).";
+    }
   }
 
   if (!hasQuery && !hasPin) {
@@ -1237,14 +1396,18 @@ function renderResults(query, pin) {
   }
 
   let pinBit = "";
-  if (activePin.kind === "series" && activePin.series) {
-    const keys = documentKeysForPin(activePin).slice(0, 3).join(" · ");
-    pinBit = ` · pinned ${activePin.series.label} series (${keys}) · ${activePin.modelIds.length} models`;
-  } else if (activePin.kind === "model" && activePin.model) {
+  if (activePin.kind === "model" && activePin.model) {
+    const item =
+      String(activePin.model.itemNumber || "").trim() ||
+      activePin.model.sku ||
+      getModelLabel(activePin.model);
     const seriesBit = activePin.series
       ? ` · ${activePin.series.label}`
       : "";
-    pinBit = ` · pinned ${getModelLabel(activePin.model)}${seriesBit}`;
+    pinBit = ` · pinned ${item}${seriesBit}`;
+  } else if (activePin.kind === "series" && activePin.series) {
+    const keys = documentKeysForPin(activePin).slice(0, 3).join(" · ");
+    pinBit = ` · pinned ${activePin.series.label} series (${keys}) · ${activePin.modelIds.length} models · Item Number not set`;
   }
   const primaries = lastResults.filter((r) => r.isPrimary);
   const duoPrimaries = primaries.filter((r) => r.isDuoAssembly);
@@ -1970,17 +2133,13 @@ function applyPendingImport() {
 function resetToHome() {
   const input = document.querySelector("#query-input");
   if (input) input.value = "";
-  if (modelPicker?.setValue) {
-    modelPicker.setValue(null);
-  } else {
-    const pin = document.querySelector("#model-pin");
-    const modelInput = document.querySelector("#model-input");
-    if (pin) pin.value = "";
-    if (modelInput) modelInput.value = "";
-    const clearBtn = document.querySelector("#model-clear");
-    if (clearBtn) clearBtn.hidden = true;
-    runSearch();
-  }
+  if (itemPicker?.clear) itemPicker.clear();
+  else if (itemPicker?.setValue) itemPicker.setValue(null);
+  if (seriesPicker?.clear) seriesPicker.clear();
+  else if (seriesPicker?.setValue) seriesPicker.setValue(null);
+  itemPicker?.refreshEnabled?.();
+  updateDomesticTempWarn();
+  runSearch();
   input?.focus();
 }
 

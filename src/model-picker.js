@@ -1,10 +1,7 @@
 /**
- * Model / series typeahead — filter across marketing names, REU codes, aliases.
- *
- * Restricted / NLA rows stay visible (greyed) and arrow-highlightable, but
- * keyboard confirm (Enter) must NOT select them — only an explicit mouse click
- * opens the unlock confirm dialog. Ranking always puts unrestricted / active
- * pins first; restricted (NLA, export-only, use-up, Only for xyz, Desc 2) last.
+ * Dual pin typeahead — Pin 1 series (commercial name), Pin 2 full Item Number
+ * filtered to the selected series. Restricted / NLA rows stay visible (greyed);
+ * keyboard Enter must NOT select them — click opens unlock confirm.
  */
 
 import { getModelLabel, getModelDisplayName } from "./search.js";
@@ -19,11 +16,13 @@ import {
   modelIdsForSeries,
   seriesForModel,
   normalise,
+  findSeries,
 } from "./series.js";
 import {
   isModelRestricted,
   restrictionForPin,
 } from "./restriction.js";
+import { outletTempFromModel } from "./reu-format.js";
 
 /**
  * Score a normalised haystack against query (normalised + raw).
@@ -41,7 +40,6 @@ function scoreMatch(haystacksNorm, qNorm, qRaw) {
     else if (h.startsWith(qNorm)) best = Math.max(best, 80);
     else if (h.includes(qNorm)) best = Math.max(best, 55);
   }
-  // Soft: spaced marketing like "hd 200" already normalised; also raw includes
   if (best === 0 && qLower.length >= 2) {
     for (const h of haystacksNorm) {
       if (h.includes(qNorm)) best = Math.max(best, 40);
@@ -71,48 +69,20 @@ function withRestriction(suggestion, catalogue, seriesDoc) {
 }
 
 /**
- * Build typeahead suggestions for the model pin field.
+ * Pin 1 — series only (marketing label · commercial name).
  * @param {object} catalogue
  * @param {object|null|undefined} seriesDoc
  * @param {string} query
  * @param {{ limit?: number }} [opts]
- * @returns {Array<object>}
  */
-export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
+export function suggestSeriesPins(catalogue, seriesDoc, query, opts = {}) {
   const limit = opts.limit ?? 14;
   const qRaw = String(query || "").trim();
   const qNorm = normalise(qRaw);
   const results = [];
 
-  if (!qNorm) {
-    // Empty: surface primary series pins for discovery
-    for (const series of listSeries(seriesDoc)) {
-      if (
-        !/^(hd28e?|hd28i|hd200e|hd200i|hd210e|hd210i|hd32|hdc32e?|hdc32i|hd250e|hdc211e?|hdc211i|infinity26|infinity32)/i.test(
-          series.id
-        )
-      ) {
-        continue;
-      }
-      const count = modelIdsForSeries(catalogue, series).length;
-      results.push(
-        withRestriction(
-          {
-            kind: "series",
-            value: `series:${series.id}`,
-            label: seriesPinLabel(series),
-            subtitle: seriesSubtitle(series, count),
-            series,
-            model: null,
-            score: 10,
-          },
-          catalogue,
-          seriesDoc
-        )
-      );
-    }
-    return rankSuggestions(results).slice(0, limit);
-  }
+  const primaryEmpty =
+    /^(hd28e?|hd28i|hd200e|hd200i|hd210e|hd210i|hd32|hdc32e?|hdc32i|hd250e|hdc211e?|hdc211i|infinity26|infinity32)/i;
 
   for (const series of listSeries(seriesDoc)) {
     const commercial = getSeriesCommercialName(series);
@@ -123,14 +93,18 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
       ...(series.aliases || []),
       ...(series.documentKeys || []),
     ].map(normalise);
-    let score = scoreMatch(tokens, qNorm, qRaw);
-    if (score <= 0) continue;
-    // Boost short marketing labels (HD200e) when query is prefix of label
-    if (normalise(series.label).startsWith(qNorm)) score += 15;
-    // Chassis queries (VRM2632) should still rank series high
-    if (/^\d/.test(qNorm) === false && /VRM|VCM|REU/.test(qNorm)) {
-      score += 5;
+
+    let score;
+    if (!qNorm) {
+      if (!primaryEmpty.test(series.id)) continue;
+      score = 10;
+    } else {
+      score = scoreMatch(tokens, qNorm, qRaw);
+      if (score <= 0) continue;
+      if (normalise(series.label).startsWith(qNorm)) score += 15;
+      if (/VRM|VCM|REU|N3237|AM2626|KM3237/i.test(qNorm)) score += 5;
     }
+
     const count = modelIdsForSeries(catalogue, series).length;
     results.push(
       withRestriction(
@@ -149,10 +123,43 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
     );
   }
 
+  return rankSuggestions(results).slice(0, limit);
+}
+
+/**
+ * Pin 2 — full Item Number (or marketing SKU) within the pinned series.
+ * Commercial names stay visible on the subtitle / title.
+ * @param {object} catalogue
+ * @param {object|null|undefined} seriesDoc
+ * @param {string|null|undefined} seriesId
+ * @param {string} query
+ * @param {{ limit?: number }} [opts]
+ */
+export function suggestItemNumberPins(
+  catalogue,
+  seriesDoc,
+  seriesId,
+  query,
+  opts = {}
+) {
+  const limit = opts.limit ?? 16;
+  if (!seriesId) return [];
+
+  const series =
+    listSeries(seriesDoc).find((s) => s.id === seriesId) ||
+    findSeries(seriesDoc, seriesId);
+  if (!series) return [];
+
+  const qRaw = String(query || "").trim();
+  const qNorm = normalise(qRaw);
+  const results = [];
+
   for (const model of catalogue?.models || []) {
-    const series = seriesForModel(catalogue, seriesDoc, model);
+    if (!modelBelongsToSeries(model, series)) continue;
+
     const shortCode = getModelShortCode(model);
     const commercial = getModelCommercialName(model, series);
+    const itemNumber = String(model.itemNumber || "").trim();
     const display = getModelDisplayName(model, series);
     const tokens = [
       model.id,
@@ -164,35 +171,33 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
       shortCode,
       commercial,
       display,
-      series?.label,
-      ...(series?.aliases || []),
     ].map(normalise);
-    let score = scoreMatch(tokens, qNorm, qRaw);
-    if (score <= 0) continue;
-    // Slight boost when chassis/query hits via series membership
-    if (series && modelBelongsToSeries(model, series)) {
-      const seriesTokens = [
-        series.label,
-        ...(series.aliases || []),
-        ...(series.documentKeys || []),
-      ].map(normalise);
-      if (seriesTokens.some((t) => t.includes(qNorm) || qNorm.includes(t))) {
-        score += 8;
+
+    let score;
+    if (!qNorm) {
+      score = 20;
+      // Prefer domestic 50° rows slightly when browsing empty
+      const temp = outletTempFromModel(model);
+      if (temp === 50) score += 5;
+      else if (temp != null && temp >= 60) score -= 2;
+    } else {
+      score = scoreMatch(tokens, qNorm, qRaw);
+      if (score <= 0) continue;
+      // Exact Item Number / SKU boosts
+      if (normalise(itemNumber) === qNorm || normalise(shortCode) === qNorm) {
+        score += 25;
       }
     }
-    const label =
-      shortCode && commercial && commercial !== shortCode
-        ? `${shortCode} · ${commercial}`
-        : shortCode || display;
+
+    const label = itemPinLabel(model);
     results.push(
       withRestriction(
         {
           kind: "model",
           value: model.id,
-          // Short marketing code, then readable commercial name (same title row)
           label,
-          subtitle: modelSubtitle(model, series, commercial),
-          series: series || null,
+          subtitle: itemPinSubtitle(model, series, commercial, shortCode),
+          series,
           model,
           score,
         },
@@ -206,16 +211,62 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
 }
 
 /**
- * Unrestricted first (existing relevance inside the band), then restricted/greyed.
+ * Legacy combined suggest (series + models) — kept for callers/tests.
+ * Prefer suggestSeriesPins / suggestItemNumberPins for the dual UI.
+ */
+export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
+  const limit = opts.limit ?? 14;
+  const seriesHits = suggestSeriesPins(catalogue, seriesDoc, query, {
+    limit,
+  });
+  // Without a series filter, still surface a few model Item Numbers for discovery
+  const qNorm = normalise(query);
+  if (!qNorm) return seriesHits.slice(0, limit);
+
+  const modelHits = [];
+  for (const model of catalogue?.models || []) {
+    const series = seriesForModel(catalogue, seriesDoc, model);
+    const shortCode = getModelShortCode(model);
+    const commercial = getModelCommercialName(model, series);
+    const tokens = [
+      model.id,
+      model.sku,
+      model.marketingCode,
+      model.itemNumber,
+      model.name,
+      shortCode,
+      commercial,
+    ].map(normalise);
+    const score = scoreMatch(tokens, qNorm, query);
+    if (score <= 0) continue;
+    modelHits.push(
+      withRestriction(
+        {
+          kind: "model",
+          value: model.id,
+          label: itemPinLabel(model),
+          subtitle: itemPinSubtitle(model, series, commercial, shortCode),
+          series: series || null,
+          model,
+          score,
+        },
+        catalogue,
+        seriesDoc
+      )
+    );
+  }
+  return rankSuggestions([...seriesHits, ...modelHits]).slice(0, limit);
+}
+
+/**
+ * Unrestricted first, then restricted/greyed. Series before models when mixed.
  * @param {Array<object>} results
  */
 function rankSuggestions(results) {
   return results.sort((a, b) => {
-    // Active / unrestricted first; NLA / export / use-up / restricted grey rows last
     const aRestricted = a.restricted ? 1 : 0;
     const bRestricted = b.restricted ? 1 : 0;
     if (aRestricted !== bRestricted) return aRestricted - bRestricted;
-    // Always prefer series pins ahead of individual models when both match
     if (a.kind !== b.kind) {
       const aSeries = a.kind === "series" ? 1 : 0;
       const bSeries = b.kind === "series" ? 1 : 0;
@@ -247,7 +298,6 @@ function seriesSubtitle(series, count) {
   if (series.region) bits.push(series.region);
   if (series.status) bits.push(series.status);
   const aliases = series.aliases || [];
-  // Prefer hyphen REU schema (REU-VRM3237WC) over short chassis (VRM3237WC).
   const alias =
     aliases.find((a) => /^REU-/i.test(String(a))) ||
     aliases.find((a) => /VRM|VCM|REU-/i.test(String(a)));
@@ -256,25 +306,32 @@ function seriesSubtitle(series, count) {
   return bits.join(" · ");
 }
 
-function modelSubtitle(model, series, commercialName = "") {
+/**
+ * Pin 2 title: full Item Number preferred; else marketing SKU.
+ * @param {object} model
+ */
+function itemPinLabel(model) {
+  const item = String(model?.itemNumber || "").trim();
+  if (item) return item;
+  return getModelShortCode(model) || getModelLabel(model) || model?.id || "";
+}
+
+/**
+ * Commercial name stays visible; marketing SKU when distinct from Item Number.
+ * @param {object} model
+ * @param {object|null} series
+ * @param {string} [commercialName]
+ * @param {string} [shortCode]
+ */
+function itemPinSubtitle(model, series, commercialName = "", shortCode = "") {
   const bits = [];
-  // Commercial name lives on the title row; subtitle keeps chassis / restriction.
-  if (series?.label) bits.push(series.label);
-  if (isModelRestricted(model) && model.restrictionLabel) {
-    bits.push(model.restrictionLabel);
-  }
-  if (model.itemNumber) bits.push(model.itemNumber);
-  // If we somehow lack a commercial title, surface it here as a fallback.
-  const shortCode = getModelShortCode(model);
+  const short = shortCode || getModelShortCode(model);
   const commercial =
     commercialName || getModelCommercialName(model, series);
-  if (
-    commercial &&
-    commercial !== shortCode &&
-    !bits.some((b) => b === commercial)
-  ) {
-    // Only when title could not include it (no short code)
-    if (!shortCode) bits.unshift(commercial);
+  if (commercial) bits.push(commercial);
+  if (short && short !== itemPinLabel(model)) bits.push(short);
+  if (isModelRestricted(model) && model.restrictionLabel) {
+    bits.push(model.restrictionLabel);
   }
   return bits.join(" · ");
 }
@@ -295,44 +352,48 @@ export function labelForPinValue(catalogue, seriesDoc, pinValue) {
   }
   const model = (catalogue?.models || []).find((m) => m.id === pinValue);
   if (!model) return "";
-  const series = seriesForModel(catalogue, seriesDoc, model);
-  const shortCode = getModelShortCode(model);
-  const commercial = getModelCommercialName(model, series);
-  if (shortCode && commercial && commercial !== shortCode) {
-    return `${shortCode} · ${commercial}`;
-  }
-  return (
-    shortCode ||
-    getModelDisplayName(model, series) ||
-    getModelLabel(model)
-  );
+  return itemPinLabel(model);
 }
 
 /**
- * Mount combobox behaviour on a model-picker root element.
- * Root must contain: input#model-input, button.clear, ul[role=listbox], hidden input#model-pin
+ * Mount combobox behaviour on a pin picker root.
+ *
+ * Root must contain input, clear button, listbox, and hidden value input —
+ * either legacy `#model-*` ids or `#series-*` / `#item-*`.
  *
  * @param {HTMLElement} root
  * @param {{
  *   catalogue: object,
  *   seriesDoc: object,
+ *   mode: 'series'|'item',
  *   onChange: () => void,
+ *   getSeriesId?: () => string|null,
  *   isPinUnlocked?: (pinValue: string) => boolean,
  *   requestUnlock?: (suggestion: object) => Promise<boolean>|boolean,
  * }} ctx
  */
 export function bindModelPicker(root, ctx) {
-  const input = root.querySelector("#model-input");
-  const hidden = root.querySelector("#model-pin");
-  const list = root.querySelector("#model-listbox");
-  const clearBtn = root.querySelector("#model-clear");
-  if (!input || !hidden || !list) return;
+  const mode = ctx.mode || "series";
+  const prefix = mode === "item" ? "item" : mode === "series" ? "series" : "model";
+
+  const input =
+    root.querySelector(`#${prefix}-input`) ||
+    root.querySelector("#model-input");
+  const hidden =
+    root.querySelector(`#${prefix}-pin`) ||
+    root.querySelector("#model-pin");
+  const list =
+    root.querySelector(`#${prefix}-listbox`) ||
+    root.querySelector("#model-listbox");
+  const clearBtn =
+    root.querySelector(`#${prefix}-clear`) ||
+    root.querySelector("#model-clear");
+  if (!input || !hidden || !list) return null;
 
   let open = false;
   let activeIndex = -1;
   /** @type {Array<object>} */
   let suggestions = [];
-  /** Prevent blur-restore while unlock dialog is open */
   let unlockPending = false;
 
   function setPin(value, label) {
@@ -340,12 +401,27 @@ export function bindModelPicker(root, ctx) {
     if (label != null) input.value = label;
     else if (!value) input.value = "";
     updateClear();
+    updateDisabled();
     ctx.onChange();
   }
 
   function updateClear() {
     if (!clearBtn) return;
     clearBtn.hidden = !hidden.value && !input.value;
+  }
+
+  function updateDisabled() {
+    if (mode !== "item") return;
+    const seriesId =
+      typeof ctx.getSeriesId === "function" ? ctx.getSeriesId() : null;
+    const disabled = !seriesId;
+    input.disabled = disabled;
+    root.classList.toggle("is-disabled", disabled);
+    if (disabled) {
+      input.placeholder = "Pin a series first…";
+    } else {
+      input.placeholder = "Item Number e.g. REU-AM2626WD-50-AKN…";
+    }
   }
 
   function closeList() {
@@ -362,7 +438,10 @@ export function bindModelPicker(root, ctx) {
     if (!suggestions.length) {
       const empty = document.createElement("li");
       empty.className = "model-option model-option--empty";
-      empty.textContent = "No matching models or series";
+      empty.textContent =
+        mode === "item"
+          ? "No matching Item Numbers in this series"
+          : "No matching series";
       empty.setAttribute("role", "presentation");
       list.appendChild(empty);
       list.hidden = false;
@@ -373,7 +452,7 @@ export function bindModelPicker(root, ctx) {
 
     suggestions.forEach((s, i) => {
       const li = document.createElement("li");
-      li.id = `model-opt-${i}`;
+      li.id = `${prefix}-opt-${i}`;
       li.className = "model-option";
       if (s.restricted) li.classList.add("model-option--restricted");
       li.setAttribute("role", "option");
@@ -389,13 +468,12 @@ export function bindModelPicker(root, ctx) {
         ? s.restrictionLabel || "Restricted"
         : s.kind === "series"
           ? "Series"
-          : "Model";
+          : "Item №";
       li.innerHTML = `
         <span class="model-option-label">${escapeHtml(s.label)}</span>
         <span class="model-option-sub">${escapeHtml(s.subtitle || "")}</span>
         <span class="model-option-kind">${escapeHtml(kindLabel)}</span>
       `;
-      // Mouse / pointer only — keyboard must not synthesise this path.
       li.addEventListener("mousedown", (e) => {
         e.preventDefault();
         choose(i, { fromKeyboard: false });
@@ -406,20 +484,37 @@ export function bindModelPicker(root, ctx) {
     open = true;
     input.setAttribute("aria-expanded", "true");
     if (activeIndex >= 0) {
-      input.setAttribute("aria-activedescendant", `model-opt-${activeIndex}`);
+      input.setAttribute("aria-activedescendant", `${prefix}-opt-${activeIndex}`);
     } else {
       input.removeAttribute("aria-activedescendant");
     }
   }
 
   function refreshSuggestions() {
-    // If a pin is locked and input still shows its label, typing replaces filter
-    suggestions = suggestModelPins(
-      ctx.catalogue,
-      ctx.seriesDoc,
-      input.value,
-      { limit: 14 }
-    );
+    if (mode === "item") {
+      const seriesId =
+        typeof ctx.getSeriesId === "function" ? ctx.getSeriesId() : null;
+      if (!seriesId) {
+        suggestions = [];
+        activeIndex = -1;
+        renderList();
+        return;
+      }
+      suggestions = suggestItemNumberPins(
+        ctx.catalogue,
+        ctx.seriesDoc,
+        seriesId,
+        input.value,
+        { limit: 16 }
+      );
+    } else {
+      suggestions = suggestSeriesPins(
+        ctx.catalogue,
+        ctx.seriesDoc,
+        input.value,
+        { limit: 14 }
+      );
+    }
     activeIndex = suggestions.length ? 0 : -1;
     renderList();
   }
@@ -433,8 +528,6 @@ export function bindModelPicker(root, ctx) {
     const s = suggestions[index];
     if (!s) return;
 
-    // Restricted rows: keyboard confirm is blocked. Only an explicit click
-    // may open the unlock dialog (or pin if already unlocked this session).
     if (s.restricted && fromKeyboard) {
       return;
     }
@@ -454,7 +547,6 @@ export function bindModelPicker(root, ctx) {
           unlockPending = false;
         }
         if (!ok) {
-          // Cancelled — leave input as typed filter text, no pin.
           updateClear();
           input.focus();
           return;
@@ -476,11 +568,10 @@ export function bindModelPicker(root, ctx) {
   }
 
   input.addEventListener("focus", () => {
-    if (!unlockPending) refreshSuggestions();
+    if (!unlockPending && !input.disabled) refreshSuggestions();
   });
 
   input.addEventListener("input", () => {
-    // Typing clears the committed pin until a suggestion is chosen
     if (hidden.value) hidden.value = "";
     updateClear();
     refreshSuggestions();
@@ -488,6 +579,7 @@ export function bindModelPicker(root, ctx) {
   });
 
   input.addEventListener("keydown", (e) => {
+    if (input.disabled) return;
     if (e.key === "ArrowDown") {
       e.preventDefault();
       if (!open) refreshSuggestions();
@@ -504,7 +596,6 @@ export function bindModelPicker(root, ctx) {
     } else if (e.key === "Enter") {
       if (open && activeIndex >= 0 && suggestions[activeIndex]) {
         e.preventDefault();
-        // Keyboard confirm — restricted rows are ignored (click required).
         choose(activeIndex, { fromKeyboard: true });
       }
     } else if (e.key === "Escape") {
@@ -518,11 +609,9 @@ export function bindModelPicker(root, ctx) {
   });
 
   input.addEventListener("blur", () => {
-    // Delay so mousedown on option can fire
     setTimeout(() => {
       if (unlockPending) return;
       closeList();
-      // If pin set, restore canonical label; if not, leave typed text cleared
       if (hidden.value) {
         input.value = labelForPinValue(
           ctx.catalogue,
@@ -539,16 +628,21 @@ export function bindModelPicker(root, ctx) {
       e.preventDefault();
       setPin("", "");
       closeList();
-      input.focus();
+      if (!input.disabled) input.focus();
     });
   }
 
   updateClear();
+  updateDisabled();
 
   return {
     getValue: () => hidden.value || null,
     setValue: (value) => {
       setPin(value, labelForPinValue(ctx.catalogue, ctx.seriesDoc, value));
     },
+    refreshEnabled: () => {
+      updateDisabled();
+    },
+    clear: () => setPin("", ""),
   };
 }
