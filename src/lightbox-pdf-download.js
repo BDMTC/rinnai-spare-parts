@@ -99,6 +99,67 @@ export const LIGHTBOX_PDFS = {
     id: "EDPL-VRM2630",
     fileName: "EDPL VRM2630.pdf",
   },
+  "EDPL VR2426_VR2626.pdf": {
+    id: "EDPL-VR2426-VR2626",
+    fileName: "EDPL VR2426_VR2626.pdf",
+  },
+  "EDPL REUV2426WG.pdf": {
+    id: "EDPL-REUV2426WG",
+    fileName: "EDPL REUV2426WG.pdf",
+  },
+  "EDPL REUV2626WG.pdf": {
+    id: "EDPL-REUV2626WG",
+    fileName: "EDPL REUV2626WG.pdf",
+  },
+  "EDPL REUV2626W_REUV2632WC.pdf": {
+    id: "EDPL-REUV2626W-REUV2632WC",
+    fileName: "EDPL REUV2626W_REUV2632WC.pdf",
+  },
+  "EDPL REUV2632FFU.pdf": {
+    id: "EDPL-REUV2632FFU",
+    fileName: "EDPL REUV2632FFU.pdf",
+  },
+  "EDPL REUV2632FFUC.pdf": {
+    id: "EDPL-REUV2632FFUC",
+    fileName: "EDPL REUV2632FFUC.pdf",
+  },
+  "EDPL VRM2632FFU.pdf": {
+    id: "EDPL-VRM2632FFU",
+    fileName: "EDPL VRM2632FFU.pdf",
+  },
+  "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf": {
+    id: "PL-EDPL-VRM2632FFU-ISSUE4",
+    fileName: "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf",
+  },
+  "EDPL VM3237WC.pdf": {
+    id: "EDPL-VM3237WC",
+    fileName: "EDPL VM3237WC.pdf",
+  },
+  "EDPL REUVM3237WC.pdf": {
+    id: "EDPL-REUVM3237WC",
+    fileName: "EDPL REUVM3237WC.pdf",
+  },
+  "EDPL REUV3237.pdf": {
+    id: "EDPL-REUV3237",
+    fileName: "EDPL REUV3237.pdf",
+  },
+  "REU-V3237WG Parts List.pdf": {
+    id: "REU-V3237WG-Parts-List",
+    fileName: "REU-V3237WG Parts List.pdf",
+  },
+  "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf": {
+    id: "PL-HD250E-REUVRM3237WC-ISSUE4",
+    fileName:
+      "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf",
+  },
+  "PL - RINNAI - EDPLVRM3237 - ISSUE 4 - JUNE 2025.pdf": {
+    id: "PL-EDPLVRM3237-ISSUE4",
+    fileName: "PL - RINNAI - EDPLVRM3237 - ISSUE 4 - JUNE 2025.pdf",
+  },
+  "HW_CF_A_Series_Parts_List_Issue_1_Jan_2018.pdf": {
+    id: "HW-CF-A-Series-Parts-List-Issue1",
+    fileName: "HW_CF_A_Series_Parts_List_Issue_1_Jan_2018.pdf",
+  },
 };
 
 /**

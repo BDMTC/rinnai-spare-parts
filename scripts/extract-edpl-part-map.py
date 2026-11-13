@@ -929,8 +929,16 @@ def main():
             candidates.append(other)
         if not candidates:
             return hit
-        # Prefer highest priority pack-backed sibling
-        donor = sorted(candidates, key=lambda h: (-h["priority"], h["pdf"]))[0]
+        # Prefer same-stem / same-pdf pack, then highest priority sibling
+        stem = hit.get("stem")
+        pdf = hit.get("pdf")
+
+        def donor_key(h: dict):
+            same_stem = 0 if h.get("stem") == stem else 1
+            same_pdf = 0 if h.get("pdf") == pdf else 1
+            return (same_stem, same_pdf, -h["priority"], h["pdf"])
+
+        donor = sorted(candidates, key=donor_key)[0]
         enriched = dict(hit)
         enriched["listPage"] = donor.get("listPage")
         enriched["listPageKey"] = donor.get("listPageKey")
