@@ -517,9 +517,9 @@ export function bindModelPicker(root, ctx) {
     input.disabled = disabled;
     root.classList.toggle("is-disabled", disabled);
     if (disabled) {
-      input.placeholder = "Pin a series first…";
+      input.placeholder = "Choose the series above first";
     } else {
-      input.placeholder = "Item Number e.g. REU-AM2626WD-50-AKN…";
+      input.placeholder = "Now choose a model.";
     }
   }
 
