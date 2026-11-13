@@ -179,9 +179,10 @@ CF_SHEETS = [
     {
         "file": "PL - RINNAI - ENVIRO KM2635WD - ISSUE 04 - JUNE 2025.pdf",
         "stem": "edpl-enviro-km2635wd-issue4",
+        # Heritage Enviro INF26 (KM2635) — below active AM2626 New A Series
         "seriesIds": ["infinity26"],
-        "chassisTokens": ["KM2635WD", "REU-KM2635WD", "INF26", "ENVIRO"],
-        "priority": 10,
+        "chassisTokens": ["KM2635WD", "REU-KM2635WD", "KM2635"],
+        "priority": 6,
     },
     # HD28 / VCM2837
     {
@@ -331,7 +332,7 @@ CF_SHEETS = [
         "stem": "pl-new-a-series-cf",
         "seriesIds": ["infinity26", "hd32"],
         "chassisTokens": ["AM2626", "AM3237", "A-SERIES", "REU-AM2626", "REU-AM3237"],
-        "priority": 9,
+        "priority": 14,
     },
     {
         "file": "REU-V3237WG Parts List.pdf",
