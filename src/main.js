@@ -879,9 +879,9 @@ function renderShell() {
             <aside
               class="news-ticker"
               id="news-ticker"
-              aria-label="Weather, Brisbane traffic, Queensland news, and Rinnai updates"
+              aria-label="Brisbane news, weather, and traffic"
             >
-              <span class="news-ticker-label">Ticker</span>
+              <span class="news-ticker-label">Brisbane News / Weather / Traffic</span>
               <div class="news-ticker-viewport">
                 <div class="news-ticker-track" role="list"></div>
               </div>
@@ -934,12 +934,16 @@ function renderShell() {
                     id="query-input"
                     name="q"
                     type="search"
-                    placeholder="Trade term, part code, or description…"
+                    placeholder="Choose type of system (Pin 1) first"
                     spellcheck="false"
-                    autofocus
+                    disabled
+                    aria-describedby="search-lock-hint"
                   />
-                  <button type="submit" class="search-btn">Search</button>
+                  <button type="submit" class="search-btn" disabled>Search</button>
                 </div>
+                <p class="search-lock-hint" id="search-lock-hint">
+                  Set Pin 1 first — search unlocks after you pick a type (or Everything).
+                </p>
               </label>
             </div>
 
@@ -1013,6 +1017,10 @@ function renderShell() {
             </div>
             <p class="dataplate-status" id="dataplate-status" hidden></p>
             <div class="dataplate-chips" id="dataplate-chips" hidden>
+              <div class="dataplate-chip-group">
+                <span class="dataplate-chip-heading">Pin 1 · Type of system</span>
+                <div class="dataplate-chip-row" id="dataplate-system-chips"></div>
+              </div>
               <div class="dataplate-chip-group">
                 <span class="dataplate-chip-heading">Pin 2 · Series</span>
                 <div class="dataplate-chip-row" id="dataplate-series-chips"></div>
@@ -1145,6 +1153,7 @@ function renderShell() {
                 <strong>Pin 1 · Type of system</strong> is the ruling class for the whole search.
                 Pick the family you are working on first (e.g. Continuous Flow Hot Water Systems for Infinity / HD / REU CF units).
                 That narrows Pin 2 series and Pin 3 Item Numbers to that class so results stay on the right product line.
+                Dataplate OCR also offers a <strong>Pin 1 chip</strong> when the plate text supports a type (Hotflo, Demand Duo, heat pump, gas storage, CF, and the other locked classes) — confirm it; nothing is forced silently.
               </p>
               <p class="help-tip-copy">
                 At the <strong>bottom</strong> of the Pin 1 list is a flashing
@@ -1172,7 +1181,12 @@ function renderShell() {
             </article>
             <article class="help-tip">
               <h3 class="help-tip-title">4. Search</h3>
-              <p class="help-tip-copy">Part code or trade words work. Short and long aliases both match (e.g. brkt / bracket).</p>
+              <p class="help-tip-copy">
+                Search stays locked until <strong>Pin 1</strong> is set.
+                With a system class pinned, part code or trade words work as usual.
+                Choose flashing <strong>Everything</strong> only when you want the whole catalogue by term.
+                Short and long aliases both match (e.g. brkt / bracket).
+              </p>
               <img class="help-tip-img" src="${tipSearchUrl}" alt="Search box with matched alias chip" width="560" height="210" decoding="async" />
             </article>
             <article class="help-tip">
@@ -1447,14 +1461,35 @@ function currentSystemTypeValue() {
   );
 }
 
+/** Pin 1 must be set before any free / catalogue search. */
+function hasSystemTypePin() {
+  return Boolean(systemTypeFromValue(currentSystemTypeValue()));
+}
+
 /**
- * Ensure Continuous Flow is pinned when dataplate / deep links set series/item.
+ * Disable search + tip chips until Pin 1 is set.
+ * Everything unlocks whole-catalogue search; other types unlock as today.
  */
-function ensureScopedSystemForPins() {
-  const current = currentSystemTypeValue();
-  if (isEverythingSystem(current)) return;
-  if (systemTypeFromValue(current)?.kind === "system") return;
-  systemPicker?.setValue?.("system:continuous-flow-hot-water");
+function syncSearchLock() {
+  const locked = !hasSystemTypePin();
+  const everything = isEverythingSystem(currentSystemTypeValue());
+  const input = document.querySelector("#query-input");
+  const btn = document.querySelector(".search-btn");
+  const hint = document.querySelector("#search-lock-hint");
+
+  if (input) {
+    input.disabled = locked;
+    input.placeholder = locked
+      ? "Choose type of system (Pin 1) first"
+      : everything
+        ? "Search every part — trade term, code, or description…"
+        : "Trade term, part code, or description…";
+  }
+  if (btn) btn.disabled = locked;
+  if (hint) hint.hidden = !locked;
+  document.querySelectorAll("#hint .chip").forEach((chip) => {
+    chip.disabled = locked;
+  });
 }
 
 function mountModelPicker() {
@@ -1483,6 +1518,7 @@ function mountModelPicker() {
         seriesPicker?.refreshEnabled?.();
         itemPicker?.refreshEnabled?.();
         updateDomesticTempWarn();
+        syncSearchLock();
         runSearch();
       },
       isPinUnlocked: (pinValue) => unlockedPins.has(pinValue),
@@ -1546,15 +1582,17 @@ function mountDataplateUi() {
   dataplatePin = mountDataplatePin({
     getCatalogue: () => catalogue,
     getSeriesDoc: () => seriesDoc,
+    systemPicker,
     seriesPicker,
     itemPicker,
     isPinUnlocked: (pinValue) => unlockedPins.has(pinValue),
     requestUnlock,
     onPinned: () => {
-      ensureScopedSystemForPins();
+      // Pin 1 comes from the dataplate system chip — never silent CF.
       seriesPicker?.refreshEnabled?.();
       itemPicker?.refreshEnabled?.();
       updateDomesticTempWarn();
+      syncSearchLock();
       runSearch();
     },
   });
@@ -2052,6 +2090,15 @@ function populateDataSources() {
 }
 
 function runSearch() {
+  // No Pin 1 → no free/everything-style catalogue search.
+  if (!hasSystemTypePin()) {
+    lastResults = [];
+    const input = document.querySelector("#query-input");
+    if (input && input.value) input.value = "";
+    renderResults("", currentPin());
+    updateSearchVisuals("", currentPin());
+    return;
+  }
   const q = document.querySelector("#query-input")?.value || "";
   const pin = currentPin();
   const modelId = pin.kind === "model" ? pin.model?.id : null;
@@ -2889,8 +2936,9 @@ function resetToHome() {
   itemPicker?.refreshEnabled?.();
   dataplatePin?.clear?.();
   updateDomesticTempWarn();
+  syncSearchLock();
   runSearch();
-  input?.focus();
+  document.querySelector("#system-input")?.focus();
 }
 
 function bindEvents() {
@@ -3037,6 +3085,7 @@ function bindEvents() {
     });
   }
 
+  syncSearchLock();
   updateSearchVisuals(
     document.querySelector("#query-input")?.value || "",
     currentPin()

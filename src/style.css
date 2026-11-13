@@ -388,7 +388,8 @@ body::before {
   text-align: left;
 }
 
-.dataplate-chip--item {
+.dataplate-chip--item,
+.dataplate-chip--system {
   border-radius: 10px;
 }
 
@@ -1355,6 +1356,22 @@ input[type="number"]:focus {
   gap: 0.55rem;
 }
 
+.search-lock-hint {
+  margin: 0.35rem 0 0;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+}
+
+.search-lock-hint[hidden] {
+  display: none !important;
+}
+
+#query-input:disabled {
+  opacity: 0.72;
+  cursor: not-allowed;
+  background: color-mix(in srgb, var(--panel-solid) 85%, #c8d0da);
+}
+
 .search-btn {
   border: 0;
   border-radius: 10px;
@@ -1367,12 +1384,22 @@ input[type="number"]:focus {
   transition: transform 140ms ease, background 140ms ease;
 }
 
-.search-btn:hover {
+.search-btn:hover:not(:disabled) {
   background: var(--accent-hover);
 }
 
-.search-btn:active {
+.search-btn:active:not(:disabled) {
   transform: translateY(1px);
+}
+
+.search-btn:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.chip:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 
 .pin-warn {
