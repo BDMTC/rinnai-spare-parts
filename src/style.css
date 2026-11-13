@@ -514,7 +514,8 @@ body::before {
   width: max-content;
   min-height: 2.55rem;
   white-space: nowrap;
-  animation: news-ticker-scroll 48s linear infinite;
+  /* Duration set in JS from content width (~42px/s readable crawl). */
+  animation: news-ticker-scroll var(--ticker-duration, 120s) linear infinite;
   will-change: transform;
 }
 

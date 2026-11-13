@@ -1,8 +1,8 @@
 /**
  * Pin2-side news ticker — Brisbane/SE QLD weekly weather (per-day items),
  * top Brisbane traffic incidents, urgent QLD news, Rinnai AU announcements.
- * Every item is a hyperlink. Public feeds only; file:// / CORS failures fall
- * back to demo stubs.
+ * Every item is a hyperlink. Public feeds only. Offline gag only when the
+ * browser is truly offline; file:// uses direct fetch then CORS relays.
  */
 
 const WEATHER_LABEL = "Brisbane / SE QLD";
@@ -173,8 +173,8 @@ const BNE_LOCALITIES = new Set(
  */
 
 /**
- * Offline / feed-fail wink only — short title nod, never full song lyrics
- * (copyright). No href (not a link).
+ * Offline wink only — short title nod, never full song lyrics (copyright).
+ * No href (not a link).
  * @type {TickerItem}
  */
 export const OFFLINE_STUB = Object.freeze({
@@ -184,8 +184,22 @@ export const OFFLINE_STUB = Object.freeze({
   source: "stub",
 });
 
+/** Instant first paint while live feeds race (not the offline gag). */
+export const LOADING_STUB = Object.freeze({
+  kind: "offline",
+  text: "Ticker warming up… weather · traffic · news",
+  href: "",
+  source: "loading",
+});
+
 /** @deprecated use OFFLINE_STUB — kept name for older call sites */
 export const TICKER_STUBS = Object.freeze([OFFLINE_STUB]);
+
+const TICKER_CACHE_KEY = "rinnai-ticker-items-v1";
+/** Per-candidate budget — sequential 45s×3 was the ~90s blank crawl. */
+const FETCH_SOFT_MS = 4500;
+/** Traffic GeoJSON is ~3 MB — direct only, short fuse; skip relays. */
+const TRAFFIC_FETCH_MS = 7000;
 
 /**
  * @returns {TickerItem[]}
@@ -195,11 +209,74 @@ function offlineStubItems() {
 }
 
 /**
+ * @returns {TickerItem[]}
+ */
+function loadingStubItems() {
+  return [{ ...LOADING_STUB }];
+}
+
+/**
+ * @returns {TickerItem[]}
+ */
+function readCachedItems() {
+  try {
+    const raw = localStorage.getItem(TICKER_CACHE_KEY);
+    if (!raw) return [];
+    const parsed = JSON.parse(raw);
+    if (!Array.isArray(parsed) || !parsed.length) return [];
+    return parsed
+      .filter(
+        (it) =>
+          it &&
+          typeof it.text === "string" &&
+          it.text.trim() &&
+          typeof it.kind === "string" &&
+          it.kind !== "offline"
+      )
+      .slice(0, 40)
+      .map((it) => ({
+        kind: String(it.kind),
+        text: String(it.text),
+        href: typeof it.href === "string" ? it.href : "",
+        source: typeof it.source === "string" ? it.source : "cache",
+      }));
+  } catch {
+    return [];
+  }
+}
+
+/**
+ * @param {TickerItem[]} items
+ */
+function writeCachedItems(items) {
+  const live = (items || []).filter(
+    (it) => it && it.kind !== "offline" && String(it.text || "").trim()
+  );
+  if (!live.length) return;
+  try {
+    localStorage.setItem(
+      TICKER_CACHE_KEY,
+      JSON.stringify(
+        live.slice(0, 40).map((it) => ({
+          kind: it.kind,
+          text: it.text,
+          href: it.href || "",
+          source: it.source || "",
+        }))
+      )
+    );
+  } catch {
+    /* quota / private mode */
+  }
+}
+
+/**
+ * One timed CORS fetch (no relay stack).
  * @param {string} url
- * @param {number} [ms]
+ * @param {number} ms
  * @returns {Promise<Response|null>}
  */
-async function fetchSoft(url, ms = 8000) {
+async function fetchOnce(url, ms) {
   try {
     const ctrl = new AbortController();
     const t = setTimeout(() => ctrl.abort(), ms);
@@ -210,11 +287,61 @@ async function fetchSoft(url, ms = 8000) {
       cache: "no-store",
     });
     clearTimeout(t);
-    if (!res.ok) return null;
-    return res;
+    return res.ok ? res : null;
   } catch {
     return null;
   }
+}
+
+/**
+ * file:// Origin "null": race direct + CORS relays with a short shared budget
+ * so one slow hop cannot stall first paint for ~90s.
+ * @param {string} url
+ * @param {number} [ms]
+ * @param {{ relays?: boolean }} [opts]
+ * @returns {Promise<Response|null>}
+ */
+async function fetchSoft(url, ms = FETCH_SOFT_MS, opts = {}) {
+  const useRelays = opts.relays !== false;
+  const candidates = [url];
+  if (useRelays) {
+    candidates.push(`https://corsproxy.io/?${encodeURIComponent(url)}`);
+    candidates.push(`${ALLORIGINS_RAW}${encodeURIComponent(url)}`);
+  }
+
+  return new Promise((resolve) => {
+    let settled = false;
+    let pending = candidates.length;
+    const finish = (/** @type {Response|null} */ res) => {
+      if (settled) return;
+      if (res) {
+        settled = true;
+        resolve(res);
+        return;
+      }
+      pending -= 1;
+      if (pending <= 0) {
+        settled = true;
+        resolve(null);
+      }
+    };
+    for (const candidate of candidates) {
+      void fetchOnce(candidate, ms).then(finish);
+    }
+  });
+}
+
+/** Comfortable ticker crawl — ~42 px/s of the duplicated track half. */
+const TICKER_PX_PER_SEC = 42;
+
+/**
+ * @param {HTMLElement} track
+ */
+function syncTickerDuration(track) {
+  const half = Math.max(1, track.scrollWidth / 2);
+  // Floor keeps short stub readable; cap avoids multi-minute loops.
+  const sec = Math.max(60, Math.min(220, half / TICKER_PX_PER_SEC));
+  track.style.setProperty("--ticker-duration", `${sec.toFixed(1)}s`);
 }
 
 /**
@@ -277,7 +404,7 @@ export function formatWeeklyForecast(data) {
  * @returns {Promise<TickerItem[]>}
  */
 async function fetchWeeklyWeather() {
-  const res = await fetchSoft(WTTR_URL, 10000);
+  const res = await fetchSoft(WTTR_URL, FETCH_SOFT_MS);
   if (!res) return [];
   try {
     const data = await res.json();
@@ -292,7 +419,10 @@ async function fetchWeeklyWeather() {
  * @returns {Promise<TickerItem[]>}
  */
 async function fetchQldNews() {
-  const res = await fetchSoft(`${RSS2JSON}${encodeURIComponent(ABC_QLD_RSS)}`, 10000);
+  const res = await fetchSoft(
+    `${RSS2JSON}${encodeURIComponent(ABC_QLD_RSS)}`,
+    FETCH_SOFT_MS
+  );
   if (!res) return [];
   try {
     const data = await res.json();
@@ -438,7 +568,10 @@ export function pickTopBrisbaneTraffic(data, limit = TRAFFIC_TOP_N) {
  * @returns {Promise<TickerItem[]>}
  */
 async function fetchBrisbaneTraffic() {
-  const res = await fetchSoft(TRAFFIC_GEOJSON_URL, 25000);
+  // ~3 MB — direct only with a short fuse. Relays + 45s budgets caused ~90s blank.
+  const res = await fetchSoft(TRAFFIC_GEOJSON_URL, TRAFFIC_FETCH_MS, {
+    relays: false,
+  });
   if (!res) return [];
   try {
     const data = await res.json();
@@ -453,87 +586,117 @@ async function fetchBrisbaneTraffic() {
  * @returns {Promise<TickerItem[]>}
  */
 async function fetchRinnaiNews() {
-  const urls = [
-    `${ALLORIGINS_RAW}${encodeURIComponent(RINNAI_NEWS_URL)}`,
-    RINNAI_NEWS_URL,
-  ];
-  for (const url of urls) {
-    const res = await fetchSoft(url, 10000);
-    if (!res) continue;
-    try {
-      const html = await res.text();
-      /** @type {TickerItem[]} */
-      const found = [];
-      const seen = new Set();
+  const res = await fetchSoft(RINNAI_NEWS_URL, FETCH_SOFT_MS);
+  if (!res) return [];
+  try {
+    const html = await res.text();
+    /** @type {TickerItem[]} */
+    const found = [];
+    const seen = new Set();
 
-      // Prefer linked headings / cards: <a href="/news/...">Title</a> near news paths
-      const linkRe =
-        /<a[^>]+href=["'](\/news\/[^"'#?]+|https?:\/\/(?:www\.)?rinnai\.com\.au\/news\/[^"'#?]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
-      let m;
-      while ((m = linkRe.exec(html)) && found.length < 6) {
-        const href = absoluteRinnaiUrl(m[1]);
-        const rawInner = m[2].replace(/<[^>]+>/g, " ");
-        const title = decodeBasicEntities(rawInner);
-        if (!title || title.length < 10 || /read more|latest news|^news$/i.test(title)) {
-          continue;
-        }
-        if (seen.has(href) || seen.has(title)) continue;
-        seen.add(href);
-        seen.add(title);
-        found.push({ kind: "rinnai", text: `Rinnai · ${title}`, href });
+    // Prefer linked headings / cards: <a href="/news/...">Title</a> near news paths
+    const linkRe =
+      /<a[^>]+href=["'](\/news\/[^"'#?]+|https?:\/\/(?:www\.)?rinnai\.com\.au\/news\/[^"'#?]+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+    let m;
+    while ((m = linkRe.exec(html)) && found.length < 6) {
+      const href = absoluteRinnaiUrl(m[1]);
+      const rawInner = m[2].replace(/<[^>]+>/g, " ");
+      const title = decodeBasicEntities(rawInner);
+      if (!title || title.length < 10 || /read more|latest news|^news$/i.test(title)) {
+        continue;
       }
-
-      // Fallback: bare h2/h3 titles → listing page
-      if (!found.length) {
-        const headingRe = /<h[23][^>]*>([^<]{10,140})<\/h[23]>/gi;
-        while ((m = headingRe.exec(html)) && found.length < 4) {
-          const t = decodeBasicEntities(m[1]);
-          if (!t || /latest news/i.test(t) || seen.has(t)) continue;
-          seen.add(t);
-          found.push({
-            kind: "rinnai",
-            text: `Rinnai · ${t}`,
-            href: RINNAI_NEWS_URL,
-          });
-        }
-      }
-
-      if (found.length) return found;
-    } catch {
-      /* try next */
+      if (seen.has(href) || seen.has(title)) continue;
+      seen.add(href);
+      seen.add(title);
+      found.push({ kind: "rinnai", text: `Rinnai · ${title}`, href });
     }
+
+    // Fallback: bare h2/h3 titles → listing page
+    if (!found.length) {
+      const headingRe = /<h[23][^>]*>([^<]{10,140})<\/h[23]>/gi;
+      while ((m = headingRe.exec(html)) && found.length < 4) {
+        const t = decodeBasicEntities(m[1]);
+        if (!t || /latest news/i.test(t) || seen.has(t)) continue;
+        seen.add(t);
+        found.push({
+          kind: "rinnai",
+          text: `Rinnai · ${t}`,
+          href: RINNAI_NEWS_URL,
+        });
+      }
+    }
+
+    return found;
+  } catch {
+    return [];
   }
-  return [];
 }
 
 /**
- * @returns {Promise<TickerItem[]>}
+ * True only when the browser reports offline — not for CORS / feed blips.
+ * @returns {boolean}
  */
-export async function loadTickerItems() {
-  const offline =
-    typeof navigator !== "undefined" && navigator && navigator.onLine === false;
+export function isTrulyOffline() {
+  return (
+    typeof navigator !== "undefined" && navigator && navigator.onLine === false
+  );
+}
 
-  if (offline) return offlineStubItems();
-
-  const [weather, traffic, news, rinnai] = await Promise.all([
-    fetchWeeklyWeather(),
-    fetchBrisbaneTraffic(),
-    fetchQldNews(),
-    fetchRinnaiNews(),
-  ]);
-
+/**
+ * Merge feed buckets into ticker order: weather → traffic → news → rinnai.
+ * @param {{ weather?: TickerItem[], traffic?: TickerItem[], news?: TickerItem[], rinnai?: TickerItem[] }} buckets
+ * @returns {TickerItem[]}
+ */
+function mergeFeedBuckets(buckets) {
   /** @type {TickerItem[]} */
   const out = [];
-
-  for (const w of weather) out.push({ ...w, source: "wttr.in" });
-  for (const t of traffic) out.push({ ...t, source: "qldtraffic" });
-  for (const n of news) out.push({ ...n, source: "abc-rss2json" });
-  for (const r of rinnai) out.push({ ...r, source: "rinnai.com.au" });
-
-  // No live rows (CORS / file:// / feed fail) → short wink, not fake feeds
-  // and not copyrighted lyrics.
-  if (!out.length) return offlineStubItems();
+  for (const w of buckets.weather || []) out.push({ ...w, source: "wttr.in" });
+  for (const t of buckets.traffic || [])
+    out.push({ ...t, source: "qldtraffic" });
+  for (const n of buckets.news || []) out.push({ ...n, source: "abc-rss2json" });
+  for (const r of buckets.rinnai || [])
+    out.push({ ...r, source: "rinnai.com.au" });
   return out;
+}
+
+/**
+ * Race all feeds; optionally paint as soon as any bucket lands.
+ * @param {{ onPartial?: (items: TickerItem[]) => void }} [opts]
+ * @returns {Promise<TickerItem[]>}
+ */
+export async function loadTickerItems(opts = {}) {
+  if (isTrulyOffline()) return offlineStubItems();
+
+  /** @type {{ weather: TickerItem[], traffic: TickerItem[], news: TickerItem[], rinnai: TickerItem[] }} */
+  const buckets = { weather: [], traffic: [], news: [], rinnai: [] };
+  const onPartial = typeof opts.onPartial === "function" ? opts.onPartial : null;
+
+  const paintPartial = () => {
+    if (!onPartial) return;
+    const merged = mergeFeedBuckets(buckets);
+    if (merged.length) onPartial(merged);
+  };
+
+  await Promise.all([
+    fetchWeeklyWeather().then((items) => {
+      buckets.weather = items;
+      paintPartial();
+    }),
+    fetchBrisbaneTraffic().then((items) => {
+      buckets.traffic = items;
+      paintPartial();
+    }),
+    fetchQldNews().then((items) => {
+      buckets.news = items;
+      paintPartial();
+    }),
+    fetchRinnaiNews().then((items) => {
+      buckets.rinnai = items;
+      paintPartial();
+    }),
+  ]);
+
+  return mergeFeedBuckets(buckets);
 }
 
 /**
@@ -571,6 +734,7 @@ function renderTickerDom(root, items) {
     .join('<span class="news-ticker-sep" aria-hidden="true">·</span>');
   // Duplicate for seamless marquee
   track.innerHTML = `${html}<span class="news-ticker-sep" aria-hidden="true">·</span>${html}`;
+  syncTickerDuration(track);
   root.dataset.ready = "1";
   root.removeAttribute("hidden");
 }
@@ -596,18 +760,67 @@ export function bindNewsTicker(scope = document) {
   if (!root) return;
 
   let timer = 0;
-  const refresh = async () => {
-    try {
-      const items = await loadTickerItems();
-      renderTickerDom(root, items);
-    } catch {
-      renderTickerDom(root, offlineStubItems());
+  let lastLive = /** @type {TickerItem[]} */ ([]);
+  let paintedSig = "";
+
+  /**
+   * @param {TickerItem[]} items
+   * @param {{ persist?: boolean }} [opts]
+   */
+  const paint = (items, opts = {}) => {
+    if (!items?.length) return;
+    const sig = items.map((it) => `${it.kind}:${it.text}`).join("|");
+    if (sig === paintedSig) return;
+    paintedSig = sig;
+    renderTickerDom(root, items);
+    if (opts.persist !== false && items.some((it) => it.kind !== "offline")) {
+      lastLive = items;
+      writeCachedItems(items);
     }
   };
 
-  renderTickerDom(root, offlineStubItems());
+  // First paint immediately — never wait on feeds for the crawl to start.
+  if (isTrulyOffline()) {
+    paint(offlineStubItems(), { persist: false });
+  } else {
+    const cached = readCachedItems();
+    if (cached.length) {
+      lastLive = cached;
+      paint(cached, { persist: false });
+    } else {
+      paint(loadingStubItems(), { persist: false });
+    }
+  }
+
+  const refresh = async () => {
+    try {
+      if (isTrulyOffline()) {
+        paint(offlineStubItems(), { persist: false });
+        return;
+      }
+      const items = await loadTickerItems({
+        onPartial: (partial) => paint(partial),
+      });
+      if (items.length) {
+        paint(items);
+      } else if (lastLive.length) {
+        paint(lastLive, { persist: false });
+      } else {
+        paint(loadingStubItems(), { persist: false });
+      }
+    } catch {
+      if (isTrulyOffline()) paint(offlineStubItems(), { persist: false });
+      else if (lastLive.length) paint(lastLive, { persist: false });
+      else paint(loadingStubItems(), { persist: false });
+    }
+  };
+
   void refresh();
   timer = window.setInterval(() => void refresh(), 30 * 60 * 1000);
+  window.addEventListener("online", () => void refresh());
+  window.addEventListener("offline", () => {
+    paint(offlineStubItems(), { persist: false });
+  });
   root.addEventListener(
     "remove",
     () => {
