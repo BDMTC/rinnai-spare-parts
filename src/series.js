@@ -3,7 +3,8 @@
  * Data: public/data/series-aliases.json
  *
  * Accessory families (e.g. Demand Duo DDUPS / DDTSTAT / UVC) are Pin2 groups
- * of finished-goods SKUs shown as part cards — not chassis for Pin3 fencing.
+ * of finished-goods SKUs shown as part cards only (no catalogue BOM pool) —
+ * not chassis for Pin3 fencing.
  */
 
 import { getModelCommercialName } from "./model-commercial-name.js";

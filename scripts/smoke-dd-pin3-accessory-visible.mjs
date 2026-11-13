@@ -114,24 +114,46 @@ for (const code of expected) {
   fixed.push(code);
 }
 
-// Pin2 family browse still surfaces all SKUs under visibility filter
+// Pin2 family browse: ONLY finished-goods SKUs (no catalogue family-tag leak)
 for (const series of ddSeries) {
   const pin = resolveModelPin(catalogue, seriesDoc, `series:${series.id}`);
+  const familyCodes = accessorySkuPartsForSeries(catalogue, series).map(
+    (p) => p.code
+  );
   const cards = searchParts(catalogue, "", null, {
     pin,
     modelIds: pin.modelIds,
     isPartVisible: uiVisible,
   });
-  const codes = new Set(cards.map((r) => r.part.code));
-  for (const part of accessorySkuPartsForSeries(catalogue, series)) {
-    assert(
-      codes.has(part.code),
-      `Pin2 ${series.id} must include ${part.code}`
-    );
-  }
+  const codes = cards.map((r) => r.part.code).sort();
+  assert(
+    codes.length === familyCodes.length &&
+      codes.every((c) => familyCodes.includes(c)) &&
+      cards.every((r) => r.part.accessorySku === true),
+    `Pin2 ${series.id} must be only family SKUs, got [${codes.join(",")}]`
+  );
 }
+
+// Explicit DDTSTAT “234” leak regression (Climate / Logfires / etc.)
+const ddtstatPin = resolveModelPin(catalogue, seriesDoc, "series:ddtstat");
+const ddtstatCards = searchParts(catalogue, "", null, {
+  pin: ddtstatPin,
+  modelIds: ddtstatPin.modelIds,
+});
+const leak = ddtstatCards.filter(
+  (r) =>
+    !r.part.accessorySku ||
+    ["B062347", "84002345", "90182341", "80080234"].includes(r.part.code)
+);
+assert(
+  leak.length === 0 && ddtstatCards.length === 3,
+  `DDTSTAT Pin2 must be 3 TSTAT SKUs only, got ${ddtstatCards.length} (leak ${leak
+    .map((r) => r.part.code)
+    .join(",")})`
+);
 
 console.log("ok smoke-dd-pin3-accessory-visible", {
   pin3Sole: fixed,
   families: ddSeries.map((s) => s.id),
+  ddtstatPin2: ddtstatCards.map((r) => r.part.code),
 });

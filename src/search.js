@@ -1258,23 +1258,24 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
   const results = [];
 
   // Accessory families (Demand Duo DDUPS / DDTSTAT / UVC): finished-goods SKUs
-  // as part cards. Not chassis — Pin3 PL/ED fence is skipped elsewhere.
-  // Pin2 (series) → family browse. Pin3 (Item Number) → that SKU only.
-  const accessoryPin3Only =
-    pinCtx?.kind === "model" && isAccessoryFamilySeries(pinCtx.series);
-  const accessoryParts = accessoryPin3Only
-    ? (() => {
-        const one = accessorySkuPartForModel(pinCtx.model, pinCtx.series);
-        return one ? [one] : [];
-      })()
-    : pinCtx?.kind === "series" && isAccessoryFamilySeries(pinCtx.series)
-      ? accessorySkuPartsForSeries(catalogue, pinCtx.series)
-      : [];
-  const partPool = accessoryPin3Only
+  // as part cards only — never pool chassis BOM / price-list rows (Beau:
+  // DDTSTAT “234” must not pull Climate/Logfires parts via family-tag fit).
+  // Pin2 (series) → that family’s SKUs. Pin3 (Item Number) → that SKU only.
+  const accessoryFamilyBrowse =
+    Boolean(pinCtx?.series) && isAccessoryFamilySeries(pinCtx.series);
+  const accessoryParts = !accessoryFamilyBrowse
+    ? []
+    : pinCtx.kind === "model"
+      ? (() => {
+          const one = accessorySkuPartForModel(pinCtx.model, pinCtx.series);
+          return one ? [one] : [];
+        })()
+      : pinCtx.kind === "series"
+        ? accessorySkuPartsForSeries(catalogue, pinCtx.series)
+        : [];
+  const partPool = accessoryFamilyBrowse
     ? accessoryParts
-    : accessoryParts.length
-      ? [...accessoryParts, ...(catalogue.parts || [])]
-      : catalogue.parts || [];
+    : catalogue.parts || [];
   // Avoid duplicate cards when a real price row shares an accessory code.
   const seenCodes = new Set();
 
