@@ -239,6 +239,11 @@ function lightboxPdfDataScripts() {
       id: "smREUV3237W-VM3237WC-April09",
       file: "smREUV3237W_VM3237WC April09.pdf",
     },
+    { id: "SM-2006", file: "SM 2006.pdf" },
+    { id: "SM-2402", file: "SM 2402.pdf" },
+    { id: "SM-24WA", file: "SM 24WA.pdf" },
+    { id: "SM-REU3203", file: "SM REU3203.pdf" },
+    { id: "SM-V26", file: "SM V26.pdf" },
   ];
 
   function buildScriptSource(fileName) {

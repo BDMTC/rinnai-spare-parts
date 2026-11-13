@@ -102,13 +102,13 @@ CF_SHEETS = [
         "chassisTokens": ["VR2626WGP", "REU-VR2626WGP", "SMARTSTART", "INF26S"],
         "priority": 12,
     },
-    # CUG1 Smartstart preheat accessory PL (kept for download/bbox; not Inf26 series)
+    # CUG1 Smartstart preheat accessory PL (not Inf26 Smartstart inbuilt)
     {
         "file": "EDPL Smartstart.pdf",
         "stem": "edpl-smartstart",
-        "seriesIds": [],
+        "seriesIds": ["smartstart"],
         "chassisTokens": ["CUG1", "REU-CUG1"],
-        "priority": 4,
+        "priority": 10,
     },
     # HD250 / VR3237
     {
@@ -341,16 +341,16 @@ CF_SHEETS = [
     {
         "file": "EDPL REUV2626W_REUV2632WC.pdf",
         "stem": "edpl-reuv2626w-reuv2632wc",
-        "seriesIds": ["hd200e"],
-        "chassisTokens": ["REUV2626W", "REUV2632WC", "V2626W"],
-        "priority": 4,
+        "seriesIds": ["v2626", "hd200e"],
+        "chassisTokens": ["REUV2626W", "REUV2632WC", "V2626W", "V2632WC"],
+        "priority": 8,
     },
     {
         "file": "SmartStart Parts list.pdf",
         "stem": "pl-smartstart-parts-list",
-        "seriesIds": [],
+        "seriesIds": ["smartstart"],
         "chassisTokens": ["CUG1", "REU-CUG1"],
-        "priority": 3,
+        "priority": 6,
     },
 
     # Misnamed on-disk copy of K2430 sheet — keep for bbox only, no series
@@ -912,6 +912,8 @@ def main():
             "infinity20-v": ("edpl-reuv2024wg", 1),
             "infinity-v1616": ("edpl-v1616w-2018w-2020w", 1),
             "v3232": ("edpl-v3232w-wc", 1),
+            "v2626": ("edpl-reuv2626w-reuv2632wc", 1),
+            "smartstart": ("edpl-smartstart", 1),
             # hd28e: no shipped page pack yet — keep native pageKey / callout only
         }
 

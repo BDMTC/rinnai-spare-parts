@@ -11,6 +11,12 @@ import infinity16V from "./assets/service-manual-pages/infinity16-v__p1.jpg";
 import infinity20V from "./assets/service-manual-pages/infinity20-v__p1.jpg";
 import infinityV1616 from "./assets/service-manual-pages/infinity-v1616__p1.jpg";
 import v3232 from "./assets/service-manual-pages/v3232__p1.jpg";
+import infinity202006 from "./assets/service-manual-pages/infinity20-2006__p1.jpg";
+import infinity242402 from "./assets/service-manual-pages/infinity24-2402__p1.jpg";
+import infinity24Wa from "./assets/service-manual-pages/infinity24-wa__p1.jpg";
+import infinity323203 from "./assets/service-manual-pages/infinity32-3203__p1.jpg";
+import v2626 from "./assets/service-manual-pages/v2626__p1.jpg";
+import smartstart from "./assets/service-manual-pages/smartstart__p1.jpg";
 import infinity26Internal from "./assets/service-manual-pages/infinity26-internal__p1.jpg";
 import infinity26Plus from "./assets/service-manual-pages/infinity26-plus__p1.jpg";
 import infinity26Smartstart from "./assets/service-manual-pages/infinity26-smartstart__p1.jpg";
@@ -90,6 +96,26 @@ const SM_PACK_GLOBS = {
   ),
   "sm-v3232w-wc": import.meta.glob(
     "./assets/service-manual-pages/sm-v3232w-wc__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-2006": import.meta.glob(
+    "./assets/service-manual-pages/sm-2006__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-2402": import.meta.glob(
+    "./assets/service-manual-pages/sm-2402__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-24wa": import.meta.glob(
+    "./assets/service-manual-pages/sm-24wa__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-reu3203": import.meta.glob(
+    "./assets/service-manual-pages/sm-reu3203__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-v26": import.meta.glob(
+    "./assets/service-manual-pages/sm-v26__p*.jpg",
     { eager: true, import: "default" }
   ),
 };
@@ -255,6 +281,42 @@ const SERIES_SERVICE_MANUALS = {
     label: "SM V32.pdf p1",
     source: "SM V32.pdf",
     packId: "sm-v3232w-wc",
+  },
+  "infinity20-2006": {
+    url: infinity202006,
+    label: "SM 2006.pdf p1",
+    source: "SM 2006.pdf",
+    packId: "sm-2006",
+  },
+  "infinity24-2402": {
+    url: infinity242402,
+    label: "SM 2402.pdf p1",
+    source: "SM 2402.pdf",
+    packId: "sm-2402",
+  },
+  "infinity24-wa": {
+    url: infinity24Wa,
+    label: "SM 24WA.pdf p1",
+    source: "SM 24WA.pdf",
+    packId: "sm-24wa",
+  },
+  "infinity32-3203": {
+    url: infinity323203,
+    label: "SM REU3203.pdf p1",
+    source: "SM REU3203.pdf",
+    packId: "sm-reu3203",
+  },
+  v2626: {
+    url: v2626,
+    label: "SM V26.pdf p1",
+    source: "SM V26.pdf",
+    packId: "sm-v26",
+  },
+  smartstart: {
+    url: smartstart,
+    label: "SM Smartstart.pdf p1",
+    source: "SM Smartstart.pdf",
+    packId: "sm-smartstart",
   },
 };
 

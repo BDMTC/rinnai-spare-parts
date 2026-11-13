@@ -45,6 +45,12 @@ UNIQUE_SM = {
     "sm-v1616-v2018-v2020": "SM V16_18_20.pdf",
     # Heritage V3232W / HD250e V3232WC
     "sm-v3232w-wc": "SM V32.pdf",
+    # Heritage leftovers (cover-true)
+    "sm-2006": "SM 2006.pdf",
+    "sm-2402": "SM 2402.pdf",
+    "sm-24wa": "SM 24WA.pdf",
+    "sm-reu3203": "SM REU3203.pdf",
+    "sm-v26": "SM V26.pdf",
 }
 
 # Optional series thumb covers copied from pack page 1
@@ -65,6 +71,12 @@ SERIES_THUMBS = {
     "infinity20-v": "sm-v1620-v2024",
     "infinity-v1616": "sm-v1616-v2018-v2020",
     "v3232": "sm-v3232w-wc",
+    "infinity20-2006": "sm-2006",
+    "infinity24-2402": "sm-2402",
+    "infinity24-wa": "sm-24wa",
+    "infinity32-3203": "sm-reu3203",
+    "v2626": "sm-v26",
+    "smartstart": "sm-smartstart",
 }
 
 TARGET_WIDTH = 900

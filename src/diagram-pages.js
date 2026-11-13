@@ -88,6 +88,14 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "EDPL V3232W_WC.pdf p1",
     label: "EDPL V3232W_WC",
   },
+  v2626: {
+    page: "EDPL REUV2626W_REUV2632WC.pdf p1",
+    label: "EDPL REUV2626W_REUV2632WC (V2626)",
+  },
+  smartstart: {
+    page: "EDPL Smartstart.pdf p1",
+    label: "EDPL Smartstart (CUG1)",
+  },
   hd32: {
     page: "New A Series CF Parts List.pdf p56",
     label: "New A Series CF Parts List (HD32e)",

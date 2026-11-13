@@ -844,6 +844,147 @@
       "notes": "Heritage Infinity 32 / HD250 predecessor on REU-V3237WG. Chassis-only so VR3237WG (Infinity 32) and VRM3237 stay out. Cover-true SM: smREUV3237W_VM3237WC April09.pdf; PL: EDPL REUV3237.pdf."
     },
     {
+      "id": "infinity20-2006",
+      "label": "Infinity 20 Internal (2006)",
+      "aliases": [
+        "Infinity 20 Internal (2006)",
+        "REU-2006FFU",
+        "2006FFU",
+        "INF20IN"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REU2006FFU",
+          "2006FFU"
+        ]
+      },
+      "documentKeys": [
+        "REU-2006FFU",
+        "2006FFU",
+        "Infinity 20 Internal"
+      ],
+      "notes": "Heritage Infinity 20 internal on REU-2006FFU (INF20IN). Cover-true SM: SM 2006.pdf. Chassis-only so modern Infinity 20 VR2024 stays out."
+    },
+    {
+      "id": "infinity24-2402",
+      "label": "Infinity 24 (2402)",
+      "aliases": [
+        "Infinity 24 (2402)",
+        "REU-2402FFU",
+        "2402FFU",
+        "REU-2402W",
+        "2402W",
+        "INF24PIL",
+        "INF24PIN"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REU2402FFU",
+          "2402FFU",
+          "REU2402W",
+          "2402W"
+        ]
+      },
+      "documentKeys": [
+        "REU-2402FFU",
+        "REU-2402W",
+        "2402FFU",
+        "Infinity 24"
+      ],
+      "notes": "Heritage Infinity 24 Litre Series on REU-2402W / REU-2402FFU (INF24PIL/PIN). Cover-true SM: SM 2402.pdf (cover lists both). Not REU-24WA."
+    },
+    {
+      "id": "infinity24-wa",
+      "label": "Infinity 24 WA",
+      "aliases": [
+        "Infinity 24 WA",
+        "REU-24WA",
+        "24WA",
+        "REU-24WANCL",
+        "24WANCL",
+        "INF24L50"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REU24WA",
+          "24WA"
+        ]
+      },
+      "documentKeys": [
+        "REU-24WA",
+        "24WA",
+        "Infinity 24 WA"
+      ],
+      "notes": "Heritage Infinity REU-24 W-A (INF24L50 / REU-24WANCL-50). Cover-true SM: SM 24WA.pdf. Chassis fragment 24WA so 2402 stays on infinity24-2402."
+    },
+    {
+      "id": "infinity32-3203",
+      "label": "Infinity 32 (3203)",
+      "aliases": [
+        "Infinity 32 (3203)",
+        "REU-3203W",
+        "3203W",
+        "INF32NA"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REU3203W",
+          "3203W"
+        ]
+      },
+      "documentKeys": [
+        "REU-3203W",
+        "3203W",
+        "Infinity 32 (3203)"
+      ],
+      "notes": "Heritage Infinity high-capacity on REU-3203W (INF32NA). Cover-true SM: SM REU3203.pdf. Not V3232 / VR3237 / AM3237."
+    },
+    {
+      "id": "v2626",
+      "label": "V2626",
+      "aliases": [
+        "V2626",
+        "REU-V2626W",
+        "V2626W",
+        "REUV2626W"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUV2626WAK",
+          "V2626WAK"
+        ]
+      },
+      "documentKeys": [
+        "V2626",
+        "V2626W",
+        "REU-V2626W"
+      ],
+      "notes": "Heritage Infinity on REU-V2626W (not WG/WR). Chassis fragments use V2626WAK so V2626WG/WR stay on Infinity 26. Cover-true SM: SM V26.pdf (also lists HD200e V2632WC — those stay on hd200e). PL: EDPL REUV2626W_REUV2632WC.pdf."
+    },
+    {
+      "id": "smartstart",
+      "label": "Smartstart",
+      "aliases": [
+        "Smartstart",
+        "SmartStart",
+        "CUG1",
+        "REU-CUG1",
+        "REUCUG1"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUCUG1",
+          "CUG1"
+        ]
+      },
+      "documentKeys": [
+        "Smartstart",
+        "CUG1",
+        "REU-CUG1"
+      ],
+      "notes": "Smartstart CUG1 preheat accessory (marketing SMARTSTART). Cover-true SM: SM Smartstart.pdf; PL: EDPL Smartstart.pdf. Not Infinity 26 Smartstart inbuilt (VR2626WGP)."
+    },
+    {
       "id": "infinity32-enviro",
       "label": "Infinity 32 Enviro",
       "aliases": [
