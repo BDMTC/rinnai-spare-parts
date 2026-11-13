@@ -1041,7 +1041,7 @@
         "VRM1620WG",
         "REU-VRM1620WG"
       ],
-      "notes": "Mid-gen Infinity 16 on REU-VRM1620WG (INF16*M). Chassis-only so VR1620 / BM1620 stay out. Local PL/ED family diagrams on REU-VRM2024.pdf (exploded pages label VRM1620W/VRM2024W/VRM2626W-AK; list columns are VRM2024WG). No cover-true SM on disk."
+      "notes": "Mid-gen Infinity 16 on REU-VRM1620WG (INF16*M). Chassis-only so VR1620 / BM1620 stay out. Local PL/ED family diagrams on REU-VRM2024.pdf (exploded pages label VRM1620W/VRM2024W/VRM2626W-AK; list columns are VRM2024WG). Cover-true SM: VRM16/VRM20 Issue 03 (shared with vrm2024)."
     },
     {
       "id": "vrm2024",
@@ -1064,7 +1064,7 @@
         "VRM2024WG",
         "REU-VRM2024WG"
       ],
-      "notes": "Mid-gen Infinity 20 on REU-VRM2024WG (INF20*M). Chassis-only so VR2024WG (Infinity 20) and VR2024WB stay out. Local PL: REU-VRM2024.pdf (family exploded pages also label VRM1620/VRM2626). No cover-true SM on disk yet."
+      "notes": "Mid-gen Infinity 20 on REU-VRM2024WG (INF20*M). Chassis-only so VR2024WG (Infinity 20) and VR2024WB stay out. Local PL: REU-VRM2024.pdf (family exploded pages also label VRM1620/VRM2626). Cover-true SM: VRM16/VRM20 Issue 03 (shared with vrm1620)."
     },
     {
       "id": "vrm2626",
@@ -1092,7 +1092,7 @@
         "K26L60M",
         "K26N60M"
       ],
-      "notes": "K26 mid-gen REU-VRM2626WG-*-2 only (K26L60M/K26N60M). INF26*M VRM2626WG rows stay on Infinity 26 marketing until a cover-true SM split. Local PL/ED family diagrams on REU-VRM2024.pdf. No cover-true SM on disk."
+      "notes": "K26 mid-gen REU-VRM2626WG-*-2 only (K26L60M/K26N60M). INF26*M VRM2626WG rows stay on Infinity 26 marketing until a cover-true SM split. Local PL/ED family diagrams on REU-VRM2024.pdf. Cover-true SM: VR2626WB_VRM2626WG Issue 03 (also covers B26/S26 chassis — those series keep their own packs)."
     },
     {
       "id": "vrm3237wg",
@@ -1113,7 +1113,7 @@
         "VRM3237WG",
         "REU-VRM3237WG"
       ],
-      "notes": "Mid-gen Infinity 32 on REU-VRM3237WG (INF32*M). Chassis-only so VR3237WG (Infinity 32) and VRM3237WC (HD250e) stay out. Local PL headers on EDPL VR_VRM3237 / EDPLVRM3237 Issue 4. No cover-true SM (smVR3237WG_WC covers VR3237WG + VRM3237WC only)."
+      "notes": "Mid-gen Infinity 32 on REU-VRM3237WG (INF32*M). Chassis-only so VR3237WG (Infinity 32) and VRM3237WC (HD250e) stay out. Local PL headers on EDPL VR_VRM3237 / EDPLVRM3237 Issue 4. Cover-true SM: VR3237WG/VRM3237WG/VRM3237WC Issue 03 (hd250e/infinity32 keep sm-vr3237wg-wc)."
     },
     {
       "id": "vr2024wb",
@@ -1579,7 +1579,7 @@
         "ECF29I60",
         "Efinity"
       ],
-      "notes": "RSP-95 + Tech Issue 4: Efinity ECF14/19/29 Issue PLs (ECF14 I50/I60 shared PDF). One series, chassis-scoped stems.",
+      "notes": "RSP-95 + Tech Issue 4: Efinity ECF14/19/29 Issue PLs (ECF14 I50/I60 shared PDF). One series, chassis-scoped stems. Cover-true SM: ECF Efinity Electric CFHW Issue 3.",
       "systemType": "electric-continuous-flow",
       "familyKey": "electric_cf"
     },

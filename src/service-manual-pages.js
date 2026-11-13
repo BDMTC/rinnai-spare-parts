@@ -39,6 +39,11 @@ import hd28e from "./assets/service-manual-pages/hd28e__p1.jpg";
 import hd28i from "./assets/service-manual-pages/hd28i__p1.jpg";
 import infinity28 from "./assets/service-manual-pages/infinity28__p1.jpg";
 import hd32 from "./assets/service-manual-pages/hd32__p1.jpg";
+import vrm1620 from "./assets/service-manual-pages/vrm1620__p1.jpg";
+import vrm2024 from "./assets/service-manual-pages/vrm2024__p1.jpg";
+import vrm2626 from "./assets/service-manual-pages/vrm2626__p1.jpg";
+import vrm3237wg from "./assets/service-manual-pages/vrm3237wg__p1.jpg";
+import efinityEcf from "./assets/service-manual-pages/efinity-ecf__p1.jpg";
 
 /** @type {Record<string, Record<string, string>>} */
 const SM_PACK_GLOBS = {
@@ -144,6 +149,22 @@ const SM_PACK_GLOBS = {
   ),
   "sm-am3237": import.meta.glob(
     "./assets/service-manual-pages/sm-am3237__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-vrm16-vrm20": import.meta.glob(
+    "./assets/service-manual-pages/sm-vrm16-vrm20__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-vr2626wb-vrm2626wg": import.meta.glob(
+    "./assets/service-manual-pages/sm-vr2626wb-vrm2626wg__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-vr3237-vrm3237wg": import.meta.glob(
+    "./assets/service-manual-pages/sm-vr3237-vrm3237wg__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-efinity-ecf": import.meta.glob(
+    "./assets/service-manual-pages/sm-efinity-ecf__p*.jpg",
     { eager: true, import: "default" }
   ),
 };
@@ -397,6 +418,38 @@ const SERIES_SERVICE_MANUALS = {
     label: "SM - RINNAI - REUAM3237W,WC - ISSUE 4 - FEB 2026.pdf p1",
     source: "SM - RINNAI - REUAM3237W,WC - ISSUE 4 - FEB 2026.pdf",
     packId: "sm-am3237",
+  },
+  vrm1620: {
+    url: vrm1620,
+    label: "SM - RINNAI - VRM16, VRM20 - ISSUE 03 - JAN 2015.pdf p1",
+    source: "SM - RINNAI - VRM16, VRM20 - ISSUE 03 - JAN 2015.pdf",
+    packId: "sm-vrm16-vrm20",
+  },
+  vrm2024: {
+    url: vrm2024,
+    label: "SM - RINNAI - VRM16, VRM20 - ISSUE 03 - JAN 2015.pdf p1",
+    source: "SM - RINNAI - VRM16, VRM20 - ISSUE 03 - JAN 2015.pdf",
+    packId: "sm-vrm16-vrm20",
+  },
+  vrm2626: {
+    url: vrm2626,
+    label: "SM - RINNAI - VR2626WB_VRM2626WG - ISSUE 03 - NOV 2014.pdf p1",
+    source: "SM - RINNAI - VR2626WB_VRM2626WG - ISSUE 03 - NOV 2014.pdf",
+    packId: "sm-vr2626wb-vrm2626wg",
+  },
+  vrm3237wg: {
+    url: vrm3237wg,
+    label:
+      "SM - RINNAI VR3237WG_ VRM3237WG _ VRM3237WC HD250e ISSUE03 NOV 2014.pdf p1",
+    source:
+      "SM - RINNAI VR3237WG_ VRM3237WG _ VRM3237WC HD250e ISSUE03 NOV 2014.pdf",
+    packId: "sm-vr3237-vrm3237wg",
+  },
+  "efinity-ecf": {
+    url: efinityEcf,
+    label: "SM - RINNAI - ECF EFINITY - ELECTRIC CFHW - ISSUE 3 - AUG 2026.pdf p1",
+    source: "SM - RINNAI - ECF EFINITY - ELECTRIC CFHW - ISSUE 3 - AUG 2026.pdf",
+    packId: "sm-efinity-ecf",
   },
 };
 
