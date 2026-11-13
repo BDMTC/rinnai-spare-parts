@@ -234,12 +234,29 @@ const ED_STEM_TO_PDF = {
   "pl-n3237-inf32-enviro-plus-issue3":
     "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf",
   "edpl-vr-vrm3237": "EDPL VR_VRM3237.pdf",
+  "edpl-vr2426-vr2626": "EDPL VR2426_VR2626.pdf",
+  "edpl-reuv2426wg": "EDPL REUV2426WG.pdf",
+  "edpl-reuv2626wg": "EDPL REUV2626WG.pdf",
+  "edpl-reuv2626w-reuv2632wc": "EDPL REUV2626W_REUV2632WC.pdf",
+  "edpl-reuv2632ffu": "EDPL REUV2632FFU.pdf",
+  "edpl-reuv2632ffuc": "EDPL REUV2632FFUC.pdf",
+  "edpl-vrm2632ffu": "EDPL VRM2632FFU.pdf",
+  "edpl-vrm2632ffu-issue4":
+    "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf",
+  "edpl-vm3237wc": "EDPL VM3237WC.pdf",
+  "edpl-reuvm3237wc": "EDPL REUVM3237WC.pdf",
+  "edpl-reuv3237": "EDPL REUV3237.pdf",
+  "pl-reu-v3237wg": "REU-V3237WG Parts List.pdf",
+  "edpl-hd250e-reuvrm3237wc-issue4":
+    "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf",
+  "edpl-vrm3237-issue4": "PL - RINNAI - EDPLVRM3237 - ISSUE 4 - JUNE 2025.pdf",
+  "pl-hw-cf-a-series-issue1":
+    "HW_CF_A_Series_Parts_List_Issue_1_Jan_2018.pdf",
   "pled-infinity-32-enviro-plus-n-series-e":
     "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
   "pl-reu-vcm2837-wc-external": "Parts List REU-VCM2837 WC External.pdf",
   "pl-hotflo-ehfa160": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
   "pl-hotflo-ehfa-spare-parts": "EHFA  SPARE PARTS.pdf",
-  "pl-reu-vcm2837-wc-external": "Parts List REU-VCM2837 WC External.pdf",
 };
 
 /**

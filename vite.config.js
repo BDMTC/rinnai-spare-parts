@@ -180,6 +180,36 @@ function lightboxPdfDataScripts() {
       id: "PL-N3237-Inf32-Enviro-Plus-N-Issue3",
       file: "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf",
     },
+    { id: "EDPL-VR2426-VR2626", file: "EDPL VR2426_VR2626.pdf" },
+    { id: "EDPL-REUV2426WG", file: "EDPL REUV2426WG.pdf" },
+    { id: "EDPL-REUV2626WG", file: "EDPL REUV2626WG.pdf" },
+    {
+      id: "EDPL-REUV2626W-REUV2632WC",
+      file: "EDPL REUV2626W_REUV2632WC.pdf",
+    },
+    { id: "EDPL-REUV2632FFU", file: "EDPL REUV2632FFU.pdf" },
+    { id: "EDPL-REUV2632FFUC", file: "EDPL REUV2632FFUC.pdf" },
+    { id: "EDPL-VRM2632FFU", file: "EDPL VRM2632FFU.pdf" },
+    {
+      id: "PL-EDPL-VRM2632FFU-ISSUE4",
+      file: "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf",
+    },
+    { id: "EDPL-VM3237WC", file: "EDPL VM3237WC.pdf" },
+    { id: "EDPL-REUVM3237WC", file: "EDPL REUVM3237WC.pdf" },
+    { id: "EDPL-REUV3237", file: "EDPL REUV3237.pdf" },
+    { id: "REU-V3237WG-Parts-List", file: "REU-V3237WG Parts List.pdf" },
+    {
+      id: "PL-HD250E-REUVRM3237WC-ISSUE4",
+      file: "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf",
+    },
+    {
+      id: "PL-EDPLVRM3237-ISSUE4",
+      file: "PL - RINNAI - EDPLVRM3237 - ISSUE 4 - JUNE 2025.pdf",
+    },
+    {
+      id: "HW-CF-A-Series-Parts-List-Issue1",
+      file: "HW_CF_A_Series_Parts_List_Issue_1_Jan_2018.pdf",
+    },
   ];
 
   function buildScriptSource(fileName) {
