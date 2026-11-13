@@ -192,6 +192,18 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
     label: "HDC211e KM3237WDC Combined SP & EPD",
   },
+  hdc211i: {
+    page: "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p4",
+    label: "KM3237FFUDC Issue 3 (HDC211i)",
+  },
+  hdc32e: {
+    page: "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p6",
+    label: "NB3237 Issue 2 (HDC32e)",
+  },
+  hdc32i: {
+    page: "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p6",
+    label: "NB3237 Issue 2 (HDC32i)",
+  },
   hd28i: {
     page: "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p5",
     label: "REUVCM2837 FF Issue 4 (HD28i FFC)",
@@ -213,8 +225,8 @@ const SERIES_DIAGRAM_DEFAULT = {
     label: "SM REU3203 exploded (Infinity 32 3203)",
   },
   hd28e: {
-    page: "Parts List REU-VCM2837 WC External.pdf p5",
-    label: "Parts List REU-VCM2837 WC External (HD28e)",
+    page: "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p5",
+    label: "REUVCM2837 WC Issue 5 (HD28e)",
   },
   "infinity-b": {
     page: "PL - RINNAI - 2025 BM SERIES - INFINITY B - ISSUE 1 - AUG 2025.pdf p1",
@@ -403,6 +415,12 @@ const ED_STEM_TO_PDF = {
   "pl-hotflo-ehfa-spare-parts": "EHFA  SPARE PARTS.pdf",
   "pl-ihf10": "IHF10-Spare-Parts-List.pdf",
   "pl-reu-km3237wdc-hdc211e": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+  "pl-reu-km3237ffudc-hdc211i":
+    "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+  "pl-reu-nb3237-hdc32":
+    "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+  "pl-reu-vcm2837-wc-issue5":
+    "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
   "pl-hotflo-hfe-250-315-slim": "HFE 250S 315S SPL 29032021 V8.pdf",
   "pl-hotflo-ghf4":
     "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",

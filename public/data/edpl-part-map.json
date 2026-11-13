@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T14:08:30.764130+00:00",
+  "generatedAt": "2026-11-13T14:13:47.334366+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
@@ -14,14 +14,15 @@
     "hotfloHfeSlim": "Hotflo HFE 250S/315S slim SPL Issue 8 \u2192 ehfa250/ehfa315 (complements EHFA SPARE PARTS)",
     "heritageSmPl": "SM-embedded PL for infinity20-2006 / infinity24-wa / infinity32-3203 (Hotflo EHFA400/EHFD/EHF25/GHF4/Efinity still wait-for Tech Issue PL sync)",
     "hotfloEfinityWave": "Tech-synced Hotflo GHF4/EHFA400/EHFD160/EHF25 + Efinity ECF Issue PLs (ghf4, ehfa400, ehfd160, ehf25, pl-efinity-ecf14, pl-efinity-ecf19i50, pl-efinity-ecf19i60, pl-efinity-ecf29i50, pl-efinity-ecf29i60)",
-    "cfHotfloLeftovers": "VCM2837 FF Issue4 (hd28i/inf28) + AM3237WC HD32 + Hotflo 250SL/T/400S/80-400S (pl-reu-vcm2837-ff-issue4, pl-reu-am3237wc-hd32, pl-hotflo-ehf-250sl-315l, pl-hotflo-ehf-250t-315t, pl-hotflo-ehf-400s, pl-hotflo-hfe-160t-400t, pl-hotflo-hfe-80-400s-issue10)"
+    "cfHotfloLeftovers": "VCM2837 FF Issue4 (hd28i/inf28) + AM3237WC HD32 + Hotflo 250SL/T/400S/80-400S (pl-reu-vcm2837-ff-issue4, pl-reu-am3237wc-hd32, pl-hotflo-ehf-250sl-315l, pl-hotflo-ehf-250t-315t, pl-hotflo-ehf-400s, pl-hotflo-hfe-160t-400t, pl-hotflo-hfe-80-400s-issue10)",
+    "hdc32Hdc211i": "NB3237 HDC32e/i + KM3237FFUDC HDC211i + VCM2837 WC Issue5 hd28e (pl-reu-nb3237-hdc32, pl-reu-km3237ffudc-hdc211i, pl-reu-vcm2837-wc-issue5)"
   },
   "totals": {
     "sheetsConfigured": 49,
     "sheetsOk": 49,
     "sheetsMissing": 0,
-    "uniqueCodes": 977,
-    "codesInCatalogue": 680,
+    "uniqueCodes": 1051,
+    "codesInCatalogue": 746,
     "codesInCatalogueWithPageAsset": 467,
     "codesInCatalogueWithListBox": 467,
     "codesInCatalogueWithListPageAsset": 467,
@@ -2345,6 +2346,123 @@
       ],
       "priority": 22,
       "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf"
+    },
+    {
+      "file": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+      "stem": "pl-reu-nb3237-hdc32",
+      "status": "ok",
+      "pages": 9,
+      "diagramPages": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "listPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "defaultDiagramPage": 6,
+      "rowsExtracted": 77,
+      "rowsInCatalogue": 73,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "hdc32e",
+        "hdc32i"
+      ],
+      "chassisTokens": [
+        "NB3237",
+        "NB3237WC",
+        "NB3237FFC",
+        "REU-NB3237",
+        "HDC32e",
+        "HDC32i",
+        "HDC32"
+      ],
+      "priority": 24,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf"
+    },
+    {
+      "file": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+      "stem": "pl-reu-km3237ffudc-hdc211i",
+      "status": "ok",
+      "pages": 7,
+      "diagramPages": [
+        4,
+        5,
+        6,
+        7
+      ],
+      "listPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "defaultDiagramPage": 4,
+      "rowsExtracted": 78,
+      "rowsInCatalogue": 70,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "hdc211i"
+      ],
+      "chassisTokens": [
+        "KM3237FFUDC",
+        "REU-KM3237FFUDC",
+        "REUKM3237FFUDC",
+        "HDC211i",
+        "HDC211I"
+      ],
+      "priority": 24,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf"
+    },
+    {
+      "file": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+      "stem": "pl-reu-vcm2837-wc-issue5",
+      "status": "ok",
+      "pages": 8,
+      "diagramPages": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "listPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "defaultDiagramPage": 5,
+      "rowsExtracted": 67,
+      "rowsInCatalogue": 65,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "hd28e"
+      ],
+      "chassisTokens": [
+        "VCM2837WC",
+        "REU-VCM2837WC",
+        "REUVCM2837WC",
+        "HD28e",
+        "HD28E"
+      ],
+      "priority": 24,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf"
     }
   ],
   "parts": {
@@ -4653,6 +4771,27 @@
     "92073352": [
       {
         "callout": "13",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Cable Connection Mouth"
+      },
+      {
+        "callout": "13",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 1,
@@ -5601,6 +5740,27 @@
       }
     ],
     "92099984": [
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Cable Seal Packing"
+      },
       {
         "callout": "14",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -7497,6 +7657,27 @@
     "92095896": [
       {
         "callout": "27",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Connection Fixing Plate"
+      },
+      {
+        "callout": "27",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 1,
@@ -8202,6 +8383,27 @@
       }
     ],
     "92099956": [
+      {
+        "callout": "101",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Pressure Point Seal Screw"
+      },
       {
         "callout": "101",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -9426,6 +9628,27 @@
       }
     ],
     "92081587": [
+      {
+        "callout": "102",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Gas Connection(3/4)"
+      },
       {
         "callout": "1",
         "page": "SM 2006.pdf p62",
@@ -12374,6 +12597,27 @@
       }
     ],
     "92086974": [
+      {
+        "callout": "116",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Electrode"
+      },
       {
         "callout": "115",
         "page": "SM REU3203.pdf p54",
@@ -16817,6 +17061,48 @@
     ],
     "92095901": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "400 INLET WATER 3/4 VRM2632WC"
+      },
+      {
+        "callout": "400",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Water Inlet 3/4"
+      },
+      {
         "callout": "400",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
         "pageKey": "pl-reu-am3237wc-hd32__p2",
@@ -17781,6 +18067,72 @@
       }
     ],
     "92093552": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "402 RECTIFIER WATER V2632WC"
+      },
+      {
+        "callout": "402",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Rectifier"
+      },
+      {
+        "callout": "417",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Rectifier Water VRM2632WC"
+      },
       {
         "callout": "404",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
@@ -19087,6 +19439,27 @@
     "92087072": [
       {
         "callout": "403",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Bypass Servo Assembly"
+      },
+      {
+        "callout": "403",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 2,
@@ -19421,6 +19794,48 @@
       }
     ],
     "92083773": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "412 FILTER WATER 0 LARGE"
+      },
+      {
+        "callout": "412",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Water Filter Plug Assembly"
+      },
       {
         "callout": "402",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
@@ -21873,6 +22288,48 @@
     ],
     "92099944": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "419 VALVE PRESS RELIEF VR3237WG"
+      },
+      {
+        "callout": "411",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Drain Valve C Assembly"
+      },
+      {
         "callout": "411",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
         "pageKey": "pl-reu-am3237wc-hd32__p2",
@@ -23200,6 +23657,27 @@
       }
     ],
     "92093699": [
+      {
+        "callout": "701",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Surge Protector Assembly"
+      },
       {
         "callout": "701",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -25277,6 +25755,48 @@
     ],
     "92095026": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "706 SPARKER VM2630WC/WD V2024WG/W"
+      },
+      {
+        "callout": "706",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Ignitor Assembly"
+      },
+      {
         "callout": "706",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
@@ -26778,6 +27298,48 @@
       }
     ],
     "92087030": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "708 SLEEVE ELECTRODE 2626/32 V1616"
+      },
+      {
+        "callout": "708",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Electrode Sleeve"
+      },
       {
         "callout": "118",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
@@ -29016,6 +29578,48 @@
     ],
     "92086388": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "710 BRKT THERMISTOR V2632FFUG"
+      },
+      {
+        "callout": "710",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Retainer (Large)"
+      },
+      {
         "callout": "710",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
@@ -29951,6 +30555,27 @@
       }
     ],
     "92097187": [
+      {
+        "callout": "712",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Frost Sensing Switch-E"
+      },
       {
         "callout": "712",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -31608,6 +32233,27 @@
       }
     ],
     "92093301": [
+      {
+        "callout": "716",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Heater Fixing Plate"
+      },
       {
         "callout": "716",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -33287,6 +33933,27 @@
       }
     ],
     "92089051": [
+      {
+        "callout": "720",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Power Cord"
+      },
       {
         "callout": "720",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -35645,6 +36312,48 @@
     ],
     "92099988": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "727 SENSOR MR V2632FFUG VM2632FFUC"
+      },
+      {
+        "callout": "727",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "MR Sensor"
+      },
+      {
         "callout": "705",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
         "pageKey": "pl-reu-am3237wc-hd32__p3",
@@ -37278,6 +37987,27 @@
       }
     ],
     "92099961": [
+      {
+        "callout": "729",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Remote Controller Harness"
+      },
       {
         "callout": "732",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
@@ -39020,6 +39750,27 @@
     "92095032": [
       {
         "callout": "750",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Status Monitor Assembly"
+      },
+      {
+        "callout": "750",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 3,
@@ -39616,6 +40367,72 @@
       }
     ],
     "92062249": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p4",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "810 O RING THERMISTOR 2010 2402"
+      },
+      {
+        "callout": "810",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "O-Ring(P4)"
+      },
+      {
+        "callout": "208",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "O Ring Thermistor A AM VCM"
+      },
       {
         "callout": "500",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
@@ -41544,6 +42361,72 @@
       }
     ],
     "90195165": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p4",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "830 O RING (S4) TEST POINT 371TR"
+      },
+      {
+        "callout": "825",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "O-Ring(S4)"
+      },
+      {
+        "callout": "120",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "O Ring (S4) Testpoint 371TR ES"
+      },
       {
         "callout": "200",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
@@ -43521,6 +44404,48 @@
       }
     ],
     "92071182": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p4",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "813 O RING IN/OUT WATER 2402 V1616"
+      },
+      {
+        "callout": "813",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "O-Ring(P18)"
+      },
       {
         "callout": "506",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
@@ -45620,6 +46545,48 @@
     ],
     "92062199": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p4",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "814 O RING HEAT EXCH 2010/24WA"
+      },
+      {
+        "callout": "814",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "O-Ring(P16)"
+      },
+      {
         "callout": "505",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
         "pageKey": "pl-reu-am3237wc-hd32__p2",
@@ -47581,6 +48548,48 @@
     ],
     "92062207": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p4",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "815 O RING HEAT EXCH 2010/24WA V16"
+      },
+      {
+        "callout": "815",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "O-Ring(P14)"
+      },
+      {
         "callout": "504",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
         "pageKey": "pl-reu-am3237wc-hd32__p2",
@@ -49413,6 +50422,48 @@
       }
     ],
     "92062348": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p4",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "812 O RING 2010 2402 V1616/20WG"
+      },
+      {
+        "callout": "816",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "O-Ring(P7)"
+      },
       {
         "callout": "503",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
@@ -51301,6 +52352,48 @@
       }
     ],
     "92072859": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p4",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "817 O RING GAS CON 2010 V1616/20WG"
+      },
+      {
+        "callout": "817",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "O-Ring(P24)"
+      },
       {
         "callout": "201",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
@@ -59382,6 +60475,27 @@
     ],
     "90195157": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "101 SCREW TEST POINT"
+      },
+      {
         "callout": "101",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
         "pageKey": "pl-reu-am3237wc-hd32__p1",
@@ -61850,6 +62964,48 @@
     ],
     "92092253": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "707 LEAD HT V2626/32 V1620WG/WB/WS"
+      },
+      {
+        "callout": "707",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "High Tension Code"
+      },
+      {
         "callout": "707",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
@@ -63048,6 +64204,72 @@
       }
     ],
     "92076123": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "717 CLIP HEATER 2402 V2626/32 CUG1"
+      },
+      {
+        "callout": "718",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Heater Fixing Plate"
+      },
+      {
+        "callout": "731",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Clip Heater A AM Services VCM"
+      },
       {
         "callout": "717",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
@@ -64526,6 +65748,27 @@
     ],
     "92099497": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "2/3"
+      },
+      {
         "callout": "145",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
@@ -64919,6 +66162,72 @@
       }
     ],
     "92099560": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "404 BRKT HEX OUTLET HD ENVIRO"
+      },
+      {
+        "callout": "404",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Fixing Bracket"
+      },
+      {
+        "callout": "413",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32e",
+          "hdc32i"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "BRKT Hex Outlet VCM"
+      },
       {
         "callout": "404",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
@@ -75190,6 +76499,27 @@
     "92099234": [
       {
         "callout": "730",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "TWIN Thermistor"
+      },
+      {
+        "callout": "730",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 3,
@@ -76771,6 +78101,27 @@
       }
     ],
     "92098905": [
+      {
+        "callout": "18",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Cable Access Assembly"
+      },
       {
         "callout": "18",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -79612,6 +80963,27 @@
     "92097120": [
       {
         "callout": "422",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Drain Valve Assembly"
+      },
+      {
+        "callout": "422",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 2,
@@ -81780,6 +83152,51 @@
     "92071455": [
       {
         "callout": "823",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "O-Ring(P5)"
+      },
+      {
+        "callout": "513",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "O Ring Bypass E Series CUG1"
+      },
+      {
+        "callout": "823",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 4,
@@ -82090,6 +83507,27 @@
       }
     ],
     "92043223": [
+      {
+        "callout": "824",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "O-Ring(P6)"
+      },
       {
         "callout": "824",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -82967,6 +84405,27 @@
       }
     ],
     "92092485": [
+      {
+        "callout": "433",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Quick Fastener 12.7"
+      },
       {
         "callout": "433",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -85461,6 +86920,27 @@
     "92099932": [
       {
         "callout": "103",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Burner Unit Assembly-B"
+      },
+      {
+        "callout": "103",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 1,
@@ -85821,6 +87301,27 @@
       }
     ],
     "92099936": [
+      {
+        "callout": "109",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Damper-B"
+      },
       {
         "callout": "109",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -87075,6 +88576,27 @@
       }
     ],
     "92099942": [
+      {
+        "callout": "128",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Fan Connection Packing"
+      },
       {
         "callout": "128",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -88810,6 +90332,27 @@
       }
     ],
     "92095039": [
+      {
+        "callout": "726",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "220V Ignitor Harness"
+      },
       {
         "callout": "726",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -90965,6 +92508,30 @@
     ],
     "92099387": [
       {
+        "callout": "3",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p1",
+        "pageKey": "pl-reu-nb3237-hdc32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-nb3237-hdc32__p1",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "BRKT Wall N3237FFC"
+      },
+      {
         "callout": "1",
         "page": "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf p3",
         "pageKey": "pl-n3237-inf32-enviro-plus-issue3__p3",
@@ -92645,6 +94212,30 @@
     ],
     "92099413": [
       {
+        "callout": "112",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p1",
+        "pageKey": "pl-reu-nb3237-hdc32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-nb3237-hdc32__p1",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "O-Ring Fan N3237"
+      },
+      {
         "callout": "1",
         "page": "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf p3",
         "pageKey": "pl-n3237-inf32-enviro-plus-issue3__p3",
@@ -92945,6 +94536,30 @@
       }
     ],
     "92099419": [
+      {
+        "callout": "118",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Inlet Gas N3237"
+      },
       {
         "callout": "1",
         "page": "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf p3",
@@ -94567,6 +96182,30 @@
     ],
     "92099499": [
       {
+        "callout": "221",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Filter Air N3237FFC"
+      },
+      {
         "callout": "1",
         "page": "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf p3",
         "pageKey": "pl-n3237-inf32-enviro-plus-issue3__p3",
@@ -95407,6 +97046,30 @@
     ],
     "92099513": [
       {
+        "callout": "405",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "O-Ring B N3237"
+      },
+      {
         "callout": "1",
         "page": "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf p3",
         "pageKey": "pl-n3237-inf32-enviro-plus-issue3__p3",
@@ -96007,6 +97670,30 @@
     ],
     "92099523": [
       {
+        "callout": "411",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "O-Ring Pipe Bypass N3237"
+      },
+      {
         "callout": "1",
         "page": "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf p3",
         "pageKey": "pl-n3237-inf32-enviro-plus-issue3__p3",
@@ -96366,6 +98053,30 @@
       }
     ],
     "92099529": [
+      {
+        "callout": "409",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "O-Ring D N3237"
+      },
       {
         "callout": "432",
         "page": "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf p3",
@@ -98769,6 +100480,27 @@
     ],
     "92099583": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "760 HARNESS REMOTE N3237 E2626"
+      },
+      {
         "callout": "760",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p4",
@@ -99108,6 +100840,30 @@
     ],
     "92099587": [
       {
+        "callout": "463",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Valve Pressure Relief N3237"
+      },
+      {
         "callout": "1",
         "page": "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf p3",
         "pageKey": "pl-n3237-inf32-enviro-plus-issue3__p3",
@@ -99332,6 +101088,27 @@
     "92098929": [
       {
         "callout": "17",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Screw Cover Assembly"
+      },
+      {
+        "callout": "17",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 1,
@@ -99455,6 +101232,27 @@
     "92098901": [
       {
         "callout": "100",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Gas Controller Assembly"
+      },
+      {
+        "callout": "100",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 1,
@@ -99528,6 +101326,27 @@
       }
     ],
     "92098941": [
+      {
+        "callout": "103",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Burner Unit Assembly-C"
+      },
       {
         "callout": "103",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -99605,6 +101424,27 @@
     "92098998": [
       {
         "callout": "109",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Damper-C"
+      },
+      {
+        "callout": "109",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 1,
@@ -99678,6 +101518,27 @@
       }
     ],
     "92098909": [
+      {
+        "callout": "110",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Manifold Assembly -2 NG"
+      },
       {
         "callout": "110",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -99755,6 +101616,27 @@
     "92098907": [
       {
         "callout": "110",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Manifold Assembly -1  LPG"
+      },
+      {
+        "callout": "110",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 1,
@@ -99828,6 +101710,48 @@
       }
     ],
     "92093370": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "022 SEAL CONNECTOR VCM 2837"
+      },
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "1/3"
+      },
       {
         "callout": "8",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
@@ -100033,6 +101957,48 @@
       }
     ],
     "92098996": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "117 FLAME ROD KM2635WD KM3237WD"
+      },
+      {
+        "callout": "117",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Flame Rod"
+      },
       {
         "callout": "117",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
@@ -100255,6 +102221,27 @@
       }
     ],
     "92098908": [
+      {
+        "callout": "118",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Electrode Packing"
+      },
       {
         "callout": "118",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -100755,6 +102742,27 @@
     "92098932": [
       {
         "callout": "401",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Water Flow Servo & Sensor A"
+      },
+      {
+        "callout": "401",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 2,
@@ -100876,6 +102884,48 @@
       }
     ],
     "92098914": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "408 OUTLET WATER 3/4\" KM3237WD"
+      },
+      {
+        "callout": "408",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Hot Water Outlet 3/4"
+      },
       {
         "callout": "410",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
@@ -101071,6 +103121,27 @@
     ],
     "92098945": [
       {
+        "callout": "114",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "PLATE FRONT COMB"
+      },
+      {
         "callout": "2",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -101178,6 +103249,27 @@
       }
     ],
     "92092487": [
+      {
+        "callout": "442",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Condensate Trap Plug"
+      },
       {
         "callout": "442",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -101301,6 +103393,27 @@
       }
     ],
     "92098962": [
+      {
+        "callout": "447",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Conection Harness"
+      },
       {
         "callout": "447",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -101528,6 +103641,27 @@
     "92099385": [
       {
         "callout": "709",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Thermistor"
+      },
+      {
+        "callout": "709",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 3,
@@ -101601,6 +103735,27 @@
       }
     ],
     "92098972": [
+      {
+        "callout": "713",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Anti Frost Heater"
+      },
       {
         "callout": "713",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -101853,6 +104008,27 @@
       }
     ],
     "92098952": [
+      {
+        "callout": "722",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Power Harness"
+      },
       {
         "callout": "722",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -102128,6 +104304,27 @@
     "92098960": [
       {
         "callout": "731",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Solenoid Connection Harnes"
+      },
+      {
+        "callout": "731",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 3,
@@ -102203,6 +104400,27 @@
     "92099945": [
       {
         "callout": "440",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Condensate Trap"
+      },
+      {
+        "callout": "440",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 2,
@@ -102276,6 +104494,27 @@
     "92098958": [
       {
         "callout": "733",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Connection Harness"
+      },
+      {
+        "callout": "733",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 3,
@@ -102323,6 +104562,27 @@
       }
     ],
     "92098966": [
+      {
+        "callout": "734",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Fan Harness"
+      },
       {
         "callout": "734",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -102398,6 +104658,27 @@
       }
     ],
     "92098980": [
+      {
+        "callout": "744",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Heater And Harness"
+      },
       {
         "callout": "744",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -102521,6 +104802,48 @@
       }
     ],
     "92098368": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p4",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "818 O RING GAS CONTROL"
+      },
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "3/3"
+      },
       {
         "callout": "202",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
@@ -103325,6 +105648,27 @@
     "92098974": [
       {
         "callout": "715",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Valve Heater Assembly"
+      },
+      {
+        "callout": "715",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 3,
@@ -103546,6 +105890,27 @@
     "92093352": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "006 PANEL FRONT VCM2837WC"
+      },
+      {
+        "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
         "pdf": "Parts List REU-VCM2837 WC External.pdf",
@@ -103623,6 +105988,27 @@
     "92093344": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "006 PANEL FRONT 50C VCM2837WC"
+      },
+      {
+        "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
         "pdf": "Parts List REU-VCM2837 WC External.pdf",
@@ -103698,6 +106084,27 @@
       }
     ],
     "92098322": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "016 BRACE PANEL VCM2837"
+      },
       {
         "callout": "16",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
@@ -103801,6 +106208,27 @@
     "92098370": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "020 PLATE RELAY VCM2837WC"
+      },
+      {
+        "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
         "pdf": "Parts List REU-VCM2837 WC External.pdf",
@@ -103876,6 +106304,27 @@
       }
     ],
     "92093356": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "021 INLET POWER VCM2837"
+      },
       {
         "callout": "7",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
@@ -103998,6 +106447,27 @@
     ],
     "92093358": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "100 GAS CONTROL VCM2837"
+      },
+      {
         "callout": "100",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
@@ -104098,6 +106568,27 @@
       }
     ],
     "92093350": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "102 INLET GAS VCM2837"
+      },
       {
         "callout": "102",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
@@ -104201,6 +106692,27 @@
     "92093354": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "103 BURNER ASSY LPG VCM2337WC"
+      },
+      {
+        "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
         "pdf": "Parts List REU-VCM2837 WC External.pdf",
@@ -104276,6 +106788,27 @@
       }
     ],
     "92098324": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "103 BURNER ASSY NG VCM2837"
+      },
       {
         "callout": "103",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
@@ -104378,6 +106911,27 @@
     ],
     "92098326": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "110 MANIFOLD ASSY LPG VCM2837"
+      },
+      {
         "callout": "110",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
@@ -104478,6 +107032,27 @@
       }
     ],
     "92098328": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "110 MANIFOLD ASSY NG VCM2837"
+      },
       {
         "callout": "110",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
@@ -104580,6 +107155,27 @@
     ],
     "92098330": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "114 COMB CHAMBER ELECTRODE ASSY"
+      },
+      {
         "callout": "114",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
@@ -104680,6 +107276,27 @@
       }
     ],
     "92098332": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "116 ELECTRODE VCM2837"
+      },
       {
         "callout": "116",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
@@ -104783,6 +107400,27 @@
     "92098372": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "125 FAN CONB ASSY VCM2837WC"
+      },
+      {
+        "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
         "pdf": "Parts List REU-VCM2837 WC External.pdf",
@@ -104858,6 +107496,27 @@
       }
     ],
     "92093366": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "128 PACKING FAN CASE VCM2837"
+      },
       {
         "callout": "128",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
@@ -104961,6 +107620,27 @@
     "92098374": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "135 EXHAUST ASSY VCM2837WC"
+      },
+      {
+        "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
         "pdf": "Parts List REU-VCM2837 WC External.pdf",
@@ -105038,6 +107718,27 @@
     "92093364": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "143 HEAT EXCH VCM2837WC"
+      },
+      {
+        "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
         "pdf": "Parts List REU-VCM2837 WC External.pdf",
@@ -105113,6 +107814,27 @@
       }
     ],
     "92098346": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "401 WATER FLOW SENSOR VCM2837"
+      },
       {
         "callout": "401",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
@@ -105215,6 +107937,27 @@
     ],
     "92098348": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "403 BYPASS SERVO ASSY VCM2837"
+      },
+      {
         "callout": "403",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
@@ -105315,6 +108058,27 @@
       }
     ],
     "92098350": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "461 TURBINE WATERFLOW VCM2837"
+      },
       {
         "callout": "461",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
@@ -105417,6 +108181,27 @@
     ],
     "92093368": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "700 PCB MAIN VCM2837"
+      },
+      {
         "callout": "700",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
@@ -105518,6 +108303,27 @@
     ],
     "92093369": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "700 PCB MAIN  50C VCM2837"
+      },
+      {
         "callout": "700",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
@@ -105618,6 +108424,27 @@
       }
     ],
     "92093372": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "709 THERMISTOR VCM2837"
+      },
       {
         "callout": "722",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
@@ -105740,6 +108567,27 @@
     ],
     "92093362": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "719 HARNESS SOLENOID VCM2837"
+      },
+      {
         "callout": "719",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
@@ -105840,6 +108688,27 @@
       }
     ],
     "92099732": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "720 ELEC CORD A SERIES"
+      },
       {
         "callout": "724",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
@@ -106130,6 +108999,27 @@
     ],
     "92098354": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "722 HARNESS SPARKER VCM2837"
+      },
+      {
         "callout": "722",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
@@ -106232,6 +109122,27 @@
     "92093348": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "724 HARNESS SENSOR VCM2837WC"
+      },
+      {
+        "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
         "pdf": "Parts List REU-VCM2837 WC External.pdf",
@@ -106307,6 +109218,27 @@
       }
     ],
     "92098356": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "725 HARNESS FUSE VCM2837"
+      },
       {
         "callout": "725",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
@@ -106409,6 +109341,27 @@
     ],
     "92093360": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "726 HARNESS POWER VCM2837"
+      },
+      {
         "callout": "726",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
@@ -106510,6 +109463,27 @@
     ],
     "92098358": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "728 PLATE SPARKER VCM2837"
+      },
+      {
         "callout": "728",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
@@ -106610,6 +109584,27 @@
       }
     ],
     "92099730": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "730 THERMISTOR TWIN A SERIES"
+      },
       {
         "callout": "720",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
@@ -106958,6 +109953,27 @@
     ],
     "92098360": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "731 HARNESS SOLENOID VCM2837"
+      },
+      {
         "callout": "731",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
@@ -107060,6 +110076,27 @@
     "92098376": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "732 THERMISTOR VCM2837WC"
+      },
+      {
+        "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
         "pdf": "Parts List REU-VCM2837 WC External.pdf",
@@ -107135,6 +110172,27 @@
       }
     ],
     "92098362": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "740 HEATER WATERFLOW VCM2837"
+      },
       {
         "callout": "708",
         "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
@@ -107257,6 +110315,27 @@
     ],
     "92098364": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "741 HEATER HEX VCM2837"
+      },
+      {
         "callout": "741",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p4",
@@ -107359,6 +110438,27 @@
     "92098378": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "742 HEATER BLOCK VCM2837WC"
+      },
+      {
+        "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
         "pdf": "Parts List REU-VCM2837 WC External.pdf",
@@ -107436,6 +110536,27 @@
     "92098380": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "750 RELAY VCM2837WC"
+      },
+      {
+        "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
         "pdf": "Parts List REU-VCM2837 WC External.pdf",
@@ -107511,6 +110632,27 @@
       }
     ],
     "92098382": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p3",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "751 HARNESS RELAY VCM2837WC"
+      },
       {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
@@ -118909,6 +122051,30 @@
       }
     ],
     "92067040": [
+      {
+        "callout": "115",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "O-Ring Gas N3237"
+      },
       {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -131969,6 +135135,30 @@
     ],
     "92099139": [
       {
+        "callout": "710",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Elec Cord NB3237"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - 2025 BM SERIES - INFINITY B - ISSUE 1 - AUG 2025.pdf p4",
         "pageKey": "pl-rinnai-2025-bm-series-infinity-b__p4",
@@ -134663,6 +137853,27 @@
     "92099443": [
       {
         "callout": "143",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Heat Exchanger Assembly"
+      },
+      {
+        "callout": "143",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 2,
@@ -134684,6 +137895,27 @@
       }
     ],
     "92099449": [
+      {
+        "callout": "700",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Electric Control Unit  Assemb"
+      },
       {
         "callout": "700",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -142702,6 +145934,27 @@
     ],
     "92098334": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "118 ELECTRODE HOLDER VCM2837"
+      },
+      {
         "callout": "118",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
         "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
@@ -142727,6 +145980,27 @@
       }
     ],
     "92098336": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p2",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "119 PACKING ELECTRODE VCM2837"
+      },
       {
         "callout": "119",
         "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
@@ -143031,6 +146305,1891 @@
         ],
         "priority": 23,
         "name": "HEATER BLOCK VCM2837FFC"
+      }
+    ],
+    "92099043": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p1",
+        "pageKey": "pl-reu-nb3237-hdc32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-nb3237-hdc32__p1",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Panel Front NB3237 WC FFC"
+      }
+    ],
+    "92099045": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p1",
+        "pageKey": "pl-reu-nb3237-hdc32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-nb3237-hdc32__p1",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32e",
+          "hdc32i"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Panel Front NB3237 ENVIRO"
+      }
+    ],
+    "92099047": [
+      {
+        "callout": "16",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p1",
+        "pageKey": "pl-reu-nb3237-hdc32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-nb3237-hdc32__p1",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Sparker NB3237"
+      }
+    ],
+    "92099076": [
+      {
+        "callout": "18",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p1",
+        "pageKey": "pl-reu-nb3237-hdc32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-nb3237-hdc32__p1",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Lock Patch NB3237"
+      }
+    ],
+    "92099049": [
+      {
+        "callout": "19",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p1",
+        "pageKey": "pl-reu-nb3237-hdc32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-nb3237-hdc32__p1",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Relay NB3237"
+      }
+    ],
+    "92099051": [
+      {
+        "callout": "20",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p1",
+        "pageKey": "pl-reu-nb3237-hdc32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-nb3237-hdc32__p1",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Thermistor Case NB3237"
+      }
+    ],
+    "92099053": [
+      {
+        "callout": "102",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p1",
+        "pageKey": "pl-reu-nb3237-hdc32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-nb3237-hdc32__p1",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Gasket Set HEX NB3237"
+      }
+    ],
+    "92099055": [
+      {
+        "callout": "103",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p1",
+        "pageKey": "pl-reu-nb3237-hdc32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-nb3237-hdc32__p1",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Valve Flap NB3237"
+      }
+    ],
+    "92099057": [
+      {
+        "callout": "110",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p1",
+        "pageKey": "pl-reu-nb3237-hdc32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-nb3237-hdc32__p1",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Fan Comb Assy NB3237"
+      }
+    ],
+    "92099059": [
+      {
+        "callout": "111",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p1",
+        "pageKey": "pl-reu-nb3237-hdc32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-nb3237-hdc32__p1",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Gasket Fan NB3237"
+      }
+    ],
+    "92099061": [
+      {
+        "callout": "114",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p1",
+        "pageKey": "pl-reu-nb3237-hdc32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-nb3237-hdc32__p1",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Gas Control NB3237"
+      }
+    ],
+    "92099063": [
+      {
+        "callout": "117",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "BRKT Pipe Gas NB3237"
+      }
+    ],
+    "92099065": [
+      {
+        "callout": "130",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Heat Exch NB3237"
+      }
+    ],
+    "92099067": [
+      {
+        "callout": "135",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "OHS NB3237"
+      }
+    ],
+    "92099069": [
+      {
+        "callout": "138",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Thermistor HEX NB3237"
+      }
+    ],
+    "92099071": [
+      {
+        "callout": "145",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Condensate Trap NB3237"
+      }
+    ],
+    "92099073": [
+      {
+        "callout": "147",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Pipe Drain Short NB3237"
+      }
+    ],
+    "92099075": [
+      {
+        "callout": "148",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Pipe Drain Long NB3237"
+      }
+    ],
+    "92099044": [
+      {
+        "callout": "150",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Comb Chamber Electrode Assy"
+      }
+    ],
+    "92099077": [
+      {
+        "callout": "151",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Electrode NB3237"
+      }
+    ],
+    "92099079": [
+      {
+        "callout": "152",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Flame Rod NB3237"
+      }
+    ],
+    "92099081": [
+      {
+        "callout": "153",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Gasket Electrode NB3237"
+      }
+    ],
+    "92099083": [
+      {
+        "callout": "156",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Sleeve Electrode NB3237"
+      }
+    ],
+    "92099085": [
+      {
+        "callout": "201",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Exhaust Assy NB3237"
+      }
+    ],
+    "92099087": [
+      {
+        "callout": "202",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "O-Ring Exhaust NB3237"
+      }
+    ],
+    "92099089": [
+      {
+        "callout": "203",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Gasket Exhaust NB3237"
+      }
+    ],
+    "92099091": [
+      {
+        "callout": "204",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p2",
+        "pageKey": "pl-reu-nb3237-hdc32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-nb3237-hdc32__p2",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Thermistor Flue NB3237"
+      }
+    ],
+    "92099093": [
+      {
+        "callout": "205",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "O-Ring Thermistor NB3237"
+      }
+    ],
+    "92099095": [
+      {
+        "callout": "206",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Gasket Exhaust Duct NB3237"
+      }
+    ],
+    "92099097": [
+      {
+        "callout": "400",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Inlet Water NB3237"
+      }
+    ],
+    "92099099": [
+      {
+        "callout": "401",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Filter Water NB3237"
+      }
+    ],
+    "92099155": [
+      {
+        "callout": "402",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32e",
+          "hdc32i"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Waterflow Servo NB3237 ENVIRO"
+      }
+    ],
+    "92099101": [
+      {
+        "callout": "403",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32e",
+          "hdc32i"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Waterflow Servo NB3237WC FFC"
+      }
+    ],
+    "92099103": [
+      {
+        "callout": "404",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Clip Pipe A NB3237"
+      }
+    ],
+    "92099105": [
+      {
+        "callout": "408",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Thermistor Waterflow NB3237"
+      }
+    ],
+    "92099107": [
+      {
+        "callout": "410",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Pipe Connect A NB3237"
+      }
+    ],
+    "92099109": [
+      {
+        "callout": "414",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Clip Pipe B NB3237"
+      }
+    ],
+    "92099111": [
+      {
+        "callout": "416",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Turbine Water Flow NB3237"
+      }
+    ],
+    "92099113": [
+      {
+        "callout": "418",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32e",
+          "hdc32i"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Plate Guide Thermistor NB3237"
+      }
+    ],
+    "92099115": [
+      {
+        "callout": "419",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p3",
+        "pageKey": "pl-reu-nb3237-hdc32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-nb3237-hdc32__p3",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Clip Pipe C NB3237"
+      }
+    ],
+    "92099117": [
+      {
+        "callout": "420",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Pipe Connect B NB3237"
+      }
+    ],
+    "92099119": [
+      {
+        "callout": "442",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Clip Pipe D NB3237"
+      }
+    ],
+    "92099121": [
+      {
+        "callout": "443",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "BRKT Pipe Water Outlet NB3237"
+      }
+    ],
+    "92099123": [
+      {
+        "callout": "450",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Pipe Bypass NB3237"
+      }
+    ],
+    "92099125": [
+      {
+        "callout": "452",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Clip Pipe E NB3237"
+      }
+    ],
+    "92099127": [
+      {
+        "callout": "462",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Outlet Water NB3237"
+      }
+    ],
+    "92099129": [
+      {
+        "callout": "464",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "O-Ring Valve NB3237"
+      }
+    ],
+    "92099131": [
+      {
+        "callout": "465",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Thermistor Outlet NB3237"
+      }
+    ],
+    "92099133": [
+      {
+        "callout": "466",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Thermistor Lime Detect NB3237"
+      }
+    ],
+    "92099135": [
+      {
+        "callout": "512",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Plug Drain Assy NB3237"
+      }
+    ],
+    "92099137": [
+      {
+        "callout": "700",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "PCB Main NB3237"
+      }
+    ],
+    "92099141": [
+      {
+        "callout": "714",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Harness Sensors NB3237"
+      }
+    ],
+    "92099143": [
+      {
+        "callout": "715",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Harness Heater NB3237"
+      }
+    ],
+    "92099145": [
+      {
+        "callout": "719",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Harness GND Ignite NB3237"
+      }
+    ],
+    "92099147": [
+      {
+        "callout": "720",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Heater Antifrost A NB3237"
+      }
+    ],
+    "92099149": [
+      {
+        "callout": "722",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Heater Antifrost B NB3237"
+      }
+    ],
+    "92099151": [
+      {
+        "callout": "723",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Heater Valve Assy NB3237"
+      }
+    ],
+    "92099153": [
+      {
+        "callout": "724",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p4",
+        "pageKey": "pl-reu-nb3237-hdc32__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-nb3237-hdc32__p4",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Heater Antifrost C NB3237"
+      }
+    ],
+    "92099157": [
+      {
+        "callout": "750",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p5",
+        "pageKey": "pl-reu-nb3237-hdc32__p5",
+        "listPage": 5,
+        "listPageKey": "pl-reu-nb3237-hdc32__p5",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Harness Relay NB3237"
+      }
+    ],
+    "92099078": [
+      {
+        "callout": "806",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p5",
+        "pageKey": "pl-reu-nb3237-hdc32__p5",
+        "listPage": 5,
+        "listPageKey": "pl-reu-nb3237-hdc32__p5",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32i",
+          "hdc32e"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "Screw Lock NB3237"
+      }
+    ],
+    "92099154": [
+      {
+        "callout": "870",
+        "page": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf p5",
+        "pageKey": "pl-reu-nb3237-hdc32__p5",
+        "listPage": 5,
+        "listPageKey": "pl-reu-nb3237-hdc32__p5",
+        "pdf": "PL - RINNAI - NB SERIES - REU-NB3237 - INF ENVIRO32 - ISSUE 2 - SEP 2026.pdf",
+        "stem": "pl-reu-nb3237-hdc32",
+        "seriesIds": [
+          "hdc32e",
+          "hdc32i"
+        ],
+        "chassisTokens": [
+          "NB3237",
+          "NB3237WC",
+          "NB3237FFC",
+          "REU-NB3237",
+          "HDC32e",
+          "HDC32i",
+          "HDC32"
+        ],
+        "priority": 24,
+        "name": "VENT CAP INFINITY ENVIRO 32"
+      }
+    ],
+    "92099425": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Main Body Assembly"
+      }
+    ],
+    "92099424": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Wall Bracket"
+      }
+    ],
+    "92099435": [
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Front Panel Assembly-3-C"
+      }
+    ],
+    "92099431": [
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Front Panel Assembly-3-E"
+      }
+    ],
+    "92099439": [
+      {
+        "callout": "125",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p1",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p1",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Fan Motor All Assembly"
+      }
+    ],
+    "92099445": [
+      {
+        "callout": "144",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Flue Connection Assembly"
+      }
+    ],
+    "92099447": [
+      {
+        "callout": "160",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p2",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p2",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Heat Exchanger,Secondary"
+      }
+    ],
+    "92099453": [
+      {
+        "callout": "721",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Fuse Harness"
+      }
+    ],
+    "92099455": [
+      {
+        "callout": "724",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Sensor Harness"
+      }
+    ],
+    "92099457": [
+      {
+        "callout": "725",
+        "page": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf p3",
+        "pageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237ffudc-hdc211i__p3",
+        "pdf": "PL - RINNAI - INF32 - REU-KM3237FFUDC-AK - ISSUE 3 - JUNE 2025.pdf",
+        "stem": "pl-reu-km3237ffudc-hdc211i",
+        "seriesIds": [
+          "hdc211i"
+        ],
+        "chassisTokens": [
+          "KM3237FFUDC",
+          "REU-KM3237FFUDC",
+          "REUKM3237FFUDC",
+          "HDC211i",
+          "HDC211I"
+        ],
+        "priority": 24,
+        "name": "Temperature Fuse Harness"
+      }
+    ],
+    "92093346": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "BRKT WALL VCM2837WC"
+      }
+    ],
+    "92098325": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "109 DAMPER LPG VCM2837WC"
+      }
+    ],
+    "92098327": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf p1",
+        "pageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-wc-issue5__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf",
+        "stem": "pl-reu-vcm2837-wc-issue5",
+        "seriesIds": [
+          "hd28e"
+        ],
+        "chassisTokens": [
+          "VCM2837WC",
+          "REU-VCM2837WC",
+          "REUVCM2837WC",
+          "HD28e",
+          "HD28E"
+        ],
+        "priority": 24,
+        "name": "109 DAMPER NG VCM2837WC"
       }
     ]
   }
