@@ -15,7 +15,11 @@
  * chassis’ BOM into results or Primary. Everything (Pin 1 override) skips this.
  */
 
-import { documentKeysForPin } from "./series.js";
+import {
+  documentKeysForPin,
+  accessorySkuPartsForSeries,
+  isAccessoryFamilySeries,
+} from "./series.js";
 import { unitClassOf, seriesKeyMatchesTag, normalise as normaliseKey } from "./documents.js";
 import {
   expandDisplayTitle,
@@ -1252,9 +1256,30 @@ export function searchParts(catalogue, query, modelId = null, opts = {}) {
 
   const results = [];
 
-  for (const part of catalogue.parts || []) {
+  // Accessory-family Pin2 (Demand Duo DDUPS / DDTSTAT / UVC): surface finished-goods
+  // SKUs as normal part cards. They are not chassis — skip Pin3 PL/ED fence.
+  const accessoryParts =
+    pinCtx?.kind === "series" && isAccessoryFamilySeries(pinCtx.series)
+      ? accessorySkuPartsForSeries(catalogue, pinCtx.series)
+      : [];
+  const partPool = accessoryParts.length
+    ? [...accessoryParts, ...(catalogue.parts || [])]
+    : catalogue.parts || [];
+  // Avoid duplicate cards when a real price row shares an accessory code.
+  const seenCodes = new Set();
+
+  for (const part of partPool) {
+    const codeKey = String(part.code || "").trim().toUpperCase();
+    if (codeKey) {
+      if (seenCodes.has(codeKey)) continue;
+      seenCodes.add(codeKey);
+    }
     if (isPartVisible && !isPartVisible(part)) continue;
-    if (pin3AllowSet && !pin3AllowSet.has(String(part.code || "").trim())) {
+    if (
+      pin3AllowSet &&
+      !part.accessorySku &&
+      !pin3AllowSet.has(String(part.code || "").trim())
+    ) {
       continue;
     }
 

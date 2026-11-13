@@ -64,11 +64,23 @@ const cfEmpty = suggestSeriesPins(catalogue, seriesDoc, "", {
 assert(cfEmpty.includes("hd28e"), "CF empty Pin2 still lists hd28e");
 assert(cfEmpty.includes("hd200e"), "CF empty Pin2 still lists hd200e");
 assert(
-  !cfEmpty.includes("demand-duo"),
-  "CF empty Pin2 must not list Demand Duo"
+  !cfEmpty.includes("demand-duo") &&
+    !cfEmpty.includes("ddups") &&
+    !cfEmpty.includes("ddtstat") &&
+    !cfEmpty.includes("dduvc"),
+  "CF empty Pin2 must not list Demand Duo accessory families"
 );
+
+const ddEmpty = suggestSeriesPins(catalogue, seriesDoc, "", {
+  systemTypeId: "system:demand-duo",
+  limit: 50,
+}).map((s) => s.series?.id);
+assert(ddEmpty.includes("ddups"), "Demand Duo Pin2 lists DDUPS");
+assert(ddEmpty.includes("ddtstat"), "Demand Duo Pin2 lists DDTSTAT");
+assert(ddEmpty.includes("dduvc"), "Demand Duo Pin2 lists UVC/DDUVC");
 
 console.log("ok smoke-pin2-system-series", {
   newClasses: NEW_CLASSES.length,
   cfEmptyCount: cfEmpty.length,
+  ddEmpty,
 });

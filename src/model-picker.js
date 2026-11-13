@@ -19,6 +19,7 @@ import {
   seriesForModel,
   normalise,
   findSeries,
+  isAccessoryFamilySeries,
 } from "./series.js";
 import {
   isModelRestricted,
@@ -84,7 +85,8 @@ function withRestriction(suggestion, catalogue, seriesDoc) {
  * @param {{ limit?: number, systemTypeId?: string|null }} [opts]
  */
 export function suggestSeriesPins(catalogue, seriesDoc, query, opts = {}) {
-  const limit = opts.limit ?? 14;
+  // High enough that CF’s full series list scrolls in the listbox (~10 rows visible).
+  const limit = opts.limit ?? 60;
   const scopedId = String(opts.systemTypeId || "")
     .replace(/^system:/, "")
     .trim()
@@ -163,7 +165,8 @@ export function suggestItemNumberPins(
   query,
   opts = {}
 ) {
-  const limit = opts.limit ?? 16;
+  // High enough that Infinity 26’s full Item Number list scrolls (~10 rows visible).
+  const limit = opts.limit ?? 60;
   if (!seriesId) return [];
 
   const series =
@@ -382,6 +385,11 @@ function seriesSubtitle(series, count) {
   if (series.provisional) bits.push("provisional");
   if (series.region) bits.push(series.region);
   if (series.status) bits.push(series.status);
+  if (isAccessoryFamilySeries(series)) {
+    bits.push("accessory family");
+    bits.push(`${count} SKU${count === 1 ? "" : "s"}`);
+    return bits.join(" · ");
+  }
   const aliases = series.aliases || [];
   const alias =
     aliases.find((a) => /^REU-/i.test(String(a))) ||
@@ -690,14 +698,14 @@ export function bindModelPicker(root, ctx) {
         ctx.seriesDoc,
         seriesId,
         input.value,
-        { limit: 16 }
+        { limit: 60 }
       );
     } else {
       suggestions = suggestSeriesPins(
         ctx.catalogue,
         ctx.seriesDoc,
         input.value,
-        { limit: 14, systemTypeId: currentSystemTypeId() }
+        { limit: 60, systemTypeId: currentSystemTypeId() }
       );
     }
     activeIndex = suggestions.length ? 0 : -1;

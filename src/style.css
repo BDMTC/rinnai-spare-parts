@@ -1028,7 +1028,8 @@ input[type="number"]:focus {
   margin: 0;
   padding: 0.35rem;
   list-style: none;
-  max-height: min(22rem, 55vh);
+  /* ~10 two-line Pin2/Pin3 rows visible, then scroll (Beau). */
+  max-height: min(calc(10 * 3.45rem + 0.7rem), 70vh);
   overflow: auto;
   background: var(--panel-solid);
   border: 1px solid var(--line);
