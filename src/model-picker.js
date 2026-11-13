@@ -7,6 +7,7 @@
 import { getModelLabel, getModelDisplayName } from "./search.js";
 import {
   getModelCommercialName,
+  getModelFuelKind,
   getModelShortCode,
   getSeriesCommercialName,
 } from "./model-commercial-name.js";
@@ -190,6 +191,7 @@ export function suggestItemNumberPins(
     }
 
     const label = itemPinLabel(model);
+    const fuelKind = getModelFuelKind(model, series);
     results.push(
       withRestriction(
         {
@@ -200,6 +202,7 @@ export function suggestItemNumberPins(
           series,
           model,
           score,
+          fuelKind,
         },
         catalogue,
         seriesDoc
@@ -207,7 +210,9 @@ export function suggestItemNumberPins(
     );
   }
 
-  return rankSuggestions(results).slice(0, limit);
+  return rankSuggestions(results, {
+    groupFuel: !qNorm,
+  }).slice(0, limit);
 }
 
 /**
@@ -259,10 +264,24 @@ export function suggestModelPins(catalogue, seriesDoc, query, opts = {}) {
 }
 
 /**
- * Unrestricted first, then restricted/greyed. Series before models when mixed.
- * @param {Array<object>} results
+ * Fuel sort: Nat Gas → LPG → Butane / unknown.
+ * @param {string|null|undefined} kind
  */
-function rankSuggestions(results) {
+function fuelSortRank(kind) {
+  if (kind === "nat-gas") return 0;
+  if (kind === "lpg") return 1;
+  if (kind === "butane") return 2;
+  return 3;
+}
+
+/**
+ * Unrestricted first, then restricted/greyed. Series before models when mixed.
+ * Pin 2 empty browse: Nat Gas block, then LPG (within active / restricted tiers).
+ * @param {Array<object>} results
+ * @param {{ groupFuel?: boolean }} [opts]
+ */
+function rankSuggestions(results, opts = {}) {
+  const groupFuel = Boolean(opts.groupFuel);
   return results.sort((a, b) => {
     const aRestricted = a.restricted ? 1 : 0;
     const bRestricted = b.restricted ? 1 : 0;
@@ -272,7 +291,15 @@ function rankSuggestions(results) {
       const bSeries = b.kind === "series" ? 1 : 0;
       if (bSeries !== aSeries) return bSeries - aSeries;
     }
+    if (groupFuel) {
+      const fuelCmp = fuelSortRank(a.fuelKind) - fuelSortRank(b.fuelKind);
+      if (fuelCmp !== 0) return fuelCmp;
+    }
     if (b.score !== a.score) return b.score - a.score;
+    if (!groupFuel) {
+      const fuelCmp = fuelSortRank(a.fuelKind) - fuelSortRank(b.fuelKind);
+      if (fuelCmp !== 0) return fuelCmp;
+    }
     return String(a.label).localeCompare(String(b.label));
   });
 }
@@ -303,6 +330,21 @@ export function highlightInstallLabelHtml(text) {
     (word) => {
       const kind = word.toLowerCase() === "external" ? "external" : "internal";
       return `<span class="pin-install pin-install--${kind}">${word}</span>`;
+    }
+  );
+}
+
+/**
+ * Colour Nat Gas (blue) / LPG (red) in Pin 2 row text (subtitle commercial names).
+ * @param {string} text
+ * @returns {string} HTML (escaped, with fuel spans)
+ */
+export function highlightFuelLabelHtml(text) {
+  return escapeHtml(String(text || "")).replace(
+    /\b(Nat Gas|LPG)\b/g,
+    (word) => {
+      const kind = word === "LPG" ? "lpg" : "nat-gas";
+      return `<span class="pin-fuel pin-fuel--${kind}">${word}</span>`;
     }
   );
 }
@@ -536,9 +578,13 @@ export function bindModelPicker(root, ctx) {
         mode === "series"
           ? highlightInstallLabelHtml(s.label)
           : escapeHtml(s.label);
+      const subHtml =
+        mode === "item"
+          ? highlightFuelLabelHtml(s.subtitle || "")
+          : escapeHtml(s.subtitle || "");
       li.innerHTML = `
         <span class="model-option-label">${labelHtml}</span>
-        <span class="model-option-sub">${escapeHtml(s.subtitle || "")}</span>
+        <span class="model-option-sub">${subHtml}</span>
         <span class="model-option-kind">${escapeHtml(kindLabel)}</span>
       `;
       li.addEventListener("mousedown", (e) => {
