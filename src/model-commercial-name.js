@@ -12,10 +12,10 @@
  *   HD210EN42 → Heavy Duty 210 External Nat Gas 42 Degree
  *   EHFA160S18 → Hotflo EHFA160 Vitreous Enamel S18
  *   ECF14I50 → Efinity ECF 14 Internal 50 Degree
- *   DDUPS2580N → Demand Duo Grundfos Circulation Pump 2580 Brass Body
+ *   DDUPS2580N → Demand Duo Grundfos Circulation Pump 2580 Stainless Body
  *   series HD200e → Heavy Duty 200 External
  *
- * DDUPS / DDUPM trailing N is pump body material (brass), not Nat Gas.
+ * DDUPS / DDUPM trailing N is pump body material (stainless), not Nat Gas.
  */
 
 const FUEL_WORDS = {
@@ -29,9 +29,9 @@ const FUEL_WORDS = {
   BUTANE: "Butane",
 };
 
-/** Grundfos / DDUPS·DDUPM body letter — not fuel. Beau: N = brass body. */
+/** Grundfos / DDUPS·DDUPM body letter — not fuel. Beau: N = stainless body. */
 const DDUPS_BODY_WORDS = {
-  N: "Brass Body",
+  N: "Stainless Body",
 };
 
 /**
@@ -492,7 +492,7 @@ function deriveCommercialNameFromSku(sku, model, series) {
     ]);
   }
 
-  // Demand Duo accessories — trailing N on DDUPS/DDUPM = brass body (not Nat Gas)
+  // Demand Duo accessories — trailing N on DDUPS/DDUPM = stainless body (not Nat Gas)
   m = raw.match(/^DDUPS(\d+)([NLB])?$/);
   if (m) {
     const body = m[2] ? DDUPS_BODY_WORDS[m[2]] || m[2] : "";

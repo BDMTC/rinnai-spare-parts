@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * RSP-115 / RSP-123: Demand Duo accessory families → part cards; Pin3 commercial
- * names; accessory Pin3 = sole SKU card; DDUPS trailing N = brass body (not NG).
+ * names; accessory Pin3 = sole SKU card; DDUPS trailing N = stainless body (not NG).
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -171,14 +171,18 @@ assert(
   `Pin3 DD56TSTAT sole card, got ${tstatOnly.join(",")}`
 );
 
-// DDUPS trailing N = brass body, never Nat Gas fuel colouring
+// DDUPS trailing N = stainless body, never Nat Gas fuel colouring
 assert(
-  /Brass Body/i.test(getModelCommercialName(modelPin.model, modelPin.series)),
-  "DDUPS2580N commercial must say Brass Body"
+  /Stainless Body/i.test(getModelCommercialName(modelPin.model, modelPin.series)),
+  "DDUPS2580N commercial must say Stainless Body"
 );
 assert(
   !/Nat Gas/i.test(getModelCommercialName(modelPin.model, modelPin.series)),
   "DDUPS2580N must not say Nat Gas"
+);
+assert(
+  !/Brass/i.test(getModelCommercialName(modelPin.model, modelPin.series)),
+  "DDUPS2580N must not say Brass"
 );
 assert(
   getModelFuelKind(modelPin.model, modelPin.series) === "",
