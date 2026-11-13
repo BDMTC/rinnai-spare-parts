@@ -15,6 +15,8 @@ import hd210i from "./assets/service-manual-pages/hd210i__p1.jpg";
 import hd250e from "./assets/service-manual-pages/hd250e__p1.jpg";
 import infinityB from "./assets/service-manual-pages/infinity-b__p1.jpg";
 import envirosmart from "./assets/service-manual-pages/envirosmart__p1.jpg";
+import infinity16 from "./assets/service-manual-pages/infinity16__p1.jpg";
+import infinity20 from "./assets/service-manual-pages/infinity20__p1.jpg";
 
 /** @type {Record<string, Record<string, string>>} */
 const SM_PACK_GLOBS = {
@@ -56,6 +58,10 @@ const SM_PACK_GLOBS = {
   ),
   "sm-k2430wak": import.meta.glob(
     "./assets/service-manual-pages/sm-k2430wak__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-vreu-vr1620-vr2024": import.meta.glob(
+    "./assets/service-manual-pages/sm-vreu-vr1620-vr2024__p*.jpg",
     { eager: true, import: "default" }
   ),
 };
@@ -161,6 +167,18 @@ const SERIES_SERVICE_MANUALS = {
     label: "smK2430WAK.pdf p1",
     source: "smK2430WAK.pdf",
     packId: "sm-k2430wak",
+  },
+  infinity16: {
+    url: infinity16,
+    label: "smvREUVR1616W_VR2024_v2.pdf p1",
+    source: "smvREUVR1616W_VR2024_v2.pdf",
+    packId: "sm-vreu-vr1620-vr2024",
+  },
+  infinity20: {
+    url: infinity20,
+    label: "smvREUVR1616W_VR2024_v2.pdf p1",
+    source: "smvREUVR1616W_VR2024_v2.pdf",
+    packId: "sm-vreu-vr1620-vr2024",
   },
 };
 

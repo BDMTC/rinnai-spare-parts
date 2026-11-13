@@ -506,6 +506,64 @@
       "notes": "AU Infinity B family (REU-BM1220W / BM1620W / BM2024W / BM2626W + solar BM1620WS / BM2626WS). Pin match is chassis Item Number only \u2014 marketing INF12/16/20/26*B codes collide with AM/heritage INF prefixes so they are not used as prefixes. Bare B26 typeahead alias avoided (heritage A2626/VR2626WB). Cover-true SM: HW_CF_BM_SM BM2626 & B26 Series; PL: 2025 BM SERIES Infinity B Issue 1."
     },
     {
+      "id": "infinity16",
+      "label": "Infinity 16",
+      "aliases": [
+        "Infinity 16",
+        "REU-VR1620WG",
+        "VR1620WG",
+        "REU-VR1620WB",
+        "VR1620WB",
+        "REU-VR1620WS",
+        "VR1620WS",
+        "REUVR1620WG",
+        "REUVR1620WB",
+        "REUVR1620WS"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUVR1620WG",
+          "VR1620WG",
+          "REUVR1620WB",
+          "VR1620WB",
+          "REUVR1620WS",
+          "VR1620WS"
+        ]
+      },
+      "documentKeys": [
+        "Infinity 16",
+        "VR1620WG",
+        "VR1620WB",
+        "VR1620WS",
+        "REU-VR1620WG",
+        "REU-VR1620WB",
+        "REU-VR1620WS"
+      ],
+      "notes": "Heritage AU Infinity 16 on REU-VR1620WG / WB / WS (INF16* + B16* + S20* solar booster). Pin match is chassis Item Number only \u2014 marketing INF16* collides with AM1620 / BM1620 / VRM1620. Cover-true SM: smvREUVR1616W_VR2024_v2.pdf; PL: EDPL VR1620.pdf. Not Infinity B (BM) or Infinity A (AM)."
+    },
+    {
+      "id": "infinity20",
+      "label": "Infinity 20",
+      "aliases": [
+        "Infinity 20",
+        "REU-VR2024WG",
+        "VR2024WG",
+        "REUVR2024WG"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUVR2024WG",
+          "VR2024WG"
+        ]
+      },
+      "documentKeys": [
+        "Infinity 20",
+        "VR2024WG",
+        "REU-VR2024WG"
+      ],
+      "notes": "Heritage AU Infinity 20 on REU-VR2024WG (INF20*). Pin match is chassis Item Number only \u2014 marketing INF20* collides with AM2024 / BM2024. VR2024WB excluded (not on cover-true SM). Cover-true SM: smvREUVR1616W_VR2024_v2.pdf (shared with Infinity 16); PL: EDPL VR2024.pdf."
+    },
+    {
       "id": "envirosmart",
       "label": "EnviroSmart",
       "aliases": [

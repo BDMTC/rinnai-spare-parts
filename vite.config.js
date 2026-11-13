@@ -220,6 +220,9 @@ function lightboxPdfDataScripts() {
     },
     { id: "smK2430WAK", file: "smK2430WAK.pdf" },
     { id: "EDPL-REU-K2430WG", file: "EDPL REU-K2430WG.pdf" },
+    { id: "smvREUVR1616W-VR2024-v2", file: "smvREUVR1616W_VR2024_v2.pdf" },
+    { id: "EDPL-VR1620", file: "EDPL VR1620.pdf" },
+    { id: "EDPL-VR2024", file: "EDPL VR2024.pdf" },
   ];
 
   function buildScriptSource(fileName) {
