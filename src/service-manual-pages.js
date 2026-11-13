@@ -33,6 +33,8 @@ import infinityB from "./assets/service-manual-pages/infinity-b__p1.jpg";
 import envirosmart from "./assets/service-manual-pages/envirosmart__p1.jpg";
 import infinity16 from "./assets/service-manual-pages/infinity16__p1.jpg";
 import infinity20 from "./assets/service-manual-pages/infinity20__p1.jpg";
+import hdc32e from "./assets/service-manual-pages/hdc32e__p1.jpg";
+import hdc32i from "./assets/service-manual-pages/hdc32i__p1.jpg";
 
 /** @type {Record<string, Record<string, string>>} */
 const SM_PACK_GLOBS = {
@@ -126,6 +128,10 @@ const SM_PACK_GLOBS = {
   ),
   "sm-ihf10": import.meta.glob(
     "./assets/service-manual-pages/sm-ihf10__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-nb3237": import.meta.glob(
+    "./assets/service-manual-pages/sm-nb3237__p*.jpg",
     { eager: true, import: "default" }
   ),
 };
@@ -339,6 +345,22 @@ const SERIES_SERVICE_MANUALS = {
     label: "IHF10.pdf p1",
     source: "IHF10.pdf",
     packId: "sm-ihf10",
+  },
+  hdc32e: {
+    url: hdc32e,
+    label:
+      "SM - RINNAI - N SERIES INFINITY ENVIRO32 REU-NB3237 - ISSUE 1 - JULY 2025.pdf p1",
+    source:
+      "SM - RINNAI - N SERIES INFINITY ENVIRO32 REU-NB3237 - ISSUE 1 - JULY 2025.pdf",
+    packId: "sm-nb3237",
+  },
+  hdc32i: {
+    url: hdc32i,
+    label:
+      "SM - RINNAI - N SERIES INFINITY ENVIRO32 REU-NB3237 - ISSUE 1 - JULY 2025.pdf p1",
+    source:
+      "SM - RINNAI - N SERIES INFINITY ENVIRO32 REU-NB3237 - ISSUE 1 - JULY 2025.pdf",
+    packId: "sm-nb3237",
   },
 };
 

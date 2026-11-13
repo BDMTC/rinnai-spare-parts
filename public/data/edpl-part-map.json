@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T14:13:47.334366+00:00",
+  "generatedAt": "2026-11-13T14:17:26.620973+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
@@ -15,7 +15,8 @@
     "heritageSmPl": "SM-embedded PL for infinity20-2006 / infinity24-wa / infinity32-3203 (Hotflo EHFA400/EHFD/EHF25/GHF4/Efinity still wait-for Tech Issue PL sync)",
     "hotfloEfinityWave": "Tech-synced Hotflo GHF4/EHFA400/EHFD160/EHF25 + Efinity ECF Issue PLs (ghf4, ehfa400, ehfd160, ehf25, pl-efinity-ecf14, pl-efinity-ecf19i50, pl-efinity-ecf19i60, pl-efinity-ecf29i50, pl-efinity-ecf29i60)",
     "cfHotfloLeftovers": "VCM2837 FF Issue4 (hd28i/inf28) + AM3237WC HD32 + Hotflo 250SL/T/400S/80-400S (pl-reu-vcm2837-ff-issue4, pl-reu-am3237wc-hd32, pl-hotflo-ehf-250sl-315l, pl-hotflo-ehf-250t-315t, pl-hotflo-ehf-400s, pl-hotflo-hfe-160t-400t, pl-hotflo-hfe-80-400s-issue10)",
-    "hdc32Hdc211i": "NB3237 HDC32e/i + KM3237FFUDC HDC211i + VCM2837 WC Issue5 hd28e (pl-reu-nb3237-hdc32, pl-reu-km3237ffudc-hdc211i, pl-reu-vcm2837-wc-issue5)"
+    "hdc32Hdc211i": "NB3237 HDC32e/i + KM3237FFUDC HDC211i + VCM2837 WC Issue5 hd28e (pl-reu-nb3237-hdc32, pl-reu-km3237ffudc-hdc211i, pl-reu-vcm2837-wc-issue5)",
+    "smHdc32_2402Polish": "NB3237 SM pack for hdc32e/i + infinity24-2402 diagram registry (no invented RA)"
   },
   "totals": {
     "sheetsConfigured": 49,
@@ -2463,6 +2464,37 @@
       ],
       "priority": 24,
       "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - 2021 REUVCM2837 WC ISSUE 5 - MAY 2026.pdf"
+    },
+    {
+      "file": "SM 2402.pdf",
+      "stem": "pl-sm-2402",
+      "status": "ok",
+      "pages": 89,
+      "diagramPages": [
+        39,
+        56,
+        67,
+        59,
+        40
+      ],
+      "listPages": [],
+      "defaultDiagramPage": 39,
+      "rowsExtracted": 0,
+      "rowsInCatalogue": 0,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "infinity24-2402"
+      ],
+      "chassisTokens": [
+        "2402FFU",
+        "REU-2402FFU",
+        "2402W",
+        "REU-2402W",
+        "Infinity 24"
+      ],
+      "priority": 12,
+      "path": "data-sheets/Rinnai Data Sheets/SM 2402.pdf",
+      "notes": "SM 2402 image-only \u2014 diagram pages only; OCR needed for RA extract"
     }
   ],
   "parts": {

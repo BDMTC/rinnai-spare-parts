@@ -216,6 +216,10 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "SM 2006.pdf p62",
     label: "SM 2006 exploded (Infinity 20 Internal)",
   },
+  "infinity24-2402": {
+    page: "pl-sm-2402__p39",
+    label: "SM 2402 diagram (Infinity 24 2402; OCR pending for RA list)",
+  },
   "infinity24-wa": {
     page: "SM 24WA.pdf p61",
     label: "SM 24WA exploded (Infinity 24 WA)",
@@ -455,6 +459,7 @@ const ED_STEM_TO_PDF = {
   "pl-hotflo-hfe-80-400s-issue10":
     "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
   "pl-sm-2006": "SM 2006.pdf",
+  "pl-sm-2402": "SM 2402.pdf",
   "pl-sm-24wa": "SM 24WA.pdf",
   "pl-sm-reu3203": "SM REU3203.pdf",
 };
