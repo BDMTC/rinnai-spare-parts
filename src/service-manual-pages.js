@@ -12,6 +12,7 @@ import infinity32Enviro from "./assets/service-manual-pages/infinity32-enviro__p
 import infinity32EnviroPlusN from "./assets/service-manual-pages/infinity32-enviro-plus-n__p1.jpg";
 import hd210e from "./assets/service-manual-pages/hd210e__p1.jpg";
 import hd210i from "./assets/service-manual-pages/hd210i__p1.jpg";
+import hd250e from "./assets/service-manual-pages/hd250e__p1.jpg";
 
 /** @type {Record<string, Record<string, string>>} */
 const SM_PACK_GLOBS = {
@@ -29,6 +30,10 @@ const SM_PACK_GLOBS = {
   ),
   "sm-smartstart": import.meta.glob(
     "./assets/service-manual-pages/sm-smartstart__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-vr3237wg-wc": import.meta.glob(
+    "./assets/service-manual-pages/sm-vr3237wg-wc__p*.jpg",
     { eager: true, import: "default" }
   ),
 };
@@ -116,6 +121,12 @@ const SERIES_SERVICE_MANUALS = {
     label: "SM INF26_INF32 Enviro WH 190810.pdf p1",
     source: "SM INF26_INF32 Enviro WH 190810.pdf",
     packId: "sm-inf26-inf32-enviro-wh-190810",
+  },
+  hd250e: {
+    url: hd250e,
+    label: "smVR3237WG_WC.pdf p1",
+    source: "smVR3237WG_WC.pdf",
+    packId: "sm-vr3237wg-wc",
   },
 };
 

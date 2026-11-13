@@ -84,6 +84,14 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "Hotflo EHFA160 Spare Parts List S111418B.pdf p1",
     label: "Hotflo EHFA160 spare parts",
   },
+  ehfa250: {
+    page: "EHFA  SPARE PARTS.pdf p1",
+    label: "Hotflo EHFA spare parts (250)",
+  },
+  ehfa315: {
+    page: "EHFA  SPARE PARTS.pdf p1",
+    label: "Hotflo EHFA spare parts (315)",
+  },
 };
 
 /** Chassis tokens that imply the VRM2632WC common ED. */
@@ -208,6 +216,7 @@ const ED_STEM_TO_PDF = {
     "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
   "pl-reu-vcm2837-wc-external": "Parts List REU-VCM2837 WC External.pdf",
   "pl-hotflo-ehfa160": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
+  "pl-hotflo-ehfa-spare-parts": "EHFA  SPARE PARTS.pdf",
 };
 
 /**
