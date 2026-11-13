@@ -356,7 +356,9 @@ input[type="number"]:focus {
   padding-right: 2.4rem;
 }
 
-/* Pin 1: coloured External / Internal over the selected series value */
+/* Pin 1: coloured External / Internal over the selected series value.
+   Flex only wraps one text child so the space before External/Internal
+   is not collapsed (flex splits bare text + span into items). */
 .model-picker-rich-label {
   position: absolute;
   inset: 0 2.4rem 0 0;
@@ -373,12 +375,21 @@ input[type="number"]:focus {
   text-overflow: ellipsis;
 }
 
+.model-picker-rich-label-text {
+  display: inline;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 .model-picker.has-rich-label:not(:focus-within) #series-input {
   color: transparent;
   caret-color: transparent;
 }
 
 .pin-install {
+  display: inline;
   font-weight: 750;
 }
 
