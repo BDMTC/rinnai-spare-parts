@@ -7,9 +7,10 @@
     "sourceRule": "Exploded diagram: lone numbered callout = standalone part; closed dashed loop enclosing several numbered parts = parent assembly, enclosed numbers = children. Shared children may belong to more than one parent loop and remain available alone. Kit parents (e.g. PANEL FRONT 040/042) are valid even with no separate standalone panel SKU.",
     "sourceSheets": [
       "data-sheets/Rinnai Data Sheets/ED_N Series 2020 IN32 Enviro.pdf",
-      "data-sheets/Rinnai Data Sheets/PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf"
+      "data-sheets/Rinnai Data Sheets/PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
+      "data-sheets/Rinnai Data Sheets/EDPL REU-VRM2632WC.pdf"
     ],
-    "notes": "Beau locked 2026-11-12: HEX TOP/BTM + shared gasket 142; front panel 040/042; fan 110; electrode 150. RA/non-8-digit → embossed Not available badge."
+    "notes": "Beau locked 2026-11-12: HEX TOP/BTM + shared gasket 142; front panel 040/042; fan 110; electrode 150. RA/non-8-digit → embossed Not available badge. 2026-11-13: HD200e HEX 92093550 → EDPL REU-VRM2632WC.pdf p5 callout 140."
   },
   "concepts": [
     {
@@ -236,6 +237,19 @@
         { "itemNo": "155", "code": null, "role": "bracket" },
         { "itemNo": "156", "code": null, "role": "sleeve" }
       ]
+    },
+    {
+      "status": "beau-confirmed",
+      "confidence": "high",
+      "parentItemNos": ["140"],
+      "parentCode": "92093550",
+      "parentName": "HEAT EXCH VRM2632WC V2632WC",
+      "shortName": "HEAT EXCH",
+      "conceptId": "heat-exchanger",
+      "seriesTokens": ["VRM2632WC", "V2632WC", "HD200E"],
+      "diagramPage": "EDPL REU-VRM2632WC.pdf p5",
+      "children": [],
+      "notes": "HD200e common ED — callout 140 on EDPL REU-VRM2632WC.pdf p5. Standalone HEX (no TOP/BTM duo)."
     }
   ]
 }

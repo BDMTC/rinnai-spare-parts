@@ -1352,7 +1352,7 @@ function updateSearchVisuals(query, pin) {
       ? lastResults.find((r) => r.isPrimary) || lastResults[0]
       : null;
   const diagram = primary
-    ? resolvePartDiagram(primary.part, assemblyIndex)
+    ? resolvePartDiagram(primary.part, assemblyIndex, { pin: activePin })
     : null;
   activeDiagram = diagram;
 

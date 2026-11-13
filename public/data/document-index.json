@@ -722,8 +722,8 @@
     },
     {
       "id": "pl-rinnai-edpl-reu-vrm2632wc-issue-2-june-2025",
-      "fileName": "PL - RINNAI - EDPL REU-VRM2632WC - ISSUE 2 - JUNE 2025.pdf",
-      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - EDPL REU-VRM2632WC - ISSUE 2 - JUNE 2025.pdf",
+      "fileName": "EDPL REU-VRM2632WC.pdf",
+      "path": "data-sheets/Rinnai Data Sheets/EDPL REU-VRM2632WC.pdf",
       "type": "EDPL",
       "series": [
         "HD200e",
@@ -732,11 +732,12 @@
         "VRM2632WC",
         "REUVRM2632WC"
       ],
-      "sizeBytes": 361742,
+      "sizeBytes": 253437,
       "hd28": false,
       "hd200": true,
       "syncId": "edpl-vrm2632wc-issue2",
-      "source": "rinnai-tech-latest"
+      "source": "rinnai-tech-latest",
+      "notes": "Issue 2 Jun 2025 (PL - RINNAI - EDPL REU-VRM2632WC - ISSUE 2 - JUNE 2025.pdf) is indexed by tech-sync but missing on disk; serving undated EDPL REU-VRM2632WC.pdf until re-sync."
     },
     {
       "id": "pl-rinnai-edpl-vrm2632ffu-issue-4-june-2025",
@@ -1641,12 +1642,18 @@
   ],
   "quarantined": [
     {
-      "fileName": "EDPL REU-VRM2632WC.pdf",
-      "path": "data-sheets/Rinnai Data Sheets/EDPL REU-VRM2632WC.pdf",
-      "type": null,
-      "series": [],
-      "replacedAt": "2026-11-11",
-      "reason": "Superseded by edpl-vrm2632wc-issue2: EDPL REU-VRM2632WC ISSUE 2 Jun 2025 supersedes undated EDPL REU-VRM2632WC.pdf"
+      "fileName": "PL - RINNAI - EDPL REU-VRM2632WC - ISSUE 2 - JUNE 2025.pdf",
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - EDPL REU-VRM2632WC - ISSUE 2 - JUNE 2025.pdf",
+      "type": "EDPL",
+      "series": [
+        "HD200e",
+        "HD200E",
+        "REU-VRM2632WC",
+        "VRM2632WC",
+        "REUVRM2632WC"
+      ],
+      "replacedAt": "2026-11-13",
+      "reason": "Issue 2 Jun 2025 listed by tech-sync but file absent from local data-sheets; active document falls back to undated EDPL REU-VRM2632WC.pdf (same chassis)."
     },
     {
       "fileName": "EDPL VR2426_VR2626.pdf",
