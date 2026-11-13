@@ -210,6 +210,14 @@ function lightboxPdfDataScripts() {
       id: "HW-CF-A-Series-Parts-List-Issue1",
       file: "HW_CF_A_Series_Parts_List_Issue_1_Jan_2018.pdf",
     },
+    {
+      id: "HW-CF-BM-SM-BM2626-B26",
+      file: "HW_CF_BM_SM_Issue_1_AUG BM2626 & B26 Series.pdf",
+    },
+    {
+      id: "PL-2025-BM-SERIES-INFINITY-B-ISSUE1",
+      file: "PL - RINNAI - 2025 BM SERIES - INFINITY B - ISSUE 1 - AUG 2025.pdf",
+    },
   ];
 
   function buildScriptSource(fileName) {

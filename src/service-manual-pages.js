@@ -13,6 +13,7 @@ import infinity32EnviroPlusN from "./assets/service-manual-pages/infinity32-envi
 import hd210e from "./assets/service-manual-pages/hd210e__p1.jpg";
 import hd210i from "./assets/service-manual-pages/hd210i__p1.jpg";
 import hd250e from "./assets/service-manual-pages/hd250e__p1.jpg";
+import infinityB from "./assets/service-manual-pages/infinity-b__p1.jpg";
 
 /** @type {Record<string, Record<string, string>>} */
 const SM_PACK_GLOBS = {
@@ -46,6 +47,10 @@ const SM_PACK_GLOBS = {
   ),
   "sm-v2626w-v2630wc": import.meta.glob(
     "./assets/service-manual-pages/sm-v2626w-v2630wc__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-hw-cf-bm-b26": import.meta.glob(
+    "./assets/service-manual-pages/sm-hw-cf-bm-b26__p*.jpg",
     { eager: true, import: "default" }
   ),
 };
@@ -139,6 +144,12 @@ const SERIES_SERVICE_MANUALS = {
     label: "smVR3237WG_WC.pdf p1",
     source: "smVR3237WG_WC.pdf",
     packId: "sm-vr3237wg-wc",
+  },
+  "infinity-b": {
+    url: infinityB,
+    label: "HW_CF_BM_SM_Issue_1_AUG BM2626 & B26 Series.pdf p1",
+    source: "HW_CF_BM_SM_Issue_1_AUG BM2626 & B26 Series.pdf",
+    packId: "sm-hw-cf-bm-b26",
   },
 };
 

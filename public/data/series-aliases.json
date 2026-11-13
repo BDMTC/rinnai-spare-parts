@@ -4,7 +4,7 @@
     "title": "Rinnai series aliases",
     "locale": "en-AU",
     "updated": "2026-11-13",
-    "notes": "Marketing ↔ chassis / document keys for model pin + typeahead. Confirmed: HD28e↔VCM2837WC; HD28i↔VCM2837FFC/FFUC; Infinity 28↔VCM2837FF (not FFC); Solar 28 booster↔VCM2837FF S28*; no umbrella HD28 pin (RSP-75). AU HD200e↔VRM2632WC; HD200i↔REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 external↔AM2626WD/WDL (owns Infinity 26 / INF26 / AM2626); Infinity 26 internal↔INF26I/FFUG; Infinity 26 Plus↔REUV2630WD/VRM2630WD; Infinity 26 Smartstart↔VR2626WGP; Infinity 32 Enviro↔KM3237WD; HD210e↔N3237WC; HD210i↔N3237FFC; Infinity 32 Enviro+↔N3237W (not all N3237). Commercial CF: HD32↔AM3237WC; HDC32↔NB3237; HDC211↔KM3237WDC/FFUDC; HD250e↔VRM3237WC; alias commercial on HD/HDC series. NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau). RSP-95: +17 Hot Water series (Hotflo/Efinity/heat pump/solar/commercial matched-only). RSP-115: Demand Duo split into accessory families ddups/ddtstat/dduvc (not chassis)."
+    "notes": "Marketing \u2194 chassis / document keys for model pin + typeahead. Confirmed: HD28e\u2194VCM2837WC; HD28i\u2194VCM2837FFC/FFUC; Infinity 28\u2194VCM2837FF (not FFC); Solar 28 booster\u2194VCM2837FF S28*; no umbrella HD28 pin (RSP-75). AU HD200e\u2194VRM2632WC; HD200i\u2194REU-VR2632FFUG / REU-VRM2632FFUC; Infinity 26 external\u2194AM2626WD/WDL (owns Infinity 26 / INF26 / AM2626); Infinity 26 internal\u2194INF26I/FFUG; Infinity 26 Plus\u2194REUV2630WD/VRM2630WD; Infinity 26 Smartstart\u2194VR2626WGP; Infinity 32 Enviro\u2194KM3237WD; HD210e\u2194N3237WC; HD210i\u2194N3237FFC; Infinity 32 Enviro+\u2194N3237W (not all N3237). Commercial CF: HD32\u2194AM3237WC; HDC32\u2194NB3237; HDC211\u2194KM3237WDC/FFUDC; HD250e\u2194VRM3237WC; alias commercial on HD/HDC series. NZ discontinued REU-VM2630WC / HD200e Infinity removed from typeahead (Beau). RSP-95: +17 Hot Water series (Hotflo/Efinity/heat pump/solar/commercial matched-only). RSP-115: Demand Duo split into accessory families ddups/ddtstat/dduvc (not chassis). Weekend RR: +Infinity B (BM chassis) Pin1 series."
   },
   "series": [
     {
@@ -47,7 +47,7 @@
         "VCM2837WC",
         "REUVCM2837WC"
       ],
-      "notes": "HD28 external (WC). Pin 1 = Heavy Duty 28 External. Bare HD28 typeahead alias only — match stays HD28E* / VCM2837WC. Infinity 28 (FF) and Solar 28 (S28*) excluded."
+      "notes": "HD28 external (WC). Pin 1 = Heavy Duty 28 External. Bare HD28 typeahead alias only \u2014 match stays HD28E* / VCM2837WC. Infinity 28 (FF) and Solar 28 (S28*) excluded."
     },
     {
       "id": "hd28i",
@@ -130,7 +130,7 @@
         "VCM2837FF",
         "REUVCM2837FF"
       ],
-      "notes": "Infinity 28 internal FF (INF28* → REU-VCM2837FF-*). Distinct from HD28i FFC/FFUC and Solar 28 S28* boosters on the same FF chassis packing."
+      "notes": "Infinity 28 internal FF (INF28* \u2192 REU-VCM2837FF-*). Distinct from HD28i FFC/FFUC and Solar 28 S28* boosters on the same FF chassis packing."
     },
     {
       "id": "solar28",
@@ -213,7 +213,7 @@
         "REUVRM2632WC",
         "VRM2632"
       ],
-      "notes": "Confirmed Beau: REU-VRM2632WC / VRM2632WC = current AU HD200e external (EDPL also shows WC-AK). NZ discontinued REU-VM2630WC / HD200e Infinity is not linked here. Do not merge FFUC↔WC."
+      "notes": "Confirmed Beau: REU-VRM2632WC / VRM2632WC = current AU HD200e external (EDPL also shows WC-AK). NZ discontinued REU-VM2630WC / HD200e Infinity is not linked here. Do not merge FFUC\u2194WC."
     },
     {
       "id": "hd200i",
@@ -282,7 +282,7 @@
         "FFUG",
         "FFUC"
       ],
-      "notes": "Confirmed Beau: HD200i ↔ REU-VR2632FFUG / REU-VRM2632FFUC (Infinity internal / FFUC). Aliases + documentKeys include FFUG mates for typeahead/docs; model pin match stays HD200I*/FFUC so INF26 is not swallowed. relatedFamilies flags wider FFU heritage for later cross-family parts search."
+      "notes": "Confirmed Beau: HD200i \u2194 REU-VR2632FFUG / REU-VRM2632FFUC (Infinity internal / FFUC). Aliases + documentKeys include FFUG mates for typeahead/docs; model pin match stays HD200I*/FFUC so INF26 is not swallowed. relatedFamilies flags wider FFU heritage for later cross-family parts search."
     },
     {
       "id": "infinity26",
@@ -377,7 +377,7 @@
         "V2632FFUG",
         "VRM2632"
       ],
-      "notes": "Infinity 26 internal FFUG (INF26I*) — SM pairing with HD200i FFUC. Bare Infinity 26 / INF26 owned by infinity26 external. S26 solar boosters excluded from this pin."
+      "notes": "Infinity 26 internal FFUG (INF26I*) \u2014 SM pairing with HD200i FFUC. Bare Infinity 26 / INF26 owned by infinity26 external. S26 solar boosters excluded from this pin."
     },
     {
       "id": "infinity26-plus",
@@ -419,7 +419,7 @@
         "REU-VRM2630WD",
         "VM2630WD"
       ],
-      "notes": "Confirmed Beau: REUV2630WD / VRM2630WD → Infinity 26 Plus. Bare INF26 owned by infinity26 external."
+      "notes": "Confirmed Beau: REUV2630WD / VRM2630WD \u2192 Infinity 26 Plus. Bare INF26 owned by infinity26 external."
     },
     {
       "id": "infinity26-smartstart",
@@ -451,7 +451,59 @@
         "REU-VR2626WGP",
         "REUVR2626WGP"
       ],
-      "notes": "Confirmed Beau: VR2626WGP → Infinity 26 Smartstart. Bare INF26 owned by infinity26 external."
+      "notes": "Confirmed Beau: VR2626WGP \u2192 Infinity 26 Smartstart. Bare INF26 owned by infinity26 external."
+    },
+    {
+      "id": "infinity-b",
+      "label": "Infinity B",
+      "aliases": [
+        "Infinity B",
+        "Infinity B Series",
+        "INF B",
+        "INFB",
+        "BM Series",
+        "BM2626",
+        "BM2024",
+        "BM1620",
+        "BM1220",
+        "REU-BM2626W",
+        "REU-BM2024W",
+        "REU-BM1620W",
+        "REU-BM1220W",
+        "REU-BM2626WS",
+        "REU-BM1620WS",
+        "Infinity B26",
+        "Infinity B20",
+        "Infinity B16",
+        "Infinity B12"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUBM2626W",
+          "REUBM2024W",
+          "REUBM1620W",
+          "REUBM1220W",
+          "REUBM2626WS",
+          "REUBM1620WS",
+          "BM2626W",
+          "BM2024W",
+          "BM1620W",
+          "BM1220W",
+          "BM2626WS",
+          "BM1620WS"
+        ]
+      },
+      "documentKeys": [
+        "Infinity B",
+        "BM2626",
+        "B26",
+        "BM Series",
+        "REU-BM2626W",
+        "REU-BM2024W",
+        "REU-BM1620W",
+        "REU-BM1220W"
+      ],
+      "notes": "AU Infinity B family (REU-BM1220W / BM1620W / BM2024W / BM2626W + solar BM1620WS / BM2626WS). Pin match is chassis Item Number only \u2014 marketing INF12/16/20/26*B codes collide with AM/heritage INF prefixes so they are not used as prefixes. Bare B26 typeahead alias avoided (heritage A2626/VR2626WB). Cover-true SM: HW_CF_BM_SM BM2626 & B26 Series; PL: 2025 BM SERIES Infinity B Issue 1."
     },
     {
       "id": "infinity32-enviro",
@@ -496,7 +548,7 @@
         "REU-KM3237WD",
         "REUKM3237"
       ],
-      "notes": "Confirmed Beau: KM3237 → Infinity 32 Enviro / Enviro Plus. Match is KM3237WD only (not WDC/FFUDC HDC211, not N3237 Enviro+/HD210)."
+      "notes": "Confirmed Beau: KM3237 \u2192 Infinity 32 Enviro / Enviro Plus. Match is KM3237WD only (not WDC/FFUDC HDC211, not N3237 Enviro+/HD210)."
     },
     {
       "id": "hd210e",
@@ -530,7 +582,7 @@
         "REU-N3237WC",
         "REUN3237WC"
       ],
-      "notes": "Confirmed Beau: N3237WC → HD210e. Shared N3237 platform with HD210i / Enviro+ — keep badges distinct; do not map all N3237 to Infinity 32 Enviro Plus."
+      "notes": "Confirmed Beau: N3237WC \u2192 HD210e. Shared N3237 platform with HD210i / Enviro+ \u2014 keep badges distinct; do not map all N3237 to Infinity 32 Enviro Plus."
     },
     {
       "id": "hd210i",
@@ -564,7 +616,7 @@
         "REU-N3237FFC",
         "REUN3237FFC"
       ],
-      "notes": "Confirmed Beau: N3237FFC → HD210i. Distinct from N3237WC (HD210e) and N3237W (Infinity 32 Enviro+)."
+      "notes": "Confirmed Beau: N3237FFC \u2192 HD210i. Distinct from N3237WC (HD210e) and N3237W (Infinity 32 Enviro+)."
     },
     {
       "id": "infinity32-enviro-plus-n",
@@ -606,7 +658,7 @@
         "REU-N3237WD",
         "REUN3237WD"
       ],
-      "notes": "Confirmed Beau: N3237W → Infinity 32 Enviro+. Item match is N3237WD / specific N3237W60AK* only — never REUN3237W prefix (would swallow WC/FFC HD210)."
+      "notes": "Confirmed Beau: N3237W \u2192 Infinity 32 Enviro+. Item match is N3237WD / specific N3237W60AK* only \u2014 never REUN3237W prefix (would swallow WC/FFC HD210)."
     },
     {
       "id": "hd32",
@@ -646,7 +698,7 @@
         "A-SERIES",
         "AM SERIES"
       ],
-      "notes": "Commercial HD32e ↔ REU-AM3237WC only. Do not use bare AM3237 (swallows Infinity 32 AM3237W and solar AM3237WS)."
+      "notes": "Commercial HD32e \u2194 REU-AM3237WC only. Do not use bare AM3237 (swallows Infinity 32 AM3237W and solar AM3237WS)."
     },
     {
       "id": "hdc32e",
@@ -685,7 +737,7 @@
         "REU-NB3237",
         "REUNB3237"
       ],
-      "notes": "Tech ingest: HDC32 external ↔ NB3237WC. Shared NB PL also tagged for internal."
+      "notes": "Tech ingest: HDC32 external \u2194 NB3237WC. Shared NB PL also tagged for internal."
     },
     {
       "id": "hdc32i",
@@ -723,7 +775,7 @@
         "REU-NB3237",
         "REUNB3237"
       ],
-      "notes": "Tech ingest: HDC32 internal ↔ NB3237FFC."
+      "notes": "Tech ingest: HDC32 internal \u2194 NB3237FFC."
     },
     {
       "id": "hdc211e",
@@ -759,7 +811,7 @@
         "REU-KM3237WDC",
         "REUKM3237WDC"
       ],
-      "notes": "Commercial HDC211 external ↔ KM3237WDC (not KM3237WD Infinity 32 Enviro)."
+      "notes": "Commercial HDC211 external \u2194 KM3237WDC (not KM3237WD Infinity 32 Enviro)."
     },
     {
       "id": "hdc211i",
@@ -795,7 +847,7 @@
         "REU-KM3237FFUDC",
         "REUKM3237FFUDC"
       ],
-      "notes": "Commercial HDC211 internal ↔ KM3237FFUDC."
+      "notes": "Commercial HDC211 internal \u2194 KM3237FFUDC."
     },
     {
       "id": "hd250e",
@@ -836,7 +888,7 @@
         "REUVRM3237WC",
         "REUVRM3237WG"
       ],
-      "notes": "Tech ingest: HD250e ↔ VRM3237WC (plus older V3232WC heritage on some SKUs)."
+      "notes": "Tech ingest: HD250e \u2194 VRM3237WC (plus older V3232WC heritage on some SKUs)."
     },
     {
       "id": "fm10",
@@ -920,7 +972,7 @@
         "Hotflo EHFA160",
         "HOTFLO EHFA160"
       ],
-      "notes": "RSP-95 matched: EHFA160S* → PL Hotflo EHFA160. Proof part 95110104 (ELEMENT 2.4KW EHFA160). No REU chassis.",
+      "notes": "RSP-95 matched: EHFA160S* \u2192 PL Hotflo EHFA160. Proof part 95110104 (ELEMENT 2.4KW EHFA160). No REU chassis.",
       "systemType": "hotflo-electric-storage",
       "familyKey": "hotflo_electric_storage"
     },
@@ -942,7 +994,7 @@
         "Hotflo EHFD160",
         "EHFD"
       ],
-      "notes": "RSP-95 matched: EHFD160S* → PL Hotflo EHFD160.",
+      "notes": "RSP-95 matched: EHFD160S* \u2192 PL Hotflo EHFD160.",
       "systemType": "hotflo-electric-storage",
       "familyKey": "hotflo_electric_storage"
     },
@@ -965,7 +1017,7 @@
         "EHFA",
         "Hotflo EHFA250"
       ],
-      "notes": "RSP-95 matched: EHFA250S24/36 → EHFA SPARE PARTS.pdf; S48 → EHF 250SL 315L PL. documentKeys include EHFA for shared desktop sheet.",
+      "notes": "RSP-95 matched: EHFA250S24/36 \u2192 EHFA SPARE PARTS.pdf; S48 \u2192 EHF 250SL 315L PL. documentKeys include EHFA for shared desktop sheet.",
       "systemType": "hotflo-electric-storage",
       "familyKey": "hotflo_electric_storage"
     },
@@ -987,7 +1039,7 @@
         "EHF315",
         "Hotflo EHFA315"
       ],
-      "notes": "RSP-95 matched: EHFA315S* → PL Hotflo EHF 250SL 315L.",
+      "notes": "RSP-95 matched: EHFA315S* \u2192 PL Hotflo EHF 250SL 315L.",
       "systemType": "hotflo-electric-storage",
       "familyKey": "hotflo_electric_storage"
     },
@@ -1009,7 +1061,7 @@
         "Hotflo EHFA400",
         "EHFA 400"
       ],
-      "notes": "RSP-95 matched: EHFA400S* → PL Hotflo EHFA 400L.",
+      "notes": "RSP-95 matched: EHFA400S* \u2192 PL Hotflo EHFA 400L.",
       "systemType": "hotflo-electric-storage",
       "familyKey": "hotflo_electric_storage"
     },
@@ -1038,7 +1090,7 @@
         "EHF25",
         "Hotflo EHF25"
       ],
-      "notes": "RSP-95 matched: EHF25S* (filename_stem→EHF 250SL 315L PL). Exclude EHFA/EHFD/EHP* prefixes so storage siblings stay distinct.",
+      "notes": "RSP-95 matched: EHF25S* (filename_stem\u2192EHF 250SL 315L PL). Exclude EHFA/EHFD/EHP* prefixes so storage siblings stay distinct.",
       "systemType": "hotflo-electric-storage",
       "familyKey": "hotflo_electric_storage"
     },
@@ -1063,7 +1115,7 @@
         "GHF4135N",
         "Hotflo GHF4"
       ],
-      "notes": "RSP-95 matched: GHF4135* → PL Hotflo GHF4 135L/170L.",
+      "notes": "RSP-95 matched: GHF4135* \u2192 PL Hotflo GHF4 135L/170L.",
       "systemType": "gas-storage-hot-water",
       "familyKey": "storage_other"
     },
@@ -1090,7 +1142,7 @@
         "EHPA340",
         "AR SERIES"
       ],
-      "notes": "RSP-95 matched: EHPA300/340 VM* → AR series PL.",
+      "notes": "RSP-95 matched: EHPA300/340 VM* \u2192 AR series PL.",
       "systemType": "heat-pump-hot-water",
       "familyKey": "heat_pump"
     },
@@ -1114,7 +1166,7 @@
         "Enviroflo",
         "VMA"
       ],
-      "notes": "RSP-95 matched: EHPA250VMA/H → Enviroflo VMA V2 PL.",
+      "notes": "RSP-95 matched: EHPA250VMA/H \u2192 Enviroflo VMA V2 PL.",
       "systemType": "heat-pump-hot-water",
       "familyKey": "heat_pump"
     },
@@ -1140,7 +1192,7 @@
         "EHPG300VM",
         "GR SERIES"
       ],
-      "notes": "RSP-95 matched: EHPGxxVM → GR series SPL/SM.",
+      "notes": "RSP-95 matched: EHPGxxVM \u2192 GR series SPL/SM.",
       "systemType": "heat-pump-hot-water",
       "familyKey": "heat_pump"
     },
@@ -1163,7 +1215,7 @@
         "EHPT180VM",
         "A SERIES"
       ],
-      "notes": "RSP-95 matched: EHPT180VM → A series heat pump SM.",
+      "notes": "RSP-95 matched: EHPT180VM \u2192 A series heat pump SM.",
       "systemType": "heat-pump-hot-water",
       "familyKey": "heat_pump"
     },
@@ -1185,7 +1237,7 @@
         "EHPS215",
         "EHPS215VM"
       ],
-      "notes": "RSP-95 matched: EHPS215VM → B/E series heat pump SM.",
+      "notes": "RSP-95 matched: EHPS215VM \u2192 B/E series heat pump SM.",
       "systemType": "heat-pump-hot-water",
       "familyKey": "heat_pump"
     },
@@ -1217,7 +1269,7 @@
         "SG320A",
         "Solar Split"
       ],
-      "notes": "RSP-95 matched: SGxxx(A) solar split PLs. Matched-only — no invented SE links.",
+      "notes": "RSP-95 matched: SGxxx(A) solar split PLs. Matched-only \u2014 no invented SE links.",
       "systemType": "solar-hot-water",
       "familyKey": "solar"
     },
@@ -1242,7 +1294,7 @@
         "CHP020H",
         "CHP040H"
       ],
-      "notes": "RSP-95 matched: CHP020H/CHP040H → commercial heat pump SM.",
+      "notes": "RSP-95 matched: CHP020H/CHP040H \u2192 commercial heat pump SM.",
       "systemType": "commercial-heat-pump",
       "familyKey": "commercial_other_hw"
     },
@@ -1269,7 +1321,7 @@
         "DDUPS",
         "Demand Duo"
       ],
-      "notes": "RSP-115/123: Demand Duo accessory family — Grundfos circulation pumps (not chassis). Trailing N on DDUPS/DDUPM = stainless body (not Nat Gas). Pin3 Item Number shows that SKU card only.",
+      "notes": "RSP-115/123: Demand Duo accessory family \u2014 Grundfos circulation pumps (not chassis). Trailing N on DDUPS/DDUPM = stainless body (not Nat Gas). Pin3 Item Number shows that SKU card only.",
       "systemType": "demand-duo",
       "familyKey": "commercial_demand_duo",
       "accessoryFamily": true
@@ -1305,7 +1357,7 @@
         "DDTSTAT",
         "Demand Duo"
       ],
-      "notes": "RSP-115: Demand Duo accessory family — pump controllers (DD56TSTAT for DD combo 5 & 6 / cascading). Not chassis / Pin3.",
+      "notes": "RSP-115: Demand Duo accessory family \u2014 pump controllers (DD56TSTAT for DD combo 5 & 6 / cascading). Not chassis / Pin3.",
       "systemType": "demand-duo",
       "familyKey": "commercial_demand_duo",
       "accessoryFamily": true
@@ -1337,7 +1389,7 @@
         "DDUVC",
         "Demand Duo"
       ],
-      "notes": "RSP-115: Demand Duo accessory family — UV sterilisation (DDUVC finished goods + UVC spares). Not chassis / Pin3.",
+      "notes": "RSP-115: Demand Duo accessory family \u2014 UV sterilisation (DDUVC finished goods + UVC spares). Not chassis / Pin3.",
       "systemType": "demand-duo",
       "familyKey": "commercial_demand_duo",
       "accessoryFamily": true
