@@ -371,6 +371,15 @@ body::before {
   background: #fff;
 }
 
+/* Idle empty-frame art (no pins): logo / looping GIF — contain, not crop. */
+.search-visual.is-empty-art img {
+  object-fit: contain;
+  object-position: center;
+  background: #fff;
+  padding: 0.55rem;
+  box-sizing: border-box;
+}
+
 .search-visual-placeholder {
   margin: 0;
   padding: 0.45rem;
@@ -1646,8 +1655,8 @@ mark {
   align-items: center;
   justify-content: center;
   padding: 0.85rem 0.85rem 1.75rem;
-  /* Soft translucent — hides panels gently, not a hard wall */
-  opacity: 0.78;
+  /* Fully opaque at rest; hover/focus/unlock still fade to reveal panels */
+  opacity: 1;
   pointer-events: auto;
   transition: opacity 320ms ease;
   background:
