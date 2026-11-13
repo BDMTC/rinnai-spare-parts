@@ -3,6 +3,11 @@
  * Search still uses the official price-list string; this only reshapes the card.
  */
 
+import {
+  assemblyChassisSentence,
+  chassisLabelsFromAssembly,
+} from "./chassis-blurb-labels.js";
+
 function normalise(text) {
   return String(text || "")
     .toLowerCase()
@@ -550,13 +555,19 @@ export function plainEnglishSummary(
     if (role === "bottom") {
       return "Bottom half of the heat exchanger; pair with the top half when replacing both.";
     }
-    return "Heat exchanger assembly for this chassis.";
+    return assemblyChassisSentence(
+      "Heat exchanger assembly",
+      chassisLabelsFromAssembly(parent)
+    );
   }
   if (parent?.conceptId === "electrode") {
     return "Ignition electrode kit (flame rod and brackets sit under this assembly).";
   }
   if (parent?.conceptId === "front-panel") {
-    return "Front panel kit for this chassis finish.";
+    return assemblyChassisSentence(
+      "Front panel kit",
+      chassisLabelsFromAssembly(parent)
+    );
   }
 
   if (child) {

@@ -8,8 +8,13 @@ import { fileURLToPath } from "url";
 import catalogue from "../public/data/catalogue.json" with { type: "json" };
 import abbrevs from "../public/data/part-name-abbreviations.json" with { type: "json" };
 import hierarchy from "../public/data/assembly-hierarchy.json" with { type: "json" };
+import edplPartMap from "../public/data/edpl-part-map.json" with { type: "json" };
 import { buildAbbrevIndex, buildAssemblyIndex } from "../src/search.js";
 import { expandDisplayTitle, plainEnglishSummary } from "../src/display-name.js";
+import {
+  chassisLabelsFromEdplHits,
+  withChassisPhrase,
+} from "../src/chassis-blurb-labels.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const outPath = path.resolve(__dirname, "../public/data/part-blurbs.json");
@@ -138,7 +143,8 @@ function fuelBit(nameN) {
 
 /**
  * Role + job phrase for approved tone.
- * @returns {{ what: string, job: string }|null}
+ * `chassis: true` → append real model OR-list (or omit if map unresolved).
+ * @returns {{ what: string, job: string, chassis?: boolean }|null}
  */
 function roleJob(nameN) {
   if (/\bfan\b/.test(nameN) && /\b(comb|combustion|com)\b/.test(nameN)) {
@@ -160,7 +166,7 @@ function roleJob(nameN) {
     return { what: "Fan gasket", job: "seals the combustion-fan joint" };
   }
   if (/\bfan\b/.test(nameN)) {
-    return { what: "Fan assembly", job: "air mover for this chassis" };
+    return { what: "Fan assembly", job: "air mover", chassis: true };
   }
   if (
     (/\bhex\b/.test(nameN) || /\bheat\b/.test(nameN)) &&
@@ -262,7 +268,11 @@ function roleJob(nameN) {
         job: "intake / grille filter you service from the front",
       };
     }
-    return { what: "Filter", job: "serviceable filter element for this chassis" };
+    return {
+      what: "Filter",
+      job: "serviceable filter element",
+      chassis: true,
+    };
   }
   if (/\bgasket\b/.test(nameN) && /\bburner\b/.test(nameN)) {
     return {
@@ -325,7 +335,11 @@ function roleJob(nameN) {
     return { what: "Wiring harness / loom", job: "cable set for this section of the unit" };
   }
   if (/\bpanel\b/.test(nameN) && /\bfront\b/.test(nameN)) {
-    return { what: "Front panel / fascia", job: "outer front cover for this chassis finish" };
+    return {
+      what: "Front panel / fascia",
+      job: "outer front cover",
+      chassis: true,
+    };
   }
   if (/\bpanel\b/.test(nameN)) {
     return { what: "Panel / cover", job: "outer sheet-metal or trim panel" };
@@ -430,7 +444,12 @@ function roleJob(nameN) {
 }
 
 function clipWords(text, max = 18) {
-  const words = String(text || "").split(/\s+/).filter(Boolean);
+  const raw = String(text || "").trim();
+  // Never truncate model OR-lists — admins need every chassis code.
+  if (/\sOR\s/.test(raw)) {
+    max = Math.max(max, raw.split(/\s+/).filter(Boolean).length);
+  }
+  const words = raw.split(/\s+/).filter(Boolean);
   if (words.length <= max) return words.join(" ");
   return `${words.slice(0, max).join(" ").replace(/[.,;:—-]+$/, "")}.`;
 }
@@ -461,13 +480,19 @@ function compose(part) {
   const role = roleJob(nameN);
   const chassis = chassisPhrase(name, part.category);
   const fuel = fuelBit(nameN);
+  const modelLabels = chassisLabelsFromEdplHits(edplPartMap.parts?.[code], {
+    partName: name,
+  });
 
   if (role) {
+    const job = role.chassis
+      ? withChassisPhrase(role.job, modelLabels)
+      : role.job;
     let line;
     if (chassis) {
-      line = `${role.what} for ${chassis}${fuel} — ${role.job}.`;
+      line = `${role.what} for ${chassis}${fuel} — ${job}.`;
     } else {
-      line = `${role.what}${fuel} — ${role.job}.`;
+      line = `${role.what}${fuel} — ${job}.`;
     }
     return {
       text: clipWords(line.replace(/\s+/g, " ").trim()),
@@ -527,23 +552,38 @@ for (const part of catalogue.parts || []) {
   else patterned += 1;
 }
 
+let chassisThisLeft = 0;
+for (const [code, entry] of Object.entries(blurbs)) {
+  if (/this chassis/i.test(String(entry.text || ""))) {
+    chassisThisLeft += 1;
+    console.warn("WARN still has this chassis:", code, entry.text);
+  }
+}
+
 const doc = {
   version: 1,
   meta: {
     title: "Offline layman part blurbs",
-    updated: "2026-11-12",
-    tip: "cursor/part-blurbs-enrichment-e386",
+    updated: "2026-11-13",
+    tip: "cursor/chassis-model-blurbs-1bba",
     notes:
-      "Beau-approved tone. Prefer assembly-rich runtime blurbs when mapped; else this file; else heuristics. Baked into file:// dist. No runtime web fetch.",
+      "Beau-approved tone. Prefer assembly-rich runtime blurbs when mapped; else this file; else heuristics. Chassis jobs use PL/ED model OR-lists (never “this chassis”); unresolved map omits the chassis clause. Baked into file:// dist. No runtime web fetch.",
     counts: {
       total: Object.keys(blurbs).length,
       seeded,
       patterned,
       skippedAssembly,
+      thisChassisLeft: chassisThisLeft,
     },
   },
   blurbs,
 };
+
+if (chassisThisLeft) {
+  throw new Error(
+    `part-blurbs still contains "this chassis" on ${chassisThisLeft} entries`
+  );
+}
 
 fs.writeFileSync(outPath, `${JSON.stringify(doc)}\n`, "utf8");
 console.log("Wrote", outPath);
