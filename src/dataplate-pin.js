@@ -24,7 +24,6 @@ export function mountDataplatePin(ctx) {
   const fileInput = root.querySelector("#dataplate-file");
   const preview = root.querySelector("#dataplate-preview");
   const statusEl = root.querySelector("#dataplate-status");
-  const textArea = root.querySelector("#dataplate-text");
   const chipsEl = root.querySelector("#dataplate-chips");
   const seriesChips = root.querySelector("#dataplate-series-chips");
   const itemChips = root.querySelector("#dataplate-item-chips");
@@ -122,7 +121,7 @@ export function mountDataplatePin(ctx) {
     renderChips();
     if (!lastMap.seriesCandidates.length && !lastMap.itemCandidates.length) {
       setStatus(
-        "No REU / HD codes recognised — check the dataplate text or try another photo.",
+        "No REU / HD codes recognised — try another photo, or type the Item Number in Pin 2.",
         "warn"
       );
     } else {
@@ -148,10 +147,9 @@ export function mountDataplatePin(ctx) {
           setStatus(`Reading dataplate… ${m.status}${pct}`, "busy");
         }
       });
-      if (textArea) textArea.value = text.trim();
       if (!String(text || "").trim()) {
         setStatus(
-          "OCR found no text — paste or type the dataplate line, then Confirm.",
+          "OCR found no text — try another dataplate photo, or type the Item Number in Pin 2.",
           "warn"
         );
         lastMap = null;
@@ -162,7 +160,7 @@ export function mountDataplatePin(ctx) {
     } catch (err) {
       console.warn("[dataplate OCR]", err);
       setStatus(
-        `OCR unavailable (${err?.message || err}). Paste or type the dataplate line below.`,
+        `OCR unavailable (${err?.message || err}). Type the Item Number in Pin 2 instead.`,
         "warn"
       );
     } finally {
@@ -248,11 +246,6 @@ export function mountDataplatePin(ctx) {
     fileInput.value = "";
   });
 
-  textArea?.addEventListener("input", () => {
-    const t = textArea.value || "";
-    if (t.trim().length >= 4) applyMapFromText(t);
-  });
-
   chipsEl?.addEventListener("click", (e) => {
     const btn = e.target.closest?.("button.dataplate-chip");
     if (!btn) return;
@@ -279,7 +272,6 @@ export function mountDataplatePin(ctx) {
 
   clearBtn?.addEventListener("click", () => {
     revokePreview();
-    if (textArea) textArea.value = "";
     lastMap = null;
     selectedSeries = null;
     selectedItem = null;
