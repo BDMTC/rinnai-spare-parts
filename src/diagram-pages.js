@@ -121,8 +121,8 @@ const SERIES_DIAGRAM_DEFAULT = {
     label: "VR2024WB B20 NON50 PL",
   },
   hd32: {
-    page: "New A Series CF Parts List.pdf p56",
-    label: "New A Series CF Parts List (HD32e)",
+    page: "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p5",
+    label: "REU-AM3237WC Issue 2 (HD32e)",
   },
   "infinity32-enviro": {
     page: "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p1",
@@ -191,6 +191,14 @@ const SERIES_DIAGRAM_DEFAULT = {
   hdc211e: {
     page: "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
     label: "HDC211e KM3237WDC Combined SP & EPD",
+  },
+  hd28i: {
+    page: "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p5",
+    label: "REUVCM2837 FF Issue 4 (HD28i FFC)",
+  },
+  infinity28: {
+    page: "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p5",
+    label: "REUVCM2837 FF Issue 4 (Infinity 28 FF)",
   },
   "infinity20-2006": {
     page: "SM 2006.pdf p62",
@@ -414,6 +422,20 @@ const ED_STEM_TO_PDF = {
     "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
   "pl-efinity-ecf29i60":
     "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+  "pl-reu-vcm2837-ff-issue4":
+    "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+  "pl-reu-am3237wc-hd32":
+    "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+  "pl-hotflo-ehf-250sl-315l":
+    "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+  "pl-hotflo-ehf-250t-315t":
+    "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+  "pl-hotflo-ehf-400s":
+    "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+  "pl-hotflo-hfe-160t-400t":
+    "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+  "pl-hotflo-hfe-80-400s-issue10":
+    "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
   "pl-sm-2006": "SM 2006.pdf",
   "pl-sm-24wa": "SM 24WA.pdf",
   "pl-sm-reu3203": "SM REU3203.pdf",

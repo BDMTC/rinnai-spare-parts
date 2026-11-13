@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T14:03:52.523766+00:00",
+  "generatedAt": "2026-11-13T14:08:30.764130+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
@@ -13,14 +13,15 @@
     "hdc211e": "HDC211e PL Pin1 from REU-KM3237WDC-AK Combined SP & EPD SEP 2018 (cover HDC211e; chassis WDC \u2014 not Enviro KM3237WD)",
     "hotfloHfeSlim": "Hotflo HFE 250S/315S slim SPL Issue 8 \u2192 ehfa250/ehfa315 (complements EHFA SPARE PARTS)",
     "heritageSmPl": "SM-embedded PL for infinity20-2006 / infinity24-wa / infinity32-3203 (Hotflo EHFA400/EHFD/EHF25/GHF4/Efinity still wait-for Tech Issue PL sync)",
-    "hotfloEfinityWave": "Tech-synced Hotflo GHF4/EHFA400/EHFD160/EHF25 + Efinity ECF Issue PLs (ghf4, ehfa400, ehfd160, ehf25, pl-efinity-ecf14, pl-efinity-ecf19i50, pl-efinity-ecf19i60, pl-efinity-ecf29i50, pl-efinity-ecf29i60)"
+    "hotfloEfinityWave": "Tech-synced Hotflo GHF4/EHFA400/EHFD160/EHF25 + Efinity ECF Issue PLs (ghf4, ehfa400, ehfd160, ehf25, pl-efinity-ecf14, pl-efinity-ecf19i50, pl-efinity-ecf19i60, pl-efinity-ecf29i50, pl-efinity-ecf29i60)",
+    "cfHotfloLeftovers": "VCM2837 FF Issue4 (hd28i/inf28) + AM3237WC HD32 + Hotflo 250SL/T/400S/80-400S (pl-reu-vcm2837-ff-issue4, pl-reu-am3237wc-hd32, pl-hotflo-ehf-250sl-315l, pl-hotflo-ehf-250t-315t, pl-hotflo-ehf-400s, pl-hotflo-hfe-160t-400t, pl-hotflo-hfe-80-400s-issue10)"
   },
   "totals": {
     "sheetsConfigured": 49,
     "sheetsOk": 49,
     "sheetsMissing": 0,
-    "uniqueCodes": 912,
-    "codesInCatalogue": 617,
+    "uniqueCodes": 977,
+    "codesInCatalogue": 680,
     "codesInCatalogueWithPageAsset": 467,
     "codesInCatalogueWithListBox": 467,
     "codesInCatalogueWithListPageAsset": 467,
@@ -2106,6 +2107,244 @@
       ],
       "priority": 22,
       "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf"
+    },
+    {
+      "file": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+      "stem": "pl-reu-vcm2837-ff-issue4",
+      "status": "ok",
+      "pages": 8,
+      "diagramPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "listPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 76,
+      "rowsInCatalogue": 76,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "hd28i",
+        "infinity28"
+      ],
+      "chassisTokens": [
+        "VCM2837FF",
+        "VCM2837FFC",
+        "REU-VCM2837FF",
+        "REU-VCM2837FFC",
+        "HD28i",
+        "Infinity 28",
+        "INF28"
+      ],
+      "priority": 23,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf"
+    },
+    {
+      "file": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+      "stem": "pl-reu-am3237wc-hd32",
+      "status": "ok",
+      "pages": 7,
+      "diagramPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "listPages": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 56,
+      "rowsInCatalogue": 56,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "hd32"
+      ],
+      "chassisTokens": [
+        "AM3237WC",
+        "REU-AM3237WC",
+        "HD32",
+        "HD32e"
+      ],
+      "priority": 23,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf"
+    },
+    {
+      "file": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+      "stem": "pl-hotflo-ehf-250sl-315l",
+      "status": "ok",
+      "pages": 1,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        1
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 18,
+      "rowsInCatalogue": 17,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "ehfa250",
+        "ehfa315"
+      ],
+      "chassisTokens": [
+        "EHF250S",
+        "EHFA250S",
+        "HFE250SSL",
+        "EHF315S",
+        "EHFA315S",
+        "HFE315SSL"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf"
+    },
+    {
+      "file": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+      "stem": "pl-hotflo-ehf-250t-315t",
+      "status": "ok",
+      "pages": 1,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        1
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 18,
+      "rowsInCatalogue": 16,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "ehfa250",
+        "ehfa315"
+      ],
+      "chassisTokens": [
+        "EHF250T",
+        "EHFA250T",
+        "HFE250T",
+        "EHF315T",
+        "EHFA315T",
+        "HFE315T"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf"
+    },
+    {
+      "file": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+      "stem": "pl-hotflo-ehf-400s",
+      "status": "ok",
+      "pages": 1,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        1
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 17,
+      "rowsInCatalogue": 16,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "ehfa400"
+      ],
+      "chassisTokens": [
+        "EHF400S",
+        "HFE400S",
+        "EHFA400"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf"
+    },
+    {
+      "file": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+      "stem": "pl-hotflo-hfe-160t-400t",
+      "status": "ok",
+      "pages": 2,
+      "diagramPages": [
+        1,
+        2
+      ],
+      "listPages": [
+        1,
+        2
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 24,
+      "rowsInCatalogue": 21,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "ehfa160",
+        "ehfa400"
+      ],
+      "chassisTokens": [
+        "EHF160T",
+        "EHFA160T",
+        "HFE160T",
+        "EHF400T",
+        "HFE400T"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf"
+    },
+    {
+      "file": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+      "stem": "pl-hotflo-hfe-80-400s-issue10",
+      "status": "ok",
+      "pages": 2,
+      "diagramPages": [
+        1,
+        2
+      ],
+      "listPages": [
+        1,
+        2
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 28,
+      "rowsInCatalogue": 26,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "ehfa160",
+        "ehfa400"
+      ],
+      "chassisTokens": [
+        "EHF80S",
+        "HFE80S",
+        "EHF125S",
+        "HFE125S",
+        "EHF160S",
+        "EHFA160S",
+        "HFE160S",
+        "EHF200S",
+        "HFE200S",
+        "EHF400S",
+        "HFE400S"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf"
     }
   ],
   "parts": {
@@ -16579,6 +16818,50 @@
     "92095901": [
       {
         "callout": "400",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "INLET WATER 3/4 VRM2632WC"
+      },
+      {
+        "callout": "400",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "INLET WATER 3/4 VRM2632WC"
+      },
+      {
+        "callout": "400",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 2,
@@ -17498,6 +17781,50 @@
       }
     ],
     "92093552": [
+      {
+        "callout": "404",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "RECTIFIER WATER V2632WC"
+      },
+      {
+        "callout": "402",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "RECTIFIER WATER V2632WC"
+      },
       {
         "callout": "402",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -19094,6 +19421,50 @@
       }
     ],
     "92083773": [
+      {
+        "callout": "402",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "FILTER WATER 0 LARGE"
+      },
+      {
+        "callout": "412",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "FILTER WATER 0 LARGE"
+      },
       {
         "callout": "1",
         "page": "SM REU3203.pdf p54",
@@ -21501,6 +21872,50 @@
       }
     ],
     "92099944": [
+      {
+        "callout": "411",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "VALVE PRESS RELIEF VR3237WG"
+      },
+      {
+        "callout": "419",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "VALVE PRESS RELIEF VR3237WG"
+      },
       {
         "callout": "411",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -24863,6 +25278,30 @@
     "92095026": [
       {
         "callout": "706",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "SPARKER VM2630WC/WD V2024WG/W"
+      },
+      {
+        "callout": "706",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 3,
@@ -26339,6 +26778,50 @@
       }
     ],
     "92087030": [
+      {
+        "callout": "118",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "SLEEVE ELECTRODE 2626/32 V1616"
+      },
+      {
+        "callout": "708",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "SLEEVE ELECTRODE 2626/32 V1616"
+      },
       {
         "callout": "1",
         "page": "SM REU3203.pdf p54",
@@ -28532,6 +29015,30 @@
       }
     ],
     "92086388": [
+      {
+        "callout": "710",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "BRKT THERMISTOR V2632FFUG"
+      },
       {
         "callout": "710",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -35138,6 +35645,49 @@
     ],
     "92099988": [
       {
+        "callout": "705",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "SENSOR MR V2632FFUG VM2632FFUC"
+      },
+      {
+        "callout": "727",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "SENSOR MR V2632FFUG VM2632FFUC"
+      },
+      {
         "callout": "727",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
@@ -36728,6 +37278,26 @@
       }
     ],
     "92099961": [
+      {
+        "callout": "732",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "HARNESS REMOTE CONTROL V1620WG"
+      },
       {
         "callout": "729",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -39047,6 +39617,50 @@
     ],
     "92062249": [
       {
+        "callout": "500",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "O RING THERMISTOR 2010 2402"
+      },
+      {
+        "callout": "810",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "O RING THERMISTOR 2010 2402"
+      },
+      {
         "callout": "1",
         "page": "SM 2006.pdf p62",
         "pageKey": "pl-sm-2006__p62",
@@ -40930,6 +41544,50 @@
       }
     ],
     "90195165": [
+      {
+        "callout": "200",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "O RING (S4) TEST POINT 371TR"
+      },
+      {
+        "callout": "830",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "O RING (S4) TEST POINT 371TR"
+      },
       {
         "callout": "825",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -42863,6 +43521,50 @@
       }
     ],
     "92071182": [
+      {
+        "callout": "506",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "O RING IN/OUT WATER 2402 V1616"
+      },
+      {
+        "callout": "813",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "O RING IN/OUT WATER 2402 V1616"
+      },
       {
         "callout": "1",
         "page": "SM 2006.pdf p62",
@@ -44918,6 +45620,50 @@
     ],
     "92062199": [
       {
+        "callout": "505",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "O RING HEAT EXCH 2010/24WA"
+      },
+      {
+        "callout": "814",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "O RING HEAT EXCH 2010/24WA"
+      },
+      {
         "callout": "814",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
@@ -46835,6 +47581,50 @@
     ],
     "92062207": [
       {
+        "callout": "504",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "O RING HEAT EXCH 2010/24WA V16"
+      },
+      {
+        "callout": "815",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "O RING HEAT EXCH 2010/24WA V16"
+      },
+      {
         "callout": "1",
         "page": "SM 2006.pdf p62",
         "pageKey": "pl-sm-2006__p62",
@@ -48623,6 +49413,50 @@
       }
     ],
     "92062348": [
+      {
+        "callout": "503",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "O RING 2010 2402 V1616/20WG"
+      },
+      {
+        "callout": "812",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "O RING 2010 2402 V1616/20WG"
+      },
       {
         "callout": "1",
         "page": "SM 2006.pdf p62",
@@ -50467,6 +51301,50 @@
       }
     ],
     "92072859": [
+      {
+        "callout": "201",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "O RING GAS CON 2010 V1616/20WG"
+      },
+      {
+        "callout": "817",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "O RING GAS CON 2010 V1616/20WG"
+      },
       {
         "callout": "817",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -58008,6 +58886,30 @@
     ],
     "92071448": [
       {
+        "callout": "811",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "O RING R/VALVE/THERM REU2402"
+      },
+      {
         "callout": "2",
         "page": "SM 2006.pdf p62",
         "pageKey": "pl-sm-2006__p62",
@@ -58479,6 +59381,50 @@
       }
     ],
     "90195157": [
+      {
+        "callout": "101",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
+        "pageKey": "pl-reu-am3237wc-hd32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-am3237wc-hd32__p1",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "SCREW TEST POINT"
+      },
+      {
+        "callout": "101",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "SCREW TEST POINT"
+      },
       {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
@@ -60905,6 +61851,30 @@
     "92092253": [
       {
         "callout": "707",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "LEAD HT V2626/32 V1620WG/WB/WS"
+      },
+      {
+        "callout": "707",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
         "listPage": 3,
@@ -62078,6 +63048,50 @@
       }
     ],
     "92076123": [
+      {
+        "callout": "717",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "CLIP HEATER 2402 V2626/32 CUG1"
+      },
+      {
+        "callout": "717",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "CLIP HEATER 2402 V2626/32 CUG1"
+      },
       {
         "callout": "718",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -63431,6 +64445,29 @@
     ],
     "92098338": [
       {
+        "callout": "121",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "JOINT PRESSURE VCM2837FFC"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -63488,6 +64525,30 @@
       }
     ],
     "92099497": [
+      {
+        "callout": "145",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "GASKET SPIGOT N3237WC"
+      },
       {
         "callout": "1",
         "page": "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf p3",
@@ -63636,6 +64697,29 @@
     ],
     "92099491": [
       {
+        "callout": "146",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "O-RING EXHAUST N3237FFC"
+      },
+      {
         "callout": "1",
         "page": "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf p3",
         "pageKey": "pl-n3237-inf32-enviro-plus-issue3__p3",
@@ -63783,6 +64867,30 @@
     ],
     "92093320": [
       {
+        "callout": "148",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "CAP CONDENSATE VCM2837FF FFC"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL VRM2632FFU - ISSUE 4 - JUNE 2025.pdf p4",
         "pageKey": "edpl-vrm2632ffu-issue4__p4",
@@ -63811,6 +64919,30 @@
       }
     ],
     "92099560": [
+      {
+        "callout": "404",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "BRKT HEX OUTLET HD ENVIRO"
+      },
       {
         "callout": "404",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -65100,6 +66232,26 @@
       }
     ],
     "92099955": [
+      {
+        "callout": "26",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
+        "pageKey": "pl-reu-am3237wc-hd32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-am3237wc-hd32__p1",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "HARNESS EASY CONN V1620WG/WB"
+      },
       {
         "callout": "3",
         "page": "New A Series CF Parts List.pdf p1",
@@ -89627,6 +90779,26 @@
     ],
     "92099429": [
       {
+        "callout": "4",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
+        "pageKey": "pl-reu-am3237wc-hd32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-am3237wc-hd32__p1",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "BRKT WALL KM3237WDC"
+      },
+      {
         "callout": "2",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
         "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
@@ -97597,6 +98769,30 @@
     ],
     "92099583": [
       {
+        "callout": "760",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "HARNESS REMOTE N3237 E2626"
+      },
+      {
         "callout": "1",
         "page": "PL - N3237_Infinity 32 Enviro Plus N Series_Issue 3_Dec 21.pdf p3",
         "pageKey": "pl-n3237-inf32-enviro-plus-issue3__p3",
@@ -98633,6 +99829,50 @@
     ],
     "92093370": [
       {
+        "callout": "8",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
+        "pageKey": "pl-reu-am3237wc-hd32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-am3237wc-hd32__p1",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "SEAL CONNECTOR VCM 2837"
+      },
+      {
+        "callout": "22",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "SEAL CONNECTOR VCM 2837"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - 2025 BM SERIES - INFINITY B - ISSUE 1 - AUG 2025.pdf p4",
         "pageKey": "pl-rinnai-2025-bm-series-infinity-b__p4",
@@ -98793,6 +100033,30 @@
       }
     ],
     "92098996": [
+      {
+        "callout": "117",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "FLAME ROD KM2635WD KM3237WD"
+      },
       {
         "callout": "117",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -99612,6 +100876,50 @@
       }
     ],
     "92098914": [
+      {
+        "callout": "410",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "OUTLET WATER 3/4\" KM3237WD"
+      },
+      {
+        "callout": "408",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "OUTLET WATER 3/4\" KM3237WD"
+      },
       {
         "callout": "408",
         "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
@@ -101214,6 +102522,50 @@
     ],
     "92098368": [
       {
+        "callout": "202",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "O RING GAS CONTROL"
+      },
+      {
+        "callout": "818",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "O RING GAS CONTROL"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - 2025 BM SERIES - INFINITY B - ISSUE 1 - AUG 2025.pdf p4",
         "pageKey": "pl-rinnai-2025-bm-series-infinity-b__p4",
@@ -102347,6 +103699,30 @@
     ],
     "92098322": [
       {
+        "callout": "16",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "BRACE PANEL VCM2837"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -102501,6 +103877,50 @@
     ],
     "92093356": [
       {
+        "callout": "7",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
+        "pageKey": "pl-reu-am3237wc-hd32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-am3237wc-hd32__p1",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "INLET POWER VCM2837"
+      },
+      {
+        "callout": "21",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "INLET POWER VCM2837"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -102578,6 +103998,30 @@
     ],
     "92093358": [
       {
+        "callout": "100",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "GAS CONTROL VCM2837"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -102654,6 +104098,30 @@
       }
     ],
     "92093350": [
+      {
+        "callout": "102",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "INLET GAS VCM2837"
+      },
       {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
@@ -102809,6 +104277,30 @@
     ],
     "92098324": [
       {
+        "callout": "103",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "BURNER ASSY NG VCM2837"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -102885,6 +104377,30 @@
       }
     ],
     "92098326": [
+      {
+        "callout": "110",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "MANIFOLD ASSY LPG VCM2837"
+      },
       {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
@@ -102963,6 +104479,30 @@
     ],
     "92098328": [
       {
+        "callout": "110",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "MANIFOLD ASSY NG VCM2837"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -103040,6 +104580,30 @@
     ],
     "92098330": [
       {
+        "callout": "114",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "COMB CHAMBER ELECTRODE ASSY"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -103116,6 +104680,30 @@
       }
     ],
     "92098332": [
+      {
+        "callout": "116",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "ELECTRODE VCM2837"
+      },
       {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
@@ -103270,6 +104858,30 @@
       }
     ],
     "92093366": [
+      {
+        "callout": "128",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "PACKING FAN CASE VCM2837"
+      },
       {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
@@ -103502,6 +105114,30 @@
     ],
     "92098346": [
       {
+        "callout": "401",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "WATER FLOW SENSOR VCM2837"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -103578,6 +105214,30 @@
       }
     ],
     "92098348": [
+      {
+        "callout": "403",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "BYPASS SERVO ASSY VCM2837"
+      },
       {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
@@ -103656,6 +105316,30 @@
     ],
     "92098350": [
       {
+        "callout": "461",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "TURBINE WATERFLOW VCM2837"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -103732,6 +105416,30 @@
       }
     ],
     "92093368": [
+      {
+        "callout": "700",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "PCB MAIN VCM2837"
+      },
       {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
@@ -103810,6 +105518,30 @@
     ],
     "92093369": [
       {
+        "callout": "700",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "PCB MAIN 50C VCM2837"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -103886,6 +105618,50 @@
       }
     ],
     "92093372": [
+      {
+        "callout": "722",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "THERMISTOR VCM2837"
+      },
+      {
+        "callout": "709",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "THERMISTOR VCM2837"
+      },
       {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
@@ -103964,6 +105740,30 @@
     ],
     "92093362": [
       {
+        "callout": "719",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "HARNESS SOLENOID VCM2837"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -104040,6 +105840,50 @@
       }
     ],
     "92099732": [
+      {
+        "callout": "724",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "ELEC CORD A SERIES"
+      },
+      {
+        "callout": "720",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "ELEC CORD A SERIES"
+      },
       {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
@@ -104286,6 +106130,30 @@
     ],
     "92098354": [
       {
+        "callout": "722",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "HARNESS SPARKER VCM2837"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -104440,6 +106308,30 @@
     ],
     "92098356": [
       {
+        "callout": "725",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "HARNESS FUSE VCM2837"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -104516,6 +106408,30 @@
       }
     ],
     "92093360": [
+      {
+        "callout": "726",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "HARNESS POWER VCM2837"
+      },
       {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
@@ -104594,6 +106510,30 @@
     ],
     "92098358": [
       {
+        "callout": "728",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "PLATE SPARKER VCM2837"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -104670,6 +106610,50 @@
       }
     ],
     "92099730": [
+      {
+        "callout": "720",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "THERMISTOR TWIN A SERIES"
+      },
+      {
+        "callout": "730",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "THERMISTOR TWIN A SERIES"
+      },
       {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
@@ -104974,6 +106958,30 @@
     ],
     "92098360": [
       {
+        "callout": "731",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "HARNESS SOLENOID VCM2837"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -105128,6 +107136,50 @@
     ],
     "92098362": [
       {
+        "callout": "708",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "HEATER WATERFLOW VCM2837"
+      },
+      {
+        "callout": "740",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "HEATER WATERFLOW VCM2837"
+      },
+      {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
         "pageKey": "pl-reu-vcm2837-wc-external__p5",
@@ -105204,6 +107256,30 @@
       }
     ],
     "92098364": [
+      {
+        "callout": "741",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "HEATER HEX VCM2837"
+      },
       {
         "callout": "1",
         "page": "Parts List REU-VCM2837 WC External.pdf p5",
@@ -125236,6 +127312,26 @@
     ],
     "92099706": [
       {
+        "callout": "706",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "OHS A SERIES"
+      },
+      {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
         "pageKey": "pl-new-a-series-cf__p1",
@@ -127715,6 +129811,26 @@
     ],
     "92099728": [
       {
+        "callout": "719",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "THERMISTOR SINGLE  A SERIES"
+      },
+      {
         "callout": "2",
         "page": "New A Series CF Parts List.pdf p1",
         "pageKey": "pl-new-a-series-cf__p1",
@@ -128698,6 +130814,26 @@
       }
     ],
     "92099760": [
+      {
+        "callout": "730",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "MONITOR STATUS AM SERIES"
+      },
       {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
@@ -130172,6 +132308,56 @@
       }
     ],
     "95110048": [
+      {
+        "callout": "13",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "PTR VALVE - 1000KPA"
+      },
+      {
+        "callout": "13",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "PTR VALVE - 1000KPA"
+      },
       {
         "callout": "13",
         "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
@@ -132523,6 +134709,121 @@
     "92501174": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT COVER HOTFLO TANK"
+      },
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT COVER HOTFLO TANK"
+      },
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT COVER HOTFLO TANK"
+      },
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT COVER HOTFLO TANK"
+      },
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT COVER HOTFLO TANK"
+      },
+      {
+        "callout": "1",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
         "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
         "listPage": 1,
@@ -132554,6 +134855,121 @@
       }
     ],
     "92501162": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "CAP PLASTIC  ANODE HOTFLO TANK"
+      },
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "CAP PLASTIC ANODE HOTFLO TANK"
+      },
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "CAP PLASTIC  ANODE HOTFLO TANK"
+      },
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "CAP PLASTIC  ANODE HOTFLO TANK"
+      },
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "CAP PLASTIC  ANODE HOTFLO TANK"
+      },
       {
         "callout": "2",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
@@ -132589,6 +135005,50 @@
     "92501149": [
       {
         "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa250"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "ANODE STANDARD 250L SLIM M2"
+      },
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa250"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "ANODE STANDARD 250L SLIM M2"
+      },
+      {
+        "callout": "2",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
         "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
         "listPage": 1,
@@ -132619,6 +135079,50 @@
       }
     ],
     "92501112": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa250"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "ANODE (AL) 250L SLIM SK"
+      },
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa250"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "ANODE (AL) 250L SLIM SK"
+      },
       {
         "callout": "2",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
@@ -132653,6 +135157,50 @@
     "92501151": [
       {
         "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "ANODE STANDARD 315L SLIM"
+      },
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "ANODE STANDARD 315L SLIM"
+      },
+      {
+        "callout": "2",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
         "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
         "listPage": 1,
@@ -132685,6 +135233,50 @@
     "92501114": [
       {
         "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "ANODE (AL) 315L SLIM SK"
+      },
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "ANODE (AL) 315L SLIM SK"
+      },
+      {
+        "callout": "2",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
         "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
         "listPage": 1,
@@ -132715,6 +135307,52 @@
       }
     ],
     "92501163": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "ELEMENT 2.4KW SLIM"
+      },
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "ELEMENT 2.4KW SLIM"
+      },
       {
         "callout": "4",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
@@ -132750,6 +135388,52 @@
     "92501145": [
       {
         "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "ELEMENT 3.6KW SLIM"
+      },
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "ELEMENT 3.6KW SLIM"
+      },
+      {
+        "callout": "4",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
         "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
         "listPage": 1,
@@ -132783,6 +135467,52 @@
     "92501147": [
       {
         "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "ELEMENT 4.8KW SLIM"
+      },
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "ELEMENT 4.8KW SLIM"
+      },
+      {
+        "callout": "4",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
         "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
         "listPage": 1,
@@ -132814,6 +135544,121 @@
       }
     ],
     "18401005": [
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "GASKET ELEMENT"
+      },
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "GASKET ELEMENT"
+      },
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "GASKET ELEMENT"
+      },
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "GASKET ELEMENT"
+      },
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "GASKET ELEMENT"
+      },
       {
         "callout": "6",
         "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
@@ -132869,6 +135714,121 @@
     "92501137": [
       {
         "callout": "10",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "PLUG BRASS 25L 50L"
+      },
+      {
+        "callout": "10",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "PLUG BRASS 25L 50L"
+      },
+      {
+        "callout": "10",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "PLUG BRASS 25L 50L"
+      },
+      {
+        "callout": "10",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "PLUG BRASS 25L 50L"
+      },
+      {
+        "callout": "10",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "PLUG BRASS 25L 50L"
+      },
+      {
+        "callout": "10",
         "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
         "pageKey": "pl-hotflo-ehf25__p1",
         "listPage": 1,
@@ -132920,6 +135880,121 @@
       }
     ],
     "92501130": [
+      {
+        "callout": "11",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT HOTFLO ELEC TANK"
+      },
+      {
+        "callout": "11",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT HOTFLO ELEC TANK (Bottom)"
+      },
+      {
+        "callout": "11",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT HOTFLO ELEC TANK"
+      },
+      {
+        "callout": "11",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT HOTFLO ELEC TANK (Bottom)"
+      },
+      {
+        "callout": "11",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT HOTFLO ELEC TANK"
+      },
       {
         "callout": "11",
         "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
@@ -132975,6 +136050,121 @@
     "92501139": [
       {
         "callout": "12",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ADAPTOR PTR"
+      },
+      {
+        "callout": "12",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "ADAPTOR PTR"
+      },
+      {
+        "callout": "12",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "ADAPTOR PTR"
+      },
+      {
+        "callout": "12",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "ADAPTOR PTR"
+      },
+      {
+        "callout": "12",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "ADAPTOR PTR"
+      },
+      {
+        "callout": "12",
         "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
         "pageKey": "pl-hotflo-ehf25__p1",
         "listPage": 1,
@@ -133028,6 +136218,50 @@
     "92501141": [
       {
         "callout": "14",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "LID TOP TANK 315L 625mm SLIM"
+      },
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "LID TOP TANK 315L 625mm SLIM"
+      },
+      {
+        "callout": "14",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
         "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
         "listPage": 1,
@@ -133058,6 +136292,50 @@
       }
     ],
     "92501143": [
+      {
+        "callout": "15",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "BASE TANK 315L 625mm SLIM"
+      },
+      {
+        "callout": "15",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "BASE TANK 315L 625mm SLIM"
+      },
       {
         "callout": "15",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
@@ -133092,6 +136370,121 @@
     "92501180": [
       {
         "callout": "16",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "UNION 3/4M X 3/4F BRASS"
+      },
+      {
+        "callout": "16",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "UNION 3/4M X 3/4F BRASS"
+      },
+      {
+        "callout": "16",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "UNION 3/4M X 3/4F BRASS"
+      },
+      {
+        "callout": "16",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "UNION 3/4M X 3/4F BRASS"
+      },
+      {
+        "callout": "16",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "UNION 3/4M X 3/4F BRASS"
+      },
+      {
+        "callout": "16",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
         "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
         "listPage": 1,
@@ -133123,6 +136516,121 @@
       }
     ],
     "92501135": [
+      {
+        "callout": "18",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ELEC CORD 25L 50L"
+      },
+      {
+        "callout": "18",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "ELEC CORD 25L 50L"
+      },
+      {
+        "callout": "18",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "ELEC CORD 25L 50L"
+      },
+      {
+        "callout": "18",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "ELEC CORD 25L 50L"
+      },
+      {
+        "callout": "18",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "ELEC CORD 25L 50L"
+      },
       {
         "callout": "18",
         "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
@@ -134558,6 +138066,54 @@
     ],
     "92501146": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ANODE HOTFLO 160L STANDARD M2"
+      },
+      {
+        "callout": "3",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "ANODE HOTFLO 160L STANDARD M2"
+      },
+      {
         "callout": "14",
         "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
         "pageKey": "pl-hotflo-ghf4__p1",
@@ -134578,6 +138134,34 @@
       }
     ],
     "92501148": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ANODE HOTFLO 200L STANDARD  M2"
+      },
       {
         "callout": "15",
         "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
@@ -134600,6 +138184,54 @@
     ],
     "92501110": [
       {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ANODE (AL) 160L SK"
+      },
+      {
+        "callout": "3",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "ANODE (AL) 160L SK"
+      },
+      {
         "callout": "16",
         "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
         "pageKey": "pl-hotflo-ghf4__p1",
@@ -134620,6 +138252,34 @@
       }
     ],
     "92501118": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ANODE (AL) 200L SK"
+      },
       {
         "callout": "17",
         "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
@@ -137291,6 +140951,2086 @@
         ],
         "priority": 22,
         "name": "MOUNT MOTOR STEPPER ECF"
+      }
+    ],
+    "92099339": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
+        "pageKey": "pl-reu-am3237wc-hd32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-am3237wc-hd32__p1",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "PANEL FRONT AM3237WC"
+      }
+    ],
+    "92099341": [
+      {
+        "callout": "100",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
+        "pageKey": "pl-reu-am3237wc-hd32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-am3237wc-hd32__p1",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "INLET GAS AM3237"
+      }
+    ],
+    "92099343": [
+      {
+        "callout": "102",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
+        "pageKey": "pl-reu-am3237wc-hd32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-am3237wc-hd32__p1",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "GAS CONTROL AM3237"
+      }
+    ],
+    "92099345": [
+      {
+        "callout": "103",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
+        "pageKey": "pl-reu-am3237wc-hd32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-am3237wc-hd32__p1",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "MANIFOLD ASSY LPG AM3237"
+      }
+    ],
+    "92099347": [
+      {
+        "callout": "103",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
+        "pageKey": "pl-reu-am3237wc-hd32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-am3237wc-hd32__p1",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "MANIFOLD ASSY NG AM3237"
+      }
+    ],
+    "92099349": [
+      {
+        "callout": "109",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
+        "pageKey": "pl-reu-am3237wc-hd32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-am3237wc-hd32__p1",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "PORT CONECT GAS AM3237"
+      }
+    ],
+    "92099351": [
+      {
+        "callout": "114",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p1",
+        "pageKey": "pl-reu-am3237wc-hd32__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-am3237wc-hd32__p1",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "ELECTRODE AM3237"
+      }
+    ],
+    "92099353": [
+      {
+        "callout": "115",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "FLAME ROD AM3237"
+      }
+    ],
+    "92099355": [
+      {
+        "callout": "116",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "GASKET ELECTRODE AM3237"
+      }
+    ],
+    "92099356": [
+      {
+        "callout": "117",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "U ELECTRODE BRACKET"
+      }
+    ],
+    "92099359": [
+      {
+        "callout": "120",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "HEAT EXCH AM3237WC"
+      }
+    ],
+    "92099361": [
+      {
+        "callout": "121",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "BURNER ASSY AM3237"
+      }
+    ],
+    "92099362": [
+      {
+        "callout": "130",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "EXHAUST PORT ASSY"
+      }
+    ],
+    "92099364": [
+      {
+        "callout": "132",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "FRONT PANEL GASKET"
+      }
+    ],
+    "92099363": [
+      {
+        "callout": "150",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "FAN MOTOR AM3237"
+      }
+    ],
+    "92099365": [
+      {
+        "callout": "405",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "WATERFLOW SERVO AM3237"
+      }
+    ],
+    "92099367": [
+      {
+        "callout": "406",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p2",
+        "pageKey": "pl-reu-am3237wc-hd32__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-am3237wc-hd32__p2",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "BYPASS SERVO ASSY AM3237"
+      }
+    ],
+    "92099369": [
+      {
+        "callout": "507",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "O RING BYPASS AM3237"
+      }
+    ],
+    "92099371": [
+      {
+        "callout": "700",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "PCB MAIN AM3237W WC"
+      }
+    ],
+    "92099375": [
+      {
+        "callout": "701",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "SPARKER AM3237"
+      }
+    ],
+    "92099377": [
+      {
+        "callout": "707",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "HARNESS GAS CONTROL AM3237"
+      }
+    ],
+    "92099379": [
+      {
+        "callout": "710",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "HARNESS SWITCHING AM3237"
+      }
+    ],
+    "92099381": [
+      {
+        "callout": "711",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "HARNESS SENSOR AM3237"
+      }
+    ],
+    "92099383": [
+      {
+        "callout": "712",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "ELEC CORD AM3237"
+      }
+    ],
+    "92099386": [
+      {
+        "callout": "713",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "HARNESS THERMAL FUSE AM3237"
+      }
+    ],
+    "92099388": [
+      {
+        "callout": "716",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "HEATER ANTFROST AM3237"
+      }
+    ],
+    "92099390": [
+      {
+        "callout": "731",
+        "page": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf p3",
+        "pageKey": "pl-reu-am3237wc-hd32__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-am3237wc-hd32__p3",
+        "pdf": "PL - RINNAI - 2022 REU-AM3237WC-AK - Issue 2 - FEB 2023.pdf",
+        "stem": "pl-reu-am3237wc-hd32",
+        "seriesIds": [
+          "hd32"
+        ],
+        "chassisTokens": [
+          "AM3237WC",
+          "REU-AM3237WC",
+          "HD32",
+          "HD32e"
+        ],
+        "priority": 23,
+        "name": "HARNESS STATUS AM3237"
+      }
+    ],
+    "92501192": [
+      {
+        "callout": "13",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "VALVE PTR HT55-850 kPa"
+      },
+      {
+        "callout": "13",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "VALVE PTR HT55-850 kPa"
+      },
+      {
+        "callout": "13",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "VALVE PTR HT55-850 kPa"
+      },
+      {
+        "callout": "13",
+        "page": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250sl-315l__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250SL 315L - PTR 850 - ISSUE 6.pdf",
+        "stem": "pl-hotflo-ehf-250sl-315l",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250S",
+          "EHFA250S",
+          "HFE250SSL",
+          "EHF315S",
+          "EHFA315S",
+          "HFE315SSL"
+        ],
+        "priority": 22,
+        "name": "VALVE PTR HT55-850 kPa"
+      }
+    ],
+    "92501164": [
+      {
+        "callout": "19",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT HOTFLO ELEC TANK (Top)"
+      },
+      {
+        "callout": "19",
+        "page": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-250t-315t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF 250T 315T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-ehf-250t-315t",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHF250T",
+          "EHFA250T",
+          "HFE250T",
+          "EHF315T",
+          "EHFA315T",
+          "HFE315T"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT HOTFLO ELEC TANK (Top)"
+      }
+    ],
+    "92501154": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ANODE HOTFLO 400L STANDARD M2"
+      },
+      {
+        "callout": "3",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "ANODE HOTFLO 400L STANDARD M2"
+      },
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "ANODE HOTFLO 400L STANDARD M2"
+      }
+    ],
+    "92501116": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ANODE (AL) 400L SK"
+      },
+      {
+        "callout": "3",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "ANODE (AL) 400L SK"
+      },
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "ANODE (AL) 400L SK"
+      }
+    ],
+    "92501122": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 1.8KW"
+      },
+      {
+        "callout": "5",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 1.8KW"
+      },
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 1.8KW"
+      }
+    ],
+    "92501124": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 2.4KW"
+      },
+      {
+        "callout": "5",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 2.4KW"
+      },
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 2.4KW"
+      }
+    ],
+    "92501126": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 3.6KW"
+      },
+      {
+        "callout": "5",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 3.6KW"
+      },
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 3.6KW"
+      }
+    ],
+    "92501128": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 4.8KW"
+      },
+      {
+        "callout": "5",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 4.8KW"
+      },
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 4.8KW"
+      }
+    ],
+    "92501172": [
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "LID TOP HOTFLO TANK 697MM"
+      },
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "LID TOP HOTFLO TANK 697MM"
+      },
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "LID TOP HOTFLO TANK 697MM"
+      }
+    ],
+    "92501178": [
+      {
+        "callout": "15",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "BASE TANK 697MM"
+      },
+      {
+        "callout": "15",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "BASE TANK 697MM"
+      },
+      {
+        "callout": "15",
+        "page": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf p1",
+        "pageKey": "pl-hotflo-ehf-400s__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf-400s__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHF HFE 400S - ISSUE 7 - JUNE 2020.pdf",
+        "stem": "pl-hotflo-ehf-400s",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF400S",
+          "HFE400S",
+          "EHFA400"
+        ],
+        "priority": 22,
+        "name": "BASE TANK 697MM"
+      }
+    ],
+    "92501161": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "CAP PLASTIC HOTFLO 80L - 200L"
+      }
+    ],
+    "92501170": [
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "LID TOP HOTFLO TANK 527MM"
+      },
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "LID TOP HOTFLO TANK 527MM"
+      }
+    ],
+    "92501176": [
+      {
+        "callout": "15",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "BASE TANK 527MM"
+      },
+      {
+        "callout": "15",
+        "page": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf p1",
+        "pageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-160t-400t__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 160T 400T - ISSUE 8 - MAR 2021.pdf",
+        "stem": "pl-hotflo-hfe-160t-400t",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF160T",
+          "EHFA160T",
+          "HFE160T",
+          "EHF400T",
+          "HFE400T"
+        ],
+        "priority": 22,
+        "name": "BASE TANK 527MM"
+      }
+    ],
+    "92501142": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ANODE HOTFLO 80L STANDARD M2"
+      }
+    ],
+    "92501106": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ANODE (AL) 80L SK"
+      }
+    ],
+    "92501144": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ANODE HOTFLO 125L STANDARD M2"
+      }
+    ],
+    "92501108": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf p1",
+        "pageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-80-400s-issue10__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 80S 125S 160S 200S 400S - ISSUE 10 - DEC 2025.pdf",
+        "stem": "pl-hotflo-hfe-80-400s-issue10",
+        "seriesIds": [
+          "ehfa160",
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHF80S",
+          "HFE80S",
+          "EHF125S",
+          "HFE125S",
+          "EHF160S",
+          "EHFA160S",
+          "HFE160S",
+          "EHF200S",
+          "HFE200S",
+          "EHF400S",
+          "HFE400S"
+        ],
+        "priority": 22,
+        "name": "ANODE (AL) 125L SK"
+      }
+    ],
+    "92093318": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "BRKT WALL VCM2837FF"
+      }
+    ],
+    "92093342": [
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "PANEL FRONT VCM2837FFC"
+      }
+    ],
+    "92093340": [
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "PANEL FRONT 50C VCM2837FFC"
+      }
+    ],
+    "92093336": [
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "PANEL FRONT VCM2837FF"
+      }
+    ],
+    "92093334": [
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "PANEL FRONT 50C VCM2837FF"
+      }
+    ],
+    "92093338": [
+      {
+        "callout": "9",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "RELAY VCM2837FFC"
+      }
+    ],
+    "92093316": [
+      {
+        "callout": "9",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "RELAY VCM2837FF"
+      }
+    ],
+    "92098320": [
+      {
+        "callout": "10",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "PLATE RELAY VCM2837FFC"
+      }
+    ],
+    "92098334": [
+      {
+        "callout": "118",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "ELECTRODE HOLDER VCM2837"
+      }
+    ],
+    "92098336": [
+      {
+        "callout": "119",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p1",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p1",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "PACKING ELECTRODE VCM2837"
+      }
+    ],
+    "92098340": [
+      {
+        "callout": "122",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "TUBE PRESSURE VCM2837FFC"
+      }
+    ],
+    "92093322": [
+      {
+        "callout": "125",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "FAN ASSY VCM2837FF FFC"
+      }
+    ],
+    "92093326": [
+      {
+        "callout": "143",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "HEAT EXCH VCM2837FF FFC"
+      }
+    ],
+    "92098342": [
+      {
+        "callout": "144",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "EXHAUST ASSY VCM2837FFC"
+      }
+    ],
+    "92093330": [
+      {
+        "callout": "147",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "SEAL CONDENSATE VCM2837FF FFC"
+      }
+    ],
+    "92093328": [
+      {
+        "callout": "149",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "PACKING EXHAUST VCM2837FF FFC"
+      }
+    ],
+    "92098344": [
+      {
+        "callout": "151",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p2",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "listPage": 2,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p2",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "AIR INLET ASSY VCM2837FFC"
+      }
+    ],
+    "92098352": [
+      {
+        "callout": "713",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "BRKT HEATER VCM2837FFC"
+      }
+    ],
+    "92093324": [
+      {
+        "callout": "724",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "HARNESS SENSOR VCM2837FF FFC"
+      }
+    ],
+    "92093332": [
+      {
+        "callout": "732",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p3",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "listPage": 3,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p3",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i",
+          "infinity28"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "THERMISTOR FAN VCM2837FF FFC"
+      }
+    ],
+    "92098366": [
+      {
+        "callout": "742",
+        "page": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf p4",
+        "pageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "listPage": 4,
+        "listPageKey": "pl-reu-vcm2837-ff-issue4__p4",
+        "pdf": "PL - RINNAI - 2021 REUVCM2837 FF - ISSUE 4 - MAR 2024.pdf",
+        "stem": "pl-reu-vcm2837-ff-issue4",
+        "seriesIds": [
+          "hd28i"
+        ],
+        "chassisTokens": [
+          "VCM2837FF",
+          "VCM2837FFC",
+          "REU-VCM2837FF",
+          "REU-VCM2837FFC",
+          "HD28i",
+          "Infinity 28",
+          "INF28"
+        ],
+        "priority": 23,
+        "name": "HEATER BLOCK VCM2837FFC"
       }
     ]
   }
