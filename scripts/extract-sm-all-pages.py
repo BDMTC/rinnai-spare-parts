@@ -51,6 +51,7 @@ UNIQUE_SM = {
     "sm-24wa": "SM 24WA.pdf",
     "sm-reu3203": "SM REU3203.pdf",
     "sm-v26": "SM V26.pdf",
+    "sm-v26ffu": "SM V26FFU.pdf",
 }
 
 # Optional series thumb covers copied from pack page 1
@@ -77,6 +78,7 @@ SERIES_THUMBS = {
     "infinity32-3203": "sm-reu3203",
     "v2626": "sm-v26",
     "smartstart": "sm-smartstart",
+    "v2632ffu": "sm-v26ffu",
 }
 
 TARGET_WIDTH = 900

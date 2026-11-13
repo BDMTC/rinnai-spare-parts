@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T13:25:56.892424+00:00",
+  "generatedAt": "2026-11-13T13:32:03.524314+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
@@ -215,6 +215,7 @@
       "rowsInCatalogue": 87,
       "rowsWithListBox": 118,
       "seriesIds": [
+        "v2632ffu",
         "infinity26-internal",
         "hd200i"
       ],
@@ -222,7 +223,7 @@
         "REUV2632FFU",
         "V2632FFU"
       ],
-      "priority": 5,
+      "priority": 9,
       "path": "data-sheets/Rinnai Data Sheets/EDPL REUV2632FFU.pdf"
     },
     {
@@ -2899,6 +2900,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.33928,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "7",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.33928,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -3174,54 +3225,6 @@
           "y": 0.27324,
           "w": 0.06695,
           "h": 0.02265
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.33928,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "7",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.33928,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -3605,6 +3608,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.36009,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "8",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.36009,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -3727,54 +3780,6 @@
           "y": 0.2899,
           "w": 0.06695,
           "h": 0.02265
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.36009,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "8",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.36009,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -4316,6 +4321,56 @@
       },
       {
         "callout": "2",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.3809,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "9",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.3809,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "2",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -4693,54 +4748,6 @@
           "y": 0.3012,
           "w": 0.08374,
           "h": 0.02718
-        }
-      },
-      {
-        "callout": "2",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.3809,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "9",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.3809,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -6423,6 +6430,56 @@
         }
       },
       {
+        "callout": "2",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.42252,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "11",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.42252,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
         "callout": "23",
         "page": "EDPL REUV3237.pdf p4",
         "pageKey": "edpl-reuv3237__p4",
@@ -6565,54 +6622,6 @@
           "y": 0.44087,
           "w": 0.08374,
           "h": 0.02718
-        }
-      },
-      {
-        "callout": "2",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.42252,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "11",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.42252,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -7222,6 +7231,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.46413,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "100",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.46413,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL VRM2632FFU.pdf p4",
         "pageKey": "edpl-vrm2632ffu__p4",
         "pdf": "EDPL VRM2632FFU.pdf",
@@ -7314,54 +7373,6 @@
           "y": 0.50072,
           "w": 0.08374,
           "h": 0.02718
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.46413,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "100",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.46413,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -8000,6 +8011,56 @@
         }
       },
       {
+        "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.48494,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "101",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.48494,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
         "callout": "101",
         "page": "EDPL REUV3237.pdf p4",
         "pageKey": "edpl-reuv3237__p4",
@@ -8471,54 +8532,6 @@
           "y": 0.55491,
           "w": 0.08526,
           "h": 0.0262
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.48494,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "101",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.48494,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -9150,6 +9163,56 @@
           "y": 0.46349,
           "w": 0.08613,
           "h": 0.02637
+        }
+      },
+      {
+        "callout": "3",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.50575,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "102",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.50575,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
@@ -9840,54 +9903,6 @@
       },
       {
         "callout": "3",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.50575,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "102",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.50575,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "3",
         "page": "EDPL REUV2632FFUC.pdf p4",
         "pageKey": "edpl-reuv2632ffuc__p4",
         "pdf": "EDPL REUV2632FFUC.pdf",
@@ -10226,6 +10241,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.52656,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "103",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.52656,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -10348,54 +10413,6 @@
           "y": 0.42324,
           "w": 0.06695,
           "h": 0.02265
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.52656,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "103",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.52656,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -11320,98 +11337,100 @@
       },
       {
         "callout": "1",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 1,
-        "listPageKey": "edpl-vrm2632ffu__p1",
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
-          "x": 0.49832,
-          "y": 0.57323,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45605,
+          "y": 0.67221,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "110",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 1,
-        "listPageKey": "edpl-vrm2632ffu__p1",
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
-          "x": 0.49832,
-          "y": 0.57323,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45605,
+          "y": 0.67221,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
+        "priority": 6,
+        "listPage": 1,
+        "listPageKey": "edpl-vrm2632ffu__p1",
         "listBox": {
-          "x": 0.45605,
-          "y": 0.67221,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.49832,
+          "y": 0.57323,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
         "callout": "110",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
+        "priority": 6,
+        "listPage": 1,
+        "listPageKey": "edpl-vrm2632ffu__p1",
         "listBox": {
-          "x": 0.45605,
-          "y": 0.67221,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.49832,
+          "y": 0.57323,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
@@ -12051,6 +12070,56 @@
           "y": 0.77524,
           "w": 0.08613,
           "h": 0.02637
+        }
+      },
+      {
+        "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.7754,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "116",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.7754,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
@@ -12737,54 +12806,6 @@
           "y": 0.89007,
           "w": 0.08526,
           "h": 0.0262
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.7754,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "116",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.7754,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -14213,6 +14234,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.83783,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "119",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.83783,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -14594,54 +14665,6 @@
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.83783,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "119",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.83783,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "1",
         "page": "EDPL REUV2632FFUC.pdf p4",
         "pageKey": "edpl-reuv2632ffuc__p4",
         "pdf": "EDPL REUV2632FFUC.pdf",
@@ -14988,6 +15011,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45603,
+          "y": 0.19363,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "127",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45603,
+          "y": 0.19363,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -15158,54 +15231,6 @@
           "y": 0.15384,
           "w": 0.08374,
           "h": 0.02718
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45603,
-          "y": 0.19363,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "127",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45603,
-          "y": 0.19363,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -15416,6 +15441,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.21444,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "128",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.21444,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -15586,54 +15661,6 @@
           "y": 0.17379,
           "w": 0.08374,
           "h": 0.02718
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.21444,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "128",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.21444,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -19203,6 +19230,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.6306,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "406",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.6306,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -19988,54 +20065,6 @@
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.6306,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "406",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.6306,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "1",
         "page": "EDPL REUV2632FFUC.pdf p4",
         "pageKey": "edpl-reuv2632ffuc__p4",
         "pdf": "EDPL REUV2632FFUC.pdf",
@@ -20438,6 +20467,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.65141,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "408",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.65141,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -20560,54 +20639,6 @@
           "y": 0.48142,
           "w": 0.06695,
           "h": 0.02265
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.65141,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "408",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.65141,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -22506,6 +22537,56 @@
         }
       },
       {
+        "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.75545,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "701",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.75545,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
         "callout": "701",
         "page": "EDPL REUV3237.pdf p4",
         "pageKey": "edpl-reuv3237__p4",
@@ -23042,54 +23123,6 @@
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.75545,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "701",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.75545,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "1",
         "page": "EDPL REUV2632FFUC.pdf p4",
         "pageKey": "edpl-reuv2632ffuc__p4",
         "pdf": "EDPL REUV2632FFUC.pdf",
@@ -23615,6 +23648,56 @@
         }
       },
       {
+        "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.90111,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "709",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.90111,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
         "callout": "716",
         "page": "EDPL REUV3237.pdf p4",
         "pageKey": "edpl-reuv3237__p4",
@@ -23807,54 +23890,6 @@
           "y": 0.49459,
           "w": 0.08526,
           "h": 0.0262
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.90111,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "709",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.90111,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -24582,6 +24617,56 @@
         }
       },
       {
+        "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.83868,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "706",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.83868,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
         "callout": "705",
         "page": "EDPL REUV3237.pdf p4",
         "pageKey": "edpl-reuv3237__p4",
@@ -25056,54 +25141,6 @@
           "y": 0.17379,
           "w": 0.08374,
           "h": 0.02718
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.83868,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "706",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.83868,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -26264,6 +26301,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.8803,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "708",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.8803,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -27001,54 +27088,6 @@
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.8803,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "708",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.8803,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "1",
         "page": "EDPL REUV2632FFUC.pdf p4",
         "pageKey": "edpl-reuv2632ffuc__p4",
         "pdf": "EDPL REUV2632FFUC.pdf",
@@ -27408,6 +27447,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.92192,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "709",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.92192,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL VRM2630.pdf p4",
         "pageKey": "edpl-vrm2630__p4",
         "pdf": "EDPL VRM2630.pdf",
@@ -27498,54 +27587,6 @@
           "y": 0.71474,
           "w": 0.06695,
           "h": 0.02265
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.92192,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "709",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.92192,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -27878,6 +27919,31 @@
           "y": 0.41089,
           "w": 0.08618,
           "h": 0.02815
+        }
+      },
+      {
+        "callout": "710",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.17282,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
@@ -28327,30 +28393,6 @@
           "y": 0.2536,
           "w": 0.08374,
           "h": 0.02718
-        }
-      },
-      {
-        "callout": "710",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.17282,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -29931,6 +29973,56 @@
         }
       },
       {
+        "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.25606,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "714",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.25606,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
         "callout": "712",
         "page": "EDPL REUV3237.pdf p4",
         "pageKey": "edpl-reuv3237__p4",
@@ -30001,54 +30093,6 @@
           "y": 0.79808,
           "w": 0.06695,
           "h": 0.02265
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.25606,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "714",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.25606,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -30396,6 +30440,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.27686,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "716",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.27686,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -30669,54 +30763,6 @@
           "y": 0.35336,
           "w": 0.08374,
           "h": 0.02718
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.27686,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "716",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.27686,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -32314,6 +32360,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.3601,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "720",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.3601,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -33000,54 +33096,6 @@
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.3601,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "720",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.3601,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "1",
         "page": "EDPL REUV2632FFUC.pdf p4",
         "pageKey": "edpl-reuv2632ffuc__p4",
         "pdf": "EDPL REUV2632FFUC.pdf",
@@ -33456,98 +33504,100 @@
       },
       {
         "callout": "1",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 3,
-        "listPageKey": "edpl-vrm2632ffu__p3",
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
         "listBox": {
-          "x": 0.4983,
-          "y": 0.14809,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45605,
+          "y": 0.40171,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "723",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 3,
-        "listPageKey": "edpl-vrm2632ffu__p3",
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
         "listBox": {
-          "x": 0.4983,
-          "y": 0.14809,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45605,
+          "y": 0.40171,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
+        "priority": 6,
+        "listPage": 3,
+        "listPageKey": "edpl-vrm2632ffu__p3",
         "listBox": {
-          "x": 0.45605,
-          "y": 0.40171,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.4983,
+          "y": 0.14809,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
         "callout": "723",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
+        "priority": 6,
+        "listPage": 3,
+        "listPageKey": "edpl-vrm2632ffu__p3",
         "listBox": {
-          "x": 0.45605,
-          "y": 0.40171,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.4983,
+          "y": 0.14809,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
@@ -33964,98 +34014,100 @@
       },
       {
         "callout": "1",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 3,
-        "listPageKey": "edpl-vrm2632ffu__p3",
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
         "listBox": {
-          "x": 0.49832,
-          "y": 0.18142,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45607,
+          "y": 0.44333,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "725",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 3,
-        "listPageKey": "edpl-vrm2632ffu__p3",
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
         "listBox": {
-          "x": 0.49832,
-          "y": 0.18142,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45607,
+          "y": 0.44333,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
+        "priority": 6,
+        "listPage": 3,
+        "listPageKey": "edpl-vrm2632ffu__p3",
         "listBox": {
-          "x": 0.45607,
-          "y": 0.44333,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.49832,
+          "y": 0.18142,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
         "callout": "725",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
+        "priority": 6,
+        "listPage": 3,
+        "listPageKey": "edpl-vrm2632ffu__p3",
         "listBox": {
-          "x": 0.45607,
-          "y": 0.44333,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.49832,
+          "y": 0.18142,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
@@ -34778,6 +34830,56 @@
         }
       },
       {
+        "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.46414,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "726",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.46414,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
         "callout": "414",
         "page": "EDPL REUV3237.pdf p4",
         "pageKey": "edpl-reuv3237__p4",
@@ -35255,54 +35357,6 @@
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.46414,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "726",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.46414,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "1",
         "page": "EDPL REUV2632FFUC.pdf p4",
         "pageKey": "edpl-reuv2632ffuc__p4",
         "pdf": "EDPL REUV2632FFUC.pdf",
@@ -35530,98 +35584,100 @@
       },
       {
         "callout": "1",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 3,
-        "listPageKey": "edpl-vrm2632ffu__p3",
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
         "listBox": {
-          "x": 0.4983,
-          "y": 0.21475,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45605,
+          "y": 0.48495,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "727",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 3,
-        "listPageKey": "edpl-vrm2632ffu__p3",
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
         "listBox": {
-          "x": 0.4983,
-          "y": 0.21475,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45605,
+          "y": 0.48495,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
+        "priority": 6,
+        "listPage": 3,
+        "listPageKey": "edpl-vrm2632ffu__p3",
         "listBox": {
-          "x": 0.45605,
-          "y": 0.48495,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.4983,
+          "y": 0.21475,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
         "callout": "727",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
+        "priority": 6,
+        "listPage": 3,
+        "listPageKey": "edpl-vrm2632ffu__p3",
         "listBox": {
-          "x": 0.45605,
-          "y": 0.48495,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.4983,
+          "y": 0.21475,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
@@ -36295,6 +36351,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45603,
+          "y": 0.52656,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "729",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45603,
+          "y": 0.52656,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL VR1620.pdf p5",
         "pageKey": "edpl-vr1620__p5",
         "pdf": "EDPL VR1620.pdf",
@@ -36716,54 +36822,6 @@
           "y": 0.51853,
           "w": 0.08526,
           "h": 0.0262
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45603,
-          "y": 0.52656,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "729",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45603,
-          "y": 0.52656,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -38807,6 +38865,56 @@
         }
       },
       {
+        "callout": "3",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.69303,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "810",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.69303,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
         "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
@@ -39561,54 +39669,6 @@
           "y": 0.76793,
           "w": 0.08526,
           "h": 0.0262
-        }
-      },
-      {
-        "callout": "3",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.69303,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "810",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.69303,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -40645,6 +40705,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.73464,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "812",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.73464,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -41427,54 +41537,6 @@
           "y": 0.69611,
           "w": 0.08526,
           "h": 0.0262
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.73464,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "812",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.73464,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -42559,6 +42621,56 @@
       },
       {
         "callout": "3",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45609,
+          "y": 0.75545,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "813",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45609,
+          "y": 0.75545,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "3",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -43438,54 +43550,6 @@
           "y": 0.88763,
           "w": 0.08526,
           "h": 0.0262
-        }
-      },
-      {
-        "callout": "3",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45609,
-          "y": 0.75545,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "813",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45609,
-          "y": 0.75545,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -44569,6 +44633,56 @@
         }
       },
       {
+        "callout": "2",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.77626,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "814",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.77626,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
         "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
@@ -45376,54 +45490,6 @@
           "y": 0.86369,
           "w": 0.08526,
           "h": 0.0262
-        }
-      },
-      {
-        "callout": "2",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.77626,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "814",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.77626,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -46368,6 +46434,56 @@
       },
       {
         "callout": "2",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.79707,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "815",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.79707,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "2",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -47078,54 +47194,6 @@
           "y": 0.83975,
           "w": 0.08526,
           "h": 0.0262
-        }
-      },
-      {
-        "callout": "2",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.79707,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "815",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.79707,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -48163,6 +48231,56 @@
         }
       },
       {
+        "callout": "2",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.81788,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "816",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.81788,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
         "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
@@ -48923,54 +49041,6 @@
           "y": 0.79187,
           "w": 0.08526,
           "h": 0.0262
-        }
-      },
-      {
-        "callout": "2",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.81788,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "816",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.81788,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -49939,6 +50009,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.83868,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "817",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.83868,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -50699,54 +50819,6 @@
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.83868,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "817",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.83868,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "1",
         "page": "EDPL REUV2632FFUC.pdf p4",
         "pageKey": "edpl-reuv2632ffuc__p4",
         "pdf": "EDPL REUV2632FFUC.pdf",
@@ -51292,6 +51364,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.85949,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "818",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.85949,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL VR1620.pdf p5",
         "pageKey": "edpl-vr1620__p5",
         "pdf": "EDPL VR1620.pdf",
@@ -51642,54 +51764,6 @@
           "y": 0.74399,
           "w": 0.08526,
           "h": 0.0262
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.85949,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "818",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.85949,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -52343,98 +52417,100 @@
       },
       {
         "callout": "1",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 1,
-        "listPageKey": "edpl-vrm2632ffu__p1",
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
-          "x": 0.49832,
-          "y": 0.5899,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45605,
+          "y": 0.69302,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "110",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 1,
-        "listPageKey": "edpl-vrm2632ffu__p1",
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
-          "x": 0.49832,
-          "y": 0.5899,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45605,
+          "y": 0.69302,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
+        "priority": 6,
+        "listPage": 1,
+        "listPageKey": "edpl-vrm2632ffu__p1",
         "listBox": {
-          "x": 0.45605,
-          "y": 0.69302,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.49832,
+          "y": 0.5899,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
         "callout": "110",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
+        "priority": 6,
+        "listPage": 1,
+        "listPageKey": "edpl-vrm2632ffu__p1",
         "listBox": {
-          "x": 0.45605,
-          "y": 0.69302,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.49832,
+          "y": 0.5899,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
@@ -52541,98 +52617,100 @@
       },
       {
         "callout": "1",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 1,
-        "listPageKey": "edpl-vrm2632ffu__p1",
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
-          "x": 0.49831,
-          "y": 0.67323,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45607,
+          "y": 0.79621,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "117",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 1,
-        "listPageKey": "edpl-vrm2632ffu__p1",
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
-          "x": 0.49831,
-          "y": 0.67323,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45607,
+          "y": 0.79621,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
+        "priority": 6,
+        "listPage": 1,
+        "listPageKey": "edpl-vrm2632ffu__p1",
         "listBox": {
-          "x": 0.45607,
-          "y": 0.79621,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.49831,
+          "y": 0.67323,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
         "callout": "117",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
+        "priority": 6,
+        "listPage": 1,
+        "listPageKey": "edpl-vrm2632ffu__p1",
         "listBox": {
-          "x": 0.45607,
-          "y": 0.79621,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.49831,
+          "y": 0.67323,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
@@ -52793,6 +52871,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.90025,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "122",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.90025,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL V2632FFU_FFUC.pdf p4",
         "pageKey": "edpl-v2632ffu-ffuc__p4",
         "pdf": "EDPL V2632FFU_FFUC.pdf",
@@ -52889,54 +53017,6 @@
           "y": 0.75656,
           "w": 0.06695,
           "h": 0.02265
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.90025,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "122",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.90025,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -54258,98 +54338,100 @@
       },
       {
         "callout": "1",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 2,
-        "listPageKey": "edpl-vrm2632ffu__p2",
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
         "listBox": {
-          "x": 0.49833,
-          "y": 0.38142,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45607,
+          "y": 0.52656,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "401",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 2,
-        "listPageKey": "edpl-vrm2632ffu__p2",
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
         "listBox": {
-          "x": 0.49833,
-          "y": 0.38142,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45607,
+          "y": 0.52656,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
+        "priority": 6,
+        "listPage": 2,
+        "listPageKey": "edpl-vrm2632ffu__p2",
         "listBox": {
-          "x": 0.45607,
-          "y": 0.52656,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.49833,
+          "y": 0.38142,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
         "callout": "401",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
+        "priority": 6,
+        "listPage": 2,
+        "listPageKey": "edpl-vrm2632ffu__p2",
         "listBox": {
-          "x": 0.45607,
-          "y": 0.52656,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.49833,
+          "y": 0.38142,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
@@ -54510,6 +54592,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.56818,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "403",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.56818,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL VRM2632FFU.pdf p4",
         "pageKey": "edpl-vrm2632ffu__p4",
         "pdf": "EDPL VRM2632FFU.pdf",
@@ -54602,54 +54734,6 @@
           "y": 0.39327,
           "w": 0.08374,
           "h": 0.02718
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.56818,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "403",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.56818,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -54853,6 +54937,56 @@
         "listBox": {
           "x": 0.49677,
           "y": 0.39489,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.71384,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "411",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.71384,
           "w": 0.0945,
           "h": 0.02663
         }
@@ -55240,54 +55374,6 @@
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.71384,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "411",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.71384,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "1",
         "page": "EDPL REUV2632FFUC.pdf p4",
         "pageKey": "edpl-reuv2632ffuc__p4",
         "pdf": "EDPL REUV2632FFUC.pdf",
@@ -55562,6 +55648,56 @@
       },
       {
         "callout": "5",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.21444,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "712",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.21444,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "5",
         "page": "EDPL V2632FFU_FFUC.pdf p4",
         "pageKey": "edpl-v2632ffu-ffuc__p4",
         "pdf": "EDPL V2632FFU_FFUC.pdf",
@@ -55658,54 +55794,6 @@
           "y": 0.76474,
           "w": 0.06695,
           "h": 0.02265
-        }
-      },
-      {
-        "callout": "5",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.21444,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "712",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.21444,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -55785,6 +55873,56 @@
         }
       },
       {
+        "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.23525,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "713",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.23525,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
         "callout": "713",
         "page": "EDPL VRM2632FFU.pdf p4",
         "pageKey": "edpl-vrm2632ffu__p4",
@@ -55806,54 +55944,6 @@
           "y": 0.78141,
           "w": 0.06695,
           "h": 0.02265
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.23525,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "713",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.23525,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -55960,6 +56050,56 @@
         }
       },
       {
+        "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.33929,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "719",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.33929,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
         "callout": "719",
         "page": "EDPL VRM2632FFU.pdf p4",
         "pageKey": "edpl-vrm2632ffu__p4",
@@ -55981,54 +56121,6 @@
           "y": 0.88141,
           "w": 0.06695,
           "h": 0.02265
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.33929,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "719",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.33929,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -56189,98 +56281,100 @@
       },
       {
         "callout": "1",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 3,
-        "listPageKey": "edpl-vrm2632ffu__p3",
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
         "listBox": {
-          "x": 0.49832,
-          "y": 0.13142,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45607,
+          "y": 0.3809,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "721",
-        "page": "EDPL VRM2632FFU.pdf p4",
-        "pageKey": "edpl-vrm2632ffu__p4",
-        "pdf": "EDPL VRM2632FFU.pdf",
-        "stem": "edpl-vrm2632ffu",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "VRM2632FFU",
-          "VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 6,
-        "listPage": 3,
-        "listPageKey": "edpl-vrm2632ffu__p3",
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
         "listBox": {
-          "x": 0.49832,
-          "y": 0.13142,
-          "w": 0.06695,
-          "h": 0.02265
+          "x": 0.45607,
+          "y": 0.3809,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
+        "priority": 6,
+        "listPage": 3,
+        "listPageKey": "edpl-vrm2632ffu__p3",
         "listBox": {
-          "x": 0.45607,
-          "y": 0.3809,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.49832,
+          "y": 0.13142,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
         "callout": "721",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL VRM2632FFU.pdf p4",
+        "pageKey": "edpl-vrm2632ffu__p4",
+        "pdf": "EDPL VRM2632FFU.pdf",
+        "stem": "edpl-vrm2632ffu",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "VRM2632FFU",
+          "VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
+        "priority": 6,
+        "listPage": 3,
+        "listPageKey": "edpl-vrm2632ffu__p3",
         "listBox": {
-          "x": 0.45607,
-          "y": 0.3809,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.49832,
+          "y": 0.13142,
+          "w": 0.06695,
+          "h": 0.02265
         }
       },
       {
@@ -56441,6 +56535,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.50575,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "728",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.50575,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL VRM2632FFU.pdf p4",
         "pageKey": "edpl-vrm2632ffu__p4",
         "pdf": "EDPL VRM2632FFU.pdf",
@@ -56485,54 +56629,6 @@
           "y": 0.24809,
           "w": 0.06695,
           "h": 0.02265
-        }
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.50575,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "728",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.50575,
-          "w": 0.0945,
-          "h": 0.02663
         }
       },
       {
@@ -57974,6 +58070,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.81702,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "118",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.81702,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -58181,54 +58327,6 @@
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.81702,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "118",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.81702,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "1",
         "page": "EDPL REUV2632FFUC.pdf p4",
         "pageKey": "edpl-reuv2632ffuc__p4",
         "pdf": "EDPL REUV2632FFUC.pdf",
@@ -58323,102 +58421,104 @@
     "92092097": [
       {
         "callout": "1",
-        "page": "EDPL V2632FFU_FFUC.pdf p4",
-        "pageKey": "edpl-v2632ffu-ffuc__p4",
-        "pdf": "EDPL V2632FFU_FFUC.pdf",
-        "stem": "edpl-v2632ffu-ffuc",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "V2632FFU",
-          "V2632FFUC",
-          "VRM2632FFUC",
-          "REU-VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 8,
-        "listPage": 1,
-        "listPageKey": "edpl-v2632ffu-ffuc__p1",
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
-          "x": 0.46464,
-          "y": 0.7507,
-          "w": 0.07572,
-          "h": 0.02212
+          "x": 0.45607,
+          "y": 0.92106,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "125",
-        "page": "EDPL V2632FFU_FFUC.pdf p4",
-        "pageKey": "edpl-v2632ffu-ffuc__p4",
-        "pdf": "EDPL V2632FFU_FFUC.pdf",
-        "stem": "edpl-v2632ffu-ffuc",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "V2632FFU",
-          "V2632FFUC",
-          "VRM2632FFUC",
-          "REU-VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 8,
-        "listPage": 1,
-        "listPageKey": "edpl-v2632ffu-ffuc__p1",
+        "priority": 9,
+        "listPage": 2,
+        "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
-          "x": 0.46464,
-          "y": 0.7507,
-          "w": 0.07572,
-          "h": 0.02212
+          "x": 0.45607,
+          "y": 0.92106,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL V2632FFU_FFUC.pdf p4",
+        "pageKey": "edpl-v2632ffu-ffuc__p4",
+        "pdf": "EDPL V2632FFU_FFUC.pdf",
+        "stem": "edpl-v2632ffu-ffuc",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "V2632FFU",
+          "V2632FFUC",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
+        "priority": 8,
+        "listPage": 1,
+        "listPageKey": "edpl-v2632ffu-ffuc__p1",
         "listBox": {
-          "x": 0.45607,
-          "y": 0.92106,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.46464,
+          "y": 0.7507,
+          "w": 0.07572,
+          "h": 0.02212
         }
       },
       {
         "callout": "125",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL V2632FFU_FFUC.pdf p4",
+        "pageKey": "edpl-v2632ffu-ffuc__p4",
+        "pdf": "EDPL V2632FFU_FFUC.pdf",
+        "stem": "edpl-v2632ffu-ffuc",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "V2632FFU",
+          "V2632FFUC",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 2,
-        "listPageKey": "edpl-reuv2632ffu__p2",
+        "priority": 8,
+        "listPage": 1,
+        "listPageKey": "edpl-v2632ffu-ffuc__p1",
         "listBox": {
-          "x": 0.45607,
-          "y": 0.92106,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.46464,
+          "y": 0.7507,
+          "w": 0.07572,
+          "h": 0.02212
         }
       },
       {
@@ -58473,102 +58573,104 @@
     "92095983": [
       {
         "callout": "1",
-        "page": "EDPL V2632FFU_FFUC.pdf p4",
-        "pageKey": "edpl-v2632ffu-ffuc__p4",
-        "pdf": "EDPL V2632FFU_FFUC.pdf",
-        "stem": "edpl-v2632ffu-ffuc",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "V2632FFU",
-          "V2632FFUC",
-          "VRM2632FFUC",
-          "REU-VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 8,
-        "listPage": 2,
-        "listPageKey": "edpl-v2632ffu-ffuc__p2",
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
         "listBox": {
-          "x": 0.45348,
-          "y": 0.2654,
-          "w": 0.07572,
-          "h": 0.02212
+          "x": 0.45607,
+          "y": 0.40171,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "139",
-        "page": "EDPL V2632FFU_FFUC.pdf p4",
-        "pageKey": "edpl-v2632ffu-ffuc__p4",
-        "pdf": "EDPL V2632FFU_FFUC.pdf",
-        "stem": "edpl-v2632ffu-ffuc",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
         "seriesIds": [
-          "hd200i",
-          "infinity26-internal"
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
         ],
         "chassisTokens": [
-          "V2632FFU",
-          "V2632FFUC",
-          "VRM2632FFUC",
-          "REU-VRM2632FFUC"
+          "REUV2632FFU",
+          "V2632FFU"
         ],
-        "priority": 8,
-        "listPage": 2,
-        "listPageKey": "edpl-v2632ffu-ffuc__p2",
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
         "listBox": {
-          "x": 0.45348,
-          "y": 0.2654,
-          "w": 0.07572,
-          "h": 0.02212
+          "x": 0.45607,
+          "y": 0.40171,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
         "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL V2632FFU_FFUC.pdf p4",
+        "pageKey": "edpl-v2632ffu-ffuc__p4",
+        "pdf": "EDPL V2632FFU_FFUC.pdf",
+        "stem": "edpl-v2632ffu-ffuc",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "V2632FFU",
+          "V2632FFUC",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
+        "priority": 8,
+        "listPage": 2,
+        "listPageKey": "edpl-v2632ffu-ffuc__p2",
         "listBox": {
-          "x": 0.45607,
-          "y": 0.40171,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.45348,
+          "y": 0.2654,
+          "w": 0.07572,
+          "h": 0.02212
         }
       },
       {
         "callout": "139",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
+        "page": "EDPL V2632FFU_FFUC.pdf p4",
+        "pageKey": "edpl-v2632ffu-ffuc__p4",
+        "pdf": "EDPL V2632FFU_FFUC.pdf",
+        "stem": "edpl-v2632ffu-ffuc",
         "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
+          "hd200i",
+          "infinity26-internal"
         ],
         "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
+          "V2632FFU",
+          "V2632FFUC",
+          "VRM2632FFUC",
+          "REU-VRM2632FFUC"
         ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
+        "priority": 8,
+        "listPage": 2,
+        "listPageKey": "edpl-v2632ffu-ffuc__p2",
         "listBox": {
-          "x": 0.45607,
-          "y": 0.40171,
-          "w": 0.0945,
-          "h": 0.02663
+          "x": 0.45348,
+          "y": 0.2654,
+          "w": 0.07572,
+          "h": 0.02212
         }
       },
       {
@@ -58719,6 +58821,56 @@
           "y": 0.35775,
           "w": 0.09224,
           "h": 0.02756
+        }
+      },
+      {
+        "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.50575,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "400",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 3,
+        "listPageKey": "edpl-reuv2632ffu__p3",
+        "listBox": {
+          "x": 0.45607,
+          "y": 0.50575,
+          "w": 0.0945,
+          "h": 0.02663
         }
       },
       {
@@ -58896,54 +59048,6 @@
           "h": 0.02756
         },
         "listPdf": "EDPL Smartstart.pdf"
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.50575,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "400",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 3,
-        "listPageKey": "edpl-reuv2632ffu__p3",
-        "listBox": {
-          "x": 0.45607,
-          "y": 0.50575,
-          "w": 0.0945,
-          "h": 0.02663
-        }
       },
       {
         "callout": "1",
@@ -60854,6 +60958,56 @@
       },
       {
         "callout": "1",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.31848,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "718",
+        "page": "EDPL REUV2632FFU.pdf p1",
+        "pageKey": "edpl-reuv2632ffu__p1",
+        "pdf": "EDPL REUV2632FFU.pdf",
+        "stem": "edpl-reuv2632ffu",
+        "seriesIds": [
+          "v2632ffu",
+          "infinity26-internal",
+          "hd200i"
+        ],
+        "chassisTokens": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "priority": 9,
+        "listPage": 4,
+        "listPageKey": "edpl-reuv2632ffu__p4",
+        "listBox": {
+          "x": 0.45605,
+          "y": 0.31848,
+          "w": 0.0945,
+          "h": 0.02663
+        }
+      },
+      {
+        "callout": "1",
         "page": "EDPL REUV2626W_REUV2632WC.pdf p1",
         "pageKey": "edpl-reuv2626w-reuv2632wc__p1",
         "pdf": "EDPL REUV2626W_REUV2632WC.pdf",
@@ -61129,54 +61283,6 @@
           "h": 0.02756
         },
         "listPdf": "EDPL Smartstart.pdf"
-      },
-      {
-        "callout": "1",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.31848,
-          "w": 0.0945,
-          "h": 0.02663
-        }
-      },
-      {
-        "callout": "718",
-        "page": "EDPL REUV2632FFU.pdf p1",
-        "pageKey": "edpl-reuv2632ffu__p1",
-        "pdf": "EDPL REUV2632FFU.pdf",
-        "stem": "edpl-reuv2632ffu",
-        "seriesIds": [
-          "infinity26-internal",
-          "hd200i"
-        ],
-        "chassisTokens": [
-          "REUV2632FFU",
-          "V2632FFU"
-        ],
-        "priority": 5,
-        "listPage": 4,
-        "listPageKey": "edpl-reuv2632ffu__p4",
-        "listBox": {
-          "x": 0.45605,
-          "y": 0.31848,
-          "w": 0.0945,
-          "h": 0.02663
-        }
       },
       {
         "callout": "1",
@@ -62503,6 +62609,7 @@
         "pdf": "EDPL REUV2632FFU.pdf",
         "stem": "edpl-reuv2632ffu",
         "seriesIds": [
+          "v2632ffu",
           "infinity26-internal",
           "hd200i"
         ],
@@ -62510,7 +62617,7 @@
           "REUV2632FFU",
           "V2632FFU"
         ],
-        "priority": 5,
+        "priority": 9,
         "listPage": 2,
         "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
@@ -62529,6 +62636,7 @@
         "pdf": "EDPL REUV2632FFU.pdf",
         "stem": "edpl-reuv2632ffu",
         "seriesIds": [
+          "v2632ffu",
           "infinity26-internal",
           "hd200i"
         ],
@@ -62536,7 +62644,7 @@
           "REUV2632FFU",
           "V2632FFU"
         ],
-        "priority": 5,
+        "priority": 9,
         "listPage": 2,
         "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
@@ -62553,6 +62661,7 @@
         "pdf": "EDPL REUV2632FFU.pdf",
         "stem": "edpl-reuv2632ffu",
         "seriesIds": [
+          "v2632ffu",
           "infinity26-internal",
           "hd200i"
         ],
@@ -62560,7 +62669,7 @@
           "REUV2632FFU",
           "V2632FFU"
         ],
-        "priority": 5,
+        "priority": 9,
         "listPage": 2,
         "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
@@ -62579,6 +62688,7 @@
         "pdf": "EDPL REUV2632FFU.pdf",
         "stem": "edpl-reuv2632ffu",
         "seriesIds": [
+          "v2632ffu",
           "infinity26-internal",
           "hd200i"
         ],
@@ -62586,7 +62696,7 @@
           "REUV2632FFU",
           "V2632FFU"
         ],
-        "priority": 5,
+        "priority": 9,
         "listPage": 2,
         "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
@@ -62603,6 +62713,7 @@
         "pdf": "EDPL REUV2632FFU.pdf",
         "stem": "edpl-reuv2632ffu",
         "seriesIds": [
+          "v2632ffu",
           "infinity26-internal",
           "hd200i"
         ],
@@ -62610,7 +62721,7 @@
           "REUV2632FFU",
           "V2632FFU"
         ],
-        "priority": 5,
+        "priority": 9,
         "listPage": 2,
         "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
@@ -62677,6 +62788,7 @@
         "pdf": "EDPL REUV2632FFU.pdf",
         "stem": "edpl-reuv2632ffu",
         "seriesIds": [
+          "v2632ffu",
           "infinity26-internal",
           "hd200i"
         ],
@@ -62684,7 +62796,7 @@
           "REUV2632FFU",
           "V2632FFU"
         ],
-        "priority": 5,
+        "priority": 9,
         "listPage": 2,
         "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
@@ -62701,6 +62813,7 @@
         "pdf": "EDPL REUV2632FFU.pdf",
         "stem": "edpl-reuv2632ffu",
         "seriesIds": [
+          "v2632ffu",
           "infinity26-internal",
           "hd200i"
         ],
@@ -62708,7 +62821,7 @@
           "REUV2632FFU",
           "V2632FFU"
         ],
-        "priority": 5,
+        "priority": 9,
         "listPage": 2,
         "listPageKey": "edpl-reuv2632ffu__p2",
         "listBox": {
@@ -62775,6 +62888,7 @@
         "pdf": "EDPL REUV2632FFU.pdf",
         "stem": "edpl-reuv2632ffu",
         "seriesIds": [
+          "v2632ffu",
           "infinity26-internal",
           "hd200i"
         ],
@@ -62782,7 +62896,7 @@
           "REUV2632FFU",
           "V2632FFU"
         ],
-        "priority": 5,
+        "priority": 9,
         "listPage": 3,
         "listPageKey": "edpl-reuv2632ffu__p3",
         "listBox": {
@@ -62799,6 +62913,7 @@
         "pdf": "EDPL REUV2632FFU.pdf",
         "stem": "edpl-reuv2632ffu",
         "seriesIds": [
+          "v2632ffu",
           "infinity26-internal",
           "hd200i"
         ],
@@ -62806,7 +62921,7 @@
           "REUV2632FFU",
           "V2632FFU"
         ],
-        "priority": 5,
+        "priority": 9,
         "listPage": 3,
         "listPageKey": "edpl-reuv2632ffu__p3",
         "listBox": {
@@ -62873,6 +62988,7 @@
         "pdf": "EDPL REUV2632FFU.pdf",
         "stem": "edpl-reuv2632ffu",
         "seriesIds": [
+          "v2632ffu",
           "infinity26-internal",
           "hd200i"
         ],
@@ -62880,7 +62996,7 @@
           "REUV2632FFU",
           "V2632FFU"
         ],
-        "priority": 5,
+        "priority": 9,
         "listPage": 3,
         "listPageKey": "edpl-reuv2632ffu__p3",
         "listBox": {
@@ -62897,6 +63013,7 @@
         "pdf": "EDPL REUV2632FFU.pdf",
         "stem": "edpl-reuv2632ffu",
         "seriesIds": [
+          "v2632ffu",
           "infinity26-internal",
           "hd200i"
         ],
@@ -62904,7 +63021,7 @@
           "REUV2632FFU",
           "V2632FFU"
         ],
-        "priority": 5,
+        "priority": 9,
         "listPage": 3,
         "listPageKey": "edpl-reuv2632ffu__p3",
         "listBox": {
@@ -62971,6 +63088,7 @@
         "pdf": "EDPL REUV2632FFU.pdf",
         "stem": "edpl-reuv2632ffu",
         "seriesIds": [
+          "v2632ffu",
           "infinity26-internal",
           "hd200i"
         ],
@@ -62978,7 +63096,7 @@
           "REUV2632FFU",
           "V2632FFU"
         ],
-        "priority": 5,
+        "priority": 9,
         "listPage": 4,
         "listPageKey": "edpl-reuv2632ffu__p4",
         "listBox": {
@@ -62995,6 +63113,7 @@
         "pdf": "EDPL REUV2632FFU.pdf",
         "stem": "edpl-reuv2632ffu",
         "seriesIds": [
+          "v2632ffu",
           "infinity26-internal",
           "hd200i"
         ],
@@ -63002,7 +63121,7 @@
           "REUV2632FFU",
           "V2632FFU"
         ],
-        "priority": 5,
+        "priority": 9,
         "listPage": 4,
         "listPageKey": "edpl-reuv2632ffu__p4",
         "listBox": {

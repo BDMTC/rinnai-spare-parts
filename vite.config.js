@@ -244,6 +244,7 @@ function lightboxPdfDataScripts() {
     { id: "SM-24WA", file: "SM 24WA.pdf" },
     { id: "SM-REU3203", file: "SM REU3203.pdf" },
     { id: "SM-V26", file: "SM V26.pdf" },
+    { id: "SM-V26FFU", file: "SM V26FFU.pdf" },
     { id: "VR2024WB-B20-NON50", file: "VR2024WB-50-AK B20 NON50.pdf" },
   ];
 

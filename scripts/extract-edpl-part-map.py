@@ -68,9 +68,9 @@ CF_SHEETS = [
     {
         "file": "EDPL REUV2632FFU.pdf",
         "stem": "edpl-reuv2632ffu",
-        "seriesIds": ["infinity26-internal", "hd200i"],
+        "seriesIds": ["v2632ffu", "infinity26-internal", "hd200i"],
         "chassisTokens": ["REUV2632FFU", "V2632FFU"],
-        "priority": 5,
+        "priority": 9,
     },
     {
         "file": "EDPL REUV2632FFUC.pdf",
@@ -909,6 +909,7 @@ def main():
             "hd200e": ("edpl-reu-vrm2632wc", 5),
             "hd200i": ("edpl-reu-vr2632ffug", 5),
             "infinity26-internal": ("edpl-v2632ffu-ffuc", 5),
+            "v2632ffu": ("edpl-reuv2632ffu", 1),
             "infinity26-plus": ("edpl-reuv2630wd-inf26plus", 6),
             "infinity26-smartstart": ("pl-ed-inf26-smartstart-vr2626wgp", 1),
             "infinity-b": ("pl-rinnai-2025-bm-series-infinity-b", 1),

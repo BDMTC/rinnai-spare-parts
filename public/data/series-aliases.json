@@ -415,7 +415,9 @@
           "INF26I"
         ],
         "marketingCodeExcludePrefixes": [
-          "S26"
+          "S26L",
+          "S26N",
+          "S26B"
         ],
         "itemNumberIncludes": [
           "REUVRM2632FFUG",
@@ -438,9 +440,39 @@
         "VR2632FFUG",
         "REU-V2632FFUG",
         "V2632FFUG",
-        "VRM2632"
+        "VRM2632",
+        "S26IL",
+        "S26IN"
       ],
-      "notes": "Infinity 26 internal FFUG (INF26I*) \u2014 SM pairing with HD200i FFUC. Bare Infinity 26 / INF26 owned by infinity26 external. S26 solar boosters excluded from this pin."
+      "notes": "Infinity 26 internal FFUG (INF26I* + S26I*70 solar on VR2632FFUG) \u2014 SM pairing with HD200i FFUC. Bare Infinity 26 / INF26 owned by infinity26 external. S26L/N/B external solar (VR2426WS) stay on B24 pin."
+    },
+    {
+      "id": "v2632ffu",
+      "label": "Infinity 26 Internal (V2632FFU)",
+      "aliases": [
+        "Infinity 26 Internal (V2632FFU)",
+        "REU-V2632FFU",
+        "V2632FFU",
+        "REUV2632FFU",
+        "INF26IL",
+        "INF26IN"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUV2632FFU",
+          "V2632FFU"
+        ],
+        "unitClasses": [
+          "FFU"
+        ]
+      },
+      "documentKeys": [
+        "V2632FFU",
+        "REU-V2632FFU",
+        "INF26IL",
+        "INF26IN"
+      ],
+      "notes": "Heritage Infinity 26 internal on REU-V2632FFU (INF26IL/IN without temp suffix codes). Unit class FFU so FFUG/FFUC stay on Infinity 26 internal / HD200i. Cover-true SM: SM V26FFU.pdf (also lists HD200i V2632FFUC)."
     },
     {
       "id": "infinity26-plus",
@@ -1132,8 +1164,6 @@
         "marketingCodeExcludePrefixes": [
           "HDC211",
           "HD210",
-          "INF32EEL",
-          "INF32EEN",
           "INF32EIL",
           "INF32EIN"
         ]
@@ -1145,9 +1175,11 @@
         "KM3237",
         "KM3237WD",
         "REU-KM3237WD",
-        "REUKM3237"
+        "REUKM3237",
+        "INF32EEL",
+        "INF32EEN"
       ],
-      "notes": "Confirmed Beau: KM3237 \u2192 Infinity 32 Enviro / Enviro Plus. Match is KM3237WD only (not WDC/FFUDC HDC211, not N3237 Enviro+/HD210)."
+      "notes": "Confirmed Beau: KM3237WD \u2192 Infinity 32 Enviro / Enviro Plus (incl. NZ INF32EEL/EEN). Match is KM3237WD only (not WDC/FFUDC HDC211, not FFUD INF32EIL/EIN, not N3237 Enviro+/HD210)."
     },
     {
       "id": "hd210e",

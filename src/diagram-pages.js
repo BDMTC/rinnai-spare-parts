@@ -52,6 +52,10 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "EDPL V2632FFU_FFUC.pdf p5",
     label: "EDPL V2632FFU_FFUC",
   },
+  v2632ffu: {
+    page: "EDPL REUV2632FFU.pdf p1",
+    label: "EDPL REUV2632FFU (V2632FFU)",
+  },
   "infinity26-plus": {
     page: "EDPL REUV2630WD INF26Plus.pdf p6",
     label: "EDPL REUV2630WD INF26Plus",
