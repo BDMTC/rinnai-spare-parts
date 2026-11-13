@@ -82,7 +82,7 @@ export function suggestSeriesPins(catalogue, seriesDoc, query, opts = {}) {
   const results = [];
 
   const primaryEmpty =
-    /^(hd28e?|hd28i|hd200e|hd200i|hd210e|hd210i|hd32|hdc32e?|hdc32i|hd250e|hdc211e?|hdc211i|infinity26|infinity32)/i;
+    /^(hd28e|hd28i|hd200e|hd200i|hd210e|hd210i|hd32|hdc32e?|hdc32i|hd250e|hdc211e?|hdc211i|infinity26|infinity28|infinity32|solar28)/i;
 
   for (const series of listSeries(seriesDoc)) {
     const commercial = getSeriesCommercialName(series);

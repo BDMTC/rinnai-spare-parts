@@ -9,16 +9,22 @@
 
 import { findSeries, documentKeysForPin } from "./series.js";
 
-/** Longer suffixes first so FFUC wins over FFC/FFU, WCAK over WC, etc. */
+/** Longer suffixes first so FFUC/FFC/FFU win over bare FF, WCAK over WC, etc. */
 const UNIT_CLASS_SUFFIXES = [
   "WCAK",
+  "FFUDC",
   "FFUC",
   "FFUG",
+  "FFUD",
   "FFC",
   "FFU",
+  "FF",
+  "WDC",
+  "WDL",
   "WC",
   "WD",
   "WG",
+  "WS",
 ];
 
 export function normalise(text) {
