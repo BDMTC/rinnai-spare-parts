@@ -1,6 +1,7 @@
 /**
- * Dataplate upload / OCR / confirm-chip UI for dual pins.
+ * Dataplate upload / OCR / confirm-chip UI for Pin 1–3.
  * Never silent auto-pin — admin must tap chips (or Confirm).
+ * Pin 1 Type of system is a real chip (inferred from plate evidence), not silent CF.
  */
 
 import { mapDataplateTextToPinCandidates } from "./dataplate-map.js";
@@ -10,6 +11,7 @@ import { recognizeDataplateImage } from "./dataplate-ocr.js";
  * @param {object} ctx
  * @param {() => object|null} ctx.getCatalogue
  * @param {() => object|null} ctx.getSeriesDoc
+ * @param {{ getValue: Function, setValue: Function, clear?: Function, refreshEnabled?: Function }} [ctx.systemPicker]
  * @param {{ getValue: Function, setValue: Function, clear?: Function, refreshEnabled?: Function }} ctx.seriesPicker
  * @param {{ getValue: Function, setValue: Function, clear?: Function, refreshEnabled?: Function }} ctx.itemPicker
  * @param {(suggestion: object) => Promise<boolean>} [ctx.requestUnlock]
@@ -25,11 +27,14 @@ export function mountDataplatePin(ctx) {
   const preview = root.querySelector("#dataplate-preview");
   const statusEl = root.querySelector("#dataplate-status");
   const chipsEl = root.querySelector("#dataplate-chips");
+  const systemChips = root.querySelector("#dataplate-system-chips");
   const seriesChips = root.querySelector("#dataplate-series-chips");
   const itemChips = root.querySelector("#dataplate-item-chips");
   const confirmBtn = root.querySelector("#dataplate-confirm");
   const clearBtn = root.querySelector("#dataplate-clear");
 
+  /** @type {string|null} */
+  let selectedSystem = null;
   /** @type {string|null} */
   let selectedSeries = null;
   /** @type {string|null} */
@@ -67,14 +72,31 @@ export function mountDataplatePin(ctx) {
 
   function updateConfirmEnabled() {
     if (!confirmBtn) return;
-    confirmBtn.disabled = !selectedSeries && !selectedItem;
+    // Pin 1 is required — no silent CF fallback.
+    confirmBtn.disabled = !selectedSystem;
   }
 
   function renderChips() {
     if (!chipsEl || !seriesChips || !itemChips) return;
+    const systems = lastMap?.systemCandidates || [];
     const series = lastMap?.seriesCandidates || [];
     const items = lastMap?.itemCandidates || [];
-    chipsEl.hidden = !series.length && !items.length;
+    chipsEl.hidden =
+      !systems.length && !series.length && !items.length;
+
+    if (systemChips) {
+      systemChips.innerHTML = systems.length
+        ? systems
+            .map((c) => {
+              const active = c.value === selectedSystem ? " is-selected" : "";
+              const sub = c.subtitle
+                ? `<span class="dataplate-chip-sub">${escapeHtml(c.subtitle)}</span>`
+                : "";
+              return `<button type="button" class="dataplate-chip dataplate-chip--system${active}" data-kind="system" data-value="${escapeAttr(c.value)}" aria-pressed="${c.value === selectedSystem ? "true" : "false"}"><span class="dataplate-chip-label">${escapeHtml(c.label)}</span>${sub}</button>`;
+            })
+            .join("")
+        : `<span class="dataplate-chip-empty">No type of system match yet — pick Pin 1 above if needed</span>`;
+    }
 
     seriesChips.innerHTML = series.length
       ? series
@@ -104,9 +126,13 @@ export function mountDataplatePin(ctx) {
     const catalogue = ctx.getCatalogue?.() || null;
     const seriesDoc = ctx.getSeriesDoc?.() || null;
     lastMap = mapDataplateTextToPinCandidates(catalogue, seriesDoc, text);
+    selectedSystem = null;
     selectedSeries = null;
     selectedItem = null;
     // Soft-select top candidates for confirm, but do NOT lock pins yet
+    if (lastMap.systemCandidates[0]) {
+      selectedSystem = lastMap.systemCandidates[0].value;
+    }
     if (lastMap.seriesCandidates[0]) {
       selectedSeries = lastMap.seriesCandidates[0].value;
     }
@@ -119,14 +145,23 @@ export function mountDataplatePin(ctx) {
       }
     }
     renderChips();
-    if (!lastMap.seriesCandidates.length && !lastMap.itemCandidates.length) {
+    const any =
+      lastMap.systemCandidates.length ||
+      lastMap.seriesCandidates.length ||
+      lastMap.itemCandidates.length;
+    if (!any) {
       setStatus(
-        "No REU / HD codes recognised — try another photo, or type the Item Number in Pin 3.",
+        "No system / REU / model codes recognised — try another photo, or set Pin 1 and type the Item Number.",
+        "warn"
+      );
+    } else if (!lastMap.systemCandidates.length) {
+      setStatus(
+        "Series / Item chips found, but no Type of system on the plate — pick Pin 1 in the chips or the Pin 1 field, then confirm.",
         "warn"
       );
     } else {
       setStatus(
-        "Confirm Pin 2 / Pin 3 chips below — nothing is locked until you confirm.",
+        "Confirm Pin 1 / Pin 2 / Pin 3 chips below — nothing is locked until you confirm.",
         "ok"
       );
     }
@@ -153,6 +188,9 @@ export function mountDataplatePin(ctx) {
           "warn"
         );
         lastMap = null;
+        selectedSystem = null;
+        selectedSeries = null;
+        selectedItem = null;
         renderChips();
         return;
       }
@@ -169,7 +207,13 @@ export function mountDataplatePin(ctx) {
   }
 
   async function lockSelectedPins() {
-    if (!selectedSeries && !selectedItem) return;
+    if (!selectedSystem) {
+      setStatus(
+        "Pick a Pin 1 · Type of system chip before confirming.",
+        "warn"
+      );
+      return;
+    }
 
     const itemCand = (lastMap?.itemCandidates || []).find(
       (c) => c.value === selectedItem
@@ -196,8 +240,17 @@ export function mountDataplatePin(ctx) {
       }
     }
 
+    // Pin 1 first so Pin 2/3 pickers unlock under the right class.
+    if (ctx.systemPicker?.setValue) {
+      ctx.systemPicker.setValue(selectedSystem);
+    }
+    ctx.seriesPicker?.refreshEnabled?.();
+    ctx.itemPicker?.refreshEnabled?.();
+
     if (selectedSeries && ctx.seriesPicker?.setValue) {
       ctx.seriesPicker.setValue(selectedSeries);
+    } else if (!selectedSeries) {
+      ctx.seriesPicker?.clear?.();
     }
     ctx.itemPicker?.refreshEnabled?.();
     if (selectedItem && ctx.itemPicker?.setValue) {
@@ -252,7 +305,9 @@ export function mountDataplatePin(ctx) {
     const kind = btn.dataset.kind;
     const value = btn.dataset.value;
     if (!value) return;
-    if (kind === "series") {
+    if (kind === "system") {
+      selectedSystem = selectedSystem === value ? null : value;
+    } else if (kind === "series") {
       selectedSeries = selectedSeries === value ? null : value;
       // Clearing series drops item selection that belongs elsewhere
       if (!selectedSeries) selectedItem = null;
@@ -273,6 +328,7 @@ export function mountDataplatePin(ctx) {
   clearBtn?.addEventListener("click", () => {
     revokePreview();
     lastMap = null;
+    selectedSystem = null;
     selectedSeries = null;
     selectedItem = null;
     renderChips();

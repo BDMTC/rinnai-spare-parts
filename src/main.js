@@ -879,9 +879,9 @@ function renderShell() {
             <aside
               class="news-ticker"
               id="news-ticker"
-              aria-label="Weather, Brisbane traffic, Queensland news, and Rinnai updates"
+              aria-label="Brisbane news, weather, and traffic"
             >
-              <span class="news-ticker-label">Ticker</span>
+              <span class="news-ticker-label">Brisbane News / Weather / Traffic</span>
               <div class="news-ticker-viewport">
                 <div class="news-ticker-track" role="list"></div>
               </div>
@@ -934,12 +934,16 @@ function renderShell() {
                     id="query-input"
                     name="q"
                     type="search"
-                    placeholder="Trade term, part code, or description…"
+                    placeholder="Choose type of system (Pin 1) first"
                     spellcheck="false"
-                    autofocus
+                    disabled
+                    aria-describedby="search-lock-hint"
                   />
-                  <button type="submit" class="search-btn">Search</button>
+                  <button type="submit" class="search-btn" disabled>Search</button>
                 </div>
+                <p class="search-lock-hint" id="search-lock-hint">
+                  Set Pin 1 first — search unlocks after you pick a type (or Everything).
+                </p>
               </label>
             </div>
 
@@ -1013,6 +1017,10 @@ function renderShell() {
             </div>
             <p class="dataplate-status" id="dataplate-status" hidden></p>
             <div class="dataplate-chips" id="dataplate-chips" hidden>
+              <div class="dataplate-chip-group">
+                <span class="dataplate-chip-heading">Pin 1 · Type of system</span>
+                <div class="dataplate-chip-row" id="dataplate-system-chips"></div>
+              </div>
               <div class="dataplate-chip-group">
                 <span class="dataplate-chip-heading">Pin 2 · Series</span>
                 <div class="dataplate-chip-row" id="dataplate-series-chips"></div>
@@ -1140,48 +1148,32 @@ function renderShell() {
           </header>
           <div class="help-body">
             <article class="help-tip">
-              <h3 class="help-tip-title">1. Three pins — type, series, Item Number</h3>
+              <h3 class="help-tip-title">1. Pin first</h3>
               <p class="help-tip-copy">
-                <strong>Pin 1 · Type of system</strong> is the ruling class for the whole search.
-                Pick the family you are working on first (e.g. Continuous Flow Hot Water Systems for Infinity / HD / REU CF units).
-                That narrows Pin 2 series and Pin 3 Item Numbers to that class so results stay on the right product line.
-              </p>
-              <p class="help-tip-copy">
-                At the <strong>bottom</strong> of the Pin 1 list is a flashing
-                <strong>Everything</strong> option. Choose it when you do not want a system class:
-                it <strong>overrides Pins 2 and 3</strong> and searches <em>every</em> part in the catalogue by your search term only.
-              </p>
-              <p class="help-tip-copy">
-                <strong>Pin 2 = Series</strong> (e.g. Infinity 26, HD210e) with the commercial name.
-                <strong>Pin 3 = full Item Number</strong> only (e.g. <code>REU-AM2626WD-50-AKN</code> or <code>HD210EN42</code>), filtered to that series — locked until Pin 2 is set; commercial names stay visible in the list.
-                Part search scopes to that Item Number’s chassis once Pin 3 is set. For HEX / heat-exchanger style concept searches, pin Pin 3 so one orange Primary doesn’t hide other chassis.
+                You need to pin (type → series → Item Number). You can type what you need in each box too.
               </p>
               <img class="help-tip-img" src="${tipPinModelUrl}" alt="Type, series, and Item Number pin fields" width="560" height="220" decoding="async" />
             </article>
             <article class="help-tip">
-              <h3 class="help-tip-title">2. 60°+ commercial warning</h3>
-              <p class="help-tip-copy">
-                Fuel/temp packing: <strong>50° = AU domestic</strong>; <strong>60° and higher = commercial</strong>.
-                When Pin 3 is a 60°+ unit, a flashing warning appears above the pins — that heater must not be installed on a domestic system (not legal).
-              </p>
-            </article>
-            <article class="help-tip">
-              <h3 class="help-tip-title">3. Set margin</h3>
+              <h3 class="help-tip-title">2. Set margin</h3>
               <p class="help-tip-copy">Use Margin % for your sell markup. Default is ${DEFAULT_MARGIN_PERCENT}%.</p>
               <img class="help-tip-img" src="${tipMarginUrl}" alt="Margin percent dropdown" width="420" height="180" decoding="async" />
             </article>
             <article class="help-tip">
-              <h3 class="help-tip-title">4. Search</h3>
-              <p class="help-tip-copy">Part code or trade words work. Short and long aliases both match (e.g. brkt / bracket).</p>
+              <h3 class="help-tip-title">3. Search</h3>
+              <p class="help-tip-copy">
+                Locked until Pin 1. Part code or trade words work (brkt / bracket both match).
+                <strong>Everything</strong> = whole catalogue.
+              </p>
               <img class="help-tip-img" src="${tipSearchUrl}" alt="Search box with matched alias chip" width="560" height="210" decoding="async" />
             </article>
             <article class="help-tip">
-              <h3 class="help-tip-title">5. Back to main page</h3>
+              <h3 class="help-tip-title">4. Back to main page</h3>
               <p class="help-tip-copy">Click the MTC logo to clear search and all pins.</p>
               <img class="help-tip-img" src="${tipHomeLogoUrl}" alt="MTC logo home button" width="480" height="180" decoding="async" />
             </article>
             <article class="help-tip">
-              <h3 class="help-tip-title">6. Quote button</h3>
+              <h3 class="help-tip-title">5. Quote button</h3>
               <p class="help-tip-copy">Add to Quote builds a list. The cart icon opens it so you can email or copy.</p>
               <img class="help-tip-img" src="${tipQuoteUrl}" alt="Quote cart icon and Add to Quote button" width="520" height="200" decoding="async" />
             </article>
@@ -1447,14 +1439,35 @@ function currentSystemTypeValue() {
   );
 }
 
+/** Pin 1 must be set before any free / catalogue search. */
+function hasSystemTypePin() {
+  return Boolean(systemTypeFromValue(currentSystemTypeValue()));
+}
+
 /**
- * Ensure Continuous Flow is pinned when dataplate / deep links set series/item.
+ * Disable search + tip chips until Pin 1 is set.
+ * Everything unlocks whole-catalogue search; other types unlock as today.
  */
-function ensureScopedSystemForPins() {
-  const current = currentSystemTypeValue();
-  if (isEverythingSystem(current)) return;
-  if (systemTypeFromValue(current)?.kind === "system") return;
-  systemPicker?.setValue?.("system:continuous-flow-hot-water");
+function syncSearchLock() {
+  const locked = !hasSystemTypePin();
+  const everything = isEverythingSystem(currentSystemTypeValue());
+  const input = document.querySelector("#query-input");
+  const btn = document.querySelector(".search-btn");
+  const hint = document.querySelector("#search-lock-hint");
+
+  if (input) {
+    input.disabled = locked;
+    input.placeholder = locked
+      ? "Choose type of system (Pin 1) first"
+      : everything
+        ? "Search every part — trade term, code, or description…"
+        : "Trade term, part code, or description…";
+  }
+  if (btn) btn.disabled = locked;
+  if (hint) hint.hidden = !locked;
+  document.querySelectorAll("#hint .chip").forEach((chip) => {
+    chip.disabled = locked;
+  });
 }
 
 function mountModelPicker() {
@@ -1483,6 +1496,7 @@ function mountModelPicker() {
         seriesPicker?.refreshEnabled?.();
         itemPicker?.refreshEnabled?.();
         updateDomesticTempWarn();
+        syncSearchLock();
         runSearch();
       },
       isPinUnlocked: (pinValue) => unlockedPins.has(pinValue),
@@ -1546,15 +1560,17 @@ function mountDataplateUi() {
   dataplatePin = mountDataplatePin({
     getCatalogue: () => catalogue,
     getSeriesDoc: () => seriesDoc,
+    systemPicker,
     seriesPicker,
     itemPicker,
     isPinUnlocked: (pinValue) => unlockedPins.has(pinValue),
     requestUnlock,
     onPinned: () => {
-      ensureScopedSystemForPins();
+      // Pin 1 comes from the dataplate system chip — never silent CF.
       seriesPicker?.refreshEnabled?.();
       itemPicker?.refreshEnabled?.();
       updateDomesticTempWarn();
+      syncSearchLock();
       runSearch();
     },
   });
@@ -2052,6 +2068,15 @@ function populateDataSources() {
 }
 
 function runSearch() {
+  // No Pin 1 → no free/everything-style catalogue search.
+  if (!hasSystemTypePin()) {
+    lastResults = [];
+    const input = document.querySelector("#query-input");
+    if (input && input.value) input.value = "";
+    renderResults("", currentPin());
+    updateSearchVisuals("", currentPin());
+    return;
+  }
   const q = document.querySelector("#query-input")?.value || "";
   const pin = currentPin();
   const modelId = pin.kind === "model" ? pin.model?.id : null;
@@ -2889,8 +2914,9 @@ function resetToHome() {
   itemPicker?.refreshEnabled?.();
   dataplatePin?.clear?.();
   updateDomesticTempWarn();
+  syncSearchLock();
   runSearch();
-  input?.focus();
+  document.querySelector("#system-input")?.focus();
 }
 
 function bindEvents() {
@@ -3037,6 +3063,7 @@ function bindEvents() {
     });
   }
 
+  syncSearchLock();
   updateSearchVisuals(
     document.querySelector("#query-input")?.value || "",
     currentPin()
