@@ -240,8 +240,158 @@ body::before {
   align-items: end;
 }
 
-.item-field {
+/* Pin1 + Margin on top; Pin2/Search match Pin1 width; under-Margin = dual images.
+   Images fill the existing footprint — never grow the search card. */
+.pin-margin-row {
+  display: grid;
+  grid-template-columns: 1.4fr 0.7fr;
+  gap: 0.75rem;
+  align-items: end;
+}
+
+.pin2-search-visuals-row {
+  display: grid;
+  grid-template-columns: 1.4fr 0.7fr;
+  gap: 0.75rem;
   margin-top: 0.75rem;
+  align-items: stretch;
+}
+
+.pin2-search-col {
+  display: grid;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.item-field {
+  margin-top: 0;
+}
+
+.search-visuals-slot {
+  position: relative;
+  min-height: 0;
+  min-width: 0;
+}
+
+.search-visuals {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem;
+  overflow: hidden;
+}
+
+.search-visual {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--panel-solid) 88%, var(--ink-muted));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.search-visual--diagram img {
+  object-fit: contain;
+  background: #fff;
+}
+
+.search-visual-placeholder {
+  margin: 0;
+  padding: 0.45rem;
+  text-align: center;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  line-height: 1.3;
+}
+
+.diagram-thumb-btn {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: #fff;
+  cursor: zoom-in;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.diagram-thumb-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.diagram-lightbox {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  max-width: min(96vw, 1100px);
+  max-height: 96vh;
+}
+
+.diagram-lightbox::backdrop {
+  background: rgba(12, 24, 38, 0.72);
+}
+
+.diagram-lightbox-inner {
+  position: relative;
+  background: #0f1a24;
+  border-radius: 12px;
+  padding: 0.65rem 0.65rem 0.85rem;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+}
+
+.diagram-lightbox-inner img {
+  display: block;
+  width: 100%;
+  max-height: calc(96vh - 4.5rem);
+  object-fit: contain;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.diagram-lightbox-caption {
+  margin: 0.55rem 0.25rem 0;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 0.86rem;
+}
+
+.diagram-lightbox-close {
+  position: absolute;
+  top: 0.45rem;
+  right: 0.45rem;
+  z-index: 2;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 0;
+  border-radius: 8px;
+  background: rgba(15, 26, 36, 0.82);
+  color: #fff;
+  font: inherit;
+  font-size: 1.35rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.diagram-lightbox-close:hover {
+  background: rgba(15, 26, 36, 0.95);
 }
 
 .model-picker.is-disabled {
@@ -2464,11 +2614,17 @@ mark {
   }
 
   .controls-row,
+  .pin-margin-row,
+  .pin2-search-visuals-row,
   .query-row,
   .result-body,
   .data-sources-grid,
   .admin-grid {
     grid-template-columns: 1fr;
+  }
+
+  .search-visuals-slot {
+    display: none;
   }
 
   .search-btn {
