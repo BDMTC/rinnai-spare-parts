@@ -96,9 +96,17 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "EDPL Smartstart.pdf p1",
     label: "EDPL Smartstart (CUG1)",
   },
+  vrm1620: {
+    page: "REU-VRM2024.pdf p4",
+    label: "REU-VRM2024 family ED (VRM1620)",
+  },
   vrm2024: {
     page: "REU-VRM2024.pdf p1",
     label: "REU-VRM2024 (VRM2024WG)",
+  },
+  vrm2626: {
+    page: "REU-VRM2024.pdf p4",
+    label: "REU-VRM2024 family ED (VRM2626)",
   },
   vrm3237wg: {
     page: "EDPL VR_VRM3237.pdf p1",

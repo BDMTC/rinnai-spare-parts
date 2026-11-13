@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T13:21:27.706660+00:00",
+  "generatedAt": "2026-11-13T13:25:56.892424+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
@@ -1187,12 +1187,20 @@
       "rowsInCatalogue": 103,
       "rowsWithListBox": 118,
       "seriesIds": [
-        "vrm2024"
+        "vrm2024",
+        "vrm1620",
+        "vrm2626"
       ],
       "chassisTokens": [
         "VRM2024WG",
         "REUVRM2024WG",
-        "VRM2024"
+        "VRM2024",
+        "VRM1620WG",
+        "REUVRM1620WG",
+        "VRM1620",
+        "VRM2626WG",
+        "REUVRM2626WG",
+        "VRM2626"
       ],
       "priority": 10,
       "path": "data-sheets/Rinnai Data Sheets/REU-VRM2024.pdf"
@@ -1975,12 +1983,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -1999,12 +2015,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -5273,12 +5297,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -5297,12 +5329,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -7806,12 +7846,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -7830,12 +7878,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -8991,12 +9047,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -9015,12 +9079,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -11876,12 +11948,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -11900,12 +11980,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -12998,12 +13086,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -13022,12 +13118,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -16195,12 +16299,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -16219,12 +16331,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -17327,12 +17447,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -17351,12 +17479,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -18936,12 +19072,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -18960,12 +19104,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -21007,12 +21159,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -21031,12 +21191,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -22208,12 +22376,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -22232,12 +22408,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -24268,12 +24452,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -24292,12 +24484,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -25933,12 +26133,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -25957,12 +26165,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -28644,12 +28860,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -28668,12 +28892,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -31036,12 +31268,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -31060,12 +31300,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -31935,12 +32183,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -31959,12 +32215,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -34384,12 +34648,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -34408,12 +34680,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -35884,12 +36164,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -35908,12 +36196,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -36922,12 +37218,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -36946,12 +37250,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -37391,12 +37703,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -37415,12 +37735,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -38349,12 +38677,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -38373,12 +38709,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -40170,12 +40514,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -40194,12 +40546,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -42068,12 +42428,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -42092,12 +42460,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -44063,12 +44439,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -44087,12 +44471,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -45845,12 +46237,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -45869,12 +46269,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -47625,12 +48033,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -47649,12 +48065,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -49384,12 +49808,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -49408,12 +49840,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -50721,12 +51161,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -50745,12 +51193,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -62613,12 +63069,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -62637,12 +63101,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -63298,12 +63770,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -63322,12 +63802,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -65511,12 +65999,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -65535,12 +66031,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -66010,12 +66514,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -66034,12 +66546,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -66559,12 +67079,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -66583,12 +67111,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -67506,12 +68042,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -67530,12 +68074,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 3,
@@ -68270,12 +68822,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -68294,12 +68854,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -69425,12 +69993,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -69449,12 +70025,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -69855,12 +70439,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -69879,12 +70471,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -71024,12 +71624,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -71048,12 +71656,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -71404,12 +72020,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -71428,12 +72052,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -71879,12 +72511,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -71903,12 +72543,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -72357,12 +73005,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -72381,12 +73037,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -73622,12 +74286,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -73646,12 +74318,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -73982,12 +74662,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -74006,12 +74694,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -75403,12 +76099,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -75427,12 +76131,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -76423,12 +77135,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -76447,12 +77167,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -103473,12 +104201,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -103497,12 +104233,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -104353,12 +105097,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -104377,12 +105129,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -105212,12 +105972,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -105236,12 +106004,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -105409,12 +106185,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -105433,12 +106217,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -105507,12 +106299,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -105531,12 +106331,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -105605,12 +106413,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -105629,12 +106445,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -105751,12 +106575,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -105775,12 +106607,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -105873,12 +106713,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -105897,12 +106745,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -105971,12 +106827,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -105995,12 +106859,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -106069,12 +106941,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -106093,12 +106973,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -111202,12 +112090,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -111228,12 +112124,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 1,
@@ -111254,12 +112158,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -111278,12 +112190,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -111304,12 +112224,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -111328,12 +112256,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -111354,12 +112290,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,
@@ -111378,12 +112322,20 @@
         "pdf": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
         "seriesIds": [
-          "vrm2024"
+          "vrm2024",
+          "vrm1620",
+          "vrm2626"
         ],
         "chassisTokens": [
           "VRM2024WG",
           "REUVRM2024WG",
-          "VRM2024"
+          "VRM2024",
+          "VRM1620WG",
+          "REUVRM1620WG",
+          "VRM1620",
+          "VRM2626WG",
+          "REUVRM2626WG",
+          "VRM2626"
         ],
         "priority": 10,
         "listPage": 2,

@@ -23,6 +23,7 @@ const UNIT_CLASS_SUFFIXES = [
   "WDL",
   "WC",
   "WD",
+  "WGP",
   "WG",
   "WS",
 ];

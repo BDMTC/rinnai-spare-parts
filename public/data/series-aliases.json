@@ -312,7 +312,9 @@
           "REUAM2626WDL",
           "AM2626WDL",
           "REUKM2635WD",
-          "KM2635WD"
+          "KM2635WD",
+          "REUVR2626WG",
+          "VR2626WG"
         ],
         "unitClasses": [
           "WD",
@@ -329,9 +331,11 @@
         "REU-AM2626WD",
         "REU-AM2626WDL",
         "KM2635WD",
-        "REU-KM2635WD"
+        "REU-KM2635WD",
+        "VR2626WG",
+        "REU-VR2626WG"
       ],
-      "notes": "Active AU Infinity 26 external / Touch (AM2626WD / AM2626WDL). Owns bare Infinity 26 / INF26 / AM2626 typeahead. Heritage VR2626WG INF26L/N/B rows stay in-series via marketing prefix + WG; heritage Enviro KM2635WD (ENV26*/INF26E*) via chassis Item Number. Smartstart WGP and INF26I/P/S stay out. Smaller A/AM sizes (AM1220/1620/2024 + A*WB) live under Infinity A."
+      "notes": "Active AU Infinity 26 external / Touch (AM2626WD / AM2626WDL). Owns bare Infinity 26 / INF26 / AM2626 typeahead. Heritage VR2626WG via INF26L/N/B marketing or chassis Item Number (incl. K26*); heritage Enviro KM2635WD via chassis. Smartstart WGP stays out (unit class WGP \u2260 WG). INF26I/P/S stay out. Smaller A/AM sizes live under Infinity A."
     },
     {
       "id": "infinity-a",
@@ -985,6 +989,29 @@
       "notes": "Smartstart CUG1 preheat accessory (marketing SMARTSTART). Cover-true SM: SM Smartstart.pdf; PL: EDPL Smartstart.pdf. Not Infinity 26 Smartstart inbuilt (VR2626WGP)."
     },
     {
+      "id": "vrm1620",
+      "label": "Infinity 16 (VRM1620)",
+      "aliases": [
+        "Infinity 16 (VRM1620)",
+        "REU-VRM1620WG",
+        "VRM1620WG",
+        "VRM1620",
+        "REUVRM1620WG"
+      ],
+      "match": {
+        "itemNumberIncludes": [
+          "REUVRM1620WG",
+          "VRM1620WG"
+        ]
+      },
+      "documentKeys": [
+        "VRM1620",
+        "VRM1620WG",
+        "REU-VRM1620WG"
+      ],
+      "notes": "Mid-gen Infinity 16 on REU-VRM1620WG (INF16*M). Chassis-only so VR1620 / BM1620 stay out. Local PL/ED family diagrams on REU-VRM2024.pdf (exploded pages label VRM1620W/VRM2024W/VRM2626W-AK; list columns are VRM2024WG). No cover-true SM on disk."
+    },
+    {
       "id": "vrm2024",
       "label": "Infinity 20 (VRM2024)",
       "aliases": [
@@ -1005,7 +1032,35 @@
         "VRM2024WG",
         "REU-VRM2024WG"
       ],
-      "notes": "Mid-gen Infinity 20 on REU-VRM2024WG (INF20*M). Chassis-only so VR2024WG (Infinity 20) and VR2024WB stay out. Local PL: REU-VRM2024.pdf. No cover-true SM on disk yet."
+      "notes": "Mid-gen Infinity 20 on REU-VRM2024WG (INF20*M). Chassis-only so VR2024WG (Infinity 20) and VR2024WB stay out. Local PL: REU-VRM2024.pdf (family exploded pages also label VRM1620/VRM2626). No cover-true SM on disk yet."
+    },
+    {
+      "id": "vrm2626",
+      "label": "Infinity 26 (VRM2626 K26)",
+      "aliases": [
+        "Infinity 26 (VRM2626 K26)",
+        "REU-VRM2626WG",
+        "VRM2626WG",
+        "K26L60M",
+        "K26N60M"
+      ],
+      "match": {
+        "marketingCodePrefixes": [
+          "K26L60M",
+          "K26N60M"
+        ],
+        "itemNumberIncludes": [
+          "VRM2626WG60KL2",
+          "VRM2626WG60KN2"
+        ]
+      },
+      "documentKeys": [
+        "VRM2626WG",
+        "REU-VRM2626WG",
+        "K26L60M",
+        "K26N60M"
+      ],
+      "notes": "K26 mid-gen REU-VRM2626WG-*-2 only (K26L60M/K26N60M). INF26*M VRM2626WG rows stay on Infinity 26 marketing until a cover-true SM split. Local PL/ED family diagrams on REU-VRM2024.pdf. No cover-true SM on disk."
     },
     {
       "id": "vrm3237wg",

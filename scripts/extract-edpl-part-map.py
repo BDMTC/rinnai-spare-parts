@@ -320,8 +320,18 @@ CF_SHEETS = [
     {
         "file": "REU-VRM2024.pdf",
         "stem": "edpl-reu-vrm2024",
-        "seriesIds": ["vrm2024"],
-        "chassisTokens": ["VRM2024WG", "REUVRM2024WG", "VRM2024"],
+        "seriesIds": ["vrm2024", "vrm1620", "vrm2626"],
+        "chassisTokens": [
+            "VRM2024WG",
+            "REUVRM2024WG",
+            "VRM2024",
+            "VRM1620WG",
+            "REUVRM1620WG",
+            "VRM1620",
+            "VRM2626WG",
+            "REUVRM2626WG",
+            "VRM2626",
+        ],
         "priority": 10,
     },
     {
@@ -921,7 +931,9 @@ def main():
             "v3232": ("edpl-v3232w-wc", 1),
             "v2626": ("edpl-reuv2626w-reuv2632wc", 1),
             "smartstart": ("edpl-smartstart", 1),
+            "vrm1620": ("edpl-reu-vrm2024", 1),
             "vrm2024": ("edpl-reu-vrm2024", 1),
+            "vrm2626": ("edpl-reu-vrm2024", 1),
             "vrm3237wg": ("edpl-vr-vrm3237", 1),
             "vr2024wb": ("edpl-vr2024wb-b20", 1),
             # hd28e: no shipped page pack yet — keep native pageKey / callout only
