@@ -25,12 +25,15 @@ UNIQUE_SM = {
     "sm-vr3237wg-wc": "smVR3237WG_WC.pdf",
     # Infinity 26 / A-AM domestic (cover lists INF26 AM2626 — not Enviro KM)
     "sm-new-a-series-cf": "New A Series CF Parts List.pdf",
+    # Infinity 26 Plus (cover lists REU-VM2630WD — not Enviro KM)
+    "sm-v2626w-v2630wc": "smV2626W_V2630WC.pdf",
 }
 
 # Optional series thumb covers copied from pack page 1
 SERIES_THUMBS = {
     "hd250e": "sm-vr3237wg-wc",
     "infinity26": "sm-new-a-series-cf",
+    "infinity26-plus": "sm-v2626w-v2630wc",
 }
 
 TARGET_WIDTH = 900
@@ -76,13 +79,19 @@ for stem, file_name in UNIQUE_SM.items():
         f"  total {manifest['packs'][stem]['totalBytes'] / 1e6:.2f} MB"
     )
 
+FORCE_THUMBS = {"infinity26-plus"}  # replace wrong Enviro cover
+
 for series_id, pack_stem in SERIES_THUMBS.items():
     src = SM_OUT / f"{pack_stem}__p1.jpg"
     dest = SM_OUT / f"{series_id}__p1.jpg"
     if not src.exists():
         print("THUMB SKIP missing pack p1", src.name)
         continue
-    if dest.exists() and dest.stat().st_size > 8_000:
+    if (
+        series_id not in FORCE_THUMBS
+        and dest.exists()
+        and dest.stat().st_size > 8_000
+    ):
         print("thumb exists", dest.name)
         continue
     dest.write_bytes(src.read_bytes())

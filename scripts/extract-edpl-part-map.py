@@ -986,6 +986,45 @@ def main():
         if lpk and (DIAGRAM_DIR / f"{lpk}.jpg").exists():
             with_list_page_asset += 1
 
+    # Preserve Hotflo / non-CF hits from prior extract-hotflo-matrix merges.
+    # CF extract alone must not wipe storage-tank rows already on disk.
+    preserved_hotflo = 0
+    if OUT_JSON.exists():
+        try:
+            prev = json.loads(OUT_JSON.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            prev = {}
+        for code, hits in (prev.get("parts") or {}).items():
+            keep = [
+                h
+                for h in hits
+                if any(
+                    str(s).startswith(("ehf", "ghf", "efinity"))
+                    for s in (h.get("seriesIds") or [])
+                )
+            ]
+            if not keep:
+                continue
+            existing = parts_map.setdefault(code, [])
+            have = {
+                (
+                    h.get("stem"),
+                    h.get("callout"),
+                    tuple(h.get("seriesIds") or []),
+                )
+                for h in existing
+            }
+            for h in keep:
+                key = (
+                    h.get("stem"),
+                    h.get("callout"),
+                    tuple(h.get("seriesIds") or []),
+                )
+                if key in have:
+                    continue
+                existing.append(h)
+                preserved_hotflo += 1
+
     out = {
         "version": 2,
         "generatedAt": datetime.now(timezone.utc).isoformat(),
@@ -996,6 +1035,7 @@ def main():
             "sourceRule": "Callout NO + RA/catalogue 8-digit from parts-list text; diagram page = first image-ish page of sheet (OCR optional); listPage + text-layer word bbox kept for PL highlight",
             "resolve": "Pick first hit matching pin seriesId / chassis token; else highest priority",
             "plHighlight": "listPage + listPageKey + listBox (pymupdf words); lightbox opens PL page when JPEG exists",
+            "hotfloPreserve": "Non-CF ehf*/ghf*/efinity hits from prior JSON are merged back after CF extract",
         },
         "totals": {
             "sheetsConfigured": len(CF_SHEETS),
@@ -1010,6 +1050,7 @@ def main():
             "listPagesRendered": list_pages_rendered,
             "codesMultiChassis": multi,
             "cataloguePartsTotal": len(part_codes),
+            "hotfloHitsPreserved": preserved_hotflo,
         },
         "sheets": [
             {
@@ -1039,6 +1080,8 @@ def main():
 
     OUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUT_JSON.write_text(json.dumps(out, indent=2), encoding="utf-8")
+    if preserved_hotflo:
+        print(f"Preserved {preserved_hotflo} Hotflo/non-CF hits from prior map")
     OUT_REPORT.parent.mkdir(parents=True, exist_ok=True)
     OUT_REPORT.write_text(
         json.dumps({"totals": out["totals"], "sheets": sheets_out}, indent=2),

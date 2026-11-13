@@ -161,6 +161,8 @@ function lightboxPdfDataScripts() {
       id: "New-A-Series-CF-Parts-List",
       file: "New A Series CF Parts List.pdf",
     },
+    { id: "smV2626W-V2630WC", file: "smV2626W_V2630WC.pdf" },
+    { id: "EDPL-VRM2630", file: "EDPL VRM2630.pdf" },
   ];
 
   function buildScriptSource(fileName) {
