@@ -181,6 +181,79 @@ export function diagramPageUrl(keyOrPage) {
 }
 
 /**
+ * Sibling ED pages for the same sheet (multi-page lightbox).
+ * @param {string|null|undefined} pageKeyOrLabel
+ * @returns {{ page: number, url: string, pageKey: string }[]}
+ */
+export function diagramPageSiblings(pageKeyOrLabel) {
+  const key =
+    diagramPageKey(pageKeyOrLabel) ||
+    (pageKeyOrLabel && DIAGRAM_PAGE_URLS[String(pageKeyOrLabel).trim()]
+      ? String(pageKeyOrLabel).trim()
+      : null);
+  if (!key) return [];
+  const stemMatch = String(key).match(/^(.*)__p(\d+)$/i);
+  if (!stemMatch) {
+    const url = DIAGRAM_PAGE_URLS[key];
+    return url ? [{ page: 1, url, pageKey: key }] : [];
+  }
+  const stem = stemMatch[1];
+  /** @type {{ page: number, url: string, pageKey: string }[]} */
+  const pages = [];
+  for (const [k, url] of Object.entries(DIAGRAM_PAGE_URLS)) {
+    const m = k.match(new RegExp(`^${escapeRegExp(stem)}__p(\\d+)$`, "i"));
+    if (!m) continue;
+    pages.push({ page: Number(m[1]), url, pageKey: k });
+  }
+  pages.sort((a, b) => a.page - b.page);
+  return pages;
+}
+
+/**
+ * Source PDF file name for an ED page key/label (for Download).
+ * @param {string|null|undefined} pageKeyOrLabel
+ * @returns {string|null}
+ */
+export function diagramPdfFileName(pageKeyOrLabel) {
+  const key =
+    diagramPageKey(pageKeyOrLabel) ||
+    (pageKeyOrLabel ? String(pageKeyOrLabel).trim() : "");
+  if (!key) return null;
+  const stem = String(key).replace(/__p\d+$/i, "");
+  return ED_STEM_TO_PDF[stem] || inferPdfFromLabel(pageKeyOrLabel);
+}
+
+/** @type {Record<string, string>} */
+const ED_STEM_TO_PDF = {
+  "ed-n-series-2020-in32-enviro": "ED_N Series 2020 IN32 Enviro.pdf",
+  "edpl-reu-vrm2632wc": "EDPL REU-VRM2632WC.pdf",
+  "edpl-reu-vr2632ffug": "EDPL REU-VR2632FFUG.pdf",
+  "edpl-v2632ffu-ffuc": "EDPL V2632FFU_FFUC.pdf",
+  "edpl-reuv2630wd-inf26plus": "EDPL REUV2630WD INF26Plus.pdf",
+  "edpl-smartstart": "EDPL Smartstart.pdf",
+  "edpl-vr-vrm3237": "EDPL VR_VRM3237.pdf",
+  "pled-infinity-32-enviro-plus-n-series-e":
+    "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
+};
+
+/**
+ * @param {string|null|undefined} label
+ * @returns {string|null}
+ */
+function inferPdfFromLabel(label) {
+  const raw = String(label || "").trim();
+  const m = raw.match(/^(.+?\.pdf)\b/i);
+  return m ? m[1] : null;
+}
+
+/**
+ * @param {string} text
+ */
+function escapeRegExp(text) {
+  return String(text).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+/**
  * @param {{ page: string, callout?: string|null, label?: string }} hit
  * @returns {{ url: string, label: string, callout: string|null, pageKey: string|null }|null}
  */
@@ -188,11 +261,25 @@ function toDiagramResult(hit) {
   if (!hit?.page) return null;
   const url = diagramPageUrl(hit.page);
   if (!url) return null;
+  const pageKey = diagramPageKey(hit.page);
+  const pages = diagramPageSiblings(pageKey || hit.page);
+  const pageIndex = Math.max(
+    0,
+    pages.findIndex((p) => p.pageKey === pageKey)
+  );
   return {
     url,
     label: String(hit.label || hit.page),
     callout: hit.callout != null ? String(hit.callout) : null,
-    pageKey: diagramPageKey(hit.page),
+    pageKey,
+    pages: pages.length
+      ? pages
+      : pageKey
+        ? [{ page: 1, url, pageKey }]
+        : [{ page: 1, url, pageKey: "ed" }],
+    pageIndex: pages.length ? pageIndex : 0,
+    pdfFileName: diagramPdfFileName(pageKey || hit.page),
+    calloutPageKey: pageKey,
   };
 }
 
@@ -244,14 +331,25 @@ export function resolvePartDiagram(part, assemblyIndex, opts = {}) {
   const ref = part.diagramRef || {};
   const refUrl = ref.url || ref.path || null;
   if (refUrl) {
+    const hit = toDiagramResult({
+      page: refUrl,
+      label: ref.label || part.sheet || part.code || "Exploded diagram",
+      callout: ref.callout,
+    });
+    if (hit) return { kind: "ed", ...hit };
     const url = diagramPageUrl(refUrl) || String(refUrl);
     if (url) {
+      const pageKey = diagramPageKey(refUrl) || diagramPageKey(ref.label) || null;
       return {
         kind: "ed",
         url,
         label: String(ref.label || part.sheet || part.code || "Exploded diagram"),
         callout: ref.callout != null ? String(ref.callout) : null,
-        pageKey: diagramPageKey(refUrl) || diagramPageKey(ref.label) || null,
+        pageKey,
+        pages: [{ page: 1, url, pageKey: pageKey || "ed" }],
+        pageIndex: 0,
+        pdfFileName: diagramPdfFileName(pageKey || ref.label || refUrl),
+        calloutPageKey: pageKey,
       };
     }
   }
@@ -265,18 +363,14 @@ export function resolvePartDiagram(part, assemblyIndex, opts = {}) {
   if (code && assemblyIndex) {
     const parent = assemblyIndex.parentByCode?.get(code);
     if (parent?.diagramPage) {
-      const url = diagramPageUrl(parent.diagramPage);
-      if (url) {
-        return {
-          kind: "ed",
-          url,
-          label: String(parent.diagramPage),
-          callout: Array.isArray(parent.parentItemNos)
-            ? parent.parentItemNos[0] || null
-            : null,
-          pageKey: diagramPageKey(parent.diagramPage),
-        };
-      }
+      const hit = toDiagramResult({
+        page: parent.diagramPage,
+        label: parent.diagramPage,
+        callout: Array.isArray(parent.parentItemNos)
+          ? parent.parentItemNos[0] || null
+          : null,
+      });
+      if (hit) return { kind: "ed", ...hit };
     }
 
     const child = assemblyIndex.childByCode?.get(code);
@@ -286,16 +380,12 @@ export function resolvePartDiagram(part, assemblyIndex, opts = {}) {
         const parentRec = assemblyIndex.parentByCode?.get(p.parentCode);
         const page = parentRec?.diagramPage || p.diagramPage;
         if (!page) continue;
-        const url = diagramPageUrl(page);
-        if (url) {
-          return {
-            kind: "ed",
-            url,
-            label: String(page),
-            callout: child.itemNo != null ? String(child.itemNo) : null,
-            pageKey: diagramPageKey(page),
-          };
-        }
+        const hit = toDiagramResult({
+          page,
+          label: page,
+          callout: child.itemNo != null ? String(child.itemNo) : null,
+        });
+        if (hit) return { kind: "ed", ...hit };
       }
     }
   }

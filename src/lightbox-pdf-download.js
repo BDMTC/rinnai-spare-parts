@@ -1,0 +1,141 @@
+/**
+ * Lazy-load full PDF bytes via classic <script> assets (file:// safe).
+ * Chromium blocks fetch() between opaque file origins; script src still works.
+ */
+
+/** @typedef {{ id: string, fileName: string }} LightboxPdfRef */
+
+/** @type {Record<string, LightboxPdfRef>} */
+export const LIGHTBOX_PDFS = {
+  "smVRM2632WC.pdf": { id: "smVRM2632WC", fileName: "smVRM2632WC.pdf" },
+  "smVR2632FFUG_VRM2632FFUC.pdf": {
+    id: "smVR2632FFUG_VRM2632FFUC",
+    fileName: "smVR2632FFUG_VRM2632FFUC.pdf",
+  },
+  "SM INF26_INF32 Enviro WH 190810.pdf": {
+    id: "SM-INF26-INF32-Enviro-WH-190810",
+    fileName: "SM INF26_INF32 Enviro WH 190810.pdf",
+  },
+  "SM Smartstart.pdf": { id: "SM-Smartstart", fileName: "SM Smartstart.pdf" },
+  "EDPL REU-VRM2632WC.pdf": {
+    id: "EDPL-REU-VRM2632WC",
+    fileName: "EDPL REU-VRM2632WC.pdf",
+  },
+  "EDPL REU-VR2632FFUG.pdf": {
+    id: "EDPL-REU-VR2632FFUG",
+    fileName: "EDPL REU-VR2632FFUG.pdf",
+  },
+  "EDPL V2632FFU_FFUC.pdf": {
+    id: "EDPL-V2632FFU-FFUC",
+    fileName: "EDPL V2632FFU_FFUC.pdf",
+  },
+  "EDPL REUV2630WD INF26Plus.pdf": {
+    id: "EDPL-REUV2630WD-INF26Plus",
+    fileName: "EDPL REUV2630WD INF26Plus.pdf",
+  },
+  "EDPL Smartstart.pdf": {
+    id: "EDPL-Smartstart",
+    fileName: "EDPL Smartstart.pdf",
+  },
+  "EDPL VR_VRM3237.pdf": {
+    id: "EDPL-VR-VRM3237",
+    fileName: "EDPL VR_VRM3237.pdf",
+  },
+  "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf": {
+    id: "PLED-Infinity-32-Enviro-Plus-N-Series-e",
+    fileName: "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
+  },
+  "ED_N Series 2020 IN32 Enviro.pdf": {
+    id: "ED-N-Series-2020-IN32-Enviro",
+    fileName: "ED_N Series 2020 IN32 Enviro.pdf",
+  },
+};
+
+/**
+ * @param {string} fileName
+ * @returns {string}
+ */
+export function lightboxPdfScriptUrl(fileName) {
+  const ref = LIGHTBOX_PDFS[fileName];
+  if (!ref) return "";
+  const base = import.meta.env.BASE_URL || "./";
+  const root = base.endsWith("/") ? base : `${base}/`;
+  return `${root}assets/pdf-data-${ref.id}.js`;
+}
+
+/**
+ * @param {{ fileName: string, base64: string }} rec
+ * @returns {{ fileName: string, bytes: Uint8Array }}
+ */
+function decodePdfRecord(rec) {
+  const bin = atob(rec.base64);
+  const bytes = new Uint8Array(bin.length);
+  for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+  return { fileName: rec.fileName, bytes };
+}
+
+/**
+ * @param {string} fileName
+ * @returns {Promise<{ fileName: string, bytes: Uint8Array }>}
+ */
+export function loadLightboxPdf(fileName) {
+  const ref = LIGHTBOX_PDFS[fileName];
+  if (!ref) {
+    return Promise.reject(new Error(`Unknown lightbox PDF: ${fileName}`));
+  }
+
+  const existing = globalThis.__RSP_PDF__?.[fileName];
+  if (existing?.base64) {
+    return Promise.resolve(decodePdfRecord(existing));
+  }
+
+  const url = lightboxPdfScriptUrl(fileName);
+  return new Promise((resolve, reject) => {
+    const prev = document.querySelector(`script[data-rsp-pdf="${ref.id}"]`);
+    if (prev) {
+      prev.addEventListener("load", () => {
+        const rec = globalThis.__RSP_PDF__?.[fileName];
+        if (!rec?.base64) reject(new Error(`PDF data missing after load: ${fileName}`));
+        else resolve(decodePdfRecord(rec));
+      });
+      prev.addEventListener("error", () =>
+        reject(new Error(`Failed to load PDF data: ${fileName}`))
+      );
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = url;
+    script.async = true;
+    script.dataset.rspPdf = ref.id;
+    script.onload = () => {
+      const rec = globalThis.__RSP_PDF__?.[fileName];
+      if (!rec?.base64) {
+        reject(new Error(`PDF data missing after load: ${fileName}`));
+        return;
+      }
+      resolve(decodePdfRecord(rec));
+    };
+    script.onerror = () =>
+      reject(new Error(`Failed to load PDF data: ${fileName}`));
+    document.head.appendChild(script);
+  });
+}
+
+/**
+ * Save the full PDF to the device (blob download — works under file://).
+ * @param {string} fileName
+ * @returns {Promise<void>}
+ */
+export async function downloadLightboxPdf(fileName) {
+  const { fileName: name, bytes } = await loadLightboxPdf(fileName);
+  const blob = new Blob([bytes], { type: "application/pdf" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = name;
+  a.rel = "noopener";
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 5000);
+}

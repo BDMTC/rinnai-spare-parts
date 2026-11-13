@@ -122,6 +122,93 @@ function aliasBootDataForFile(isFileBuild) {
   };
 }
 
+/**
+ * Emit classic JS wrappers with base64 PDF bytes for lightbox Download.
+ * Loaded via <script src> so file:// (opaque origins) still works.
+ */
+function lightboxPdfDataScripts() {
+  const sheetsDir = path.resolve(dataSheetsDir, "Rinnai Data Sheets");
+  const PDFS = [
+    { id: "smVRM2632WC", file: "smVRM2632WC.pdf" },
+    { id: "smVR2632FFUG_VRM2632FFUC", file: "smVR2632FFUG_VRM2632FFUC.pdf" },
+    {
+      id: "SM-INF26-INF32-Enviro-WH-190810",
+      file: "SM INF26_INF32 Enviro WH 190810.pdf",
+    },
+    { id: "SM-Smartstart", file: "SM Smartstart.pdf" },
+    { id: "EDPL-REU-VRM2632WC", file: "EDPL REU-VRM2632WC.pdf" },
+    { id: "EDPL-REU-VR2632FFUG", file: "EDPL REU-VR2632FFUG.pdf" },
+    { id: "EDPL-V2632FFU-FFUC", file: "EDPL V2632FFU_FFUC.pdf" },
+    { id: "EDPL-REUV2630WD-INF26Plus", file: "EDPL REUV2630WD INF26Plus.pdf" },
+    { id: "EDPL-Smartstart", file: "EDPL Smartstart.pdf" },
+    { id: "EDPL-VR-VRM3237", file: "EDPL VR_VRM3237.pdf" },
+    {
+      id: "PLED-Infinity-32-Enviro-Plus-N-Series-e",
+      file: "PLED_Infinity-32-Enviro-Plus-N-Series-e.pdf",
+    },
+    { id: "ED-N-Series-2020-IN32-Enviro", file: "ED_N Series 2020 IN32 Enviro.pdf" },
+  ];
+
+  function buildScriptSource(fileName) {
+    const abs = path.join(sheetsDir, fileName);
+    if (!fs.existsSync(abs)) {
+      throw new Error(
+        `Lightbox PDF missing: ${abs}. Place data-sheets under the repo root.`
+      );
+    }
+    const b64 = fs.readFileSync(abs).toString("base64");
+    return (
+      `window.__RSP_PDF__=window.__RSP_PDF__||{};` +
+      `window.__RSP_PDF__[${JSON.stringify(fileName)}]=` +
+      `{fileName:${JSON.stringify(fileName)},base64:${JSON.stringify(b64)}};`
+    );
+  }
+
+  function servePdfData(req, res, next) {
+    const rawUrl = req.url || "";
+    const pathOnly = decodeURIComponent(rawUrl.split("?")[0] || "");
+    const m = pathOnly.match(/^\/assets\/pdf-data-([A-Za-z0-9_-]+)\.js$/);
+    if (!m) return next();
+    const hit = PDFS.find((p) => p.id === m[1]);
+    if (!hit) {
+      res.statusCode = 404;
+      res.end("Not found");
+      return;
+    }
+    try {
+      const source = buildScriptSource(hit.file);
+      res.statusCode = 200;
+      res.setHeader("Content-Type", "application/javascript; charset=utf-8");
+      res.setHeader("Cache-Control", "no-cache");
+      res.end(source);
+    } catch (err) {
+      res.statusCode = 500;
+      res.setHeader("Content-Type", "text/plain; charset=utf-8");
+      res.end(String(err?.message || err));
+    }
+  }
+
+  return {
+    name: "lightbox-pdf-data-scripts",
+    configureServer(server) {
+      server.middlewares.use(servePdfData);
+    },
+    configurePreviewServer(server) {
+      server.middlewares.use(servePdfData);
+    },
+    generateBundle() {
+      for (const pdf of PDFS) {
+        const source = buildScriptSource(pdf.file);
+        this.emitFile({
+          type: "asset",
+          fileName: `assets/pdf-data-${pdf.id}.js`,
+          source,
+        });
+      }
+    },
+  };
+}
+
 export default defineConfig(({ mode }) => {
   const isFileBuild = mode === "file";
 
@@ -130,6 +217,7 @@ export default defineConfig(({ mode }) => {
     plugins: [
       aliasBootDataForFile(isFileBuild),
       serveLocalDataSheets(),
+      lightboxPdfDataScripts(),
       classicScriptForFileBuild(isFileBuild),
     ].filter(Boolean),
     server: {
@@ -152,7 +240,7 @@ export default defineConfig(({ mode }) => {
           cssCodeSplit: false,
           modulePreload: false,
           assetsInlineLimit: 8192,
-          chunkSizeWarningLimit: 5000,
+          chunkSizeWarningLimit: 20000,
           rollupOptions: {
             output: {
               format: "iife",

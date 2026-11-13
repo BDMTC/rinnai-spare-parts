@@ -1,0 +1,71 @@
+"""
+Extract all pages of unique continuous-flow Service Manual PDFs (RSP-84).
+Shared by stem so series that share a PDF reuse the same page set.
+Thumb covers (series__p1.jpg) are left as-is from RSP-82.
+"""
+from __future__ import annotations
+
+from pathlib import Path
+import json
+import re
+import pymupdf
+
+ROOT = Path(r"C:\Temp\rinnai-spare-parts")
+SHEETS = ROOT / "data-sheets" / "Rinnai Data Sheets"
+SM_OUT = ROOT / "src" / "assets" / "service-manual-pages"
+SM_OUT.mkdir(parents=True, exist_ok=True)
+
+# Unique SM PDFs used by series map in service-manual-pages.js
+UNIQUE_SM = {
+    "sm-vrm2632wc": "smVRM2632WC.pdf",
+    "sm-vr2632ffug-vrm2632ffuc": "smVR2632FFUG_VRM2632FFUC.pdf",
+    "sm-inf26-inf32-enviro-wh-190810": "SM INF26_INF32 Enviro WH 190810.pdf",
+    "sm-smartstart": "SM Smartstart.pdf",
+}
+
+TARGET_WIDTH = 900
+JPG_QUALITY = 55
+
+
+def render_page(page, dest: Path, target_width=TARGET_WIDTH, quality=JPG_QUALITY):
+    zoom = target_width / page.rect.width
+    mat = pymupdf.Matrix(zoom, zoom)
+    pix = page.get_pixmap(matrix=mat, alpha=False)
+    pix.save(dest, jpg_quality=quality)
+    return pix.width, pix.height, dest.stat().st_size
+
+
+manifest = {"packs": {}, "notes": []}
+
+for stem, file_name in UNIQUE_SM.items():
+    pdf = SHEETS / file_name
+    if not pdf.exists():
+        print("MISSING", file_name)
+        manifest["notes"].append(f"missing {file_name}")
+        continue
+    doc = pymupdf.open(pdf)
+    pages = []
+    print(f"=== {file_name} ({doc.page_count} pages) -> {stem} ===")
+    for i in range(doc.page_count):
+        name = f"{stem}__p{i + 1}.jpg"
+        dest = SM_OUT / name
+        if dest.exists() and dest.stat().st_size > 8_000:
+            pages.append({"page": i + 1, "asset": name, "bytes": dest.stat().st_size})
+            continue
+        w, h, size = render_page(doc[i], dest)
+        print(f"  {name} {w}x{h} {size}")
+        pages.append({"page": i + 1, "asset": name, "bytes": size})
+    manifest["packs"][stem] = {
+        "file": file_name,
+        "pageCount": doc.page_count,
+        "pages": pages,
+        "totalBytes": sum(p["bytes"] for p in pages),
+    }
+    doc.close()
+    print(
+        f"  total {manifest['packs'][stem]['totalBytes'] / 1e6:.2f} MB"
+    )
+
+out = ROOT / "artifacts" / "rsp-84-sm-pages-manifest.json"
+out.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+print("wrote", out)

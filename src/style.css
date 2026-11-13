@@ -358,11 +358,67 @@ body::before {
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
 }
 
+.diagram-lightbox-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem 0.85rem;
+  margin: 0 2.4rem 0.55rem 0.15rem;
+  min-height: 2.1rem;
+}
+
+.diagram-lightbox-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.diagram-lightbox-nav-btn,
+.diagram-lightbox-download {
+  border: 0;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  padding: 0.4rem 0.75rem;
+  cursor: pointer;
+}
+
+.diagram-lightbox-nav-btn:hover:not(:disabled),
+.diagram-lightbox-download:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.diagram-lightbox-nav-btn:disabled,
+.diagram-lightbox-download:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+.diagram-lightbox-page {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 0.86rem;
+  font-variant-numeric: tabular-nums;
+  min-width: 5.5rem;
+  text-align: center;
+}
+
+.diagram-lightbox-download {
+  background: #1b6bb5;
+}
+
+.diagram-lightbox-download:hover:not(:disabled) {
+  background: #155a98;
+}
+
 .diagram-lightbox-stage {
   display: flex;
   justify-content: center;
   align-items: center;
-  max-height: calc(96vh - 4.5rem);
+  max-height: calc(96vh - 6.5rem);
   overflow: auto;
   background: #fff;
   border-radius: 8px;
@@ -380,7 +436,7 @@ body::before {
   display: block;
   width: auto;
   max-width: 100%;
-  max-height: calc(96vh - 4.5rem);
+  max-height: calc(96vh - 6.5rem);
   height: auto;
   object-fit: contain;
   background: #fff;

@@ -14,6 +14,7 @@
     "extract:pl-covers": "node scripts/extract-pl-cover-aliases.mjs"
   },
   "devDependencies": {
+    "playwright": "^1.65.0",
     "vite": "^8.3.6",
     "xlsx": "^0.18.5"
   }

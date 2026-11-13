@@ -11,6 +11,10 @@ import { resolvePartDiagram } from "./diagram-pages.js";
 import { resolveSeriesServiceManual } from "./service-manual-pages.js";
 import { resolveCalloutBox } from "./diagram-callouts.js";
 import {
+  downloadLightboxPdf,
+  LIGHTBOX_PDFS,
+} from "./lightbox-pdf-download.js";
+import {
   searchParts,
   getModelLabel,
   buildAbbrevIndex,
@@ -847,6 +851,14 @@ function renderShell() {
         <dialog class="diagram-lightbox" id="diagram-lightbox" aria-label="Document page">
           <div class="diagram-lightbox-inner">
             <button type="button" class="diagram-lightbox-close" id="diagram-lightbox-close" aria-label="Close">×</button>
+            <div class="diagram-lightbox-toolbar" id="diagram-lightbox-toolbar">
+              <div class="diagram-lightbox-nav" id="diagram-lightbox-nav" hidden>
+                <button type="button" class="diagram-lightbox-nav-btn" id="diagram-lightbox-prev" aria-label="Previous page">‹ Prev</button>
+                <span class="diagram-lightbox-page" id="diagram-lightbox-page" aria-live="polite"></span>
+                <button type="button" class="diagram-lightbox-nav-btn" id="diagram-lightbox-next" aria-label="Next page">Next ›</button>
+              </div>
+              <button type="button" class="diagram-lightbox-download" id="diagram-lightbox-download" hidden>Download PDF</button>
+            </div>
             <div class="diagram-lightbox-stage" id="diagram-lightbox-stage">
               <div class="diagram-lightbox-frame" id="diagram-lightbox-frame">
                 <img id="diagram-lightbox-img" alt="Document page" decoding="async" />
@@ -1326,10 +1338,17 @@ function updateDomesticTempWarn() {
  *   label: string,
  *   callout?: string|null,
  *   pageKey?: string|null,
- *   highlight?: { x: number, y: number, w: number, h: number }|null
+ *   calloutPageKey?: string|null,
+ *   highlight?: { x: number, y: number, w: number, h: number }|null,
+ *   pages?: { page: number, url: string, pageKey: string }[],
+ *   pageIndex?: number,
+ *   pdfFileName?: string|null
  * }|null}
  */
 let activeDiagram = null;
+
+/** @type {{ pages: { page: number, url: string, pageKey: string }[], pageIndex: number, kind: 'sm'|'ed', label: string, callout?: string|null, calloutPageKey?: string|null, highlight?: object|null, pdfFileName?: string|null }|null} */
+let lightboxState = null;
 
 /**
  * Under-Margin dual panel: series promo (left) + SM/ED (right).
@@ -1386,15 +1405,33 @@ function updateSearchVisuals(query, pin) {
         label: ed.label,
         callout: ed.callout,
         pageKey,
+        calloutPageKey: ed.calloutPageKey || pageKey,
         highlight,
+        pages: ed.pages || [{ page: 1, url: ed.url, pageKey: pageKey || "ed" }],
+        pageIndex: ed.pageIndex ?? 0,
+        pdfFileName: ed.pdfFileName || null,
       };
     } else {
       const sm = resolveSeriesServiceManual(seriesId);
-      if (sm) panel = { ...sm, callout: null, highlight: null };
+      if (sm) {
+        panel = {
+          ...sm,
+          callout: null,
+          calloutPageKey: null,
+          highlight: null,
+        };
+      }
     }
   } else if (seriesId) {
     const sm = resolveSeriesServiceManual(seriesId);
-    if (sm) panel = { ...sm, callout: null, highlight: null };
+    if (sm) {
+      panel = {
+        ...sm,
+        callout: null,
+        calloutPageKey: null,
+        highlight: null,
+      };
+    }
   }
   activeDiagram = panel;
 
@@ -1435,7 +1472,13 @@ function syncCalloutHighlight() {
   const img = document.querySelector("#diagram-lightbox-img");
   const frame = document.querySelector("#diagram-lightbox-frame");
   if (!highlightEl || !img || !frame) return;
-  const box = activeDiagram?.kind === "ed" ? activeDiagram.highlight : null;
+  const state = lightboxState;
+  const onCalloutPage =
+    state?.kind === "ed" &&
+    state.highlight &&
+    state.calloutPageKey &&
+    state.pages?.[state.pageIndex]?.pageKey === state.calloutPageKey;
+  const box = onCalloutPage ? state.highlight : null;
   if (!box || !img.naturalWidth) {
     highlightEl.hidden = true;
     return;
@@ -1447,49 +1490,170 @@ function syncCalloutHighlight() {
   highlightEl.style.height = `${box.h * 100}%`;
 }
 
+function syncLightboxChrome() {
+  const state = lightboxState;
+  const nav = document.querySelector("#diagram-lightbox-nav");
+  const pageEl = document.querySelector("#diagram-lightbox-page");
+  const prevBtn = document.querySelector("#diagram-lightbox-prev");
+  const nextBtn = document.querySelector("#diagram-lightbox-next");
+  const downloadBtn = document.querySelector("#diagram-lightbox-download");
+  const caption = document.querySelector("#diagram-lightbox-caption");
+  const pages = state?.pages || [];
+  const multi = pages.length > 1;
+  if (nav) nav.hidden = !multi;
+  if (pageEl && state && pages.length) {
+    const cur = pages[state.pageIndex];
+    pageEl.textContent = `Page ${cur?.page ?? state.pageIndex + 1} / ${pages[pages.length - 1]?.page ?? pages.length}`;
+  } else if (pageEl) {
+    pageEl.textContent = "";
+  }
+  if (prevBtn) prevBtn.disabled = !state || state.pageIndex <= 0;
+  if (nextBtn) {
+    nextBtn.disabled = !state || state.pageIndex >= pages.length - 1;
+  }
+  const canDownload = Boolean(
+    state?.pdfFileName && LIGHTBOX_PDFS[state.pdfFileName]
+  );
+  if (downloadBtn) {
+    downloadBtn.hidden = !canDownload;
+    downloadBtn.disabled = !canDownload;
+  }
+  if (caption && state) {
+    const cur = pages[state.pageIndex];
+    if (state.kind === "ed") {
+      const onCallout =
+        state.callout &&
+        state.calloutPageKey &&
+        cur?.pageKey === state.calloutPageKey;
+      const calloutBit = onCallout ? ` · callout ${state.callout}` : "";
+      caption.textContent = `${state.label || "Exploded diagram"} · p${cur?.page ?? "?"}${calloutBit}`;
+    } else {
+      caption.textContent = `Service manual — ${state.pdfFileName || state.label || ""} · p${cur?.page ?? "?"}`.trim();
+    }
+  }
+}
+
+function showLightboxPage(index) {
+  if (!lightboxState?.pages?.length) return;
+  const pages = lightboxState.pages;
+  const next = Math.max(0, Math.min(pages.length - 1, index));
+  lightboxState.pageIndex = next;
+  const cur = pages[next];
+  const img = document.querySelector("#diagram-lightbox-img");
+  const highlightEl = document.querySelector("#diagram-callout-highlight");
+  if (!img || !cur) return;
+  if (highlightEl) highlightEl.hidden = true;
+  img.onload = () => syncCalloutHighlight();
+  img.src = cur.url;
+  img.alt =
+    lightboxState.kind === "ed"
+      ? `Exploded diagram page ${cur.page}`
+      : `Service manual page ${cur.page}`;
+  syncLightboxChrome();
+  if (img.complete) syncCalloutHighlight();
+}
+
+function stepLightboxPage(delta) {
+  if (!lightboxState?.pages?.length) return;
+  showLightboxPage(lightboxState.pageIndex + delta);
+}
+
 function openDiagramLightbox() {
   if (!activeDiagram?.url) return;
   const dialog = document.querySelector("#diagram-lightbox");
   const img = document.querySelector("#diagram-lightbox-img");
-  const caption = document.querySelector("#diagram-lightbox-caption");
-  const highlightEl = document.querySelector("#diagram-callout-highlight");
   if (!dialog || !img) return;
-  if (highlightEl) highlightEl.hidden = true;
-  img.onload = () => syncCalloutHighlight();
-  img.src = activeDiagram.url;
-  const isEd = activeDiagram.kind === "ed";
-  img.alt = activeDiagram.label || (isEd ? "Exploded diagram page" : "Service manual page");
-  if (caption) {
-    if (isEd) {
-      const calloutBit = activeDiagram.callout
-        ? ` · callout ${activeDiagram.callout}`
-        : "";
-      caption.textContent = `${activeDiagram.label || "Exploded diagram"}${calloutBit}`;
-    } else {
-      caption.textContent = `Service manual — ${activeDiagram.label || ""}`.trim();
-    }
-  }
+
+  const pages =
+    activeDiagram.pages?.length > 0
+      ? activeDiagram.pages
+      : [
+          {
+            page: 1,
+            url: activeDiagram.url,
+            pageKey: activeDiagram.pageKey || "doc",
+          },
+        ];
+  lightboxState = {
+    kind: activeDiagram.kind,
+    label: activeDiagram.label,
+    callout: activeDiagram.callout || null,
+    calloutPageKey: activeDiagram.calloutPageKey || activeDiagram.pageKey || null,
+    highlight: activeDiagram.highlight || null,
+    pages,
+    pageIndex: Math.max(
+      0,
+      Math.min(pages.length - 1, activeDiagram.pageIndex ?? 0)
+    ),
+    pdfFileName: activeDiagram.pdfFileName || activeDiagram.source || null,
+  };
+
   dialog.setAttribute(
     "aria-label",
-    isEd ? "Exploded diagram" : "Service manual"
+    activeDiagram.kind === "ed" ? "Exploded diagram" : "Service manual"
   );
+  showLightboxPage(lightboxState.pageIndex);
   if (typeof dialog.showModal === "function") dialog.showModal();
   else dialog.setAttribute("open", "");
-  // If cached, onload may not fire
-  if (img.complete) syncCalloutHighlight();
 }
 
 function closeDiagramLightbox() {
   const dialog = document.querySelector("#diagram-lightbox");
   const img = document.querySelector("#diagram-lightbox-img");
   const highlightEl = document.querySelector("#diagram-callout-highlight");
+  const downloadBtn = document.querySelector("#diagram-lightbox-download");
   if (dialog && typeof dialog.close === "function") dialog.close();
   else if (dialog) dialog.removeAttribute("open");
   if (highlightEl) highlightEl.hidden = true;
+  if (downloadBtn) {
+    downloadBtn.hidden = true;
+    downloadBtn.disabled = false;
+    downloadBtn.textContent = "Download PDF";
+  }
+  lightboxState = null;
   if (img) {
     img.onload = null;
     img.removeAttribute("src");
     img.alt = "";
+  }
+}
+
+async function onLightboxDownload() {
+  const fileName = lightboxState?.pdfFileName;
+  const btn = document.querySelector("#diagram-lightbox-download");
+  if (!fileName || !LIGHTBOX_PDFS[fileName]) return;
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = "Preparing…";
+  }
+  try {
+    await downloadLightboxPdf(fileName);
+  } catch (err) {
+    console.error(err);
+    if (btn) btn.textContent = "Download failed";
+    setTimeout(() => {
+      if (btn && lightboxState) {
+        btn.textContent = "Download PDF";
+        btn.disabled = false;
+      }
+    }, 1600);
+    return;
+  }
+  if (btn && lightboxState) {
+    btn.textContent = "Download PDF";
+    btn.disabled = false;
+  }
+}
+
+function onLightboxKeydown(e) {
+  const dialog = document.querySelector("#diagram-lightbox");
+  if (!dialog?.open && !dialog?.hasAttribute("open")) return;
+  if (e.key === "ArrowLeft") {
+    e.preventDefault();
+    stepLightboxPage(-1);
+  } else if (e.key === "ArrowRight") {
+    e.preventDefault();
+    stepLightboxPage(1);
   }
 }
 
@@ -2485,8 +2649,19 @@ function bindEvents() {
   const diagramThumb = document.querySelector("#diagram-thumb-btn");
   const diagramLightbox = document.querySelector("#diagram-lightbox");
   const diagramLightboxClose = document.querySelector("#diagram-lightbox-close");
+  const diagramLightboxPrev = document.querySelector("#diagram-lightbox-prev");
+  const diagramLightboxNext = document.querySelector("#diagram-lightbox-next");
+  const diagramLightboxDownload = document.querySelector(
+    "#diagram-lightbox-download"
+  );
   diagramThumb?.addEventListener("click", openDiagramLightbox);
   diagramLightboxClose?.addEventListener("click", closeDiagramLightbox);
+  diagramLightboxPrev?.addEventListener("click", () => stepLightboxPage(-1));
+  diagramLightboxNext?.addEventListener("click", () => stepLightboxPage(1));
+  diagramLightboxDownload?.addEventListener("click", () => {
+    void onLightboxDownload();
+  });
+  document.addEventListener("keydown", onLightboxKeydown);
   if (diagramLightbox) {
     diagramLightbox.addEventListener("cancel", (e) => {
       e.preventDefault();
