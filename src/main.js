@@ -102,6 +102,7 @@ import {
   buildReviewedParts,
 } from "./price-import.js";
 import { loadBootData } from "./boot-data.js";
+import { mountDataplatePin } from "./dataplate-pin.js";
 
 // Resolved at boot (not import time) so the file:// classic IIFE can sit in <head>
 // with defer, or at end of <body>, without racing #app.
@@ -143,6 +144,8 @@ let gstRate = DEFAULT_GST_RATE;
 let seriesPicker = null;
 /** @type {{ getValue: () => string|null, setValue: (v: string|null) => void, clear?: () => void, refreshEnabled?: () => void }|null} */
 let itemPicker = null;
+/** @type {ReturnType<typeof mountDataplatePin>|null} */
+let dataplatePin = null;
 /** Session unlocks for restricted pins (model id or series:…). */
 const unlockedPins = new Set();
 /** @type {import("./cart.js").CartLine[]} */
@@ -647,26 +650,27 @@ function renderShell() {
   getApp().innerHTML = `
     <div class="page">
       <header class="topbar">
-        <div class="brand">
-          <button
-            type="button"
-            class="mtc-logo"
-            id="home-logo"
-            aria-label="MTC Gas home — clear search and model pin"
-            title="Home"
-          >
-            <img
-              class="mtc-logo-img"
-              src="${mtcgasLogoUrl}"
-              alt="MTCGAS Australia"
-              width="204"
-              height="100"
-              decoding="async"
-            />
-          </button>
-          <div class="brand-text">
-            <h1 class="brand-name">Rinnai Parts</h1>
-          </div>
+        <button
+          type="button"
+          class="mtc-logo"
+          id="home-logo"
+          aria-label="MTC Gas home — clear search and model pin"
+          title="Home"
+        >
+          <img
+            class="mtc-logo-img"
+            src="${mtcgasLogoUrl}"
+            alt="MTCGAS Australia"
+            width="204"
+            height="100"
+            decoding="async"
+          />
+        </button>
+        <div class="brand-text">
+          <h1 class="brand-name">
+            <span class="brand-name-line">Rinnai Parts</span>
+            <span class="brand-name-line brand-name-line--bible">Bible</span>
+          </h1>
         </div>
         <div class="topbar-actions">
           <button
@@ -708,6 +712,59 @@ function renderShell() {
             Commercial outlet temp (60°C+) — must not be installed on a domestic system.
           </p>
 
+          <div class="dataplate-zone" id="dataplate-zone">
+            <span class="field-label" id="dataplate-label">Dataplate</span>
+            <div
+              class="dataplate-drop"
+              id="dataplate-drop"
+              role="button"
+              tabindex="0"
+              aria-labelledby="dataplate-label"
+              aria-describedby="dataplate-drop-hint"
+            >
+              <input
+                type="file"
+                id="dataplate-file"
+                accept="image/*"
+                capture="environment"
+                hidden
+              />
+              <img id="dataplate-preview" class="dataplate-preview" alt="" hidden />
+              <p class="dataplate-drop-hint" id="dataplate-drop-hint">
+                Drop a dataplate photo here, or click to upload / take a photo.
+                Suggests Pin 1 series + Pin 2 Item Number — confirm chips before lock.
+              </p>
+            </div>
+            <p class="dataplate-status" id="dataplate-status" hidden></p>
+            <label class="dataplate-paste" for="dataplate-text">
+              <span class="dataplate-paste-label">Or paste / type dataplate text</span>
+              <textarea
+                id="dataplate-text"
+                rows="2"
+                spellcheck="false"
+                placeholder="e.g. REU-AM2626WD-50-AKN or HD210EN50"
+              ></textarea>
+            </label>
+            <div class="dataplate-chips" id="dataplate-chips" hidden>
+              <div class="dataplate-chip-group">
+                <span class="dataplate-chip-heading">Pin 1 · Series</span>
+                <div class="dataplate-chip-row" id="dataplate-series-chips"></div>
+              </div>
+              <div class="dataplate-chip-group">
+                <span class="dataplate-chip-heading">Pin 2 · Item Number</span>
+                <div class="dataplate-chip-row" id="dataplate-item-chips"></div>
+              </div>
+              <div class="dataplate-chip-actions">
+                <button type="button" class="dataplate-confirm" id="dataplate-confirm" disabled>
+                  Confirm pins
+                </button>
+                <button type="button" class="dataplate-clear" id="dataplate-clear">
+                  Clear dataplate
+                </button>
+              </div>
+            </div>
+          </div>
+
           <div class="pin-margin-row">
             <div class="field series-field">
               <span class="field-label" id="series-label">Pin 1 · Series</span>
@@ -721,7 +778,7 @@ function renderShell() {
                     aria-autocomplete="list"
                     aria-controls="series-listbox"
                     aria-expanded="false"
-                    placeholder="Choose which series from the list first."
+                    placeholder="Click to choose which series from the list first."
                     spellcheck="false"
                     autocomplete="off"
                   />
@@ -1312,6 +1369,22 @@ function mountModelPicker() {
   }
 
   updateDomesticTempWarn();
+  mountDataplateUi();
+}
+
+function mountDataplateUi() {
+  dataplatePin = mountDataplatePin({
+    getCatalogue: () => catalogue,
+    getSeriesDoc: () => seriesDoc,
+    seriesPicker,
+    itemPicker,
+    isPinUnlocked: (pinValue) => unlockedPins.has(pinValue),
+    requestUnlock,
+    onPinned: () => {
+      updateDomesticTempWarn();
+      runSearch();
+    },
+  });
 }
 
 function currentPin() {
@@ -1489,13 +1562,16 @@ function updateSearchVisuals(query, pin) {
     if (idleEmpty) {
       diagramImg.src = emptyFrameLoopUrl;
       diagramImg.alt = "";
+      // Stealth hotlink only — no green click-me, border flash, or cursor change.
       thumbBtn.hidden = false;
-      thumbBtn.disabled = true;
+      thumbBtn.disabled = false;
+      thumbBtn.dataset.stealthYoutube = "1";
       thumbBtn.setAttribute("aria-label", "Decorative animation");
       diagramPh.hidden = true;
     } else if (panel?.url) {
       diagramImg.src = panel.url;
       thumbBtn.disabled = false;
+      delete thumbBtn.dataset.stealthYoutube;
       if (panel.kind === "ed") {
         const calloutBit = panel.callout ? ` · item ${panel.callout}` : "";
         diagramImg.alt = `Exploded diagram${calloutBit}`;
@@ -1511,6 +1587,7 @@ function updateSearchVisuals(query, pin) {
       diagramImg.alt = "";
       thumbBtn.hidden = true;
       thumbBtn.disabled = true;
+      delete thumbBtn.dataset.stealthYoutube;
       diagramPh.hidden = false;
       if (hasPin2 && hasQuery) {
         diagramPh.textContent = "No diagram for this hit yet";
@@ -1675,6 +1752,9 @@ function resolveLightboxPages(diagram) {
   }
   return pages;
 }
+
+const EMPTY_FRAME_YOUTUBE_URL =
+  "https://www.youtube.com/watch?v=WflKlxvwmYY";
 
 function openDiagramLightbox() {
   if (!activeDiagram?.url) return;
@@ -2646,6 +2726,7 @@ function resetToHome() {
   if (seriesPicker?.clear) seriesPicker.clear();
   else if (seriesPicker?.setValue) seriesPicker.setValue(null);
   itemPicker?.refreshEnabled?.();
+  dataplatePin?.clear?.();
   updateDomesticTempWarn();
   runSearch();
   input?.focus();
@@ -2771,7 +2852,13 @@ function bindEvents() {
     if (seriesThumb.disabled || seriesThumb.hidden) return;
     openSeriesManualLightbox();
   });
-  diagramThumb?.addEventListener("click", openDiagramLightbox);
+  diagramThumb?.addEventListener("click", () => {
+    if (diagramThumb.dataset.stealthYoutube === "1") {
+      window.open(EMPTY_FRAME_YOUTUBE_URL, "_blank", "noopener,noreferrer");
+      return;
+    }
+    openDiagramLightbox();
+  });
   diagramLightboxClose?.addEventListener("click", closeDiagramLightbox);
   diagramLightboxPrev?.addEventListener("click", () => stepLightboxPage(-1));
   diagramLightboxNext?.addEventListener("click", () => stepLightboxPage(1));
