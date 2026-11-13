@@ -1442,7 +1442,7 @@
         "REU-KM3237WDC",
         "REUKM3237WDC"
       ],
-      "notes": "Commercial HDC211 external \u2194 KM3237WDC (not KM3237WD Infinity 32 Enviro)."
+      "notes": "Commercial HDC211 external \u2194 KM3237WDC (not KM3237WD Infinity 32 Enviro). PL Pin1: REU-KM3237WDC-AK Combined SP & EPD SEP 2018 (cover HDC211e)."
     },
     {
       "id": "hdc211i",
@@ -1646,9 +1646,11 @@
       "documentKeys": [
         "EHFA250",
         "EHFA",
-        "Hotflo EHFA250"
+        "Hotflo EHFA250",
+        "HFE250SSL",
+        "HFE 250S"
       ],
-      "notes": "RSP-95 matched: EHFA250S24/36 \u2192 EHFA SPARE PARTS.pdf; S48 \u2192 EHF 250SL 315L PL. documentKeys include EHFA for shared desktop sheet.",
+      "notes": "RSP-95 matched: EHFA250S24/36 \u2192 EHFA SPARE PARTS.pdf; S48 \u2192 EHF 250SL 315L PL. Slim add-on: HFE 250S 315S SPL Issue 8. documentKeys include EHFA for shared desktop sheet.",
       "systemType": "hotflo-electric-storage",
       "familyKey": "hotflo_electric_storage"
     },
@@ -1668,9 +1670,11 @@
       "documentKeys": [
         "EHFA315",
         "EHF315",
-        "Hotflo EHFA315"
+        "Hotflo EHFA315",
+        "HFE315SSL",
+        "HFE 315S"
       ],
-      "notes": "RSP-95 matched: EHFA315S* \u2192 PL Hotflo EHF 250SL 315L.",
+      "notes": "RSP-95 matched: EHFA315S* \u2192 PL Hotflo EHF 250SL 315L. Slim add-on: HFE 250S 315S SPL Issue 8.",
       "systemType": "hotflo-electric-storage",
       "familyKey": "hotflo_electric_storage"
     },

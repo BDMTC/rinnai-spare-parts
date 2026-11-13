@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T13:38:52.160984+00:00",
+  "generatedAt": "2026-11-13T13:47:01.918889+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
@@ -9,14 +9,16 @@
     "resolve": "Pick first hit matching pin seriesId / chassis token; else highest priority",
     "plHighlight": "listPage + listPageKey + listBox (pymupdf words); lightbox opens PL page when JPEG exists",
     "hotfloPreserve": "Non-CF ehf*/ghf*/efinity hits from prior JSON are merged back after CF extract",
-    "ihf10Fm10": "Flowmaster FM10 / Hotflo IHF10 Instantaneous \u2014 cover-true SM IHF10.pdf + IHF10-Spare-Parts-List.pdf Issue 3 (RSP-131 stretch #84)"
+    "ihf10Fm10": "Flowmaster FM10 / Hotflo IHF10 Instantaneous \u2014 cover-true SM IHF10.pdf + IHF10-Spare-Parts-List.pdf Issue 3 (RSP-131 stretch #84)",
+    "hdc211e": "HDC211e PL Pin1 from REU-KM3237WDC-AK Combined SP & EPD SEP 2018 (cover HDC211e; chassis WDC \u2014 not Enviro KM3237WD)",
+    "hotfloHfeSlim": "Hotflo HFE 250S/315S slim SPL Issue 8 \u2192 ehfa250/ehfa315 (complements EHFA SPARE PARTS)"
   },
   "totals": {
     "sheetsConfigured": 49,
     "sheetsOk": 49,
     "sheetsMissing": 0,
-    "uniqueCodes": 776,
-    "codesInCatalogue": 531,
+    "uniqueCodes": 797,
+    "codesInCatalogue": 549,
     "codesInCatalogueWithPageAsset": 467,
     "codesInCatalogueWithListBox": 467,
     "codesInCatalogueWithListPageAsset": 467,
@@ -26,7 +28,11 @@
     "cataloguePartsTotal": 6571,
     "hotfloHitsPreserved": 30,
     "ihf10Fm10Codes": 45,
-    "ihf10Fm10InCatalogue": 44
+    "ihf10Fm10InCatalogue": 44,
+    "hdc211eCodes": 75,
+    "hdc211eInCatalogue": 67,
+    "hotfloHfeSlimCodes": 18,
+    "hotfloHfeSlimInCatalogue": 17
   },
   "sheets": [
     {
@@ -1705,6 +1711,72 @@
       "path": "data-sheets/Rinnai Data Sheets/IHF10-Spare-Parts-List.pdf",
       "sourceSm": "IHF10.pdf",
       "notes": "RA codes from IHF10.pdf \u00a711 text; PL JPEG pack from IHF10-Spare-Parts-List.pdf"
+    },
+    {
+      "file": "HFE 250S 315S SPL 29032021 V8.pdf",
+      "stem": "pl-hotflo-hfe-250-315-slim",
+      "status": "ok",
+      "pages": 1,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        1
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 18,
+      "rowsInCatalogue": 17,
+      "rowsWithListBox": 18,
+      "seriesIds": [
+        "ehfa250",
+        "ehfa315"
+      ],
+      "chassisTokens": [
+        "EHFA250",
+        "EHFA315",
+        "EHFA250S",
+        "EHFA315S",
+        "HFE250SSL",
+        "HFE315SSL",
+        "Hotflo",
+        "HOTFLO"
+      ],
+      "priority": 19,
+      "path": "data-sheets/Rinnai Data Sheets/HFE 250S 315S SPL 29032021 V8.pdf"
+    },
+    {
+      "file": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+      "stem": "pl-reu-km3237wdc-hdc211e",
+      "status": "ok",
+      "pages": 8,
+      "diagramPages": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "listPages": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "defaultDiagramPage": 5,
+      "rowsExtracted": 75,
+      "rowsInCatalogue": 67,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "hdc211e"
+      ],
+      "chassisTokens": [
+        "KM3237WDC",
+        "REU-KM3237WDC",
+        "REUKM3237WDC",
+        "HDC211E",
+        "HDC211e"
+      ],
+      "priority": 16,
+      "path": "data-sheets/Rinnai Data Sheets/REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf"
     }
   ],
   "parts": {
@@ -3973,6 +4045,27 @@
     ],
     "92073352": [
       {
+        "callout": "13",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Cable Connection Mouth"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf p4",
         "pageKey": "edpl-hd250e-reuvrm3237wc-issue4__p4",
@@ -4901,6 +4994,27 @@
       }
     ],
     "92099984": [
+      {
+        "callout": "14",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Cable Seal Packing"
+      },
       {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -6775,6 +6889,27 @@
     ],
     "92095896": [
       {
+        "callout": "27",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Connection Fixing Plate"
+      },
+      {
         "callout": "1",
         "page": "PL & ED INF26 Smartstart VR2626WGP.pdf p5",
         "pageKey": "pl-ed-inf26-smartstart-vr2626wgp__p5",
@@ -7460,6 +7595,27 @@
       }
     ],
     "92099956": [
+      {
+        "callout": "101",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Pressure Point Seal Screw"
+      },
       {
         "callout": "2",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -8663,6 +8819,27 @@
       }
     ],
     "92081587": [
+      {
+        "callout": "102",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Gas Connection(3/4)"
+      },
       {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -11570,6 +11747,27 @@
       }
     ],
     "92086974": [
+      {
+        "callout": "116",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Electrode"
+      },
       {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -15952,6 +16150,27 @@
     ],
     "92095901": [
       {
+        "callout": "400",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Water Inlet 3/4"
+      },
+      {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
         "pageKey": "pl-new-a-series-cf__p1",
@@ -16851,6 +17070,27 @@
       }
     ],
     "92093552": [
+      {
+        "callout": "402",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Rectifier"
+      },
       {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
@@ -18091,6 +18331,27 @@
     ],
     "92087072": [
       {
+        "callout": "403",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Bypass Servo Assembly"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf p4",
         "pageKey": "edpl-hd250e-reuvrm3237wc-issue4__p4",
@@ -18405,6 +18666,27 @@
       }
     ],
     "92083773": [
+      {
+        "callout": "412",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Water Filter Plug Assembly"
+      },
       {
         "callout": "28a",
         "page": "IHF10-Spare-Parts-List.pdf p3",
@@ -20772,6 +21054,27 @@
     ],
     "92099944": [
       {
+        "callout": "411",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Drain Valve C Assembly"
+      },
+      {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
         "pageKey": "pl-new-a-series-cf__p1",
@@ -22034,6 +22337,27 @@
       }
     ],
     "92093699": [
+      {
+        "callout": "701",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Surge Arrestor"
+      },
       {
         "callout": "4",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -24090,6 +24414,27 @@
     ],
     "92095026": [
       {
+        "callout": "706",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Ignitor Assembly"
+      },
+      {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
         "pageKey": "edpl-reu-k2430wg__p1",
@@ -25546,6 +25891,27 @@
       }
     ],
     "92087030": [
+      {
+        "callout": "708",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Electrode Sleeve"
+      },
       {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
@@ -27699,6 +28065,27 @@
     ],
     "92086388": [
       {
+        "callout": "710",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Retainer (Large)"
+      },
+      {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
         "pageKey": "edpl-reu-k2430wg__p1",
@@ -28589,6 +28976,27 @@
       }
     ],
     "92097187": [
+      {
+        "callout": "712",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Frost Sensing Switch-E"
+      },
       {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -30225,6 +30633,27 @@
       }
     ],
     "92093301": [
+      {
+        "callout": "716",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Heater Fixing Plate"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf p4",
@@ -31883,6 +32312,27 @@
       }
     ],
     "92089051": [
+      {
+        "callout": "720",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Power Cord"
+      },
       {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -34220,6 +34670,27 @@
     ],
     "92099988": [
       {
+        "callout": "727",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "MR Sensor"
+      },
+      {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
         "pageKey": "pl-new-a-series-cf__p1",
@@ -35789,6 +36260,27 @@
       }
     ],
     "92099961": [
+      {
+        "callout": "729",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Remote Controller Harness"
+      },
       {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
@@ -37489,6 +37981,27 @@
     ],
     "92095032": [
       {
+        "callout": "750",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Status Monitor Assembly"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf p4",
         "pageKey": "edpl-hd250e-reuvrm3237wc-issue4__p4",
@@ -38065,6 +38578,27 @@
       }
     ],
     "92062249": [
+      {
+        "callout": "810",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 4,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p4",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "O-Ring(P4)"
+      },
       {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
@@ -39908,6 +40442,27 @@
       }
     ],
     "90195165": [
+      {
+        "callout": "825",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 4,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p4",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "O-Ring(S4)"
+      },
       {
         "callout": "2",
         "page": "New A Series CF Parts List.pdf p1",
@@ -41820,6 +42375,27 @@
       }
     ],
     "92071182": [
+      {
+        "callout": "813",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 4,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p4",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "O-Ring(P18)"
+      },
       {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
@@ -43834,6 +44410,27 @@
     ],
     "92062199": [
       {
+        "callout": "814",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 4,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p4",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "O-Ring(P16)"
+      },
+      {
         "callout": "2",
         "page": "New A Series CF Parts List.pdf p1",
         "pageKey": "pl-new-a-series-cf__p1",
@@ -45730,6 +46327,27 @@
     ],
     "92062207": [
       {
+        "callout": "815",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 4,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p4",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "O-Ring(P14)"
+      },
+      {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
         "pageKey": "pl-new-a-series-cf__p1",
@@ -47477,6 +48095,27 @@
       }
     ],
     "92062348": [
+      {
+        "callout": "816",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 4,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p4",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "O-Ring(P7)"
+      },
       {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
@@ -49280,6 +49919,27 @@
       }
     ],
     "92072859": [
+      {
+        "callout": "817",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 4,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p4",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "O-Ring(P24)"
+      },
       {
         "callout": "2",
         "page": "New A Series CF Parts List.pdf p1",
@@ -59577,6 +60237,27 @@
     ],
     "92092253": [
       {
+        "callout": "707",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "High Tension Code"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf p4",
         "pageKey": "edpl-hd250e-reuvrm3237wc-issue4__p4",
@@ -60710,6 +61391,27 @@
       }
     ],
     "92076123": [
+      {
+        "callout": "718",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Heater Fixing Plate"
+      },
       {
         "callout": "717",
         "page": "New A Series CF Parts List.pdf p1",
@@ -62422,6 +63124,27 @@
       }
     ],
     "92099560": [
+      {
+        "callout": "404",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Fixing Bracket"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf p4",
@@ -65283,6 +66006,27 @@
       }
     ],
     "92098862": [
+      {
+        "callout": "126",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Fan Casing Assembly"
+      },
       {
         "callout": "2",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -72606,6 +73350,27 @@
     ],
     "92099234": [
       {
+        "callout": "730",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "TWIN Thermistor"
+      },
+      {
         "callout": "725",
         "page": "PL & ED INF26 Smartstart VR2626WGP.pdf p5",
         "pageKey": "pl-ed-inf26-smartstart-vr2626wgp__p5",
@@ -74147,6 +74912,27 @@
       }
     ],
     "92098905": [
+      {
+        "callout": "18",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Cable Access Assembly"
+      },
       {
         "callout": "1",
         "page": "PL & ED INF26 Smartstart VR2626WGP.pdf p5",
@@ -76966,6 +77752,27 @@
     ],
     "92097120": [
       {
+        "callout": "422",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Drain Valve Assembly"
+      },
+      {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
         "pageKey": "edpl-reu-k2430wg__p1",
@@ -79113,6 +79920,27 @@
     ],
     "92071455": [
       {
+        "callout": "823",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 4,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p4",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "O-Ring(P5)"
+      },
+      {
         "callout": "2",
         "page": "EDPL REU-K2430WG.pdf p1",
         "pageKey": "edpl-reu-k2430wg__p1",
@@ -79403,6 +80231,27 @@
       }
     ],
     "92043223": [
+      {
+        "callout": "824",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 4,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p4",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "O-Ring(P6)"
+      },
       {
         "callout": "1",
         "page": "EDPL REU-K2430WG.pdf p1",
@@ -80259,6 +81108,27 @@
       }
     ],
     "92092485": [
+      {
+        "callout": "433",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Quick Fastener 12.7"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
@@ -82731,6 +83601,27 @@
     ],
     "92099932": [
       {
+        "callout": "103",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Burner Unit Assembly-B"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf p4",
         "pageKey": "edpl-hd250e-reuvrm3237wc-issue4__p4",
@@ -83071,6 +83962,27 @@
       }
     ],
     "92099936": [
+      {
+        "callout": "109",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Damper-B"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf p4",
@@ -84304,6 +85216,27 @@
       }
     ],
     "92099942": [
+      {
+        "callout": "128",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Fan Connection Packing"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf p4",
@@ -86018,6 +86951,27 @@
       }
     ],
     "92095039": [
+      {
+        "callout": "726",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "220V Ignitor Harness"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL HD250E REUVRM3237WC - ISSUE 4 - FEB 2025.pdf p4",
@@ -87945,6 +88899,27 @@
       }
     ],
     "92099429": [
+      {
+        "callout": "2",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Wall Hang Bracket"
+      },
       {
         "callout": "1",
         "page": "New A Series CF Parts List.pdf p1",
@@ -96331,6 +97306,27 @@
     "92098933": [
       {
         "callout": "1",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Main Body Assembly"
+      },
+      {
+        "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
         "pdf": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf",
@@ -96411,6 +97407,27 @@
       }
     ],
     "92098929": [
+      {
+        "callout": "17",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Screw Cover Assembly"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
@@ -96514,6 +97531,27 @@
     ],
     "92098901": [
       {
+        "callout": "100",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Gas Controller Assembly"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -96567,6 +97605,27 @@
       }
     ],
     "92098941": [
+      {
+        "callout": "103",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Burner Unit Assembly-C"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
@@ -96622,6 +97681,27 @@
     ],
     "92098998": [
       {
+        "callout": "109",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Damper-C"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -96676,6 +97756,27 @@
     ],
     "92098909": [
       {
+        "callout": "110",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Manifold Assembly-2 NG"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -96729,6 +97830,27 @@
       }
     ],
     "92098907": [
+      {
+        "callout": "110",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Manifold Assembly-1 LPG"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
@@ -96945,6 +98067,27 @@
     ],
     "92098996": [
       {
+        "callout": "117",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Flame Rod"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -97122,6 +98265,27 @@
     ],
     "92098908": [
       {
+        "callout": "118",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Electrode Packing"
+      },
+      {
         "callout": "2",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -97224,6 +98388,27 @@
     ],
     "92098984": [
       {
+        "callout": "125",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Fan Motor All Assembly"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -97277,6 +98462,27 @@
       }
     ],
     "92098915": [
+      {
+        "callout": "135",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Flue Outlet Assembly"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
@@ -97434,6 +98640,27 @@
     ],
     "92098926": [
       {
+        "callout": "160",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Heat Exchanger,Secondary"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -97536,6 +98763,27 @@
     ],
     "92098932": [
       {
+        "callout": "401",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Water Flow Servo &Sensor Assy"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -97637,6 +98885,27 @@
       }
     ],
     "92098914": [
+      {
+        "callout": "408",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Hot Water Outlet 3/4"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
@@ -97875,6 +99144,27 @@
     ],
     "92092487": [
       {
+        "callout": "442",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Condensate Trap Plug"
+      },
+      {
         "callout": "2",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -97976,6 +99266,27 @@
       }
     ],
     "92098962": [
+      {
+        "callout": "447",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Conection Harness"
+      },
       {
         "callout": "2",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
@@ -98181,6 +99492,27 @@
     ],
     "92099385": [
       {
+        "callout": "709",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Thermistor"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -98234,6 +99566,27 @@
       }
     ],
     "92098972": [
+      {
+        "callout": "713",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Anti Frost Heater"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
@@ -98343,6 +99696,27 @@
     ],
     "92098954": [
       {
+        "callout": "721",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Huse Harness"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -98444,6 +99818,27 @@
       }
     ],
     "92098952": [
+      {
+        "callout": "722",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Power Harness"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
@@ -98547,6 +99942,27 @@
     ],
     "92098944": [
       {
+        "callout": "724",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Sensor Harness"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -98600,6 +100016,27 @@
       }
     ],
     "92098946": [
+      {
+        "callout": "725",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Temperature Fuse Harness Assy"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
@@ -98655,6 +100092,27 @@
     ],
     "92098960": [
       {
+        "callout": "731",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Solenoid Connection Harness"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -98709,6 +100167,27 @@
     ],
     "92099945": [
       {
+        "callout": "440",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Condensate Trap"
+      },
+      {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
@@ -98762,6 +100241,27 @@
     "92098958": [
       {
         "callout": "733",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Connection Harness"
+      },
+      {
+        "callout": "733",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
         "pageKey": "edpl-inf32-enviro-km3237wd-issue4__p5",
         "pdf": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf",
@@ -98788,6 +100288,27 @@
       }
     ],
     "92098966": [
+      {
+        "callout": "734",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Fan Harness"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
@@ -98842,6 +100363,27 @@
       }
     ],
     "92098980": [
+      {
+        "callout": "744",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Heater And Harness"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - EDPL INF32 ENVIRO KM3237WD - ISSUE 4 - JUNE 2025.pdf p5",
@@ -99702,6 +101244,27 @@
       }
     ],
     "92098974": [
+      {
+        "callout": "715",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Valve Heater Assembly"
+      },
       {
         "callout": "1",
         "page": "PL - RINNAI - ENVIRO KM2635WD - ISSUE 04 - JUNE 2025.pdf p5",
@@ -127413,6 +128976,37 @@
     ],
     "95110048": [
       {
+        "callout": "5",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48865,
+          "y": 0.31293,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "PTR VALVE"
+      },
+      {
         "callout": "7",
         "page": "EHFA  SPARE PARTS.pdf p1",
         "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
@@ -129386,6 +130980,653 @@
         "name": "WATER FLOW ADJUSTMENT KIT",
         "sourceSm": "IHF10.pdf",
         "sourceSmPage": 25
+      }
+    ],
+    "92099437": [
+      {
+        "callout": "6",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Front Panel W Assembly -1-E"
+      }
+    ],
+    "92099433": [
+      {
+        "callout": "6",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 1,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p1",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Front Panel W Assembly -1-F"
+      }
+    ],
+    "92099443": [
+      {
+        "callout": "143",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 2,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p2",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "Heat Exchanger Assembly"
+      }
+    ],
+    "92099449": [
+      {
+        "callout": "700",
+        "page": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+        "pageKey": "pl-reu-km3237wdc-hdc211e__p5",
+        "listPage": 3,
+        "listPageKey": "pl-reu-km3237wdc-hdc211e__p3",
+        "pdf": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": [
+          "hdc211e"
+        ],
+        "chassisTokens": [
+          "KM3237WDC",
+          "REU-KM3237WDC",
+          "REUKM3237WDC",
+          "HDC211E",
+          "HDC211e"
+        ],
+        "priority": 16,
+        "name": "PCB Main KM3237 FFUDC WDC"
+      }
+    ],
+    "92501174": [
+      {
+        "callout": "1",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48864,
+          "y": 0.04169,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "THERMOSTAT COVER HOTFLO TANK"
+      }
+    ],
+    "92501162": [
+      {
+        "callout": "2",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48864,
+          "y": 0.05637,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "CAP PLASTIC  ANODE HOTFLO TANK"
+      }
+    ],
+    "92501149": [
+      {
+        "callout": "2",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48864,
+          "y": 0.07105,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa250"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "ANODE STANDARD 250L SLIM M2"
+      }
+    ],
+    "92501112": [
+      {
+        "callout": "2",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48864,
+          "y": 0.08574,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa250"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "ANODE (AL) 250L SLIM SK"
+      }
+    ],
+    "92501151": [
+      {
+        "callout": "2",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48864,
+          "y": 0.10042,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "ANODE STANDARD 315L SLIM"
+      }
+    ],
+    "92501114": [
+      {
+        "callout": "2",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48864,
+          "y": 0.1151,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "ANODE (AL) 315L SLIM SK"
+      }
+    ],
+    "92501163": [
+      {
+        "callout": "4",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48864,
+          "y": 0.15914,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "ELEMENT 2.4KW SLIM"
+      }
+    ],
+    "92501145": [
+      {
+        "callout": "4",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48864,
+          "y": 0.17382,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "ELEMENT 3.6KW SLIM"
+      }
+    ],
+    "92501147": [
+      {
+        "callout": "4",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48864,
+          "y": 0.1885,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "ELEMENT 4.8KW SLIM"
+      }
+    ],
+    "18401005": [
+      {
+        "callout": "6",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48864,
+          "y": 0.20319,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "GASKET ELEMENT"
+      }
+    ],
+    "92501137": [
+      {
+        "callout": "10",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48862,
+          "y": 0.26191,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "PLUG BRASS 25L 50L"
+      }
+    ],
+    "92501130": [
+      {
+        "callout": "11",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48862,
+          "y": 0.27659,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "THERMOSTAT HOTFLO ELEC TANK"
+      }
+    ],
+    "92501139": [
+      {
+        "callout": "12",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48862,
+          "y": 0.29127,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "ADAPTOR PTR"
+      }
+    ],
+    "92501141": [
+      {
+        "callout": "14",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48862,
+          "y": 0.33532,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "LID TOP TANK 315L 625mm SLIM"
+      }
+    ],
+    "92501143": [
+      {
+        "callout": "15",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48862,
+          "y": 0.35,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "BASE TANK 315L 625mm SLIM"
+      }
+    ],
+    "92501180": [
+      {
+        "callout": "16",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48862,
+          "y": 0.36468,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "UNION 3/4M X 3/4F BRASS"
+      }
+    ],
+    "92501135": [
+      {
+        "callout": "18",
+        "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
+        "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-hfe-250-315-slim__p1",
+        "listBox": {
+          "x": 0.48864,
+          "y": 0.39374,
+          "w": 0.08618,
+          "h": 0.02815
+        },
+        "pdf": "HFE 250S 315S SPL 29032021 V8.pdf",
+        "stem": "pl-hotflo-hfe-250-315-slim",
+        "seriesIds": [
+          "ehfa250",
+          "ehfa315"
+        ],
+        "chassisTokens": [
+          "EHFA250",
+          "EHFA315",
+          "EHFA250S",
+          "EHFA315S",
+          "HFE250SSL",
+          "HFE315SSL",
+          "Hotflo",
+          "HOTFLO"
+        ],
+        "priority": 19,
+        "name": "ELEC CORD 25L 50L"
       }
     ]
   }

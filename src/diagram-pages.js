@@ -168,6 +168,10 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "EHFA  SPARE PARTS.pdf p1",
     label: "Hotflo EHFA spare parts (315)",
   },
+  hdc211e: {
+    page: "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
+    label: "HDC211e KM3237WDC Combined SP & EPD",
+  },
   hd28e: {
     page: "Parts List REU-VCM2837 WC External.pdf p5",
     label: "Parts List REU-VCM2837 WC External (HD28e)",
@@ -358,6 +362,8 @@ const ED_STEM_TO_PDF = {
   "pl-hotflo-ehfa160": "Hotflo EHFA160 Spare Parts List S111418B.pdf",
   "pl-hotflo-ehfa-spare-parts": "EHFA  SPARE PARTS.pdf",
   "pl-ihf10": "IHF10-Spare-Parts-List.pdf",
+  "pl-reu-km3237wdc-hdc211e": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+  "pl-hotflo-hfe-250-315-slim": "HFE 250S 315S SPL 29032021 V8.pdf",
 };
 
 /**

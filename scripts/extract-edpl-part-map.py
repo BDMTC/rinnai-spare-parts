@@ -216,6 +216,20 @@ CF_SHEETS = [
         "chassisTokens": ["VCM2837WC", "REU-VCM2837WC", "HD28E"],
         "priority": 8,
     },
+    # HDC211e commercial (KM3237WDC) — not Infinity 32 Enviro KM3237WD
+    {
+        "file": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
+        "stem": "pl-reu-km3237wdc-hdc211e",
+        "seriesIds": ["hdc211e"],
+        "chassisTokens": [
+            "KM3237WDC",
+            "REU-KM3237WDC",
+            "REUKM3237WDC",
+            "HDC211E",
+            "HDC211e",
+        ],
+        "priority": 16,
+    },
     # Heritage / older CF platforms still in catalogue
     {
         "file": "EDPL VR2426_VR2626.pdf",
