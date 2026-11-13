@@ -6,6 +6,7 @@ import hd200e from "./assets/service-manual-pages/hd200e__p1.jpg";
 import hd200i from "./assets/service-manual-pages/hd200i__p1.jpg";
 import infinity26 from "./assets/service-manual-pages/infinity26__p1.jpg";
 import infinityA from "./assets/service-manual-pages/infinity-a__p1.jpg";
+import vr2426 from "./assets/service-manual-pages/vr2426__p1.jpg";
 import infinity26Internal from "./assets/service-manual-pages/infinity26-internal__p1.jpg";
 import infinity26Plus from "./assets/service-manual-pages/infinity26-plus__p1.jpg";
 import infinity26Smartstart from "./assets/service-manual-pages/infinity26-smartstart__p1.jpg";
@@ -63,6 +64,10 @@ const SM_PACK_GLOBS = {
   ),
   "sm-vreu-vr1620-vr2024": import.meta.glob(
     "./assets/service-manual-pages/sm-vreu-vr1620-vr2024__p*.jpg",
+    { eager: true, import: "default" }
+  ),
+  "sm-vr2426w-vr2632wc": import.meta.glob(
+    "./assets/service-manual-pages/sm-vr2426w-vr2632wc__p*.jpg",
     { eager: true, import: "default" }
   ),
 };
@@ -186,6 +191,12 @@ const SERIES_SERVICE_MANUALS = {
     label: "smvREUVR1616W_VR2024_v2.pdf p1",
     source: "smvREUVR1616W_VR2024_v2.pdf",
     packId: "sm-vreu-vr1620-vr2024",
+  },
+  vr2426: {
+    url: vr2426,
+    label: "SMVR2426W_VR2632WC.pdf p1",
+    source: "SMVR2426W_VR2632WC.pdf",
+    packId: "sm-vr2426w-vr2632wc",
   },
 };
 
