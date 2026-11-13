@@ -1579,7 +1579,7 @@
         "ECF29I60",
         "Efinity"
       ],
-      "notes": "RSP-95 matched: electric continuous-flow Efinity ECF14/19/29. One PL per SKU.",
+      "notes": "RSP-95 + Tech Issue 4: Efinity ECF14/19/29 Issue PLs (ECF14 I50/I60 shared PDF). One series, chassis-scoped stems.",
       "systemType": "electric-continuous-flow",
       "familyKey": "electric_cf"
     },
@@ -1723,9 +1723,12 @@
       },
       "documentKeys": [
         "EHF25",
-        "Hotflo EHF25"
+        "Hotflo EHF25",
+        "HFE25",
+        "HFE 25L 50L",
+        "HFE 25L"
       ],
-      "notes": "RSP-95 matched: EHF25S* (filename_stem\u2192EHF 250SL 315L PL). Exclude EHFA/EHFD/EHP* prefixes so storage siblings stay distinct.",
+      "notes": "RSP-95 + Tech Issue 9: EHF25 \u2192 HFE 25L 50L PL. Exclude EHFA/EHFD/EHP* prefixes so storage siblings stay distinct.",
       "systemType": "hotflo-electric-storage",
       "familyKey": "hotflo_electric_storage"
     },

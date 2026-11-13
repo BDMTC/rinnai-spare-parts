@@ -168,6 +168,26 @@ const SERIES_DIAGRAM_DEFAULT = {
     page: "EHFA  SPARE PARTS.pdf p1",
     label: "Hotflo EHFA spare parts (315)",
   },
+  ehfa400: {
+    page: "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
+    label: "Hotflo EHFA400 Issue 1",
+  },
+  ehfd160: {
+    page: "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf p1",
+    label: "Hotflo EHFD160 Issue 1",
+  },
+  ehf25: {
+    page: "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+    label: "Hotflo HFE 25L/50L Issue 9 (EHF25)",
+  },
+  ghf4: {
+    page: "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+    label: "Hotflo GHF4 Issue 4",
+  },
+  "efinity-ecf": {
+    page: "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+    label: "Efinity ECF Issue 4 (ECF14 shared)",
+  },
   hdc211e: {
     page: "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf p5",
     label: "HDC211e KM3237WDC Combined SP & EPD",
@@ -376,6 +396,24 @@ const ED_STEM_TO_PDF = {
   "pl-ihf10": "IHF10-Spare-Parts-List.pdf",
   "pl-reu-km3237wdc-hdc211e": "REU-KM3237WDC-AK Combined SP & EPD SEP 2018.pdf",
   "pl-hotflo-hfe-250-315-slim": "HFE 250S 315S SPL 29032021 V8.pdf",
+  "pl-hotflo-ghf4":
+    "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+  "pl-hotflo-ehfa400":
+    "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+  "pl-hotflo-ehfd160":
+    "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf",
+  "pl-hotflo-ehf25":
+    "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+  "pl-efinity-ecf14":
+    "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+  "pl-efinity-ecf19i50":
+    "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+  "pl-efinity-ecf19i60":
+    "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+  "pl-efinity-ecf29i50":
+    "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+  "pl-efinity-ecf29i60":
+    "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
   "pl-sm-2006": "SM 2006.pdf",
   "pl-sm-24wa": "SM 24WA.pdf",
   "pl-sm-reu3203": "SM REU3203.pdf",

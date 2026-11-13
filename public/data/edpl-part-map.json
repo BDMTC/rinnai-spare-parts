@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "generatedAt": "2026-11-13T13:57:02.771633+00:00",
+  "generatedAt": "2026-11-13T14:03:52.523766+00:00",
   "meta": {
     "title": "Continuous-flow EDPL part \u2192 page + callout map",
     "scope": "AU continuous-flow / REU hot-water EDPL/ED/PLED sheets",
@@ -12,14 +12,15 @@
     "ihf10Fm10": "Flowmaster FM10 / Hotflo IHF10 Instantaneous \u2014 cover-true SM IHF10.pdf + IHF10-Spare-Parts-List.pdf Issue 3 (RSP-131 stretch #84)",
     "hdc211e": "HDC211e PL Pin1 from REU-KM3237WDC-AK Combined SP & EPD SEP 2018 (cover HDC211e; chassis WDC \u2014 not Enviro KM3237WD)",
     "hotfloHfeSlim": "Hotflo HFE 250S/315S slim SPL Issue 8 \u2192 ehfa250/ehfa315 (complements EHFA SPARE PARTS)",
-    "heritageSmPl": "SM-embedded PL for infinity20-2006 / infinity24-wa / infinity32-3203 (Hotflo EHFA400/EHFD/EHF25/GHF4/Efinity still wait-for Tech Issue PL sync)"
+    "heritageSmPl": "SM-embedded PL for infinity20-2006 / infinity24-wa / infinity32-3203 (Hotflo EHFA400/EHFD/EHF25/GHF4/Efinity still wait-for Tech Issue PL sync)",
+    "hotfloEfinityWave": "Tech-synced Hotflo GHF4/EHFA400/EHFD160/EHF25 + Efinity ECF Issue PLs (ghf4, ehfa400, ehfd160, ehf25, pl-efinity-ecf14, pl-efinity-ecf19i50, pl-efinity-ecf19i60, pl-efinity-ecf29i50, pl-efinity-ecf29i60)"
   },
   "totals": {
     "sheetsConfigured": 49,
     "sheetsOk": 49,
     "sheetsMissing": 0,
-    "uniqueCodes": 843,
-    "codesInCatalogue": 549,
+    "uniqueCodes": 912,
+    "codesInCatalogue": 617,
     "codesInCatalogueWithPageAsset": 467,
     "codesInCatalogueWithListBox": 467,
     "codesInCatalogueWithListPageAsset": 467,
@@ -1873,6 +1874,238 @@
       "priority": 15,
       "path": "data-sheets/Rinnai Data Sheets/SM REU3203.pdf",
       "notes": "RA codes from SM-embedded parts list (heritage leftovers)"
+    },
+    {
+      "file": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+      "stem": "pl-hotflo-ghf4",
+      "status": "ok",
+      "pages": 1,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        1
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 22,
+      "rowsInCatalogue": 22,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "ghf4"
+      ],
+      "chassisTokens": [
+        "GHF4",
+        "GHF4135"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf"
+    },
+    {
+      "file": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+      "stem": "pl-hotflo-ehfa400",
+      "status": "ok",
+      "pages": 1,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        1
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 13,
+      "rowsInCatalogue": 13,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "ehfa400"
+      ],
+      "chassisTokens": [
+        "EHFA400"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF"
+    },
+    {
+      "file": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf",
+      "stem": "pl-hotflo-ehfd160",
+      "status": "ok",
+      "pages": 1,
+      "diagramPages": [
+        1
+      ],
+      "listPages": [
+        1
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 10,
+      "rowsInCatalogue": 9,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "ehfd160"
+      ],
+      "chassisTokens": [
+        "EHFD160"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf"
+    },
+    {
+      "file": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+      "stem": "pl-hotflo-ehf25",
+      "status": "ok",
+      "pages": 2,
+      "diagramPages": [
+        1,
+        2
+      ],
+      "listPages": [
+        1,
+        2
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 18,
+      "rowsInCatalogue": 17,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "ehf25"
+      ],
+      "chassisTokens": [
+        "EHF25",
+        "HFE25"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf"
+    },
+    {
+      "file": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+      "stem": "pl-efinity-ecf14",
+      "status": "ok",
+      "pages": 2,
+      "diagramPages": [
+        1,
+        2
+      ],
+      "listPages": [
+        1,
+        2
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 22,
+      "rowsInCatalogue": 21,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "efinity-ecf"
+      ],
+      "chassisTokens": [
+        "ECF14",
+        "ECF14I50",
+        "ECF14I60"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf"
+    },
+    {
+      "file": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+      "stem": "pl-efinity-ecf19i50",
+      "status": "ok",
+      "pages": 2,
+      "diagramPages": [
+        1,
+        2
+      ],
+      "listPages": [
+        1,
+        2
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 21,
+      "rowsInCatalogue": 20,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "efinity-ecf"
+      ],
+      "chassisTokens": [
+        "ECF19I50"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf"
+    },
+    {
+      "file": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+      "stem": "pl-efinity-ecf19i60",
+      "status": "ok",
+      "pages": 2,
+      "diagramPages": [
+        1,
+        2
+      ],
+      "listPages": [
+        1,
+        2
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 21,
+      "rowsInCatalogue": 20,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "efinity-ecf"
+      ],
+      "chassisTokens": [
+        "ECF19I60"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf"
+    },
+    {
+      "file": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+      "stem": "pl-efinity-ecf29i50",
+      "status": "ok",
+      "pages": 2,
+      "diagramPages": [
+        1,
+        2
+      ],
+      "listPages": [
+        1,
+        2
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 21,
+      "rowsInCatalogue": 20,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "efinity-ecf"
+      ],
+      "chassisTokens": [
+        "ECF29I50"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf"
+    },
+    {
+      "file": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+      "stem": "pl-efinity-ecf29i60",
+      "status": "ok",
+      "pages": 2,
+      "diagramPages": [
+        1,
+        2
+      ],
+      "listPages": [
+        1,
+        2
+      ],
+      "defaultDiagramPage": 1,
+      "rowsExtracted": 21,
+      "rowsInCatalogue": 20,
+      "rowsWithListBox": 0,
+      "seriesIds": [
+        "efinity-ecf"
+      ],
+      "chassisTokens": [
+        "ECF29I60"
+      ],
+      "priority": 22,
+      "path": "data-sheets/Rinnai Data Sheets/PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf"
     }
   ],
   "parts": {
@@ -129721,6 +129954,28 @@
     "95110036": [
       {
         "callout": "3",
+        "page": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf p1",
+        "pageKey": "pl-hotflo-ehfd160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfd160__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf",
+        "stem": "pl-hotflo-ehfd160",
+        "seriesIds": [
+          "ehfd160"
+        ],
+        "chassisTokens": [
+          "EHFD160",
+          "Hotflo EHFD160",
+          "EHFD160S24",
+          "EHFD160S24H",
+          "EHFD160S36",
+          "EHFD160S36H"
+        ],
+        "priority": 22,
+        "name": "ELECTRICAL COVER BOTTOM"
+      },
+      {
+        "callout": "3",
         "page": "EHFA  SPARE PARTS.pdf p1",
         "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
         "listPage": 1,
@@ -129789,6 +130044,54 @@
       }
     ],
     "95110378": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf p1",
+        "pageKey": "pl-hotflo-ehfd160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfd160__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf",
+        "stem": "pl-hotflo-ehfd160",
+        "seriesIds": [
+          "ehfd160"
+        ],
+        "chassisTokens": [
+          "EHFD160",
+          "Hotflo EHFD160",
+          "EHFD160S24",
+          "EHFD160S24H",
+          "EHFD160S36",
+          "EHFD160S36H"
+        ],
+        "priority": 22,
+        "name": "ELECTRICAL COVER TOP"
+      },
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
+        "pageKey": "pl-hotflo-ehfa400__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa400__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+        "stem": "pl-hotflo-ehfa400",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHFA400",
+          "Hotflo EHFA400",
+          "EHFA400S36",
+          "EHFA400S36H",
+          "EHFA400S48",
+          "EHFA400S48H",
+          "EHFA400T36",
+          "EHFA400T36H",
+          "EHFA400T48",
+          "EHFA400T48H"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT BOTTOM"
+      },
       {
         "callout": "6",
         "page": "EHFA  SPARE PARTS.pdf p1",
@@ -129869,6 +130172,93 @@
       }
     ],
     "95110048": [
+      {
+        "callout": "13",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "PTR VALVE - 1000KPA"
+      },
+      {
+        "callout": "5",
+        "page": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf p1",
+        "pageKey": "pl-hotflo-ehfd160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfd160__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf",
+        "stem": "pl-hotflo-ehfd160",
+        "seriesIds": [
+          "ehfd160"
+        ],
+        "chassisTokens": [
+          "EHFD160",
+          "Hotflo EHFD160",
+          "EHFD160S24",
+          "EHFD160S24H",
+          "EHFD160S36",
+          "EHFD160S36H"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT TOP"
+      },
+      {
+        "callout": "7",
+        "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
+        "pageKey": "pl-hotflo-ehfa400__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa400__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+        "stem": "pl-hotflo-ehfa400",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHFA400",
+          "Hotflo EHFA400",
+          "EHFA400S36",
+          "EHFA400S36H",
+          "EHFA400S48",
+          "EHFA400S48H",
+          "EHFA400T36",
+          "EHFA400T36H",
+          "EHFA400T48",
+          "EHFA400T48H"
+        ],
+        "priority": 22,
+        "name": "PTR VALVE"
+      },
+      {
+        "callout": "18",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "VALVE PTR 1/2in 1000kPa"
+      },
       {
         "callout": "5",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
@@ -129981,6 +130371,54 @@
     ],
     "95110032": [
       {
+        "callout": "6",
+        "page": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf p1",
+        "pageKey": "pl-hotflo-ehfd160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfd160__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf",
+        "stem": "pl-hotflo-ehfd160",
+        "seriesIds": [
+          "ehfd160"
+        ],
+        "chassisTokens": [
+          "EHFD160",
+          "Hotflo EHFD160",
+          "EHFD160S24",
+          "EHFD160S24H",
+          "EHFD160S36",
+          "EHFD160S36H"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT BOTTOM"
+      },
+      {
+        "callout": "8",
+        "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
+        "pageKey": "pl-hotflo-ehfa400__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa400__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+        "stem": "pl-hotflo-ehfa400",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHFA400",
+          "Hotflo EHFA400",
+          "EHFA400S36",
+          "EHFA400S36H",
+          "EHFA400S48",
+          "EHFA400S48H",
+          "EHFA400T36",
+          "EHFA400T36H",
+          "EHFA400T48",
+          "EHFA400T48H"
+        ],
+        "priority": 22,
+        "name": "PLUG TOP"
+      },
+      {
         "callout": "8",
         "page": "EHFA  SPARE PARTS.pdf p1",
         "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
@@ -130060,6 +130498,54 @@
       }
     ],
     "95110471": [
+      {
+        "callout": "7",
+        "page": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf p1",
+        "pageKey": "pl-hotflo-ehfd160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfd160__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf",
+        "stem": "pl-hotflo-ehfd160",
+        "seriesIds": [
+          "ehfd160"
+        ],
+        "chassisTokens": [
+          "EHFD160",
+          "Hotflo EHFD160",
+          "EHFD160S24",
+          "EHFD160S24H",
+          "EHFD160S36",
+          "EHFD160S36H"
+        ],
+        "priority": 22,
+        "name": "PTR VALVE"
+      },
+      {
+        "callout": "9",
+        "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
+        "pageKey": "pl-hotflo-ehfa400__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa400__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+        "stem": "pl-hotflo-ehfa400",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHFA400",
+          "Hotflo EHFA400",
+          "EHFA400S36",
+          "EHFA400S36H",
+          "EHFA400S48",
+          "EHFA400S48H",
+          "EHFA400T36",
+          "EHFA400T36H",
+          "EHFA400T48",
+          "EHFA400T48H"
+        ],
+        "priority": 22,
+        "name": "PORT COVERS"
+      },
       {
         "callout": "9",
         "page": "EHFA  SPARE PARTS.pdf p1",
@@ -130394,6 +130880,28 @@
     "95110379": [
       {
         "callout": "5",
+        "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
+        "pageKey": "pl-hotflo-ehfa400__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa400__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+        "stem": "pl-hotflo-ehfa400",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHFA400",
+          "Hotflo EHFA400",
+          "EHFA400T36",
+          "EHFA400T36H",
+          "EHFA400T48",
+          "EHFA400T48H"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT TOP"
+      },
+      {
+        "callout": "5",
         "page": "EHFA  SPARE PARTS.pdf p1",
         "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
         "listPage": 1,
@@ -130672,6 +131180,28 @@
     "95110422": [
       {
         "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
+        "pageKey": "pl-hotflo-ehfa400__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa400__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+        "stem": "pl-hotflo-ehfa400",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHFA400",
+          "Hotflo EHFA400",
+          "EHFA400S36",
+          "EHFA400S48",
+          "EHFA400T36",
+          "EHFA400T48"
+        ],
+        "priority": 22,
+        "name": "ANODE"
+      },
+      {
+        "callout": "1",
         "page": "EHFA  SPARE PARTS.pdf p1",
         "pageKey": "pl-hotflo-ehfa-spare-parts__p1",
         "listPage": 1,
@@ -130702,6 +131232,28 @@
       }
     ],
     "95110423": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
+        "pageKey": "pl-hotflo-ehfa400__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa400__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+        "stem": "pl-hotflo-ehfa400",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHFA400",
+          "Hotflo EHFA400",
+          "EHFA400S36H",
+          "EHFA400S48H",
+          "EHFA400T36H",
+          "EHFA400T48H"
+        ],
+        "priority": 22,
+        "name": "ANODE"
+      },
       {
         "callout": "1",
         "page": "EHFA  SPARE PARTS.pdf p1",
@@ -132264,6 +132816,26 @@
     "18401005": [
       {
         "callout": "6",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "GASKET ELEMENT"
+      },
+      {
+        "callout": "6",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
         "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
         "listPage": 1,
@@ -132295,6 +132867,26 @@
       }
     ],
     "92501137": [
+      {
+        "callout": "10",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "PLUG BRASS 25L 50L"
+      },
       {
         "callout": "10",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
@@ -132330,6 +132922,26 @@
     "92501130": [
       {
         "callout": "11",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "THERMOSTAT HOTFLO ELEC TANK"
+      },
+      {
+        "callout": "11",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
         "pageKey": "pl-hotflo-hfe-250-315-slim__p1",
         "listPage": 1,
@@ -132361,6 +132973,26 @@
       }
     ],
     "92501139": [
+      {
+        "callout": "12",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "ADAPTOR PTR 25L 50L SLIM"
+      },
       {
         "callout": "12",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
@@ -132491,6 +133123,26 @@
       }
     ],
     "92501135": [
+      {
+        "callout": "18",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "ELEC CORD 25L 50L"
+      },
       {
         "callout": "18",
         "page": "HFE 250S 315S SPL 29032021 V8.pdf p1",
@@ -133566,6 +134218,3079 @@
         ],
         "priority": 15,
         "name": "PROTECTOR, Surge"
+      }
+    ],
+    "92503024": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "ING P IEZO GHF4"
+      }
+    ],
+    "92503002": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "GAS CONTROL 135/170 NG GHF4"
+      }
+    ],
+    "92503014": [
+      {
+        "callout": "3",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "PILOT ASSY 135/170L NG INC GAS TUBE / T/C / IGN LEAD"
+      }
+    ],
+    "92503015": [
+      {
+        "callout": "3",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "PILOT ASSY 135/170L LPG GHF4"
+      }
+    ],
+    "92503004": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "BURNER TUBE GAS CTRL GHF4"
+      }
+    ],
+    "92503012": [
+      {
+        "callout": "5",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "BRKT BURNER SUPPORT GHF4"
+      }
+    ],
+    "92503006": [
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "NG \u2013 INJECTOR MAIN 135L"
+      }
+    ],
+    "92503030": [
+      {
+        "callout": "6",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "LPG - INJECTOR MAIN 1.15mm 135L"
+      }
+    ],
+    "92503008": [
+      {
+        "callout": "7",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "NG \u2013 INJECTOR MAIN 170L"
+      }
+    ],
+    "92503038": [
+      {
+        "callout": "7",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "LPG - INJECTOR MAIN 1.20mm 170L"
+      }
+    ],
+    "92503010": [
+      {
+        "callout": "8",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "BURNER 135/170L NG GHF4"
+      }
+    ],
+    "92503026": [
+      {
+        "callout": "9",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "PANEL FRONT 135/170L GHF4"
+      }
+    ],
+    "92503018": [
+      {
+        "callout": "10",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "BAFFLE FLE 135L NG GHF4"
+      }
+    ],
+    "92503020": [
+      {
+        "callout": "11",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "BAFFLE FLE 170L NG GHF4"
+      }
+    ],
+    "92503022": [
+      {
+        "callout": "12",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "CAP FLUE PIPE GHF4"
+      }
+    ],
+    "92503016": [
+      {
+        "callout": "13",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "TERMINAL FLUE 135/170L GHF4"
+      }
+    ],
+    "92501146": [
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "135L Anode 3/4in(MG)"
+      }
+    ],
+    "92501148": [
+      {
+        "callout": "15",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "170L Anode 3/4in (MG)"
+      }
+    ],
+    "92501110": [
+      {
+        "callout": "16",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "135L Anode 3/4in (AL)"
+      }
+    ],
+    "92501118": [
+      {
+        "callout": "17",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "170L Anode 3/4in (AL)"
+      }
+    ],
+    "92503028": [
+      {
+        "callout": "18",
+        "page": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf p1",
+        "pageKey": "pl-hotflo-ghf4__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ghf4__p1",
+        "pdf": "PL - RINNAI - HOTFLO - GHF4 135L,170L - ISSUE 4 - OCT 2021.pdf",
+        "stem": "pl-hotflo-ghf4",
+        "seriesIds": [
+          "ghf4"
+        ],
+        "chassisTokens": [
+          "GHF4",
+          "GHF4135",
+          "Hotflo GHF4"
+        ],
+        "priority": 22,
+        "name": "LPG GAS REGULATOR"
+      }
+    ],
+    "95110082": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
+        "pageKey": "pl-hotflo-ehfa400__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa400__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+        "stem": "pl-hotflo-ehfa400",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHFA400",
+          "Hotflo EHFA400",
+          "EHFA400S36",
+          "EHFA400S36H",
+          "EHFA400T36",
+          "EHFA400T36H"
+        ],
+        "priority": 22,
+        "name": "ELEMENT"
+      }
+    ],
+    "95111399": [
+      {
+        "callout": "3",
+        "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
+        "pageKey": "pl-hotflo-ehfa400__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa400__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+        "stem": "pl-hotflo-ehfa400",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHFA400",
+          "Hotflo EHFA400",
+          "EHFA400S36",
+          "EHFA400S36H",
+          "EHFA400S48",
+          "EHFA400S48H"
+        ],
+        "priority": 22,
+        "name": "ELECTRICAL COVER BOTTOM"
+      }
+    ],
+    "95110074": [
+      {
+        "callout": "10",
+        "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
+        "pageKey": "pl-hotflo-ehfa400__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa400__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+        "stem": "pl-hotflo-ehfa400",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHFA400",
+          "Hotflo EHFA400",
+          "EHFA400S36",
+          "EHFA400S36H",
+          "EHFA400S48",
+          "EHFA400S48H",
+          "EHFA400T36",
+          "EHFA400T36H",
+          "EHFA400T48",
+          "EHFA400T48H"
+        ],
+        "priority": 22,
+        "name": "END CAP"
+      }
+    ],
+    "95110083": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
+        "pageKey": "pl-hotflo-ehfa400__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa400__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+        "stem": "pl-hotflo-ehfa400",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHFA400",
+          "Hotflo EHFA400",
+          "EHFA400S48",
+          "EHFA400S48H",
+          "EHFA400T48",
+          "EHFA400T48H"
+        ],
+        "priority": 22,
+        "name": "ELEMENT"
+      }
+    ],
+    "95111400": [
+      {
+        "callout": "3",
+        "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
+        "pageKey": "pl-hotflo-ehfa400__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa400__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+        "stem": "pl-hotflo-ehfa400",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHFA400",
+          "Hotflo EHFA400",
+          "EHFA400T36",
+          "EHFA400T36H",
+          "EHFA400T48",
+          "EHFA400T48H"
+        ],
+        "priority": 22,
+        "name": "ELECTRICAL COVER BOTTOM"
+      }
+    ],
+    "95111401": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF p1",
+        "pageKey": "pl-hotflo-ehfa400__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfa400__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFA 400L - ISSUE 1 - MARCH 2021.PDF",
+        "stem": "pl-hotflo-ehfa400",
+        "seriesIds": [
+          "ehfa400"
+        ],
+        "chassisTokens": [
+          "EHFA400",
+          "Hotflo EHFA400",
+          "EHFA400T36",
+          "EHFA400T36H",
+          "EHFA400T48",
+          "EHFA400T48H"
+        ],
+        "priority": 22,
+        "name": "ELECTRICAL COVER TOP"
+      }
+    ],
+    "95110426": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf p1",
+        "pageKey": "pl-hotflo-ehfd160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfd160__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf",
+        "stem": "pl-hotflo-ehfd160",
+        "seriesIds": [
+          "ehfd160"
+        ],
+        "chassisTokens": [
+          "EHFD160",
+          "Hotflo EHFD160",
+          "EHFD160S24",
+          "EHFD160S36"
+        ],
+        "priority": 22,
+        "name": "ANODE"
+      }
+    ],
+    "95110210": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf p1",
+        "pageKey": "pl-hotflo-ehfd160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfd160__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf",
+        "stem": "pl-hotflo-ehfd160",
+        "seriesIds": [
+          "ehfd160"
+        ],
+        "chassisTokens": [
+          "EHFD160",
+          "Hotflo EHFD160",
+          "EHFD160S24",
+          "EHFD160S24H"
+        ],
+        "priority": 22,
+        "name": "ELEMENT"
+      }
+    ],
+    "95110203": [
+      {
+        "callout": "8",
+        "page": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf p1",
+        "pageKey": "pl-hotflo-ehfd160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfd160__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf",
+        "stem": "pl-hotflo-ehfd160",
+        "seriesIds": [
+          "ehfd160"
+        ],
+        "chassisTokens": [
+          "EHFD160",
+          "Hotflo EHFD160",
+          "EHFD160S24",
+          "EHFD160S24H",
+          "EHFD160S36",
+          "EHFD160S36H"
+        ],
+        "priority": 22,
+        "name": "PLUG TOP"
+      }
+    ],
+    "95110427": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf p1",
+        "pageKey": "pl-hotflo-ehfd160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfd160__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf",
+        "stem": "pl-hotflo-ehfd160",
+        "seriesIds": [
+          "ehfd160"
+        ],
+        "chassisTokens": [
+          "EHFD160",
+          "Hotflo EHFD160",
+          "EHFD160S24H",
+          "EHFD160S36H"
+        ],
+        "priority": 22,
+        "name": "ANODE"
+      }
+    ],
+    "95110211": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf p1",
+        "pageKey": "pl-hotflo-ehfd160__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehfd160__p1",
+        "pdf": "PL - RINNAI - HOTFLO - EHFD160 - ISSUE 1 - JUNE 2018.pdf",
+        "stem": "pl-hotflo-ehfd160",
+        "seriesIds": [
+          "ehfd160"
+        ],
+        "chassisTokens": [
+          "EHFD160",
+          "Hotflo EHFD160",
+          "EHFD160S36",
+          "EHFD160S36H"
+        ],
+        "priority": 22,
+        "name": "ELEMENT"
+      }
+    ],
+    "92501131": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "DOOR ELEMENT 25L 50L"
+      }
+    ],
+    "92501159": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "CAP PLASTIC HOTFLO 25L / 50L"
+      }
+    ],
+    "92501127": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "ANODE HOTFLO 25L STANDARD M2"
+      }
+    ],
+    "92501102": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "ANODE (AL) 25L SK"
+      }
+    ],
+    "92501171": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 1.8KW SMALL"
+      }
+    ],
+    "92501325": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 2.4KW SMALL"
+      }
+    ],
+    "92501327": [
+      {
+        "callout": "4",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "ELEMENT HOTFLO 3.6KW  SMALL"
+      }
+    ],
+    "92501123": [
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "LID TOP WHITE 25L 50L"
+      }
+    ],
+    "92501125": [
+      {
+        "callout": "15",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "BASE TANK WHITE 25L 50L"
+      }
+    ],
+    "92501133": [
+      {
+        "callout": "16",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "CAP FOAM 3PCS 25L 50L"
+      }
+    ],
+    "92501129": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "ANODE HOTFLO 50L STANDARD M2"
+      }
+    ],
+    "92501104": [
+      {
+        "callout": "2",
+        "page": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf p1",
+        "pageKey": "pl-hotflo-ehf25__p1",
+        "listPage": 1,
+        "listPageKey": "pl-hotflo-ehf25__p1",
+        "pdf": "PL - RINNAI - HOTFLO - HFE 25L 50L - ISSUE 9 - DEC 2022.pdf",
+        "stem": "pl-hotflo-ehf25",
+        "seriesIds": [
+          "ehf25"
+        ],
+        "chassisTokens": [
+          "EHF25",
+          "HFE25",
+          "Hotflo EHF25",
+          "HFE 25L 50L"
+        ],
+        "priority": 22,
+        "name": "ANODE (AL) 50L SK"
+      }
+    ],
+    "92100041": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "1 / 3 / 4 / 5 / 57"
+      }
+    ],
+    "92100005": [
+      {
+        "callout": "7",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "7 / 10"
+      },
+      {
+        "callout": "7",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "7 / 10"
+      },
+      {
+        "callout": "7",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "7 / 10"
+      },
+      {
+        "callout": "7",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "7 / 10"
+      },
+      {
+        "callout": "7",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "7 / 10"
+      }
+    ],
+    "92100007": [
+      {
+        "callout": "11",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "11 / 10"
+      },
+      {
+        "callout": "11",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "11 / 10"
+      },
+      {
+        "callout": "11",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "11 / 10"
+      },
+      {
+        "callout": "11",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "11 / 10"
+      },
+      {
+        "callout": "11",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "11 / 10"
+      }
+    ],
+    "92100009": [
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "6 / 10 / 12 / 13 / 14 / 18 / 19 / 20 /"
+      },
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "6 / 10 / 12 / 13 / 14 / 18 / 19 / 20 /"
+      },
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "6 / 10 / 12 / 13 / 14 / 18 / 19 / 20 /"
+      },
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "6 / 10 / 12 / 13 / 14 / 18 / 19 / 20 /"
+      },
+      {
+        "callout": "14",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "6 / 10 / 12 / 13 / 14 / 18 / 19 / 20 /"
+      }
+    ],
+    "92100045": [
+      {
+        "callout": "20",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "SWITCH OVER PRESSURE ECF"
+      },
+      {
+        "callout": "20",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "SWITCH OVER PRESSURE ECF"
+      },
+      {
+        "callout": "20",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "SWITCH OVER PRESSURE ECF"
+      },
+      {
+        "callout": "20",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "SWITCH OVER PRESSURE ECF"
+      },
+      {
+        "callout": "20",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "SWITCH OVER PRESSURE ECF"
+      }
+    ],
+    "92100013": [
+      {
+        "callout": "25",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "FILTER ECF19 29"
+      },
+      {
+        "callout": "25",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "FILTER ECF19 29"
+      },
+      {
+        "callout": "25",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "FILTER ECF19 29"
+      },
+      {
+        "callout": "25",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "FILTER ECF19 29"
+      },
+      {
+        "callout": "25",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "FILTER ECF19 29"
+      }
+    ],
+    "92100043": [
+      {
+        "callout": "27",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "CONNECTOR INLET ECF19 29"
+      },
+      {
+        "callout": "27",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "CONNECTOR INLET ECF19 29"
+      },
+      {
+        "callout": "27",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "CONNECTOR INLET ECF19 29"
+      },
+      {
+        "callout": "27",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "CONNECTOR INLET ECF19 29"
+      },
+      {
+        "callout": "27",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "CONNECTOR INLET ECF19 29"
+      }
+    ],
+    "92100015": [
+      {
+        "callout": "28",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "COVER PLATE ECF19 29"
+      },
+      {
+        "callout": "28",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "COVER PLATE ECF19 29"
+      },
+      {
+        "callout": "28",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "COVER PLATE ECF19 29"
+      },
+      {
+        "callout": "28",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "COVER PLATE ECF19 29"
+      },
+      {
+        "callout": "28",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "COVER PLATE ECF19 29"
+      }
+    ],
+    "92100017": [
+      {
+        "callout": "29",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "PANEL BACK ECF19 29"
+      },
+      {
+        "callout": "29",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "PANEL BACK ECF19 29"
+      },
+      {
+        "callout": "29",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "PANEL BACK ECF19 29"
+      },
+      {
+        "callout": "29",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "PANEL BACK ECF19 29"
+      },
+      {
+        "callout": "29",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "PANEL BACK ECF19 29"
+      }
+    ],
+    "92100021": [
+      {
+        "callout": "31",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "31 / 33"
+      },
+      {
+        "callout": "31",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "31 / 33"
+      },
+      {
+        "callout": "31",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "31 / 33"
+      }
+    ],
+    "92100023": [
+      {
+        "callout": "38",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "38 / 42"
+      },
+      {
+        "callout": "38",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "38 / 42"
+      },
+      {
+        "callout": "38",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "38 / 42"
+      },
+      {
+        "callout": "38",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "38 / 42"
+      },
+      {
+        "callout": "38",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "38 / 42"
+      }
+    ],
+    "92100025": [
+      {
+        "callout": "42",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "TERMINAL ECF19 29"
+      },
+      {
+        "callout": "42",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "TERMINAL ECF19 29"
+      },
+      {
+        "callout": "42",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "TERMINAL ECF19 29"
+      },
+      {
+        "callout": "42",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "TERMINAL ECF19 29"
+      },
+      {
+        "callout": "42",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "TERMINAL ECF19 29"
+      }
+    ],
+    "92100027": [
+      {
+        "callout": "45",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "HOUSING ECF19 29"
+      },
+      {
+        "callout": "45",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "HOUSING ECF19 29"
+      },
+      {
+        "callout": "45",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "HOUSING ECF19 29"
+      },
+      {
+        "callout": "45",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "HOUSING ECF19 29"
+      },
+      {
+        "callout": "45",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "HOUSING ECF19 29"
+      }
+    ],
+    "92100033": [
+      {
+        "callout": "47",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "COVER DISPLAY ECF19 29"
+      },
+      {
+        "callout": "47",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "COVER DISPLAY ECF19 29"
+      },
+      {
+        "callout": "47",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "COVER DISPLAY ECF19 29"
+      },
+      {
+        "callout": "47",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "COVER DISPLAY ECF19 29"
+      },
+      {
+        "callout": "47",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "COVER DISPLAY ECF19 29"
+      }
+    ],
+    "92100035": [
+      {
+        "callout": "54",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "PIPE ECF19 29"
+      },
+      {
+        "callout": "54",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "PIPE ECF19 29"
+      },
+      {
+        "callout": "54",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "PIPE ECF19 29"
+      },
+      {
+        "callout": "54",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "PIPE ECF19 29"
+      },
+      {
+        "callout": "54",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "PIPE ECF19 29"
+      }
+    ],
+    "92100037": [
+      {
+        "callout": "55",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "55 / 56"
+      },
+      {
+        "callout": "55",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "55 / 56"
+      },
+      {
+        "callout": "55",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "55 / 56"
+      },
+      {
+        "callout": "55",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "55 / 56"
+      },
+      {
+        "callout": "55",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "55 / 56"
+      }
+    ],
+    "92100039": [
+      {
+        "callout": "57",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "SENSOR TEMP ECF19 29"
+      },
+      {
+        "callout": "57",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "SENSOR TEMP ECF19 29"
+      },
+      {
+        "callout": "57",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "SENSOR TEMP ECF19 29"
+      },
+      {
+        "callout": "57",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "SENSOR TEMP ECF19 29"
+      },
+      {
+        "callout": "57",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "SENSOR TEMP ECF19 29"
+      }
+    ],
+    "92100003": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "1 / 3 / 4 / 5 / 57"
+      },
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "1 / 3 / 4 / 5 / 57"
+      }
+    ],
+    "92100029": [
+      {
+        "callout": "46",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "46 / 48"
+      },
+      {
+        "callout": "46",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "46 / 48"
+      },
+      {
+        "callout": "45",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "46 / 48"
+      }
+    ],
+    "92100031": [
+      {
+        "callout": "46",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "46 / 48"
+      },
+      {
+        "callout": "46",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "46 / 48"
+      },
+      {
+        "callout": "45",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "46 / 48"
+      }
+    ],
+    "92100001": [
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "1 / 3 / 4 / 5 / 57"
+      },
+      {
+        "callout": "1",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "1 / 3 / 4 / 5 / 57"
+      }
+    ],
+    "92100019": [
+      {
+        "callout": "31",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "31 / 33"
+      },
+      {
+        "callout": "31",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "31 / 33"
+      }
+    ],
+    "92100011": [
+      {
+        "callout": "31",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "15 / 17"
+      },
+      {
+        "callout": "31",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "15 / 17"
+      },
+      {
+        "callout": "31",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "15 / 17"
+      },
+      {
+        "callout": "31",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "15 / 17"
+      },
+      {
+        "callout": "31",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "15 / 17"
+      }
+    ],
+    "92100047": [
+      {
+        "callout": "NS",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "6 / 18 / 22 / 23 / 24 / 25"
+      },
+      {
+        "callout": "NS",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "6 / 18 / 22 / 23 / 24 / 25"
+      },
+      {
+        "callout": "NS",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "6 / 18 / 22 / 23 / 24 / 25"
+      },
+      {
+        "callout": "NS",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "6 / 18 / 22 / 23 / 24 / 25"
+      },
+      {
+        "callout": "NS",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "6 / 18 / 22 / 23 / 24 / 25"
+      }
+    ],
+    "92100038": [
+      {
+        "callout": "NS",
+        "page": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I60"
+        ],
+        "priority": 22,
+        "name": "MOUNT MOTOR STEPPER ECF"
+      },
+      {
+        "callout": "NS",
+        "page": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf29i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf29i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF29I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf29i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF29I50"
+        ],
+        "priority": 22,
+        "name": "MOUNT MOTOR STEPPER ECF"
+      },
+      {
+        "callout": "NS",
+        "page": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i60__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i60__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I60 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i60",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I60"
+        ],
+        "priority": 22,
+        "name": "MOUNT MOTOR STEPPER ECF"
+      },
+      {
+        "callout": "NS",
+        "page": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf19i50__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf19i50__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF19I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf19i50",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF19I50"
+        ],
+        "priority": 22,
+        "name": "MOUNT MOTOR STEPPER ECF"
+      },
+      {
+        "callout": "NS",
+        "page": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf p1",
+        "pageKey": "pl-efinity-ecf14__p1",
+        "listPage": 1,
+        "listPageKey": "pl-efinity-ecf14__p1",
+        "pdf": "PL - RINNAI - EFINITY ECF14I50 - ISSUE 4 - JUL 2026.pdf",
+        "stem": "pl-efinity-ecf14",
+        "seriesIds": [
+          "efinity-ecf"
+        ],
+        "chassisTokens": [
+          "Efinity",
+          "ECF",
+          "ECF14",
+          "ECF14I50",
+          "ECF14I60"
+        ],
+        "priority": 22,
+        "name": "MOUNT MOTOR STEPPER ECF"
       }
     ]
   }
