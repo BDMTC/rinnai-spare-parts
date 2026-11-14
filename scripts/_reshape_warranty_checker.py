@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Reshape Process warranty topic + checker from AU booklet ingest (KISS)."""
+"""Reshape Process warranty topic + checker from AU booklet ingest (KISS).
+
+Kill every chase-booklet / chase-Rinnai terminal. Wire yes/no prompts from
+warranty-chase-kill-brief.md. Grey leftovers → escalate_rinnai rider.
+"""
 from __future__ import annotations
 
 import json
@@ -8,6 +12,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 DETAILED = ROOT / "public" / "data" / "rinnai-process.json"
 BASIC = ROOT / "public" / "data" / "rinnai-process-basic.json"
+
+ESCALATE = "escalate_rinnai"
 
 
 def age_choices(
@@ -18,6 +24,7 @@ def age_choices(
     parts_only_label: str | None = None,
     over_label: str | None = None,
     over_outcome: str = "chargeable",
+    over_next: str | None = None,
 ) -> list[dict]:
     """Build simple age choices. labour_years None → parts+labour same band."""
     choices: list[dict] = []
@@ -29,12 +36,14 @@ def age_choices(
                 "outcome": "labour_parts",
             }
         )
-        choices.append(
-            {
-                "label": over_label or f"Older than {y} years",
-                "outcome": over_outcome,
-            }
-        )
+        over: dict = {
+            "label": over_label or f"Older than {y} years",
+        }
+        if over_next:
+            over["next"] = over_next
+        else:
+            over["outcome"] = over_outcome
+        choices.append(over)
     else:
         choices.append(
             {
@@ -50,12 +59,12 @@ def age_choices(
                 "outcome": "parts_only",
             }
         )
-        choices.append(
-            {
-                "label": over_label or f"Older than {parts_years} years",
-                "outcome": over_outcome,
-            }
-        )
+        over = {"label": over_label or f"Older than {parts_years} years"}
+        if over_next:
+            over["next"] = over_next
+        else:
+            over["outcome"] = over_outcome
+        choices.append(over)
     choices.append({"label": "Not sure / age unknown", "outcome": "insufficient"})
     return choices
 
@@ -82,23 +91,27 @@ def fail_q(parts: list[tuple[str, str]], *, extra: list[dict] | None = None) -> 
 WARRANTY_TOPIC = {
     "id": "warranty",
     "title": "Warranty periods",
-    "blurb": "Quick assess + year tables from current Rinnai AU warranty booklets (rinnai.com.au/support/warranty). Confirm the booklet before Charge Type = Warranty.",
+    "blurb": "Five binary gates + year tables from current Rinnai AU warranty booklets (rinnai.com.au/support/warranty). Grey / disputed → escalate to Rinnai — never “chase the booklet.”",
     "steps": [
         {
             "n": 1,
-            "text": "Pick the product family first. Domestic vs commercial uses a family °C limit — gas CF / Demand Duo pack 65°C, Hotflo / heat pump / solar 70°C, Efinity 60°C. Lodging-style (motel room, caravan, aged care unit) can still be Domestic only under that °C, and only if it is not bulk HW or building flow-and-return.",
+            "text": "Gate 1 — Period: Age from install date. If install is unknown, use manufacture date on the dataplate + 2 months. Run the quick tool for the right family years (parts and labour are separate). Outside the years → chargeable.",
         },
         {
             "n": 2,
-            "text": "Clock starts at install date. If unknown, use manufacture date on the dataplate + 2 months. Age the claim from that date.",
+            "text": "Gate 2 — Compliant install: Was it installed by a licensed trade to AS/NZS 3500 & 5601? No → void warranty / billable. Domestic vs commercial still uses the family °C limit (gas CF / Demand Duo pack 65°C, Hotflo / heat pump / solar 70°C, Efinity 60°C).",
         },
         {
             "n": 3,
-            "text": "Parts years and labour years are separate. Heat exchanger / cylinder often lasts longer than other parts. Read the matching table row + footnotes, then run the quick tool.",
+            "text": "Gate 3 — Correct application: Unit matched to the load? No residential unit in a commercial or solar loop unless it is HD Demand Duo solar boost or a Rinnai-converted solar model. Wrong application → void / billable.",
         },
         {
             "n": 4,
-            "text": "Warranty work needs Rinnai authorisation before you start. Registration on the website is not the same as a fault claim — faults go Book a Service / assessment. Desk aid only; Rinnai’s Work Order close-off wins.",
+            "text": "Gate 4 — Water chemistry: Within Rinnai water spec (no raw bore/dam / chemistry outside the booklet table)? Outside spec → void / billable. Remoteness (>~40 km from authorised provider, or off mainland) may make travel customer-paid — confirm with Rinnai if unsure.",
+        },
+        {
+            "n": 5,
+            "text": "Gate 5 — Fault isolation: Clear Rinnai factory-component defect → process as warranty (after Rinnai authorisation). Site/external (non-Rinnai valves, gas, power, frost exclusion) → billable. Grey or disputed → escalate to Rinnai with the rider (path summary + phone). Never tell the desk to “chase the booklet.” Desk aid only; Work Order close-off wins. Registration ≠ fault claim — faults go Book a Service / assessment.",
         },
     ],
     "tables": [
@@ -140,7 +153,7 @@ WARRANTY_TOPIC = {
             ],
             "footnote": [
                 "Domestic lodging-style ceiling for this booklet: 65°C.",
-                "(1) Extended HEX option — not automatic; check T&Cs / Rinnai.",
+                "(1) Extended HEX only if registered with Rinnai — ask yes/no in the quick tool.",
                 "(2) Domestic: 5 years parts+labour if two or more controllers.",
                 "(3) Not for solar unless HD on Rinnai Demand Duo solar boost, or unit converted by Rinnai for Rinnai solar.",
                 "(5) Frost / long below-0°C installs not covered.",
@@ -208,7 +221,7 @@ WARRANTY_TOPIC = {
                 "Domestic ceiling: 70°C.",
                 "(1) Compressor, condenser, TXV, HEX, evaporator, assoc. pipework.",
                 "(2) Sensors, thermostats, valves, elements, anodes.",
-                "Solar Victoria rebate (domestic from 1 Jul 2023): may be 5-year whole-of-product parts+labour — confirm with Rinnai 1300 555 545.",
+                "Solar Victoria rebate (domestic from 1 Jul 2023): 5-year whole-of-product parts+labour when rebate applies — yes/no in the quick tool.",
             ],
         },
         {
@@ -224,7 +237,7 @@ WARRANTY_TOPIC = {
                 ["Other components", "1 yr", "1 yr"],
             ],
             "footnote": [
-                "Domestic ceiling: 70°C. Commercial years are shorter (often 1–5) — see booklet or chase Rinnai if unsure.",
+                "Domestic ceiling: 70°C. Commercial years are shorter (often 1–5) — use the quick tool; grey → escalate to Rinnai.",
                 "Roof systems without pumped frost protection: frost damage not covered in known frost areas.",
             ],
         },
@@ -246,36 +259,56 @@ WARRANTY_TOPIC = {
     ],
     "notes": [
         "Source: https://www.rinnai.com.au/support/warranty ingest 2026-11-14 (Project store docs/rinnai-au-warranty-support-ingest.md).",
-        "Do not invent cover for GHF gas storage or non-HW (fires / AC) — chase Rinnai or open that family’s booklet.",
+        "GHF / fire / AC and other non-HW leftovers: use the escalate rider (call Rinnai) — do not invent cover from a PDF.",
+        "Authorisation required before warranty inspection / repair / replacement. Replacement under warranty keeps the original appliance term.",
     ],
     "checker": {
         "heading": "This quick tool can help you assess - Answer the following questions.",
-        "disclaimer": "Desk aid for newbies — not Rinnai’s final say. Confirm the current booklet before Charge Type = Warranty.",
+        "disclaimer": "Desk aid for newbies — not Rinnai’s final say. Grey or disputed answers escalate to Rinnai with a path summary — never “chase the booklet.” Confirm Charge Type = Warranty only after authorisation.",
         "startId": "family",
         "questions": {},
         "outcomes": {
             "labour_parts": {
                 "title": "Likely warranty — labour + parts",
-                "detail": "Age looks inside both labour and parts years. Set Charge Type = Warranty only if model, serial, and install/manufacture date on the Asset are correct — and Rinnai has authorised the visit.",
+                "detail": "Age looks inside both labour and parts years, and the gates you answered look clear. Set Charge Type = Warranty only if model, serial, and install/manufacture date on the Asset are correct — and Rinnai has authorised the visit. Travel on remote sites may still be customer-paid.",
             },
             "parts_only": {
                 "title": "Likely warranty — parts only",
-                "detail": "Parts years still look open; labour looks outside the band. Quote labour to the customer (or check booklet) before promising a free call-out.",
+                "detail": "Parts years still look open; labour looks outside the band. Quote labour to the customer before promising a free call-out.",
             },
             "chargeable": {
                 "title": "Likely chargeable",
-                "detail": "Age looks past the matching years. Treat as customer-paid unless Rinnai confirms otherwise in writing.",
+                "detail": "Age looks past the matching years, or an exclusion gate failed (wrong application, water, non-Rinnai part, frost, non-compliant install). Treat as customer-paid unless Rinnai later authorises otherwise in writing.",
             },
-            "chase_rinnai": {
-                "title": "Chase Rinnai / check booklet",
-                "detail": "Borderline or special path (extended HEX, dual controllers, frost, high-temp preset, Solar Victoria rebate, odd commercial pack). Do not invent cover — booklet or Rinnai first.",
+            "escalate_rinnai": {
+                "title": "Resolution has reached a grey area, here’s the problems.",
+                "detail": "Escalate to your manager, or Rinnai on 1300 555 545. Relay the path below, then log case # / rep / Covered vs Excluded and offload.",
             },
             "insufficient": {
                 "title": "Need more info",
-                "detail": "Need family, domestic vs commercial, what failed, and a rough age (or install / manufacture date) before picking Charge Type.",
+                "detail": "Need family, domestic vs commercial, what failed, and a rough age (install date, or manufacture date + 2 months) before picking Charge Type.",
             },
         },
         "examplesNote": "Family chips map to current AU HW warranty booklets. Confirm imprint date on rinnai.com.au/support/warranty.",
+        "escalation": {
+            "headline": "Resolution has reached a grey area, here’s the problems.",
+            "when": "This case may need to be either escalated to your manager, or Rinnai on 1300 555 545 to help reach a determination.",
+            "pathLead": "The path taken to reach this outcome was:",
+            "offload": "Take the Rinnai warranty case / reference number and offload the case: log case #, rep name, and Covered vs Excluded in the job notes before you proceed.",
+            "beforeCall": [
+                "Model (full REU / plate model)",
+                "Serial number",
+                "Install date or proof of purchase (else manufacture date + 2 months)",
+                "Fault codes + tech diagnostic notes",
+                "Site: residential vs commercial, water supply (mains / bore / dam)",
+            ],
+            "phone": "1300 555 545",
+            "hours": "Mon–Fri 8:00–17:00 AEST",
+            "ivr": "Service / Warranty (or Technical Support if the tech is on site) → Hot Water / Commercial Hot Water",
+            "backupPhone": "03 9271 6605",
+            "log": "Rinnai case/ref #, rep name, and Covered vs Excluded in job notes before proceeding.",
+            "caution": "Do not book Rinnai 1st Care without client/manager approval if the claim is disputed (call-out fee risk if working to spec / site damage).",
+        },
     },
 }
 
@@ -285,25 +318,58 @@ q: dict = {}
 q["family"] = {
     "prompt": "What kind of product?",
     "choices": [
-        {"label": "Gas continuous flow (Infinity / HD / Builders)", "next": "cf_solar", "exampleId": "cf"},
-        {"label": "Efinity electric continuous flow", "next": "ef_use", "exampleId": "efinity"},
-        {"label": "Controller / SmartStart / CF accessory", "next": "acc_use", "exampleId": "accessory"},
-        {"label": "Hotflo electric storage tank", "next": "hotflo_size", "exampleId": "hotflo"},
-        {"label": "Enviroflo heat pump", "next": "hp_series", "exampleId": "heat-pump"},
-        {"label": "Solar hot water", "next": "sol_use", "exampleId": "solar"},
-        {"label": "Demand Duo / manifold / QRE commercial pack", "next": "com_use", "exampleId": "commercial"},
-        {"label": "Something else (GHF / fire / AC…)", "outcome": "chase_rinnai"},
+        {"label": "Gas continuous flow (Infinity / HD / Builders)", "next": "cf_water", "exampleId": "cf"},
+        {"label": "Efinity electric continuous flow", "next": "ef_water", "exampleId": "efinity"},
+        {"label": "Controller / SmartStart / CF accessory", "next": "acc_water", "exampleId": "accessory"},
+        {"label": "Hotflo electric storage tank", "next": "hotflo_water", "exampleId": "hotflo"},
+        {"label": "Enviroflo heat pump", "next": "hp_water", "exampleId": "heat-pump"},
+        {"label": "Solar hot water", "next": "sol_water", "exampleId": "solar"},
+        {"label": "Demand Duo / manifold / QRE commercial pack", "next": "com_water", "exampleId": "commercial"},
+        {"label": "Something else (GHF / fire / AC…)", "outcome": ESCALATE},
     ],
 }
 
-# Gas CF
+# Shared Gate 4 water + Gate 5 Rinnai-part (after family)
+for prefix, nxt in [
+    ("cf", "cf_solar"),
+    ("ef", "ef_use"),
+    ("acc", "acc_use"),
+    ("hotflo", "hotflo_size"),
+    ("hp", "hp_series"),
+    ("sol", "sol_use"),
+    ("com", "com_use"),
+]:
+    q[f"{prefix}_water"] = {
+        "prompt": "Is the water supply mains water inside Rinnai’s water-quality table (not raw bore/dam / chemistry outside spec)?",
+        "choices": [
+            {"label": "Yes — mains / in-spec", "next": f"{prefix}_part"},
+            {"label": "No — bore, dam, or outside water spec", "outcome": "chargeable"},
+            {"label": "Not sure", "outcome": ESCALATE},
+        ],
+    }
+    q[f"{prefix}_part"] = {
+        "prompt": "Is the failed part a Rinnai-supplied part (not a third-party valve, pipe, or electrical fitting)?",
+        "choices": [
+            {"label": "Yes — Rinnai part", "next": nxt},
+            {"label": "No — non-Rinnai / site-supplied", "outcome": "chargeable"},
+            {"label": "Not sure", "outcome": ESCALATE},
+        ],
+    }
+
+# Gas CF — solar application (Gate 3)
 q["cf_solar"] = {
     "prompt": "Is this heater on a solar hot-water system?",
     "choices": [
         {"label": "No — normal gas continuous flow", "next": "cf_use"},
-        {"label": "Yes — Demand Duo solar boost or Rinnai-converted for solar", "next": "cf_use"},
-        {"label": "Yes — but not Demand Duo / not Rinnai-converted", "outcome": "chase_rinnai"},
-        {"label": "Not sure", "outcome": "insufficient"},
+        {
+            "label": "Yes — Heavy Duty Demand Duo solar boost or Rinnai-converted solar model",
+            "next": "cf_use",
+        },
+        {
+            "label": "Yes — but not Demand Duo / not Rinnai-converted",
+            "outcome": "chargeable",
+        },
+        {"label": "Not sure / disputed", "outcome": ESCALATE},
     ],
 }
 q["cf_use"] = use_q("cf_dom_group", "cf_comm_group", 65)
@@ -321,14 +387,35 @@ q["cf_dom_inf_fail"] = fail_q(
     [("Heat exchanger", "cf_dom_inf_hex_age"), ("Other parts", "cf_dom_inf_other_age")]
 )
 q["cf_dom_inf_hex_age"] = {
-    "prompt": "How old is the unit? (Infinity / Enviro / B26 heat exchanger — parts 12 yr, labour 3 yr)",
-    "choices": age_choices(3, 12, over_outcome="chase_rinnai", over_label="Older than 12 years / has extended cover?"),
+    "prompt": "How old is the unit? (Infinity / Enviro / B26 heat exchanger — parts 12 yr, labour 3 yr). If install date unknown, use manufacture date + 2 months.",
+    "choices": age_choices(
+        3,
+        12,
+        over_label="Older than 12 years",
+        over_next="cf_dom_inf_hex_ext",
+    ),
+}
+q["cf_dom_inf_hex_ext"] = {
+    "prompt": "Is extended heat-exchanger cover (25 years) registered with Rinnai for this unit?",
+    "choices": [
+        {"label": "Yes — registered extended HEX", "next": "cf_dom_inf_hex_ext_age"},
+        {"label": "No — standard 12-year HEX only", "outcome": "chargeable"},
+        {"label": "Not sure", "outcome": ESCALATE},
+    ],
+}
+q["cf_dom_inf_hex_ext_age"] = {
+    "prompt": "How old under extended HEX? (parts to 25 yr; labour still only 3 yr)",
+    "choices": [
+        {"label": "25 years old or less (parts only — labour already past 3 yr)", "outcome": "parts_only"},
+        {"label": "Older than 25 years", "outcome": "chargeable"},
+        {"label": "Not sure / age unknown", "outcome": "insufficient"},
+    ],
 }
 q["cf_dom_inf_other_age"] = {
     "prompt": "How old? (other parts — usually 3 yr; 5 yr if two or more controllers)",
     "choices": [
         {"label": "3 years old or less", "outcome": "labour_parts"},
-        {"label": "Between 3 and 5 years, and 2+ controllers", "outcome": "chase_rinnai"},
+        {"label": "Between 3 and 5 years, and 2+ controllers", "outcome": "labour_parts"},
         {"label": "Older than 3 years, only one controller (or none)", "outcome": "chargeable"},
         {"label": "Not sure / age unknown", "outcome": "insufficient"},
     ],
@@ -337,8 +424,24 @@ q["cf_dom_bld_fail"] = fail_q(
     [("Heat exchanger", "cf_dom_bld_hex_age"), ("Other parts", "cf_dom_bld_other_age")]
 )
 q["cf_dom_bld_hex_age"] = {
-    "prompt": "How old? (Builders heat exchanger — parts 10 yr, labour 3 yr)",
-    "choices": age_choices(3, 10, over_outcome="chase_rinnai", over_label="Older than 10 years / extended cover?"),
+    "prompt": "How old? (Builders heat exchanger — parts 10 yr, labour 3 yr). If install unknown → manufacture + 2 months.",
+    "choices": age_choices(3, 10, over_label="Older than 10 years", over_next="cf_dom_bld_hex_ext"),
+}
+q["cf_dom_bld_hex_ext"] = {
+    "prompt": "Is extended heat-exchanger cover (15 years) registered with Rinnai for this Builders unit?",
+    "choices": [
+        {"label": "Yes — registered extended HEX", "next": "cf_dom_bld_hex_ext_age"},
+        {"label": "No — standard 10-year HEX only", "outcome": "chargeable"},
+        {"label": "Not sure", "outcome": ESCALATE},
+    ],
+}
+q["cf_dom_bld_hex_ext_age"] = {
+    "prompt": "How old under extended HEX? (parts to 15 yr; labour still only 3 yr)",
+    "choices": [
+        {"label": "15 years old or less (parts only — labour already past 3 yr)", "outcome": "parts_only"},
+        {"label": "Older than 15 years", "outcome": "chargeable"},
+        {"label": "Not sure / age unknown", "outcome": "insufficient"},
+    ],
 }
 q["cf_dom_bld_other_age"] = {
     "prompt": "How old? (Builders other parts — 3 yr parts + labour)",
@@ -356,12 +459,13 @@ q["cf_dom_hd_other_age"] = {
     "choices": age_choices(None, 5),
 }
 q["cf_dom_fm_fail"] = {
-    "prompt": "What failed? (Frost damage on Flowmaster is usually not covered.)",
+    "prompt": "What failed? (Frost on Flowmaster in a long below-0°C site is not covered.)",
     "choices": [
         {"label": "Heat exchanger — not frost", "next": "cf_dom_fm_hex_age"},
         {"label": "Other parts — not frost", "next": "cf_dom_fm_other_age"},
-        {"label": "Frost / freeze damage", "outcome": "chase_rinnai"},
-        {"label": "Not sure", "outcome": "insufficient"},
+        {"label": "Frost / freeze damage (known frost / unprotected)", "outcome": "chargeable"},
+        {"label": "Frost claim disputed / not sure", "outcome": ESCALATE},
+        {"label": "Not sure what failed", "outcome": "insufficient"},
     ],
 }
 q["cf_dom_fm_hex_age"] = {
@@ -389,7 +493,7 @@ q["cf_comm_hd_temp"] = {
     "choices": [
         {"label": "Normal preset", "next": "cf_comm_hd_fail"},
         {"label": "85°C or 95°C", "next": "cf_comm_hd_hi_age"},
-        {"label": "Not sure", "outcome": "chase_rinnai"},
+        {"label": "Not sure", "outcome": ESCALATE},
     ],
 }
 q["cf_comm_hd_fail"] = fail_q(
@@ -437,7 +541,7 @@ q["acc_dom_ctrl_age"] = {
     "prompt": "How old? (controllers — 3 yr; 5 yr if two or more)",
     "choices": [
         {"label": "3 years old or less", "outcome": "labour_parts"},
-        {"label": "Between 3 and 5 years, and 2+ controllers", "outcome": "chase_rinnai"},
+        {"label": "Between 3 and 5 years, and 2+ controllers", "outcome": "labour_parts"},
         {"label": "Outside that band", "outcome": "chargeable"},
         {"label": "Not sure / age unknown", "outcome": "insufficient"},
     ],
@@ -485,7 +589,7 @@ q["hotflo_comm_age"] = {
     "choices": age_choices(None, 1),
 }
 
-# Heat pump
+# Heat pump — Solar Victoria
 q["hp_series"] = {
     "prompt": "Which Enviroflo series? (model starts with…)",
     "choices": [
@@ -495,20 +599,24 @@ q["hp_series"] = {
     ],
 }
 q["hp_rebate"] = {
-    "prompt": "Did this domestic install get a Solar Victoria hot-water rebate (from 1 Jul 2023)?",
+    "prompt": "Domestic install from 1 Jul 2023 that received a Solar Victoria / Solar Homes hot-water rebate?",
     "choices": [
-        {"label": "No / not Victoria rebate", "next": "hp_use"},
-        {"label": "Yes — possible 5-year whole-product cover", "outcome": "chase_rinnai"},
-        {"label": "Not sure", "next": "hp_use"},
+        {"label": "No / not that rebate", "next": "hp_use"},
+        {"label": "Yes — 5-year whole-of-product path", "next": "hp_rebate_age"},
+        {"label": "Not sure", "outcome": ESCALATE},
     ],
 }
 q["hp_rebate_s"] = {
-    "prompt": "Did this domestic install get a Solar Victoria hot-water rebate (from 1 Jul 2023)?",
+    "prompt": "Domestic install from 1 Jul 2023 that received a Solar Victoria / Solar Homes hot-water rebate?",
     "choices": [
-        {"label": "No / not Victoria rebate", "next": "hps_use"},
-        {"label": "Yes — possible 5-year whole-product cover", "outcome": "chase_rinnai"},
-        {"label": "Not sure", "next": "hps_use"},
+        {"label": "No / not that rebate", "next": "hps_use"},
+        {"label": "Yes — 5-year whole-of-product path", "next": "hp_rebate_age"},
+        {"label": "Not sure", "outcome": ESCALATE},
     ],
+}
+q["hp_rebate_age"] = {
+    "prompt": "How old? (Solar Victoria rebate — 5-year whole-of-product parts + labour)",
+    "choices": age_choices(None, 5),
 }
 q["hp_use"] = use_q("hp_dom_fail", "hp_comm_age", 70)
 q["hps_use"] = use_q("hps_dom_fail", "hp_comm_age", 70)
@@ -582,7 +690,7 @@ q["sol_dom_cyl_type"] = {
         {"label": "Vitreous enamel — ground mounted", "next": "sol_dom_cyl_ve_g"},
         {"label": "Vitreous enamel — roof mounted", "next": "sol_dom_cyl_ve_r"},
         {"label": "Stainless steel", "next": "sol_dom_cyl_ss"},
-        {"label": "Not sure", "outcome": "chase_rinnai"},
+        {"label": "Not sure", "outcome": ESCALATE},
     ],
 }
 q["sol_dom_cyl_ve_g"] = {
@@ -598,11 +706,15 @@ q["sol_dom_cyl_ss"] = {
     "choices": age_choices(3, 10),
 }
 q["sol_dom_col_type"] = {
-    "prompt": "Which collector? (frost on unprotected roof systems → chase Rinnai)",
+    "prompt": "Which collector? (Frost area + roof + no pumped frost protection → frost not warranted.)",
     "choices": [
-        {"label": "Flat plate (Enduro family)", "next": "sol_dom_fp_age"},
-        {"label": "Evacuated tube", "next": "sol_dom_evt_age"},
-        {"label": "Frost damage / not sure", "outcome": "chase_rinnai"},
+        {"label": "Flat plate (Enduro family) — not frost", "next": "sol_dom_fp_age"},
+        {"label": "Evacuated tube — not frost", "next": "sol_dom_evt_age"},
+        {
+            "label": "Frost damage on roof system without pumped frost protection",
+            "outcome": "chargeable",
+        },
+        {"label": "Frost claim disputed / not sure", "outcome": ESCALATE},
     ],
 }
 q["sol_dom_fp_age"] = {
@@ -618,11 +730,12 @@ q["sol_dom_misc_age"] = {
     "choices": age_choices(None, 1),
 }
 q["sol_comm"] = {
-    "prompt": "Commercial solar years are shorter and fiddly — open the Solar booklet table or ask Rinnai?",
+    "prompt": "Commercial solar — how old is the unit? (many commercial bands are 1 year; grey leftovers escalate)",
     "choices": [
-        {"label": "I’ll check the Solar booklet / Rinnai", "outcome": "chase_rinnai"},
-        {"label": "Unit is 1 year old or less (likely still in many commercial bands)", "outcome": "labour_parts"},
-        {"label": "Older than 1 year", "outcome": "chase_rinnai"},
+        {"label": "1 year old or less", "outcome": "labour_parts"},
+        {"label": "Older than 1 year — still looks inside a known commercial band", "outcome": ESCALATE},
+        {"label": "Older than 1 year — clearly outside", "outcome": "chargeable"},
+        {"label": "Not sure", "outcome": ESCALATE},
     ],
 }
 
@@ -634,7 +747,8 @@ q["com_dom_type"] = {
         {"label": "HD booster heat exchanger", "next": "com_dom_hd_hex"},
         {"label": "HD booster other parts", "next": "com_dom_hd_other"},
         {"label": "QRE / storage cylinder", "next": "com_dom_qre"},
-        {"label": "Something else", "outcome": "chase_rinnai"},
+        {"label": "Common flue / power flue fan", "next": "com_dom_flue"},
+        {"label": "Something else / grey", "outcome": ESCALATE},
     ],
 }
 q["com_dom_hd_hex"] = {
@@ -649,13 +763,18 @@ q["com_dom_qre"] = {
     "prompt": "How old? (QRE/storage cylinder domestic — parts 10 yr, labour 3 yr)",
     "choices": age_choices(3, 10),
 }
+q["com_dom_flue"] = {
+    "prompt": "How old? (common flue / power flue fan — 1 yr)",
+    "choices": age_choices(None, 1),
+}
 q["com_comm_type"] = {
     "prompt": "What failed (commercial use)?",
     "choices": [
         {"label": "HD booster — check 85/95°C preset", "next": "com_comm_hd_temp"},
         {"label": "QRE / storage cylinder — check if set over 76°C", "next": "com_comm_qre_temp"},
         {"label": "Commercial heat pump (CHP)", "next": "com_comm_chp"},
-        {"label": "Common flue / other", "outcome": "chase_rinnai"},
+        {"label": "Common flue / power flue fan", "next": "com_comm_flue"},
+        {"label": "Something else / grey", "outcome": ESCALATE},
     ],
 }
 q["com_comm_hd_temp"] = {
@@ -663,7 +782,7 @@ q["com_comm_hd_temp"] = {
     "choices": [
         {"label": "Normal", "next": "com_comm_hd_fail"},
         {"label": "85°C or 95°C", "next": "com_comm_hd_hi"},
-        {"label": "Not sure", "outcome": "chase_rinnai"},
+        {"label": "Not sure", "outcome": ESCALATE},
     ],
 }
 q["com_comm_hd_fail"] = fail_q(
@@ -684,19 +803,26 @@ q["com_comm_hd_hi"] = {
 q["com_comm_qre_temp"] = {
     "prompt": "Is the cylinder set temperature over 76°C?",
     "choices": [
-        {"label": "No — normal", "next": "com_comm_qre_age"},
+        {"label": "No — normal", "next": "com_comm_qre_mat"},
         {"label": "Yes — over 76°C (1 yr only)", "next": "com_comm_qre_hi"},
-        {"label": "Not sure", "outcome": "chase_rinnai"},
+        {"label": "Not sure", "outcome": ESCALATE},
     ],
 }
-q["com_comm_qre_age"] = {
-    "prompt": "Stainless or vitreous? (SS parts 7 yr / VE 5 yr; labour 1 yr) — pick the safer labour+parts band if unsure.",
+q["com_comm_qre_mat"] = {
+    "prompt": "Stainless or vitreous enamel cylinder?",
     "choices": [
-        {"label": "1 year old or less", "outcome": "labour_parts"},
-        {"label": "Between 1 and 5 years (parts only — confirm SS/VE in booklet)", "outcome": "parts_only"},
-        {"label": "Older than 7 years (or 5 if VE)", "outcome": "chargeable"},
-        {"label": "Not sure", "outcome": "chase_rinnai"},
+        {"label": "Stainless (parts 7 yr, labour 1 yr)", "next": "com_comm_qre_ss"},
+        {"label": "Vitreous enamel (parts 5 yr, labour 1 yr)", "next": "com_comm_qre_ve"},
+        {"label": "Not sure", "outcome": ESCALATE},
     ],
+}
+q["com_comm_qre_ss"] = {
+    "prompt": "How old? (SS QRE/storage commercial — parts 7 yr, labour 1 yr)",
+    "choices": age_choices(1, 7),
+}
+q["com_comm_qre_ve"] = {
+    "prompt": "How old? (VE QRE/storage commercial — parts 5 yr, labour 1 yr)",
+    "choices": age_choices(1, 5),
 }
 q["com_comm_qre_hi"] = {
     "prompt": "How old? (>76°C cylinder — 1 yr)",
@@ -706,11 +832,26 @@ q["com_comm_chp"] = {
     "prompt": "How old? (commercial air-to-water heat pump — 2 yr parts + labour)",
     "choices": age_choices(None, 2),
 }
+q["com_comm_flue"] = {
+    "prompt": "How old? (common flue / power flue fan — 1 yr)",
+    "choices": age_choices(None, 1),
+}
 
 WARRANTY_TOPIC["checker"]["questions"] = q
 
 
 def main() -> None:
+    # Sanity: no chase_* outcomes left
+    chase_hits = []
+    for qid, node in q.items():
+        for c in node.get("choices") or []:
+            oc = str(c.get("outcome") or "")
+            label = str(c.get("label") or "")
+            if oc.startswith("chase") or "chase" in label.lower() or "booklet" in label.lower():
+                chase_hits.append((qid, label, oc))
+    if chase_hits:
+        raise SystemExit(f"chase/booklet leftovers remain: {chase_hits}")
+
     detailed = json.loads(DETAILED.read_text(encoding="utf-8"))
     topics = detailed.get("topics") or []
     idx = next((i for i, t in enumerate(topics) if t.get("id") == "warranty"), None)
@@ -719,18 +860,25 @@ def main() -> None:
     topics[idx] = WARRANTY_TOPIC
     detailed["topics"] = topics
     DETAILED.write_text(json.dumps(detailed, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
-    print(f"updated {DETAILED} warranty topic; questions={len(q)}")
+    esc = sum(
+        1
+        for node in q.values()
+        for c in node.get("choices") or []
+        if c.get("outcome") == ESCALATE
+    )
+    print(f"updated {DETAILED} warranty topic; questions={len(q)}; escalate_terminals={esc}")
 
     basic = json.loads(BASIC.read_text(encoding="utf-8"))
     for ch in basic.get("chapters") or []:
         if ch.get("id") != "warranty":
             continue
-        ch["blurb"] = "Years differ by product — use the quick tool below."
+        ch["blurb"] = "Five gates + quick tool — escalate greys to Rinnai."
         ch["body"] = [
-            "Warranty years depend on the product family (heat exchanger / cylinder / compressor / other parts / labour) and whether the install is domestic or commercial — the °C limit depends on the family too.",
-            "Use This quick tool can help you assess below (short yes/no-style questions). It suggests likely warranty labour+parts, parts only, chargeable, or chase Rinnai.",
-            "For the full year tables, use Change instruction level → Detailed → Warranty. Always confirm the current Rinnai booklet before promising cover.",
-            "That checker is a desk aid — if Rinnai later disagrees, follow what Rinnai closes on the Work Order.",
+            "Age the job from the install date (or dataplate manufacture date + 2 months if install is unknown). Parts years and labour years are separate.",
+            "Walk five gates: (1) still in period, (2) compliant install, (3) correct application, (4) water in-spec, (5) clear Rinnai factory fault vs site/external. Grey or disputed at gate 5 → escalate to Rinnai — never “chase the booklet.”",
+            "Domestic vs commercial depends on the family °C limit: gas continuous flow / Demand Duo pack ≤65°C; Hotflo / heat pump / solar ≤70°C; Efinity ≤60°C.",
+            "Use This quick tool can help you assess below. It suggests labour+parts, parts only, chargeable, or escalate to Rinnai (with a plain-English path summary + phone checklist).",
+            "Full year tables: {{link:detailed:warranty}}Detailed Process → Warranty{{/link}}. Desk aid only — if Rinnai disagrees later, follow the Work Order close-off.",
         ]
     BASIC.write_text(json.dumps(basic, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"updated {BASIC} warranty chapter")

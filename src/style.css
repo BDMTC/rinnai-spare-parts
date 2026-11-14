@@ -3147,6 +3147,25 @@ ul.process-table-foot li {
 .process-checker-panel {
   display: grid;
   gap: 0.65rem;
+  transition: opacity 0.32s ease, transform 0.32s ease;
+}
+
+.process-checker-panel.is-leaving {
+  opacity: 0;
+  transform: translateY(6px);
+}
+
+.process-checker-panel.is-entering {
+  opacity: 0;
+  transform: translateY(-6px);
+  animation: process-checker-fade-in 0.32s ease forwards;
+}
+
+@keyframes process-checker-fade-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .process-checker-prompt {
@@ -3355,7 +3374,8 @@ ul.process-table-foot li {
   background: #fff8f1;
 }
 
-.process-checker-outcome[data-outcome="chase_rinnai"] {
+.process-checker-outcome[data-outcome="chase_rinnai"],
+.process-checker-outcome[data-outcome="escalate_rinnai"] {
   border-color: #d4c48a;
   background: #fbf8ee;
 }
@@ -3378,6 +3398,78 @@ ul.process-table-foot li {
   margin: 0.35rem 0 0;
   font-size: 0.84rem;
   line-height: 1.45;
+}
+
+.process-checker-crumb {
+  margin: 0;
+  font-size: 0.75rem;
+}
+
+.process-checker-rider {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.process-checker-rider-block {
+  margin: 0;
+  padding: 0.55rem 0.6rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.process-checker-rider-label {
+  margin: 0 0 0.3rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--accent-ink);
+}
+
+.process-checker-rider-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.process-checker-rider-list li {
+  margin: 0.15rem 0;
+}
+
+.process-checker-grey-problems {
+  margin: 0.35rem 0 0.15rem;
+  font-size: 0.88rem;
+  font-weight: 550;
+}
+
+.process-checker-grey-problems li {
+  margin: 0.25rem 0;
+}
+
+.process-checker-path-summary {
+  margin: 0 0 0.45rem;
+  padding: 0.5rem 0.55rem;
+  max-height: 12rem;
+  overflow: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, "Cascadia Mono", "Segoe UI Mono", Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 1.4;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+}
+
+.process-checker-copy-path {
+  font-size: 0.78rem;
+  padding: 0.35rem 0.65rem;
+}
+
+.process-checker-rider-phone strong {
+  font-size: 1rem;
 }
 
 .process-checker-disclaimer {

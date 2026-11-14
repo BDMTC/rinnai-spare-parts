@@ -87,12 +87,13 @@
     {
       "id": "warranty",
       "title": "8. Is it still under warranty?",
-      "blurb": "Years differ by product — use the quick tool below.",
+      "blurb": "Five gates + quick tool — escalate greys to Rinnai.",
       "body": [
         "Age the job from the install date (or dataplate manufacture date + 2 months if install is unknown). Parts years and labour years are separate.",
-        "Domestic vs commercial depends on the family °C limit: gas continuous flow / Demand Duo pack ≤65°C; Hotflo / heat pump / solar ≤70°C; Efinity ≤60°C. Over that limit (or bulk HW / building flow-and-return) = commercial.",
-        "Use This quick tool can help you assess below — short questions for gas CF, Efinity, accessories, Hotflo, Enviroflo (EHPA cylinder 7 yr / refrigeration labour 3 yr), solar, and Demand Duo / QRE. It suggests labour+parts, parts only, chargeable, or chase Rinnai.",
-        "Full year tables: {{link:detailed:warranty}}Detailed Process → Warranty{{/link}}. Confirm the current Rinnai booklet before promising cover. Desk aid only — if Rinnai disagrees later, follow the Work Order close-off."
+        "Walk five gates: (1) still in period, (2) compliant install, (3) correct application, (4) water in-spec, (5) clear Rinnai factory fault vs site/external. Grey or disputed at gate 5 → escalate to Rinnai — never “chase the booklet.”",
+        "Domestic vs commercial depends on the family °C limit: gas continuous flow / Demand Duo pack ≤65°C; Hotflo / heat pump / solar ≤70°C; Efinity ≤60°C.",
+        "Use This quick tool can help you assess below. It suggests labour+parts, parts only, chargeable, or escalate to Rinnai (with a plain-English path summary + phone checklist).",
+        "Full year tables: {{link:detailed:warranty}}Detailed Process → Warranty{{/link}}. Desk aid only — if Rinnai disagrees later, follow the Work Order close-off."
       ]
     },
     {

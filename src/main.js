@@ -170,8 +170,15 @@ let processBasicChapterId = "";
  * @type {"chooser"|"basic"|"detailed"}
  */
 let processViewMode = "chooser";
-/** @type {{ topicId: string, nodeId: string, outcomeId: string | null }} */
-let processCheckerState = { topicId: "", nodeId: "", outcomeId: null };
+/** @type {{
+ *   topicId: string,
+ *   nodeId: string,
+ *   outcomeId: string | null,
+ *   path: Array<{ prompt: string, answer: string }>,
+ *   anim: "" | "in" | "out",
+ * }} */
+let processCheckerState = { topicId: "", nodeId: "", outcomeId: null, path: [], anim: "" };
+const CHECKER_CARD_FADE_MS = 320;
 /** Active family example pack id + page index (cover-flow stays inside one family). */
 let processExampleFamilyId = "cf";
 let processExamplePageIndex = 0;
@@ -634,18 +641,191 @@ function resetProcessChecker(topic) {
     topicId: topic?.id || "",
     nodeId: startId,
     outcomeId: null,
+    path: [],
+    anim: "",
   };
 }
 
 function ensureProcessCheckerState(topic) {
   const checker = topic?.checker;
   if (!checker?.startId) {
-    processCheckerState = { topicId: "", nodeId: "", outcomeId: null };
+    processCheckerState = { topicId: "", nodeId: "", outcomeId: null, path: [], anim: "" };
     return;
   }
   if (processCheckerState.topicId !== topic.id) {
     resetProcessChecker(topic);
   }
+  if (!Array.isArray(processCheckerState.path)) processCheckerState.path = [];
+}
+
+/**
+ * Plain-English path summary for grey rider / job notes.
+ * @param {Array<{ prompt: string, answer: string }>} path
+ */
+function formatCheckerPathSummary(path) {
+  const rows = Array.isArray(path) ? path : [];
+  if (!rows.length) return "No answers recorded yet.";
+  return rows
+    .map((r, i) => `${i + 1}. ${r.prompt} — ${r.answer}`)
+    .join("\n");
+}
+
+/**
+ * @param {string} answer
+ */
+function isCheckerGreyishAnswer(answer) {
+  const a = String(answer || "").toLowerCase();
+  return (
+    /\bnot sure\b/.test(a) ||
+    /\bunsure\b/.test(a) ||
+    /\bdisputed\b/.test(a) ||
+    /\bgrey\b/.test(a) ||
+    /^something else\b/.test(a) ||
+    /\boutside\b/.test(a)
+  );
+}
+
+/**
+ * Turn an Unsure / grey answer into a plain problem statement (not a question dump).
+ * @param {string} prompt
+ * @param {string} answer
+ */
+function checkerUnsureToProblemStatement(prompt, answer) {
+  const a = String(answer || "").trim();
+  const p = String(prompt || "").trim();
+  const al = a.toLowerCase();
+  const pl = p.toLowerCase();
+
+  if (/something else/.test(al) && /(ghf|fire|ac)/.test(al)) {
+    return "Product is outside the hot-water families in this tool (GHF / fire / AC or similar).";
+  }
+  if (/something else|grey/.test(al)) {
+    return "Failed item sits in a grey leftover path (not a clear table row).";
+  }
+  if (/frost/.test(al) || /frost/.test(pl)) {
+    return "Frost coverage is disputed or unclear.";
+  }
+  if (/water|bore|dam|chemistry/.test(pl)) {
+    return "Water supply / chemistry is unclear (mains vs bore/dam / out of spec).";
+  }
+  if (/rinnai-supplied|failed part/.test(pl)) {
+    return "Whether the failed part is Rinnai-supplied is unclear.";
+  }
+  if (/extended/.test(pl) && /register/.test(pl)) {
+    return "Extended heat-exchanger registration with Rinnai is unclear.";
+  }
+  if (/solar victoria|solar homes|rebate/.test(pl)) {
+    return "Solar Victoria / Solar Homes rebate status is unclear.";
+  }
+  if (/solar/.test(pl) && /(demand duo|converted)/.test(pl + " " + al)) {
+    return "Whether this is Demand Duo solar boost or a Rinnai-converted solar model is unclear.";
+  }
+  if (/85|95|preset/.test(pl)) {
+    return "HD high-temperature preset (85°C / 95°C) is unclear.";
+  }
+  if (/76/.test(pl)) {
+    return "Cylinder set temperature over 76°C is unclear.";
+  }
+  if (/stainless|vitreous|cylinder/.test(pl) && /not sure/.test(al)) {
+    return "Cylinder type (stainless vs vitreous / mount) is unclear.";
+  }
+  if (/commercial solar|older than 1 year/.test(pl + " " + al)) {
+    return "Commercial solar cover band is unclear.";
+  }
+  if (/common flue|other/.test(al) || /common flue/.test(pl)) {
+    return "Common flue / other commercial-pack item needs a ruling.";
+  }
+
+  // Generic: drop the question mark and state it as unclear.
+  let topic = p.replace(/\?+\s*$/, "").trim();
+  if (topic.length > 100) topic = `${topic.slice(0, 97)}…`;
+  if (!topic) return `${a.replace(/\?+\s*$/, "") || "An answer"} is unclear.`;
+  return `${topic} — unclear from the answers so far.`;
+}
+
+/**
+ * Grey-area problem bullets (Beau locked UX).
+ * @param {Array<{ prompt: string, answer: string }>} path
+ */
+function buildGreyProblemStatements(path) {
+  /** @type {string[]} */
+  const problems = [
+    "Factory defect possible?",
+    "It could be a site issue / factor",
+  ];
+  const seen = new Set(problems.map((s) => s.toLowerCase()));
+  for (const step of Array.isArray(path) ? path : []) {
+    if (!isCheckerGreyishAnswer(step.answer)) continue;
+    const stmt = checkerUnsureToProblemStatement(step.prompt, step.answer);
+    const key = stmt.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    problems.push(stmt);
+  }
+  return problems;
+}
+
+/**
+ * Build copyable grey-outcome text (same shape as on-screen rider).
+ * @param {object} checker
+ * @param {Array<{ prompt: string, answer: string }>} path
+ */
+function formatGreyOutcomeCopyText(checker, path) {
+  const esc = checker?.escalation && typeof checker.escalation === "object" ? checker.escalation : {};
+  const phone = esc.phone || "1300 555 545";
+  const problems = buildGreyProblemStatements(path);
+  const pathText = formatCheckerPathSummary(path);
+  return [
+    "Resolution has reached a grey area, here’s the problems.",
+    ...problems.map((p) => `• ${p}`),
+    "",
+    `This case may need to be either escalated to your manager, or Rinnai on ${phone} to help reach a determination.`,
+    "",
+    "The path taken to reach this outcome was:",
+    pathText,
+    "",
+    "Take the Rinnai warranty case / reference number and offload the case: log case #, rep name, and Covered vs Excluded in the job notes before you proceed.",
+    esc.ivr ? `IVR (if calling): ${esc.ivr}` : "",
+    esc.hours ? `Hours: ${esc.hours}` : "",
+    esc.caution || "",
+  ]
+    .filter((line, i, arr) => !(line === "" && arr[i - 1] === ""))
+    .join("\n")
+    .trim();
+}
+
+/**
+ * Grey leftover rider — Beau locked UX (Basic + Detailed shared checker).
+ * @param {object} checker
+ * @param {object} [_out]
+ */
+function renderEscalateRiderHtml(checker, _out) {
+  const esc = checker?.escalation && typeof checker.escalation === "object" ? checker.escalation : {};
+  const phone = esc.phone || "1300 555 545";
+  const path = processCheckerState.path || [];
+  const problems = buildGreyProblemStatements(path);
+  const pathText = formatCheckerPathSummary(path);
+  const problemsHtml = problems
+    .map((p) => `<li>${escapeHtml(p)}</li>`)
+    .join("");
+
+  return `
+    <div class="process-checker-outcome process-checker-rider" data-outcome="escalate_rinnai">
+      <p class="process-checker-outcome-title">Resolution has reached a grey area, here’s the problems.</p>
+      <ul class="process-checker-rider-list process-checker-grey-problems">${problemsHtml}</ul>
+      <p class="process-checker-outcome-detail">This case may need to be either escalated to your manager, or Rinnai on <strong>${escapeHtml(phone)}</strong> to help reach a determination.</p>
+      <div class="process-checker-rider-block">
+        <p class="process-checker-rider-label">The path taken to reach this outcome was:</p>
+        <pre class="process-checker-path-summary" id="process-checker-path-summary">${escapeHtml(pathText)}</pre>
+        <button type="button" class="cart-action process-checker-copy-path" data-checker-copy-path>Copy for job notes</button>
+      </div>
+      <div class="process-checker-rider-block">
+        <p class="process-checker-rider-label">Offload the case</p>
+        <p>Take the Rinnai warranty case / reference number and offload the case: log <strong>case #</strong>, <strong>rep name</strong>, and <strong>Covered vs Excluded</strong> in the job notes before you proceed.</p>
+        <p class="muted">If calling Rinnai: ${escapeHtml(esc.hours || "Mon–Fri 8:00–17:00 AEST")}. IVR: ${escapeHtml(esc.ivr || "Service / Warranty → Hot Water / Commercial Hot Water")}. Backup: ${escapeHtml(esc.backupPhone || "03 9271 6605")}.</p>
+        <p class="muted">${escapeHtml(esc.caution || "Do not book Rinnai 1st Care without client/manager approval if the claim is disputed.")}</p>
+      </div>
+    </div>`;
 }
 
 /**
@@ -803,15 +983,25 @@ function renderProcessCheckerHtml(topic) {
   const outcomes = checker.outcomes && typeof checker.outcomes === "object" ? checker.outcomes : {};
   const outcomeId = processCheckerState.outcomeId;
   const nodeId = processCheckerState.nodeId || checker.startId || "";
+  const animClass =
+    processCheckerState.anim === "in"
+      ? " is-entering"
+      : processCheckerState.anim === "out"
+        ? " is-leaving"
+        : "";
 
   let panelInner = "";
   if (outcomeId && outcomes[outcomeId]) {
     const out = outcomes[outcomeId];
-    panelInner = `
+    if (outcomeId === "escalate_rinnai" || outcomeId === "chase_rinnai") {
+      panelInner = renderEscalateRiderHtml(checker, out);
+    } else {
+      panelInner = `
       <div class="process-checker-outcome" data-outcome="${escapeHtml(outcomeId)}">
         <p class="process-checker-outcome-title">${escapeHtml(out.title || outcomeId)}</p>
         <p class="process-checker-outcome-detail muted">${escapeHtml(out.detail || "")}</p>
       </div>`;
+    }
   } else {
     const q = questions[nodeId];
     if (!q) {
@@ -833,7 +1023,13 @@ function renderProcessCheckerHtml(topic) {
           </div>`;
         })
         .join("");
+      const pathN = processCheckerState.path.length;
+      const crumb =
+        pathN > 0
+          ? `<p class="process-checker-crumb muted">${pathN} answer${pathN === 1 ? "" : "s"} so far</p>`
+          : "";
       panelInner = `
+        ${crumb}
         <p class="process-checker-prompt">${escapeHtml(q.prompt || "")}</p>
         <div class="process-checker-choices" role="group" aria-label="${escapeHtml(q.prompt || "Choices")}">
           ${choicesHtml}
@@ -847,12 +1043,49 @@ function renderProcessCheckerHtml(topic) {
         <h3 class="process-checker-title">${escapeHtml(checker.heading || "This quick tool can help you assess - Answer the following questions.")}</h3>
         <button type="button" class="cart-action process-checker-reset" data-checker-reset>Reset</button>
       </div>
-      <div class="process-checker-panel">${panelInner}</div>
+      <div class="process-checker-panel${animClass}">${panelInner}</div>
       <p class="process-checker-disclaimer muted">${escapeHtml(
         checker.disclaimer ||
           "Desk aid only — not legal advice or Rinnai’s final say."
       )}</p>
     </section>`;
+}
+
+function checkerAfterRenderAnim() {
+  if (processCheckerState.anim !== "in") return;
+  const panel = document.querySelector(".process-checker-panel");
+  if (!panel) {
+    processCheckerState.anim = "";
+    return;
+  }
+  void panel.offsetWidth;
+  window.setTimeout(() => {
+    processCheckerState.anim = "";
+    panel.classList.remove("is-entering");
+  }, CHECKER_CARD_FADE_MS);
+}
+
+/**
+ * @param {() => void} applyChange
+ */
+function checkerTransitionThen(applyChange) {
+  const panel = document.querySelector(".process-checker-panel");
+  if (!panel) {
+    applyChange();
+    processCheckerState.anim = "in";
+    renderProcessDesk();
+    checkerAfterRenderAnim();
+    return;
+  }
+  panel.classList.remove("is-entering");
+  panel.classList.add("is-leaving");
+  processCheckerState.anim = "out";
+  window.setTimeout(() => {
+    applyChange();
+    processCheckerState.anim = "in";
+    renderProcessDesk();
+    checkerAfterRenderAnim();
+  }, CHECKER_CARD_FADE_MS);
 }
 
 function bindProcessChecker(topic) {
@@ -866,6 +1099,17 @@ function bindProcessChecker(topic) {
     renderProcessDesk();
   });
 
+  body.querySelector("[data-checker-copy-path]")?.addEventListener("click", async () => {
+    const blob = formatGreyOutcomeCopyText(checker, processCheckerState.path || []);
+    const btn = body.querySelector("[data-checker-copy-path]");
+    try {
+      await navigator.clipboard.writeText(blob);
+      if (btn) btn.textContent = "Copied";
+    } catch {
+      if (btn) btn.textContent = "Copy failed — select path text";
+    }
+  });
+
   body.querySelectorAll("[data-checker-choice]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const idx = Number(btn.getAttribute("data-checker-choice"));
@@ -873,20 +1117,27 @@ function bindProcessChecker(topic) {
       const q = questions[nodeId];
       const choice = Array.isArray(q?.choices) ? q.choices[idx] : null;
       if (!choice) return;
-      if (choice.outcome) {
-        processCheckerState = {
-          ...processCheckerState,
-          topicId: topic.id,
-          outcomeId: String(choice.outcome),
-        };
-      } else if (choice.next) {
-        processCheckerState = {
-          topicId: topic.id,
-          nodeId: String(choice.next),
-          outcomeId: null,
-        };
-      }
-      renderProcessDesk();
+      const prompt = String(q?.prompt || nodeId);
+      const answer = String(choice.label || `Choice ${idx + 1}`);
+      checkerTransitionThen(() => {
+        const nextPath = [...(processCheckerState.path || []), { prompt, answer }];
+        if (choice.outcome) {
+          processCheckerState = {
+            ...processCheckerState,
+            topicId: topic.id,
+            outcomeId: String(choice.outcome),
+            path: nextPath,
+          };
+        } else if (choice.next) {
+          processCheckerState = {
+            topicId: topic.id,
+            nodeId: String(choice.next),
+            outcomeId: null,
+            path: nextPath,
+            anim: processCheckerState.anim,
+          };
+        }
+      });
     });
   });
 
