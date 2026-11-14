@@ -1043,7 +1043,7 @@ function renderProcessFgLookupHtml() {
     "Finished goods Hot Water";
   return `<section class="process-fg-lookup" aria-label="Finished goods Hot Water lookup">
     <h3 class="process-fg-title">Finished-goods lookup</h3>
-    <p class="muted process-fg-blurb">${escapeHtml(String(fgLabel))} — effective ${escapeHtml(String(effective))}. Family → search → Zone Net (ex GST) + order code. Not Bible spare Net.</p>
+    <p class="muted process-fg-blurb">${escapeHtml(String(fgLabel))} — effective ${escapeHtml(String(effective))}. Family → search → Zone Net (ex GST) + order code. Demand Duo codes parked for a composer (tank/heaters/options → code + Net) — not listed. Not Bible spare Net.</p>
     <div class="process-fg-families" role="group" aria-label="Product family">${familyBtns || `<p class="muted">Finished-goods price data not loaded.</p>`}</div>
     <label class="process-fg-search-label">Search in family
       <input type="search" id="process-fg-query" class="process-fg-query" placeholder="e.g. Infinity 26, HD28, EHF160" value="${escapeHtml(processFgLookupState.query || "")}" ${familyId ? "" : "disabled"} />

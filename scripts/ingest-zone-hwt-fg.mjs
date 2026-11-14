@@ -33,7 +33,7 @@ FAMILIES = [
   ("hp-aio", "Heat pump (all-in-one)", "All-In-One Heat Pump"),
   ("hp-split", "Heat pump (split)", "Split Heat Pumps"),
   ("solar", "Solar components", "Solar Pricing"),
-  ("commercial", "Commercial / Demand Duo", "Commercial HW"),
+  ("commercial", "Commercial (HD / extras — DD parked)", "Commercial HW"),
 ]
 
 def norm(s):
@@ -155,17 +155,162 @@ def decode_ghf(code):
         parts.append("Hard Water")
     return " ".join(parts)
 
+def gas_letter(ch):
+    if ch == "N":
+        return "Natural Gas"
+    if ch == "L":
+        return "LPG"
+    return None
+
+def decode_inf(code):
+    """Infinity / Cont Flow — clear code shapes only."""
+    m = re.match(r"^INF(\\d{2})E([LN])(\\d{2})A$", code)
+    if m:
+        n, g, t = m.groups()
+        return f"Infinity Enviro {int(n)} {gas_letter(g)} {int(t)}°C"
+    m = re.match(r"^INF(\\d{2})E(\\d{2})B$", code)
+    if m:
+        n, t = m.groups()
+        return f"Infinity Enviro C{int(n)} {int(t)}°C"
+    m = re.match(r"^INF(\\d{2})([LN])(\\d{2})B$", code)
+    if m:
+        n, g, t = m.groups()
+        return f"Infinity B{int(n)} {gas_letter(g)} {int(t)}°C"
+    m = re.match(r"^INF(\\d{2})I([LN])(\\d{2})$", code)
+    if m:
+        n, g, t = m.groups()
+        return f"Infinity {int(n)}i Internal {gas_letter(g)} {int(t)}°C"
+    m = re.match(r"^INF(\\d{2})([LN])(\\d{2})MA$", code)
+    if m:
+        n, g, t = m.groups()
+        return f"Infinity {int(n)} {gas_letter(g)} {int(t)}°C"
+    m = re.match(r"^B26N(\\d{2})ABLK$", code)
+    if m:
+        return f"Infinity Black 26 Natural Gas {int(m.group(1))}°C"
+    m = re.match(r"^FM10([LN])A$", code)
+    if m:
+        return f"Flowmaster 10 {gas_letter(m.group(1))}"
+    return None
+
+def decode_ecf(code):
+    m = re.match(r"^ECF(\\d{2})I(\\d{2})$", code)
+    if not m:
+        return None
+    kw, t = m.groups()
+    return f"Efinity {int(kw)}kW {int(t)}°C"
+
+def decode_enviroflo_aio(code):
+    m = re.match(r"^EHPA(\\d{3})VM(H?)$", code)
+    if m:
+        lit, hard = m.groups()
+        parts = ["Enviroflo AR", f"{int(lit)}L", "Vitreous Enamel"]
+        if hard == "H":
+            parts.append("Hard Water")
+        return " ".join(parts)
+    m = re.match(r"^EHPG(\\d{3})VM(10)?$", code)
+    if m:
+        lit, amp10 = m.groups()
+        amp = "10A" if amp10 else "15A"
+        return f"Enviroflo GR {int(lit)}L Vitreous Enamel {amp}"
+    m = re.match(r"^EHPT(\\d{3})VM$", code)
+    if m:
+        return f"Enviroflo A {int(m.group(1))}L Vitreous Enamel"
+    return None
+
+def decode_split_hp(code):
+    if code == "SHPL70":
+        return "Enviroflo S 7kW Split Heat Pump"
+    if code == "SHPR50":
+        return "Enviroflo S 5kW Split Heat Pump"
+    m = re.match(r"^HPT([BS])(\\d{3})VM(\\d{2})(H?)$", code)
+    if m:
+        kind, lit, kw10, hard = m.groups()
+        pump = "SHPL70" if kind == "B" else "SHPR50"
+        parts = [
+            "Tank for Split Elec Heat Pump",
+            pump,
+            f"{int(lit)}L",
+            "Vitreous Enamel",
+            f"{int(kw10) / 10.0:.1f}kW",
+        ]
+        if hard == "H":
+            parts.append("Hard Water")
+        return " ".join(parts)
+    m = re.match(r"^KSHP(\\d{3})M(\\d{2})([LR])(\\d{2})(H?)$", code)
+    if m:
+        lit, kw10, side, pump, hard = m.groups()
+        unit = f"SHPL{pump}" if side == "L" else f"SHPR{pump}"
+        parts = [
+            "Split Heat Pump Kit",
+            unit,
+            f"{int(lit)}L",
+            "Vitreous Enamel",
+            f"{int(kw10) / 10.0:.1f}kW",
+        ]
+        if hard == "H":
+            parts.append("Hard Water")
+        return " ".join(parts)
+    return None
+
+def decode_hd(code):
+    m = re.match(r"^HD(\\d{2})([EI])([NL])(\\d{2})$", code)
+    if m:
+        n, loc, g, t = m.groups()
+        place = "External" if loc == "E" else "Internal"
+        return f"Heavy Duty {int(n)}{loc.lower()} {place} {gas_letter(g)} {int(t)}°C"
+    m = re.match(r"^HDC(\\d{2})([EI])(\\d{2})$", code)
+    if m:
+        n, loc, t = m.groups()
+        place = "External" if loc == "E" else "Internal"
+        return f"Heavy Duty C{int(n)}{loc.lower()} Condensing {place} {int(t)}°C"
+    return None
+
+def decode_solar_booster(code):
+    """Solar CF boosters S20/S26/S28/S32 — clear INF-like shapes only."""
+    m = re.match(r"^S(\\d{2})([LN])(\\d{2})(B?)$", code)
+    if m:
+        n, g, series, new = m.groups()
+        label = f"Solar Booster Infinity S{int(n)}"
+        if new == "B":
+            label += " NEW"
+        return f"{label} {gas_letter(g)}"
+    m = re.match(r"^S(\\d{2})I([LN])(\\d{2})$", code)
+    if m:
+        n, g, series = m.groups()
+        return f"Solar Booster Infinity S{int(n)}i Internal {gas_letter(g)}"
+    m = re.match(r"^S(\\d{2})([LN])(\\d{2})AM$", code)
+    if m:
+        n, g, series = m.groups()
+        return f"Solar Booster Infinity S{int(n)} {gas_letter(g)}"
+    return None
+
+def is_demand_duo_code(code):
+    """Beau is DD decode master — do not invent DD/DDF/DDPL name rules."""
+    return bool(re.match(r"^DD", code, re.I))
+
 def decode_order_code(code):
-    return decode_ehf(code) or decode_ghf(code)
+    if is_demand_duo_code(code):
+        return None
+    return (
+        decode_ehf(code)
+        or decode_ghf(code)
+        or decode_inf(code)
+        or decode_ecf(code)
+        or decode_enviroflo_aio(code)
+        or decode_split_hp(code)
+        or decode_hd(code)
+        or decode_solar_booster(code)
+    )
 
 def compose_name(section, product, order_code=""):
     decoded = decode_order_code(order_code) if order_code else None
     if decoded:
-        return decoded
+        return decoded, "decoded"
     product = norm(product)
     section_h = humanize_section(section) if section else ""
     if not product:
-        return expand_hard_water(section_h or "", order_code)
+        base = expand_hard_water(section_h or order_code or "", order_code)
+        return base, "section-only"
     short = bool(re.match(r"^\\d{2,4}\\s*L\\b", product, re.I)) or (
         len(product) < 48 and section and "TANK" in section.upper()
     )
@@ -174,7 +319,7 @@ def compose_name(section, product, order_code=""):
         base = f"{section_h} {dash} {product}"
     else:
         base = product
-    return expand_hard_water(base, order_code)
+    return expand_hard_water(base, order_code), "workbook"
 
 low_conf = []
 families_out = []
@@ -247,19 +392,94 @@ for fid, flabel, sheet_name in FAMILIES:
         else:
             continue
 
-        # Keep BOTH rows when order codes duplicate (e.g. SHPR50 Hard Water kits).
-        display = compose_name(section, last_raw_name or code, code)
+        # Keep BOTH Hard Water siblings when codes differ (or same code + HW label).
+        had_own_name = raw_name not in (None, "")
+        display, how = compose_name(section, last_raw_name or code, code)
+        src_name = norm(raw_name) if had_own_name else last_raw_name
+        if display and "Hard Water" not in display and re.search(r"(?i)(?:^|\\s)HW\\s*$", src_name or ""):
+            display = f"{display} Hard Water"
+
+        # Demand Duo: park entirely for future composer (tank/heaters/options → code+Net).
+        # Do not invent DD decode; do not list ~289 DD codes in FG lookup.
+        if is_demand_duo_code(code):
+            continue
 
         items.append({
             "familyId": fid,
             "name": display,
             "orderCode": code,
             "netExGst": use_net,
+            "_sheet": sheet_name,
+            "_row": r,
+            "_col": cols["code"] + 1,
+            "_how": how,
+            "_section": section,
         })
 
     families_out.append({"id": fid, "label": flabel, "count": 0})
 
-# Drop ghosts; strip debug fields from shipped items
+from collections import defaultdict
+
+# Within-family: keep Hard Water pairs; dedupe identical orderCode re-lists (solar packages etc.)
+# Prefer first row; if a later row has Hard Water and earlier does not, keep both when names differ.
+deduped = []
+seen_key = {}
+for it in items:
+    key = (it["familyId"], it["orderCode"], it["name"])
+    if key in seen_key:
+        continue
+    # Same code+family+same name → drop re-list
+    seen_key[key] = True
+    deduped.append(it)
+items = deduped
+
+# Same code+family appearing with identical decoded name twice already handled;
+# also collapse pure re-lists that share code+family even if we somehow diverged:
+by_code = defaultdict(list)
+for i, it in enumerate(items):
+    by_code[(it["familyId"], it["orderCode"])].append(i)
+keep = set(range(len(items)))
+for (fid, code), idxs in by_code.items():
+    if len(idxs) <= 1:
+        continue
+    names = {items[i]["name"] for i in idxs}
+    if len(names) == 1:
+        # identical re-list — keep first only
+        for i in idxs[1:]:
+            keep.discard(i)
+    # else distinct names (e.g. standard + Hard Water same code) — keep both
+items = [items[i] for i in range(len(items)) if i in keep]
+
+# Within-family name collisions on non-decoded workbook labels → uniquify + ask Beau
+by_fname = defaultdict(list)
+for i, it in enumerate(items):
+    by_fname[(it["familyId"], it["name"])].append(i)
+for (fid, name), idxs in by_fname.items():
+    if len(idxs) < 2:
+        continue
+    for i in idxs:
+        it = items[i]
+        if it["_how"] == "decoded":
+            # Decoded collision is a bug — uniquify with code, ask
+            pass
+        if f"({it['orderCode']})" not in it["name"]:
+            it["name"] = f"{it['name']} ({it['orderCode']})"
+        low_conf.append({
+            "sheet": it["_sheet"],
+            "row": it["_row"],
+            "col": it["_col"],
+            "cell": it["orderCode"],
+            "reason": "Non-unique product label after first-pass non-DD decode. Ask Beau for Sheet/row/col/cell naming.",
+        })
+
+parked_dd_note = {
+    "status": "parked",
+    "reason": (
+        "Beau prefers Demand Duo creator (compose tank/heaters/options -> code+Net) "
+        "over listing commercial DD codes. No invented DD decode. Builder mock when Beau says go."
+    ),
+}
+
 clean = []
 for it in items:
     if it["netExGst"] > 1:
@@ -273,6 +493,16 @@ items = clean
 for f in families_out:
     f["count"] = sum(1 for it in items if it["familyId"] == f["id"])
 
+seen_lc = set()
+lc_out = []
+for x in low_conf:
+    key = (x.get("sheet"), x.get("row"), x.get("cell") or x.get("reason"))
+    if key in seen_lc:
+        continue
+    seen_lc.add(key)
+    lc_out.append(x)
+low_conf = lc_out
+
 payload = {
     "version": 1,
     "meta": {
@@ -281,7 +511,13 @@ payload = {
         "label": label,
         "sourceFile": workbook_file,
         "generatedFile": generated.replace("\\\\", "/"),
-        "notes": "Net = Net Invoice Price (EX GST) by header text (re-bound each header row). Red banner rows = section titles for labels. Sibling blank-price rows inherit prior real Net (> $1). Not spare-parts Bible pricing.",
+        "notes": (
+            "Net = Net Invoice Price (EX GST) by header (re-bound each header row). "
+            "Unique labels from clear order-code decoders + section headers (non-DD). "
+            "Demand Duo codes parked for future composer - no invented DD decode. "
+            "Sibling blank-price rows inherit prior real Net (> $1)."
+        ),
+        "demandDuo": parked_dd_note,
     },
     "families": families_out,
     "items": items,
@@ -291,15 +527,11 @@ with open(out, "w", encoding="utf-8") as f:
     json.dump(payload, f, indent=2)
     f.write("\\n")
 print(json.dumps({"items": len(items), "families": families_out, "lowConfidence": len(low_conf)}, indent=2))
-for x in low_conf[:25]:
+for x in low_conf[:30]:
     print("LOW", json.dumps(x))
-kits = [it for it in items if it["orderCode"].startswith("KSHP")]
-print("KSHP", [(it["orderCode"], it["netExGst"], it["name"][:60]) for it in kits[:12]])
-ehf = [it for it in items if it["orderCode"].startswith("EHF")]
-print("EHF15_19", [(it["orderCode"], it["name"]) for it in ehf[:8]])
-print("EHF_UNIQUE", len(ehf), "names", len({it["name"] for it in ehf}))
-ghf = [it for it in items if it["orderCode"].startswith("GHF")]
-print("GHF", [(it["orderCode"], it["name"]) for it in ghf])
+for prefix in ("INF", "ECF", "EHPA", "KSHP", "HD28", "EHF25", "S20", "DD"):
+    rows = [it for it in items if it["orderCode"].startswith(prefix)]
+    print(prefix, len(rows), "unique", len({it["name"] for it in rows}), [(it["orderCode"], it["name"][:55]) for it in rows[:4]])
 `;
 
 const pyFile = path.join(root, "scripts", "_tmp_ingest_zone_hwt_fg.py");
