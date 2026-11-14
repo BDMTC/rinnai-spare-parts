@@ -119,7 +119,49 @@ def expand_hard_water(name, order_code=""):
         name = f"{name} {dash} Hard Water"
     return norm(name)
 
+def decode_ehf(code):
+    """Beau: EHF=Electric HotFlo; litres; S/T; ##=kW×10; P=Plugin; H=Hard Water.
+    Optional series letter: D=Compact (sheet); A omitted as series noise.
+    """
+    m = re.match(r"^EHF([A-Z]?)(\\d+)([ST])(\\d{2})(H?)(P?)$", code)
+    if not m:
+        return None
+    series, litres, elem, kw10, hard, plugin = m.groups()
+    kw_s = f"{int(kw10) / 10.0:.1f}"  # 18 → 1.8kW
+    parts = ["Electric HotFlo"]
+    if series == "D":
+        parts.append("Compact")
+    elif series and series not in ("A",):
+        # Unknown series letter — keep visible so names stay unique / askable
+        parts.append(f"Series {series}")
+    parts.append(f"{int(litres)}L")
+    parts.append("Single" if elem == "S" else "Twin")
+    parts.append(f"{kw_s}kW")
+    if hard == "H":
+        parts.append("Hard Water")
+    if plugin == "P":
+        parts.append("Plugin")
+    return " ".join(parts)
+
+def decode_ghf(code):
+    """Gas HotFlo: GHF + star + litres + N/L (+ optional H Hard Water)."""
+    m = re.match(r"^GHF(\\d)(\\d{3,4})([NL])(H?)$", code)
+    if not m:
+        return None
+    star, litres, gas, hard = m.groups()
+    gas_s = "Natural Gas" if gas == "N" else "LPG"
+    parts = ["Gas HotFlo", f"{star} Star", f"{int(litres)}L", gas_s]
+    if hard == "H":
+        parts.append("Hard Water")
+    return " ".join(parts)
+
+def decode_order_code(code):
+    return decode_ehf(code) or decode_ghf(code)
+
 def compose_name(section, product, order_code=""):
+    decoded = decode_order_code(order_code) if order_code else None
+    if decoded:
+        return decoded
     product = norm(product)
     section_h = humanize_section(section) if section else ""
     if not product:
@@ -253,8 +295,11 @@ for x in low_conf[:25]:
     print("LOW", json.dumps(x))
 kits = [it for it in items if it["orderCode"].startswith("KSHP")]
 print("KSHP", [(it["orderCode"], it["netExGst"], it["name"][:60]) for it in kits[:12]])
-tanks = [it for it in items if "250L" in it["name"] or it["orderCode"].startswith("HPT")]
-print("TANK_LABELS", [(it["orderCode"], it["name"][:90]) for it in tanks[:10]])
+ehf = [it for it in items if it["orderCode"].startswith("EHF")]
+print("EHF15_19", [(it["orderCode"], it["name"]) for it in ehf[:8]])
+print("EHF_UNIQUE", len(ehf), "names", len({it["name"] for it in ehf}))
+ghf = [it for it in items if it["orderCode"].startswith("GHF")]
+print("GHF", [(it["orderCode"], it["name"]) for it in ghf])
 `;
 
 const pyFile = path.join(root, "scripts", "_tmp_ingest_zone_hwt_fg.py");

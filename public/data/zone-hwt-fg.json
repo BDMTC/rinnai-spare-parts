@@ -558,361 +558,361 @@
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel (Plug In)",
+      "name": "Electric HotFlo 25L Single 1.8kW Plugin",
       "orderCode": "EHF25S18P",
       "netExGst": 468.17
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel (Plug In)",
+      "name": "Electric HotFlo 25L Single 2.4kW Plugin",
       "orderCode": "EHF25S24P",
       "netExGst": 468.17
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel (Plug In)",
+      "name": "Electric HotFlo 25L Single 2.4kW Hard Water Plugin",
       "orderCode": "EHF25S24HP",
       "netExGst": 468.17
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 25L Single 3.6kW",
       "orderCode": "EHF25S36",
       "netExGst": 462.05
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 25L Single 3.6kW Hard Water",
       "orderCode": "EHF25S36H",
       "netExGst": 462.05
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel (Plug In)",
+      "name": "Electric HotFlo 50L Single 1.8kW Plugin",
       "orderCode": "EHF50S18P",
       "netExGst": 493.84
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel (Plug In)",
+      "name": "Electric HotFlo 50L Single 2.4kW Plugin",
       "orderCode": "EHF50S24P",
       "netExGst": 493.84
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel (Plug In)",
+      "name": "Electric HotFlo 50L Single 2.4kW Hard Water Plugin",
       "orderCode": "EHF50S24HP",
       "netExGst": 493.84
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 50L Single 3.6kW",
       "orderCode": "EHF50S36",
       "netExGst": 487.72
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 50L Single 3.6kW Hard Water",
       "orderCode": "EHF50S36H",
       "netExGst": 487.72
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 80L Single 1.8kW",
       "orderCode": "EHF80S18",
       "netExGst": 757.88
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 80L Single 2.4kW",
       "orderCode": "EHF80S24",
       "netExGst": 757.88
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 80L Single 2.4kW Hard Water",
       "orderCode": "EHF80S24H",
       "netExGst": 757.88
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 80L Single 3.6kW",
       "orderCode": "EHF80S36",
       "netExGst": 757.88
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 80L Single 3.6kW Hard Water",
       "orderCode": "EHF80S36H",
       "netExGst": 757.88
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 125L Single 1.8kW",
       "orderCode": "EHF125S18",
       "netExGst": 705.91
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 125L Single 2.4kW",
       "orderCode": "EHF125S24",
       "netExGst": 705.91
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 125L Single 2.4kW Hard Water",
       "orderCode": "EHF125S24H",
       "netExGst": 705.91
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 125L Single 3.6kW",
       "orderCode": "EHF125S36",
       "netExGst": 705.91
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 125L Single 3.6kW Hard Water",
       "orderCode": "EHF125S36H",
       "netExGst": 705.91
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 160L Single 1.8kW",
       "orderCode": "EHFA160S18",
       "netExGst": 841.36
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 160L Single 1.8kW Hard Water",
       "orderCode": "EHFA160S18H",
       "netExGst": 841.36
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 160L Single 2.4kW",
       "orderCode": "EHFA160S24",
       "netExGst": 841.36
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 160L Single 2.4kW Hard Water",
       "orderCode": "EHFA160S24H",
       "netExGst": 841.36
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 160L Single 3.6kW",
       "orderCode": "EHFA160S36",
       "netExGst": 841.36
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 160L Single 3.6kW Hard Water",
       "orderCode": "EHFA160S36H",
       "netExGst": 841.36
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 160L Twin 3.6kW",
       "orderCode": "EHFA160T36",
       "netExGst": 1002.23
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 160L Twin 3.6kW Hard Water",
       "orderCode": "EHFA160T36H",
       "netExGst": 1002.23
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo Compact 160L Single 2.4kW",
       "orderCode": "EHFD160S24",
       "netExGst": 841.36
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo Compact 160L Single 2.4kW Hard Water",
       "orderCode": "EHFD160S24H",
       "netExGst": 841.36
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo Compact 160L Single 3.6kW",
       "orderCode": "EHFD160S36",
       "netExGst": 841.36
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo Compact 160L Single 3.6kW Hard Water",
       "orderCode": "EHFD160S36H",
       "netExGst": 841.36
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 250L Single 2.4kW",
       "orderCode": "EHFA250S24",
       "netExGst": 968.76
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 250L Single 2.4kW Hard Water",
       "orderCode": "EHFA250S24H",
       "netExGst": 968.76
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 250L Single 3.6kW",
       "orderCode": "EHFA250S36",
       "netExGst": 968.76
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 250L Single 3.6kW Hard Water",
       "orderCode": "EHFA250S36H",
       "netExGst": 968.76
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 250L Single 4.8kW",
       "orderCode": "EHFA250S48",
       "netExGst": 968.76
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 250L Single 4.8kW Hard Water",
       "orderCode": "EHFA250S48H",
       "netExGst": 968.76
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 250L Twin 3.6kW",
       "orderCode": "EHFA250T36",
       "netExGst": 1073.89
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 250L Twin 3.6kW Hard Water",
       "orderCode": "EHFA250T36H",
       "netExGst": 1073.89
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 250L Twin 4.8kW",
       "orderCode": "EHFA250T48",
       "netExGst": 1073.89
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 250L Twin 4.8kW Hard Water",
       "orderCode": "EHFA250T48H",
       "netExGst": 1073.89
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 315L Single 2.4kW",
       "orderCode": "EHFA315S24",
       "netExGst": 1111.28
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 315L Single 2.4kW Hard Water",
       "orderCode": "EHFA315S24H",
       "netExGst": 1111.28
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 315L Single 3.6kW",
       "orderCode": "EHFA315S36",
       "netExGst": 1111.28
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 315L Single 3.6kW Hard Water",
       "orderCode": "EHFA315S36H",
       "netExGst": 1111.28
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 315L Single 4.8kW",
       "orderCode": "EHFA315S48",
       "netExGst": 1111.28
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 315L Single 4.8kW Hard Water",
       "orderCode": "EHFA315S48H",
       "netExGst": 1111.28
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 315L Twin 3.6kW",
       "orderCode": "EHFA315T36",
       "netExGst": 1272.69
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 315L Twin 3.6kW Hard Water",
       "orderCode": "EHFA315T36H",
       "netExGst": 1272.69
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 315L Twin 4.8kW",
       "orderCode": "EHFA315T48",
       "netExGst": 1272.69
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 315L Twin 4.8kW Hard Water",
       "orderCode": "EHFA315T48H",
       "netExGst": 1272.69
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 400L Single 3.6kW",
       "orderCode": "EHFA400S36",
       "netExGst": 1474.13
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 400L Single 3.6kW Hard Water",
       "orderCode": "EHFA400S36H",
       "netExGst": 1474.13
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 400L Single 4.8kW",
       "orderCode": "EHFA400S48",
       "netExGst": 1474.13
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 400L Single 4.8kW Hard Water",
       "orderCode": "EHFA400S48H",
       "netExGst": 1474.13
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 400L Twin 3.6kW",
       "orderCode": "EHFA400T36",
       "netExGst": 1590.88
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 400L Twin 3.6kW Hard Water",
       "orderCode": "EHFA400T36H",
       "netExGst": 1590.88
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric HotFlo 400L Twin 4.8kW",
       "orderCode": "EHFA400T48",
       "netExGst": 1590.88
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
+      "name": "Electric HotFlo 400L Twin 4.8kW Hard Water",
       "orderCode": "EHFA400T48H",
       "netExGst": 1590.88
     },
@@ -924,49 +924,49 @@
     },
     {
       "familyId": "storage",
-      "name": "4 Star Gas Tank 135 Lt",
+      "name": "Gas HotFlo 4 Star 135L Natural Gas",
       "orderCode": "GHF4135N",
       "netExGst": 1166.21
     },
     {
       "familyId": "storage",
-      "name": "4 Star Gas Tank 135 Lt",
+      "name": "Gas HotFlo 4 Star 135L LPG",
       "orderCode": "GHF4135L",
       "netExGst": 1166.21
     },
     {
       "familyId": "storage",
-      "name": "4 Star Gas Tank 135 Lt - Hard Water",
+      "name": "Gas HotFlo 4 Star 135L Natural Gas Hard Water",
       "orderCode": "GHF4135NH",
       "netExGst": 1166.21
     },
     {
       "familyId": "storage",
-      "name": "4 Star Gas Tank 135 Lt - Hard Water",
+      "name": "Gas HotFlo 4 Star 135L LPG Hard Water",
       "orderCode": "GHF4135LH",
       "netExGst": 1166.21
     },
     {
       "familyId": "storage",
-      "name": "4 Star Gas Tank 170 Lt",
+      "name": "Gas HotFlo 4 Star 170L Natural Gas",
       "orderCode": "GHF4170N",
       "netExGst": 1429.43
     },
     {
       "familyId": "storage",
-      "name": "4 Star Gas Tank 170 Lt",
+      "name": "Gas HotFlo 4 Star 170L LPG",
       "orderCode": "GHF4170L",
       "netExGst": 1429.43
     },
     {
       "familyId": "storage",
-      "name": "4 Star Gas Tank 170 Lt - Hard Water",
+      "name": "Gas HotFlo 4 Star 170L Natural Gas Hard Water",
       "orderCode": "GHF4170NH",
       "netExGst": 1429.43
     },
     {
       "familyId": "storage",
-      "name": "4 Star Gas Tank 170 Lt - Hard Water",
+      "name": "Gas HotFlo 4 Star 170L LPG Hard Water",
       "orderCode": "GHF4170LH",
       "netExGst": 1429.43
     },
