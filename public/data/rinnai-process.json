@@ -544,10 +544,7 @@
           "footnote": "These DOCX rows are the old office summary — prefer the Continuous Flow / Hotflo / Heat Pump PDF tables above for continuous flow, EHFA/EHFD, HFE and EHPA. Use this block for gas storage (GHF) and solar until a dedicated sheet is filed."
         }
       ],
-      "notes": [
-        "Source kit: Continuous Flow.pdf, Heat Pump.pdf, Hotflo - EFH.pdf, Hotflo - HFE.pdf, Warranty info.docx (MTC PROCESS / Rinnai stuff). No secrets copied.",
-        "Never invent cover from memory. If the claim is borderline (solar boosting, high-temperature commercial HD, frost, extended heat exchanger option not registered), check the current Rinnai warranty booklet before approving Warranty charge-type."
-      ],
+      "notes": [],
       "checker": {
         "heading": "Still unsure? - Try answering the following questions.",
         "disclaimer": "Desk aid only — not legal advice or Rinnai’s final say. Confirm against the tables above and the current booklet before setting Charge Type.",
