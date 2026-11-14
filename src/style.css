@@ -2644,7 +2644,12 @@ mark {
   background: #f0f4f9;
   font-weight: 650;
   color: var(--accent-ink);
-  white-space: nowrap;
+  white-space: normal;
+  min-width: 5.5rem;
+}
+
+.process-table td {
+  white-space: normal;
 }
 
 .process-table tr:last-child td {
@@ -2655,6 +2660,16 @@ mark {
   margin: 0.4rem 0 0;
   font-size: 0.78rem;
   line-height: 1.4;
+}
+
+ul.process-table-foot {
+  padding-left: 1.15rem;
+  display: grid;
+  gap: 0.28rem;
+}
+
+ul.process-table-foot li {
+  margin: 0;
 }
 
 .process-empty {

@@ -566,8 +566,17 @@ function renderProcessBody() {
               .join("")}</tr>`
         )
         .join("");
-      const foot = table.footnote
-        ? `<p class="process-table-foot muted">${escapeHtml(table.footnote)}</p>`
+      const footNotes = Array.isArray(table.footnote)
+        ? table.footnote.filter((f) => String(f || "").trim())
+        : table.footnote
+          ? [table.footnote]
+          : [];
+      const foot = footNotes.length
+        ? footNotes.length === 1
+          ? `<p class="process-table-foot muted">${escapeHtml(footNotes[0])}</p>`
+          : `<ul class="process-table-foot muted">${footNotes
+              .map((f) => `<li>${escapeHtml(f)}</li>`)
+              .join("")}</ul>`
         : "";
       return `<section class="process-table-block">
         <h3 class="process-table-title">${escapeHtml(table.title || "Table")}</h3>

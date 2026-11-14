@@ -196,65 +196,122 @@
     {
       "id": "warranty",
       "title": "Warranty periods",
-      "blurb": "Quick desk tables — CF / Hotflo / Heat Pump. Confirm against current handbook when unsure.",
+      "blurb": "Real HEX / parts / labour years from Cont. Flow, Hotflo, Heat Pump sheets + Warranty info.docx. Confirm booklet before promising cover.",
       "steps": [
         {
           "n": 1,
-          "text": "Decide Domestic vs Commercial use (domestic dwellings, or limited commercial lodging ≤70°C without bulk flow-and-return). Everything else is Commercial Use."
+          "text": "Classify Domestic vs Commercial Use before reading any row. Domestic Use = typical family usage: (1) heaters supplying domestic dwellings, or (2) lodging-style commercial (motel units, hotel rooms, caravans, mobile homes, nursing homes, retirement villages / care accommodation) only when max delivery ≤70°C, not a centralised bulk HW system, and no building flow-and-return. Everything else (cafes, caravan parks, sporting complexes, industrial / commercial buildings, bulk systems, etc.) is Commercial Use."
         },
         {
           "n": 2,
-          "text": "Match the product family below. HEX / cylinder years often differ from components and labour."
+          "text": "Match the product family table below. Heat exchanger / cylinder years often differ from other components; Parts and Labour are separate columns — do not collapse them into a single “same split” figure."
         },
         {
           "n": 3,
-          "text": "On the WO, Warranty charge-type only when the claim fits the table and Asset data is correct."
+          "text": "Read footnotes on the matching row (extended HEX options, dual controllers, solar exclusions, frost, high-temp HD preset). Then set WO Charge Type = Warranty only when the claim fits the table and Asset data (serial, model, install / manufacture date) is correct."
         }
       ],
       "tables": [
         {
-          "title": "Continuous flow / Infinity (gas CF)",
-          "headers": ["Product group", "Heat exchanger", "Other components", "Labour"],
+          "title": "Gas continuous flow & instantaneous (Cont. Flow sheet)",
+          "headers": ["Use", "Product group", "Heat exchanger (parts)", "All other components (parts)", "Labour"],
           "rows": [
-            ["Infinity models (domestic)", "12 yr (or extended 25 yr option)", "3 yr", "3 yr"],
-            ["Infinity Enviro (domestic)", "12 yr (or extended 25 yr option)", "3 yr", "3 yr"],
-            ["Builders models (domestic)", "10 yr (or extended 15 yr option)", "3 yr", "3 yr"],
-            ["HD / HDC (domestic)", "12 yr", "3 yr", "3 yr"],
-            ["Hotflo 10 instantaneous (domestic)", "10 yr", "3 yr", "3 yr"]
+            ["Domestic", "Infinity models (3)", "12 years or Extended 25 year option (1)", "3 years (2)", "3 years (2)"],
+            ["Domestic", "Infinity Enviro models (3)", "12 years or Extended 25 year option (1)", "3 years (2)", "3 years (2)"],
+            ["Domestic", "Builders models (3)", "10 years or Extended 15 year option (1)", "3 years (2)", "3 years (2)"],
+            ["Domestic", "HD models (3)", "12 years", "5 years", "5 years"],
+            ["Domestic", "Flowmaster 10 Instantaneous (3)(5)", "10 years", "3 years", "3 years"],
+            ["Commercial", "Infinity models (3)", "1 year", "1 year", "1 year"],
+            ["Commercial", "Infinity Enviro models (3)", "1 year", "1 year", "1 year"],
+            ["Commercial", "HD models (3)", "5 years (6)", "3 years (6)", "3 years (6)"],
+            ["Commercial", "Flowmaster 10 Instantaneous (3)(5)", "1 year", "1 year", "1 year"]
           ],
-          "footnote": "Desk extract from MTC warranty sheets — confirm extended options and commercial periods in the current Rinnai booklet before promising cover."
-        },
-        {
-          "title": "Hotflo electric storage — EHFA / EHFD",
-          "headers": ["Use", "Cylinder parts", "Components", "Labour (cyl / comps)"],
-          "rows": [
-            ["Domestic", "10 yr", "1 yr", "3 yr / 1 yr"],
-            ["Commercial", "1 yr", "1 yr", "1 yr / 1 yr"]
-          ],
-          "footnote": "Components: sensors, thermostats, valves, elements, anodes where fitted."
-        },
-        {
-          "title": "Hotflo electric storage — HFE",
-          "headers": ["Size band", "Use", "Cylinder parts", "Components", "Labour (cyl / comps)"],
-          "rows": [
-            ["80–400 L", "Domestic", "10 yr", "1 yr", "3 yr / 1 yr"],
-            ["80–400 L", "Commercial", "1 yr", "1 yr", "1 yr / 1 yr"],
-            ["25 L & 50 L", "Domestic", "7 yr", "1 yr", "3 yr / 1 yr"],
-            ["25 L & 50 L", "Commercial", "1 yr", "1 yr", "1 yr / 1 yr"]
+          "footnote": [
+            "(1) Extended Warranty Option — see Rinnai terms & conditions (not automatic).",
+            "(2) Five years on components and labour if two or more controllers are installed in domestic applications.",
+            "(3) Unsuitable for solar HW applications — failure/service in solar install is not covered, except HD models on Rinnai Demand Duo commercial solar boosting, or models converted by Rinnai specifically for Rinnai solar systems.",
+            "(5) Flowmaster 10: do not install where temperature stays below 0°C for extended periods. Frost failures are not covered.",
+            "(6) HD commercial: drops to 1 year on heat exchanger including parts and labour when pre-set to 85°C or 95°C.",
+            "Warranty info.docx also lists Hotflo 10 Instantaneous at 10 / 3 / 3 (domestic) — treat as the same instantaneous band as Flowmaster 10 unless the current booklet says otherwise. HDC follows the HD row on this Cont. Flow extract."
           ]
         },
         {
-          "title": "Heat pump — Enviroflo (EHPA)",
-          "headers": ["Use", "Cylinder parts", "Compressor parts", "Components parts", "Labour (cyl / comp / comps)"],
+          "title": "CF accessories (Cont. Flow sheet)",
+          "headers": ["Use", "Accessory", "Parts", "Labour"],
           "rows": [
-            ["Domestic", "5 yr", "3 yr", "1 yr", "3 yr / 1 yr / 1 yr"],
-            ["Commercial", "1 yr", "1 yr", "1 yr", "1 yr / 1 yr / 1 yr"]
+            ["Domestic", "SmartStart Water Saver (REU-CUG1)", "3 years", "3 years"],
+            ["Domestic", "Water controllers", "3 years (2)", "3 years (2)"],
+            ["Domestic", "All other accessories (4)", "1 year", "1 year"],
+            ["Commercial", "SmartStart Water Saver (REU-CUG1)", "1 year", "1 year"],
+            ["Commercial", "Water controllers", "1 year", "1 year"],
+            ["Commercial", "All other accessories (4)", "1 year", "1 year"]
           ],
-          "footnote": "Components include sensors, thermostats, valves, elements, anodes, and refrigeration parts excluding the compressor."
+          "footnote": [
+            "(2) Domestic controllers: five years if two or more are installed.",
+            "(4) Accessories include pipe covers, recess boxes, security brackets, flue diverters and coaxial flueing."
+          ]
+        },
+        {
+          "title": "Hotflo electric storage — EHFA / EHFD (Hotflo - EFH sheet)",
+          "headers": ["Use", "Coverage", "Cylinder", "Components (1)"],
+          "rows": [
+            ["Domestic", "Parts", "10 years", "1 year"],
+            ["Domestic", "Labour", "3 years", "1 year"],
+            ["Commercial", "Parts", "1 year", "1 year"],
+            ["Commercial", "Labour", "1 year", "1 year"]
+          ],
+          "footnote": "(1) Components include sensors, thermostats, valves, electric heating elements & anodes where applicable. Warranty info.docx lists EHFS & EHFD Hotflo with the same 10-year cylinder / 1-year components pattern (domestic)."
+        },
+        {
+          "title": "Hotflo electric storage — HFE 80–400 L (Hotflo - HFE sheet)",
+          "headers": ["Use", "Coverage", "Cylinder", "Components (1)"],
+          "rows": [
+            ["Domestic", "Parts", "10 years", "1 year"],
+            ["Domestic", "Labour", "3 years", "1 year"],
+            ["Commercial", "Parts", "1 year", "1 year"],
+            ["Commercial", "Labour", "1 year", "1 year"]
+          ],
+          "footnote": "Sizes on the sheet: 80 L, 125 L, 160 L, 250 L, 315 L & 400 L. (1) Components = sensors, thermostats, valves, elements and anodes where applicable."
+        },
+        {
+          "title": "Hotflo electric storage — HFE 25 L & 50 L (Hotflo - HFE sheet)",
+          "headers": ["Use", "Coverage", "Cylinder", "Components (1)"],
+          "rows": [
+            ["Domestic", "Parts", "7 years", "1 year"],
+            ["Domestic", "Labour", "3 years", "1 year"],
+            ["Commercial", "Parts", "1 year", "1 year"],
+            ["Commercial", "Labour", "1 year", "1 year"]
+          ],
+          "footnote": "(1) Components = sensors, thermostats, valves, elements and anodes where applicable."
+        },
+        {
+          "title": "Heat pump — Enviroflo EHPA (Heat Pump sheet)",
+          "headers": ["Use", "Coverage", "Cylinder", "Compressor", "Components (1)"],
+          "rows": [
+            ["Domestic", "Parts", "5 years", "3 years", "1 year"],
+            ["Domestic", "Labour", "3 years", "1 year", "1 year"],
+            ["Commercial", "Parts", "1 year", "1 year", "1 year"],
+            ["Commercial", "Labour", "1 year", "1 year", "1 year"]
+          ],
+          "footnote": "(1) Components include sensors, thermostats, valves, electric heating elements, anodes, and all refrigeration components excluding the compressor."
+        },
+        {
+          "title": "Other lines — Warranty info.docx desk sheet",
+          "headers": ["Product", "Parts (summary)", "Labour (summary)", "Cylinder / replacement / notes"],
+          "rows": [
+            ["Gas storage GHF4135N – GHF4170N", "1 year", "1 year", "8 years replacement"],
+            ["Electric storage HFE (summary row)", "1 year (components band)", "1 year components / 3 years replacement labour", "10 years replacement"],
+            ["EHFS & EHFD Hotflo (summary row)", "1 year (components band)", "1 year components / 3 years replacement labour", "10 years replacement"],
+            ["Heat pump EHPA (summary row)", "1 year (components band)", "1 year components / 3 years replacement & compressor labour", "5 years replacement"],
+            ["Solar cont. flow S20 & S26", "3 years parts / 12 years heat exchanger", "3 years (parts and HEX)", "See current solar booklet"],
+            ["Solar storage cylinders", "1 year (components band)", "1 year components / 3 years replacement labour", "Ground VE glass 10 yr; roof VE glass 5 yr; stainless 10 yr"]
+          ],
+          "footnote": "These DOCX rows are the old office summary — prefer the Cont. Flow / Hotflo / Heat Pump PDF tables above for CF, EHFA/EHFD, HFE and EHPA. Use this block for GHF and solar until a dedicated sheet is filed."
         }
       ],
       "notes": [
-        "Other storage lines on the old desk sheet (GHF gas storage, solar cylinders, S20/S26 cont. flow solar) — check the current handbook; do not invent cover from memory."
+        "Source kit: Cont. Flow.pdf, Heat Pump.pdf, Hotflo - EFH.pdf, Hotflo - HFE.pdf, Warranty info.docx (MTC PROCESS / Rinnai stuff). No secrets copied.",
+        "Never invent cover from memory. If the claim is borderline (solar boosting, high-temp commercial HD, frost, extended HEX option not registered), check the current Rinnai warranty booklet before approving Warranty charge-type."
       ]
     },
     {
