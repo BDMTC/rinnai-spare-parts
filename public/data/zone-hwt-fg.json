@@ -32,17 +32,17 @@
     {
       "id": "hp-split",
       "label": "Heat pump (split)",
-      "count": 20
+      "count": 22
     },
     {
       "id": "solar",
       "label": "Solar components",
-      "count": 80
+      "count": 101
     },
     {
       "id": "commercial",
       "label": "Commercial / Demand Duo",
-      "count": 288
+      "count": 289
     }
   ],
   "items": [
@@ -582,7 +582,7 @@
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHF25S36H",
       "netExGst": 462.05
     },
@@ -612,7 +612,7 @@
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHF50S36H",
       "netExGst": 487.72
     },
@@ -630,7 +630,7 @@
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHF80S24H",
       "netExGst": 757.88
     },
@@ -642,7 +642,7 @@
     },
     {
       "familyId": "storage",
-      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHF80S36H",
       "netExGst": 757.88
     },
@@ -660,7 +660,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHF125S24H",
       "netExGst": 705.91
     },
@@ -672,7 +672,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHF125S36H",
       "netExGst": 705.91
     },
@@ -684,7 +684,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA160S18H",
       "netExGst": 841.36
     },
@@ -696,7 +696,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA160S24H",
       "netExGst": 841.36
     },
@@ -708,7 +708,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA160S36H",
       "netExGst": 841.36
     },
@@ -720,7 +720,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA160T36H",
       "netExGst": 1002.23
     },
@@ -732,7 +732,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFD160S24H",
       "netExGst": 841.36
     },
@@ -744,7 +744,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFD160S36H",
       "netExGst": 841.36
     },
@@ -756,7 +756,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA250S24H",
       "netExGst": 968.76
     },
@@ -768,7 +768,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA250S36H",
       "netExGst": 968.76
     },
@@ -780,7 +780,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA250S48H",
       "netExGst": 968.76
     },
@@ -792,7 +792,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA250T36H",
       "netExGst": 1073.89
     },
@@ -804,7 +804,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA250T48H",
       "netExGst": 1073.89
     },
@@ -816,7 +816,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA315S24H",
       "netExGst": 1111.28
     },
@@ -828,7 +828,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA315S36H",
       "netExGst": 1111.28
     },
@@ -840,7 +840,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA315S48H",
       "netExGst": 1111.28
     },
@@ -852,7 +852,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA315T36H",
       "netExGst": 1272.69
     },
@@ -864,7 +864,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA315T48H",
       "netExGst": 1272.69
     },
@@ -876,7 +876,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA400S36H",
       "netExGst": 1474.13
     },
@@ -888,7 +888,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA400S48H",
       "netExGst": 1474.13
     },
@@ -900,7 +900,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA400T36H",
       "netExGst": 1590.88
     },
@@ -912,7 +912,7 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "HOTFLO - Vitreous Enamel \u2014 Hard Water",
       "orderCode": "EHFA400T48H",
       "netExGst": 1590.88
     },
@@ -1056,7 +1056,7 @@
     },
     {
       "familyId": "hp-split",
-      "name": "Tank for Split Elec Heat Pump \u2014 250L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 250L Vitreous Enamel with element \u2014 Hard Water",
       "orderCode": "HPTB250VM24H",
       "netExGst": 1564.06
     },
@@ -1068,7 +1068,7 @@
     },
     {
       "familyId": "hp-split",
-      "name": "Tank for Split Elec Heat Pump \u2014 315L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 315L Vitreous Enamel with element \u2014 Hard Water",
       "orderCode": "HPTB315VM24H",
       "netExGst": 1765.3
     },
@@ -1080,7 +1080,7 @@
     },
     {
       "familyId": "hp-split",
-      "name": "Tank for Split Elec Heat Pump \u2014 400L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 400L Vitreous Enamel with element \u2014 Hard Water",
       "orderCode": "HPTB400VM24H",
       "netExGst": 2341.87
     },
@@ -1092,7 +1092,7 @@
     },
     {
       "familyId": "hp-split",
-      "name": "Tank for Split Elec Heat Pump \u2014 250L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 250L Vitreous Enamel with element \u2014 Hard Water",
       "orderCode": "HPTS250VM24H",
       "netExGst": 1634.26
     },
@@ -1104,7 +1104,7 @@
     },
     {
       "familyId": "hp-split",
-      "name": "Tank for Split Elec Heat Pump \u2014 315L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 315L Vitreous Enamel with element \u2014 Hard Water",
       "orderCode": "HPTS315VM24H",
       "netExGst": 1835.5
     },
@@ -1116,7 +1116,7 @@
     },
     {
       "familyId": "hp-split",
-      "name": "SHPL70 + 250L Tank Vitreous Enamel with element HW",
+      "name": "SHPL70 + 250L Tank Vitreous Enamel with element \u2014 Hard Water",
       "orderCode": "KSHP250M24L70H",
       "netExGst": 5074.06
     },
@@ -1128,7 +1128,7 @@
     },
     {
       "familyId": "hp-split",
-      "name": "SHPL70 + 315L Tank Vitreous Enamel with element HW",
+      "name": "SHPL70 + 315L Tank Vitreous Enamel with element \u2014 Hard Water",
       "orderCode": "KSHP315M24L70H",
       "netExGst": 5275.3
     },
@@ -1140,7 +1140,7 @@
     },
     {
       "familyId": "hp-split",
-      "name": "SHPL70 + 400L Tank Vitreous Enamel with element HW",
+      "name": "SHPL70 + 400L Tank Vitreous Enamel with element \u2014 Hard Water",
       "orderCode": "KSHP400M24L70H",
       "netExGst": 5851.87
     },
@@ -1152,7 +1152,19 @@
     },
     {
       "familyId": "hp-split",
+      "name": "SHPR50 + 250L Tank Vitreous Enamel with element \u2014 Hard Water",
+      "orderCode": "KSHP250M24R50",
+      "netExGst": 4442.26
+    },
+    {
+      "familyId": "hp-split",
       "name": "SHPR50 + 315L Tank Vitreous Enamel with element",
+      "orderCode": "KSHP315M24R50",
+      "netExGst": 4643.5
+    },
+    {
+      "familyId": "hp-split",
+      "name": "SHPR50 + 315L Tank Vitreous Enamel with element \u2014 Hard Water",
       "orderCode": "KSHP315M24R50",
       "netExGst": 4643.5
     },
@@ -1464,6 +1476,24 @@
     },
     {
       "familyId": "solar",
+      "name": "20 Tube R5 type collector assembly (complete with header, bottom rail support frame)",
+      "orderCode": "KEVT20A",
+      "netExGst": 3088.96
+    },
+    {
+      "familyId": "solar",
+      "name": "25 Tube R5 type collector assembly (complete with header, bottom rail support frame)",
+      "orderCode": "KEVT25A",
+      "netExGst": 3698.61
+    },
+    {
+      "familyId": "solar",
+      "name": "30 Tube R5 type collector assembly (complete with header, bottom rail support frame)",
+      "orderCode": "KEVT30A",
+      "netExGst": 4308.3
+    },
+    {
+      "familyId": "solar",
       "name": "180 Litre S/Steel - 1 collector (Excelsior SP200BEX and Enduro SP200B)",
       "orderCode": "BIKS180CCT01C",
       "netExGst": 520.25
@@ -1479,6 +1509,114 @@
       "name": "Universal close coupled installation kit suits 330 Litre S/Steel - 3 collectors or 180 Litre S/Steel - 2 collectors (Excelsior SP200BEX and Enduro SP200B)",
       "orderCode": "BIKSUNICCT23C",
       "netExGst": 609.65
+    },
+    {
+      "familyId": "solar",
+      "name": "Pitched roof installation rails for a 20 tube system",
+      "orderCode": "EVTPIT20R5A",
+      "netExGst": 190.76
+    },
+    {
+      "familyId": "solar",
+      "name": "Pitched roof installation rails for a 25 tube system",
+      "orderCode": "EVTPIT25R5A",
+      "netExGst": 196.72
+    },
+    {
+      "familyId": "solar",
+      "name": "Pitched roof installation rails for a 30 tube system",
+      "orderCode": "EVTPIT30R5A",
+      "netExGst": 202.67
+    },
+    {
+      "familyId": "solar",
+      "name": "Plumbing fittings kit complete with hot sensor lead",
+      "orderCode": "IKEVTR5A",
+      "netExGst": 138.21
+    },
+    {
+      "familyId": "solar",
+      "name": "Tiled roof installation kit complete with under tile mounting hooks - Stainless Steel",
+      "orderCode": "EVTRFBRKTSS",
+      "netExGst": 118.76
+    },
+    {
+      "familyId": "solar",
+      "name": "Universal Pump Kit with standard controller (All Prestige Elec and Gas)",
+      "orderCode": "USKIT1C",
+      "netExGst": 1390.01
+    },
+    {
+      "familyId": "solar",
+      "name": "S20 - 20 Litre External - RUN OUT",
+      "orderCode": "S20L70",
+      "netExGst": 1365.63
+    },
+    {
+      "familyId": "solar",
+      "name": "S20 - 20 Litre External - RUN OUT",
+      "orderCode": "S20N70",
+      "netExGst": 1365.63
+    },
+    {
+      "familyId": "solar",
+      "name": "S26 - 26 Litre External - RUN OUT",
+      "orderCode": "S26L70",
+      "netExGst": 1967.19
+    },
+    {
+      "familyId": "solar",
+      "name": "S26 - 26 Litre External - RUN OUT",
+      "orderCode": "S26N70",
+      "netExGst": 1967.19
+    },
+    {
+      "familyId": "solar",
+      "name": "Infinity S20 - 20 Litre External - NEW",
+      "orderCode": "S20L70B",
+      "netExGst": 1365.63
+    },
+    {
+      "familyId": "solar",
+      "name": "Infinity S20 - 20 Litre External - NEW",
+      "orderCode": "S20N70B",
+      "netExGst": 1365.63
+    },
+    {
+      "familyId": "solar",
+      "name": "Infinity S26 - 26 Litre External - NEW",
+      "orderCode": "S26L70B",
+      "netExGst": 1967.19
+    },
+    {
+      "familyId": "solar",
+      "name": "Infinity S26 - 26 Litre External - NEW",
+      "orderCode": "S26N70B",
+      "netExGst": 1967.19
+    },
+    {
+      "familyId": "solar",
+      "name": "S28i - 28 Litre Internal (Made to Order#)",
+      "orderCode": "S28IL70",
+      "netExGst": 3603.43
+    },
+    {
+      "familyId": "solar",
+      "name": "S28i - 28 Litre Internal (Made to Order#)",
+      "orderCode": "S28IN70",
+      "netExGst": 3603.43
+    },
+    {
+      "familyId": "solar",
+      "name": "S32 - 32 Litre External (Made to Order#)",
+      "orderCode": "S32L70AM",
+      "netExGst": 3235.27
+    },
+    {
+      "familyId": "solar",
+      "name": "S32 - 32 Litre External (Made to Order#)",
+      "orderCode": "S32N70AM",
+      "netExGst": 3235.27
     },
     {
       "familyId": "solar",
@@ -2791,6 +2929,12 @@
     {
       "familyId": "commercial",
       "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL528E315N/L-50",
+      "netExGst": 23662.78
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDPL628I315N/L-50",
       "netExGst": 26378.74
     },
@@ -2856,7 +3000,7 @@
     },
     {
       "familyId": "commercial",
-      "name": "40kW Horizontal discharge Heat Pump with 32mm inlet / outlet ports",
+      "name": "40kW Horizontal discharge Heat Pump with 32mm inlet / outlet ports \u2014 Hard Water",
       "orderCode": "CHP040H",
       "netExGst": 27556.62
     },
@@ -3365,174 +3509,5 @@
       "netExGst": 82.56
     }
   ],
-  "ingestLowConfidence": [
-    {
-      "sheet": "Split Heat Pumps",
-      "row": 45,
-      "col": 2,
-      "cell": "KSHP250M24R50",
-      "reason": "Duplicate ORDER CODE (also row 44). Skipped second row for ship; name was 'SHPR50 + 250L Tank Vitreous Enamel with element HW'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Split Heat Pumps",
-      "row": 47,
-      "col": 2,
-      "cell": "KSHP315M24R50",
-      "reason": "Duplicate ORDER CODE (also row 46). Skipped second row for ship; name was 'SHPR50 + 315L Tank Vitreous Enamel with element HW'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 90,
-      "col": 2,
-      "cell": "KEVT20A",
-      "reason": "Duplicate ORDER CODE (also row 19). Skipped second row for ship; name was '20 Tube R5 type collector assembly (complete with header, bottom rail support frame)'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 91,
-      "col": 2,
-      "cell": "KEVT25A",
-      "reason": "Duplicate ORDER CODE (also row 20). Skipped second row for ship; name was '25 Tube R5 type collector assembly (complete with header, bottom rail support frame)'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 92,
-      "col": 2,
-      "cell": "KEVT30A",
-      "reason": "Duplicate ORDER CODE (also row 21). Skipped second row for ship; name was '30 Tube R5 type collector assembly (complete with header, bottom rail support frame)'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 99,
-      "col": 2,
-      "cell": "EVTPIT20R5A",
-      "reason": "Duplicate ORDER CODE (also row 34). Skipped second row for ship; name was 'Pitched roof installation rails for a 20 tube system'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 100,
-      "col": 2,
-      "cell": "EVTPIT25R5A",
-      "reason": "Duplicate ORDER CODE (also row 35). Skipped second row for ship; name was 'Pitched roof installation rails for a 25 tube system'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 101,
-      "col": 2,
-      "cell": "EVTPIT30R5A",
-      "reason": "Duplicate ORDER CODE (also row 36). Skipped second row for ship; name was 'Pitched roof installation rails for a 30 tube system'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 102,
-      "col": 2,
-      "cell": "IKEVTR5A",
-      "reason": "Duplicate ORDER CODE (also row 37). Skipped second row for ship; name was 'Plumbing fittings kit complete with hot sensor lead'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 103,
-      "col": 2,
-      "cell": "EVTRFBRKTSS",
-      "reason": "Duplicate ORDER CODE (also row 38). Skipped second row for ship; name was 'Tiled roof installation kit complete with under tile mounting hooks - Stainless Steel'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 106,
-      "col": 2,
-      "cell": "USKIT1C",
-      "reason": "Duplicate ORDER CODE (also row 81). Skipped second row for ship; name was 'Universal Pump Kit with standard controller (All Prestige Elec and Gas)'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 108,
-      "col": 2,
-      "cell": "S20L70",
-      "reason": "Duplicate ORDER CODE (also row 41). Skipped second row for ship; name was 'S20 - 20 Litre External - RUN OUT'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 109,
-      "col": 2,
-      "cell": "S20N70",
-      "reason": "Duplicate ORDER CODE (also row 42). Skipped second row for ship; name was 'S20 - 20 Litre External - RUN OUT'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 110,
-      "col": 2,
-      "cell": "S26L70",
-      "reason": "Duplicate ORDER CODE (also row 43). Skipped second row for ship; name was 'S26 - 26 Litre External - RUN OUT'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 111,
-      "col": 2,
-      "cell": "S26N70",
-      "reason": "Duplicate ORDER CODE (also row 44). Skipped second row for ship; name was 'S26 - 26 Litre External - RUN OUT'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 112,
-      "col": 2,
-      "cell": "S20L70B",
-      "reason": "Duplicate ORDER CODE (also row 45). Skipped second row for ship; name was 'Infinity S20 - 20 Litre External - NEW'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 113,
-      "col": 2,
-      "cell": "S20N70B",
-      "reason": "Duplicate ORDER CODE (also row 46). Skipped second row for ship; name was 'Infinity S20 - 20 Litre External - NEW'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 114,
-      "col": 2,
-      "cell": "S26L70B",
-      "reason": "Duplicate ORDER CODE (also row 47). Skipped second row for ship; name was 'Infinity S26 - 26 Litre External - NEW'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 115,
-      "col": 2,
-      "cell": "S26N70B",
-      "reason": "Duplicate ORDER CODE (also row 48). Skipped second row for ship; name was 'Infinity S26 - 26 Litre External - NEW'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 116,
-      "col": 2,
-      "cell": "S28IL70",
-      "reason": "Duplicate ORDER CODE (also row 49). Skipped second row for ship; name was 'S28i - 28 Litre Internal (Made to Order#)'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 117,
-      "col": 2,
-      "cell": "S28IN70",
-      "reason": "Duplicate ORDER CODE (also row 50). Skipped second row for ship; name was 'S28i - 28 Litre Internal (Made to Order#)'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 118,
-      "col": 2,
-      "cell": "S32L70AM",
-      "reason": "Duplicate ORDER CODE (also row 51). Skipped second row for ship; name was 'S32 - 32 Litre External (Made to Order#)'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Solar Pricing",
-      "row": 119,
-      "col": 2,
-      "cell": "S32N70AM",
-      "reason": "Duplicate ORDER CODE (also row 52). Skipped second row for ship; name was 'S32 - 32 Litre External (Made to Order#)'. Confirm: distinct code needed, or intentional re-list?"
-    },
-    {
-      "sheet": "Commercial HW",
-      "row": 237,
-      "col": 2,
-      "cell": "DDPL528E315N/L-50",
-      "reason": "Duplicate ORDER CODE (also row 231). Skipped second row for ship; name was \"Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG\". Confirm: distinct code needed, or intentional re-list?"
-    }
-  ]
+  "ingestLowConfidence": []
 }

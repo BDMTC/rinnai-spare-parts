@@ -108,18 +108,31 @@ def humanize_section(s):
         out = " ".join(parts)
     return out
 
-def compose_name(section, product):
+def expand_hard_water(name, order_code=""):
+    """HW = Hard Water (extra durable tank for hard-water SEQ)."""
+    name = norm(name)
+    dash = "\\u2014"
+    # Trailing workbook marker " HW"
+    name = re.sub(r"\\s+HW\\s*$", f" {dash} Hard Water", name, flags=re.I)
+    # Order codes like …24H / …L70H mark Hard Water when the name omitted HW
+    if order_code and re.search(r"[0-9]H$", order_code) and "hard water" not in name.lower():
+        name = f"{name} {dash} Hard Water"
+    return norm(name)
+
+def compose_name(section, product, order_code=""):
     product = norm(product)
     section_h = humanize_section(section) if section else ""
     if not product:
-        return section_h or ""
+        return expand_hard_water(section_h or "", order_code)
     short = bool(re.match(r"^\\d{2,4}\\s*L\\b", product, re.I)) or (
         len(product) < 48 and section and "TANK" in section.upper()
     )
     dash = "\\u2014"
     if section_h and short and section_h.upper() not in product.upper():
-        return f"{section_h} {dash} {product}"
-    return product
+        base = f"{section_h} {dash} {product}"
+    else:
+        base = product
+    return expand_hard_water(base, order_code)
 
 low_conf = []
 families_out = []
@@ -133,8 +146,7 @@ for fid, flabel, sheet_name in FAMILIES:
     cols = None
     section = ""
     last_net = None
-    last_name = ""
-    seen_codes = {}
+    last_raw_name = ""
     for r in range(1, ws.max_row + 1):
         row_vals = [ws.cell(r, c).value for c in range(1, min(ws.max_column, 16) + 1)]
         if all(v is None or str(v).strip() == "" for v in row_vals):
@@ -142,7 +154,7 @@ for fid, flabel, sheet_name in FAMILIES:
         if is_section_title(ws, r, row_vals):
             section = clean_section(row_vals[0])
             last_net = None
-            last_name = ""
+            last_raw_name = ""
             continue
         if looks_like_header(row_vals):
             cols = header_map(row_vals)
@@ -170,7 +182,7 @@ for fid, flabel, sheet_name in FAMILIES:
         name_i = cols.get("name", 0)
         raw_name = row_vals[name_i] if name_i < len(row_vals) else None
         if raw_name not in (None, ""):
-            last_name = compose_name(section, raw_name)
+            last_raw_name = norm(raw_name)
 
         net_i = cols["netEx"]
         net_v = row_vals[net_i] if net_i < len(row_vals) else None
@@ -193,22 +205,8 @@ for fid, flabel, sheet_name in FAMILIES:
         else:
             continue
 
-        display = last_name or compose_name(section, code)
-        if code in seen_codes:
-            prev = seen_codes[code]
-            low_conf.append({
-                "sheet": sheet_name,
-                "row": r,
-                "col": cols["code"] + 1,
-                "cell": code,
-                "reason": (
-                    f"Duplicate ORDER CODE (also row {prev['row']}). "
-                    f"Skipped second row for ship; name was {display!r}. "
-                    "Confirm: distinct code needed, or intentional re-list?"
-                ),
-            })
-            continue
-        seen_codes[code] = {"row": r, "name": display}
+        # Keep BOTH rows when order codes duplicate (e.g. SHPR50 Hard Water kits).
+        display = compose_name(section, last_raw_name or code, code)
 
         items.append({
             "familyId": fid,
