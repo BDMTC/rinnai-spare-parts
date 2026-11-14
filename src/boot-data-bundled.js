@@ -10,6 +10,7 @@ import trade from "../public/data/trade-aliases.json";
 import abbrevs from "../public/data/part-name-abbreviations.json";
 import assemblyHierarchy from "../public/data/assembly-hierarchy.json";
 import partBlurbs from "../public/data/part-blurbs.json";
+import processDoc from "../public/data/rinnai-process.json";
 
 export function loadBundledBootData() {
   return {
@@ -21,5 +22,6 @@ export function loadBundledBootData() {
     abbrevs,
     assemblyHierarchy,
     partBlurbs,
+    processDoc,
   };
 }
