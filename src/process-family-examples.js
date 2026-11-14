@@ -1,6 +1,6 @@
 /**
- * Warranty-checker family example slides (Basic + Detailed).
- * Prefer offline public/ catalogue shots; fall back to Bible series unit shots.
+ * Warranty-checker family example packs (Basic + Detailed).
+ * Each ⓘ opens one family; Next/Prev only walk shots inside that family.
  */
 import { publicUrl } from "./boot-data.js";
 import { seriesUnitShotUrl } from "./series-unit-shots.js";
@@ -14,11 +14,18 @@ import { seriesUnitShotUrl } from "./series-unit-shots.js";
  *   publicFiles?: string[],
  *   seriesIds?: string[],
  *   collage?: boolean,
- * }} FamilyExampleSlide
+ * }} FamilyExamplePack
+ *
+ * @typedef {{
+ *   kind: "image" | "collage",
+ *   src?: string,
+ *   label?: string,
+ *   images?: { src: string, label: string, caption: string }[],
+ * }} FamilyExamplePage
  */
 
-/** @type {FamilyExampleSlide[]} */
-export const PROCESS_FAMILY_EXAMPLE_SLIDES = [
+/** @type {FamilyExamplePack[]} */
+export const PROCESS_FAMILY_EXAMPLE_PACKS = [
   {
     id: "cf",
     title: "Gas continuous flow",
@@ -88,19 +95,19 @@ function publicExampleUrl(fileName) {
 }
 
 /**
- * @param {FamilyExampleSlide} slide
+ * @param {FamilyExamplePack} pack
  * @returns {{ src: string, label: string }[]}
  */
-export function familyExampleImages(slide) {
+function packImages(pack) {
   /** @type {{ src: string, label: string }[]} */
   const out = [];
-  for (const file of slide.publicFiles || []) {
+  for (const file of pack.publicFiles || []) {
     out.push({
       src: publicExampleUrl(file),
       label: file.replace(/\.[^.]+$/, "").replace(/-/g, " "),
     });
   }
-  for (const id of slide.seriesIds || []) {
+  for (const id of pack.seriesIds || []) {
     const src = seriesUnitShotUrl(id);
     if (!src) continue;
     out.push({ src, label: id });
@@ -109,11 +116,35 @@ export function familyExampleImages(slide) {
 }
 
 /**
- * @param {string|null|undefined} startId
- * @returns {number}
+ * @param {string|null|undefined} familyId
+ * @returns {FamilyExamplePack}
  */
-export function familyExampleSlideIndex(startId) {
-  if (!startId) return 0;
-  const i = PROCESS_FAMILY_EXAMPLE_SLIDES.findIndex((s) => s.id === startId);
-  return i >= 0 ? i : 0;
+export function getFamilyExamplePack(familyId) {
+  const hit = PROCESS_FAMILY_EXAMPLE_PACKS.find((p) => p.id === familyId);
+  return hit || PROCESS_FAMILY_EXAMPLE_PACKS[0];
+}
+
+/**
+ * Pages for one family only (Next/Prev stay inside this list).
+ * @param {FamilyExamplePack} pack
+ * @returns {FamilyExamplePage[]}
+ */
+export function familyExamplePages(pack) {
+  const images = packImages(pack);
+  if (pack.collage && images.length >= 2) {
+    return [
+      {
+        kind: "collage",
+        images: [
+          { src: images[0].src, label: images[0].label, caption: "Storage tank" },
+          { src: images[1].src, label: images[1].label, caption: "Continuous flow" },
+        ],
+      },
+    ];
+  }
+  return images.map((img) => ({
+    kind: "image",
+    src: img.src,
+    label: img.label,
+  }));
 }

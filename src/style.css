@@ -2810,17 +2810,6 @@ ul.process-table-foot li {
   font-weight: 650;
 }
 
-.process-checker-answer-layout {
-  display: grid;
-  gap: 0.55rem;
-}
-
-.process-checker-answer-layout--with-examples {
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: start;
-  gap: 0.65rem;
-}
-
 .process-checker-choices {
   display: grid;
   gap: 0.4rem;
@@ -2882,45 +2871,6 @@ ul.process-table-foot li {
   background: var(--accent-soft);
 }
 
-.process-checker-examples-rail {
-  display: grid;
-  align-content: start;
-}
-
-.process-checker-examples-open {
-  display: grid;
-  justify-items: center;
-  gap: 0.25rem;
-  margin: 0;
-  padding: 0.55rem 0.45rem;
-  min-width: 3.6rem;
-  min-height: 3.1rem;
-  border: 1px dashed var(--line);
-  border-radius: 10px;
-  background: #fff;
-  color: var(--accent-ink);
-  font: inherit;
-  cursor: pointer;
-  transition: border-color 140ms ease, background 140ms ease;
-}
-
-.process-checker-examples-open:hover {
-  border-color: var(--accent-ink);
-  background: var(--accent-soft);
-}
-
-.process-checker-examples-glyph {
-  font-size: 1.05rem;
-  line-height: 1;
-}
-
-.process-checker-examples-label {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  text-transform: uppercase;
-}
-
 .process-example-dialog {
   width: min(720px, calc(100vw - 1.5rem));
   max-height: min(92vh, 860px);
@@ -2976,6 +2926,11 @@ ul.process-table-foot li {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
   gap: 0.55rem;
+}
+
+.process-example-shots--single {
+  grid-template-columns: minmax(0, 22rem);
+  justify-content: center;
 }
 
 .process-example-shot {
@@ -3999,23 +3954,6 @@ ul.process-table-foot li {
 
   .process-chooser-actions {
     grid-template-columns: 1fr;
-  }
-
-  .process-checker-answer-layout--with-examples {
-    grid-template-columns: 1fr;
-  }
-
-  .process-checker-examples-rail {
-    order: -1;
-  }
-
-  .process-checker-examples-open {
-    width: 100%;
-    grid-auto-flow: column;
-    justify-content: center;
-    align-items: center;
-    gap: 0.45rem;
-    min-height: 2.6rem;
   }
 
   .process-example-collage {

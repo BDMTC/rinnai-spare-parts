@@ -10,9 +10,8 @@ import tipHomeLogoUrl from "./assets/help/tip-home-logo.svg?inline";
 import tipQuoteUrl from "./assets/help/tip-quote.svg?inline";
 import { seriesUnitShotUrl } from "./series-unit-shots.js";
 import {
-  PROCESS_FAMILY_EXAMPLE_SLIDES,
-  familyExampleImages,
-  familyExampleSlideIndex,
+  getFamilyExamplePack,
+  familyExamplePages,
 } from "./process-family-examples.js";
 import {
   resolvePartDiagram,
@@ -158,8 +157,9 @@ let processViewMode = "chooser";
 const PROCESS_LEVEL_STORAGE_KEY = "rsp-process-instruction-level";
 /** @type {{ topicId: string, nodeId: string, outcomeId: string | null }} */
 let processCheckerState = { topicId: "", nodeId: "", outcomeId: null };
-/** Family example slideshow index (warranty checker). */
-let processExampleSlideIndex = 0;
+/** Active family example pack id + page index (Next/Prev stay inside one family). */
+let processExampleFamilyId = "cf";
+let processExamplePageIndex = 0;
 /** @type {ReturnType<typeof buildPartSearchCache>|null} */
 let partSearchCache = null;
 /** Memoised visibility predicate — pin/unlocks change it, typing must not. */
@@ -600,67 +600,44 @@ function ensureProcessCheckerState(topic) {
   }
 }
 
-function renderFamilyExampleDiagramHtml(kind) {
-  if (kind === "mixed-tank-cf") {
-    return `<div class="process-example-diagram process-example-diagram--mixed" aria-hidden="true">
-      <div class="process-example-diagram-unit">
-        <span class="process-example-diagram-shape process-example-diagram-shape--tank"></span>
-        <span class="process-example-diagram-label">Storage tank</span>
-      </div>
-      <span class="process-example-diagram-plus">+</span>
-      <div class="process-example-diagram-unit">
-        <span class="process-example-diagram-shape process-example-diagram-shape--cf"></span>
-        <span class="process-example-diagram-label">Continuous flow</span>
-      </div>
-    </div>`;
-  }
-  return "";
-}
-
-function renderFamilyExampleSlideHtml(slide) {
-  const images = familyExampleImages(slide);
+function renderFamilyExamplePageHtml(pack, page) {
   let media = "";
-  if (slide.collage && images.length >= 2) {
+  if (page?.kind === "collage" && Array.isArray(page.images) && page.images.length >= 2) {
     media = `<div class="process-example-collage">
       <figure class="process-example-collage-item">
-        <img src="${escapeHtml(images[0].src)}" alt="${escapeHtml(images[0].label)}" loading="lazy" decoding="async" />
-        <figcaption>Storage tank</figcaption>
+        <img src="${escapeHtml(page.images[0].src)}" alt="${escapeHtml(page.images[0].label)}" loading="lazy" decoding="async" />
+        <figcaption>${escapeHtml(page.images[0].caption || "Storage tank")}</figcaption>
       </figure>
       <span class="process-example-collage-plus" aria-hidden="true">+</span>
       <figure class="process-example-collage-item">
-        <img src="${escapeHtml(images[1].src)}" alt="${escapeHtml(images[1].label)}" loading="lazy" decoding="async" />
-        <figcaption>Continuous flow</figcaption>
+        <img src="${escapeHtml(page.images[1].src)}" alt="${escapeHtml(page.images[1].label)}" loading="lazy" decoding="async" />
+        <figcaption>${escapeHtml(page.images[1].caption || "Continuous flow")}</figcaption>
       </figure>
     </div>`;
-  } else if (images.length) {
-    media = `<div class="process-example-shots">
-      ${images
-        .slice(0, 4)
-        .map(
-          (img) =>
-            `<figure class="process-example-shot">
-              <img src="${escapeHtml(img.src)}" alt="${escapeHtml(img.label)}" loading="lazy" decoding="async" />
-            </figure>`
-        )
-        .join("")}
+  } else if (page?.src) {
+    media = `<div class="process-example-shots process-example-shots--single">
+      <figure class="process-example-shot">
+        <img src="${escapeHtml(page.src)}" alt="${escapeHtml(page.label || pack.title)}" loading="lazy" decoding="async" />
+      </figure>
     </div>`;
   } else {
-    media = renderFamilyExampleDiagramHtml("mixed-tank-cf");
+    media = `<p class="muted">No example image for this family yet.</p>`;
   }
 
   return `
-    <div class="process-example-slide" data-example-id="${escapeHtml(slide.id)}">
-      <h3 class="process-example-slide-title">${escapeHtml(slide.title)}</h3>
-      <p class="process-example-slide-caption">${escapeHtml(slide.caption)}</p>
+    <div class="process-example-slide" data-example-id="${escapeHtml(pack.id)}">
+      <h3 class="process-example-slide-title">${escapeHtml(pack.title)}</h3>
+      <p class="process-example-slide-caption">${escapeHtml(pack.caption)}</p>
       ${media}
-      <p class="process-example-slide-attr muted">${escapeHtml(slide.attribution || "")}</p>
+      <p class="process-example-slide-attr muted">${escapeHtml(pack.attribution || "")}</p>
     </div>`;
 }
 
-function openProcessFamilyExamples(startId) {
+function openProcessFamilyExamples(familyId) {
   const dialog = document.querySelector("#process-example-dialog");
   if (!dialog) return;
-  processExampleSlideIndex = familyExampleSlideIndex(startId);
+  processExampleFamilyId = familyId || "cf";
+  processExamplePageIndex = 0;
   renderProcessFamilyExampleSlide();
   if (typeof dialog.showModal === "function") dialog.showModal();
   else dialog.setAttribute("open", "");
@@ -674,26 +651,32 @@ function closeProcessFamilyExamples() {
 
 function renderProcessFamilyExampleSlide() {
   const stage = document.querySelector("#process-example-stage");
-  const page = document.querySelector("#process-example-page");
+  const pageEl = document.querySelector("#process-example-page");
   const prev = document.querySelector("#process-example-prev");
   const next = document.querySelector("#process-example-next");
   if (!stage) return;
-  const slides = PROCESS_FAMILY_EXAMPLE_SLIDES;
-  if (!slides.length) {
+  const pack = getFamilyExamplePack(processExampleFamilyId);
+  const pages = familyExamplePages(pack);
+  if (!pages.length) {
     stage.innerHTML = `<p class="muted">No family examples loaded.</p>`;
+    if (pageEl) pageEl.textContent = "";
+    if (prev) prev.disabled = true;
+    if (next) next.disabled = true;
     return;
   }
-  if (processExampleSlideIndex < 0) processExampleSlideIndex = 0;
-  if (processExampleSlideIndex >= slides.length) {
-    processExampleSlideIndex = slides.length - 1;
+  if (processExamplePageIndex < 0) processExamplePageIndex = 0;
+  if (processExamplePageIndex >= pages.length) {
+    processExamplePageIndex = pages.length - 1;
   }
-  const slide = slides[processExampleSlideIndex];
-  stage.innerHTML = renderFamilyExampleSlideHtml(slide);
-  if (page) {
-    page.textContent = `${processExampleSlideIndex + 1} / ${slides.length}`;
+  stage.innerHTML = renderFamilyExamplePageHtml(pack, pages[processExamplePageIndex]);
+  if (pageEl) {
+    pageEl.textContent =
+      pages.length > 1
+        ? `${processExamplePageIndex + 1} / ${pages.length}`
+        : pack.title;
   }
-  if (prev) prev.disabled = processExampleSlideIndex <= 0;
-  if (next) next.disabled = processExampleSlideIndex >= slides.length - 1;
+  if (prev) prev.disabled = processExamplePageIndex <= 0;
+  if (next) next.disabled = processExamplePageIndex >= pages.length - 1;
 }
 
 function renderProcessCheckerHtml(topic) {
@@ -720,7 +703,6 @@ function renderProcessCheckerHtml(topic) {
       panelInner = `<p class="muted">Checker path not available.</p>`;
     } else {
       const choices = Array.isArray(q.choices) ? q.choices : [];
-      const showExamples = nodeId === "family" || choices.some((c) => c?.exampleId);
       const choicesHtml = choices
         .map((c, i) => {
           const label = escapeHtml(c?.label || `Choice ${i + 1}`);
@@ -736,21 +718,10 @@ function renderProcessCheckerHtml(topic) {
           </div>`;
         })
         .join("");
-      const examplesRail = showExamples
-        ? `<aside class="process-checker-examples-rail">
-            <button type="button" class="process-checker-examples-open" data-checker-examples-open title="Product family examples" aria-label="Open product family examples slideshow">
-              <span class="process-checker-examples-glyph" aria-hidden="true">▣</span>
-              <span class="process-checker-examples-label">Examples</span>
-            </button>
-          </aside>`
-        : "";
       panelInner = `
         <p class="process-checker-prompt">${escapeHtml(q.prompt || "")}</p>
-        <div class="process-checker-answer-layout${showExamples ? " process-checker-answer-layout--with-examples" : ""}">
-          <div class="process-checker-choices" role="group" aria-label="${escapeHtml(q.prompt || "Choices")}">
-            ${choicesHtml}
-          </div>
-          ${examplesRail}
+        <div class="process-checker-choices" role="group" aria-label="${escapeHtml(q.prompt || "Choices")}">
+          ${choicesHtml}
         </div>`;
     }
   }
@@ -802,10 +773,6 @@ function bindProcessChecker(topic) {
       }
       renderProcessDesk();
     });
-  });
-
-  body.querySelector("[data-checker-examples-open]")?.addEventListener("click", () => {
-    openProcessFamilyExamples(PROCESS_FAMILY_EXAMPLE_SLIDES[0]?.id || "cf");
   });
 
   body.querySelectorAll("[data-checker-example]").forEach((btn) => {
@@ -3752,14 +3719,12 @@ function bindEvents() {
   const processExampleNext = document.querySelector("#process-example-next");
   processExampleClose?.addEventListener("click", closeProcessFamilyExamples);
   processExamplePrev?.addEventListener("click", () => {
-    processExampleSlideIndex = Math.max(0, processExampleSlideIndex - 1);
+    processExamplePageIndex = Math.max(0, processExamplePageIndex - 1);
     renderProcessFamilyExampleSlide();
   });
   processExampleNext?.addEventListener("click", () => {
-    processExampleSlideIndex = Math.min(
-      PROCESS_FAMILY_EXAMPLE_SLIDES.length - 1,
-      processExampleSlideIndex + 1
-    );
+    const pages = familyExamplePages(getFamilyExamplePack(processExampleFamilyId));
+    processExamplePageIndex = Math.min(pages.length - 1, processExamplePageIndex + 1);
     renderProcessFamilyExampleSlide();
   });
   if (processExampleDialog) {
