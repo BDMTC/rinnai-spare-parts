@@ -1720,6 +1720,71 @@ function flashProcessFgSearch() {
   }, 1200);
 }
 
+/**
+ * Official Rinnai AU warranty booklet PDFs (support hub ingest 2026-11-14).
+ * Imprint labels link out in a new tab — never embed/open PDF inside Process.
+ */
+const WARRANTY_BOOKLET_URLS = {
+  "feb 2025":
+    "https://www.rinnai.com.au/documents/b881519932/hw-gas-cf-instant-war.pdf",
+  "mar 2024":
+    "https://www.rinnai.com.au/documents/504d0bb51e/hw-electric-cf-efinity-war.pdf",
+  "may 2021":
+    "https://www.rinnai.com.au/documents/afdf289e4a/hw-electric-storage-hotflo-war.pdf",
+  "nov 2023":
+    "https://www.rinnai.com.au/documents/2915e85ba3/hw-electric-hp-enviroflo-war.pdf",
+  "oct 2024":
+    "https://www.rinnai.com.au/documents/225d39c6e4/hw-solar-war.pdf",
+  "dec 2024":
+    "https://www.rinnai.com.au/documents/e64867d29e/hw-commercial-war.pdf",
+};
+
+const WARRANTY_BOOKLET_GAS_CF_URL = WARRANTY_BOOKLET_URLS["feb 2025"];
+
+/**
+ * @param {string} url
+ * @param {string} label
+ */
+function warrantyBookletLinkHtml(url, label) {
+  return `<a class="process-booklet-link" href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(label)}</a>`;
+}
+
+/**
+ * Link imprint dates in table titles; keep page refs as plain text.
+ * e.g. (booklet Feb 2025, p.4) → (booklet [Feb 2025]↗, p.4)
+ * @param {string} title
+ */
+function formatProcessTableTitleHtml(title) {
+  const raw = String(title || "Table");
+  let html = escapeHtml(raw);
+  html = html.replace(
+    /\((same booklet)\s+([^,)]+)(?:,\s*(p\.\d+))?\)/gi,
+    (_full, sameLabel, imprint, page) => {
+      const key = String(imprint || "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, " ");
+      const url = WARRANTY_BOOKLET_URLS[key] || WARRANTY_BOOKLET_GAS_CF_URL;
+      const pageBit = page ? `, ${page}` : "";
+      return `(${escapeHtml(sameLabel)} ${warrantyBookletLinkHtml(url, imprint)}${pageBit})`;
+    }
+  );
+  html = html.replace(
+    /\(booklet\s+([^,)]+)(?:,\s*(p\.\d+))?\)/gi,
+    (_full, imprint, page) => {
+      const key = String(imprint || "")
+        .trim()
+        .toLowerCase()
+        .replace(/\s+/g, " ");
+      const url = WARRANTY_BOOKLET_URLS[key];
+      const pageBit = page ? `, ${page}` : "";
+      if (!url) return `(booklet ${escapeHtml(imprint)}${pageBit})`;
+      return `(booklet ${warrantyBookletLinkHtml(url, imprint)}${pageBit})`;
+    }
+  );
+  return html;
+}
+
 function ddAfterRenderAnim() {
   if (processFgLookupState.ddAnim !== "in") return;
   const card = document.querySelector(".dd-card");
@@ -1942,7 +2007,7 @@ function renderProcessDetailedBody() {
               .join("")}</ul>`
         : "";
       return `<section class="process-table-block">
-        <h3 class="process-table-title">${escapeHtml(table.title || "Table")}</h3>
+        <h3 class="process-table-title">${formatProcessTableTitleHtml(table.title || "Table")}</h3>
         <div class="process-table-scroll">
           <table class="process-table">${head}<tbody>${bodyRows}</tbody></table>
         </div>
