@@ -659,15 +659,15 @@
             "prompt": "Roughly how old is the unit? (Infinity / Enviro heat exchanger — table: parts 12 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "≤3 yr labour+parts",
+                "label": "Is it 3 years old or less? (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "3–12 yr parts only",
+                "label": "Between 3 and 12 years? (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": ">12 yr / extended?",
+                "label": "Is it older than 12 years / extended cover?",
                 "outcome": "chase_rinnai"
               },
               {
@@ -680,15 +680,15 @@
             "prompt": "Roughly how old? (other components — table: 3 yr parts + labour; 5 yr if two+ controllers)",
             "choices": [
               {
-                "label": "≤3 years",
+                "label": "Is it 3 years old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": "3–5 yr, 2+ controllers",
+                "label": "Between 3 and 5 years, with 2 or more controllers?",
                 "outcome": "chase_rinnai"
               },
               {
-                "label": ">3 yr, ≤1 controller",
+                "label": "Older than 3 years, and only 1 controller (or none)?",
                 "outcome": "chargeable"
               },
               {
@@ -718,15 +718,15 @@
             "prompt": "Roughly how old? (Builders heat exchanger — table: parts 10 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "≤3 yr labour+parts",
+                "label": "Is it 3 years old or less? (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "3–10 yr parts only",
+                "label": "Between 3 and 10 years? (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": ">10 yr / extended?",
+                "label": "Is it older than 10 years / extended cover?",
                 "outcome": "chase_rinnai"
               },
               {
@@ -739,11 +739,11 @@
             "prompt": "Roughly how old? (Builders other — table: 3 yr parts + labour)",
             "choices": [
               {
-                "label": "≤3 years",
+                "label": "Is it 3 years old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": ">3 years",
+                "label": "Is it older than 3 years?",
                 "outcome": "chargeable"
               },
               {
@@ -773,15 +773,15 @@
             "prompt": "Roughly how old? (HD domestic heat exchanger — table: parts 12 yr, labour 5 yr)",
             "choices": [
               {
-                "label": "≤5 yr labour+parts",
+                "label": "Is it 5 years old or less? (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "5–12 yr parts only",
+                "label": "Between 5 and 12 years? (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": ">12 years",
+                "label": "Is it older than 12 years?",
                 "outcome": "chargeable"
               },
               {
@@ -794,11 +794,11 @@
             "prompt": "Roughly how old? (HD domestic other parts — table: 5 yr parts + labour)",
             "choices": [
               {
-                "label": "≤5 years",
+                "label": "Is it 5 years old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": ">5 years",
+                "label": "Is it older than 5 years?",
                 "outcome": "chargeable"
               },
               {
@@ -832,15 +832,15 @@
             "prompt": "Roughly how old? (Flowmaster 10 heat exchanger — table: parts 10 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "≤3 yr labour+parts",
+                "label": "Is it 3 years old or less? (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "3–10 yr parts only",
+                "label": "Between 3 and 10 years? (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": ">10 years",
+                "label": "Is it older than 10 years?",
                 "outcome": "chargeable"
               },
               {
@@ -853,11 +853,11 @@
             "prompt": "Roughly how old? (Flowmaster 10 other — table: 3 yr parts + labour)",
             "choices": [
               {
-                "label": "≤3 years",
+                "label": "Is it 3 years old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": ">3 years",
+                "label": "Is it older than 3 years?",
                 "outcome": "chargeable"
               },
               {
@@ -883,11 +883,11 @@
             "prompt": "Roughly how old? (commercial Infinity / Enviro / Flowmaster — table: 1 yr parts + labour)",
             "choices": [
               {
-                "label": "≤1 year",
+                "label": "Is it 1 year old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": ">1 year",
+                "label": "Is it older than 1 year?",
                 "outcome": "chargeable"
               },
               {
@@ -934,15 +934,15 @@
             "prompt": "Roughly how old? (HD commercial heat exchanger — table: parts 5 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "≤3 yr labour+parts",
+                "label": "Is it 3 years old or less? (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "3–5 yr parts only",
+                "label": "Between 3 and 5 years? (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": ">5 years",
+                "label": "Is it older than 5 years?",
                 "outcome": "chargeable"
               },
               {
@@ -955,11 +955,11 @@
             "prompt": "Roughly how old? (HD commercial other parts — table: 3 yr parts + labour)",
             "choices": [
               {
-                "label": "≤3 years",
+                "label": "Is it 3 years old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": ">3 years",
+                "label": "Is it older than 3 years?",
                 "outcome": "chargeable"
               },
               {
@@ -972,11 +972,11 @@
             "prompt": "Roughly how old? (HD high-temperature preset — table drops to 1 year parts + labour)",
             "choices": [
               {
-                "label": "≤1 year",
+                "label": "Is it 1 year old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": ">1 year",
+                "label": "Is it older than 1 year?",
                 "outcome": "chargeable"
               },
               {
@@ -1023,11 +1023,11 @@
             "prompt": "Roughly how old? (SmartStart domestic — table: 3 yr parts + labour)",
             "choices": [
               {
-                "label": "≤3 years",
+                "label": "Is it 3 years old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": ">3 years",
+                "label": "Is it older than 3 years?",
                 "outcome": "chargeable"
               },
               {
@@ -1040,11 +1040,11 @@
             "prompt": "Roughly how old? (controllers — 3 yr; 5 yr if two or more installed)",
             "choices": [
               {
-                "label": "≤3 years",
+                "label": "Is it 3 years old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": "3–5 yr, 2+ controllers",
+                "label": "Between 3 and 5 years, with 2 or more controllers?",
                 "outcome": "chase_rinnai"
               },
               {
@@ -1061,11 +1061,11 @@
             "prompt": "Roughly how old? (other domestic accessories — table: 1 yr parts + labour)",
             "choices": [
               {
-                "label": "≤1 year",
+                "label": "Is it 1 year old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": ">1 year",
+                "label": "Is it older than 1 year?",
                 "outcome": "chargeable"
               },
               {
@@ -1078,11 +1078,11 @@
             "prompt": "Roughly how old? (all commercial continuous flow accessories — table: 1 year parts + labour)",
             "choices": [
               {
-                "label": "≤1 year",
+                "label": "Is it 1 year old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": ">1 year",
+                "label": "Is it older than 1 year?",
                 "outcome": "chargeable"
               },
               {
@@ -1167,15 +1167,15 @@
             "prompt": "Roughly how old? (domestic cylinder — parts 10 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "≤3 yr labour+parts",
+                "label": "Is it 3 years old or less? (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "3–10 yr parts only",
+                "label": "Between 3 and 10 years? (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": ">10 years",
+                "label": "Is it older than 10 years?",
                 "outcome": "chargeable"
               },
               {
@@ -1188,11 +1188,11 @@
             "prompt": "Roughly how old? (domestic components — table: 1 yr parts + labour)",
             "choices": [
               {
-                "label": "≤1 year",
+                "label": "Is it 1 year old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": ">1 year",
+                "label": "Is it older than 1 year?",
                 "outcome": "chargeable"
               },
               {
@@ -1222,15 +1222,15 @@
             "prompt": "Roughly how old? (Hotflo HFE 25/50 L domestic cylinder — parts 7 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "≤3 yr labour+parts",
+                "label": "Is it 3 years old or less? (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "3–7 yr parts only",
+                "label": "Between 3 and 7 years? (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": ">7 years",
+                "label": "Is it older than 7 years?",
                 "outcome": "chargeable"
               },
               {
@@ -1243,11 +1243,11 @@
             "prompt": "Roughly how old? (commercial Hotflo — table: 1 yr parts + labour on cylinder and components)",
             "choices": [
               {
-                "label": "≤1 year",
+                "label": "Is it 1 year old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": ">1 year",
+                "label": "Is it older than 1 year?",
                 "outcome": "chargeable"
               },
               {
@@ -1298,15 +1298,15 @@
             "prompt": "Roughly how old? (Enviroflo EHPA domestic cylinder — parts 5 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "≤3 yr labour+parts",
+                "label": "Is it 3 years old or less? (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "3–5 yr parts only",
+                "label": "Between 3 and 5 years? (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": ">5 years",
+                "label": "Is it older than 5 years?",
                 "outcome": "chargeable"
               },
               {
@@ -1319,15 +1319,15 @@
             "prompt": "Roughly how old? (Enviroflo EHPA domestic compressor — parts 3 yr, labour 1 yr)",
             "choices": [
               {
-                "label": "≤1 yr labour+parts",
+                "label": "Is it 1 year old or less? (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "1–3 yr parts only",
+                "label": "Between 1 and 3 years? (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": ">3 years",
+                "label": "Is it older than 3 years?",
                 "outcome": "chargeable"
               },
               {
@@ -1340,11 +1340,11 @@
             "prompt": "Roughly how old? (Enviroflo EHPA other components — table: 1 year parts + labour)",
             "choices": [
               {
-                "label": "≤1 year",
+                "label": "Is it 1 year old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": ">1 year",
+                "label": "Is it older than 1 year?",
                 "outcome": "chargeable"
               },
               {
@@ -1357,11 +1357,11 @@
             "prompt": "Roughly how old? (commercial Enviroflo EHPA — table: 1 year parts + labour across cylinder / compressor / components)",
             "choices": [
               {
-                "label": "≤1 year",
+                "label": "Is it 1 year old or less?",
                 "outcome": "labour_parts"
               },
               {
-                "label": ">1 year",
+                "label": "Is it older than 1 year?",
                 "outcome": "chargeable"
               },
               {
