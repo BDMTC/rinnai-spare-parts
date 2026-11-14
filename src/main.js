@@ -127,6 +127,7 @@ import {
   DD_QUESTIONS,
   DD_STEM_META,
 } from "./demand-duo-builder.js";
+import { groupCommercialFgItems } from "./fg-commercial-groups.js";
 
 // Resolved at boot (not import time) so the file:// classic IIFE can sit in <head>
 // with defer, or at end of <body>, without racing #app.
@@ -1131,36 +1132,70 @@ function renderProcessFgLookupHtml() {
         });
       }
     }
-    const maxShow = 40;
-    const shown = hits.slice(0, maxShow);
-    const rowsHtml = shown.length
-      ? shown
-          .map(
-            (it) => `<tr>
+
+    const fgRow = (it) => `<tr>
             <td>${escapeHtml(it.name || "")}</td>
             <td><code>${escapeHtml(it.orderCode || "")}</code></td>
             <td class="process-fg-net">${formatAud(it.netExGst)}</td>
-          </tr>`
-          )
-          .join("")
-      : `<tr><td colspan="3" class="muted">${
-          familyId
-            ? query
-              ? "No matches in this family."
-              : "No priced rows in this family."
-            : "Pick a family, then search by name or order code — or Demand Duo (builder)."
-        }</td></tr>`;
-    bodyHtml = `
-    <label class="process-fg-search-label">Search in family
-      <input type="search" id="process-fg-query" class="process-fg-query" placeholder="e.g. Infinity 26, HD28, EHF160" value="${escapeHtml(processFgLookupState.query || "")}" ${familyId ? "" : "disabled"} />
-    </label>
-    <p class="muted process-fg-count">${familyId ? `${hits.length} match${hits.length === 1 ? "" : "es"}${hits.length > maxShow ? ` (showing ${maxShow})` : ""}` : ""}</p>
-    <div class="process-table-scroll">
+          </tr>`;
+
+    let resultsHtml = "";
+    if (familyId === "commercial" && hits.length) {
+      const sections = groupCommercialFgItems(hits);
+      resultsHtml = `<div class="process-fg-subsections" aria-label="Commercial product groups">
+        ${sections
+          .map((sec) => {
+            const rows = sec.items.map(fgRow).join("");
+            return `<section class="process-fg-sub" aria-labelledby="fg-sub-${escapeHtml(sec.id)}">
+              <header class="process-fg-sub-head">
+                <h4 class="process-fg-sub-title" id="fg-sub-${escapeHtml(sec.id)}">${escapeHtml(sec.title)} <span class="muted">(${sec.items.length})</span></h4>
+                <p class="muted process-fg-sub-blurb">${escapeHtml(sec.blurb || "")}</p>
+              </header>
+              <div class="process-table-scroll process-fg-sub-scroll">
+                <table class="process-table process-fg-table">
+                  <thead><tr><th scope="col">Product</th><th scope="col">Order code</th><th scope="col">Zone Net ex GST</th></tr></thead>
+                  <tbody>${rows}</tbody>
+                </table>
+              </div>
+            </section>`;
+          })
+          .join("")}
+      </div>`;
+    } else {
+      const maxShow = 40;
+      const shown = hits.slice(0, maxShow);
+      const rowsHtml = shown.length
+        ? shown.map(fgRow).join("")
+        : `<tr><td colspan="3" class="muted">${
+            familyId
+              ? query
+                ? "No matches in this family."
+                : "No priced rows in this family."
+              : "Pick a family, then search by name or order code — or Demand Duo (builder)."
+          }</td></tr>`;
+      resultsHtml = `<div class="process-table-scroll">
       <table class="process-table process-fg-table">
         <thead><tr><th scope="col">Product</th><th scope="col">Order code</th><th scope="col">Zone Net ex GST</th></tr></thead>
         <tbody>${rowsHtml}</tbody>
       </table>
-    </div>`;
+    </div>
+    <p class="muted process-fg-count">${
+      familyId && hits.length > maxShow ? `(showing ${maxShow} of ${hits.length})` : ""
+    }</p>`;
+    }
+
+    bodyHtml = `
+    <label class="process-fg-search-label">Search in family
+      <input type="search" id="process-fg-query" class="process-fg-query" placeholder="e.g. Infinity 26, HD28, EHF160" value="${escapeHtml(processFgLookupState.query || "")}" ${familyId ? "" : "disabled"} />
+    </label>
+    <p class="muted process-fg-count">${
+      familyId
+        ? familyId === "commercial"
+          ? `${hits.length} product${hits.length === 1 ? "" : "s"} in subsections below (Demand Duo uses the builder).`
+          : `${hits.length} match${hits.length === 1 ? "" : "es"}`
+        : ""
+    }</p>
+    ${resultsHtml}`;
   }
 
   const fgLabel =
