@@ -1345,6 +1345,7 @@ function renderProcessChooser() {
   const body = document.querySelector("#process-body");
   if (!rail || !body) return;
 
+  body.classList.remove("process-body--dd-open");
   rail.innerHTML = "";
   body.innerHTML = `
     <div class="process-chooser" role="group" aria-label="Instruction level">
@@ -1374,6 +1375,7 @@ function renderProcessBasicBody() {
   const body = document.querySelector("#process-body");
   if (!rail || !body) return;
 
+  body.classList.remove("process-body--dd-open");
   const chapters = processBasicChapters();
   const current = activeProcessBasicChapter();
   if (current?.id) processBasicChapterId = current.id;
@@ -1547,7 +1549,7 @@ function renderProcessDdBuilderHtml() {
   }</p>`;
 
   return `<div class="dd-builder" aria-label="Demand Duo stem builder">
-    <p class="muted dd-builder-blurb">One question at a time. Coloured stems assemble the order code; when it matches the catalog you get Zone Net ex GST. ${ddMeta.codeCount || catalog.length} DD system codes parked (not listed as rows).</p>
+    <p class="muted dd-builder-blurb">One question at a time — coloured stems build the order code (${ddMeta.codeCount || catalog.length} parked).</p>
     <div class="dd-stem-strip" aria-live="polite">${stripHtml}</div>
     ${packageHtml}
     ${cardHtml}
@@ -1658,9 +1660,12 @@ function renderProcessFgLookupHtml() {
     zoneHwtFgDoc?.meta?.label ||
     config?.finishedGoodsPriceList?.label ||
     "Finished goods Hot Water";
-  return `<section class="process-fg-lookup" aria-label="Finished goods Hot Water lookup">
+  const blurb = isDd
+    ? `${String(fgLabel)} — effective ${String(effective)}. Demand Duo stem builder (Zone Net ex GST).`
+    : `${String(fgLabel)} — effective ${String(effective)}. Family → search → Zone Net (ex GST) + order code. Demand Duo opens the stem builder on this page (not a separate topic). Not Bible spare Net.`;
+  return `<section class="process-fg-lookup${isDd ? " process-fg-lookup--dd" : ""}" aria-label="Finished goods Hot Water lookup">
     <h3 class="process-fg-title">Finished-goods lookup</h3>
-    <p class="muted process-fg-blurb">${escapeHtml(String(fgLabel))} — effective ${escapeHtml(String(effective))}. Family → search → Zone Net (ex GST) + order code. Demand Duo opens the stem builder on this page (not a separate topic). Not Bible spare Net.</p>
+    <p class="muted process-fg-blurb">${escapeHtml(blurb)}</p>
     <div class="process-fg-families" role="group" aria-label="Product family">${familyBtns || `<p class="muted">Finished-goods price data not loaded.</p>`}</div>
     ${bodyHtml}
   </section>`;
@@ -1826,8 +1831,13 @@ function renderProcessDetailedBody() {
   const notes = Array.isArray(current.notes) ? current.notes : [];
   const tables = Array.isArray(current.tables) ? current.tables : [];
   const actions = Array.isArray(current.actions) ? current.actions : [];
+  // Demand Duo builder needs the full body height — park FG steps/notes while it is open.
+  const ddBuilderOpen =
+    current.id === "fg" && processFgLookupState.familyId === "dd";
+  body.classList.toggle("process-body--dd-open", ddBuilderOpen);
 
-  const stepsHtml = steps.length
+  const stepsHtml =
+    !ddBuilderOpen && steps.length
     ? `<ol class="process-steps">${steps
         .map((s) => {
           const n = s?.n != null ? String(s.n) : "";
@@ -1879,7 +1889,8 @@ function renderProcessDetailedBody() {
     })
     .join("");
 
-  const notesHtml = notes.length
+  const notesHtml =
+    !ddBuilderOpen && notes.length
     ? `<ul class="process-notes">${notes
         .map((n) => `<li>${escapeHtml(n)}</li>`)
         .join("")}</ul>`
