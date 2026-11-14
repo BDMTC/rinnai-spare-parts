@@ -2,7 +2,7 @@
   "version": 1,
   "title": "Rinnai Process",
   "kicker": "Zone Contractor",
-  "sourceNote": "Structured from MTC Rinnai process kit (redacted). No portal passwords, PayWay credentials, or package/unit price tables.",
+  "sourceNote": "Blend of past MTC Rinnai process and Rinnai’s suggested best practice / documentation — for desk training.",
   "topics": [
     {
       "id": "portal",

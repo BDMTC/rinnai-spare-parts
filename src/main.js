@@ -129,6 +129,7 @@ import {
   DD_STEM_META,
 } from "./demand-duo-builder.js";
 import { groupCommercialFgItems } from "./fg-commercial-groups.js";
+import { sortFgItems } from "./fg-sort.js";
 
 // Resolved at boot (not import time) so the file:// classic IIFE can sit in <head>
 // with defer, or at end of <body>, without racing #app.
@@ -1346,7 +1347,7 @@ function updateProcessDialogChrome() {
     if (source) {
       source.textContent =
         processBasicDoc?.sourceNote ||
-        "Zero-knowledge playbook. Plain English. No portal passwords or payment credentials.";
+        "Blend of past MTC Rinnai process and Rinnai’s suggested best practice / documentation — plain English for new desk staff.";
     }
   } else {
     if (kicker) kicker.textContent = processDoc?.kicker || "Zone Contractor";
@@ -1612,6 +1613,8 @@ function renderProcessFgLookupHtml() {
           return blob.includes(query);
         });
       }
+      // Model → litreage → gas (Nat Gas before LPG) so fuels split cleanly.
+      hits = sortFgItems(hits);
     }
 
     const fgRow = (it) => `<tr>
@@ -1622,7 +1625,10 @@ function renderProcessFgLookupHtml() {
 
     let resultsHtml = "";
     if (familyId === "commercial" && hits.length) {
-      const sections = groupCommercialFgItems(hits);
+      const sections = groupCommercialFgItems(hits).map((sec) => ({
+        ...sec,
+        items: sortFgItems(sec.items),
+      }));
       resultsHtml = `<div class="process-fg-subsections" aria-label="Commercial product groups">
         ${sections
           .map((sec) => {
