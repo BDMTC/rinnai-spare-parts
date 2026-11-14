@@ -1,18 +1,17 @@
 /**
- * Demand Duo stem builder (Finished goods family → DD).
- * Assembles order codes stem-by-stem from the parked catalog — no invented decode.
- * Options are whatever remains possible in demandDuo.codes.
+ * Demand Duo stem builder (Finished goods → DD family).
+ * Wizard: one zero-knowledge question per card; options from parked catalog only.
  */
 
 /** @typedef {{ orderCode: string, netExGst: number, name?: string }} DdCodeRow */
 /** @typedef {{
- *   series: string,
- *   heaters: string,
- *   model: string,
- *   mount: string,
- *   tank: string,
- *   gas: string,
- *   outlet: string,
+ *   series?: string,
+ *   heaters?: string,
+ *   model?: string,
+ *   mount?: string,
+ *   tank?: string,
+ *   gas?: string,
+ *   outlet?: string,
  * }} DdStemState */
 
 export const DD_STEM_KEYS = [
@@ -26,60 +25,58 @@ export const DD_STEM_KEYS = [
 ];
 
 export const DD_STEM_META = {
+  series: { label: "Series", colorClass: "dd-stem--series" },
+  heaters: { label: "Heaters", colorClass: "dd-stem--heaters" },
+  model: { label: "Model", colorClass: "dd-stem--model" },
+  mount: { label: "Mount", colorClass: "dd-stem--mount" },
+  tank: { label: "Tank", colorClass: "dd-stem--tank" },
+  gas: { label: "Gas", colorClass: "dd-stem--gas" },
+  outlet: { label: "Outlet", colorClass: "dd-stem--outlet" },
+};
+
+/**
+ * Zero-knowledge prompts (from Demand Duo SPE Nov 2025 —
+ * docs/demand-duo-spe-2511-summary.md).
+ */
+export const DD_QUESTIONS = {
   series: {
-    label: "Series",
-    hint: "DD1 integrated · DDF frame · DDPL Plus",
-    colorClass: "dd-stem--series",
+    prompt: "How are the continuous-flow heaters mounted?",
+    help: "SPE: Integrated DD1 = on the tank. Demand Duo = separate rack/frame modules. Plus = rack/frame with pump already on the heater module.",
   },
   heaters: {
-    label: "Heaters",
-    hint: "Module count (DDF / DDPL only)",
-    colorClass: "dd-stem--heaters",
+    prompt: "How many continuous-flow heaters?",
+    help: "Count the Heavy Duty units on the rack or frame (not the tank).",
   },
   model: {
-    label: "Heater model",
-    hint: "28 · 32 · C32",
-    colorClass: "dd-stem--model",
+    prompt: "Which Heavy Duty heater?",
+    help: "Data plate: HD28 (28 L/min), HD32 (32 L/min), or HDC32 condensing.",
   },
   mount: {
-    label: "Mount",
-    hint: "E external · I internal",
-    colorClass: "dd-stem--mount",
+    prompt: "Is the plant inside or outside?",
+    help: "Inside needs flueing. Outside is external (E).",
   },
   tank: {
-    label: "Tank",
-    hint: "Litres (+ V = vitreous enamel)",
-    colorClass: "dd-stem--tank",
+    prompt: "What storage tank?",
+    help: "Stainless 250 / 315 L, or vitreous enamel 270 / 330 L (V in the code).",
   },
   gas: {
-    label: "Gas",
-    hint: "N/L = Natural Gas or LPG pack",
-    colorClass: "dd-stem--gas",
+    prompt: "Natural Gas or LPG?",
+    help: "Zone packs are usually N/L (either gas type on the same code).",
   },
   outlet: {
-    label: "Outlet",
-    hint: "Blank standard · -50 = 50 mm tank outlet",
-    colorClass: "dd-stem--outlet",
+    prompt: "What size tank outlet?",
+    help: "Standard, or 50 mm (-50) when the job needs larger tank connections.",
   },
 };
 
 /** @returns {DdStemState} */
 export function emptyDdStemState() {
-  return {
-    series: "",
-    heaters: "",
-    model: "",
-    mount: "",
-    tank: "",
-    gas: "",
-    outlet: "",
-  };
+  return {};
 }
 
 /**
- * Parse a catalog system code into stems. Returns null if not a DD1/DDF/DDPL system SKU.
+ * Parse a catalog system code into stems. null if not DD1/DDF/DDPL system SKU.
  * @param {string} code
- * @returns {Partial<DdStemState>|null}
  */
 export function parseDdSystemCode(code) {
   const c = String(code || "").trim().toUpperCase();
@@ -97,53 +94,46 @@ export function parseDdSystemCode(code) {
   };
 }
 
-/**
- * @param {DdCodeRow[]} codes
- * @returns {DdCodeRow[]}
- */
+/** @param {DdCodeRow[]} codes */
 export function ddSystemCatalog(codes) {
-  return (Array.isArray(codes) ? codes : []).filter((row) => parseDdSystemCode(row.orderCode));
+  return (Array.isArray(codes) ? codes : []).filter((row) =>
+    parseDdSystemCode(row.orderCode)
+  );
+}
+
+function stemHas(stem, key) {
+  return Object.prototype.hasOwnProperty.call(stem, key);
 }
 
 /**
- * @param {Partial<DdStemState>} stem
+ * @param {DdStemState} stem
  * @param {DdCodeRow} row
  */
 function rowMatchesStem(stem, row) {
   const parsed = parseDdSystemCode(row.orderCode);
   if (!parsed) return false;
   for (const key of DD_STEM_KEYS) {
-    const want = stem[key];
-    if (!want) continue;
-    if (String(parsed[key] || "") !== String(want)) return false;
+    if (!stemHas(stem, key)) continue;
+    if (String(parsed[key] ?? "") !== String(stem[key] ?? "")) return false;
   }
   return true;
 }
 
-/**
- * @param {DdCodeRow[]} catalog
- * @param {Partial<DdStemState>} stem
- */
+/** @param {DdCodeRow[]} catalog @param {DdStemState} stem */
 export function filterDdCatalog(catalog, stem) {
   return catalog.filter((row) => rowMatchesStem(stem, row));
 }
 
-/**
- * Remaining option values for a stem key given current picks.
- * @param {DdCodeRow[]} catalog
- * @param {Partial<DdStemState>} stem
- * @param {keyof DdStemState} key
- */
+/** @param {DdCodeRow[]} catalog @param {DdStemState} stem @param {string} key */
 export function ddOptionsForKey(catalog, stem, key) {
-  const without = { ...stem, [key]: "" };
+  const without = { ...stem };
+  delete without[key];
   const pool = filterDdCatalog(catalog, without);
   const set = new Set();
   for (const row of pool) {
     const parsed = parseDdSystemCode(row.orderCode);
     if (!parsed) continue;
-    const val = parsed[key] || "";
-    // Heaters blank is valid for DD1 — expose as "—" option only when present
-    set.add(val);
+    set.add(parsed[key] ?? "");
   }
   return [...set].sort((a, b) => {
     if (a === "") return -1;
@@ -153,68 +143,145 @@ export function ddOptionsForKey(catalog, stem, key) {
 }
 
 /**
- * Build display segments for the big code strip.
- * @param {Partial<DdStemState>} stem
+ * Next question key, or null when stem is complete (single catalog match or fully specified).
+ * Auto-applies single-option stems into `stem` (mutates) so the wizard can skip them.
+ * @param {DdCodeRow[]} catalog
+ * @param {DdStemState} stem
+ * @returns {string|null}
+ */
+export function resolveDdWizardStep(catalog, stem) {
+  // Skip heaters on DD1 — lock empty
+  if (stem.series === "DD1" && !stemHas(stem, "heaters")) {
+    stem.heaters = "";
+  }
+
+  for (let guard = 0; guard < 12; guard++) {
+    const match = matchDdCode(catalog, stem);
+    if (match) return null;
+
+    let progressed = false;
+    for (const key of DD_STEM_KEYS) {
+      if (stem.series === "DD1" && key === "heaters") continue;
+      if (stemHas(stem, key)) continue;
+      const opts = ddOptionsForKey(catalog, stem, key);
+      if (opts.length === 1) {
+        stem[key] = opts[0];
+        progressed = true;
+        break;
+      }
+      if (opts.length === 0) return null;
+      return key;
+    }
+    if (!progressed) break;
+  }
+  return null;
+}
+
+/** Keys answered by the user (excludes auto-filled heaters "" on DD1 if we track separately — use stemHas). */
+export function ddAnsweredKeys(stem) {
+  return DD_STEM_KEYS.filter((k) => stemHas(stem, k));
+}
+
+/**
+ * @param {DdStemState} stem
  */
 export function ddStemSegments(stem) {
   return DD_STEM_KEYS.map((key) => ({
     key,
-    value: stem[key] || "",
+    value: stemHas(stem, key) ? String(stem[key] ?? "") : "",
     meta: DD_STEM_META[key],
-    filled: Boolean(stem[key]),
+    filled: stemHas(stem, key) && !(key === "heaters" && stem.series === "DD1"),
+    pending: !stemHas(stem, key),
   })).filter((seg) => {
-    // Hide empty heaters placeholder until series needs it or it's filled
-    if (seg.key === "heaters" && !seg.value && stem.series === "DD1") return false;
-    if (seg.key === "outlet" && !seg.value) return false;
-    return true;
+    if (seg.key === "heaters" && stem.series === "DD1") return false;
+    if (seg.key === "outlet" && stemHas(stem, "outlet") && stem.outlet === "") {
+      // show a small marker for standard outlet once chosen
+      return true;
+    }
+    if (seg.key === "outlet" && !stemHas(stem, "outlet")) return false;
+    return stemHas(stem, "series") || seg.key === "series";
   });
 }
 
-/**
- * Assembled code string from stem (may be incomplete).
- * @param {Partial<DdStemState>} stem
- */
+/** @param {DdStemState} stem */
 export function assembleDdCode(stem) {
   if (!stem.series) return "";
   const parts = [stem.series];
-  if (stem.series !== "DD1" && stem.heaters) parts.push(stem.heaters);
-  if (stem.model) parts.push(stem.model);
-  if (stem.mount) parts.push(stem.mount);
-  if (stem.tank) parts.push(stem.tank);
-  if (stem.gas) parts.push(stem.gas);
-  if (stem.outlet) parts.push(stem.outlet);
+  if (stem.series !== "DD1" && stemHas(stem, "heaters") && stem.heaters) {
+    parts.push(stem.heaters);
+  }
+  if (stemHas(stem, "model") && stem.model) parts.push(stem.model);
+  if (stemHas(stem, "mount") && stem.mount) parts.push(stem.mount);
+  if (stemHas(stem, "tank") && stem.tank) parts.push(stem.tank);
+  if (stemHas(stem, "gas") && stem.gas) parts.push(stem.gas);
+  if (stemHas(stem, "outlet") && stem.outlet) parts.push(stem.outlet);
   return parts.join("");
 }
 
-/**
- * Exact catalog hit when stem fully specifies one code.
- * @param {DdCodeRow[]} catalog
- * @param {Partial<DdStemState>} stem
- */
+/** @param {DdCodeRow[]} catalog @param {DdStemState} stem */
 export function matchDdCode(catalog, stem) {
   const hits = filterDdCatalog(catalog, stem);
-  if (hits.length === 1) return hits[0];
-  const assembled = assembleDdCode(stem);
-  if (!assembled) return null;
-  return hits.find((h) => h.orderCode.toUpperCase() === assembled.toUpperCase()) || null;
+  return hits.length === 1 ? hits[0] : null;
 }
 
-/** Option button label */
+/** Plain-English option label (SPE language) */
 export function ddOptionLabel(key, value) {
-  if (key === "heaters" && value === "") return "— (DD1 single)";
-  if (key === "outlet" && value === "") return "Standard";
   if (key === "series") {
-    if (value === "DD1") return "DD1 · Integrated";
-    if (value === "DDF") return "DDF · Frame / separate heaters";
-    if (value === "DDPL") return "DDPL · Plus";
+    if (value === "DD1") return "On the tank front (Integrated DD1)";
+    if (value === "DDF") return "On a separate rack / frame (Demand Duo)";
+    if (value === "DDPL") return "Plus pack — rack/frame, pump on heater module";
+  }
+  if (key === "heaters") {
+    if (value === "") return "One heater on the tank";
+    return `${value} continuous-flow heaters`;
+  }
+  if (key === "model") {
+    if (value === "28") return "HD28 — 28 L/min (non-condensing)";
+    if (value === "32") return "HD32 — 32 L/min (non-condensing)";
+    if (value === "C32") return "HDC32 — 32 L/min condensing";
   }
   if (key === "mount") {
-    if (value === "E") return "E · External";
-    if (value === "I") return "I · Internal";
+    if (value === "E") return "Outside (external)";
+    if (value === "I") return "Inside (internal — needs flue)";
   }
-  if (key === "gas" && value === "N/L") return "N/L · NG or LPG";
-  if (key === "outlet" && value === "-50") return "-50 · 50 mm outlet";
-  if (key === "tank" && /V$/.test(value)) return `${value} · Vitreous`;
-  if (key === "tank") return `${value}L · Stainless`;
+  if (key === "tank") {
+    if (/V$/.test(value)) {
+      return `${value.replace(/V$/, "")} L vitreous enamel`;
+    }
+    return `${value} L stainless steel`;
+  }
+  if (key === "gas") {
+    if (value === "N/L") return "Natural Gas or LPG (N/L pack)";
+    if (value === "N") return "Natural Gas";
+    if (value === "L") return "LPG";
+  }
+  if (key === "outlet") {
+    if (value === "") return "Standard tank outlet";
+    if (value === "-50") return "50 mm tank outlet";
+  }
   return value || "—";
+}
+
+/** Stem chip text for the assembling strip */
+export function ddStemChipText(key, value) {
+  if (key === "outlet" && value === "") return "std";
+  return value || "";
+}
+
+/**
+ * Undo last user-facing answer (and clear auto-filled keys after it).
+ * @param {DdStemState} stem
+ * @param {string[]} history keys in answer order
+ */
+export function ddGoBack(stem, history) {
+  const nextHist = history.slice();
+  const last = nextHist.pop();
+  if (!last) return { stem: emptyDdStemState(), history: [] };
+  const next = { ...stem };
+  // Drop last answer and everything after it in STEM order
+  const idx = DD_STEM_KEYS.indexOf(last);
+  for (const key of DD_STEM_KEYS.slice(idx)) {
+    delete next[key];
+  }
+  return { stem: next, history: nextHist };
 }

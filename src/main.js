@@ -121,7 +121,10 @@ import {
   assembleDdCode,
   matchDdCode,
   ddOptionLabel,
-  DD_STEM_KEYS,
+  ddStemChipText,
+  resolveDdWizardStep,
+  ddGoBack,
+  DD_QUESTIONS,
   DD_STEM_META,
 } from "./demand-duo-builder.js";
 
@@ -173,12 +176,22 @@ let processExampleFamilyId = "cf";
 let processExamplePageIndex = 0;
 /** Zone HWT finished-goods mock pack (Process Finished goods lookup). */
 let zoneHwtFgDoc = null;
-/** @type {{ familyId: string, query: string, ddStem: ReturnType<typeof emptyDdStemState> }} */
+/** @type {{
+ *   familyId: string,
+ *   query: string,
+ *   ddStem: ReturnType<typeof emptyDdStemState>,
+ *   ddHistory: string[],
+ *   ddAnim: "" | "in",
+ * }} */
 let processFgLookupState = {
   familyId: "",
   query: "",
   ddStem: emptyDdStemState(),
+  ddHistory: [],
+  ddAnim: "",
 };
+
+const DD_CARD_FADE_MS = 420;
 /** @type {{ pointerId: number, startX: number, lastX: number, dragged: boolean }|null} */
 let processExampleDrag = null;
 /** @type {ReturnType<typeof buildPartSearchCache>|null} */
@@ -1011,78 +1024,80 @@ async function ensureZoneHwtFgDoc() {
 function renderProcessDdBuilderHtml() {
   const ddMeta = zoneHwtFgDoc?.meta?.demandDuo || {};
   const catalog = ddSystemCatalog(ddMeta.codes || []);
-  const stem = processFgLookupState.ddStem || emptyDdStemState();
+  const stem = { ...(processFgLookupState.ddStem || emptyDdStemState()) };
+  const stepKey = resolveDdWizardStep(catalog, stem);
+  // Persist any auto-filled single-option stems
+  processFgLookupState.ddStem = stem;
+
   const remaining = filterDdCatalog(catalog, stem);
   const match = matchDdCode(catalog, stem);
   const assembled = assembleDdCode(stem);
   const segments = ddStemSegments(stem);
+  const animClass = processFgLookupState.ddAnim === "in" ? " is-entering" : "";
 
   const stripHtml = segments.length
     ? segments
         .map((seg) => {
           const empty = !seg.filled;
-          const text = seg.filled
-            ? escapeHtml(seg.value)
-            : `<span class="dd-stem-ghost">${escapeHtml(seg.key === "heaters" ? "#" : "…")}</span>`;
-          return `<span class="dd-stem-seg ${seg.meta.colorClass}${empty ? " is-empty" : ""}" title="${escapeHtml(seg.meta.label)}">${text}</span>`;
+          const chip = seg.filled
+            ? escapeHtml(ddStemChipText(seg.key, seg.value))
+            : `<span class="dd-stem-ghost">…</span>`;
+          return `<span class="dd-stem-seg ${seg.meta.colorClass}${empty ? " is-empty" : ""}" title="${escapeHtml(seg.meta.label)}">${chip}</span>`;
         })
         .join("")
-    : `<span class="dd-stem-placeholder">Pick series to start the code</span>`;
+    : `<span class="dd-stem-placeholder">Answer each question — the code builds here</span>`;
 
-  const stepsHtml = DD_STEM_KEYS.map((key) => {
-    const meta = DD_STEM_META[key];
-    // Skip heaters step visually when DD1 locked and heaters must stay blank
-    if (key === "heaters" && stem.series === "DD1") {
-      return `<div class="dd-step dd-step--skip">
-        <div class="dd-step-head"><span class="dd-step-swatch ${meta.colorClass}"></span><strong>${escapeHtml(meta.label)}</strong>
-          <span class="muted">Not used on DD1 (single integrated heater)</span></div>
-      </div>`;
-    }
-    const opts = ddOptionsForKey(catalog, stem, key);
-    if (!opts.length && key !== "series") {
-      return "";
-    }
-    const btns = opts
-      .map((val) => {
-        const active = stem[key] === val ? " is-active" : "";
-        const label = ddOptionLabel(key, val);
-        return `<button type="button" class="dd-opt ${meta.colorClass}${active}" data-dd-stem="${escapeHtml(key)}" data-dd-val="${escapeHtml(val)}">${escapeHtml(label)}</button>`;
-      })
-      .join("");
-    return `<div class="dd-step">
-      <div class="dd-step-head"><span class="dd-step-swatch ${meta.colorClass}"></span><strong>${escapeHtml(meta.label)}</strong>
-        <span class="muted">${escapeHtml(meta.hint)}</span></div>
-      <div class="dd-opt-row" role="group" aria-label="${escapeHtml(meta.label)}">${btns || `<span class="muted">No options left — clear a prior stem.</span>`}</div>
-    </div>`;
-  }).join("");
-
-  let resultHtml = "";
+  let cardHtml = "";
   if (match) {
-    resultHtml = `<div class="dd-result dd-result--hit" role="status">
-      <p class="dd-result-kicker">Catalog match</p>
+    cardHtml = `<div class="dd-card dd-card--done${animClass}" role="status">
+      <p class="dd-card-kicker">Matched catalog code</p>
+      <p class="dd-card-prompt">Zone Net ex GST</p>
+      <p class="dd-result-net"><strong>${formatAud(match.netExGst)}</strong></p>
       <p class="dd-result-code"><code>${escapeHtml(match.orderCode)}</code></p>
-      <p class="dd-result-net">Zone Net ex GST <strong>${formatAud(match.netExGst)}</strong></p>
       <p class="muted dd-result-name">${escapeHtml(match.name || "")}</p>
     </div>`;
+  } else if (stepKey) {
+    const q = DD_QUESTIONS[stepKey] || { prompt: stepKey, help: "" };
+    const meta = DD_STEM_META[stepKey];
+    const opts = ddOptionsForKey(catalog, stem, stepKey);
+    const btns = opts
+      .map((val) => {
+        const label = ddOptionLabel(stepKey, val);
+        return `<button type="button" class="dd-opt ${meta.colorClass}" data-dd-stem="${escapeHtml(stepKey)}" data-dd-val="${escapeHtml(val)}">${escapeHtml(label)}</button>`;
+      })
+      .join("");
+    cardHtml = `<div class="dd-card${animClass}" data-dd-card>
+      <div class="dd-card-head">
+        <span class="dd-step-swatch ${meta.colorClass}" aria-hidden="true"></span>
+        <p class="dd-card-kicker">Stem ${escapeHtml(meta.label)}</p>
+      </div>
+      <p class="dd-card-prompt">${escapeHtml(q.prompt)}</p>
+      <p class="muted dd-card-help">${escapeHtml(q.help || "")}</p>
+      <div class="dd-opt-row" role="group" aria-label="${escapeHtml(q.prompt)}">${btns}</div>
+    </div>`;
   } else if (assembled && remaining.length === 0) {
-    resultHtml = `<div class="dd-result dd-result--miss" role="status">
-      <p>No Zone price for <code>${escapeHtml(assembled)}</code> in the parked DD list — check stems or ask Beau.</p>
+    cardHtml = `<div class="dd-card dd-card--miss${animClass}" role="status">
+      <p class="dd-card-prompt">No Zone price for this combination</p>
+      <p class="muted">Assembled <code>${escapeHtml(assembled)}</code> is not in the parked DD list — go back or ask Beau.</p>
     </div>`;
   } else {
-    resultHtml = `<div class="dd-result dd-result--pending" role="status">
-      <p class="muted">${remaining.length} catalog code${remaining.length === 1 ? "" : "s"} still match — keep picking stems.</p>
+    cardHtml = `<div class="dd-card${animClass}">
+      <p class="muted">No next question — use Go back or Start again.</p>
     </div>`;
   }
 
+  const canBack = (processFgLookupState.ddHistory || []).length > 0;
   return `<div class="dd-builder" aria-label="Demand Duo stem builder">
-    <p class="muted dd-builder-blurb">Build the order code stem-by-stem (colour = segment). When complete, we cross-check the parked DD catalog for Zone Net ex GST. Row listing of ${ddMeta.codeCount || catalog.length || "…"} DD codes stays parked.</p>
+    <p class="muted dd-builder-blurb">One question at a time. Coloured stems assemble the order code; when it matches the catalog you get Zone Net ex GST. ${ddMeta.codeCount || catalog.length} DD system codes parked (not listed as rows).</p>
     <div class="dd-stem-strip" aria-live="polite">${stripHtml}</div>
-    <p class="dd-stem-assembled muted">Assembled: <code>${escapeHtml(assembled || "—")}</code></p>
-    <div class="dd-steps">${stepsHtml}</div>
+    <p class="dd-stem-assembled muted">Code so far: <code>${escapeHtml(assembled || "—")}</code>${
+      match ? "" : remaining.length ? ` · ${remaining.length} still possible` : ""
+    }</p>
+    ${cardHtml}
     <div class="dd-builder-actions">
-      <button type="button" class="cart-action" id="dd-stem-reset">Reset stems</button>
+      <button type="button" class="cart-action" id="dd-stem-back" ${canBack ? "" : "disabled"}>Go back</button>
+      <button type="button" class="cart-action" id="dd-stem-reset">Start again</button>
     </div>
-    ${resultHtml}
   </div>`;
 }
 
@@ -1160,6 +1175,50 @@ function renderProcessFgLookupHtml() {
   </section>`;
 }
 
+function ddResetBuilderState() {
+  processFgLookupState.ddStem = emptyDdStemState();
+  processFgLookupState.ddHistory = [];
+  processFgLookupState.ddAnim = "in";
+}
+
+function ddAfterRenderAnim() {
+  if (processFgLookupState.ddAnim !== "in") return;
+  const card = document.querySelector(".dd-card");
+  if (!card) {
+    processFgLookupState.ddAnim = "";
+    return;
+  }
+  // Force reflow then clear entering after medium fade-in
+  void card.offsetWidth;
+  window.setTimeout(() => {
+    processFgLookupState.ddAnim = "";
+    card.classList.remove("is-entering");
+  }, DD_CARD_FADE_MS);
+}
+
+/**
+ * Fade current card out, apply stem change, fade next in.
+ * @param {() => void} applyChange
+ */
+function ddTransitionThen(applyChange) {
+  const card = document.querySelector(".dd-card");
+  if (!card) {
+    applyChange();
+    processFgLookupState.ddAnim = "in";
+    renderProcessDesk();
+    ddAfterRenderAnim();
+    return;
+  }
+  card.classList.remove("is-entering");
+  card.classList.add("is-leaving");
+  window.setTimeout(() => {
+    applyChange();
+    processFgLookupState.ddAnim = "in";
+    renderProcessDesk();
+    ddAfterRenderAnim();
+  }, DD_CARD_FADE_MS);
+}
+
 function bindProcessFgLookup(body) {
   if (!body) return;
   body.querySelectorAll("[data-fg-family]").forEach((btn) => {
@@ -1167,9 +1226,10 @@ function bindProcessFgLookup(body) {
       processFgLookupState.familyId = btn.getAttribute("data-fg-family") || "";
       processFgLookupState.query = "";
       if (processFgLookupState.familyId === "dd") {
-        processFgLookupState.ddStem = emptyDdStemState();
+        ddResetBuilderState();
       }
       renderProcessDesk();
+      if (processFgLookupState.familyId === "dd") ddAfterRenderAnim();
     });
   });
   const input = body.querySelector("#process-fg-query");
@@ -1188,25 +1248,31 @@ function bindProcessFgLookup(body) {
       const key = btn.getAttribute("data-dd-stem") || "";
       const val = btn.getAttribute("data-dd-val") ?? "";
       if (!key) return;
-      const next = { ...(processFgLookupState.ddStem || emptyDdStemState()) };
-      // Toggle off if same value clicked
-      next[key] = next[key] === val ? "" : val;
-      if (key === "series") {
-        // Clear downstream when series changes
-        next.heaters = "";
-        next.model = "";
-        next.mount = "";
-        next.tank = "";
-        next.gas = "";
-        next.outlet = "";
-      }
-      processFgLookupState.ddStem = next;
-      renderProcessDesk();
+      ddTransitionThen(() => {
+        const next = { ...(processFgLookupState.ddStem || emptyDdStemState()) };
+        next[key] = val;
+        processFgLookupState.ddStem = next;
+        processFgLookupState.ddHistory = [
+          ...(processFgLookupState.ddHistory || []),
+          key,
+        ];
+      });
+    });
+  });
+  body.querySelector("#dd-stem-back")?.addEventListener("click", () => {
+    ddTransitionThen(() => {
+      const { stem, history } = ddGoBack(
+        processFgLookupState.ddStem || emptyDdStemState(),
+        processFgLookupState.ddHistory || []
+      );
+      processFgLookupState.ddStem = stem;
+      processFgLookupState.ddHistory = history;
     });
   });
   body.querySelector("#dd-stem-reset")?.addEventListener("click", () => {
-    processFgLookupState.ddStem = emptyDdStemState();
-    renderProcessDesk();
+    ddTransitionThen(() => {
+      ddResetBuilderState();
+    });
   });
 }
 

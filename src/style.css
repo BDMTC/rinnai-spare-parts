@@ -2838,18 +2838,78 @@ mark {
   font-size: 0.95rem;
 }
 
-.dd-steps {
+.dd-card {
   display: grid;
-  gap: 0.75rem;
+  gap: 0.55rem;
+  padding: 1rem 1.05rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 420ms ease, transform 420ms ease;
 }
 
-.dd-step-head {
+.dd-card.is-leaving {
+  opacity: 0;
+  transform: translateY(-0.45rem);
+  pointer-events: none;
+}
+
+.dd-card.is-entering {
+  animation: dd-card-in 420ms ease;
+}
+
+@keyframes dd-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.55rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.dd-card-head {
   display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.4rem 0.65rem;
-  margin-bottom: 0.4rem;
-  font-size: 0.82rem;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.dd-card-kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.dd-card-prompt {
+  margin: 0;
+  font-family: var(--font-display), "Segoe UI", sans-serif;
+  font-size: 1.15rem;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  color: var(--accent-ink, #1a4f7a);
+  line-height: 1.3;
+}
+
+.dd-card-help {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.dd-card--done {
+  background: #eef8f1;
+  border-color: #9bc9a8;
+}
+
+.dd-card--miss {
+  background: #fff6f0;
+  border-color: #e0b39a;
 }
 
 .dd-step-swatch {
@@ -2861,90 +2921,61 @@ mark {
 }
 
 .dd-opt-row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
+  display: grid;
+  gap: 0.45rem;
+  margin-top: 0.25rem;
 }
 
 .dd-opt {
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 10px;
   background: #f6f8fb;
-  padding: 0.4rem 0.65rem;
-  font-size: 0.8rem;
+  padding: 0.7rem 0.85rem;
+  font-size: 0.92rem;
   font-weight: 650;
   cursor: pointer;
   color: var(--ink);
+  text-align: left;
+  line-height: 1.35;
+  transition: background 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
 
 .dd-opt:hover {
   border-color: #7a90a8;
+  transform: translateY(-1px);
 }
 
-.dd-opt.is-active {
-  color: #0b1220;
-  border-color: transparent;
-  box-shadow: 0 0 0 2px rgba(15, 39, 64, 0.2);
-}
-
-.dd-opt.dd-stem--series.is-active { background: #5ec8ff; }
-.dd-opt.dd-stem--heaters.is-active { background: #ffb020; }
-.dd-opt.dd-stem--model.is-active { background: #7ee0a8; }
-.dd-opt.dd-stem--mount.is-active { background: #c4a1ff; }
-.dd-opt.dd-stem--tank.is-active { background: #ff8fab; }
-.dd-opt.dd-stem--gas.is-active { background: #ffe066; }
-.dd-opt.dd-stem--outlet.is-active { background: #9ad0c2; }
-
-.dd-step--skip {
-  opacity: 0.72;
-}
+.dd-opt.dd-stem--series:hover { background: #dff4ff; }
+.dd-opt.dd-stem--heaters:hover { background: #fff0d4; }
+.dd-opt.dd-stem--model:hover { background: #e5f8ee; }
+.dd-opt.dd-stem--mount:hover { background: #f0e8ff; }
+.dd-opt.dd-stem--tank:hover { background: #ffe8ef; }
+.dd-opt.dd-stem--gas:hover { background: #fff8d6; }
+.dd-opt.dd-stem--outlet:hover { background: #e5f4ef; }
 
 .dd-builder-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.dd-result {
-  padding: 0.75rem 0.85rem;
-  border-radius: 10px;
-  border: 1px solid var(--line);
-}
-
-.dd-result--hit {
-  background: #eef8f1;
-  border-color: #9bc9a8;
-}
-
-.dd-result--miss {
-  background: #fff6f0;
-  border-color: #e0b39a;
-}
-
-.dd-result--pending {
-  background: #f6f8fb;
-}
-
-.dd-result-kicker {
-  margin: 0;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--ink-muted);
+.dd-builder-actions .cart-action:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
 }
 
 .dd-result-code {
-  margin: 0.25rem 0 0;
-  font-size: 1.15rem;
+  margin: 0.15rem 0 0;
+  font-size: 1.2rem;
 }
 
 .dd-result-net {
-  margin: 0.35rem 0 0;
-  font-size: 1.05rem;
+  margin: 0;
+  font-size: 1.35rem;
 }
 
 .dd-result-name {
-  margin: 0.35rem 0 0;
+  margin: 0.2rem 0 0;
   font-size: 0.8rem;
   line-height: 1.35;
 }
