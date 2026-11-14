@@ -512,6 +512,14 @@ function processBasicChapters() {
   return Array.isArray(chapters) ? chapters : [];
 }
 
+/** Shared warranty pathway checker from the Detailed pack (same tree on Basic + Detailed). */
+function processWarrantyCheckerTopic() {
+  const topics = processTopics();
+  const warranty = topics.find((t) => t.id === "warranty");
+  if (!warranty?.checker) return null;
+  return { id: "warranty", checker: warranty.checker };
+}
+
 function activeProcessTopic() {
   const topics = processTopics();
   if (!topics.length) return null;
@@ -720,15 +728,14 @@ function renderProcessChooser() {
   body.innerHTML = `
     <div class="process-chooser" role="group" aria-label="Instruction level">
       <p class="process-chooser-prompt">Would you like basic instructions, or detailed instructions?</p>
-      <p class="process-chooser-sub muted">Basic = plain-English playbook from zero. Detailed = full topics, tables, and warranty checker.</p>
       <div class="process-chooser-actions">
         <button type="button" class="process-chooser-card" data-process-level="basic">
           <span class="process-chooser-card-title">Basic</span>
-          <span class="process-chooser-card-blurb">10 short chapters. Plain English with examples in brackets. Assume no prior knowledge.</span>
+          <span class="process-chooser-card-blurb">10 short chapters. Plain English with examples in brackets. Assume no prior knowledge. Includes the warranty checker.</span>
         </button>
         <button type="button" class="process-chooser-card" data-process-level="detailed">
           <span class="process-chooser-card-title">Detailed</span>
-          <span class="process-chooser-card-blurb">Current Process topics, step tables, warranty years, and Still unsure? checker.</span>
+          <span class="process-chooser-card-blurb">Full Process topics, step tables, warranty years, and Still unsure? checker.</span>
         </button>
       </div>
     </div>
@@ -783,6 +790,12 @@ function renderProcessBasicBody() {
       ? `<p class="process-basic-intro muted">${escapeHtml(processBasicDoc.intro)}</p>`
       : "";
 
+  const warrantyTopic =
+    current.id === "warranty" ? processWarrantyCheckerTopic() : null;
+  const checkerHtml = warrantyTopic
+    ? renderProcessCheckerHtml(warrantyTopic)
+    : "";
+
   body.innerHTML = `
     <header class="process-topic-head">
       <h3 class="process-topic-title">${escapeHtml(current.title || "")}</h3>
@@ -790,6 +803,7 @@ function renderProcessBasicBody() {
     </header>
     ${intro}
     ${bodyHtml}
+    ${checkerHtml}
   `;
 
   rail.querySelectorAll("[data-process-basic-chapter]").forEach((btn) => {
@@ -798,6 +812,8 @@ function renderProcessBasicBody() {
       renderProcessDesk();
     });
   });
+
+  if (warrantyTopic) bindProcessChecker(warrantyTopic);
 }
 
 function renderProcessDetailedBody() {

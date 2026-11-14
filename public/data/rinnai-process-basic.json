@@ -87,10 +87,11 @@
     {
       "id": "warranty",
       "title": "8. Is it still under warranty?",
-      "blurb": "Years differ — domestic vs commercial.",
+      "blurb": "Years differ — use the checker below.",
       "body": [
         "Warranty years depend on the product family [heat exchanger / cylinder / compressor / other parts / labour] and whether the install is domestic or commercial — same box can have different years.",
-        "For the full warranty tables and the Still unsure? yes/no checker, use Change instruction level → Detailed → Warranty.",
+        "Use Still unsure? below (yes/no questions). It will suggest likely warranty labour+parts, parts only, chargeable, or chase Rinnai through the portal notes path.",
+        "For the full year tables by product family, use Change instruction level → Detailed → Warranty.",
         "That checker is a desk aid — if Rinnai later disagrees, follow what Rinnai closes on the WO."
       ]
     },
@@ -113,7 +114,7 @@
         "First: use this Process desk + the Spare Parts Bible (pins, search, Flag problem). Do not guess.",
         "No part number: Pin the unit in the Bible and search by what failed [fan, HEX, valve…]. Use Flag problem if nothing purchaseable shows.",
         "Plate unreadable / two possible units: get a clearer photo of the plate from the tech; do not pick a Pin 3 at random.",
-        "Warranty vs chargeable unclear: switch to Detailed → Warranty → Still unsure?, then use the outcome on the WO charge type.",
+        "Warranty vs chargeable unclear: open chapter 8 Is it still under warranty? and run Still unsure?, then use the outcome on the WO charge type.",
         "Portal login / password: use IT’s password process (never store passwords in this Bible).",
         "Try the Spare Parts Bible and this Process desk first. Still stuck? Ask your supervisor or manager. For parts lookups or incoming warranties, you can also ask Beau for a second opinion."
       ]

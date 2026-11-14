@@ -2512,13 +2512,6 @@ mark {
   text-align: center;
 }
 
-.process-chooser-sub {
-  margin: 0;
-  font-size: 0.88rem;
-  line-height: 1.45;
-  text-align: center;
-}
-
 .process-chooser-actions {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
