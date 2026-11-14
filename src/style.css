@@ -3179,6 +3179,17 @@ html.process-modal-open body {
   letter-spacing: -0.015em;
 }
 
+.process-booklet-link {
+  color: var(--accent-ink, #1a4f7a);
+  font-weight: 750;
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.process-booklet-link:hover {
+  color: var(--accent, #2a7ab8);
+}
+
 .process-table-scroll {
   overflow: auto;
   border: 1px solid var(--line);
