@@ -139,8 +139,18 @@ let assemblyIndex = null;
 let partBlurbs = null;
 /** @type {object|null} */
 let processDoc = null;
-/** Active Process desk topic id. */
+/** @type {object|null} */
+let processBasicDoc = null;
+/** Active Process desk topic id (Detailed). */
 let processTopicId = "";
+/** Active Basic playbook chapter id. */
+let processBasicChapterId = "";
+/**
+ * Process desk surface: chooser first, then basic or detailed pack.
+ * @type {"chooser"|"basic"|"detailed"}
+ */
+let processViewMode = "chooser";
+const PROCESS_LEVEL_STORAGE_KEY = "rsp-process-instruction-level";
 /** @type {{ topicId: string, nodeId: string, outcomeId: string | null }} */
 let processCheckerState = { topicId: "", nodeId: "", outcomeId: null };
 /** @type {ReturnType<typeof buildPartSearchCache>|null} */
@@ -497,10 +507,62 @@ function processTopics() {
   return Array.isArray(topics) ? topics : [];
 }
 
+function processBasicChapters() {
+  const chapters = processBasicDoc?.chapters;
+  return Array.isArray(chapters) ? chapters : [];
+}
+
 function activeProcessTopic() {
   const topics = processTopics();
   if (!topics.length) return null;
   return topics.find((t) => t.id === processTopicId) || topics[0];
+}
+
+function activeProcessBasicChapter() {
+  const chapters = processBasicChapters();
+  if (!chapters.length) return null;
+  return chapters.find((c) => c.id === processBasicChapterId) || chapters[0];
+}
+
+function loadSavedProcessLevel() {
+  try {
+    const raw = localStorage.getItem(PROCESS_LEVEL_STORAGE_KEY);
+    if (raw === "basic" || raw === "detailed") return raw;
+  } catch {
+    /* ignore */
+  }
+  return null;
+}
+
+function saveProcessLevel(level) {
+  try {
+    if (level === "basic" || level === "detailed") {
+      localStorage.setItem(PROCESS_LEVEL_STORAGE_KEY, level);
+    }
+  } catch {
+    /* ignore */
+  }
+}
+
+function setProcessLevel(level) {
+  if (level !== "basic" && level !== "detailed") return;
+  processViewMode = level;
+  saveProcessLevel(level);
+  if (level === "basic") {
+    const chapters = processBasicChapters();
+    if (!processBasicChapterId && chapters[0]?.id) {
+      processBasicChapterId = chapters[0].id;
+    }
+  } else {
+    const topics = processTopics();
+    if (!processTopicId && topics[0]?.id) processTopicId = topics[0].id;
+  }
+  renderProcessDesk();
+}
+
+function showProcessChooser() {
+  processViewMode = "chooser";
+  renderProcessDesk();
 }
 
 function resetProcessChecker(topic) {
@@ -582,7 +644,7 @@ function bindProcessChecker(topic) {
 
   body.querySelector("[data-checker-reset]")?.addEventListener("click", () => {
     resetProcessChecker(topic);
-    renderProcessBody();
+    renderProcessDesk();
   });
 
   body.querySelectorAll("[data-checker-choice]").forEach((btn) => {
@@ -605,12 +667,140 @@ function bindProcessChecker(topic) {
           outcomeId: null,
         };
       }
-      renderProcessBody();
+      renderProcessDesk();
     });
   });
 }
 
-function renderProcessBody() {
+function updateProcessDialogChrome() {
+  const kicker = document.querySelector("#process-dialog-kicker");
+  const title = document.querySelector("#process-dialog-title");
+  const source = document.querySelector("#process-source");
+  const levelBtn = document.querySelector("#process-change-level");
+  const layout = document.querySelector("#process-layout");
+
+  if (processViewMode === "chooser") {
+    if (kicker) kicker.textContent = processDoc?.kicker || "Zone Contractor";
+    if (title) title.textContent = "Rinnai Process";
+    if (source) {
+      source.textContent =
+        "Would you like basic instructions, or detailed instructions?";
+    }
+    if (levelBtn) levelBtn.hidden = true;
+    if (layout) layout.classList.add("process-layout--chooser");
+    return;
+  }
+
+  if (processViewMode === "basic") {
+    if (kicker) kicker.textContent = processBasicDoc?.kicker || "Zone Contractor";
+    if (title) title.textContent = processBasicDoc?.title || "Rinnai Process — Basic";
+    if (source) {
+      source.textContent =
+        processBasicDoc?.sourceNote ||
+        "Zero-knowledge playbook. Plain English. No portal passwords or payment credentials.";
+    }
+  } else {
+    if (kicker) kicker.textContent = processDoc?.kicker || "Zone Contractor";
+    if (title) title.textContent = processDoc?.title || "Rinnai Process";
+    if (source) {
+      source.textContent = processDoc?.sourceNote || "";
+    }
+  }
+
+  if (levelBtn) levelBtn.hidden = false;
+  if (layout) layout.classList.remove("process-layout--chooser");
+}
+
+function renderProcessChooser() {
+  const rail = document.querySelector("#process-rail");
+  const body = document.querySelector("#process-body");
+  if (!rail || !body) return;
+
+  rail.innerHTML = "";
+  body.innerHTML = `
+    <div class="process-chooser" role="group" aria-label="Instruction level">
+      <p class="process-chooser-prompt">Would you like basic instructions, or detailed instructions?</p>
+      <p class="process-chooser-sub muted">Basic = plain-English playbook from zero. Detailed = full topics, tables, and warranty checker.</p>
+      <div class="process-chooser-actions">
+        <button type="button" class="process-chooser-card" data-process-level="basic">
+          <span class="process-chooser-card-title">Basic</span>
+          <span class="process-chooser-card-blurb">10 short chapters. Plain English with examples in brackets. Assume no prior knowledge.</span>
+        </button>
+        <button type="button" class="process-chooser-card" data-process-level="detailed">
+          <span class="process-chooser-card-title">Detailed</span>
+          <span class="process-chooser-card-blurb">Current Process topics, step tables, warranty years, and Still unsure? checker.</span>
+        </button>
+      </div>
+    </div>
+  `;
+
+  body.querySelectorAll("[data-process-level]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      setProcessLevel(btn.getAttribute("data-process-level") || "");
+    });
+  });
+}
+
+function renderProcessBasicBody() {
+  const rail = document.querySelector("#process-rail");
+  const body = document.querySelector("#process-body");
+  if (!rail || !body) return;
+
+  const chapters = processBasicChapters();
+  const current = activeProcessBasicChapter();
+  if (current?.id) processBasicChapterId = current.id;
+
+  if (!chapters.length || !current) {
+    rail.innerHTML = "";
+    body.innerHTML = `<p class="process-empty muted">Basic process pack not loaded.</p>`;
+    return;
+  }
+
+  rail.innerHTML = chapters
+    .map((c) => {
+      const active = c.id === current.id;
+      return `<button
+        type="button"
+        class="process-rail-btn${active ? " is-active" : ""}"
+        data-process-basic-chapter="${escapeHtml(c.id)}"
+        aria-current="${active ? "page" : "false"}"
+      >
+        <span class="process-rail-title">${escapeHtml(c.title || c.id)}</span>
+        <span class="process-rail-blurb">${escapeHtml(c.blurb || "")}</span>
+      </button>`;
+    })
+    .join("");
+
+  const paras = Array.isArray(current.body) ? current.body : [];
+  const bodyHtml = paras.length
+    ? `<div class="process-basic-body">${paras
+        .map((p) => `<p class="process-basic-para">${escapeHtml(p)}</p>`)
+        .join("")}</div>`
+    : `<p class="process-empty muted">No copy for this chapter.</p>`;
+
+  const intro =
+    processBasicDoc?.intro && current.id === chapters[0]?.id
+      ? `<p class="process-basic-intro muted">${escapeHtml(processBasicDoc.intro)}</p>`
+      : "";
+
+  body.innerHTML = `
+    <header class="process-topic-head">
+      <h3 class="process-topic-title">${escapeHtml(current.title || "")}</h3>
+      <p class="process-topic-blurb muted">${escapeHtml(current.blurb || "")}</p>
+    </header>
+    ${intro}
+    ${bodyHtml}
+  `;
+
+  rail.querySelectorAll("[data-process-basic-chapter]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      processBasicChapterId = btn.getAttribute("data-process-basic-chapter") || "";
+      renderProcessDesk();
+    });
+  });
+}
+
+function renderProcessDetailedBody() {
   const rail = document.querySelector("#process-rail");
   const body = document.querySelector("#process-body");
   if (!rail || !body) return;
@@ -733,7 +923,7 @@ function renderProcessBody() {
   rail.querySelectorAll("[data-process-topic]").forEach((btn) => {
     btn.addEventListener("click", () => {
       processTopicId = btn.getAttribute("data-process-topic") || "";
-      renderProcessBody();
+      renderProcessDesk();
     });
   });
 
@@ -747,12 +937,38 @@ function renderProcessBody() {
   });
 }
 
+function renderProcessDesk() {
+  updateProcessDialogChrome();
+  if (processViewMode === "chooser") {
+    renderProcessChooser();
+    return;
+  }
+  if (processViewMode === "basic") {
+    renderProcessBasicBody();
+    return;
+  }
+  renderProcessDetailedBody();
+}
+
 function openProcess() {
   const dialog = document.querySelector("#process-dialog");
   if (!dialog) return;
-  const topics = processTopics();
-  if (!processTopicId && topics[0]?.id) processTopicId = topics[0].id;
-  renderProcessBody();
+  const saved = loadSavedProcessLevel();
+  if (saved === "basic" || saved === "detailed") {
+    processViewMode = saved;
+    if (saved === "basic") {
+      const chapters = processBasicChapters();
+      if (!processBasicChapterId && chapters[0]?.id) {
+        processBasicChapterId = chapters[0].id;
+      }
+    } else {
+      const topics = processTopics();
+      if (!processTopicId && topics[0]?.id) processTopicId = topics[0].id;
+    }
+  } else {
+    processViewMode = "chooser";
+  }
+  renderProcessDesk();
   if (typeof dialog.showModal === "function") dialog.showModal();
   else dialog.setAttribute("open", "");
 }
@@ -1437,13 +1653,16 @@ function renderShell() {
         <div class="process-dialog-inner">
           <header class="cart-dialog-bar">
             <div>
-              <p class="cart-dialog-kicker">${escapeHtml(processDoc?.kicker || "Zone Contractor")}</p>
+              <p class="cart-dialog-kicker" id="process-dialog-kicker">${escapeHtml(processDoc?.kicker || "Zone Contractor")}</p>
               <h2 class="cart-dialog-title" id="process-dialog-title">${escapeHtml(processDoc?.title || "Rinnai Process")}</h2>
             </div>
-            <button type="button" class="cart-dialog-close" id="process-close" aria-label="Close process desk">Close</button>
+            <div class="process-dialog-actions">
+              <button type="button" class="cart-action" id="process-change-level" hidden>Change instruction level</button>
+              <button type="button" class="cart-dialog-close" id="process-close" aria-label="Close process desk">Close</button>
+            </div>
           </header>
-          <p class="process-source muted">${escapeHtml(processDoc?.sourceNote || "")}</p>
-          <div class="process-layout">
+          <p class="process-source muted" id="process-source">${escapeHtml(processDoc?.sourceNote || "")}</p>
+          <div class="process-layout" id="process-layout">
             <nav class="process-rail" id="process-rail" aria-label="Process topics"></nav>
             <div class="process-body" id="process-body"></div>
           </div>
@@ -3341,9 +3560,11 @@ function bindEvents() {
 
   const processOpen = document.querySelector("#process-open");
   const processClose = document.querySelector("#process-close");
+  const processChangeLevel = document.querySelector("#process-change-level");
   const processDialog = document.querySelector("#process-dialog");
   processOpen?.addEventListener("click", openProcess);
   processClose?.addEventListener("click", closeProcess);
+  processChangeLevel?.addEventListener("click", showProcessChooser);
   if (processDialog) {
     processDialog.addEventListener("cancel", (e) => {
       e.preventDefault();
@@ -3467,6 +3688,7 @@ async function boot() {
       assemblyHierarchy: hierarchyDoc,
       partBlurbs: blurbsDoc,
       processDoc: processPack,
+      processBasicDoc: processBasicPack,
     } = await loadBootData();
     baseCatalogue = cat;
     config = cfg;
@@ -3479,8 +3701,12 @@ async function boot() {
     assemblyIndex = buildAssemblyIndex(assemblyHierarchy);
     partBlurbs = blurbsDoc || null;
     processDoc = processPack || null;
+    processBasicDoc = processBasicPack || null;
     if (!processTopicId && processDoc?.topics?.[0]?.id) {
       processTopicId = processDoc.topics[0].id;
+    }
+    if (!processBasicChapterId && processBasicDoc?.chapters?.[0]?.id) {
+      processBasicChapterId = processBasicDoc.chapters[0].id;
     }
     overrides = loadOverrides();
     refreshCatalogueFromOverrides();

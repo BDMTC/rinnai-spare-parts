@@ -2469,6 +2469,14 @@ mark {
   line-height: 1.4;
 }
 
+.process-dialog-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.45rem;
+}
+
 .process-layout {
   display: grid;
   grid-template-columns: minmax(11rem, 15rem) minmax(0, 1fr);
@@ -2476,6 +2484,96 @@ mark {
   min-height: 0;
   border-top: 1px solid var(--line);
   overflow: hidden;
+}
+
+.process-layout--chooser {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.process-layout--chooser .process-rail {
+  display: none;
+}
+
+.process-chooser {
+  display: grid;
+  gap: 1rem;
+  padding: 0.35rem 0.15rem 0.5rem;
+  max-width: 40rem;
+  margin: 0 auto;
+}
+
+.process-chooser-prompt {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--accent-ink);
+  text-align: center;
+}
+
+.process-chooser-sub {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.process-chooser-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.process-chooser-card {
+  display: grid;
+  gap: 0.45rem;
+  margin: 0;
+  padding: 1rem 1.05rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--ink);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease, box-shadow 140ms ease;
+}
+
+.process-chooser-card:hover {
+  border-color: var(--accent-ink);
+  background: var(--accent-soft);
+  box-shadow: inset 3px 0 0 var(--accent-ink);
+}
+
+.process-chooser-card-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--accent-ink);
+}
+
+.process-chooser-card-blurb {
+  font-size: 0.82rem;
+  line-height: 1.4;
+  color: var(--ink-muted);
+}
+
+.process-basic-intro {
+  margin: 0 0 0.85rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.process-basic-body {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.process-basic-para {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.55;
 }
 
 .process-rail {
@@ -3657,6 +3755,20 @@ ul.process-table-foot li {
   .process-layout {
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr;
+  }
+
+  .process-chooser-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .process-dialog-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .process-dialog-actions .cart-action,
+  .process-dialog-actions .cart-dialog-close {
+    flex: 1 1 auto;
   }
 
   .process-rail {

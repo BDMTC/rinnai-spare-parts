@@ -11,6 +11,7 @@ import abbrevs from "../public/data/part-name-abbreviations.json";
 import assemblyHierarchy from "../public/data/assembly-hierarchy.json";
 import partBlurbs from "../public/data/part-blurbs.json";
 import processDoc from "../public/data/rinnai-process.json";
+import processBasicDoc from "../public/data/rinnai-process-basic.json";
 
 export function loadBundledBootData() {
   return {
@@ -23,5 +24,6 @@ export function loadBundledBootData() {
     assemblyHierarchy,
     partBlurbs,
     processDoc,
+    processBasicDoc,
   };
 }
