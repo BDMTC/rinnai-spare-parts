@@ -116,7 +116,7 @@ WARRANTY_TOPIC = {
     ],
     "tables": [
         {
-            "title": "Gas continuous flow (booklet Feb 2025)",
+            "title": "Gas continuous flow (booklet Feb 2025, p.4)",
             "headers": [
                 "Use",
                 "Product group",
@@ -162,7 +162,7 @@ WARRANTY_TOPIC = {
             ],
         },
         {
-            "title": "Gas CF accessories (same booklet)",
+            "title": "Gas CF accessories (same booklet Feb 2025, p.4)",
             "headers": ["Use", "Accessory", "Parts", "Labour"],
             "rows": [
                 ["Domestic", "SmartStart (REU-CUG1)", "3 yr", "3 yr"],
@@ -176,7 +176,7 @@ WARRANTY_TOPIC = {
             ],
         },
         {
-            "title": "Efinity electric continuous flow (booklet Mar 2024)",
+            "title": "Efinity electric continuous flow (booklet Mar 2024, p.4)",
             "headers": ["Use", "Heat exchanger", "Other parts", "Labour"],
             "rows": [
                 ["Domestic", "5 yr", "5 yr", "5 yr"],
@@ -187,7 +187,7 @@ WARRANTY_TOPIC = {
             ],
         },
         {
-            "title": "Hotflo electric storage (booklet May 2021)",
+            "title": "Hotflo electric storage (booklet May 2021, p.4)",
             "headers": ["Use", "Coverage", "Cylinder", "Other components"],
             "rows": [
                 ["Domestic 80–400 L", "Parts", "10 yr", "1 yr"],
@@ -201,7 +201,7 @@ WARRANTY_TOPIC = {
             ],
         },
         {
-            "title": "Enviroflo heat pump (booklet Nov 2023)",
+            "title": "Enviroflo heat pump (booklet Nov 2023, p.3)",
             "headers": [
                 "Series",
                 "Use",
@@ -225,7 +225,7 @@ WARRANTY_TOPIC = {
             ],
         },
         {
-            "title": "Solar hot water (booklet Oct 2024) — domestic parts snapshot",
+            "title": "Solar hot water (booklet Oct 2024, p.4) — domestic parts snapshot",
             "headers": ["Item", "Parts (domestic)", "Labour (domestic)"],
             "rows": [
                 ["S20 / S26 / Rinnai-converted solar CF — HEX", "12 yr", "3 yr"],
@@ -242,7 +242,7 @@ WARRANTY_TOPIC = {
             ],
         },
         {
-            "title": "Commercial pack — Demand Duo / manifold / QRE (booklet Dec 2024)",
+            "title": "Commercial pack — Demand Duo / manifold / QRE (booklet Dec 2024, p.3)",
             "headers": ["Item", "Domestic parts / labour", "Commercial parts / labour"],
             "rows": [
                 ["HD booster HEX in DD / MP", "12 / 5", "5 / 3 (1 yr if 85/95°C)"],
