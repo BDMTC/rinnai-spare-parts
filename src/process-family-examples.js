@@ -1,9 +1,9 @@
 /**
  * Warranty-checker family example packs (Basic + Detailed).
- * Each ⓘ opens one family; Next/Prev only walk shots inside that family.
+ * Each ⓘ opens one family cover-flow (~20 offline shots). Next/Prev/drag stay inside that family.
  */
 import { publicUrl } from "./boot-data.js";
-import { seriesUnitShotUrl } from "./series-unit-shots.js";
+import manifest from "../public/assets/process-family-examples/manifest.json";
 
 /**
  * @typedef {{
@@ -11,16 +11,12 @@ import { seriesUnitShotUrl } from "./series-unit-shots.js";
  *   title: string,
  *   caption: string,
  *   attribution: string,
- *   publicFiles?: string[],
- *   seriesIds?: string[],
- *   collage?: boolean,
  * }} FamilyExamplePack
  *
  * @typedef {{
- *   kind: "image" | "collage",
- *   src?: string,
- *   label?: string,
- *   images?: { src: string, label: string, caption: string }[],
+ *   kind: "image",
+ *   src: string,
+ *   label: string,
  * }} FamilyExamplePage
  */
 
@@ -31,89 +27,57 @@ export const PROCESS_FAMILY_EXAMPLE_PACKS = [
     title: "Gas continuous flow",
     caption:
       "Infinity / Enviro, HD / HDC, Builders, Flowmaster — wall-hung gas CF [e.g. Infinity 32, HD200e].",
-    attribution: "Rinnai AU catalogue · Infinity 32 + Bible unit shots",
-    publicFiles: ["infinity-32.png"],
-    seriesIds: ["hd200e", "hd28e", "infinity26"],
+    attribution: "Rinnai AU catalogue shots · offline in public/assets/process-family-examples/cf/",
   },
   {
     id: "accessory",
     title: "CF accessory",
     caption:
       "Controllers, SmartStart, flues, pipe covers — sold with or after a CF unit.",
-    attribution: "Bible unit shot · Infinity 26 Smartstart",
-    seriesIds: ["infinity26-smartstart"],
+    attribution:
+      "Rinnai AU catalogue shots · offline in public/assets/process-family-examples/accessory/",
   },
   {
     id: "hotflo",
     title: "Hotflo electric storage",
     caption:
       "Tank-style electric storage [EHFA / EHFD / HFE]. Cylinder vs components have different year bands.",
-    attribution: "Rinnai AU catalogue · Hotflo 160L",
-    publicFiles: ["hotflo-160l.png"],
+    attribution:
+      "Rinnai AU catalogue shots · offline in public/assets/process-family-examples/hotflo/",
   },
   {
     id: "heat-pump",
     title: "Heat pump — Enviroflo",
     caption:
       "Heat-pump cylinder + compressor [EHPA / AR series]. Cylinder, compressor, and other parts differ.",
-    attribution: "Rinnai AU catalogue · Enviroflo AR 300L",
-    publicFiles: ["enviroflo-ar-300.png"],
+    attribution:
+      "Rinnai AU catalogue shots · offline in public/assets/process-family-examples/heat-pump/",
   },
   {
     id: "efinity",
     title: "Efinity electric CF",
     caption:
       "Indoor electric continuous flow (3-phase) [Efinity 14 / 19 / 29 kW] — not a storage tank.",
-    attribution: "Rinnai AU catalogue · Efinity 19kW",
-    publicFiles: ["efinity-19kw.png"],
+    attribution:
+      "Rinnai AU catalogue shots · offline in public/assets/process-family-examples/efinity/",
   },
   {
     id: "ghf-solar",
     title: "GHF / solar",
     caption:
       "Gas storage (GHF) or solar CF booster / solar cylinder [e.g. Solar 28]. Often needs booklet / Rinnai check.",
-    attribution: "Bible unit shot · Solar 28",
-    seriesIds: ["solar28"],
+    attribution:
+      "Rinnai AU catalogue + Bible unit shot · offline in public/assets/process-family-examples/ghf-solar/",
   },
   {
     id: "mixed",
     title: "Mixed system",
     caption:
-      "Desk invent — storage tank + continuous-flow combo on one install. Beau to correct if the office uses a different mixed pattern.",
-    attribution: "Composite · Hotflo 160L + Infinity 32 (Rinnai AU catalogue)",
-    publicFiles: ["hotflo-160l.png", "infinity-32.png"],
-    collage: true,
+      "Desk invent — storage tank + continuous-flow shots mixed (tank then CF). Beau to correct if the office uses a different mixed pattern.",
+    attribution:
+      "Composite gallery · Hotflo + Infinity catalogue shots (see SOURCES.md)",
   },
 ];
-
-/**
- * @param {string} fileName
- * @returns {string}
- */
-function publicExampleUrl(fileName) {
-  return publicUrl(`assets/process-family-examples/${fileName}`);
-}
-
-/**
- * @param {FamilyExamplePack} pack
- * @returns {{ src: string, label: string }[]}
- */
-function packImages(pack) {
-  /** @type {{ src: string, label: string }[]} */
-  const out = [];
-  for (const file of pack.publicFiles || []) {
-    out.push({
-      src: publicExampleUrl(file),
-      label: file.replace(/\.[^.]+$/, "").replace(/-/g, " "),
-    });
-  }
-  for (const id of pack.seriesIds || []) {
-    const src = seriesUnitShotUrl(id);
-    if (!src) continue;
-    out.push({ src, label: id });
-  }
-  return out;
-}
 
 /**
  * @param {string|null|undefined} familyId
@@ -125,26 +89,29 @@ export function getFamilyExamplePack(familyId) {
 }
 
 /**
- * Pages for one family only (Next/Prev stay inside this list).
+ * @param {string} relPath family/file under process-family-examples
+ */
+function exampleFileUrl(relPath) {
+  return publicUrl(`assets/process-family-examples/${relPath}`);
+}
+
+/**
+ * Pages for one family only (~20 images). Next/Prev stay inside this list.
  * @param {FamilyExamplePack} pack
  * @returns {FamilyExamplePage[]}
  */
 export function familyExamplePages(pack) {
-  const images = packImages(pack);
-  if (pack.collage && images.length >= 2) {
-    return [
-      {
-        kind: "collage",
-        images: [
-          { src: images[0].src, label: images[0].label, caption: "Storage tank" },
-          { src: images[1].src, label: images[1].label, caption: "Continuous flow" },
-        ],
-      },
-    ];
-  }
-  return images.map((img) => ({
-    kind: "image",
-    src: img.src,
-    label: img.label,
-  }));
+  const rows = Array.isArray(manifest?.[pack.id]) ? manifest[pack.id] : [];
+  return rows
+    .map((row) => {
+      const file = String(row?.file || "");
+      if (!file) return null;
+      const label = file.split("/").pop()?.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ") || pack.title;
+      return {
+        kind: "image",
+        src: exampleFileUrl(file),
+        label,
+      };
+    })
+    .filter(Boolean);
 }

@@ -157,9 +157,11 @@ let processViewMode = "chooser";
 const PROCESS_LEVEL_STORAGE_KEY = "rsp-process-instruction-level";
 /** @type {{ topicId: string, nodeId: string, outcomeId: string | null }} */
 let processCheckerState = { topicId: "", nodeId: "", outcomeId: null };
-/** Active family example pack id + page index (Next/Prev stay inside one family). */
+/** Active family example pack id + page index (cover-flow stays inside one family). */
 let processExampleFamilyId = "cf";
 let processExamplePageIndex = 0;
+/** @type {{ pointerId: number, startX: number, lastX: number, dragged: boolean }|null} */
+let processExampleDrag = null;
 /** @type {ReturnType<typeof buildPartSearchCache>|null} */
 let partSearchCache = null;
 /** Memoised visibility predicate — pin/unlocks change it, typing must not. */
@@ -600,37 +602,35 @@ function ensureProcessCheckerState(topic) {
   }
 }
 
-function renderFamilyExamplePageHtml(pack, page) {
-  let media = "";
-  if (page?.kind === "collage" && Array.isArray(page.images) && page.images.length >= 2) {
-    media = `<div class="process-example-collage">
-      <figure class="process-example-collage-item">
-        <img src="${escapeHtml(page.images[0].src)}" alt="${escapeHtml(page.images[0].label)}" loading="lazy" decoding="async" />
-        <figcaption>${escapeHtml(page.images[0].caption || "Storage tank")}</figcaption>
-      </figure>
-      <span class="process-example-collage-plus" aria-hidden="true">+</span>
-      <figure class="process-example-collage-item">
-        <img src="${escapeHtml(page.images[1].src)}" alt="${escapeHtml(page.images[1].label)}" loading="lazy" decoding="async" />
-        <figcaption>${escapeHtml(page.images[1].caption || "Continuous flow")}</figcaption>
-      </figure>
-    </div>`;
-  } else if (page?.src) {
-    media = `<div class="process-example-shots process-example-shots--single">
-      <figure class="process-example-shot">
-        <img src="${escapeHtml(page.src)}" alt="${escapeHtml(page.label || pack.title)}" loading="lazy" decoding="async" />
-      </figure>
-    </div>`;
-  } else {
-    media = `<p class="muted">No example image for this family yet.</p>`;
-  }
+/**
+ * Shortest signed offset on a ring of length n (−floor(n/2) …).
+ * @param {number} index
+ * @param {number} active
+ * @param {number} n
+ */
+function coverflowRingOffset(index, active, n) {
+  if (n <= 0) return 0;
+  let d = index - active;
+  d = ((d % n) + n) % n;
+  if (d > n / 2) d -= n;
+  return d;
+}
 
-  return `
-    <div class="process-example-slide" data-example-id="${escapeHtml(pack.id)}">
-      <h3 class="process-example-slide-title">${escapeHtml(pack.title)}</h3>
-      <p class="process-example-slide-caption">${escapeHtml(pack.caption)}</p>
-      ${media}
-      <p class="process-example-slide-attr muted">${escapeHtml(pack.attribution || "")}</p>
-    </div>`;
+function stepProcessExamplePage(delta) {
+  const pack = getFamilyExamplePack(processExampleFamilyId);
+  const pages = familyExamplePages(pack);
+  if (!pages.length) return;
+  const n = pages.length;
+  processExamplePageIndex = ((processExamplePageIndex + delta) % n + n) % n;
+  renderProcessFamilyExampleSlide();
+}
+
+function renderFamilyExampleCardHtml(pack, page, index) {
+  if (!page?.src) return "";
+  const label = escapeHtml(page.label || pack.title);
+  return `<button type="button" class="process-coverflow-card" data-coverflow-index="${index}" aria-label="${label}">
+    <img src="${escapeHtml(page.src)}" alt="${label}" draggable="false" loading="lazy" decoding="async" />
+  </button>`;
 }
 
 function openProcessFamilyExamples(familyId) {
@@ -638,6 +638,7 @@ function openProcessFamilyExamples(familyId) {
   if (!dialog) return;
   processExampleFamilyId = familyId || "cf";
   processExamplePageIndex = 0;
+  processExampleDrag = null;
   renderProcessFamilyExampleSlide();
   if (typeof dialog.showModal === "function") dialog.showModal();
   else dialog.setAttribute("open", "");
@@ -645,8 +646,53 @@ function openProcessFamilyExamples(familyId) {
 
 function closeProcessFamilyExamples() {
   const dialog = document.querySelector("#process-example-dialog");
+  processExampleDrag = null;
   if (dialog && typeof dialog.close === "function") dialog.close();
   else if (dialog) dialog.removeAttribute("open");
+}
+
+function bindProcessExampleCoverflow(track) {
+  if (!track) return;
+  track.querySelectorAll("[data-coverflow-index]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      if (processExampleDrag?.dragged) return;
+      const idx = Number(btn.getAttribute("data-coverflow-index"));
+      if (!Number.isFinite(idx) || idx === processExamplePageIndex) return;
+      processExamplePageIndex = idx;
+      renderProcessFamilyExampleSlide();
+    });
+  });
+
+  const onPointerDown = (e) => {
+    if (e.button != null && e.button !== 0) return;
+    processExampleDrag = {
+      pointerId: e.pointerId,
+      startX: e.clientX,
+      lastX: e.clientX,
+      dragged: false,
+    };
+    track.setPointerCapture?.(e.pointerId);
+  };
+  const onPointerMove = (e) => {
+    if (!processExampleDrag || processExampleDrag.pointerId !== e.pointerId) return;
+    const dx = e.clientX - processExampleDrag.startX;
+    processExampleDrag.lastX = e.clientX;
+    if (Math.abs(dx) > 8) processExampleDrag.dragged = true;
+    track.style.setProperty("--coverflow-drag", `${dx * 0.35}px`);
+  };
+  const onPointerUp = (e) => {
+    if (!processExampleDrag || processExampleDrag.pointerId !== e.pointerId) return;
+    const dx = processExampleDrag.lastX - processExampleDrag.startX;
+    const dragged = processExampleDrag.dragged;
+    processExampleDrag = null;
+    track.style.removeProperty("--coverflow-drag");
+    if (!dragged || Math.abs(dx) < 40) return;
+    stepProcessExamplePage(dx < 0 ? 1 : -1);
+  };
+  track.addEventListener("pointerdown", onPointerDown);
+  track.addEventListener("pointermove", onPointerMove);
+  track.addEventListener("pointerup", onPointerUp);
+  track.addEventListener("pointercancel", onPointerUp);
 }
 
 function renderProcessFamilyExampleSlide() {
@@ -660,23 +706,46 @@ function renderProcessFamilyExampleSlide() {
   if (!pages.length) {
     stage.innerHTML = `<p class="muted">No family examples loaded.</p>`;
     if (pageEl) pageEl.textContent = "";
-    if (prev) prev.disabled = true;
-    if (next) next.disabled = true;
     return;
   }
-  if (processExamplePageIndex < 0) processExamplePageIndex = 0;
-  if (processExamplePageIndex >= pages.length) {
-    processExamplePageIndex = pages.length - 1;
-  }
-  stage.innerHTML = renderFamilyExamplePageHtml(pack, pages[processExamplePageIndex]);
+  const n = pages.length;
+  processExamplePageIndex = ((processExamplePageIndex % n) + n) % n;
+
+  const cards = pages
+    .map((page, i) => {
+      const offset = coverflowRingOffset(i, processExamplePageIndex, n);
+      const abs = Math.abs(offset);
+      if (n > 1 && abs > 2) return "";
+      const html = renderFamilyExampleCardHtml(pack, page, i);
+      if (!html) return "";
+      const active = offset === 0 ? " is-active" : "";
+      const scale = Math.max(0.55, 1 - abs * 0.18);
+      const opacity = Math.max(0.35, 1 - abs * 0.28);
+      const tx = offset * 7.2;
+      const rot = offset * -18;
+      const z = 20 - abs;
+      const style = `transform: translateX(calc(${tx}rem + var(--coverflow-drag, 0px))) scale(${scale}) rotateY(${rot}deg); opacity:${opacity}; z-index:${z};`;
+      return `<div class="process-coverflow-slot${active}" data-coverflow-offset="${offset}" style="${style}">${html}</div>`;
+    })
+    .join("");
+
+  stage.innerHTML = `
+    <div class="process-example-slide" data-example-id="${escapeHtml(pack.id)}">
+      <h3 class="process-example-slide-title">${escapeHtml(pack.title)}</h3>
+      <p class="process-example-slide-caption">${escapeHtml(pack.caption)}</p>
+      <div class="process-coverflow" aria-roledescription="carousel" aria-label="${escapeHtml(pack.title)} examples">
+        <div class="process-coverflow-track" id="process-coverflow-track">${cards}</div>
+      </div>
+      <p class="process-example-slide-attr muted">${escapeHtml(pack.attribution || "")}</p>
+    </div>`;
+
   if (pageEl) {
-    pageEl.textContent =
-      pages.length > 1
-        ? `${processExamplePageIndex + 1} / ${pages.length}`
-        : pack.title;
+    pageEl.textContent = n > 1 ? `${processExamplePageIndex + 1} / ${n}` : pack.title;
   }
-  if (prev) prev.disabled = processExamplePageIndex <= 0;
-  if (next) next.disabled = processExamplePageIndex >= pages.length - 1;
+  if (prev) prev.disabled = false;
+  if (next) next.disabled = false;
+
+  bindProcessExampleCoverflow(stage.querySelector("#process-coverflow-track"));
 }
 
 function renderProcessCheckerHtml(topic) {
@@ -3719,13 +3788,10 @@ function bindEvents() {
   const processExampleNext = document.querySelector("#process-example-next");
   processExampleClose?.addEventListener("click", closeProcessFamilyExamples);
   processExamplePrev?.addEventListener("click", () => {
-    processExamplePageIndex = Math.max(0, processExamplePageIndex - 1);
-    renderProcessFamilyExampleSlide();
+    stepProcessExamplePage(-1);
   });
   processExampleNext?.addEventListener("click", () => {
-    const pages = familyExamplePages(getFamilyExamplePack(processExampleFamilyId));
-    processExamplePageIndex = Math.min(pages.length - 1, processExamplePageIndex + 1);
-    renderProcessFamilyExampleSlide();
+    stepProcessExamplePage(1);
   });
   if (processExampleDialog) {
     processExampleDialog.addEventListener("cancel", (e) => {

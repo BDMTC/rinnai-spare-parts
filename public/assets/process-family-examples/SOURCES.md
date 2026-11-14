@@ -1,12 +1,15 @@
 # Process family example images — sources
 
-Offline copies for the warranty-checker example slideshow. Product photography from Rinnai Australia public catalogue pages (Storyblok CDN). Desk-aid only — not an official Rinnai asset pack.
+Offline copies for the warranty-checker ⓘ cover-flow (~20 shots per family). Product photography from Rinnai Australia public catalogue pages (Storyblok CDN), plus Bible `solar28` unit shot for GHF/solar. Desk-aid only.
 
-| File | Product | Source page |
+| Folder | Family | Notes |
 | --- | --- | --- |
-| `infinity-32.png` | Infinity 32 gas CF | https://www.rinnai.com.au/home/catalogue/products/infinity/infinity-32 |
-| `hotflo-160l.png` | Hotflo 160L electric storage | https://www.rinnai.com.au/home/catalogue/products/hotflo-electric-storage/hotflo-medium-electric-storage-160l |
-| `enviroflo-ar-300.png` | Enviroflo AR 300L heat pump | https://www.rinnai.com.au/home/catalogue/products/enviroflo-electric-ar/enviroflo-ar-300L-heat-pump |
-| `efinity-19kw.png` | Efinity 19kW electric CF | https://www.rinnai.com.au/home/catalogue/products/efinity/efinity-19kw |
+| `cf/` | Gas continuous flow | Infinity / Builders / Enviro catalogue fronts |
+| `accessory/` | CF accessories | Controllers, SmartStart, flues, covers |
+| `hotflo/` | Hotflo electric storage | Tank size variants + lifestyle |
+| `heat-pump/` | Enviroflo heat pumps | AR / GR / S / Hotflo Plus |
+| `efinity/` | Efinity electric CF | Front / detail / install shots |
+| `ghf-solar/` | GHF gas storage + solar | Limited public stills; pads reuse best shots |
+| `mixed/` | Mixed system | Manifest points at Hotflo + CF files (tank then CF) |
 
-Mixed-system slide composites Hotflo + Infinity shots in-app (labeled tank + continuous-flow combo). Local Bible series unit shots (HD / Infinity / Solar 28) also used where already bundled.
+See `manifest.json` for per-file source URLs. Some families pad with copies when unique public stills were scarce.
