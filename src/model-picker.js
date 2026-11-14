@@ -358,15 +358,15 @@ export function highlightInstallLabelHtml(text) {
 }
 
 /**
- * Colour Nat Gas (blue) / LPG (red) in Pin 3 row text (subtitle commercial names).
+ * Colour Nat Gas / Natural Gas (blue) / LPG (red) in titles (Pin 3 + Process FG).
  * @param {string} text
  * @returns {string} HTML (escaped, with fuel spans)
  */
 export function highlightFuelLabelHtml(text) {
   return escapeHtml(String(text || "")).replace(
-    /\b(Nat Gas|LPG)\b/g,
+    /\b(Natural Gas|Nat Gas|LPG)\b/gi,
     (word) => {
-      const kind = word === "LPG" ? "lpg" : "nat-gas";
+      const kind = /^lpg$/i.test(word) ? "lpg" : "nat-gas";
       return `<span class="pin-fuel pin-fuel--${kind}">${word}</span>`;
     }
   );

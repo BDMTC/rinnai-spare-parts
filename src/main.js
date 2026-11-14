@@ -49,7 +49,7 @@ import {
   resolveModelPin,
   documentKeysForPin,
 } from "./series.js";
-import { bindModelPicker } from "./model-picker.js";
+import { bindModelPicker, highlightFuelLabelHtml } from "./model-picker.js";
 import {
   isEverythingSystem,
   systemTypeFromValue,
@@ -1508,7 +1508,7 @@ function renderProcessDdBuilderHtml() {
   const segments = ddStemSegments(stem);
   const animClass = processFgLookupState.ddAnim === "in" ? " is-entering" : "";
   const packageLine = ddPackageDeterminedLine(catalog, stem, match);
-  const packageSentenceHtml = `Package code determined to be: <code>${escapeHtml(packageLine.code)}</code> - ${escapeHtml(packageLine.description)}.`;
+  const packageSentenceHtml = `Package code determined to be: <code>${escapeHtml(packageLine.code)}</code> - ${highlightFuelLabelHtml(packageLine.description)}.`;
 
   const stripHtml = segments.length
     ? segments
@@ -1529,7 +1529,7 @@ function renderProcessDdBuilderHtml() {
       <p class="dd-card-prompt">Zone Net ex GST</p>
       <p class="dd-result-net"><strong>${formatAud(match.netExGst)}</strong></p>
       <p class="dd-result-code"><code>${escapeHtml(match.orderCode)}</code></p>
-      <p class="muted dd-result-name">${escapeHtml(match.name || "")}</p>
+      <p class="muted dd-result-name">${highlightFuelLabelHtml(match.name || "")}</p>
     </div>`;
   } else if (stepKey) {
     const q = DD_QUESTIONS[stepKey] || { prompt: stepKey, help: "" };
@@ -1538,7 +1538,9 @@ function renderProcessDdBuilderHtml() {
     const btns = opts
       .map((val) => {
         const label = ddOptionLabel(stepKey, val);
-        return `<button type="button" class="dd-opt ${meta.colorClass}" data-dd-stem="${escapeHtml(stepKey)}" data-dd-val="${escapeHtml(val)}">${escapeHtml(label)}</button>`;
+        const labelHtml =
+          stepKey === "gas" ? highlightFuelLabelHtml(label) : escapeHtml(label);
+        return `<button type="button" class="dd-opt ${meta.colorClass}" data-dd-stem="${escapeHtml(stepKey)}" data-dd-val="${escapeHtml(val)}">${labelHtml}</button>`;
       })
       .join("");
     cardHtml = `<div class="dd-card${animClass}" data-dd-card>
@@ -1613,7 +1615,7 @@ function renderProcessFgLookupHtml() {
     }
 
     const fgRow = (it) => `<tr>
-            <td>${escapeHtml(it.name || "")}</td>
+            <td>${highlightFuelLabelHtml(it.name || "")}</td>
             <td><code>${escapeHtml(it.orderCode || "")}</code></td>
             <td class="process-fg-net">${formatAud(it.netExGst)}</td>
           </tr>`;

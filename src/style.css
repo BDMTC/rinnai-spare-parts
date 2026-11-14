@@ -1154,7 +1154,9 @@ input[type="number"]:focus {
 }
 
 .model-option-sub .pin-fuel--nat-gas,
-.model-option-sub .pin-fuel--lpg {
+.model-option-sub .pin-fuel--lpg,
+.process-dialog .pin-fuel--nat-gas,
+.process-dialog .pin-fuel--lpg {
   font-weight: 750;
 }
 
