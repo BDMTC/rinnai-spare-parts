@@ -2761,6 +2761,194 @@ mark {
   font-variant-numeric: tabular-nums;
 }
 
+/* Demand Duo stem builder (Finished goods → DD family) */
+.dd-builder {
+  display: grid;
+  gap: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+.dd-builder-blurb {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.4;
+}
+
+.dd-stem-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 0.35rem;
+  padding: 0.85rem 1rem;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0f2740 0%, #1a3a55 55%, #243d52 100%);
+  min-height: 4.2rem;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.dd-stem-placeholder {
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 1.15rem;
+  font-weight: 650;
+  letter-spacing: 0.02em;
+  align-self: center;
+}
+
+.dd-stem-seg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.4rem;
+  padding: 0.45rem 0.65rem;
+  border-radius: 8px;
+  font-family: var(--font-display), "Segoe UI", sans-serif;
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  color: #0b1220;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset;
+}
+
+.dd-stem-seg.is-empty {
+  opacity: 0.42;
+  border: 1px dashed rgba(11, 18, 32, 0.35);
+  box-shadow: none;
+}
+
+.dd-stem-ghost {
+  font-weight: 700;
+  opacity: 0.7;
+}
+
+.dd-stem--series { background: #5ec8ff; }
+.dd-stem--heaters { background: #ffb020; }
+.dd-stem--model { background: #7ee0a8; }
+.dd-stem--mount { background: #c4a1ff; }
+.dd-stem--tank { background: #ff8fab; }
+.dd-stem--gas { background: #ffe066; }
+.dd-stem--outlet { background: #9ad0c2; }
+
+.dd-stem-assembled {
+  margin: 0;
+  font-size: 0.82rem;
+}
+
+.dd-stem-assembled code {
+  font-size: 0.95rem;
+}
+
+.dd-steps {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.dd-step-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.4rem 0.65rem;
+  margin-bottom: 0.4rem;
+  font-size: 0.82rem;
+}
+
+.dd-step-swatch {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 4px;
+  display: inline-block;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.12);
+}
+
+.dd-opt-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.dd-opt {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f6f8fb;
+  padding: 0.4rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 650;
+  cursor: pointer;
+  color: var(--ink);
+}
+
+.dd-opt:hover {
+  border-color: #7a90a8;
+}
+
+.dd-opt.is-active {
+  color: #0b1220;
+  border-color: transparent;
+  box-shadow: 0 0 0 2px rgba(15, 39, 64, 0.2);
+}
+
+.dd-opt.dd-stem--series.is-active { background: #5ec8ff; }
+.dd-opt.dd-stem--heaters.is-active { background: #ffb020; }
+.dd-opt.dd-stem--model.is-active { background: #7ee0a8; }
+.dd-opt.dd-stem--mount.is-active { background: #c4a1ff; }
+.dd-opt.dd-stem--tank.is-active { background: #ff8fab; }
+.dd-opt.dd-stem--gas.is-active { background: #ffe066; }
+.dd-opt.dd-stem--outlet.is-active { background: #9ad0c2; }
+
+.dd-step--skip {
+  opacity: 0.72;
+}
+
+.dd-builder-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.dd-result {
+  padding: 0.75rem 0.85rem;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+
+.dd-result--hit {
+  background: #eef8f1;
+  border-color: #9bc9a8;
+}
+
+.dd-result--miss {
+  background: #fff6f0;
+  border-color: #e0b39a;
+}
+
+.dd-result--pending {
+  background: #f6f8fb;
+}
+
+.dd-result-kicker {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.dd-result-code {
+  margin: 0.25rem 0 0;
+  font-size: 1.15rem;
+}
+
+.dd-result-net {
+  margin: 0.35rem 0 0;
+  font-size: 1.05rem;
+}
+
+.dd-result-name {
+  margin: 0.35rem 0 0;
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
 .process-actions {
   margin-top: 0.95rem;
   display: flex;

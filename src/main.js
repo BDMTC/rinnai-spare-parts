@@ -112,6 +112,18 @@ import {
 } from "./price-import.js";
 import { loadBootData, publicUrl } from "./boot-data.js";
 import { mountDataplatePin } from "./dataplate-pin.js";
+import {
+  emptyDdStemState,
+  ddSystemCatalog,
+  filterDdCatalog,
+  ddOptionsForKey,
+  ddStemSegments,
+  assembleDdCode,
+  matchDdCode,
+  ddOptionLabel,
+  DD_STEM_KEYS,
+  DD_STEM_META,
+} from "./demand-duo-builder.js";
 
 // Resolved at boot (not import time) so the file:// classic IIFE can sit in <head>
 // with defer, or at end of <body>, without racing #app.
@@ -161,8 +173,12 @@ let processExampleFamilyId = "cf";
 let processExamplePageIndex = 0;
 /** Zone HWT finished-goods mock pack (Process Finished goods lookup). */
 let zoneHwtFgDoc = null;
-/** @type {{ familyId: string, query: string }} */
-let processFgLookupState = { familyId: "", query: "" };
+/** @type {{ familyId: string, query: string, ddStem: ReturnType<typeof emptyDdStemState> }} */
+let processFgLookupState = {
+  familyId: "",
+  query: "",
+  ddStem: emptyDdStemState(),
+};
 /** @type {{ pointerId: number, startX: number, lastX: number, dragged: boolean }|null} */
 let processExampleDrag = null;
 /** @type {ReturnType<typeof buildPartSearchCache>|null} */
@@ -992,59 +1008,134 @@ async function ensureZoneHwtFgDoc() {
   return zoneHwtFgDoc;
 }
 
+function renderProcessDdBuilderHtml() {
+  const ddMeta = zoneHwtFgDoc?.meta?.demandDuo || {};
+  const catalog = ddSystemCatalog(ddMeta.codes || []);
+  const stem = processFgLookupState.ddStem || emptyDdStemState();
+  const remaining = filterDdCatalog(catalog, stem);
+  const match = matchDdCode(catalog, stem);
+  const assembled = assembleDdCode(stem);
+  const segments = ddStemSegments(stem);
+
+  const stripHtml = segments.length
+    ? segments
+        .map((seg) => {
+          const empty = !seg.filled;
+          const text = seg.filled
+            ? escapeHtml(seg.value)
+            : `<span class="dd-stem-ghost">${escapeHtml(seg.key === "heaters" ? "#" : "…")}</span>`;
+          return `<span class="dd-stem-seg ${seg.meta.colorClass}${empty ? " is-empty" : ""}" title="${escapeHtml(seg.meta.label)}">${text}</span>`;
+        })
+        .join("")
+    : `<span class="dd-stem-placeholder">Pick series to start the code</span>`;
+
+  const stepsHtml = DD_STEM_KEYS.map((key) => {
+    const meta = DD_STEM_META[key];
+    // Skip heaters step visually when DD1 locked and heaters must stay blank
+    if (key === "heaters" && stem.series === "DD1") {
+      return `<div class="dd-step dd-step--skip">
+        <div class="dd-step-head"><span class="dd-step-swatch ${meta.colorClass}"></span><strong>${escapeHtml(meta.label)}</strong>
+          <span class="muted">Not used on DD1 (single integrated heater)</span></div>
+      </div>`;
+    }
+    const opts = ddOptionsForKey(catalog, stem, key);
+    if (!opts.length && key !== "series") {
+      return "";
+    }
+    const btns = opts
+      .map((val) => {
+        const active = stem[key] === val ? " is-active" : "";
+        const label = ddOptionLabel(key, val);
+        return `<button type="button" class="dd-opt ${meta.colorClass}${active}" data-dd-stem="${escapeHtml(key)}" data-dd-val="${escapeHtml(val)}">${escapeHtml(label)}</button>`;
+      })
+      .join("");
+    return `<div class="dd-step">
+      <div class="dd-step-head"><span class="dd-step-swatch ${meta.colorClass}"></span><strong>${escapeHtml(meta.label)}</strong>
+        <span class="muted">${escapeHtml(meta.hint)}</span></div>
+      <div class="dd-opt-row" role="group" aria-label="${escapeHtml(meta.label)}">${btns || `<span class="muted">No options left — clear a prior stem.</span>`}</div>
+    </div>`;
+  }).join("");
+
+  let resultHtml = "";
+  if (match) {
+    resultHtml = `<div class="dd-result dd-result--hit" role="status">
+      <p class="dd-result-kicker">Catalog match</p>
+      <p class="dd-result-code"><code>${escapeHtml(match.orderCode)}</code></p>
+      <p class="dd-result-net">Zone Net ex GST <strong>${formatAud(match.netExGst)}</strong></p>
+      <p class="muted dd-result-name">${escapeHtml(match.name || "")}</p>
+    </div>`;
+  } else if (assembled && remaining.length === 0) {
+    resultHtml = `<div class="dd-result dd-result--miss" role="status">
+      <p>No Zone price for <code>${escapeHtml(assembled)}</code> in the parked DD list — check stems or ask Beau.</p>
+    </div>`;
+  } else {
+    resultHtml = `<div class="dd-result dd-result--pending" role="status">
+      <p class="muted">${remaining.length} catalog code${remaining.length === 1 ? "" : "s"} still match — keep picking stems.</p>
+    </div>`;
+  }
+
+  return `<div class="dd-builder" aria-label="Demand Duo stem builder">
+    <p class="muted dd-builder-blurb">Build the order code stem-by-stem (colour = segment). When complete, we cross-check the parked DD catalog for Zone Net ex GST. Row listing of ${ddMeta.codeCount || catalog.length || "…"} DD codes stays parked.</p>
+    <div class="dd-stem-strip" aria-live="polite">${stripHtml}</div>
+    <p class="dd-stem-assembled muted">Assembled: <code>${escapeHtml(assembled || "—")}</code></p>
+    <div class="dd-steps">${stepsHtml}</div>
+    <div class="dd-builder-actions">
+      <button type="button" class="cart-action" id="dd-stem-reset">Reset stems</button>
+    </div>
+    ${resultHtml}
+  </div>`;
+}
+
 function renderProcessFgLookupHtml() {
   const families = Array.isArray(zoneHwtFgDoc?.families) ? zoneHwtFgDoc.families : [];
   const items = Array.isArray(zoneHwtFgDoc?.items) ? zoneHwtFgDoc.items : [];
   const effective = zoneHwtFgDoc?.meta?.effectiveDate || "2026-02-01";
   const familyId = processFgLookupState.familyId || "";
   const query = String(processFgLookupState.query || "").trim().toLowerCase();
+  const isDd = familyId === "dd";
 
   const familyBtns = families
     .map((f) => {
       const active = f.id === familyId ? " is-active" : "";
-      return `<button type="button" class="process-fg-family${active}" data-fg-family="${escapeHtml(f.id)}">${escapeHtml(f.label)} <span class="muted">(${f.count || 0})</span></button>`;
+      const countLabel = f.id === "dd" ? "builder" : String(f.count || 0);
+      return `<button type="button" class="process-fg-family${active}" data-fg-family="${escapeHtml(f.id)}">${escapeHtml(f.label)} <span class="muted">(${escapeHtml(countLabel)})</span></button>`;
     })
     .join("");
 
-  let hits = [];
-  if (familyId) {
-    hits = items.filter((it) => it.familyId === familyId);
-    if (query) {
-      hits = hits.filter((it) => {
-        const blob = `${it.orderCode || ""} ${it.name || ""}`.toLowerCase();
-        return blob.includes(query);
-      });
+  let bodyHtml = "";
+  if (isDd) {
+    bodyHtml = renderProcessDdBuilderHtml();
+  } else {
+    let hits = [];
+    if (familyId) {
+      hits = items.filter((it) => it.familyId === familyId);
+      if (query) {
+        hits = hits.filter((it) => {
+          const blob = `${it.orderCode || ""} ${it.name || ""}`.toLowerCase();
+          return blob.includes(query);
+        });
+      }
     }
-  }
-
-  const maxShow = 40;
-  const shown = hits.slice(0, maxShow);
-  const rowsHtml = shown.length
-    ? shown
-        .map(
-          (it) => `<tr>
+    const maxShow = 40;
+    const shown = hits.slice(0, maxShow);
+    const rowsHtml = shown.length
+      ? shown
+          .map(
+            (it) => `<tr>
             <td>${escapeHtml(it.name || "")}</td>
             <td><code>${escapeHtml(it.orderCode || "")}</code></td>
             <td class="process-fg-net">${formatAud(it.netExGst)}</td>
           </tr>`
-        )
-        .join("")
-    : `<tr><td colspan="3" class="muted">${
-        familyId
-          ? query
-            ? "No matches in this family."
-            : "No priced rows in this family."
-          : "Pick a family, then search by name or order code."
-      }</td></tr>`;
-
-  const fgLabel =
-    zoneHwtFgDoc?.meta?.label ||
-    config?.finishedGoodsPriceList?.label ||
-    "Finished goods Hot Water";
-  return `<section class="process-fg-lookup" aria-label="Finished goods Hot Water lookup">
-    <h3 class="process-fg-title">Finished-goods lookup</h3>
-    <p class="muted process-fg-blurb">${escapeHtml(String(fgLabel))} — effective ${escapeHtml(String(effective))}. Family → search → Zone Net (ex GST) + order code. Demand Duo codes parked for a composer (tank/heaters/options → code + Net) — not listed. Not Bible spare Net.</p>
-    <div class="process-fg-families" role="group" aria-label="Product family">${familyBtns || `<p class="muted">Finished-goods price data not loaded.</p>`}</div>
+          )
+          .join("")
+      : `<tr><td colspan="3" class="muted">${
+          familyId
+            ? query
+              ? "No matches in this family."
+              : "No priced rows in this family."
+            : "Pick a family, then search by name or order code — or Demand Duo (builder)."
+        }</td></tr>`;
+    bodyHtml = `
     <label class="process-fg-search-label">Search in family
       <input type="search" id="process-fg-query" class="process-fg-query" placeholder="e.g. Infinity 26, HD28, EHF160" value="${escapeHtml(processFgLookupState.query || "")}" ${familyId ? "" : "disabled"} />
     </label>
@@ -1054,7 +1145,18 @@ function renderProcessFgLookupHtml() {
         <thead><tr><th scope="col">Product</th><th scope="col">Order code</th><th scope="col">Zone Net ex GST</th></tr></thead>
         <tbody>${rowsHtml}</tbody>
       </table>
-    </div>
+    </div>`;
+  }
+
+  const fgLabel =
+    zoneHwtFgDoc?.meta?.label ||
+    config?.finishedGoodsPriceList?.label ||
+    "Finished goods Hot Water";
+  return `<section class="process-fg-lookup" aria-label="Finished goods Hot Water lookup">
+    <h3 class="process-fg-title">Finished-goods lookup</h3>
+    <p class="muted process-fg-blurb">${escapeHtml(String(fgLabel))} — effective ${escapeHtml(String(effective))}. Family → search → Zone Net (ex GST) + order code. Demand Duo opens the stem builder on this page (not a separate topic). Not Bible spare Net.</p>
+    <div class="process-fg-families" role="group" aria-label="Product family">${familyBtns || `<p class="muted">Finished-goods price data not loaded.</p>`}</div>
+    ${bodyHtml}
   </section>`;
 }
 
@@ -1064,13 +1166,15 @@ function bindProcessFgLookup(body) {
     btn.addEventListener("click", () => {
       processFgLookupState.familyId = btn.getAttribute("data-fg-family") || "";
       processFgLookupState.query = "";
+      if (processFgLookupState.familyId === "dd") {
+        processFgLookupState.ddStem = emptyDdStemState();
+      }
       renderProcessDesk();
     });
   });
   const input = body.querySelector("#process-fg-query");
   input?.addEventListener("input", () => {
     processFgLookupState.query = input.value || "";
-    // Re-render results only: cheap path via full topic re-render
     renderProcessDesk();
     const again = document.querySelector("#process-fg-query");
     if (again) {
@@ -1078,6 +1182,31 @@ function bindProcessFgLookup(body) {
       const len = again.value.length;
       again.setSelectionRange(len, len);
     }
+  });
+  body.querySelectorAll("[data-dd-stem]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const key = btn.getAttribute("data-dd-stem") || "";
+      const val = btn.getAttribute("data-dd-val") ?? "";
+      if (!key) return;
+      const next = { ...(processFgLookupState.ddStem || emptyDdStemState()) };
+      // Toggle off if same value clicked
+      next[key] = next[key] === val ? "" : val;
+      if (key === "series") {
+        // Clear downstream when series changes
+        next.heaters = "";
+        next.model = "";
+        next.mount = "";
+        next.tank = "";
+        next.gas = "";
+        next.outlet = "";
+      }
+      processFgLookupState.ddStem = next;
+      renderProcessDesk();
+    });
+  });
+  body.querySelector("#dd-stem-reset")?.addEventListener("click", () => {
+    processFgLookupState.ddStem = emptyDdStemState();
+    renderProcessDesk();
   });
 }
 

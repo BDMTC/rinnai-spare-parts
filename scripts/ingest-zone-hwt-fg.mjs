@@ -324,6 +324,7 @@ def compose_name(section, product, order_code=""):
 low_conf = []
 families_out = []
 items = []
+dd_parked = []  # full DD catalog for Finished-goods stem builder cross-check (not listed as rows)
 
 for fid, flabel, sheet_name in FAMILIES:
     if sheet_name not in wb.sheetnames:
@@ -399,9 +400,15 @@ for fid, flabel, sheet_name in FAMILIES:
         if display and "Hard Water" not in display and re.search(r"(?i)(?:^|\\s)HW\\s*$", src_name or ""):
             display = f"{display} Hard Water"
 
-        # Demand Duo: park entirely for future composer (tank/heaters/options → code+Net).
-        # Do not invent DD decode; do not list ~289 DD codes in FG lookup.
+        # Demand Duo: park codes for stem builder cross-check — do not list as FG rows.
         if is_demand_duo_code(code):
+            dd_parked.append({
+                "orderCode": code,
+                "netExGst": use_net,
+                "name": last_raw_name or code,
+                "sheet": sheet_name,
+                "row": r,
+            })
             continue
 
         items.append({
@@ -472,12 +479,27 @@ for (fid, name), idxs in by_fname.items():
             "reason": "Non-unique product label after first-pass non-DD decode. Ask Beau for Sheet/row/col/cell naming.",
         })
 
+# Dedupe parked DD by orderCode (first wins)
+dd_seen = set()
+dd_codes = []
+for row in dd_parked:
+    if row["orderCode"] in dd_seen:
+        continue
+    dd_seen.add(row["orderCode"])
+    dd_codes.append({
+        "orderCode": row["orderCode"],
+        "netExGst": row["netExGst"],
+        "name": row["name"],
+    })
+
 parked_dd_note = {
-    "status": "parked",
+    "status": "builder",
     "reason": (
-        "Beau prefers Demand Duo creator (compose tank/heaters/options -> code+Net) "
-        "over listing commercial DD codes. No invented DD decode. Builder mock when Beau says go."
+        "Demand Duo stem builder on Finished goods (family pick -> DD -> builder). "
+        "Codes parked from row listing; cross-check assembled code against demandDuo.codes for Zone Net."
     ),
+    "codes": dd_codes,
+    "codeCount": len(dd_codes),
 }
 
 clean = []
@@ -492,6 +514,11 @@ for it in items:
 items = clean
 for f in families_out:
     f["count"] = sum(1 for it in items if it["familyId"] == f["id"])
+families_out.append({
+    "id": "dd",
+    "label": "Demand Duo (builder)",
+    "count": len(dd_codes),
+})
 
 seen_lc = set()
 lc_out = []

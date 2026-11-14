@@ -8,8 +8,966 @@
     "generatedFile": "public/data/zone-hwt-fg.json",
     "notes": "Net = Net Invoice Price (EX GST) by header (re-bound each header row). Unique labels from clear order-code decoders + section headers (non-DD). Demand Duo codes parked for future composer - no invented DD decode. Sibling blank-price rows inherit prior real Net (> $1).",
     "demandDuo": {
-      "status": "parked",
-      "reason": "Beau prefers Demand Duo creator (compose tank/heaters/options -> code+Net) over listing commercial DD codes. No invented DD decode. Builder mock when Beau says go."
+      "status": "builder",
+      "reason": "Demand Duo stem builder on Finished goods (family pick -> DD -> builder). Codes parked from row listing; cross-check assembled code against demandDuo.codes for Zone Net.",
+      "codes": [
+        {
+          "orderCode": "DD1FADAPT",
+          "netExGst": 705.2,
+          "name": "Demand Duo 1 Flue Adaptor box including draft diverter"
+        },
+        {
+          "orderCode": "DD128E250N/L",
+          "netExGst": 7092.78,
+          "name": "Demand Duo Stainless Steel Storage heater using HD28e - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD128E315N/L",
+          "netExGst": 7436.18,
+          "name": "Demand Duo Stainless Steel Storage heater using HD28e - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD128E270VN/L",
+          "netExGst": 6716.42,
+          "name": "Demand Duo Vitreous Enamel Storage heater using HD28e - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD128E330VN/L",
+          "netExGst": 7021.72,
+          "name": "Demand Duo Vitreous Enamel Storage heater using HD28e - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD132E250N/L",
+          "netExGst": 8278.4,
+          "name": "Demand Duo Stainless Steel Storage heater using HD32e - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD132E315N/L",
+          "netExGst": 8454.7,
+          "name": "Demand Duo Stainless Steel Storage heater using HD32e - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD1C32E250N/L",
+          "netExGst": 8694.4,
+          "name": "Demand Duo Stainless Steel Storage heater using high efficiency HDC32e - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD1C32E315N/L",
+          "netExGst": 8990.8,
+          "name": "Demand Duo Stainless Steel Storage heater using high efficiency HDC32e - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD1C32E270VN/L",
+          "netExGst": 8299.2,
+          "name": "Demand Duo Vitreous Enamel Storage heater using high efficiency HDC32e - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD1C32E330VN/L",
+          "netExGst": 8595.6,
+          "name": "Demand Duo Vitreous Enamel Storage heater using high efficiency HDC32e - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD128I250N/L",
+          "netExGst": 7604.75,
+          "name": "Demand Duo Stainless Steel Storage heater using HD28i - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD128I315N/L",
+          "netExGst": 7948.15,
+          "name": "Demand Duo Stainless Steel Storage heater using HD28i - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD128I270VN/L",
+          "netExGst": 7225.24,
+          "name": "Demand Duo Vitreous Enamel Storage heater using HD28i - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD128I330VN/L",
+          "netExGst": 7530.54,
+          "name": "Demand Duo Vitreous Enamel Storage heater using HD28i - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD1C32I250N/L",
+          "netExGst": 8398.0,
+          "name": "Demand Duo Stainless Steel Storage heater using high efficiency HDC32i - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD1C32I315N/L",
+          "netExGst": 8694.4,
+          "name": "Demand Duo Stainless Steel Storage heater using high efficiency HDC32i - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD1C32I270VN/L",
+          "netExGst": 8002.8,
+          "name": "Demand Duo Vitreous Enamel Storage heater using high efficiency HDC32i - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD1C32I330VN/L",
+          "netExGst": 8595.6,
+          "name": "Demand Duo Vitreous Enamel Storage heater using high efficiency HDC32i - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF228E250N/L",
+          "netExGst": 12137.64,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF328E250N/L",
+          "netExGst": 15059.67,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF428E250N/L",
+          "netExGst": 20379.25,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF528E250N/L",
+          "netExGst": 24837.2,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF628E250N/L",
+          "netExGst": 26822.68,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF228E315N/L",
+          "netExGst": 12481.04,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF328E315N/L",
+          "netExGst": 15390.57,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF428E315N/L",
+          "netExGst": 20716.41,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF528E315N/L",
+          "netExGst": 25193.1,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF628E315N/L",
+          "netExGst": 27184.83,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF232E250N/L",
+          "netExGst": 27184.83,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF332E250N/L",
+          "netExGst": 27184.83,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF432E250N/L",
+          "netExGst": 27184.83,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF532E250N/L",
+          "netExGst": 27184.83,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF632E250N/L",
+          "netExGst": 27184.83,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF232E315N/L",
+          "netExGst": 27184.83,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF332E315N/L",
+          "netExGst": 27184.83,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF432E315N/L",
+          "netExGst": 27184.83,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF532E315N/L",
+          "netExGst": 27184.83,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF632E315N/L",
+          "netExGst": 27184.83,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF2C32E250N/L",
+          "netExGst": 13239.2,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF3C32E250N/L",
+          "netExGst": 17784.0,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF4C32E250N/L",
+          "netExGst": 24304.8,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF5C32E250N/L",
+          "netExGst": 29047.2,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF6C32E250N/L",
+          "netExGst": 33592.0,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF2C32E315N/L",
+          "netExGst": 13634.4,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF3C32E315N/L",
+          "netExGst": 18179.2,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF4C32E315N/L",
+          "netExGst": 24304.8,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF5C32E315N/L",
+          "netExGst": 29047.2,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF6C32E315N/L",
+          "netExGst": 33987.2,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF228I250N/L",
+          "netExGst": 12549.74,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF328I250N/L",
+          "netExGst": 15577.89,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF428I250N/L",
+          "netExGst": 21902.7,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF528I250N/L",
+          "netExGst": 25873.65,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF628I250N/L",
+          "netExGst": 28895.57,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF228I315N/L",
+          "netExGst": 12986.78,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF328I315N/L",
+          "netExGst": 16408.29,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF428I315N/L",
+          "netExGst": 22239.85,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF528I315N/L",
+          "netExGst": 26223.29,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF628I315N/L",
+          "netExGst": 29220.24,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF2C32I250N/L",
+          "netExGst": 13041.6,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF3C32I250N/L",
+          "netExGst": 17487.6,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF4C32I250N/L",
+          "netExGst": 23909.6,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF5C32I250N/L",
+          "netExGst": 28553.2,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF6C32I250N/L",
+          "netExGst": 32999.2,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF2C32I315N/L",
+          "netExGst": 13436.8,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF3C32I315N/L",
+          "netExGst": 17882.8,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF4C32I315N/L",
+          "netExGst": 24304.8,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF5C32I315N/L",
+          "netExGst": 28948.4,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF6C32I315N/L",
+          "netExGst": 33394.4,
+          "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL228E250N/L",
+          "netExGst": 12836.92,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL328E250N/L",
+          "netExGst": 15709.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL428E250N/L",
+          "netExGst": 21440.67,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL528E250N/L",
+          "netExGst": 25598.94,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL628E250N/L",
+          "netExGst": 27784.21,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL228E315N/L",
+          "netExGst": 13161.59,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL328E315N/L",
+          "netExGst": 16046.17,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL428E315N/L",
+          "netExGst": 21715.39,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL528E315N/L",
+          "netExGst": 26004.76,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL628E315N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL232E250N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL332E250N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL432E250N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL532E250N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL632E250N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL232E315N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL332E315N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL432E315N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL532E315N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL632E315N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL2C32E250N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL3C32E250N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL4C32E250N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL5C32E250N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL6C32E250N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL2C32E315N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL3C32E315N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL4C32E315N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL5C32E315N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL6C32E315N/L",
+          "netExGst": 28471.0,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL228I250N/L",
+          "netExGst": 14010.73,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL328I250N/L",
+          "netExGst": 16795.41,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL428I250N/L",
+          "netExGst": 22976.61,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL528I250N/L",
+          "netExGst": 26910.1,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL628I250N/L",
+          "netExGst": 30094.35,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL228I315N/L",
+          "netExGst": 14360.37,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL328I315N/L",
+          "netExGst": 17107.58,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL428I315N/L",
+          "netExGst": 23288.79,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL528I315N/L",
+          "netExGst": 27347.15,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL628I315N/L",
+          "netExGst": 30468.96,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL2C32I250N/L",
+          "netExGst": 30468.96,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL3C32I250N/L",
+          "netExGst": 30468.96,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL4C32I250N/L",
+          "netExGst": 30468.96,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL5C32I250N/L",
+          "netExGst": 30468.96,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL6C32I250N/L",
+          "netExGst": 30468.96,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL2C32I315N/L",
+          "netExGst": 30468.96,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL3C32I315N/L",
+          "netExGst": 30468.96,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL4C32I315N/L",
+          "netExGst": 30468.96,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL5C32I315N/L",
+          "netExGst": 30468.96,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL6C32I315N/L",
+          "netExGst": 30468.96,
+          "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF428E315N/L-50",
+          "netExGst": 21090.39,
+          "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF528E315N/L-50",
+          "netExGst": 25567.08,
+          "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF628E315N/L-50",
+          "netExGst": 27558.81,
+          "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF4C32E315N/L-50",
+          "netExGst": 24996.4,
+          "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty high efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF5C32E315N/L-50",
+          "netExGst": 29837.6,
+          "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty high efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF6C32E315N/L-50",
+          "netExGst": 34382.4,
+          "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty high efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF428I315N/L-50",
+          "netExGst": 22613.84,
+          "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF528I315N/L-50",
+          "netExGst": 26597.27,
+          "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF628I315N/L-50",
+          "netExGst": 29594.23,
+          "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF4C32I315N/L-50",
+          "netExGst": 24601.2,
+          "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty high efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF5C32I315N/L-50",
+          "netExGst": 33789.6,
+          "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty high efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDF6C32I315N/L-50",
+          "netExGst": 33789.6,
+          "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty high efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL428E315N/L-50",
+          "netExGst": 22089.37,
+          "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL528E315N/L-50",
+          "netExGst": 26378.74,
+          "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL628E315N/L-50",
+          "netExGst": 28844.98,
+          "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL4C32E315N/L-50",
+          "netExGst": 28844.98,
+          "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty high efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL5C32E315N/L-50",
+          "netExGst": 28844.98,
+          "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty high efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL6C32E315N/L-50",
+          "netExGst": 28844.98,
+          "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty high efficiency C32e Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL428I315N/L-50",
+          "netExGst": 35815.0,
+          "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL628I315N/L-50",
+          "netExGst": 26378.74,
+          "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL4C32I315N/L-50",
+          "netExGst": 26378.74,
+          "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty high efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL5C32I315N/L-50",
+          "netExGst": 26378.74,
+          "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty high efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DDPL6C32I315N/L-50",
+          "netExGst": 26378.74,
+          "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty high efficiency C32i Systems - Natural Gas or LPG"
+        },
+        {
+          "orderCode": "DD250",
+          "netExGst": 2912.79,
+          "name": "DD 250 L Stainless Steel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 32mm hot / cold return)"
+        },
+        {
+          "orderCode": "DD250-50",
+          "netExGst": 3467.73,
+          "name": "DD 250 L Stainless Steel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 50mm hot / cold return)"
+        },
+        {
+          "orderCode": "DD270V-50",
+          "netExGst": 3052.92,
+          "name": "DD 270 L Vitreous Enamel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 50mm hot / cold return)"
+        },
+        {
+          "orderCode": "DD315",
+          "netExGst": 3234.72,
+          "name": "DD 315 L Stainless Steel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 32mm hot / cold return)"
+        },
+        {
+          "orderCode": "DD315-50",
+          "netExGst": 3789.66,
+          "name": "DD 315 L Stainless Steel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 50mm hot / cold return)"
+        },
+        {
+          "orderCode": "DD330V-50",
+          "netExGst": 3358.21,
+          "name": "DD 330 L Vitreous Enamel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 50mm hot / cold return)"
+        },
+        {
+          "orderCode": "DD440V-50",
+          "netExGst": 3765.27,
+          "name": "DD 440 L Vitreous Enamel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 50mm hot / cold return)"
+        },
+        {
+          "orderCode": "DDS31536B11A50",
+          "netExGst": 3525.96,
+          "name": "Pre-heat DD 315L Stainless Steel (1 x HT575/850 kpa PTR valve, 3.6kW boost element with 50mm hot / cold return)"
+        },
+        {
+          "orderCode": "DDS31548B11A50",
+          "netExGst": 3525.96,
+          "name": "Pre-heat DD 315L Stainless Steel (1 x HT575/850 kpa PTR valve, 4.8kW boost element with 50mm hot / cold return)"
+        },
+        {
+          "orderCode": "DDWW32",
+          "netExGst": 17016.71,
+          "name": "DD warm water valve: 32mm inlet and outlet"
+        },
+        {
+          "orderCode": "DDWW50",
+          "netExGst": 20082.8,
+          "name": "DD warm water valve: 50mm inlet and outlet"
+        },
+        {
+          "orderCode": "DDWW80",
+          "netExGst": 26053.98,
+          "name": "DD warm water valve: 80mm inlet and outlet"
+        },
+        {
+          "orderCode": "DDUVC1200",
+          "netExGst": 5189.96,
+          "name": "Ultra Violet Steriliser System C1200"
+        },
+        {
+          "orderCode": "DDUVC1700",
+          "netExGst": 8039.36,
+          "name": "Ultra Violet Steriliser System C1700"
+        },
+        {
+          "orderCode": "DDSP2B",
+          "netExGst": 229.97,
+          "name": "2 Collector with Interconnectors & Rails (Suits SP200B only)"
+        },
+        {
+          "orderCode": "DDSP3B",
+          "netExGst": 329.59,
+          "name": "3 Collector with Interconnectors & Rails (Suits SP200B only)"
+        },
+        {
+          "orderCode": "DDHRKIT2",
+          "netExGst": 180.9,
+          "name": "2 Collector High rise security system"
+        },
+        {
+          "orderCode": "DDHRKIT3",
+          "netExGst": 231.48,
+          "name": "3 Collector High rise security system"
+        },
+        {
+          "orderCode": "DDSCP20B",
+          "netExGst": 1609.7,
+          "name": "Single UPS20-60 Pump and controller with LCD display (240 volt) Hot & Cold leads/Hot Sensor Sheath & Air Bleed (Suits SP200B only)"
+        },
+        {
+          "orderCode": "DDSCP25B",
+          "netExGst": 2146.25,
+          "name": "Single UPS25-80 Pump and controller with LCD display (240 volt) Hot & Cold leads/Hot Sensor Sheath & Air Bleed (Suits SP200B only)"
+        },
+        {
+          "orderCode": "DDSCP20BDUAL",
+          "netExGst": 3372.71,
+          "name": "Dual UPS20-60 Pump and alternating controller with LCD display (240 volt) Hot & Cold leads/Hot Sensor Sheath & Air Bleed (Suits SP200B only)"
+        },
+        {
+          "orderCode": "DDSCP25BDUAL",
+          "netExGst": 3985.91,
+          "name": "Dual UPS25-80 Pump and alternating controller with LCD display (240 volt) Hot & Cold leads/Hot Sensor Sheath & Air Bleed (Suits SP200B only)"
+        },
+        {
+          "orderCode": "DDEVTSCP20",
+          "netExGst": 1462.53,
+          "name": "Single UPS20-60 Pump and controller with LCD display (240 volt) Hot & Cold leads/Hot Sensor Sheath & Air Bleed"
+        },
+        {
+          "orderCode": "DDEVTSCP25",
+          "netExGst": 2107.94,
+          "name": "Single UPS25-80 Pump and controller with LCD display (240 volt) Hot & Cold leads/Hot Sensor Sheath & Air Bleed"
+        },
+        {
+          "orderCode": "DDEVTCPLKIT",
+          "netExGst": 62.87,
+          "name": "Manifold header coupling kit with insulation"
+        },
+        {
+          "orderCode": "DDS250",
+          "netExGst": 2836.12,
+          "name": "250 Litre Stainless Steel with 32mm hot/cold return"
+        },
+        {
+          "orderCode": "DDS315",
+          "netExGst": 3158.05,
+          "name": "315 Litre Stainless Steel with 32mm hot/cold return"
+        },
+        {
+          "orderCode": "DDUPS2060N",
+          "netExGst": 643.88,
+          "name": "UPS20-60N"
+        },
+        {
+          "orderCode": "DDUNION2060BV",
+          "netExGst": 62.87,
+          "name": "20 MM Unions (With inbuilt ball valves)"
+        },
+        {
+          "orderCode": "DDUPS2580N",
+          "netExGst": 1027.12,
+          "name": "UP25-80N"
+        },
+        {
+          "orderCode": "DDUNION2580B",
+          "netExGst": 73.59,
+          "name": "25MM Unions (With inbuilt ball valves)"
+        },
+        {
+          "orderCode": "DDUPS32100N",
+          "netExGst": 1816.67,
+          "name": "UPS32-100N"
+        },
+        {
+          "orderCode": "DDUNION32100N",
+          "netExGst": 243.76,
+          "name": "32MM Unions (With inbuilt ball valves)"
+        },
+        {
+          "orderCode": "DDTLCHN25120",
+          "netExGst": 1359.16,
+          "name": "TLCHN25-12L"
+        },
+        {
+          "orderCode": "DDDUAL2060N",
+          "netExGst": 2495.02,
+          "name": "UPS20-60N (With Check Valves / Manifold with 25mm header)"
+        },
+        {
+          "orderCode": "DDDUAL2580N",
+          "netExGst": 3299.87,
+          "name": "UP25-80N (With Check Valves / Manifold with 32mm header)"
+        },
+        {
+          "orderCode": "DDDP32100N",
+          "netExGst": 6358.28,
+          "name": "UP32-100N (With Check Valves / Manifold with 50mm header)"
+        },
+        {
+          "orderCode": "DDDP2060NFDPC",
+          "netExGst": 4579.19,
+          "name": "20-60N (With Deluxe Control Box - Standard features plus Pump Fault / Run Lights / Individual Pump controls)"
+        },
+        {
+          "orderCode": "DDDP2580NFDPC",
+          "netExGst": 5052.9,
+          "name": "32-80N (With Deluxe Control Box - Standard features plus Pump Fault / Run Lights / Individual Pump controls)"
+        },
+        {
+          "orderCode": "DDDP32100NFDPC",
+          "netExGst": 7895.15,
+          "name": "32-100N (With Deluxe Control Box - Standard features plus Pump Fault / Run Lights / Individual Pump controls)"
+        },
+        {
+          "orderCode": "DDB2BBRIDGEKIT",
+          "netExGst": 899.89,
+          "name": "Kit to install back to back including pipe work"
+        },
+        {
+          "orderCode": "DDFJOINKIT",
+          "netExGst": 73.59,
+          "name": "Kit to to install back to back/side by side"
+        },
+        {
+          "orderCode": "DDBASE",
+          "netExGst": 203.89,
+          "name": "Floor mounting kit to suit Manifold 2 & 3 modules"
+        },
+        {
+          "orderCode": "DDBVALVE",
+          "netExGst": 858.51,
+          "name": "Pressure relief boiler valve (900 kpa with 20 mm male thread)"
+        },
+        {
+          "orderCode": "DD1TSTAT",
+          "netExGst": 766.53,
+          "name": "Demand Duo Thermostat - To suit DD1"
+        },
+        {
+          "orderCode": "DD234TSTAT",
+          "netExGst": 766.53,
+          "name": "Demand Duo Thermostat - To suit DD2, DD3, DD4"
+        },
+        {
+          "orderCode": "DD56TSTAT",
+          "netExGst": 766.53,
+          "name": "Demand Duo Thermostat - To suit DD5, DD6"
+        },
+        {
+          "orderCode": "DDPCDEL",
+          "netExGst": 766.53,
+          "name": "Dual ringmain pump management controller"
+        },
+        {
+          "orderCode": "DDSOLAR",
+          "netExGst": 766.53,
+          "name": "Solar pre-heat management controller"
+        }
+      ],
+      "codeCount": 191
     }
   },
   "families": [
@@ -47,6 +1005,11 @@
       "id": "commercial",
       "label": "Commercial (HD / extras \u2014 DD parked)",
       "count": 97
+    },
+    {
+      "id": "dd",
+      "label": "Demand Duo (builder)",
+      "count": 191
     }
   ],
   "items": [
