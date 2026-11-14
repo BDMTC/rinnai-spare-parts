@@ -96,7 +96,8 @@ export const SYSTEM_TYPES = [
     id: "everything",
     value: "system:everything",
     label: "Everything",
-    subtitle: "Overrides other pins — search every part by term only",
+    subtitle:
+      "Overrides other pins — search the entire bible by code, description or term. Good luck!",
     kind: "everything",
     flash: true,
   },
