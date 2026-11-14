@@ -137,6 +137,10 @@ let assemblyHierarchy = null;
 let assemblyIndex = null;
 /** @type {object|null} */
 let partBlurbs = null;
+/** @type {object|null} */
+let processDoc = null;
+/** Active Process desk topic id. */
+let processTopicId = "";
 /** @type {ReturnType<typeof buildPartSearchCache>|null} */
 let partSearchCache = null;
 /** Memoised visibility predicate — pin/unlocks change it, typing must not. */
@@ -486,6 +490,156 @@ function closeHelp() {
   else if (dialog) dialog.removeAttribute("open");
 }
 
+function processTopics() {
+  const topics = processDoc?.topics;
+  return Array.isArray(topics) ? topics : [];
+}
+
+function activeProcessTopic() {
+  const topics = processTopics();
+  if (!topics.length) return null;
+  return topics.find((t) => t.id === processTopicId) || topics[0];
+}
+
+function renderProcessBody() {
+  const rail = document.querySelector("#process-rail");
+  const body = document.querySelector("#process-body");
+  if (!rail || !body) return;
+
+  const topics = processTopics();
+  const current = activeProcessTopic();
+  if (current?.id) processTopicId = current.id;
+
+  if (!topics.length || !current) {
+    rail.innerHTML = "";
+    body.innerHTML = `<p class="process-empty muted">Process pack not loaded.</p>`;
+    return;
+  }
+
+  rail.innerHTML = topics
+    .map((t) => {
+      const active = t.id === current.id;
+      return `<button
+        type="button"
+        class="process-rail-btn${active ? " is-active" : ""}"
+        data-process-topic="${escapeHtml(t.id)}"
+        aria-current="${active ? "page" : "false"}"
+      >
+        <span class="process-rail-title">${escapeHtml(t.title || t.id)}</span>
+        <span class="process-rail-blurb">${escapeHtml(t.blurb || "")}</span>
+      </button>`;
+    })
+    .join("");
+
+  const steps = Array.isArray(current.steps) ? current.steps : [];
+  const notes = Array.isArray(current.notes) ? current.notes : [];
+  const tables = Array.isArray(current.tables) ? current.tables : [];
+  const actions = Array.isArray(current.actions) ? current.actions : [];
+
+  const stepsHtml = steps.length
+    ? `<ol class="process-steps">${steps
+        .map((s) => {
+          const n = s?.n != null ? String(s.n) : "";
+          const text = escapeHtml(s?.text || String(s || ""));
+          return `<li class="process-step">
+            <span class="process-step-n" aria-hidden="true">${escapeHtml(n)}</span>
+            <span class="process-step-text">${text}</span>
+          </li>`;
+        })
+        .join("")}</ol>`
+    : "";
+
+  const tablesHtml = tables
+    .map((table) => {
+      const headers = Array.isArray(table.headers) ? table.headers : [];
+      const rows = Array.isArray(table.rows) ? table.rows : [];
+      const head = headers.length
+        ? `<thead><tr>${headers
+            .map((h) => `<th scope="col">${escapeHtml(h)}</th>`)
+            .join("")}</tr></thead>`
+        : "";
+      const bodyRows = rows
+        .map(
+          (row) =>
+            `<tr>${(Array.isArray(row) ? row : [row])
+              .map((cell) => `<td>${escapeHtml(cell)}</td>`)
+              .join("")}</tr>`
+        )
+        .join("");
+      const foot = table.footnote
+        ? `<p class="process-table-foot muted">${escapeHtml(table.footnote)}</p>`
+        : "";
+      return `<section class="process-table-block">
+        <h3 class="process-table-title">${escapeHtml(table.title || "Table")}</h3>
+        <div class="process-table-scroll">
+          <table class="process-table">${head}<tbody>${bodyRows}</tbody></table>
+        </div>
+        ${foot}
+      </section>`;
+    })
+    .join("");
+
+  const notesHtml = notes.length
+    ? `<ul class="process-notes">${notes
+        .map((n) => `<li>${escapeHtml(n)}</li>`)
+        .join("")}</ul>`
+    : "";
+
+  const actionsHtml = actions.length
+    ? `<div class="process-actions">${actions
+        .map((a) => {
+          if (a?.id === "focus-search") {
+            return `<button type="button" class="cart-action" id="process-focus-search">${escapeHtml(
+              a.label || "Focus Bible search"
+            )}</button>`;
+          }
+          return "";
+        })
+        .join("")}</div>`
+    : "";
+
+  body.innerHTML = `
+    <header class="process-topic-head">
+      <h3 class="process-topic-title">${escapeHtml(current.title || "")}</h3>
+      <p class="process-topic-blurb muted">${escapeHtml(current.blurb || "")}</p>
+    </header>
+    ${stepsHtml}
+    ${tablesHtml}
+    ${notesHtml}
+    ${actionsHtml}
+  `;
+
+  rail.querySelectorAll("[data-process-topic]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      processTopicId = btn.getAttribute("data-process-topic") || "";
+      renderProcessBody();
+    });
+  });
+
+  body.querySelector("#process-focus-search")?.addEventListener("click", () => {
+    closeProcess();
+    const input = document.querySelector("#query-input");
+    input?.focus();
+    input?.scrollIntoView({ block: "center", behavior: "smooth" });
+  });
+}
+
+function openProcess() {
+  const dialog = document.querySelector("#process-dialog");
+  if (!dialog) return;
+  const topics = processTopics();
+  if (!processTopicId && topics[0]?.id) processTopicId = topics[0].id;
+  renderProcessBody();
+  if (typeof dialog.showModal === "function") dialog.showModal();
+  else dialog.setAttribute("open", "");
+}
+
+function closeProcess() {
+  const dialog = document.querySelector("#process-dialog");
+  if (dialog && typeof dialog.close === "function") dialog.close();
+  else if (dialog) dialog.removeAttribute("open");
+}
+
 function openFeedback() {
   const dialog = document.querySelector("#feedback-dialog");
   if (!dialog) return;
@@ -749,6 +903,20 @@ function renderShell() {
           </h1>
         </div>
         <div class="topbar-actions">
+          <button
+            type="button"
+            class="cart-trigger process-trigger"
+            id="process-open"
+            aria-label="Open Rinnai process desk"
+            title="Process"
+          >
+            <svg class="cart-trigger-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                fill="currentColor"
+                d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm0 2v14h10V5H7zm2 2h6v2H9V7zm0 4h6v2H9v-2zm0 4h4v2H9v-2z"
+              />
+            </svg>
+          </button>
           <button
             type="button"
             class="cart-trigger help-trigger"
@@ -1139,6 +1307,23 @@ function renderShell() {
               <button type="button" class="cart-action cart-action--danger" id="cart-clear">Clear quote list</button>
             </div>
           </footer>
+        </div>
+      </dialog>
+
+      <dialog class="cart-dialog process-dialog" id="process-dialog" aria-labelledby="process-dialog-title">
+        <div class="process-dialog-inner">
+          <header class="cart-dialog-bar">
+            <div>
+              <p class="cart-dialog-kicker">${escapeHtml(processDoc?.kicker || "Zone Contractor")}</p>
+              <h2 class="cart-dialog-title" id="process-dialog-title">${escapeHtml(processDoc?.title || "Rinnai Process")}</h2>
+            </div>
+            <button type="button" class="cart-dialog-close" id="process-close" aria-label="Close process desk">Close</button>
+          </header>
+          <p class="process-source muted">${escapeHtml(processDoc?.sourceNote || "")}</p>
+          <div class="process-layout">
+            <nav class="process-rail" id="process-rail" aria-label="Process topics"></nav>
+            <div class="process-body" id="process-body"></div>
+          </div>
         </div>
       </dialog>
 
@@ -3031,6 +3216,21 @@ function bindEvents() {
     });
   }
 
+  const processOpen = document.querySelector("#process-open");
+  const processClose = document.querySelector("#process-close");
+  const processDialog = document.querySelector("#process-dialog");
+  processOpen?.addEventListener("click", openProcess);
+  processClose?.addEventListener("click", closeProcess);
+  if (processDialog) {
+    processDialog.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      closeProcess();
+    });
+    processDialog.addEventListener("click", (e) => {
+      if (e.target === processDialog) closeProcess();
+    });
+  }
+
   const helpOpen = document.querySelector("#help-open");
   const helpClose = document.querySelector("#help-close");
   const helpDialog = document.querySelector("#help-dialog");
@@ -3143,6 +3343,7 @@ async function boot() {
       abbrevs,
       assemblyHierarchy: hierarchyDoc,
       partBlurbs: blurbsDoc,
+      processDoc: processPack,
     } = await loadBootData();
     baseCatalogue = cat;
     config = cfg;
@@ -3154,6 +3355,10 @@ async function boot() {
     assemblyHierarchy = hierarchyDoc || null;
     assemblyIndex = buildAssemblyIndex(assemblyHierarchy);
     partBlurbs = blurbsDoc || null;
+    processDoc = processPack || null;
+    if (!processTopicId && processDoc?.topics?.[0]?.id) {
+      processTopicId = processDoc.topics[0].id;
+    }
     overrides = loadOverrides();
     refreshCatalogueFromOverrides();
     marginPercent = clampMarginPercent(

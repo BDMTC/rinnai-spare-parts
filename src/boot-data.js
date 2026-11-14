@@ -27,6 +27,7 @@ async function fetchJson(relPath) {
  *   abbrevs: object,
  *   assemblyHierarchy: object,
  *   partBlurbs: object,
+ *   processDoc: object,
  * }>}
  */
 export async function loadBootData() {
@@ -39,6 +40,7 @@ export async function loadBootData() {
     abbrevs,
     assemblyHierarchy,
     partBlurbs,
+    processDoc,
   ] = await Promise.all([
     fetchJson("data/catalogue.json"),
     fetchJson("data/config.json"),
@@ -56,6 +58,11 @@ export async function loadBootData() {
       version: 1,
       blurbs: {},
     })),
+    fetchJson("data/rinnai-process.json").catch(() => ({
+      version: 1,
+      title: "Rinnai Process",
+      topics: [],
+    })),
   ]);
 
   return {
@@ -67,5 +74,6 @@ export async function loadBootData() {
     abbrevs,
     assemblyHierarchy,
     partBlurbs,
+    processDoc,
   };
 }
