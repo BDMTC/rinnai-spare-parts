@@ -39,7 +39,7 @@
         "If stores hold the physical part, confirm the code on the bag/box still matches the Bible result for that unit.",
         "In the portal Work Order, open RELATED → Parts and Labour → New. Put the part code into Price Book Entry (same idea as labour codes). Save.",
         "Mark whether it is warranty or chargeable (customer pays). Wrong choice = wrong who pays — use chapter 8 Warranty, or switch to Detailed for the full tables and the quick assess checker.",
-        "If the part is not a Rinnai stock part (third-party), use the chargeable / markup rules in chapter 5 Chargeable & PayWay — do not invent a customer price from Bible Net alone.",
+        "If the part is not a Rinnai stock part (third-party), use Price Book code 3RD with the agreed markup (see {{link:detailed:parts}}Detailed Process → Parts{{/link}}). Attach the supplier invoice in Files when the amount is over $30 net ex GST. Do not invent a customer price from Bible Net alone.",
         "If the Bible cannot find a purchaseable part, use Flag problem on the part card (or note on the Work Order) — do not guess a code."
       ]
     },
