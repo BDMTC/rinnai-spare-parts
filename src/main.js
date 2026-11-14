@@ -130,6 +130,10 @@ import {
 } from "./demand-duo-builder.js";
 import { groupCommercialFgItems } from "./fg-commercial-groups.js";
 import { sortFgItems } from "./fg-sort.js";
+import {
+  isFgUmbrellaItem,
+  resolveFgUmbrellaItem,
+} from "./fg-umbrella.js";
 
 // Resolved at boot (not import time) so the file:// classic IIFE can sit in <head>
 // with defer, or at end of <body>, without racing #app.
@@ -256,6 +260,7 @@ let zoneHwtFgDoc = null;
 /** @type {{
  *   familyId: string,
  *   query: string,
+ *   fuelChoice: "" | "N" | "L",
  *   ddStem: ReturnType<typeof emptyDdStemState>,
  *   ddHistory: string[],
  *   ddAnim: "" | "in",
@@ -263,6 +268,7 @@ let zoneHwtFgDoc = null;
 let processFgLookupState = {
   familyId: "",
   query: "",
+  fuelChoice: "",
   ddStem: emptyDdStemState(),
   ddHistory: [],
   ddAnim: "",
@@ -272,6 +278,7 @@ function resetProcessFgLookupState() {
   processFgLookupState = {
     familyId: "",
     query: "",
+    fuelChoice: "",
     ddStem: emptyDdStemState(),
     ddHistory: [],
     ddAnim: "",
@@ -282,6 +289,7 @@ function resetProcessFgLookupState() {
 function leaveDdBuilder() {
   processFgLookupState.familyId = "";
   processFgLookupState.query = "";
+  processFgLookupState.fuelChoice = "";
   processFgLookupState.ddStem = emptyDdStemState();
   processFgLookupState.ddHistory = [];
   processFgLookupState.ddAnim = "";
@@ -1590,6 +1598,9 @@ function renderProcessFgLookupHtml() {
   const effective = zoneHwtFgDoc?.meta?.effectiveDate || "2026-02-01";
   const familyId = processFgLookupState.familyId || "";
   const query = String(processFgLookupState.query || "").trim().toLowerCase();
+  const fuelChoice = processFgLookupState.fuelChoice === "N" || processFgLookupState.fuelChoice === "L"
+    ? processFgLookupState.fuelChoice
+    : "";
   const isDd = familyId === "dd";
 
   const familyBtns = families
@@ -1617,11 +1628,36 @@ function renderProcessFgLookupHtml() {
       hits = sortFgItems(hits);
     }
 
-    const fgRow = (it) => `<tr>
+    const umbrellaHits = hits.filter((it) => isFgUmbrellaItem(it));
+    const needsFuelGate = umbrellaHits.length > 0;
+
+    const fgRow = (it) => {
+      if (isFgUmbrellaItem(it) && !fuelChoice) {
+        return `<tr class="process-fg-row--umbrella">
             <td>${highlightFuelLabelHtml(it.name || "")}</td>
-            <td><code>${escapeHtml(it.orderCode || "")}</code></td>
-            <td class="process-fg-net">${formatAud(it.netExGst)}</td>
+            <td colspan="2"><span class="muted">Pick Natural Gas or LPG above — can’t order N/L umbrella codes</span></td>
           </tr>`;
+      }
+      const row =
+        isFgUmbrellaItem(it) && fuelChoice
+          ? resolveFgUmbrellaItem(it, fuelChoice)
+          : it;
+      return `<tr>
+            <td>${highlightFuelLabelHtml(row.name || "")}</td>
+            <td><code>${escapeHtml(row.orderCode || "")}</code></td>
+            <td class="process-fg-net">${formatAud(row.netExGst)}</td>
+          </tr>`;
+    };
+
+    const fuelGateHtml = needsFuelGate
+      ? `<div class="process-fg-fuel-gate" role="group" aria-label="Natural Gas or LPG">
+      <p class="process-fg-fuel-note">Some packs are listed as <strong>N/L</strong> umbrellas (Natural Gas or LPG). You can’t order those codes — pick Natural Gas or LPG first to get the real order code and Zone Net.</p>
+      <div class="process-fg-fuel-row">
+        <button type="button" class="process-fg-fuel-btn${fuelChoice === "N" ? " is-active" : ""}" data-fg-fuel="N">${highlightFuelLabelHtml("Natural Gas")}</button>
+        <button type="button" class="process-fg-fuel-btn${fuelChoice === "L" ? " is-active" : ""}" data-fg-fuel="L">${highlightFuelLabelHtml("LPG")}</button>
+      </div>
+    </div>`
+      : "";
 
     let resultsHtml = "";
     if (familyId === "commercial" && hits.length) {
@@ -1683,6 +1719,7 @@ function renderProcessFgLookupHtml() {
           : `${hits.length} match${hits.length === 1 ? "" : "es"}`
         : ""
     }</p>
+    ${fuelGateHtml}
     ${resultsHtml}`;
   }
 
@@ -1835,6 +1872,7 @@ function bindProcessFgLookup(body) {
       }
       processFgLookupState.familyId = nextId;
       processFgLookupState.query = "";
+      processFgLookupState.fuelChoice = "";
       if (nextId === "dd") {
         ddResetBuilderState();
       } else {
@@ -1845,6 +1883,14 @@ function bindProcessFgLookup(body) {
       renderProcessDesk();
       if (processFgLookupState.familyId === "dd") ddAfterRenderAnim();
       else if (processFgLookupState.familyId) flashProcessFgSearch();
+    });
+  });
+  body.querySelectorAll("[data-fg-fuel]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const fuel = btn.getAttribute("data-fg-fuel") || "";
+      if (fuel !== "N" && fuel !== "L") return;
+      processFgLookupState.fuelChoice = fuel;
+      renderProcessDesk();
     });
   });
   const input = body.querySelector("#process-fg-query");
