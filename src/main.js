@@ -181,7 +181,6 @@ let processViewMode = "chooser";
  *   caseRef: string,
  *   caseLogged: boolean,
  * }} */
-let processCheckerState = emptyProcessCheckerState();
 const CHECKER_CARD_FADE_MS = 320;
 
 /** Shared next-step lines (Basic playbook + Detailed SOP + tool outcomes). */
@@ -216,6 +215,8 @@ function emptyProcessCheckerState() {
     caseLogged: false,
   };
 }
+
+let processCheckerState = emptyProcessCheckerState();
 
 /**
  * Soft hours: Rinnai help line Mon–Fri 8:00–17:00 AEST (Australia/Brisbane = no DST).
