@@ -12,4 +12,4 @@ Offline copies for the warranty-checker ⓘ cover-flow (~20 shots per family). P
 | `ghf-solar/` | GHF gas storage + solar | Limited public stills; pads reuse best shots |
 | `mixed/` | Mixed system | Manifest points at Hotflo + CF files (tank then CF) |
 
-See `manifest.json` for per-file source URLs. Some families pad with copies when unique public stills were scarce.
+See `manifest.json` for per-file source URLs. Unique product examples only — no pad/duplicate filler. Counts may be under 20 when unique public stills are scarce (esp. GHF/solar).
