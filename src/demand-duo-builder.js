@@ -61,7 +61,7 @@ export const DD_QUESTIONS = {
   },
   gas: {
     prompt: "Natural Gas or LPG?",
-    help: "Zone packs are usually N/L (either gas type on the same code).",
+    help: "Zone prices one N/L pack — pick Natural Gas (order code ends in N) or LPG (ends in L).",
   },
   outlet: {
     prompt: "What size tank outlet?",
@@ -105,6 +105,57 @@ function stemHas(stem, key) {
   return Object.prototype.hasOwnProperty.call(stem, key);
 }
 
+/** Catalog N/L pack matches a concrete N or L fuel choice. */
+function gasStemMatches(catalogGas, stemGas) {
+  const c = String(catalogGas ?? "");
+  const s = String(stemGas ?? "");
+  if (c === s) return true;
+  if (c === "N/L" && (s === "N" || s === "L")) return true;
+  return false;
+}
+
+/**
+ * Rewrite parked N/L order code to concrete …N or …L.
+ * @param {string} orderCode
+ * @param {string} fuel "N" | "L"
+ */
+export function resolveDdFuelOrderCode(orderCode, fuel) {
+  if (fuel !== "N" && fuel !== "L") return String(orderCode || "");
+  return String(orderCode || "").replace(/N\/L(?=(-50)?$)/i, fuel);
+}
+
+/**
+ * Swap dual-fuel wording for the chosen fuel.
+ * @param {string} name
+ * @param {string} fuel "N" | "L"
+ */
+export function resolveDdFuelName(name, fuel) {
+  const label = fuel === "L" ? "LPG" : fuel === "N" ? "Natural Gas" : "";
+  if (!label) return String(name || "").trim();
+  let s = String(name || "").trim();
+  if (/Natural\s+Gas\s+or\s+LPG/i.test(s)) {
+    return s.replace(/Natural\s+Gas\s+or\s+LPG/gi, label);
+  }
+  if (/\bN\/L\b/i.test(s)) {
+    return s.replace(/\bN\/L\b/gi, label);
+  }
+  if (/\b(Natural\s+Gas|Nat\s*Gas|LPG)\b/i.test(s)) return s;
+  return s ? `${s} - ${label}` : label;
+}
+
+/**
+ * @param {DdCodeRow} row
+ * @param {string} fuel "N" | "L"
+ * @returns {DdCodeRow}
+ */
+export function resolveDdFuelMatch(row, fuel) {
+  return {
+    ...row,
+    orderCode: resolveDdFuelOrderCode(row.orderCode, fuel),
+    name: resolveDdFuelName(row.name || "", fuel),
+  };
+}
+
 /**
  * @param {DdStemState} stem
  * @param {DdCodeRow} row
@@ -114,6 +165,10 @@ function rowMatchesStem(stem, row) {
   if (!parsed) return false;
   for (const key of DD_STEM_KEYS) {
     if (!stemHas(stem, key)) continue;
+    if (key === "gas") {
+      if (!gasStemMatches(parsed.gas, stem.gas)) return false;
+      continue;
+    }
     if (String(parsed[key] ?? "") !== String(stem[key] ?? "")) return false;
   }
   return true;
@@ -133,11 +188,24 @@ export function ddOptionsForKey(catalog, stem, key) {
   for (const row of pool) {
     const parsed = parseDdSystemCode(row.orderCode);
     if (!parsed) continue;
-    set.add(parsed[key] ?? "");
+    const raw = parsed[key] ?? "";
+    // Zone lists one N/L pack — offer concrete Natural Gas (N) / LPG (L).
+    if (key === "gas" && raw === "N/L") {
+      set.add("N");
+      set.add("L");
+      continue;
+    }
+    set.add(raw);
   }
   return [...set].sort((a, b) => {
     if (a === "") return -1;
     if (b === "") return 1;
+    // Natural Gas before LPG
+    if (key === "gas") {
+      const rank = (v) => (v === "N" ? 0 : v === "L" ? 1 : 2);
+      const d = rank(a) - rank(b);
+      if (d !== 0) return d;
+    }
     return a.localeCompare(b, undefined, { numeric: true });
   });
 }
@@ -164,7 +232,8 @@ export function resolveDdWizardStep(catalog, stem) {
       if (stem.series === "DD1" && key === "heaters") continue;
       if (stemHas(stem, key)) continue;
       const opts = ddOptionsForKey(catalog, stem, key);
-      if (opts.length === 1) {
+      // Never auto-pick dual-fuel N/L — always ask Natural Gas vs LPG.
+      if (opts.length === 1 && !(key === "gas" && opts[0] === "N/L")) {
         stem[key] = opts[0];
         progressed = true;
         break;
@@ -221,7 +290,16 @@ export function assembleDdCode(stem) {
 /** @param {DdCodeRow[]} catalog @param {DdStemState} stem */
 export function matchDdCode(catalog, stem) {
   const hits = filterDdCatalog(catalog, stem);
-  return hits.length === 1 ? hits[0] : null;
+  if (hits.length !== 1) return null;
+  const hit = hits[0];
+  const parsed = parseDdSystemCode(hit.orderCode);
+  // N/L pack is not a final match until the tech picks N or L.
+  if (parsed?.gas === "N/L") {
+    if (!stemHas(stem, "gas") || stem.gas === "N/L") return null;
+    if (stem.gas !== "N" && stem.gas !== "L") return null;
+    return resolveDdFuelMatch(hit, stem.gas);
+  }
+  return hit;
 }
 
 /** Plain-English option label (SPE language) */
@@ -299,20 +377,26 @@ export function ddBestProductDescription(catalog, stem, match) {
   if (match?.name) return String(match.name).trim();
   const remaining = filterDdCatalog(catalog, stem);
   const names = remaining.map((r) => String(r.name || "").trim()).filter(Boolean);
-  if (names.length === 1) return names[0];
-  if (names.length > 1) {
+  let desc = "";
+  if (names.length === 1) desc = names[0];
+  else if (names.length > 1) {
     const shared = ddCommonNamePrefix(names);
-    if (shared.length >= 12) return `${shared}…`;
+    if (shared.length >= 12) desc = `${shared}…`;
   }
-  /** @type {string[]} */
-  const bits = [];
-  for (const key of DD_STEM_KEYS) {
-    if (!stemHas(stem, key)) continue;
-    if (key === "heaters" && stem.series === "DD1") continue;
-    bits.push(ddOptionLabel(key, stem[key] ?? ""));
+  if (!desc) {
+    /** @type {string[]} */
+    const bits = [];
+    for (const key of DD_STEM_KEYS) {
+      if (!stemHas(stem, key)) continue;
+      if (key === "heaters" && stem.series === "DD1") continue;
+      bits.push(ddOptionLabel(key, stem[key] ?? ""));
+    }
+    desc = bits.length ? bits.join(" · ") : "still assembling";
   }
-  if (bits.length) return bits.join(" · ");
-  return "still assembling";
+  if (stemHas(stem, "gas") && (stem.gas === "N" || stem.gas === "L")) {
+    desc = resolveDdFuelName(desc, stem.gas);
+  }
+  return desc;
 }
 
 /**
@@ -322,7 +406,15 @@ export function ddBestProductDescription(catalog, stem, match) {
  * @param {DdCodeRow|null|undefined} match
  */
 export function ddPackageDeterminedLine(catalog, stem, match) {
-  const code = match?.orderCode || assembleDdCode(stem) || "—";
+  let code = match?.orderCode || assembleDdCode(stem) || "—";
+  if (
+    !match &&
+    stemHas(stem, "gas") &&
+    (stem.gas === "N" || stem.gas === "L") &&
+    /N\/L/i.test(code)
+  ) {
+    code = resolveDdFuelOrderCode(code, stem.gas);
+  }
   const desc = ddBestProductDescription(catalog, stem, match);
   return {
     code,
