@@ -1,12 +1,12 @@
 {
   "version": 1,
   "meta": {
-    "title": "Zone Contractor Qld HWT finished-goods mock",
+    "title": "Finished-goods Hot Water price rows",
     "effectiveDate": "2026-02-01",
-    "customer": "Zone Contractor Qld",
+    "label": "Finished goods Hot Water",
     "sourceFile": "Zone Contractor Qld Price List - HWT Effective 01-02-26.xlsx",
-    "sourcePathOffice": "G:\\My Drive\\MTC\\Projects\\MTC PROCESS\\Admin FSL Training\\Zone Contractor Qld Price List - HWT Effective 01-02-26.xlsx",
-    "notes": "Mock for Process Finished-goods lookup only. Not spare-parts Bible pricing. Net = Zone NET INVOICE PRICE (EX GST) after discount. Sibling NG/LPG rows may inherit priced head-row Net."
+    "generatedFile": "public/data/zone-hwt-fg.json",
+    "notes": "Net = Net Invoice Price (EX GST) by header text (re-bound each header row). Red banner rows = section titles for labels. Sibling blank-price rows inherit prior real Net (> $1). Not spare-parts Bible pricing."
   },
   "families": [
     {
@@ -32,65 +32,65 @@
     {
       "id": "hp-split",
       "label": "Heat pump (split)",
-      "count": 22
+      "count": 20
     },
     {
       "id": "solar",
       "label": "Solar components",
-      "count": 101
+      "count": 80
     },
     {
       "id": "commercial",
       "label": "Commercial / Demand Duo",
-      "count": 299
+      "count": 288
     }
   ],
   "items": [
     {
       "familyId": "cf",
-      "name": "INFINITY Enviro 16  (7.0 Star Equivalent)",
+      "name": "INFINITY Enviro 16 (7.0 Star Equivalent)",
       "orderCode": "INF16EL50A",
       "netExGst": 1733.58
     },
     {
       "familyId": "cf",
-      "name": "INFINITY Enviro 16  (7.0 Star Equivalent)",
+      "name": "INFINITY Enviro 16 (7.0 Star Equivalent)",
       "orderCode": "INF16EN50A",
       "netExGst": 1733.58
     },
     {
       "familyId": "cf",
-      "name": "INFINITY Enviro 16  (7.0 Star Equivalent)",
+      "name": "INFINITY Enviro 16 (7.0 Star Equivalent)",
       "orderCode": "INF16EL60A",
       "netExGst": 1733.58
     },
     {
       "familyId": "cf",
-      "name": "INFINITY Enviro 16  (7.0 Star Equivalent)",
+      "name": "INFINITY Enviro 16 (7.0 Star Equivalent)",
       "orderCode": "INF16EN60A",
       "netExGst": 1733.58
     },
     {
       "familyId": "cf",
-      "name": "INFINITY Enviro 26  (7.0 Star Equivalent)",
+      "name": "INFINITY Enviro 26 (7.0 Star Equivalent)",
       "orderCode": "INF26EL50A",
       "netExGst": 2590.97
     },
     {
       "familyId": "cf",
-      "name": "INFINITY Enviro 26  (7.0 Star Equivalent)",
+      "name": "INFINITY Enviro 26 (7.0 Star Equivalent)",
       "orderCode": "INF26EN50A",
       "netExGst": 2590.97
     },
     {
       "familyId": "cf",
-      "name": "INFINITY Enviro 26  (7.0 Star Equivalent)",
+      "name": "INFINITY Enviro 26 (7.0 Star Equivalent)",
       "orderCode": "INF26EL60A",
       "netExGst": 2590.97
     },
     {
       "familyId": "cf",
-      "name": "INFINITY Enviro 26  (7.0 Star Equivalent)",
+      "name": "INFINITY Enviro 26 (7.0 Star Equivalent)",
       "orderCode": "INF26EN60A",
       "netExGst": 2590.97
     },
@@ -288,7 +288,7 @@
     },
     {
       "familyId": "cf",
-      "name": "CONTROLLER CABLE 25M  (Suits all controller models)",
+      "name": "CONTROLLER CABLE 25M (Suits all controller models)",
       "orderCode": "CFCONCABLE25",
       "netExGst": 69.54
     },
@@ -300,13 +300,13 @@
     },
     {
       "familyId": "cf",
-      "name": "Deluxe Bathroom Water Controller  (Suits all models)",
+      "name": "Deluxe Bathroom Water Controller (Suits all models)",
       "orderCode": "BC145",
       "netExGst": 252.46
     },
     {
       "familyId": "cf",
-      "name": "Wireless Water Controller  (Suits all models. Requires Transceiver for new applications)",
+      "name": "Wireless Water Controller (Suits all models. Requires Transceiver for new applications)",
       "orderCode": "WWC503",
       "netExGst": 270.1
     },
@@ -336,13 +336,13 @@
     },
     {
       "familyId": "cf",
-      "name": "Pipe Cover  (Suits Enviro INF16E-A  and INF26E-A)",
+      "name": "Pipe Cover (Suits Enviro INF16E-A and INF26E-A)",
       "orderCode": "PCD08",
       "netExGst": 160.28
     },
     {
       "familyId": "cf",
-      "name": "Pipe Cover  (Suits  INF32-MA)",
+      "name": "Pipe Cover (Suits INF32-MA)",
       "orderCode": "PCD10",
       "netExGst": 179.28
     },
@@ -366,13 +366,13 @@
     },
     {
       "familyId": "cf",
-      "name": "Lockable Recessed Box  (Suits Infinity B12, B16, B20, B26)",
+      "name": "Lockable Recessed Box (Suits Infinity B12, B16, B20, B26)",
       "orderCode": "RBOX04LW",
       "netExGst": 311.17
     },
     {
       "familyId": "cf",
-      "name": "Lockable Recessed Box  (Suits Black B26)",
+      "name": "Lockable Recessed Box (Suits Black B26)",
       "orderCode": "RBOX04LBLK",
       "netExGst": 343.2
     },
@@ -396,7 +396,7 @@
     },
     {
       "familyId": "cf",
-      "name": "Lockable Recessed Box  (Suits Enviro INF16E-A  and INF26E-A)",
+      "name": "Lockable Recessed Box (Suits Enviro INF16E-A and INF26E-A)",
       "orderCode": "RBOX07L",
       "netExGst": 311.17
     },
@@ -414,7 +414,7 @@
     },
     {
       "familyId": "cf",
-      "name": "Roof Mounting Frame (Suits INF12-MA to INF26-MA  and all Builders models)",
+      "name": "Roof Mounting Frame (Suits INF12-MA to INF26-MA and all Builders models)",
       "orderCode": "CFROOFFRAME",
       "netExGst": 187.15
     },
@@ -426,37 +426,37 @@
     },
     {
       "familyId": "cf",
-      "name": "Sideways Flue Diverter Extension (To be used with either SFD01,  SFD02 or SFD03)",
+      "name": "Sideways Flue Diverter Extension (To be used with either SFD01, SFD02 or SFD03)",
       "orderCode": "SFDE",
       "netExGst": 93.93
     },
     {
       "familyId": "cf",
-      "name": "Sideways Flue diverter  (Suits  Infinity B26)",
+      "name": "Sideways Flue diverter (Suits Infinity B26)",
       "orderCode": "SFD01",
       "netExGst": 150.3
     },
     {
       "familyId": "cf",
-      "name": "Sideways Flue diverter  (Suits Infinity B12, B16)",
+      "name": "Sideways Flue diverter (Suits Infinity B12, B16)",
       "orderCode": "SFD02",
       "netExGst": 150.3
     },
     {
       "familyId": "cf",
-      "name": "Sideways Flue diverter  (Suits Infinity B20)",
+      "name": "Sideways Flue diverter (Suits Infinity B20)",
       "orderCode": "SFD03",
       "netExGst": 150.3
     },
     {
       "familyId": "cf",
-      "name": "Sideways Flue diverter  (Suits Enviro INF16E-A  and INF26E-A)",
+      "name": "Sideways Flue diverter (Suits Enviro INF16E-A and INF26E-A)",
       "orderCode": "SFD-04",
       "netExGst": 150.3
     },
     {
       "familyId": "cf",
-      "name": "Sideways Flue diverter  (Suits INF32-MA)",
+      "name": "Sideways Flue diverter (Suits INF32-MA)",
       "orderCode": "SFD05",
       "netExGst": 157.38
     },
@@ -558,91 +558,91 @@
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel (Plug In)",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel (Plug In)",
       "orderCode": "EHF25S18P",
       "netExGst": 468.17
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel (Plug In)",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel (Plug In)",
       "orderCode": "EHF25S24P",
       "netExGst": 468.17
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel (Plug In)",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel (Plug In)",
       "orderCode": "EHF25S24HP",
       "netExGst": 468.17
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
       "orderCode": "EHF25S36",
       "netExGst": 462.05
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
       "orderCode": "EHF25S36H",
       "netExGst": 462.05
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel (Plug In)",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel (Plug In)",
       "orderCode": "EHF50S18P",
       "netExGst": 493.84
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel (Plug In)",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel (Plug In)",
       "orderCode": "EHF50S24P",
       "netExGst": 493.84
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel (Plug In)",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel (Plug In)",
       "orderCode": "EHF50S24HP",
       "netExGst": 493.84
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
       "orderCode": "EHF50S36",
       "netExGst": 487.72
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
       "orderCode": "EHF50S36H",
       "netExGst": 487.72
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
       "orderCode": "EHF80S18",
       "netExGst": 757.88
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
       "orderCode": "EHF80S24",
       "netExGst": 757.88
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
       "orderCode": "EHF80S24H",
       "netExGst": 757.88
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
       "orderCode": "EHF80S36",
       "netExGst": 757.88
     },
     {
       "familyId": "storage",
-      "name": "HOTFLO - Vitreous Enamel",
+      "name": "Electric Storage Tanks \u2014 HOTFLO - Vitreous Enamel",
       "orderCode": "EHF80S36H",
       "netExGst": 757.88
     },
@@ -918,7 +918,7 @@
     },
     {
       "familyId": "storage",
-      "name": "Wall Bracket  (Suits 25L, 50L, 80L)",
+      "name": "Wall Bracket (Suits 25L, 50L, 80L)",
       "orderCode": "HFEBKT255080",
       "netExGst": 45.65
     },
@@ -1050,61 +1050,61 @@
     },
     {
       "familyId": "hp-split",
-      "name": "250L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 250L Vitreous Enamel with element",
       "orderCode": "HPTB250VM24",
       "netExGst": 1564.06
     },
     {
       "familyId": "hp-split",
-      "name": "250L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 250L Vitreous Enamel with element",
       "orderCode": "HPTB250VM24H",
       "netExGst": 1564.06
     },
     {
       "familyId": "hp-split",
-      "name": "315L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 315L Vitreous Enamel with element",
       "orderCode": "HPTB315VM24",
       "netExGst": 1765.3
     },
     {
       "familyId": "hp-split",
-      "name": "315L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 315L Vitreous Enamel with element",
       "orderCode": "HPTB315VM24H",
       "netExGst": 1765.3
     },
     {
       "familyId": "hp-split",
-      "name": "400L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 400L Vitreous Enamel with element",
       "orderCode": "HPTB400VM24",
       "netExGst": 2341.87
     },
     {
       "familyId": "hp-split",
-      "name": "400L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 400L Vitreous Enamel with element",
       "orderCode": "HPTB400VM24H",
       "netExGst": 2341.87
     },
     {
       "familyId": "hp-split",
-      "name": "250L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 250L Vitreous Enamel with element",
       "orderCode": "HPTS250VM24",
       "netExGst": 1634.26
     },
     {
       "familyId": "hp-split",
-      "name": "250L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 250L Vitreous Enamel with element",
       "orderCode": "HPTS250VM24H",
       "netExGst": 1634.26
     },
     {
       "familyId": "hp-split",
-      "name": "315L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 315L Vitreous Enamel with element",
       "orderCode": "HPTS315VM24",
       "netExGst": 1835.5
     },
     {
       "familyId": "hp-split",
-      "name": "315L Vitreous Enamel with element",
+      "name": "Tank for Split Elec Heat Pump \u2014 315L Vitreous Enamel with element",
       "orderCode": "HPTS315VM24H",
       "netExGst": 1835.5
     },
@@ -1112,61 +1112,49 @@
       "familyId": "hp-split",
       "name": "SHPL70 + 250L Tank Vitreous Enamel with element",
       "orderCode": "KSHP250M24L70",
-      "netExGst": 0.1
+      "netExGst": 5074.06
     },
     {
       "familyId": "hp-split",
-      "name": "SHPL70 + 250L Tank Vitreous Enamel with element  HW",
+      "name": "SHPL70 + 250L Tank Vitreous Enamel with element HW",
       "orderCode": "KSHP250M24L70H",
-      "netExGst": 0.1
+      "netExGst": 5074.06
     },
     {
       "familyId": "hp-split",
       "name": "SHPL70 + 315L Tank Vitreous Enamel with element",
       "orderCode": "KSHP315M24L70",
-      "netExGst": 0.1
+      "netExGst": 5275.3
     },
     {
       "familyId": "hp-split",
-      "name": "SHPL70 + 315L Tank Vitreous Enamel with element  HW",
+      "name": "SHPL70 + 315L Tank Vitreous Enamel with element HW",
       "orderCode": "KSHP315M24L70H",
-      "netExGst": 0.1
+      "netExGst": 5275.3
     },
     {
       "familyId": "hp-split",
       "name": "SHPL70 + 400L Tank Vitreous Enamel with element",
       "orderCode": "KSHP400M24L70",
-      "netExGst": 0.1
+      "netExGst": 5851.87
     },
     {
       "familyId": "hp-split",
-      "name": "SHPL70 + 400L Tank Vitreous Enamel with element  HW",
+      "name": "SHPL70 + 400L Tank Vitreous Enamel with element HW",
       "orderCode": "KSHP400M24L70H",
-      "netExGst": 0.1
+      "netExGst": 5851.87
     },
     {
       "familyId": "hp-split",
       "name": "SHPR50 + 250L Tank Vitreous Enamel with element",
       "orderCode": "KSHP250M24R50",
-      "netExGst": 0.1
-    },
-    {
-      "familyId": "hp-split",
-      "name": "SHPR50 + 250L Tank Vitreous Enamel with element  HW",
-      "orderCode": "KSHP250M24R50",
-      "netExGst": 0.1
+      "netExGst": 4442.26
     },
     {
       "familyId": "hp-split",
       "name": "SHPR50 + 315L Tank Vitreous Enamel with element",
       "orderCode": "KSHP315M24R50",
-      "netExGst": 0.1
-    },
-    {
-      "familyId": "hp-split",
-      "name": "SHPR50 + 315L Tank Vitreous Enamel with element  HW",
-      "orderCode": "KSHP315M24R50",
-      "netExGst": 0.1
+      "netExGst": 4643.5
     },
     {
       "familyId": "solar",
@@ -1356,25 +1344,25 @@
     },
     {
       "familyId": "solar",
-      "name": "175 Litre - Vitreous Enamel",
+      "name": "Split (ground Mounted) Solar Standard Tanks \u2014 175 Litre - Vitreous Enamel",
       "orderCode": "SG175",
       "netExGst": 1438.81
     },
     {
       "familyId": "solar",
-      "name": "215 Litre - Vitreous Enamel",
+      "name": "Split (ground Mounted) Solar Standard Tanks \u2014 215 Litre - Vitreous Enamel",
       "orderCode": "SG215A",
       "netExGst": 1552.61
     },
     {
       "familyId": "solar",
-      "name": "270 Litre  - Vitreous Enamel",
+      "name": "Split (ground Mounted) Solar Standard Tanks \u2014 270 Litre - Vitreous Enamel",
       "orderCode": "SG270A",
       "netExGst": 1674.53
     },
     {
       "familyId": "solar",
-      "name": "320 Litre  - Vitreous Enamel",
+      "name": "Split (ground Mounted) Solar Standard Tanks \u2014 320 Litre - Vitreous Enamel",
       "orderCode": "SG320A",
       "netExGst": 2032.24
     },
@@ -1476,24 +1464,6 @@
     },
     {
       "familyId": "solar",
-      "name": "20 Tube R5 type collector assembly (complete with header, bottom rail support frame)",
-      "orderCode": "KEVT20A",
-      "netExGst": 3088.96
-    },
-    {
-      "familyId": "solar",
-      "name": "25 Tube R5 type collector assembly (complete with header, bottom rail support frame)",
-      "orderCode": "KEVT25A",
-      "netExGst": 3698.61
-    },
-    {
-      "familyId": "solar",
-      "name": "30 Tube R5 type collector assembly (complete with header, bottom rail support frame)",
-      "orderCode": "KEVT30A",
-      "netExGst": 4308.3
-    },
-    {
-      "familyId": "solar",
       "name": "180 Litre S/Steel - 1 collector (Excelsior SP200BEX and Enduro SP200B)",
       "orderCode": "BIKS180CCT01C",
       "netExGst": 520.25
@@ -1509,114 +1479,6 @@
       "name": "Universal close coupled installation kit suits 330 Litre S/Steel - 3 collectors or 180 Litre S/Steel - 2 collectors (Excelsior SP200BEX and Enduro SP200B)",
       "orderCode": "BIKSUNICCT23C",
       "netExGst": 609.65
-    },
-    {
-      "familyId": "solar",
-      "name": "Pitched roof installation rails for a 20 tube system",
-      "orderCode": "EVTPIT20R5A",
-      "netExGst": 190.76
-    },
-    {
-      "familyId": "solar",
-      "name": "Pitched roof installation rails for a 25 tube system",
-      "orderCode": "EVTPIT25R5A",
-      "netExGst": 196.72
-    },
-    {
-      "familyId": "solar",
-      "name": "Pitched roof installation rails for a 30 tube system",
-      "orderCode": "EVTPIT30R5A",
-      "netExGst": 202.67
-    },
-    {
-      "familyId": "solar",
-      "name": "Plumbing fittings kit complete with hot sensor lead",
-      "orderCode": "IKEVTR5A",
-      "netExGst": 138.21
-    },
-    {
-      "familyId": "solar",
-      "name": "Tiled roof installation kit complete with under tile mounting hooks - Stainless Steel",
-      "orderCode": "EVTRFBRKTSS",
-      "netExGst": 118.76
-    },
-    {
-      "familyId": "solar",
-      "name": "Universal Pump Kit with standard controller (All Prestige Elec and Gas)",
-      "orderCode": "USKIT1C",
-      "netExGst": 1390.01
-    },
-    {
-      "familyId": "solar",
-      "name": "S20 - 20 Litre External - RUN OUT",
-      "orderCode": "S20L70",
-      "netExGst": 1365.63
-    },
-    {
-      "familyId": "solar",
-      "name": "S20 - 20 Litre External - RUN OUT",
-      "orderCode": "S20N70",
-      "netExGst": 1365.63
-    },
-    {
-      "familyId": "solar",
-      "name": "S26 - 26 Litre External - RUN OUT",
-      "orderCode": "S26L70",
-      "netExGst": 1967.19
-    },
-    {
-      "familyId": "solar",
-      "name": "S26 - 26 Litre External - RUN OUT",
-      "orderCode": "S26N70",
-      "netExGst": 1967.19
-    },
-    {
-      "familyId": "solar",
-      "name": "Infinity S20 - 20 Litre External - NEW",
-      "orderCode": "S20L70B",
-      "netExGst": 1365.63
-    },
-    {
-      "familyId": "solar",
-      "name": "Infinity S20 - 20 Litre External - NEW",
-      "orderCode": "S20N70B",
-      "netExGst": 1365.63
-    },
-    {
-      "familyId": "solar",
-      "name": "Infinity S26 - 26 Litre External - NEW",
-      "orderCode": "S26L70B",
-      "netExGst": 1967.19
-    },
-    {
-      "familyId": "solar",
-      "name": "Infinity S26 - 26 Litre External - NEW",
-      "orderCode": "S26N70B",
-      "netExGst": 1967.19
-    },
-    {
-      "familyId": "solar",
-      "name": "S28i - 28 Litre Internal (Made to Order#)",
-      "orderCode": "S28IL70",
-      "netExGst": 3603.43
-    },
-    {
-      "familyId": "solar",
-      "name": "S28i - 28 Litre Internal (Made to Order#)",
-      "orderCode": "S28IN70",
-      "netExGst": 3603.43
-    },
-    {
-      "familyId": "solar",
-      "name": "S32 - 32 Litre External (Made to Order#)",
-      "orderCode": "S32L70AM",
-      "netExGst": 3235.27
-    },
-    {
-      "familyId": "solar",
-      "name": "S32 - 32 Litre External (Made to Order#)",
-      "orderCode": "S32N70AM",
-      "netExGst": 3235.27
     },
     {
       "familyId": "solar",
@@ -1734,7 +1596,7 @@
     },
     {
       "familyId": "solar",
-      "name": "CC 180L SS / 200L VE with 1 collector  or Split system with 1 / 2 collectors (Reverse and side orientation)",
+      "name": "CC 180L SS / 200L VE with 1 collector or Split system with 1 / 2 collectors (Reverse and side orientation)",
       "orderCode": "33202026",
       "netExGst": 387.76
     },
@@ -2214,301 +2076,301 @@
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDF228E250N/L",
       "netExGst": 12137.64
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDF328E250N/L",
       "netExGst": 15059.67
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDF428E250N/L",
       "netExGst": 20379.25
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDF528E250N/L",
       "netExGst": 24837.2
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDF628E250N/L",
       "netExGst": 26822.68
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDF228E315N/L",
       "netExGst": 12481.04
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDF328E315N/L",
       "netExGst": 15390.57
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDF428E315N/L",
       "netExGst": 20716.41
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDF528E315N/L",
       "netExGst": 25193.1
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDF628E315N/L",
       "netExGst": 27184.83
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG",
       "orderCode": "DDF232E250N/L",
       "netExGst": 27184.83
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG",
       "orderCode": "DDF332E250N/L",
       "netExGst": 27184.83
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG",
       "orderCode": "DDF432E250N/L",
       "netExGst": 27184.83
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG",
       "orderCode": "DDF532E250N/L",
       "netExGst": 27184.83
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG",
       "orderCode": "DDF632E250N/L",
       "netExGst": 27184.83
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG",
       "orderCode": "DDF232E315N/L",
       "netExGst": 27184.83
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG",
       "orderCode": "DDF332E315N/L",
       "netExGst": 27184.83
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG",
       "orderCode": "DDF432E315N/L",
       "netExGst": 27184.83
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG",
       "orderCode": "DDF532E315N/L",
       "netExGst": 27184.83
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 32e Systems - Natural Gas or LPG",
       "orderCode": "DDF632E315N/L",
       "netExGst": 27184.83
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDF2C32E250N/L",
       "netExGst": 13239.2
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDF3C32E250N/L",
       "netExGst": 17784.0
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDF4C32E250N/L",
       "netExGst": 24304.8
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDF5C32E250N/L",
       "netExGst": 29047.2
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDF6C32E250N/L",
       "netExGst": 33592.0
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDF2C32E315N/L",
       "netExGst": 13634.4
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDF3C32E315N/L",
       "netExGst": 18179.2
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDF4C32E315N/L",
       "netExGst": 24304.8
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDF5C32E315N/L",
       "netExGst": 29047.2
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDF6C32E315N/L",
       "netExGst": 33987.2
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDF228I250N/L",
       "netExGst": 12549.74
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDF328I250N/L",
       "netExGst": 15577.89
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDF428I250N/L",
       "netExGst": 21902.7
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDF528I250N/L",
       "netExGst": 25873.65
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDF628I250N/L",
       "netExGst": 28895.57
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDF228I315N/L",
       "netExGst": 12986.78
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDF328I315N/L",
       "netExGst": 16408.29
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDF428I315N/L",
       "netExGst": 22239.85
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDF528I315N/L",
       "netExGst": 26223.29
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDF628I315N/L",
       "netExGst": 29220.24
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDF2C32I250N/L",
       "netExGst": 13041.6
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDF3C32I250N/L",
       "netExGst": 17487.6
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDF4C32I250N/L",
       "netExGst": 23909.6
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDF5C32I250N/L",
       "netExGst": 28553.2
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDF6C32I250N/L",
       "netExGst": 32999.2
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDF2C32I315N/L",
       "netExGst": 13436.8
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDF3C32I315N/L",
       "netExGst": 17882.8
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDF4C32I315N/L",
       "netExGst": 24304.8
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDF5C32I315N/L",
       "netExGst": 28948.4
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDF6C32I315N/L",
       "netExGst": 33394.4
     },
@@ -2634,61 +2496,61 @@
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDPL2C32E250N/L",
       "netExGst": 28471.0
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDPL3C32E250N/L",
       "netExGst": 28471.0
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDPL4C32E250N/L",
       "netExGst": 28471.0
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDPL5C32E250N/L",
       "netExGst": 28471.0
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDPL6C32E250N/L",
       "netExGst": 28471.0
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDPL2C32E315N/L",
       "netExGst": 28471.0
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDPL3C32E315N/L",
       "netExGst": 28471.0
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDPL4C32E315N/L",
       "netExGst": 28471.0
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDPL5C32E315N/L",
       "netExGst": 28471.0
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDPL6C32E315N/L",
       "netExGst": 28471.0
     },
@@ -2754,151 +2616,151 @@
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDPL2C32I250N/L",
       "netExGst": 30468.96
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDPL3C32I250N/L",
       "netExGst": 30468.96
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDPL4C32I250N/L",
       "netExGst": 30468.96
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDPL5C32I250N/L",
       "netExGst": 30468.96
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDPL6C32I250N/L",
       "netExGst": 30468.96
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDPL2C32I315N/L",
       "netExGst": 30468.96
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDPL3C32I315N/L",
       "netExGst": 30468.96
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDPL4C32I315N/L",
       "netExGst": 30468.96
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDPL5C32I315N/L",
       "netExGst": 30468.96
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDPL6C32I315N/L",
       "netExGst": 30468.96
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDF428E315N/L-50",
       "netExGst": 21090.39
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDF528E315N/L-50",
       "netExGst": 25567.08
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDF628E315N/L-50",
       "netExGst": 27558.81
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty high efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty high efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDF4C32E315N/L-50",
       "netExGst": 24996.4
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty high efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty high efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDF5C32E315N/L-50",
       "netExGst": 29837.6
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty high efficiency C32e Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty high efficiency C32e Systems - Natural Gas or LPG",
       "orderCode": "DDF6C32E315N/L-50",
       "netExGst": 34382.4
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDF428I315N/L-50",
       "netExGst": 22613.84
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDF528I315N/L-50",
       "netExGst": 26597.27
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDF628I315N/L-50",
       "netExGst": 29594.23
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty high efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty high efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDF4C32I315N/L-50",
       "netExGst": 24601.2
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty high efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty high efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDF5C32I315N/L-50",
       "netExGst": 33789.6
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty high efficiency C32i Systems - Natural Gas or LPG",
+      "name": "Demand Duo Systems with 50mm tank outlet Including seperate heaters on dedicated frame Heavy Duty high efficiency C32i Systems - Natural Gas or LPG",
       "orderCode": "DDF6C32I315N/L-50",
       "netExGst": 33789.6
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems with 50mm tank outlet and  heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDPL428E315N/L-50",
       "netExGst": 22089.37
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems with 50mm tank outlet and  heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDPL528E315N/L-50",
       "netExGst": 26378.74
     },
     {
       "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems with 50mm tank outlet and  heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
       "orderCode": "DDPL628E315N/L-50",
       "netExGst": 28844.98
     },
@@ -2929,12 +2791,6 @@
     {
       "familyId": "commercial",
       "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
-      "orderCode": "DDPL528E315N/L-50",
-      "netExGst": 23662.78
-    },
-    {
-      "familyId": "commercial",
-      "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
       "orderCode": "DDPL628I315N/L-50",
       "netExGst": 26378.74
     },
@@ -2958,7 +2814,7 @@
     },
     {
       "familyId": "commercial",
-      "name": "20kW Vertical discharge Heat Pump with 32mm inlet / outlet ports and integrated primary  pump",
+      "name": "20kW Vertical discharge Heat Pump with 32mm inlet / outlet ports and integrated primary pump",
       "orderCode": "CHP020VPA",
       "netExGst": 17577.38
     },
@@ -2970,7 +2826,7 @@
     },
     {
       "familyId": "commercial",
-      "name": "20kW Horizontal discharge Heat Pump with 32mm inlet / outlet ports and integrated primary  pump",
+      "name": "20kW Horizontal discharge Heat Pump with 32mm inlet / outlet ports and integrated primary pump",
       "orderCode": "CHP020HPA",
       "netExGst": 17840.94
     },
@@ -2982,7 +2838,7 @@
     },
     {
       "familyId": "commercial",
-      "name": "40kW Vertical discharge Heat Pump with 32mm inlet / outlet ports and integrated primary  pump",
+      "name": "40kW Vertical discharge Heat Pump with 32mm inlet / outlet ports and integrated primary pump",
       "orderCode": "CHP040VP",
       "netExGst": 29498.38
     },
@@ -2994,7 +2850,7 @@
     },
     {
       "familyId": "commercial",
-      "name": "40kW Horizontal discharge Heat Pump with 32mm inlet / outlet ports and integrated primary  pump",
+      "name": "40kW Horizontal discharge Heat Pump with 32mm inlet / outlet ports and integrated primary pump",
       "orderCode": "CHP040HP",
       "netExGst": 29806.14
     },
@@ -3012,7 +2868,7 @@
     },
     {
       "familyId": "commercial",
-      "name": "Stainless Steel 80L Quick recovery storage tank  with 3x4.8kW elec elements and 32mm outlet",
+      "name": "Stainless Steel 80L Quick recovery storage tank with 3x4.8kW elec elements and 32mm outlet",
       "orderCode": "QRESS80L348",
       "netExGst": 2745.56
     },
@@ -3036,13 +2892,13 @@
     },
     {
       "familyId": "commercial",
-      "name": "50L Vitreous Enamel Quick recovery tank with 3x3.6kW elec elements, 32mm ports",
+      "name": "Quick Recovery Electric Storage Tanks \u2014 50L Vitreous Enamel Quick recovery tank with 3x3.6kW elec elements, 32mm ports",
       "orderCode": "QREVE50L336",
       "netExGst": 1877.2
     },
     {
       "familyId": "commercial",
-      "name": "50L Vitreous Enamel Quick recovery tank with 3x4.8kW elec elements, 32mm tank ports - Hard Water",
+      "name": "Quick Recovery Electric Storage Tanks \u2014 50L Vitreous Enamel Quick recovery tank with 3x4.8kW elec elements, 32mm tank ports - Hard Water",
       "orderCode": "QREVE50L336H",
       "netExGst": 1877.2
     },
@@ -3054,7 +2910,7 @@
     },
     {
       "familyId": "commercial",
-      "name": "50L Vitreous Enamel Quick recovery tank with 3x4.8kW elec elements, 32mm tank ports - Hard Water",
+      "name": "Quick Recovery Electric Storage Tanks \u2014 50L Vitreous Enamel Quick recovery tank with 3x4.8kW elec elements, 32mm tank ports - Hard Water",
       "orderCode": "QREVE50L348H",
       "netExGst": 1877.2
     },
@@ -3078,13 +2934,13 @@
     },
     {
       "familyId": "commercial",
-      "name": "DD 250 L Stainless Steel  (1 x HT575/850 kpa PTR valve, with thermostat pocket with 32mm hot / cold return)",
+      "name": "DD 250 L Stainless Steel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 32mm hot / cold return)",
       "orderCode": "DD250",
       "netExGst": 2912.79
     },
     {
       "familyId": "commercial",
-      "name": "DD 250 L Stainless Steel  (1 x HT575/850 kpa PTR valve, with thermostat pocket with 50mm hot / cold return)",
+      "name": "DD 250 L Stainless Steel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 50mm hot / cold return)",
       "orderCode": "DD250-50",
       "netExGst": 3467.73
     },
@@ -3180,7 +3036,7 @@
     },
     {
       "familyId": "commercial",
-      "name": "3 Collector with Interconnectors & Rails  (Suits SP200B only)",
+      "name": "3 Collector with Interconnectors & Rails (Suits SP200B only)",
       "orderCode": "DDSP3B",
       "netExGst": 329.59
     },
@@ -3318,13 +3174,13 @@
     },
     {
       "familyId": "commercial",
-      "name": "250 Litre Stainless Steel  with 32mm hot/cold return",
+      "name": "250 Litre Stainless Steel with 32mm hot/cold return",
       "orderCode": "DDS250",
       "netExGst": 2836.12
     },
     {
       "familyId": "commercial",
-      "name": "315 Litre Stainless Steel  with 32mm hot/cold return",
+      "name": "315 Litre Stainless Steel with 32mm hot/cold return",
       "orderCode": "DDS315",
       "netExGst": 3158.05
     },
@@ -3402,19 +3258,19 @@
     },
     {
       "familyId": "commercial",
-      "name": "20-60N (With Deluxe Control Box - Standard features plus  Pump Fault / Run Lights / Individual Pump controls)",
+      "name": "20-60N (With Deluxe Control Box - Standard features plus Pump Fault / Run Lights / Individual Pump controls)",
       "orderCode": "DDDP2060NFDPC",
       "netExGst": 4579.19
     },
     {
       "familyId": "commercial",
-      "name": "32-80N (With Deluxe Control Box - Standard features plus  Pump Fault / Run Lights / Individual Pump controls)",
+      "name": "32-80N (With Deluxe Control Box - Standard features plus Pump Fault / Run Lights / Individual Pump controls)",
       "orderCode": "DDDP2580NFDPC",
       "netExGst": 5052.9
     },
     {
       "familyId": "commercial",
-      "name": "32-100N (With Deluxe Control Box - Standard features plus  Pump Fault / Run Lights / Individual Pump controls)",
+      "name": "32-100N (With Deluxe Control Box - Standard features plus Pump Fault / Run Lights / Individual Pump controls)",
       "orderCode": "DDDP32100NFDPC",
       "netExGst": 7895.15
     },
@@ -3507,66 +3363,176 @@
       "name": "Cascade cable 8 metres (compatible with HD210 only)",
       "orderCode": "CSAC2",
       "netExGst": 82.56
+    }
+  ],
+  "ingestLowConfidence": [
+    {
+      "sheet": "Split Heat Pumps",
+      "row": 45,
+      "col": 2,
+      "cell": "KSHP250M24R50",
+      "reason": "Duplicate ORDER CODE (also row 44). Skipped second row for ship; name was 'SHPR50 + 250L Tank Vitreous Enamel with element HW'. Confirm: distinct code needed, or intentional re-list?"
     },
     {
-      "familyId": "commercial",
-      "name": "Complete engineered packages to suit Demand Duo systems (Factory mounted on an engineered base with crane lifting points - including all fully insulated pipework, electrical GPO's with lead and pumps as required)",
-      "orderCode": "Various",
-      "netExGst": 82.56
+      "sheet": "Split Heat Pumps",
+      "row": 47,
+      "col": 2,
+      "cell": "KSHP315M24R50",
+      "reason": "Duplicate ORDER CODE (also row 46). Skipped second row for ship; name was 'SHPR50 + 315L Tank Vitreous Enamel with element HW'. Confirm: distinct code needed, or intentional re-list?"
     },
     {
-      "familyId": "commercial",
-      "name": "Complete engineered packages to suit Manifold Pack systems (Factory mounted on an engineered base with crane lifting points - including all fully insulated pipework, electrical GPO's with lead and pumps as required)",
-      "orderCode": "Various",
-      "netExGst": 82.56
+      "sheet": "Solar Pricing",
+      "row": 90,
+      "col": 2,
+      "cell": "KEVT20A",
+      "reason": "Duplicate ORDER CODE (also row 19). Skipped second row for ship; name was '20 Tube R5 type collector assembly (complete with header, bottom rail support frame)'. Confirm: distinct code needed, or intentional re-list?"
     },
     {
-      "familyId": "commercial",
-      "name": "Remote monitoring systems",
-      "orderCode": "Various",
-      "netExGst": 82.56
+      "sheet": "Solar Pricing",
+      "row": 91,
+      "col": 2,
+      "cell": "KEVT25A",
+      "reason": "Duplicate ORDER CODE (also row 20). Skipped second row for ship; name was '25 Tube R5 type collector assembly (complete with header, bottom rail support frame)'. Confirm: distinct code needed, or intentional re-list?"
     },
     {
-      "familyId": "commercial",
-      "name": "Multi-stage pump sets with alternating controller",
-      "orderCode": "Various",
-      "netExGst": 82.56
+      "sheet": "Solar Pricing",
+      "row": 92,
+      "col": 2,
+      "cell": "KEVT30A",
+      "reason": "Duplicate ORDER CODE (also row 21). Skipped second row for ship; name was '30 Tube R5 type collector assembly (complete with header, bottom rail support frame)'. Confirm: distinct code needed, or intentional re-list?"
     },
     {
-      "familyId": "commercial",
-      "name": "Plate heat exchanger systems",
-      "orderCode": "Various",
-      "netExGst": 82.56
+      "sheet": "Solar Pricing",
+      "row": 99,
+      "col": 2,
+      "cell": "EVTPIT20R5A",
+      "reason": "Duplicate ORDER CODE (also row 34). Skipped second row for ship; name was 'Pitched roof installation rails for a 20 tube system'. Confirm: distinct code needed, or intentional re-list?"
     },
     {
-      "familyId": "commercial",
-      "name": "Engineered low profile Demand Duo or Manifold Pack systems",
-      "orderCode": "Various",
-      "netExGst": 82.56
+      "sheet": "Solar Pricing",
+      "row": 100,
+      "col": 2,
+      "cell": "EVTPIT25R5A",
+      "reason": "Duplicate ORDER CODE (also row 35). Skipped second row for ship; name was 'Pitched roof installation rails for a 25 tube system'. Confirm: distinct code needed, or intentional re-list?"
     },
     {
-      "familyId": "commercial",
-      "name": "Large capacity storage tanks",
-      "orderCode": "Various",
-      "netExGst": 82.56
+      "sheet": "Solar Pricing",
+      "row": 101,
+      "col": 2,
+      "cell": "EVTPIT30R5A",
+      "reason": "Duplicate ORDER CODE (also row 36). Skipped second row for ship; name was 'Pitched roof installation rails for a 30 tube system'. Confirm: distinct code needed, or intentional re-list?"
     },
     {
-      "familyId": "commercial",
-      "name": "Natural draft common flueing for internal installations",
-      "orderCode": "Various",
-      "netExGst": 82.56
+      "sheet": "Solar Pricing",
+      "row": 102,
+      "col": 2,
+      "cell": "IKEVTR5A",
+      "reason": "Duplicate ORDER CODE (also row 37). Skipped second row for ship; name was 'Plumbing fittings kit complete with hot sensor lead'. Confirm: distinct code needed, or intentional re-list?"
     },
     {
-      "familyId": "commercial",
-      "name": "Fan assisted common flueing for internal installations",
-      "orderCode": "Various",
-      "netExGst": 82.56
+      "sheet": "Solar Pricing",
+      "row": 103,
+      "col": 2,
+      "cell": "EVTRFBRKTSS",
+      "reason": "Duplicate ORDER CODE (also row 38). Skipped second row for ship; name was 'Tiled roof installation kit complete with under tile mounting hooks - Stainless Steel'. Confirm: distinct code needed, or intentional re-list?"
     },
     {
-      "familyId": "commercial",
-      "name": "Commissioning of Warm Water Valve and UV steriliser",
-      "orderCode": "Various",
-      "netExGst": 82.56
+      "sheet": "Solar Pricing",
+      "row": 106,
+      "col": 2,
+      "cell": "USKIT1C",
+      "reason": "Duplicate ORDER CODE (also row 81). Skipped second row for ship; name was 'Universal Pump Kit with standard controller (All Prestige Elec and Gas)'. Confirm: distinct code needed, or intentional re-list?"
+    },
+    {
+      "sheet": "Solar Pricing",
+      "row": 108,
+      "col": 2,
+      "cell": "S20L70",
+      "reason": "Duplicate ORDER CODE (also row 41). Skipped second row for ship; name was 'S20 - 20 Litre External - RUN OUT'. Confirm: distinct code needed, or intentional re-list?"
+    },
+    {
+      "sheet": "Solar Pricing",
+      "row": 109,
+      "col": 2,
+      "cell": "S20N70",
+      "reason": "Duplicate ORDER CODE (also row 42). Skipped second row for ship; name was 'S20 - 20 Litre External - RUN OUT'. Confirm: distinct code needed, or intentional re-list?"
+    },
+    {
+      "sheet": "Solar Pricing",
+      "row": 110,
+      "col": 2,
+      "cell": "S26L70",
+      "reason": "Duplicate ORDER CODE (also row 43). Skipped second row for ship; name was 'S26 - 26 Litre External - RUN OUT'. Confirm: distinct code needed, or intentional re-list?"
+    },
+    {
+      "sheet": "Solar Pricing",
+      "row": 111,
+      "col": 2,
+      "cell": "S26N70",
+      "reason": "Duplicate ORDER CODE (also row 44). Skipped second row for ship; name was 'S26 - 26 Litre External - RUN OUT'. Confirm: distinct code needed, or intentional re-list?"
+    },
+    {
+      "sheet": "Solar Pricing",
+      "row": 112,
+      "col": 2,
+      "cell": "S20L70B",
+      "reason": "Duplicate ORDER CODE (also row 45). Skipped second row for ship; name was 'Infinity S20 - 20 Litre External - NEW'. Confirm: distinct code needed, or intentional re-list?"
+    },
+    {
+      "sheet": "Solar Pricing",
+      "row": 113,
+      "col": 2,
+      "cell": "S20N70B",
+      "reason": "Duplicate ORDER CODE (also row 46). Skipped second row for ship; name was 'Infinity S20 - 20 Litre External - NEW'. Confirm: distinct code needed, or intentional re-list?"
+    },
+    {
+      "sheet": "Solar Pricing",
+      "row": 114,
+      "col": 2,
+      "cell": "S26L70B",
+      "reason": "Duplicate ORDER CODE (also row 47). Skipped second row for ship; name was 'Infinity S26 - 26 Litre External - NEW'. Confirm: distinct code needed, or intentional re-list?"
+    },
+    {
+      "sheet": "Solar Pricing",
+      "row": 115,
+      "col": 2,
+      "cell": "S26N70B",
+      "reason": "Duplicate ORDER CODE (also row 48). Skipped second row for ship; name was 'Infinity S26 - 26 Litre External - NEW'. Confirm: distinct code needed, or intentional re-list?"
+    },
+    {
+      "sheet": "Solar Pricing",
+      "row": 116,
+      "col": 2,
+      "cell": "S28IL70",
+      "reason": "Duplicate ORDER CODE (also row 49). Skipped second row for ship; name was 'S28i - 28 Litre Internal (Made to Order#)'. Confirm: distinct code needed, or intentional re-list?"
+    },
+    {
+      "sheet": "Solar Pricing",
+      "row": 117,
+      "col": 2,
+      "cell": "S28IN70",
+      "reason": "Duplicate ORDER CODE (also row 50). Skipped second row for ship; name was 'S28i - 28 Litre Internal (Made to Order#)'. Confirm: distinct code needed, or intentional re-list?"
+    },
+    {
+      "sheet": "Solar Pricing",
+      "row": 118,
+      "col": 2,
+      "cell": "S32L70AM",
+      "reason": "Duplicate ORDER CODE (also row 51). Skipped second row for ship; name was 'S32 - 32 Litre External (Made to Order#)'. Confirm: distinct code needed, or intentional re-list?"
+    },
+    {
+      "sheet": "Solar Pricing",
+      "row": 119,
+      "col": 2,
+      "cell": "S32N70AM",
+      "reason": "Duplicate ORDER CODE (also row 52). Skipped second row for ship; name was 'S32 - 32 Litre External (Made to Order#)'. Confirm: distinct code needed, or intentional re-list?"
+    },
+    {
+      "sheet": "Commercial HW",
+      "row": 237,
+      "col": 2,
+      "cell": "DDPL528E315N/L-50",
+      "reason": "Duplicate ORDER CODE (also row 231). Skipped second row for ship; name was \"Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG\". Confirm: distinct code needed, or intentional re-list?"
     }
   ]
 }

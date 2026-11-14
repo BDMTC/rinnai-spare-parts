@@ -971,10 +971,19 @@ function renderProcessBasicBody() {
   if (warrantyTopic) bindProcessChecker(warrantyTopic);
 }
 
+function finishedGoodsGeneratedRel() {
+  const fromCfg = config?.finishedGoodsPriceList?.generatedFile;
+  if (typeof fromCfg === "string" && fromCfg.trim()) {
+    // config uses public/data/… — fetch from data/… under site root
+    return fromCfg.replace(/^public\//, "").replace(/^\//, "");
+  }
+  return "data/zone-hwt-fg.json";
+}
+
 async function ensureZoneHwtFgDoc() {
   if (zoneHwtFgDoc) return zoneHwtFgDoc;
   try {
-    const res = await fetch(publicUrl("data/zone-hwt-fg.json"));
+    const res = await fetch(publicUrl(finishedGoodsGeneratedRel()));
     if (!res.ok) throw new Error(String(res.status));
     zoneHwtFgDoc = await res.json();
   } catch {
@@ -1028,10 +1037,14 @@ function renderProcessFgLookupHtml() {
           : "Pick a family, then search by name or order code."
       }</td></tr>`;
 
-  return `<section class="process-fg-lookup" aria-label="Finished goods Zone HWT lookup">
-    <h3 class="process-fg-title">Finished-goods lookup (mock)</h3>
-    <p class="muted process-fg-blurb">Zone Contractor Qld Hot Water book — effective ${escapeHtml(String(effective))}. Family → search → Zone Net (ex GST) + order code. Not Bible spare Net.</p>
-    <div class="process-fg-families" role="group" aria-label="Product family">${familyBtns || `<p class="muted">Finished-goods mock data not loaded.</p>`}</div>
+  const fgLabel =
+    zoneHwtFgDoc?.meta?.label ||
+    config?.finishedGoodsPriceList?.label ||
+    "Finished goods Hot Water";
+  return `<section class="process-fg-lookup" aria-label="Finished goods Hot Water lookup">
+    <h3 class="process-fg-title">Finished-goods lookup</h3>
+    <p class="muted process-fg-blurb">${escapeHtml(String(fgLabel))} — effective ${escapeHtml(String(effective))}. Family → search → Zone Net (ex GST) + order code. Not Bible spare Net.</p>
+    <div class="process-fg-families" role="group" aria-label="Product family">${familyBtns || `<p class="muted">Finished-goods price data not loaded.</p>`}</div>
     <label class="process-fg-search-label">Search in family
       <input type="search" id="process-fg-query" class="process-fg-query" placeholder="e.g. Infinity 26, HD28, EHF160" value="${escapeHtml(processFgLookupState.query || "")}" ${familyId ? "" : "disabled"} />
     </label>
@@ -1099,7 +1112,7 @@ function renderProcessDetailedBody() {
         renderProcessDesk();
       });
     });
-    body.innerHTML = `<p class="muted">Loading finished-goods Zone HWT mock…</p>`;
+    body.innerHTML = `<p class="muted">Loading finished-goods prices…</p>`;
     ensureZoneHwtFgDoc().then(() => {
       if (processViewMode === "detailed" && processTopicId === "fg") {
         renderProcessDetailedBody();

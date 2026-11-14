@@ -24,17 +24,17 @@
     "lastIngested": "2026-11-11"
   },
   "finishedGoodsPriceList": {
-    "label": "Zone Contractor Qld Hot Water (finished goods / packages)",
+    "label": "Finished goods Hot Water",
     "effectiveDate": "2026-02-01",
     "workbookFile": "Zone Contractor Qld Price List - HWT Effective 01-02-26.xlsx",
     "workbookPath": "source-data/Zone-Contractor-Qld-Price-List-HWT-Effective-01-02-26.xlsx",
     "endpoint": "source-data/Zone-Contractor-Qld-Price-List-HWT-Effective-01-02-26.xlsx",
     "generatedFile": "public/data/zone-hwt-fg.json",
-    "mockNote": "Process-desk mock only. Copy yearly HWT FG workbook into source-data/ when Beau locks ingest; do not merge into spare priceList / prices.json.",
+    "mockNote": "Process-desk FG lookup. Net Invoice Price (EX GST) only; red section banners feed product labels. Do not merge into spare priceList / prices.json.",
     "parse": {
-      "notes": "Product sheets: Cont Flow, Electric Cont Flow, Storage Tanks, All-In-One Heat Pump, Split Heat Pumps, Solar Pricing, Commercial HW. Columns: PRODUCT NAME, ORDER CODE, …, NET INVOICE PRICE (EX GST). Sibling NG/LPG rows may inherit head-row Net. Not spare A/C/K ingest."
+      "notes": "Product sheets: Cont Flow, Electric Cont Flow, Storage Tanks, All-In-One Heat Pump, Split Heat Pumps, Solar Pricing, Commercial HW. Re-bind NET INVOICE PRICE (EX GST) on every header row (kit blocks shift columns). Reject Net in (0,1]. Sibling blank-price rows inherit prior real Net. Red-fill banners = section titles for short tank labels."
     },
-    "lastIngested": "2026-11-14-mock"
+    "lastIngested": "2026-11-14"
   },
   "admin": {
     "overridesStorageKey": "rinnai-parts-overrides-v1",
