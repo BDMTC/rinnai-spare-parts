@@ -1957,12 +1957,44 @@ function renderProcessDesk() {
   renderProcessDetailedBody();
 }
 
+/** Scroll lock for Process modal — page behind must not move. */
+let processModalScrollY = 0;
+
+function lockProcessPageScroll() {
+  if (document.documentElement.classList.contains("process-modal-open")) return;
+  const gap = Math.max(0, window.innerWidth - document.documentElement.clientWidth);
+  processModalScrollY = window.scrollY || window.pageYOffset || 0;
+  document.documentElement.style.setProperty(
+    "--process-modal-scrollbar-gap",
+    `${gap}px`
+  );
+  document.documentElement.classList.add("process-modal-open");
+  document.body.style.top = `-${processModalScrollY}px`;
+  document.body.style.position = "fixed";
+  document.body.style.left = "0";
+  document.body.style.right = "0";
+  document.body.style.width = "100%";
+}
+
+function unlockProcessPageScroll() {
+  if (!document.documentElement.classList.contains("process-modal-open")) return;
+  document.documentElement.classList.remove("process-modal-open");
+  document.body.style.position = "";
+  document.body.style.top = "";
+  document.body.style.left = "";
+  document.body.style.right = "";
+  document.body.style.width = "";
+  document.documentElement.style.removeProperty("--process-modal-scrollbar-gap");
+  window.scrollTo(0, processModalScrollY);
+}
+
 function openProcess() {
   const dialog = document.querySelector("#process-dialog");
   if (!dialog) return;
   // Always lead with Basic vs Detailed — never auto-skip from last localStorage choice.
   processViewMode = "chooser";
   renderProcessDesk();
+  lockProcessPageScroll();
   if (typeof dialog.showModal === "function") dialog.showModal();
   else dialog.setAttribute("open", "");
 }
@@ -1971,6 +2003,7 @@ function closeProcess() {
   const dialog = document.querySelector("#process-dialog");
   if (dialog && typeof dialog.close === "function") dialog.close();
   else if (dialog) dialog.removeAttribute("open");
+  unlockProcessPageScroll();
 }
 
 function openFeedback() {
@@ -4581,6 +4614,9 @@ function bindEvents() {
     processDialog.addEventListener("cancel", (e) => {
       e.preventDefault();
       closeProcess();
+    });
+    processDialog.addEventListener("close", () => {
+      unlockProcessPageScroll();
     });
     processDialog.addEventListener("click", (e) => {
       if (e.target === processDialog) closeProcess();
