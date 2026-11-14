@@ -1664,8 +1664,9 @@ function renderProcessFgLookupHtml() {
     }
 
     bodyHtml = `
-    <label class="process-fg-search-label">Search in family
-      <input type="search" id="process-fg-query" class="process-fg-query" placeholder="e.g. Infinity 26, HD28, EHF160" value="${escapeHtml(processFgLookupState.query || "")}" ${familyId ? "" : "disabled"} />
+    <label class="process-fg-search-label">
+      <span class="visually-hidden">Search in family</span>
+      <input type="search" id="process-fg-query" class="process-fg-query" placeholder="Search in family — e.g. Infinity 26, HD28, EHF160" aria-label="Search in family" value="${escapeHtml(processFgLookupState.query || "")}" ${familyId ? "" : "disabled"} />
     </label>
     <p class="muted process-fg-count">${
       familyId
@@ -1696,6 +1697,19 @@ function ddResetBuilderState() {
   processFgLookupState.ddStem = emptyDdStemState();
   processFgLookupState.ddHistory = [];
   processFgLookupState.ddAnim = "in";
+}
+
+/** Brief flash so the FG family search field is obvious after picking a category. */
+function flashProcessFgSearch() {
+  const input = document.querySelector("#process-fg-query");
+  if (!input || input.disabled) return;
+  input.classList.remove("process-fg-query--flash");
+  void input.offsetWidth;
+  input.classList.add("process-fg-query--flash");
+  input.focus();
+  window.setTimeout(() => {
+    input.classList.remove("process-fg-query--flash");
+  }, 1200);
 }
 
 function ddAfterRenderAnim() {
@@ -1757,6 +1771,7 @@ function bindProcessFgLookup(body) {
       }
       renderProcessDesk();
       if (processFgLookupState.familyId === "dd") ddAfterRenderAnim();
+      else if (processFgLookupState.familyId) flashProcessFgSearch();
     });
   });
   const input = body.querySelector("#process-fg-query");

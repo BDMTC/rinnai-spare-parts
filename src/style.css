@@ -2838,17 +2838,55 @@ html.process-modal-open body {
 .process-fg-search-label {
   display: grid;
   gap: 0.25rem;
-  font-size: 0.78rem;
-  font-weight: 650;
   margin-bottom: 0.35rem;
 }
 
+.process-fg-search-label .visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .process-fg-query {
-  width: min(100%, 28rem);
-  padding: 0.4rem 0.55rem;
+  width: min(100%, 32rem);
+  padding: 0.5rem 0.7rem;
   border: 1px solid var(--line);
   border-radius: 8px;
   font: inherit;
+  font-size: 0.9rem;
+  background: #fff;
+  transition: border-color 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+.process-fg-query:focus {
+  outline: none;
+  border-color: var(--accent-ink, #1a4f7a);
+  box-shadow: 0 0 0 3px rgba(0, 134, 197, 0.22);
+}
+
+.process-fg-query--flash {
+  animation: process-fg-query-flash 1.1s ease;
+}
+
+@keyframes process-fg-query-flash {
+  0%,
+  100% {
+    border-color: var(--line);
+    box-shadow: none;
+    background: #fff;
+  }
+  20%,
+  55% {
+    border-color: var(--accent-ink, #1a4f7a);
+    box-shadow: 0 0 0 4px rgba(0, 134, 197, 0.35);
+    background: #eef7fc;
+  }
 }
 
 .process-fg-count {
