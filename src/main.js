@@ -10,6 +10,11 @@ import tipHomeLogoUrl from "./assets/help/tip-home-logo.svg?inline";
 import tipQuoteUrl from "./assets/help/tip-quote.svg?inline";
 import { seriesUnitShotUrl } from "./series-unit-shots.js";
 import {
+  PROCESS_FAMILY_EXAMPLE_SLIDES,
+  familyExampleImages,
+  familyExampleSlideIndex,
+} from "./process-family-examples.js";
+import {
   resolvePartDiagram,
   diagramPdfFileName,
   diagramPageSiblings,
@@ -153,6 +158,8 @@ let processViewMode = "chooser";
 const PROCESS_LEVEL_STORAGE_KEY = "rsp-process-instruction-level";
 /** @type {{ topicId: string, nodeId: string, outcomeId: string | null }} */
 let processCheckerState = { topicId: "", nodeId: "", outcomeId: null };
+/** Family example slideshow index (warranty checker). */
+let processExampleSlideIndex = 0;
 /** @type {ReturnType<typeof buildPartSearchCache>|null} */
 let partSearchCache = null;
 /** Memoised visibility predicate — pin/unlocks change it, typing must not. */
@@ -593,6 +600,102 @@ function ensureProcessCheckerState(topic) {
   }
 }
 
+function renderFamilyExampleDiagramHtml(kind) {
+  if (kind === "mixed-tank-cf") {
+    return `<div class="process-example-diagram process-example-diagram--mixed" aria-hidden="true">
+      <div class="process-example-diagram-unit">
+        <span class="process-example-diagram-shape process-example-diagram-shape--tank"></span>
+        <span class="process-example-diagram-label">Storage tank</span>
+      </div>
+      <span class="process-example-diagram-plus">+</span>
+      <div class="process-example-diagram-unit">
+        <span class="process-example-diagram-shape process-example-diagram-shape--cf"></span>
+        <span class="process-example-diagram-label">Continuous flow</span>
+      </div>
+    </div>`;
+  }
+  return "";
+}
+
+function renderFamilyExampleSlideHtml(slide) {
+  const images = familyExampleImages(slide);
+  let media = "";
+  if (slide.collage && images.length >= 2) {
+    media = `<div class="process-example-collage">
+      <figure class="process-example-collage-item">
+        <img src="${escapeHtml(images[0].src)}" alt="${escapeHtml(images[0].label)}" loading="lazy" decoding="async" />
+        <figcaption>Storage tank</figcaption>
+      </figure>
+      <span class="process-example-collage-plus" aria-hidden="true">+</span>
+      <figure class="process-example-collage-item">
+        <img src="${escapeHtml(images[1].src)}" alt="${escapeHtml(images[1].label)}" loading="lazy" decoding="async" />
+        <figcaption>Continuous flow</figcaption>
+      </figure>
+    </div>`;
+  } else if (images.length) {
+    media = `<div class="process-example-shots">
+      ${images
+        .slice(0, 4)
+        .map(
+          (img) =>
+            `<figure class="process-example-shot">
+              <img src="${escapeHtml(img.src)}" alt="${escapeHtml(img.label)}" loading="lazy" decoding="async" />
+            </figure>`
+        )
+        .join("")}
+    </div>`;
+  } else {
+    media = renderFamilyExampleDiagramHtml("mixed-tank-cf");
+  }
+
+  return `
+    <div class="process-example-slide" data-example-id="${escapeHtml(slide.id)}">
+      <h3 class="process-example-slide-title">${escapeHtml(slide.title)}</h3>
+      <p class="process-example-slide-caption">${escapeHtml(slide.caption)}</p>
+      ${media}
+      <p class="process-example-slide-attr muted">${escapeHtml(slide.attribution || "")}</p>
+    </div>`;
+}
+
+function openProcessFamilyExamples(startId) {
+  const dialog = document.querySelector("#process-example-dialog");
+  if (!dialog) return;
+  processExampleSlideIndex = familyExampleSlideIndex(startId);
+  renderProcessFamilyExampleSlide();
+  if (typeof dialog.showModal === "function") dialog.showModal();
+  else dialog.setAttribute("open", "");
+}
+
+function closeProcessFamilyExamples() {
+  const dialog = document.querySelector("#process-example-dialog");
+  if (dialog && typeof dialog.close === "function") dialog.close();
+  else if (dialog) dialog.removeAttribute("open");
+}
+
+function renderProcessFamilyExampleSlide() {
+  const stage = document.querySelector("#process-example-stage");
+  const page = document.querySelector("#process-example-page");
+  const prev = document.querySelector("#process-example-prev");
+  const next = document.querySelector("#process-example-next");
+  if (!stage) return;
+  const slides = PROCESS_FAMILY_EXAMPLE_SLIDES;
+  if (!slides.length) {
+    stage.innerHTML = `<p class="muted">No family examples loaded.</p>`;
+    return;
+  }
+  if (processExampleSlideIndex < 0) processExampleSlideIndex = 0;
+  if (processExampleSlideIndex >= slides.length) {
+    processExampleSlideIndex = slides.length - 1;
+  }
+  const slide = slides[processExampleSlideIndex];
+  stage.innerHTML = renderFamilyExampleSlideHtml(slide);
+  if (page) {
+    page.textContent = `${processExampleSlideIndex + 1} / ${slides.length}`;
+  }
+  if (prev) prev.disabled = processExampleSlideIndex <= 0;
+  if (next) next.disabled = processExampleSlideIndex >= slides.length - 1;
+}
+
 function renderProcessCheckerHtml(topic) {
   const checker = topic?.checker;
   if (!checker || typeof checker !== "object") return "";
@@ -617,15 +720,37 @@ function renderProcessCheckerHtml(topic) {
       panelInner = `<p class="muted">Checker path not available.</p>`;
     } else {
       const choices = Array.isArray(q.choices) ? q.choices : [];
+      const showExamples = nodeId === "family" || choices.some((c) => c?.exampleId);
+      const choicesHtml = choices
+        .map((c, i) => {
+          const label = escapeHtml(c?.label || `Choice ${i + 1}`);
+          const exId = c?.exampleId ? String(c.exampleId) : "";
+          const exampleBtn = exId
+            ? `<button type="button" class="process-checker-example-icon" data-checker-example="${escapeHtml(exId)}" title="Show example" aria-label="Show example for ${label}">
+                <span aria-hidden="true">ⓘ</span>
+              </button>`
+            : "";
+          return `<div class="process-checker-choice-row">
+            <button type="button" class="process-checker-choice" data-checker-choice="${i}">${label}</button>
+            ${exampleBtn}
+          </div>`;
+        })
+        .join("");
+      const examplesRail = showExamples
+        ? `<aside class="process-checker-examples-rail">
+            <button type="button" class="process-checker-examples-open" data-checker-examples-open title="Product family examples" aria-label="Open product family examples slideshow">
+              <span class="process-checker-examples-glyph" aria-hidden="true">▣</span>
+              <span class="process-checker-examples-label">Examples</span>
+            </button>
+          </aside>`
+        : "";
       panelInner = `
         <p class="process-checker-prompt">${escapeHtml(q.prompt || "")}</p>
-        <div class="process-checker-choices" role="group" aria-label="${escapeHtml(q.prompt || "Choices")}">
-          ${choices
-            .map((c, i) => {
-              const label = escapeHtml(c?.label || `Choice ${i + 1}`);
-              return `<button type="button" class="process-checker-choice" data-checker-choice="${i}">${label}</button>`;
-            })
-            .join("")}
+        <div class="process-checker-answer-layout${showExamples ? " process-checker-answer-layout--with-examples" : ""}">
+          <div class="process-checker-choices" role="group" aria-label="${escapeHtml(q.prompt || "Choices")}">
+            ${choicesHtml}
+          </div>
+          ${examplesRail}
         </div>`;
     }
   }
@@ -676,6 +801,18 @@ function bindProcessChecker(topic) {
         };
       }
       renderProcessDesk();
+    });
+  });
+
+  body.querySelector("[data-checker-examples-open]")?.addEventListener("click", () => {
+    openProcessFamilyExamples(PROCESS_FAMILY_EXAMPLE_SLIDES[0]?.id || "cf");
+  });
+
+  body.querySelectorAll("[data-checker-example]").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openProcessFamilyExamples(btn.getAttribute("data-checker-example") || "");
     });
   });
 }
@@ -1682,6 +1819,24 @@ function renderShell() {
             <nav class="process-rail" id="process-rail" aria-label="Process topics"></nav>
             <div class="process-body" id="process-body"></div>
           </div>
+        </div>
+      </dialog>
+
+      <dialog class="cart-dialog process-example-dialog" id="process-example-dialog" aria-labelledby="process-example-title">
+        <div class="process-example-dialog-inner">
+          <header class="cart-dialog-bar">
+            <div>
+              <p class="cart-dialog-kicker">Warranty checker</p>
+              <h2 class="cart-dialog-title" id="process-example-title">Product family examples</h2>
+            </div>
+            <button type="button" class="cart-dialog-close" id="process-example-close" aria-label="Close examples">Close</button>
+          </header>
+          <div class="process-example-toolbar">
+            <button type="button" class="cart-action" id="process-example-prev" aria-label="Previous example">‹ Prev</button>
+            <span class="process-example-page muted" id="process-example-page" aria-live="polite"></span>
+            <button type="button" class="cart-action" id="process-example-next" aria-label="Next example">Next ›</button>
+          </div>
+          <div class="process-example-stage" id="process-example-stage"></div>
         </div>
       </dialog>
 
@@ -3588,6 +3743,32 @@ function bindEvents() {
     });
     processDialog.addEventListener("click", (e) => {
       if (e.target === processDialog) closeProcess();
+    });
+  }
+
+  const processExampleClose = document.querySelector("#process-example-close");
+  const processExampleDialog = document.querySelector("#process-example-dialog");
+  const processExamplePrev = document.querySelector("#process-example-prev");
+  const processExampleNext = document.querySelector("#process-example-next");
+  processExampleClose?.addEventListener("click", closeProcessFamilyExamples);
+  processExamplePrev?.addEventListener("click", () => {
+    processExampleSlideIndex = Math.max(0, processExampleSlideIndex - 1);
+    renderProcessFamilyExampleSlide();
+  });
+  processExampleNext?.addEventListener("click", () => {
+    processExampleSlideIndex = Math.min(
+      PROCESS_FAMILY_EXAMPLE_SLIDES.length - 1,
+      processExampleSlideIndex + 1
+    );
+    renderProcessFamilyExampleSlide();
+  });
+  if (processExampleDialog) {
+    processExampleDialog.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      closeProcessFamilyExamples();
+    });
+    processExampleDialog.addEventListener("click", (e) => {
+      if (e.target === processExampleDialog) closeProcessFamilyExamples();
     });
   }
 

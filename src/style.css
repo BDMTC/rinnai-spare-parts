@@ -2810,30 +2810,277 @@ ul.process-table-foot li {
   font-weight: 650;
 }
 
+.process-checker-answer-layout {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.process-checker-answer-layout--with-examples {
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 0.65rem;
+}
+
 .process-checker-choices {
   display: grid;
   gap: 0.4rem;
+  min-width: 0;
+}
+
+.process-checker-choice-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 0.35rem;
+  align-items: stretch;
 }
 
 .process-checker-choice {
   margin: 0;
-  padding: 0.6rem 0.75rem;
+  padding: 0.55rem 0.7rem;
+  min-height: 3.1rem;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: #fff;
   color: var(--ink);
   font: inherit;
-  font-size: 0.86rem;
+  font-size: 0.8rem;
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.25;
   text-align: left;
   cursor: pointer;
   transition: border-color 140ms ease, background 140ms ease;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  white-space: normal;
 }
 
 .process-checker-choice:hover {
   border-color: var(--accent);
   background: var(--accent-soft);
+}
+
+.process-checker-example-icon {
+  margin: 0;
+  width: 2.35rem;
+  min-height: 3.1rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f6f8fb;
+  color: var(--accent-ink);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+
+.process-checker-example-icon:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.process-checker-examples-rail {
+  display: grid;
+  align-content: start;
+}
+
+.process-checker-examples-open {
+  display: grid;
+  justify-items: center;
+  gap: 0.25rem;
+  margin: 0;
+  padding: 0.55rem 0.45rem;
+  min-width: 3.6rem;
+  min-height: 3.1rem;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--accent-ink);
+  font: inherit;
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+
+.process-checker-examples-open:hover {
+  border-color: var(--accent-ink);
+  background: var(--accent-soft);
+}
+
+.process-checker-examples-glyph {
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.process-checker-examples-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.process-example-dialog {
+  width: min(720px, calc(100vw - 1.5rem));
+  max-height: min(92vh, 860px);
+}
+
+.process-example-dialog-inner {
+  display: grid;
+  grid-template-rows: auto auto 1fr;
+  max-height: min(92vh, 860px);
+}
+
+.process-example-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0 1.15rem 0.65rem;
+}
+
+.process-example-page {
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.process-example-stage {
+  overflow: auto;
+  padding: 0 1.15rem 1.15rem;
+  min-height: 0;
+}
+
+.process-example-slide-title {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-display);
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--accent-ink);
+}
+
+.process-example-slide-caption {
+  margin: 0 0 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.process-example-slide-attr {
+  margin: 0.75rem 0 0;
+  font-size: 0.72rem;
+  line-height: 1.35;
+}
+
+.process-example-shots {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7.5rem, 1fr));
+  gap: 0.55rem;
+}
+
+.process-example-shot {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f6f8fb;
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  display: grid;
+  place-items: center;
+}
+
+.process-example-shot img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.process-example-collage {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: center;
+}
+
+.process-example-collage-item {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f6f8fb;
+  overflow: hidden;
+}
+
+.process-example-collage-item img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  display: block;
+  background: #fff;
+}
+
+.process-example-collage-item figcaption {
+  padding: 0.4rem 0.55rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--accent-ink);
+  border-top: 1px solid var(--line);
+  background: #fff;
+}
+
+.process-example-collage-plus {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+}
+
+.process-example-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px dashed var(--line);
+  border-radius: 12px;
+  background: #f6f8fb;
+}
+
+.process-example-diagram-unit {
+  display: grid;
+  justify-items: center;
+  gap: 0.4rem;
+}
+
+.process-example-diagram-shape {
+  display: block;
+  background: #fff;
+  border: 2px solid var(--accent-ink);
+}
+
+.process-example-diagram-shape--tank {
+  width: 3.2rem;
+  height: 5rem;
+  border-radius: 1.4rem;
+}
+
+.process-example-diagram-shape--cf {
+  width: 4.2rem;
+  height: 5rem;
+  border-radius: 0.55rem;
+}
+
+.process-example-diagram-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-ink);
+  text-align: center;
+}
+
+.process-example-diagram-plus {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--ink-muted);
 }
 
 .process-checker-outcome {
@@ -3752,6 +3999,32 @@ ul.process-table-foot li {
 
   .process-chooser-actions {
     grid-template-columns: 1fr;
+  }
+
+  .process-checker-answer-layout--with-examples {
+    grid-template-columns: 1fr;
+  }
+
+  .process-checker-examples-rail {
+    order: -1;
+  }
+
+  .process-checker-examples-open {
+    width: 100%;
+    grid-auto-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.45rem;
+    min-height: 2.6rem;
+  }
+
+  .process-example-collage {
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+
+  .process-example-collage-plus {
+    transform: rotate(90deg);
   }
 
   .process-dialog-actions {
