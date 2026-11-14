@@ -348,10 +348,10 @@
           "cf_dom_group": {
             "prompt": "Which domestic CF group?",
             "choices": [
-              { "label": "Infinity / Infinity Enviro", "next": "cf_dom_inf_fail" },
-              { "label": "Builders", "next": "cf_dom_bld_fail" },
-              { "label": "HD / HDC", "next": "cf_dom_hd_fail" },
-              { "label": "Flowmaster 10 / Hotflo 10 instantaneous", "next": "cf_dom_fm_fail" }
+              { "label": "Infinity / Infinity Enviro (Infinity 26, Infinity 26 Plus, Infinity 32 Enviro)", "next": "cf_dom_inf_fail" },
+              { "label": "Builders (B16, B20, B26)", "next": "cf_dom_bld_fail" },
+              { "label": "HD / HDC (HD200, HD28, HDC32)", "next": "cf_dom_hd_fail" },
+              { "label": "Flowmaster 10 / Hotflo 10 instantaneous (FM10, IHF10)", "next": "cf_dom_fm_fail" }
             ]
           },
           "cf_dom_inf_fail": {
