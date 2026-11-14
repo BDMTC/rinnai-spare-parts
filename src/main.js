@@ -1624,7 +1624,7 @@ function renderProcessFgLookupHtml() {
           return blob.includes(query);
         });
       }
-      // Model → litreage → gas (Nat Gas before LPG) so fuels split cleanly.
+      // Model → litreage → ALL NG then ALL LPG → temp (no per-temp N/L pairs).
       hits = sortFgItems(hits);
     }
 

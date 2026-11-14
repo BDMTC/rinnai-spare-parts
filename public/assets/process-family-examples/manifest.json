@@ -322,5 +322,35 @@
       "file": "ghf-solar/06-bible-solar28.png",
       "source": "rinnai/bible"
     }
+  ],
+  "commercial": [
+    {
+      "file": "commercial/01-hw-com-manifold-hd28e-rig-front-ima.png",
+      "source": "https://a.storyblok.com/f/293064688899482/1080x1080/48842e02cf/hw-com-manifold-hd28e-rig-front-ima.png"
+    },
+    {
+      "file": "commercial/02-hw-com-gas-cf-demand-duo-hd200e-right-ima.png",
+      "source": "https://a.storyblok.com/f/293064688899482/1080x1080/5ae6e9be1f/hw-com-gas-cf-demand-duo-hd200e-right-ima.png"
+    },
+    {
+      "file": "commercial/03-hw-com-manifold-pack-feature2-ima.webp",
+      "source": "https://a.storyblok.com/f/293064688899482/1920x1080/eccde6406e/hw-com-manifold-pack-feature2-ima.webp"
+    },
+    {
+      "file": "commercial/04-hw-com-gas-cf-demand-duo-side-ima.png",
+      "source": "https://a.storyblok.com/f/293064688899482/1000x920/90d6bbb2ec/hw-com-gas-cf-demand-duo-side-ima.png"
+    },
+    {
+      "file": "commercial/05-hw-com-gas-cf-demand-duo-outside-ima.jpg",
+      "source": "https://a.storyblok.com/f/293064688899482/1080x1080/e8fb9d89ca/hw-com-gas-cf-demand-duo-outside-ima.jpg"
+    },
+    {
+      "file": "commercial/06-hw-com-demand-duo-feature-ima.webp",
+      "source": "https://a.storyblok.com/f/293064688899482/1900x1000/dd97e8eceb/hw-com-demand-duo-feature-ima.webp"
+    },
+    {
+      "file": "commercial/07-sm-demand-duo-cover.png",
+      "source": "artifacts/sm-covers/DemandDuo_p1.png"
+    }
   ]
 }

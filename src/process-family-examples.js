@@ -25,7 +25,6 @@ import manifest from "../public/assets/process-family-examples/manifest.json";
 /** Alias checker exampleId → pack id (shared Basic + Detailed tool). */
 const FAMILY_EXAMPLE_ALIASES = {
   solar: "ghf-solar",
-  commercial: "cf",
 };
 
 /** @type {FamilyExamplePack[]} */
@@ -88,6 +87,16 @@ export const PROCESS_FAMILY_EXAMPLE_PACKS = [
       "Rinnai AU catalogue + Bible unit shot · offline in public/assets/process-family-examples/ghf-solar/",
     dataplateExample:
       "Worked dataplate (solar booster): Model REU-V2632FFUC · Serial S20-334455 · Install 10/2020 on Rinnai solar. That is a solar-boost continuous flow — pick Solar hot water (or Gas CF → Demand Duo / Rinnai-converted).",
+  },
+  {
+    id: "commercial",
+    title: "Demand Duo / manifold pack",
+    caption:
+      "Full Demand Duo setups, DD racks, and HD manifold packs — not a lone continuous-flow heater. Commercial pack path in the tool.",
+    attribution:
+      "Rinnai AU catalogue + SM cover · offline in public/assets/process-family-examples/commercial/",
+    dataplateExample:
+      "Worked dataplate (Demand Duo): Model Demand Duo 1 · tank + HD200e on the skid · Serial DD1-556677 · Install 09/2022. That is a commercial pack — pick Demand Duo / manifold / QRE, not standalone Gas continuous flow.",
   },
 ];
 
