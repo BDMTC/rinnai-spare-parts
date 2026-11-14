@@ -882,11 +882,11 @@ function renderProcessChooser() {
       <div class="process-chooser-actions">
         <button type="button" class="process-chooser-card" data-process-level="basic">
           <span class="process-chooser-card-title">Basic</span>
-          <span class="process-chooser-card-blurb">10 short chapters. Plain English with examples in brackets. Assume no prior knowledge. Includes the warranty checker.</span>
+          <span class="process-chooser-card-blurb">Short plain-English chapters for zero prior knowledge, with examples in brackets and the warranty checker.</span>
         </button>
         <button type="button" class="process-chooser-card" data-process-level="detailed">
           <span class="process-chooser-card-title">Detailed</span>
-          <span class="process-chooser-card-blurb">Full Process topics, step tables, warranty years, and Still unsure? checker.</span>
+          <span class="process-chooser-card-blurb">Full Process topics with step tables, warranty year tables, and the Still unsure? checker.</span>
         </button>
       </div>
     </div>
