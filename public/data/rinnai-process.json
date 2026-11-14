@@ -217,6 +217,50 @@
       ],
       "tables": [
         {
+          "title": "Domestic lodging-style °C cheat sheet (read this before any row)",
+          "headers": [
+            "Family",
+            "Max delivery for Domestic",
+            "Booklet imprint"
+          ],
+          "rows": [
+            [
+              "Gas continuous flow / CF accessories",
+              "65°C",
+              "Feb 2025"
+            ],
+            [
+              "Demand Duo / manifold / QRE commercial pack",
+              "65°C",
+              "Dec 2024"
+            ],
+            [
+              "Efinity electric CF",
+              "60°C",
+              "Mar 2024"
+            ],
+            [
+              "Hotflo electric storage",
+              "70°C",
+              "May 2021"
+            ],
+            [
+              "Enviroflo heat pump",
+              "70°C",
+              "Nov 2023"
+            ],
+            [
+              "Solar hot water",
+              "70°C",
+              "Oct 2024"
+            ]
+          ],
+          "footnote": [
+            "Lodging-style (motel room, caravan, aged care unit) can still be Domestic only under that family’s °C, and only if it is not bulk HW or building flow-and-return.",
+            "Source hub: rinnai.com.au/support/warranty (ingest 2026-11-14)."
+          ]
+        },
+        {
           "title": "Gas continuous flow (booklet Feb 2025)",
           "headers": [
             "Use",

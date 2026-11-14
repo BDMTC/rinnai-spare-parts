@@ -89,10 +89,10 @@
       "title": "8. Is it still under warranty?",
       "blurb": "Years differ by product — use the quick tool below.",
       "body": [
-        "Warranty years depend on the product family (heat exchanger / cylinder / compressor / other parts / labour) and whether the install is domestic or commercial — the °C limit depends on the family too.",
-        "Use This quick tool can help you assess below (short yes/no-style questions). It suggests likely warranty labour+parts, parts only, chargeable, or chase Rinnai.",
-        "For the full year tables, use Change instruction level → Detailed → Warranty. Always confirm the current Rinnai booklet before promising cover.",
-        "That checker is a desk aid — if Rinnai later disagrees, follow what Rinnai closes on the Work Order."
+        "Age the job from the install date (or dataplate manufacture date + 2 months if install is unknown). Parts years and labour years are separate.",
+        "Domestic vs commercial depends on the family °C limit: gas continuous flow / Demand Duo pack ≤65°C; Hotflo / heat pump / solar ≤70°C; Efinity ≤60°C. Over that limit (or bulk HW / building flow-and-return) = commercial.",
+        "Use This quick tool can help you assess below — short questions for gas CF, Efinity, accessories, Hotflo, Enviroflo (EHPA cylinder 7 yr / refrigeration labour 3 yr), solar, and Demand Duo / QRE. It suggests labour+parts, parts only, chargeable, or chase Rinnai.",
+        "Full year tables: {{link:detailed:warranty}}Detailed Process → Warranty{{/link}}. Confirm the current Rinnai booklet before promising cover. Desk aid only — if Rinnai disagrees later, follow the Work Order close-off."
       ]
     },
     {
