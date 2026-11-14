@@ -154,7 +154,6 @@ let processBasicChapterId = "";
  * @type {"chooser"|"basic"|"detailed"}
  */
 let processViewMode = "chooser";
-const PROCESS_LEVEL_STORAGE_KEY = "rsp-process-instruction-level";
 /** @type {{ topicId: string, nodeId: string, outcomeId: string | null }} */
 let processCheckerState = { topicId: "", nodeId: "", outcomeId: null };
 /** Active family example pack id + page index (cover-flow stays inside one family). */
@@ -541,30 +540,9 @@ function activeProcessBasicChapter() {
   return chapters.find((c) => c.id === processBasicChapterId) || chapters[0];
 }
 
-function loadSavedProcessLevel() {
-  try {
-    const raw = localStorage.getItem(PROCESS_LEVEL_STORAGE_KEY);
-    if (raw === "basic" || raw === "detailed") return raw;
-  } catch {
-    /* ignore */
-  }
-  return null;
-}
-
-function saveProcessLevel(level) {
-  try {
-    if (level === "basic" || level === "detailed") {
-      localStorage.setItem(PROCESS_LEVEL_STORAGE_KEY, level);
-    }
-  } catch {
-    /* ignore */
-  }
-}
-
 function setProcessLevel(level) {
   if (level !== "basic" && level !== "detailed") return;
   processViewMode = level;
-  saveProcessLevel(level);
   if (level === "basic") {
     const chapters = processBasicChapters();
     if (!processBasicChapterId && chapters[0]?.id) {
@@ -1142,21 +1120,8 @@ function renderProcessDesk() {
 function openProcess() {
   const dialog = document.querySelector("#process-dialog");
   if (!dialog) return;
-  const saved = loadSavedProcessLevel();
-  if (saved === "basic" || saved === "detailed") {
-    processViewMode = saved;
-    if (saved === "basic") {
-      const chapters = processBasicChapters();
-      if (!processBasicChapterId && chapters[0]?.id) {
-        processBasicChapterId = chapters[0].id;
-      }
-    } else {
-      const topics = processTopics();
-      if (!processTopicId && topics[0]?.id) processTopicId = topics[0].id;
-    }
-  } else {
-    processViewMode = "chooser";
-  }
+  // Always lead with Basic vs Detailed — never auto-skip from last localStorage choice.
+  processViewMode = "chooser";
   renderProcessDesk();
   if (typeof dialog.showModal === "function") dialog.showModal();
   else dialog.setAttribute("open", "");
