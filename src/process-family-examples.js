@@ -50,7 +50,7 @@ export const PROCESS_FAMILY_EXAMPLE_PACKS = [
     id: "heat-pump",
     title: "Heat pump — Enviroflo",
     caption:
-      "Heat-pump cylinder + compressor [EHPA / AR series]. Cylinder, compressor, and other parts differ.",
+      "Enviroflo heat pump [EHPA / EHPS / EHPT]. Cylinder, refrigeration, and other parts differ — EHPA cylinder 7 yr / refrigeration labour 3 yr.",
     attribution:
       "Rinnai AU catalogue shots · offline in public/assets/process-family-examples/heat-pump/",
   },
@@ -58,15 +58,15 @@ export const PROCESS_FAMILY_EXAMPLE_PACKS = [
     id: "efinity",
     title: "Efinity electric continuous flow",
     caption:
-      "Indoor electric continuous flow (3-phase) [Efinity 14 / 19 / 29 kW] — not a storage tank.",
+      "Indoor electric continuous flow (3-phase) [Efinity] — 5/5/5 domestic, 60°C domestic ceiling.",
     attribution:
       "Rinnai AU catalogue shots · offline in public/assets/process-family-examples/efinity/",
   },
   {
     id: "ghf-solar",
-    title: "Gas storage / solar",
+    title: "Solar / gas storage",
     caption:
-      "Gas storage Hotflo [GHF…] or solar continuous-flow booster / solar cylinder [e.g. Solar 28]. Often needs booklet / Rinnai check.",
+      "Solar booster / collectors / cylinders (use Solar booklet path in the checker). GHF gas storage still chase Rinnai.",
     attribution:
       "Rinnai AU catalogue + Bible unit shot · offline in public/assets/process-family-examples/ghf-solar/",
   },

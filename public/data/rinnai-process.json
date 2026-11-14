@@ -196,107 +196,98 @@
     {
       "id": "warranty",
       "title": "Warranty periods",
-      "blurb": "Real heat exchanger / parts / labour years from Continuous Flow, Hotflo, Heat Pump sheets + Warranty info.docx. Confirm booklet before promising cover.",
+      "blurb": "Quick assess + year tables from current Rinnai AU warranty booklets (rinnai.com.au/support/warranty). Confirm the booklet before Charge Type = Warranty.",
       "steps": [
         {
           "n": 1,
-          "text": "Classify Domestic vs Commercial Use before reading any row. Domestic Use = typical family usage: (1) heaters supplying domestic dwellings, or (2) lodging-style commercial (motel units, hotel rooms, caravans, mobile homes, nursing homes, retirement villages / care accommodation) only when max delivery ≤70°C, not a centralised bulk HW system, and no building flow-and-return. Everything else (cafes, caravan parks, sporting complexes, industrial / commercial buildings, bulk systems, etc.) is Commercial Use."
+          "text": "Pick the product family first. Domestic vs commercial uses a family °C limit — gas CF / Demand Duo pack 65°C, Hotflo / heat pump / solar 70°C, Efinity 60°C. Lodging-style (motel room, caravan, aged care unit) can still be Domestic only under that °C, and only if it is not bulk HW or building flow-and-return."
         },
         {
           "n": 2,
-          "text": "Match the product family table below. Heat exchanger / cylinder years often differ from other components; Parts and Labour are separate columns — do not collapse them into a single “same split” figure."
+          "text": "Clock starts at install date. If unknown, use manufacture date on the dataplate + 2 months. Age the claim from that date."
         },
         {
           "n": 3,
-          "text": "Read footnotes on the matching row (extended heat exchanger options, dual controllers, solar exclusions, frost, high-temperature HD preset). Then set Work Order Charge Type = Warranty only when the claim fits the table and Asset data (serial, model, install / manufacture date) is correct."
+          "text": "Parts years and labour years are separate. Heat exchanger / cylinder often lasts longer than other parts. Read the matching table row + footnotes, then run the quick tool."
+        },
+        {
+          "n": 4,
+          "text": "Warranty work needs Rinnai authorisation before you start. Registration on the website is not the same as a fault claim — faults go Book a Service / assessment. Desk aid only; Rinnai’s Work Order close-off wins."
         }
       ],
       "tables": [
         {
-          "title": "Gas continuous flow & instantaneous (Continuous Flow sheet)",
+          "title": "Gas continuous flow (booklet Feb 2025)",
           "headers": [
             "Use",
             "Product group",
             "Heat exchanger (parts)",
-            "All other components (parts)",
+            "Other parts",
             "Labour"
           ],
           "rows": [
             [
               "Domestic",
-              "Infinity models (3)",
-              "12 years or Extended 25 year option (1)",
-              "3 years (2)",
-              "3 years (2)"
+              "Infinity / Black B26 (3)",
+              "12 yr or Ext 25 (1)",
+              "3 yr (2)",
+              "3 yr (2)"
             ],
             [
               "Domestic",
-              "Infinity Enviro models (3)",
-              "12 years or Extended 25 year option (1)",
-              "3 years (2)",
-              "3 years (2)"
+              "Infinity Enviro (3)",
+              "12 yr or Ext 25 (1)",
+              "3 yr (2)",
+              "3 yr (2)"
             ],
             [
               "Domestic",
-              "Builders models (3)",
-              "10 years or Extended 15 year option (1)",
-              "3 years (2)",
-              "3 years (2)"
+              "Builders (3)",
+              "10 yr or Ext 15 (1)",
+              "3 yr (2)",
+              "3 yr (2)"
             ],
             [
               "Domestic",
-              "HD models (3)",
-              "12 years",
-              "5 years",
-              "5 years"
+              "HD / HDC (3)",
+              "12 yr",
+              "5 yr",
+              "5 yr"
             ],
             [
               "Domestic",
-              "Flowmaster 10 Instantaneous (3)(5)",
-              "10 years",
-              "3 years",
-              "3 years"
+              "Flowmaster 10 (3)(5)",
+              "10 yr",
+              "3 yr",
+              "3 yr"
             ],
             [
               "Commercial",
-              "Infinity models (3)",
-              "1 year",
-              "1 year",
-              "1 year"
+              "Infinity / Black B26 / Enviro / Flowmaster",
+              "1 yr",
+              "1 yr",
+              "1 yr"
             ],
             [
               "Commercial",
-              "Infinity Enviro models (3)",
-              "1 year",
-              "1 year",
-              "1 year"
-            ],
-            [
-              "Commercial",
-              "HD models (3)",
-              "5 years (6)",
-              "3 years (6)",
-              "3 years (6)"
-            ],
-            [
-              "Commercial",
-              "Flowmaster 10 Instantaneous (3)(5)",
-              "1 year",
-              "1 year",
-              "1 year"
+              "HD / HDC (3)",
+              "5 yr (6)",
+              "3 yr (6)",
+              "3 yr (6)"
             ]
           ],
           "footnote": [
-            "(1) Extended Warranty Option — see Rinnai terms & conditions (not automatic).",
-            "(2) Five years on components and labour if two or more controllers are installed in domestic applications.",
-            "(3) Unsuitable for solar HW applications — failure/service in solar install is not covered, except HD models on Rinnai Demand Duo commercial solar boosting, or models converted by Rinnai specifically for Rinnai solar systems.",
-            "(5) Flowmaster 10: do not install where temperature stays below 0°C for extended periods. Frost failures are not covered.",
-            "(6) HD commercial: drops to 1 year on heat exchanger including parts and labour when pre-set to 85°C or 95°C.",
-            "Warranty info.docx also lists Hotflo 10 Instantaneous at 10 / 3 / 3 (domestic) — treat as the same instantaneous band as Flowmaster 10 unless the current booklet says otherwise. HDC follows the HD row on this Continuous Flow extract."
+            "Domestic lodging-style ceiling for this booklet: 65°C.",
+            "(1) Extended HEX option — not automatic; check T&Cs / Rinnai.",
+            "(2) Domestic: 5 years parts+labour if two or more controllers.",
+            "(3) Not for solar unless HD on Rinnai Demand Duo solar boost, or unit converted by Rinnai for Rinnai solar.",
+            "(5) Frost / long below-0°C installs not covered.",
+            "(6) HD commercial HEX drops to 1 year parts+labour if preset 85°C or 95°C.",
+            "Standalone HD uses this table. HD inside Demand Duo / manifold pack also see Commercial pack table."
           ]
         },
         {
-          "title": "Continuous flow accessories (Continuous Flow sheet)",
+          "title": "Gas CF accessories (same booklet)",
           "headers": [
             "Use",
             "Accessory",
@@ -306,289 +297,321 @@
           "rows": [
             [
               "Domestic",
-              "SmartStart Water Saver (REU-CUG1)",
-              "3 years",
-              "3 years"
+              "SmartStart (REU-CUG1)",
+              "3 yr",
+              "3 yr"
             ],
             [
               "Domestic",
               "Water controllers",
-              "3 years (2)",
-              "3 years (2)"
+              "3 yr (2)",
+              "3 yr (2)"
             ],
             [
               "Domestic",
-              "All other accessories (4)",
-              "1 year",
-              "1 year"
+              "Other accessories (4)",
+              "1 yr",
+              "1 yr"
             ],
             [
               "Commercial",
-              "SmartStart Water Saver (REU-CUG1)",
-              "1 year",
-              "1 year"
-            ],
-            [
-              "Commercial",
-              "Water controllers",
-              "1 year",
-              "1 year"
-            ],
-            [
-              "Commercial",
-              "All other accessories (4)",
-              "1 year",
-              "1 year"
+              "SmartStart / controllers / other",
+              "1 yr",
+              "1 yr"
             ]
           ],
           "footnote": [
-            "(2) Domestic controllers: five years if two or more are installed.",
-            "(4) Accessories include pipe covers, recess boxes, security brackets, flue diverters and coaxial flueing."
+            "(2) Domestic controllers: 5 years if two or more installed.",
+            "(4) Pipe covers, recess boxes, security brackets, flue diverters, coaxial flueing."
           ]
         },
         {
-          "title": "Hotflo electric storage — EHFA / EHFD (Hotflo - EFH sheet)",
+          "title": "Efinity electric continuous flow (booklet Mar 2024)",
+          "headers": [
+            "Use",
+            "Heat exchanger",
+            "Other parts",
+            "Labour"
+          ],
+          "rows": [
+            [
+              "Domestic",
+              "5 yr",
+              "5 yr",
+              "5 yr"
+            ],
+            [
+              "Commercial",
+              "1 yr",
+              "1 yr",
+              "1 yr"
+            ]
+          ],
+          "footnote": [
+            "Domestic ceiling: 60°C. Indoor only. Not for solar, spa/pool, or long frost sites."
+          ]
+        },
+        {
+          "title": "Hotflo electric storage (booklet May 2021)",
           "headers": [
             "Use",
             "Coverage",
             "Cylinder",
-            "Components (1)"
+            "Other components"
           ],
           "rows": [
             [
-              "Domestic",
+              "Domestic 80–400 L",
               "Parts",
-              "10 years",
-              "1 year"
+              "10 yr",
+              "1 yr"
             ],
             [
-              "Domestic",
+              "Domestic 80–400 L",
               "Labour",
-              "3 years",
-              "1 year"
+              "3 yr",
+              "1 yr"
             ],
             [
-              "Commercial",
+              "Domestic 25 / 50 L",
               "Parts",
-              "1 year",
-              "1 year"
+              "7 yr",
+              "1 yr"
             ],
             [
-              "Commercial",
+              "Domestic 25 / 50 L",
               "Labour",
-              "1 year",
-              "1 year"
+              "3 yr",
+              "1 yr"
+            ],
+            [
+              "Commercial any size",
+              "Parts / labour",
+              "1 yr",
+              "1 yr"
             ]
           ],
-          "footnote": "(1) Components include sensors, thermostats, valves, electric heating elements & anodes where applicable. Warranty info.docx lists EHFS & EHFD Hotflo with the same 10-year cylinder / 1-year components pattern (domestic)."
+          "footnote": [
+            "Domestic ceiling: 70°C. Components = sensors, thermostats, valves, elements, anodes."
+          ]
         },
         {
-          "title": "Hotflo electric storage — HFE 80–400 L (Hotflo - HFE sheet)",
+          "title": "Enviroflo heat pump (booklet Nov 2023)",
           "headers": [
+            "Series",
             "Use",
             "Coverage",
             "Cylinder",
-            "Components (1)"
+            "Refrigeration (1)",
+            "Other (2)"
           ],
           "rows": [
             [
+              "EHPA",
               "Domestic",
               "Parts",
-              "10 years",
-              "1 year"
+              "7 yr",
+              "3 yr",
+              "1 yr"
             ],
             [
+              "EHPA",
               "Domestic",
               "Labour",
-              "3 years",
-              "1 year"
+              "3 yr",
+              "3 yr",
+              "1 yr"
             ],
             [
-              "Commercial",
+              "EHPS / EHPT",
+              "Domestic",
               "Parts",
-              "1 year",
-              "1 year"
+              "5 yr",
+              "3 yr",
+              "1 yr"
             ],
             [
-              "Commercial",
+              "EHPS / EHPT",
+              "Domestic",
               "Labour",
-              "1 year",
-              "1 year"
+              "3 yr",
+              "1 yr",
+              "1 yr"
+            ],
+            [
+              "Any",
+              "Commercial",
+              "Parts / labour",
+              "1 yr",
+              "1 yr",
+              "1 yr"
             ]
           ],
-          "footnote": "Sizes on the sheet: 80 L, 125 L, 160 L, 250 L, 315 L & 400 L. (1) Components = sensors, thermostats, valves, elements and anodes where applicable."
+          "footnote": [
+            "Domestic ceiling: 70°C.",
+            "(1) Compressor, condenser, TXV, HEX, evaporator, assoc. pipework.",
+            "(2) Sensors, thermostats, valves, elements, anodes.",
+            "Solar Victoria rebate (domestic from 1 Jul 2023): may be 5-year whole-of-product parts+labour — confirm with Rinnai 1300 555 545."
+          ]
         },
         {
-          "title": "Hotflo electric storage — HFE 25 L & 50 L (Hotflo - HFE sheet)",
+          "title": "Solar hot water (booklet Oct 2024) — domestic parts snapshot",
           "headers": [
-            "Use",
-            "Coverage",
-            "Cylinder",
-            "Components (1)"
+            "Item",
+            "Parts (domestic)",
+            "Labour (domestic)"
           ],
           "rows": [
             [
-              "Domestic",
-              "Parts",
-              "7 years",
-              "1 year"
+              "S20 / S26 / Rinnai-converted solar CF — HEX",
+              "12 yr",
+              "3 yr"
             ],
             [
-              "Domestic",
-              "Labour",
-              "3 years",
-              "1 year"
+              "Same — other CF parts",
+              "3 yr",
+              "3 yr"
             ],
             [
-              "Commercial",
-              "Parts",
-              "1 year",
-              "1 year"
+              "VE cylinder ground / roof",
+              "10 / 5 yr",
+              "3 yr"
             ],
             [
-              "Commercial",
-              "Labour",
-              "1 year",
-              "1 year"
+              "Stainless cylinder",
+              "10 yr",
+              "3 yr"
+            ],
+            [
+              "Flat plate (Enduro family)",
+              "7 yr",
+              "1 yr"
+            ],
+            [
+              "Evacuated tube (+ manifold)",
+              "15 yr",
+              "1 yr"
+            ],
+            [
+              "Other components",
+              "1 yr",
+              "1 yr"
             ]
           ],
-          "footnote": "(1) Components = sensors, thermostats, valves, elements and anodes where applicable."
+          "footnote": [
+            "Domestic ceiling: 70°C. Commercial years are shorter (often 1–5) — see booklet or chase Rinnai if unsure.",
+            "Roof systems without pumped frost protection: frost damage not covered in known frost areas."
+          ]
         },
         {
-          "title": "Heat pump — Enviroflo EHPA (Heat Pump sheet)",
+          "title": "Commercial pack — Demand Duo / manifold / QRE (booklet Dec 2024)",
           "headers": [
-            "Use",
-            "Coverage",
-            "Cylinder",
-            "Compressor",
-            "Components (1)"
+            "Item",
+            "Domestic parts / labour",
+            "Commercial parts / labour"
           ],
           "rows": [
             [
-              "Domestic",
-              "Parts",
-              "5 years",
-              "3 years",
-              "1 year"
+              "HD booster HEX in DD / MP",
+              "12 / 5",
+              "5 / 3 (1 yr if 85/95°C)"
             ],
             [
-              "Domestic",
-              "Labour",
-              "3 years",
-              "1 year",
-              "1 year"
+              "HD booster other parts",
+              "5 / 5",
+              "3 / 3"
             ],
             [
-              "Commercial",
-              "Parts",
-              "1 year",
-              "1 year",
-              "1 year"
+              "SS QRE / storage cylinder",
+              "10 / 3",
+              "7 / 1 (1 yr if >76°C)"
             ],
             [
-              "Commercial",
-              "Labour",
-              "1 year",
-              "1 year",
-              "1 year"
+              "VE QRE / storage cylinder",
+              "10 / 3",
+              "5 / 1 (1 yr if >76°C)"
+            ],
+            [
+              "Commercial air-to-water HP",
+              "—",
+              "2 / 2"
+            ],
+            [
+              "Common flue / power flue fan",
+              "1 / 1",
+              "1 / 1"
             ]
           ],
-          "footnote": "(1) Components include sensors, thermostats, valves, electric heating elements, anodes, and all refrigeration components excluding the compressor."
-        },
-        {
-          "title": "Other lines — Warranty info.docx desk sheet",
-          "headers": [
-            "Product",
-            "Parts (summary)",
-            "Labour (summary)",
-            "Cylinder / replacement / notes"
-          ],
-          "rows": [
-            [
-              "Gas storage GHF4135N – GHF4170N",
-              "1 year",
-              "1 year",
-              "8 years replacement"
-            ],
-            [
-              "Electric storage HFE (summary row)",
-              "1 year (components band)",
-              "1 year components / 3 years replacement labour",
-              "10 years replacement"
-            ],
-            [
-              "EHFS & EHFD Hotflo (summary row)",
-              "1 year (components band)",
-              "1 year components / 3 years replacement labour",
-              "10 years replacement"
-            ],
-            [
-              "Heat pump EHPA (summary row)",
-              "1 year (components band)",
-              "1 year components / 3 years replacement & compressor labour",
-              "5 years replacement"
-            ],
-            [
-              "Solar cont. flow S20 & S26",
-              "3 years parts / 12 years heat exchanger",
-              "3 years (parts and heat exchanger)",
-              "See current solar booklet"
-            ],
-            [
-              "Solar storage cylinders",
-              "1 year (components band)",
-              "1 year components / 3 years replacement labour",
-              "Ground VE glass 10 yr; roof VE glass 5 yr; stainless 10 yr"
-            ]
-          ],
-          "footnote": "These DOCX rows are the old office summary — prefer the Continuous Flow / Hotflo / Heat Pump PDF tables above for continuous flow, EHFA/EHFD, HFE and EHPA. Use this block for gas storage (GHF) and solar until a dedicated sheet is filed."
+          "footnote": [
+            "Domestic ceiling for this booklet: 65°C. Standalone HD → gas CF table, not this pack."
+          ]
         }
       ],
-      "notes": [],
+      "notes": [
+        "Source: https://www.rinnai.com.au/support/warranty ingest 2026-11-14 (Project store docs/rinnai-au-warranty-support-ingest.md).",
+        "Do not invent cover for GHF gas storage or non-HW (fires / AC) — chase Rinnai or open that family’s booklet."
+      ],
       "checker": {
         "heading": "This quick tool can help you assess - Answer the following questions.",
-        "disclaimer": "Desk aid only — not legal advice or Rinnai’s final say. Confirm against the tables below and the current booklet before setting Charge Type.",
+        "disclaimer": "Desk aid for newbies — not Rinnai’s final say. Confirm the current booklet before Charge Type = Warranty.",
         "startId": "family",
         "questions": {
           "family": {
-            "prompt": "Which product family?",
+            "prompt": "What kind of product?",
             "choices": [
               {
-                "label": "Gas continuous flow [Infinity / HD]",
+                "label": "Gas continuous flow (Infinity / HD / Builders)",
                 "next": "cf_solar",
                 "exampleId": "cf"
               },
               {
-                "label": "Continuous flow accessory",
+                "label": "Efinity electric continuous flow",
+                "next": "ef_use",
+                "exampleId": "efinity"
+              },
+              {
+                "label": "Controller / SmartStart / CF accessory",
                 "next": "acc_use",
                 "exampleId": "accessory"
               },
               {
-                "label": "Hotflo electric storage",
+                "label": "Hotflo electric storage tank",
                 "next": "hotflo_size",
                 "exampleId": "hotflo"
               },
               {
-                "label": "Heat pump Enviroflo [EHPA]",
-                "next": "hp_use",
+                "label": "Enviroflo heat pump",
+                "next": "hp_series",
                 "exampleId": "heat-pump"
               },
               {
-                "label": "Gas storage / solar [GHF]",
-                "outcome": "chase_rinnai",
+                "label": "Solar hot water",
+                "next": "sol_use",
                 "exampleId": "ghf-solar"
+              },
+              {
+                "label": "Demand Duo / manifold / QRE commercial pack",
+                "next": "com_use"
+              },
+              {
+                "label": "Something else (GHF / fire / AC…)",
+                "outcome": "chase_rinnai"
               }
             ]
           },
           "cf_solar": {
-            "prompt": "Is this on a solar hot-water install?",
+            "prompt": "Is this heater on a solar hot-water system?",
             "choices": [
               {
-                "label": "No — gas continuous flow",
+                "label": "No — normal gas continuous flow",
                 "next": "cf_use"
               },
               {
-                "label": "Yes — solar",
+                "label": "Yes — Demand Duo solar boost or Rinnai-converted for solar",
+                "next": "cf_use"
+              },
+              {
+                "label": "Yes — but not Demand Duo / not Rinnai-converted",
                 "outcome": "chase_rinnai"
               },
               {
@@ -598,10 +621,10 @@
             ]
           },
           "cf_use": {
-            "prompt": "Domestic or commercial use? (see step 1)",
+            "prompt": "Home (domestic) or commercial use? Domestic lodging-style only if delivery is 65°C or less, not a bulk tank system, and no building flow-and-return.",
             "choices": [
               {
-                "label": "Domestic",
+                "label": "Domestic (≤65°C)",
                 "next": "cf_dom_group"
               },
               {
@@ -615,10 +638,10 @@
             ]
           },
           "cf_dom_group": {
-            "prompt": "Which domestic continuous flow group?",
+            "prompt": "Which domestic gas continuous flow group?",
             "choices": [
               {
-                "label": "Infinity / Enviro",
+                "label": "Infinity / Enviro / Black B26",
                 "next": "cf_dom_inf_fail"
               },
               {
@@ -626,12 +649,16 @@
                 "next": "cf_dom_bld_fail"
               },
               {
-                "label": "HD / HDC [e.g. HD200e]",
+                "label": "HD / HDC",
                 "next": "cf_dom_hd_fail"
               },
               {
                 "label": "Flowmaster 10",
                 "next": "cf_dom_fm_fail"
+              },
+              {
+                "label": "Not sure",
+                "outcome": "insufficient"
               }
             ]
           },
@@ -653,43 +680,43 @@
             ]
           },
           "cf_dom_inf_hex_age": {
-            "prompt": "Roughly how old is the unit? (Infinity / Enviro heat exchanger — table: parts 12 yr, labour 3 yr)",
+            "prompt": "How old is the unit? (Infinity / Enviro / B26 heat exchanger — parts 12 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "Is it 3 years old or less? (labour + parts)",
+                "label": "3 years old or less (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Between 3 and 12 years? (parts only)",
+                "label": "Between 3 and 12 years (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": "Is it older than 12 years / extended cover?",
+                "label": "Older than 12 years / has extended cover?",
                 "outcome": "chase_rinnai"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "cf_dom_inf_other_age": {
-            "prompt": "Roughly how old? (other components — table: 3 yr parts + labour; 5 yr if two+ controllers)",
+            "prompt": "How old? (other parts — usually 3 yr; 5 yr if two or more controllers)",
             "choices": [
               {
-                "label": "Is it 3 years old or less?",
+                "label": "3 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Between 3 and 5 years, with 2 or more controllers?",
+                "label": "Between 3 and 5 years, and 2+ controllers",
                 "outcome": "chase_rinnai"
               },
               {
-                "label": "Older than 3 years, and only 1 controller (or none)?",
+                "label": "Older than 3 years, only one controller (or none)",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
@@ -712,39 +739,39 @@
             ]
           },
           "cf_dom_bld_hex_age": {
-            "prompt": "Roughly how old? (Builders heat exchanger — table: parts 10 yr, labour 3 yr)",
+            "prompt": "How old? (Builders heat exchanger — parts 10 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "Is it 3 years old or less? (labour + parts)",
+                "label": "3 years old or less (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Between 3 and 10 years? (parts only)",
+                "label": "Between 3 and 10 years (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": "Is it older than 10 years / extended cover?",
+                "label": "Older than 10 years / extended cover?",
                 "outcome": "chase_rinnai"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "cf_dom_bld_other_age": {
-            "prompt": "Roughly how old? (Builders other — table: 3 yr parts + labour)",
+            "prompt": "How old? (Builders other parts — 3 yr parts + labour)",
             "choices": [
               {
-                "label": "Is it 3 years old or less?",
+                "label": "3 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Is it older than 3 years?",
+                "label": "Older than 3 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
@@ -767,56 +794,56 @@
             ]
           },
           "cf_dom_hd_hex_age": {
-            "prompt": "Roughly how old? (HD domestic heat exchanger — table: parts 12 yr, labour 5 yr)",
+            "prompt": "How old? (HD domestic heat exchanger — parts 12 yr, labour 5 yr)",
             "choices": [
               {
-                "label": "Is it 5 years old or less? (labour + parts)",
+                "label": "5 years old or less (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Between 5 and 12 years? (parts only)",
+                "label": "Between 5 and 12 years (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": "Is it older than 12 years?",
+                "label": "Older than 12 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "cf_dom_hd_other_age": {
-            "prompt": "Roughly how old? (HD domestic other parts — table: 5 yr parts + labour)",
+            "prompt": "How old? (HD domestic other parts — 5 yr parts + labour)",
             "choices": [
               {
-                "label": "Is it 5 years old or less?",
+                "label": "5 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Is it older than 5 years?",
+                "label": "Older than 5 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "cf_dom_fm_fail": {
-            "prompt": "What failed? (also: frost / below-0°C installs are not covered)",
+            "prompt": "What failed? (Frost damage on Flowmaster is usually not covered.)",
             "choices": [
               {
                 "label": "Heat exchanger — not frost",
                 "next": "cf_dom_fm_hex_age"
               },
               {
-                "label": "Other — not frost",
+                "label": "Other parts — not frost",
                 "next": "cf_dom_fm_other_age"
               },
               {
-                "label": "Frost damage?",
+                "label": "Frost / freeze damage",
                 "outcome": "chase_rinnai"
               },
               {
@@ -826,82 +853,86 @@
             ]
           },
           "cf_dom_fm_hex_age": {
-            "prompt": "Roughly how old? (Flowmaster 10 heat exchanger — table: parts 10 yr, labour 3 yr)",
+            "prompt": "How old? (Flowmaster heat exchanger — parts 10 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "Is it 3 years old or less? (labour + parts)",
+                "label": "3 years old or less (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Between 3 and 10 years? (parts only)",
+                "label": "Between 3 and 10 years (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": "Is it older than 10 years?",
+                "label": "Older than 10 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "cf_dom_fm_other_age": {
-            "prompt": "Roughly how old? (Flowmaster 10 other — table: 3 yr parts + labour)",
+            "prompt": "How old? (Flowmaster other parts — 3 yr)",
             "choices": [
               {
-                "label": "Is it 3 years old or less?",
+                "label": "3 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Is it older than 3 years?",
+                "label": "Older than 3 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "cf_comm_group": {
-            "prompt": "Which commercial continuous flow group?",
+            "prompt": "Which commercial gas continuous flow group?",
             "choices": [
               {
-                "label": "Infinity / Flowmaster",
+                "label": "Infinity / Enviro / Black B26 / Flowmaster",
                 "next": "cf_comm_inf_age"
               },
               {
-                "label": "HD / HDC [e.g. HD200e]",
+                "label": "HD / HDC",
                 "next": "cf_comm_hd_temp"
+              },
+              {
+                "label": "Not sure",
+                "outcome": "insufficient"
               }
             ]
           },
           "cf_comm_inf_age": {
-            "prompt": "Roughly how old? (commercial Infinity / Enviro / Flowmaster — table: 1 yr parts + labour)",
+            "prompt": "How old? (commercial Infinity / Enviro / Flowmaster — 1 yr parts + labour)",
             "choices": [
               {
-                "label": "Is it 1 year old or less?",
+                "label": "1 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Is it older than 1 year?",
+                "label": "Older than 1 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "cf_comm_hd_temp": {
-            "prompt": "Is the HD unit pre-set to 85°C or 95°C? (footnote drops cover to 1 year)",
+            "prompt": "Is the HD preset to 85°C or 95°C? (that drops heat-exchanger cover to 1 year)",
             "choices": [
               {
                 "label": "Normal preset",
                 "next": "cf_comm_hd_fail"
               },
               {
-                "label": "85°C / 95°C",
+                "label": "85°C or 95°C",
                 "next": "cf_comm_hd_hi_age"
               },
               {
@@ -928,65 +959,116 @@
             ]
           },
           "cf_comm_hd_hex_age": {
-            "prompt": "Roughly how old? (HD commercial heat exchanger — table: parts 5 yr, labour 3 yr)",
+            "prompt": "How old? (HD commercial heat exchanger — parts 5 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "Is it 3 years old or less? (labour + parts)",
+                "label": "3 years old or less (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Between 3 and 5 years? (parts only)",
+                "label": "Between 3 and 5 years (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": "Is it older than 5 years?",
+                "label": "Older than 5 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "cf_comm_hd_other_age": {
-            "prompt": "Roughly how old? (HD commercial other parts — table: 3 yr parts + labour)",
+            "prompt": "How old? (HD commercial other parts — 3 yr)",
             "choices": [
               {
-                "label": "Is it 3 years old or less?",
+                "label": "3 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Is it older than 3 years?",
+                "label": "Older than 3 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "cf_comm_hd_hi_age": {
-            "prompt": "Roughly how old? (HD high-temperature preset — table drops to 1 year parts + labour)",
+            "prompt": "How old? (HD high-temp preset — 1 yr parts + labour)",
             "choices": [
               {
-                "label": "Is it 1 year old or less?",
+                "label": "1 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Is it older than 1 year?",
+                "label": "Older than 1 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "ef_use": {
+            "prompt": "Home (domestic) or commercial use? Domestic lodging-style only if delivery is 60°C or less, not a bulk tank system, and no building flow-and-return.",
+            "choices": [
+              {
+                "label": "Domestic (≤60°C)",
+                "next": "ef_dom_age"
+              },
+              {
+                "label": "Commercial",
+                "next": "ef_comm_age"
+              },
+              {
+                "label": "Not sure",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "ef_dom_age": {
+            "prompt": "How old? (Efinity domestic — heat exchanger, other parts and labour all 5 yr)",
+            "choices": [
+              {
+                "label": "5 years old or less",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Older than 5 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "ef_comm_age": {
+            "prompt": "How old? (Efinity commercial — 1 yr parts + labour)",
+            "choices": [
+              {
+                "label": "1 years old or less",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Older than 1 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "acc_use": {
-            "prompt": "Domestic or commercial use?",
+            "prompt": "Home (domestic) or commercial use? Domestic lodging-style only if delivery is 65°C or less, not a bulk tank system, and no building flow-and-return.",
             "choices": [
               {
-                "label": "Domestic",
+                "label": "Domestic (≤65°C)",
                 "next": "acc_dom_type"
               },
               {
@@ -1017,90 +1099,86 @@
             ]
           },
           "acc_dom_ss_age": {
-            "prompt": "Roughly how old? (SmartStart domestic — table: 3 yr parts + labour)",
+            "prompt": "How old? (SmartStart domestic — 3 yr)",
             "choices": [
               {
-                "label": "Is it 3 years old or less?",
+                "label": "3 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Is it older than 3 years?",
+                "label": "Older than 3 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "acc_dom_ctrl_age": {
-            "prompt": "Roughly how old? (controllers — 3 yr; 5 yr if two or more installed)",
+            "prompt": "How old? (controllers — 3 yr; 5 yr if two or more)",
             "choices": [
               {
-                "label": "Is it 3 years old or less?",
+                "label": "3 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Between 3 and 5 years, with 2 or more controllers?",
+                "label": "Between 3 and 5 years, and 2+ controllers",
                 "outcome": "chase_rinnai"
               },
               {
-                "label": "Over band",
+                "label": "Outside that band",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "acc_dom_other_age": {
-            "prompt": "Roughly how old? (other domestic accessories — table: 1 yr parts + labour)",
+            "prompt": "How old? (other domestic accessory — 1 yr)",
             "choices": [
               {
-                "label": "Is it 1 year old or less?",
+                "label": "1 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Is it older than 1 year?",
+                "label": "Older than 1 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "acc_comm_age": {
-            "prompt": "Roughly how old? (all commercial continuous flow accessories — table: 1 year parts + labour)",
+            "prompt": "How old? (commercial CF accessory — 1 yr)",
             "choices": [
               {
-                "label": "Is it 1 year old or less?",
+                "label": "1 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Is it older than 1 year?",
+                "label": "Older than 1 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "hotflo_size": {
-            "prompt": "Which Hotflo size / line?",
+            "prompt": "Which Hotflo size?",
             "choices": [
               {
-                "label": "Hotflo EHFA / EHFD [tank]",
+                "label": "80–400 L (or EHFA / EHFD)",
                 "next": "hotflo_use"
               },
               {
-                "label": "Hotflo HFE 80–400 L",
-                "next": "hotflo_use"
-              },
-              {
-                "label": "Hotflo HFE 25 / 50 L",
+                "label": "25 L or 50 L",
                 "next": "hotflo_small_use"
               },
               {
@@ -1110,10 +1188,10 @@
             ]
           },
           "hotflo_use": {
-            "prompt": "Domestic or commercial use?",
+            "prompt": "Home (domestic) or commercial use? Domestic lodging-style only if delivery is 70°C or less, not a bulk tank system, and no building flow-and-return.",
             "choices": [
               {
-                "label": "Domestic",
+                "label": "Domestic (≤70°C)",
                 "next": "hotflo_dom_fail"
               },
               {
@@ -1127,10 +1205,10 @@
             ]
           },
           "hotflo_small_use": {
-            "prompt": "Domestic or commercial use?",
+            "prompt": "Home (domestic) or commercial use? Domestic lodging-style only if delivery is 70°C or less, not a bulk tank system, and no building flow-and-return.",
             "choices": [
               {
-                "label": "Domestic",
+                "label": "Domestic (≤70°C)",
                 "next": "hotflo_small_dom_fail"
               },
               {
@@ -1147,11 +1225,11 @@
             "prompt": "What failed?",
             "choices": [
               {
-                "label": "Cylinder",
+                "label": "Cylinder / tank",
                 "next": "hotflo_dom_cyl_age"
               },
               {
-                "label": "Components",
+                "label": "Other parts (element, thermostat…)",
                 "next": "hotflo_dom_comp_age"
               },
               {
@@ -1161,39 +1239,39 @@
             ]
           },
           "hotflo_dom_cyl_age": {
-            "prompt": "Roughly how old? (domestic cylinder — parts 10 yr, labour 3 yr)",
+            "prompt": "How old? (domestic cylinder 80–400 L — parts 10 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "Is it 3 years old or less? (labour + parts)",
+                "label": "3 years old or less (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Between 3 and 10 years? (parts only)",
+                "label": "Between 3 and 10 years (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": "Is it older than 10 years?",
+                "label": "Older than 10 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "hotflo_dom_comp_age": {
-            "prompt": "Roughly how old? (domestic components — table: 1 yr parts + labour)",
+            "prompt": "How old? (domestic other parts — 1 yr)",
             "choices": [
               {
-                "label": "Is it 1 year old or less?",
+                "label": "1 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Is it older than 1 year?",
+                "label": "Older than 1 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
@@ -1202,11 +1280,11 @@
             "prompt": "What failed?",
             "choices": [
               {
-                "label": "Cylinder",
+                "label": "Cylinder / tank",
                 "next": "hotflo_small_cyl_age"
               },
               {
-                "label": "Components",
+                "label": "Other parts",
                 "next": "hotflo_dom_comp_age"
               },
               {
@@ -1216,49 +1294,117 @@
             ]
           },
           "hotflo_small_cyl_age": {
-            "prompt": "Roughly how old? (Hotflo HFE 25/50 L domestic cylinder — parts 7 yr, labour 3 yr)",
+            "prompt": "How old? (25/50 L domestic cylinder — parts 7 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "Is it 3 years old or less? (labour + parts)",
+                "label": "3 years old or less (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Between 3 and 7 years? (parts only)",
+                "label": "Between 3 and 7 years (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": "Is it older than 7 years?",
+                "label": "Older than 7 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "hotflo_comm_age": {
-            "prompt": "Roughly how old? (commercial Hotflo — table: 1 yr parts + labour on cylinder and components)",
+            "prompt": "How old? (commercial Hotflo — 1 yr parts + labour)",
             "choices": [
               {
-                "label": "Is it 1 year old or less?",
+                "label": "1 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Is it older than 1 year?",
+                "label": "Older than 1 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
-          "hp_use": {
-            "prompt": "Domestic or commercial use?",
+          "hp_series": {
+            "prompt": "Which Enviroflo series? (model starts with…)",
             "choices": [
               {
-                "label": "Domestic",
+                "label": "EHPA",
+                "next": "hp_rebate"
+              },
+              {
+                "label": "EHPS or EHPT",
+                "next": "hp_rebate_s"
+              },
+              {
+                "label": "Not sure",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "hp_rebate": {
+            "prompt": "Did this domestic install get a Solar Victoria hot-water rebate (from 1 Jul 2023)?",
+            "choices": [
+              {
+                "label": "No / not Victoria rebate",
+                "next": "hp_use"
+              },
+              {
+                "label": "Yes — possible 5-year whole-product cover",
+                "outcome": "chase_rinnai"
+              },
+              {
+                "label": "Not sure",
+                "next": "hp_use"
+              }
+            ]
+          },
+          "hp_rebate_s": {
+            "prompt": "Did this domestic install get a Solar Victoria hot-water rebate (from 1 Jul 2023)?",
+            "choices": [
+              {
+                "label": "No / not Victoria rebate",
+                "next": "hps_use"
+              },
+              {
+                "label": "Yes — possible 5-year whole-product cover",
+                "outcome": "chase_rinnai"
+              },
+              {
+                "label": "Not sure",
+                "next": "hps_use"
+              }
+            ]
+          },
+          "hp_use": {
+            "prompt": "Home (domestic) or commercial use? Domestic lodging-style only if delivery is 70°C or less, not a bulk tank system, and no building flow-and-return.",
+            "choices": [
+              {
+                "label": "Domestic (≤70°C)",
                 "next": "hp_dom_fail"
+              },
+              {
+                "label": "Commercial",
+                "next": "hp_comm_age"
+              },
+              {
+                "label": "Not sure",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "hps_use": {
+            "prompt": "Home (domestic) or commercial use? Domestic lodging-style only if delivery is 70°C or less, not a bulk tank system, and no building flow-and-return.",
+            "choices": [
+              {
+                "label": "Domestic (≤70°C)",
+                "next": "hps_dom_fail"
               },
               {
                 "label": "Commercial",
@@ -1274,12 +1420,12 @@
             "prompt": "What failed?",
             "choices": [
               {
-                "label": "Cylinder",
+                "label": "Cylinder / tank",
                 "next": "hp_dom_cyl_age"
               },
               {
-                "label": "Compressor",
-                "next": "hp_dom_comp_age"
+                "label": "Refrigeration (compressor / outdoor side)",
+                "next": "hp_dom_ref_age"
               },
               {
                 "label": "Other parts",
@@ -1292,77 +1438,693 @@
             ]
           },
           "hp_dom_cyl_age": {
-            "prompt": "Roughly how old? (Enviroflo EHPA domestic cylinder — parts 5 yr, labour 3 yr)",
+            "prompt": "How old? (EHPA domestic cylinder — parts 7 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "Is it 3 years old or less? (labour + parts)",
+                "label": "3 years old or less (labour + parts)",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Between 3 and 5 years? (parts only)",
+                "label": "Between 3 and 7 years (parts only)",
                 "outcome": "parts_only"
               },
               {
-                "label": "Is it older than 5 years?",
+                "label": "Older than 7 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
-          "hp_dom_comp_age": {
-            "prompt": "Roughly how old? (Enviroflo EHPA domestic compressor — parts 3 yr, labour 1 yr)",
+          "hp_dom_ref_age": {
+            "prompt": "How old? (EHPA refrigeration — parts 3 yr, labour 3 yr)",
             "choices": [
               {
-                "label": "Is it 1 year old or less? (labour + parts)",
+                "label": "3 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Between 1 and 3 years? (parts only)",
-                "outcome": "parts_only"
-              },
-              {
-                "label": "Is it older than 3 years?",
+                "label": "Older than 3 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "hp_dom_other_age": {
-            "prompt": "Roughly how old? (Enviroflo EHPA other components — table: 1 year parts + labour)",
+            "prompt": "How old? (EHPA other parts — 1 yr)",
             "choices": [
               {
-                "label": "Is it 1 year old or less?",
+                "label": "1 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Is it older than 1 year?",
+                "label": "Older than 1 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "hps_dom_fail": {
+            "prompt": "What failed?",
+            "choices": [
+              {
+                "label": "Cylinder / tank",
+                "next": "hps_dom_cyl_age"
+              },
+              {
+                "label": "Refrigeration (compressor / outdoor side)",
+                "next": "hps_dom_ref_age"
+              },
+              {
+                "label": "Other parts",
+                "next": "hps_dom_other_age"
+              },
+              {
+                "label": "Not sure",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "hps_dom_cyl_age": {
+            "prompt": "How old? (EHPS/EHPT domestic cylinder — parts 5 yr, labour 3 yr)",
+            "choices": [
+              {
+                "label": "3 years old or less (labour + parts)",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Between 3 and 5 years (parts only)",
+                "outcome": "parts_only"
+              },
+              {
+                "label": "Older than 5 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "hps_dom_ref_age": {
+            "prompt": "How old? (EHPS/EHPT refrigeration — parts 3 yr, labour 1 yr)",
+            "choices": [
+              {
+                "label": "1 years old or less (labour + parts)",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Between 1 and 3 years (parts only)",
+                "outcome": "parts_only"
+              },
+              {
+                "label": "Older than 3 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "hps_dom_other_age": {
+            "prompt": "How old? (EHPS/EHPT other parts — 1 yr)",
+            "choices": [
+              {
+                "label": "1 years old or less",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Older than 1 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
           },
           "hp_comm_age": {
-            "prompt": "Roughly how old? (commercial Enviroflo EHPA — table: 1 year parts + labour across cylinder / compressor / components)",
+            "prompt": "How old? (commercial Enviroflo — 1 yr parts + labour)",
             "choices": [
               {
-                "label": "Is it 1 year old or less?",
+                "label": "1 years old or less",
                 "outcome": "labour_parts"
               },
               {
-                "label": "Is it older than 1 year?",
+                "label": "Older than 1 years",
                 "outcome": "chargeable"
               },
               {
-                "label": "Age unknown",
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "sol_use": {
+            "prompt": "Home (domestic) or commercial use? Domestic lodging-style only if delivery is 70°C or less, not a bulk tank system, and no building flow-and-return.",
+            "choices": [
+              {
+                "label": "Domestic (≤70°C)",
+                "next": "sol_dom_fail"
+              },
+              {
+                "label": "Commercial",
+                "next": "sol_comm"
+              },
+              {
+                "label": "Not sure",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "sol_dom_fail": {
+            "prompt": "What failed on the solar system?",
+            "choices": [
+              {
+                "label": "Gas booster heat exchanger (S20/S26 / converted)",
+                "next": "sol_dom_hex_age"
+              },
+              {
+                "label": "Gas booster other parts",
+                "next": "sol_dom_other_cf_age"
+              },
+              {
+                "label": "Storage cylinder",
+                "next": "sol_dom_cyl_type"
+              },
+              {
+                "label": "Collector (flat plate or tube)",
+                "next": "sol_dom_col_type"
+              },
+              {
+                "label": "Pump / controller / other",
+                "next": "sol_dom_misc_age"
+              },
+              {
+                "label": "Not sure",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "sol_dom_hex_age": {
+            "prompt": "How old? (solar CF heat exchanger — parts 12 yr, labour 3 yr)",
+            "choices": [
+              {
+                "label": "3 years old or less (labour + parts)",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Between 3 and 12 years (parts only)",
+                "outcome": "parts_only"
+              },
+              {
+                "label": "Older than 12 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "sol_dom_other_cf_age": {
+            "prompt": "How old? (solar CF other parts — 3 yr)",
+            "choices": [
+              {
+                "label": "3 years old or less",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Older than 3 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "sol_dom_cyl_type": {
+            "prompt": "Which cylinder?",
+            "choices": [
+              {
+                "label": "Vitreous enamel — ground mounted",
+                "next": "sol_dom_cyl_ve_g"
+              },
+              {
+                "label": "Vitreous enamel — roof mounted",
+                "next": "sol_dom_cyl_ve_r"
+              },
+              {
+                "label": "Stainless steel",
+                "next": "sol_dom_cyl_ss"
+              },
+              {
+                "label": "Not sure",
+                "outcome": "chase_rinnai"
+              }
+            ]
+          },
+          "sol_dom_cyl_ve_g": {
+            "prompt": "How old? (VE ground cylinder — parts 10 yr, labour 3 yr)",
+            "choices": [
+              {
+                "label": "3 years old or less (labour + parts)",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Between 3 and 10 years (parts only)",
+                "outcome": "parts_only"
+              },
+              {
+                "label": "Older than 10 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "sol_dom_cyl_ve_r": {
+            "prompt": "How old? (VE roof cylinder — parts 5 yr, labour 3 yr)",
+            "choices": [
+              {
+                "label": "3 years old or less (labour + parts)",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Between 3 and 5 years (parts only)",
+                "outcome": "parts_only"
+              },
+              {
+                "label": "Older than 5 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "sol_dom_cyl_ss": {
+            "prompt": "How old? (stainless cylinder — parts 10 yr, labour 3 yr)",
+            "choices": [
+              {
+                "label": "3 years old or less (labour + parts)",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Between 3 and 10 years (parts only)",
+                "outcome": "parts_only"
+              },
+              {
+                "label": "Older than 10 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "sol_dom_col_type": {
+            "prompt": "Which collector? (frost on unprotected roof systems → chase Rinnai)",
+            "choices": [
+              {
+                "label": "Flat plate (Enduro family)",
+                "next": "sol_dom_fp_age"
+              },
+              {
+                "label": "Evacuated tube",
+                "next": "sol_dom_evt_age"
+              },
+              {
+                "label": "Frost damage / not sure",
+                "outcome": "chase_rinnai"
+              }
+            ]
+          },
+          "sol_dom_fp_age": {
+            "prompt": "How old? (flat plate domestic — parts 7 yr, labour 1 yr)",
+            "choices": [
+              {
+                "label": "1 years old or less (labour + parts)",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Between 1 and 7 years (parts only)",
+                "outcome": "parts_only"
+              },
+              {
+                "label": "Older than 7 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "sol_dom_evt_age": {
+            "prompt": "How old? (evacuated tube domestic — parts 15 yr, labour 1 yr)",
+            "choices": [
+              {
+                "label": "1 years old or less (labour + parts)",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Between 1 and 15 years (parts only)",
+                "outcome": "parts_only"
+              },
+              {
+                "label": "Older than 15 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "sol_dom_misc_age": {
+            "prompt": "How old? (other solar components — 1 yr)",
+            "choices": [
+              {
+                "label": "1 years old or less",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Older than 1 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "sol_comm": {
+            "prompt": "Commercial solar years are shorter and fiddly — open the Solar booklet table or ask Rinnai?",
+            "choices": [
+              {
+                "label": "I’ll check the Solar booklet / Rinnai",
+                "outcome": "chase_rinnai"
+              },
+              {
+                "label": "Unit is 1 year old or less (likely still in many commercial bands)",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Older than 1 year",
+                "outcome": "chase_rinnai"
+              }
+            ]
+          },
+          "com_use": {
+            "prompt": "Home (domestic) or commercial use? Domestic lodging-style only if delivery is 65°C or less, not a bulk tank system, and no building flow-and-return.",
+            "choices": [
+              {
+                "label": "Domestic (≤65°C)",
+                "next": "com_dom_type"
+              },
+              {
+                "label": "Commercial",
+                "next": "com_comm_type"
+              },
+              {
+                "label": "Not sure",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "com_dom_type": {
+            "prompt": "What failed in the commercial pack (domestic use)?",
+            "choices": [
+              {
+                "label": "HD booster heat exchanger",
+                "next": "com_dom_hd_hex"
+              },
+              {
+                "label": "HD booster other parts",
+                "next": "com_dom_hd_other"
+              },
+              {
+                "label": "QRE / storage cylinder",
+                "next": "com_dom_qre"
+              },
+              {
+                "label": "Something else",
+                "outcome": "chase_rinnai"
+              }
+            ]
+          },
+          "com_dom_hd_hex": {
+            "prompt": "How old? (DD/MP HD HEX domestic — parts 12 yr, labour 5 yr)",
+            "choices": [
+              {
+                "label": "5 years old or less (labour + parts)",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Between 5 and 12 years (parts only)",
+                "outcome": "parts_only"
+              },
+              {
+                "label": "Older than 12 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "com_dom_hd_other": {
+            "prompt": "How old? (DD/MP HD other domestic — 5 yr)",
+            "choices": [
+              {
+                "label": "5 years old or less",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Older than 5 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "com_dom_qre": {
+            "prompt": "How old? (QRE/storage cylinder domestic — parts 10 yr, labour 3 yr)",
+            "choices": [
+              {
+                "label": "3 years old or less (labour + parts)",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Between 3 and 10 years (parts only)",
+                "outcome": "parts_only"
+              },
+              {
+                "label": "Older than 10 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "com_comm_type": {
+            "prompt": "What failed (commercial use)?",
+            "choices": [
+              {
+                "label": "HD booster — check 85/95°C preset",
+                "next": "com_comm_hd_temp"
+              },
+              {
+                "label": "QRE / storage cylinder — check if set over 76°C",
+                "next": "com_comm_qre_temp"
+              },
+              {
+                "label": "Commercial heat pump (CHP)",
+                "next": "com_comm_chp"
+              },
+              {
+                "label": "Common flue / other",
+                "outcome": "chase_rinnai"
+              }
+            ]
+          },
+          "com_comm_hd_temp": {
+            "prompt": "HD booster preset?",
+            "choices": [
+              {
+                "label": "Normal",
+                "next": "com_comm_hd_fail"
+              },
+              {
+                "label": "85°C or 95°C",
+                "next": "com_comm_hd_hi"
+              },
+              {
+                "label": "Not sure",
+                "outcome": "chase_rinnai"
+              }
+            ]
+          },
+          "com_comm_hd_fail": {
+            "prompt": "What failed?",
+            "choices": [
+              {
+                "label": "Heat exchanger",
+                "next": "com_comm_hd_hex"
+              },
+              {
+                "label": "Other parts",
+                "next": "com_comm_hd_other"
+              },
+              {
+                "label": "Not sure",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "com_comm_hd_hex": {
+            "prompt": "How old? (commercial DD/MP HD HEX — parts 5 yr, labour 3 yr)",
+            "choices": [
+              {
+                "label": "3 years old or less (labour + parts)",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Between 3 and 5 years (parts only)",
+                "outcome": "parts_only"
+              },
+              {
+                "label": "Older than 5 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "com_comm_hd_other": {
+            "prompt": "How old? (commercial DD/MP HD other — 3 yr)",
+            "choices": [
+              {
+                "label": "3 years old or less",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Older than 3 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "com_comm_hd_hi": {
+            "prompt": "How old? (high-temp HD HEX — 1 yr)",
+            "choices": [
+              {
+                "label": "1 years old or less",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Older than 1 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "com_comm_qre_temp": {
+            "prompt": "Is the cylinder set temperature over 76°C?",
+            "choices": [
+              {
+                "label": "No — normal",
+                "next": "com_comm_qre_age"
+              },
+              {
+                "label": "Yes — over 76°C (1 yr only)",
+                "next": "com_comm_qre_hi"
+              },
+              {
+                "label": "Not sure",
+                "outcome": "chase_rinnai"
+              }
+            ]
+          },
+          "com_comm_qre_age": {
+            "prompt": "Stainless or vitreous? (SS parts 7 yr / VE 5 yr; labour 1 yr) — pick the safer labour+parts band if unsure.",
+            "choices": [
+              {
+                "label": "1 year old or less",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Between 1 and 5 years (parts only — confirm SS/VE in booklet)",
+                "outcome": "parts_only"
+              },
+              {
+                "label": "Older than 7 years (or 5 if VE)",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure",
+                "outcome": "chase_rinnai"
+              }
+            ]
+          },
+          "com_comm_qre_hi": {
+            "prompt": "How old? (>76°C cylinder — 1 yr)",
+            "choices": [
+              {
+                "label": "1 years old or less",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Older than 1 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
+                "outcome": "insufficient"
+              }
+            ]
+          },
+          "com_comm_chp": {
+            "prompt": "How old? (commercial air-to-water heat pump — 2 yr parts + labour)",
+            "choices": [
+              {
+                "label": "2 years old or less",
+                "outcome": "labour_parts"
+              },
+              {
+                "label": "Older than 2 years",
+                "outcome": "chargeable"
+              },
+              {
+                "label": "Not sure / age unknown",
                 "outcome": "insufficient"
               }
             ]
@@ -1371,26 +2133,26 @@
         "outcomes": {
           "labour_parts": {
             "title": "Likely warranty — labour + parts",
-            "detail": "Age looks inside both labour and parts years for that table row. Set Charge Type = Warranty only if Asset data (serial, model, install / manufacture date) is correct."
+            "detail": "Age looks inside both labour and parts years. Set Charge Type = Warranty only if model, serial, and install/manufacture date on the Asset are correct — and Rinnai has authorised the visit."
           },
           "parts_only": {
             "title": "Likely warranty — parts only",
-            "detail": "Parts years still look open; labour is outside the table band — quote labour to the customer (or confirm booklet) before promising a free visit."
+            "detail": "Parts years still look open; labour looks outside the band. Quote labour to the customer (or check booklet) before promising a free call-out."
           },
           "chargeable": {
             "title": "Likely chargeable",
-            "detail": "Age looks past the matching table years. Treat as customer-paid unless Rinnai confirms otherwise in writing."
+            "detail": "Age looks past the matching years. Treat as customer-paid unless Rinnai confirms otherwise in writing."
           },
           "chase_rinnai": {
             "title": "Chase Rinnai / check booklet",
-            "detail": "Borderline path (solar exclusion, extended heat exchanger option, dual controllers, frost, high-temperature HD, gas storage (GHF) / solar summary rows). Do not invent cover — check the current Rinnai warranty booklet or ask Rinnai before Warranty charge-type."
+            "detail": "Borderline or special path (extended HEX, dual controllers, frost, high-temp preset, Solar Victoria rebate, odd commercial pack). Do not invent cover — booklet or Rinnai first."
           },
           "insufficient": {
-            "title": "Insufficient info",
-            "detail": "Need product family, Domestic vs Commercial Use, what failed, and a rough age (or install / manufacture date) before picking Charge Type. Use the tables above once those are known."
+            "title": "Need more info",
+            "detail": "Need family, domestic vs commercial, what failed, and a rough age (or install / manufacture date) before picking Charge Type."
           }
         },
-        "examplesNote": "Product family examples — Rinnai AU catalogue shots + Bible unit photos. Checker family chips = real warranty-table families only."
+        "examplesNote": "Family chips map to current AU HW warranty booklets. Confirm imprint date on rinnai.com.au/support/warranty."
       }
     },
     {
