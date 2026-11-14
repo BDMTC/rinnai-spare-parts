@@ -267,6 +267,26 @@ let processFgLookupState = {
   ddAnim: "",
 };
 
+function resetProcessFgLookupState() {
+  processFgLookupState = {
+    familyId: "",
+    query: "",
+    ddStem: emptyDdStemState(),
+    ddHistory: [],
+    ddAnim: "",
+  };
+}
+
+/** Exit Demand Duo builder back to Finished-goods family picker. */
+function leaveDdBuilder() {
+  processFgLookupState.familyId = "";
+  processFgLookupState.query = "";
+  processFgLookupState.ddStem = emptyDdStemState();
+  processFgLookupState.ddHistory = [];
+  processFgLookupState.ddAnim = "";
+  renderProcessDesk();
+}
+
 const DD_CARD_FADE_MS = 420;
 /** @type {{ pointerId: number, startX: number, lastX: number, dragged: boolean }|null} */
 let processExampleDrag = null;
@@ -1549,12 +1569,13 @@ function renderProcessDdBuilderHtml() {
   }</p>`;
 
   return `<div class="dd-builder" aria-label="Demand Duo stem builder">
-    <p class="muted dd-builder-blurb">One question at a time — coloured stems build the order code (${ddMeta.codeCount || catalog.length} parked).</p>
+    <p class="muted dd-builder-blurb">One question at a time — coloured stems build the order code (${ddMeta.codeCount || catalog.length} parked). Pick another family chip or Leave builder to return to Finished goods.</p>
     <div class="dd-stem-strip" aria-live="polite">${stripHtml}</div>
     ${packageHtml}
     ${cardHtml}
     <div class="dd-builder-actions">
-      <button type="button" class="cart-action" id="dd-stem-back" ${canBack ? "" : "disabled"}>Go back</button>
+      <button type="button" class="cart-action" id="dd-stem-back">${canBack ? "Go back" : "Back to Finished goods"}</button>
+      <button type="button" class="cart-action" id="dd-leave-builder">Leave builder</button>
       <button type="button" class="cart-action" id="dd-stem-reset">Start again</button>
     </div>
   </div>`;
@@ -1719,10 +1740,20 @@ function bindProcessFgLookup(body) {
   if (!body) return;
   body.querySelectorAll("[data-fg-family]").forEach((btn) => {
     btn.addEventListener("click", () => {
-      processFgLookupState.familyId = btn.getAttribute("data-fg-family") || "";
+      const nextId = btn.getAttribute("data-fg-family") || "";
+      // Clicking the active Demand Duo chip again leaves the builder.
+      if (nextId === "dd" && processFgLookupState.familyId === "dd") {
+        leaveDdBuilder();
+        return;
+      }
+      processFgLookupState.familyId = nextId;
       processFgLookupState.query = "";
-      if (processFgLookupState.familyId === "dd") {
+      if (nextId === "dd") {
         ddResetBuilderState();
+      } else {
+        processFgLookupState.ddStem = emptyDdStemState();
+        processFgLookupState.ddHistory = [];
+        processFgLookupState.ddAnim = "";
       }
       renderProcessDesk();
       if (processFgLookupState.familyId === "dd") ddAfterRenderAnim();
@@ -1756,14 +1787,22 @@ function bindProcessFgLookup(body) {
     });
   });
   body.querySelector("#dd-stem-back")?.addEventListener("click", () => {
+    const hist = processFgLookupState.ddHistory || [];
+    if (!hist.length) {
+      leaveDdBuilder();
+      return;
+    }
     ddTransitionThen(() => {
       const { stem, history } = ddGoBack(
         processFgLookupState.ddStem || emptyDdStemState(),
-        processFgLookupState.ddHistory || []
+        hist
       );
       processFgLookupState.ddStem = stem;
       processFgLookupState.ddHistory = history;
     });
+  });
+  body.querySelector("#dd-leave-builder")?.addEventListener("click", () => {
+    leaveDdBuilder();
   });
   body.querySelector("#dd-stem-reset")?.addEventListener("click", () => {
     ddTransitionThen(() => {
@@ -1993,6 +2032,8 @@ function openProcess() {
   if (!dialog) return;
   // Always lead with Basic vs Detailed — never auto-skip from last localStorage choice.
   processViewMode = "chooser";
+  // Clear sticky FG / Demand Duo state so reopen returns to FG main, not DD.
+  resetProcessFgLookupState();
   renderProcessDesk();
   lockProcessPageScroll();
   if (typeof dialog.showModal === "function") dialog.showModal();
@@ -2003,6 +2044,7 @@ function closeProcess() {
   const dialog = document.querySelector("#process-dialog");
   if (dialog && typeof dialog.close === "function") dialog.close();
   else if (dialog) dialog.removeAttribute("open");
+  resetProcessFgLookupState();
   unlockProcessPageScroll();
 }
 
