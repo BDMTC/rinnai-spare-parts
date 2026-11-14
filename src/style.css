@@ -2451,8 +2451,10 @@ mark {
   width: min(640px, calc(100vw - 1.5rem));
 }
 
+/* Same footprint as Finished Goods + Demand Duo builder (fills max viewport). */
 .process-dialog {
   width: min(1240px, calc(100vw - 1rem));
+  height: min(96vh, 980px);
   max-height: min(96vh, 980px);
   overflow: hidden;
 }
@@ -2460,6 +2462,7 @@ mark {
 .process-dialog-inner {
   display: grid;
   grid-template-rows: auto auto 1fr;
+  height: 100%;
   max-height: min(96vh, 980px);
   overflow: hidden;
   min-height: 0;
