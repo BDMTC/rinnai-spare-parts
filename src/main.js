@@ -910,7 +910,7 @@ function renderEscalateRiderHtml(checker, _out) {
       <p class="muted process-checker-hours-hint">${
         openNow
           ? "Help line is in hours now (Mon–Fri 8:00–17:00 AEST)."
-          : "Help line is closed now — manager first; Rinnai next open Mon–Fri 8:00–17:00 AEST."
+          : "Help line is closed now — escalate to your manager first; contact Rinnai on 1300 555 545 next open Mon–Fri 8:00–17:00 AEST if your manager wants an OEM ruling."
       }</p>
       <div class="process-checker-rider-block">
         <p class="process-checker-rider-label">The path taken to reach this outcome was:</p>

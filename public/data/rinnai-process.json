@@ -196,7 +196,7 @@
     {
       "id": "warranty",
       "title": "Warranty periods",
-      "blurb": "Newbie desk aid: answer the quick tool, follow the outcome card. Grey → manager or Rinnai 1300 555 545.",
+      "blurb": "Newbie desk aid: answer the quick tool, follow the outcome card. If you reach a grey outcome, escalate to your manager, or contact Rinnai on 1300 555 545 for a ruling (manager first outside Mon–Fri 8:00–17:00 AEST).",
       "steps": [
         {
           "n": 1,
@@ -216,7 +216,7 @@
         },
         {
           "n": 5,
-          "text": "Gate 5 — What actually failed?: Clear Rinnai factory part fault → Next action matches the tool (authorise, then Charge Type = Warranty). Site/external → customer pays. Grey/disputed → same next action as the grey card: manager first outside Mon–Fri 8:00–17:00 AEST; manager or Rinnai 1300 555 545 in hours; copy path; tick checklist; log case # / Covered vs Excluded; offload. Website “register product” is not a fault claim — faults go Book a Service / assessment."
+          "text": "Gate 5 — What actually failed?: Clear Rinnai factory part fault → Next action matches the tool (authorise, then Charge Type = Warranty). Site/external → customer pays. If the answer is grey or disputed, follow the grey card: escalate to your manager, or contact Rinnai on 1300 555 545 for a ruling (manager first outside Mon–Fri 8:00–17:00 AEST); copy the path; tick the checklist; log the case # / Covered vs Excluded; then offload. Website “register product” is not a fault claim — faults go Book a Service / assessment."
         }
       ],
       "tables": [
@@ -503,7 +503,7 @@
             ]
           ],
           "footnote": [
-            "Domestic ceiling: 70°C. Commercial years are shorter (often 1–5) — use the quick tool; grey → manager or 1300 555 545.",
+            "Domestic ceiling: 70°C. Commercial years are shorter (often 1–5) — use the quick tool; if you reach a grey outcome, escalate to your manager, or contact Rinnai on 1300 555 545 for a ruling.",
             "Roof systems without pumped frost protection: frost damage not covered in known frost areas."
           ]
         },
@@ -552,14 +552,14 @@
         }
       ],
       "notes": [
-        "Built for brand-new desk admins: answer the quick tool; follow the outcome card; grey → manager or 1300 555 545.",
+        "Built for brand-new desk admins: answer the quick tool; follow the outcome card. If you reach a grey outcome, escalate to your manager, or contact Rinnai on 1300 555 545 for a ruling (manager first outside Mon–Fri 8:00–17:00 AEST).",
         "Source snapshot: rinnai.com.au/support/warranty ingest 2026-11-14 (Project store docs/rinnai-au-warranty-support-ingest.md).",
-        "GHF / fire / AC leftovers: grey card → escalate to manager or Rinnai.",
+        "GHF / fire / AC leftovers: if you reach a grey outcome, escalate to your manager, or contact Rinnai on 1300 555 545 for a ruling.",
         "Rinnai must authorise warranty work before you promise free labour/parts. Replacement under warranty keeps the original appliance term."
       ],
       "checker": {
         "heading": "This quick tool can help you assess - Answer the following questions.",
-        "disclaimer": "For new desk staff — same tool on Basic and Detailed. Not Rinnai’s final say. Grey card: manager first outside hours; manager or 1300 555 545 in hours. Only set Charge Type = Warranty after Rinnai authorises.",
+        "disclaimer": "For new desk staff — same tool on Basic and Detailed. Not Rinnai’s final say. If you reach a grey outcome, escalate to your manager, or contact Rinnai on 1300 555 545 for a ruling (manager first outside Mon–Fri 8:00–17:00 AEST). Only set Charge Type = Warranty after Rinnai authorises.",
         "startId": "family",
         "questions": {
           "family": {
@@ -2567,7 +2567,7 @@
           },
           "escalate_rinnai": {
             "title": "Resolution has reached a grey area, here’s the problems.",
-            "detail": "Manager first outside hours; manager or Rinnai 1300 555 545 in hours. Relay the path, tick the checklist, log case # / Covered vs Excluded, and offload."
+            "detail": "If you reach a grey outcome, escalate to your manager, or contact Rinnai on 1300 555 545 for a ruling (manager first outside Mon–Fri 8:00–17:00 AEST). Relay the path, tick the checklist, log case # / Covered vs Excluded, and offload."
           },
           "insufficient": {
             "title": "Need more info before you decide",
