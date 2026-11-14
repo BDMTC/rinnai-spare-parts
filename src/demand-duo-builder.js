@@ -269,6 +269,69 @@ export function ddStemChipText(key, value) {
 }
 
 /**
+ * Shared name prefix across catalog hits (for partial descriptions while building).
+ * @param {string[]} names
+ */
+function ddCommonNamePrefix(names) {
+  if (!names.length) return "";
+  let prefix = names[0];
+  for (let i = 1; i < names.length; i++) {
+    const n = names[i];
+    let j = 0;
+    while (j < prefix.length && j < n.length && prefix[j] === n[j]) j++;
+    prefix = prefix.slice(0, j);
+    if (!prefix) break;
+  }
+  // Trim back to a word boundary so we don't cut mid-token awkwardly
+  const cut = prefix.search(/[\s(/,-][^/\s(/,-]*$/);
+  if (cut > 8) prefix = prefix.slice(0, cut).trimEnd();
+  return prefix.trim();
+}
+
+/**
+ * Best Zone FG description for the current stem: exact match name, else shared
+ * prefix of remaining hits, else plain-English stems answered so far.
+ * @param {DdCodeRow[]} catalog
+ * @param {DdStemState} stem
+ * @param {DdCodeRow|null|undefined} match
+ */
+export function ddBestProductDescription(catalog, stem, match) {
+  if (match?.name) return String(match.name).trim();
+  const remaining = filterDdCatalog(catalog, stem);
+  const names = remaining.map((r) => String(r.name || "").trim()).filter(Boolean);
+  if (names.length === 1) return names[0];
+  if (names.length > 1) {
+    const shared = ddCommonNamePrefix(names);
+    if (shared.length >= 12) return `${shared}…`;
+  }
+  /** @type {string[]} */
+  const bits = [];
+  for (const key of DD_STEM_KEYS) {
+    if (!stemHas(stem, key)) continue;
+    if (key === "heaters" && stem.series === "DD1") continue;
+    bits.push(ddOptionLabel(key, stem[key] ?? ""));
+  }
+  if (bits.length) return bits.join(" · ");
+  return "still assembling";
+}
+
+/**
+ * One-line package readout: code + description.
+ * @param {DdCodeRow[]} catalog
+ * @param {DdStemState} stem
+ * @param {DdCodeRow|null|undefined} match
+ */
+export function ddPackageDeterminedLine(catalog, stem, match) {
+  const code = match?.orderCode || assembleDdCode(stem) || "—";
+  const desc = ddBestProductDescription(catalog, stem, match);
+  return {
+    code,
+    description: desc,
+    text: `Package code determined to be: ${code} - ${desc}.`,
+  };
+}
+
+/**
  * Undo last user-facing answer (and clear auto-filled keys after it).
  * @param {DdStemState} stem
  * @param {string[]} history keys in answer order

@@ -2886,8 +2886,10 @@ mark {
 .dd-stem--outlet { background: #9ad0c2; }
 
 .dd-stem-assembled {
-  margin: 0;
-  font-size: 0.82rem;
+  margin: 0.35rem 0 0.55rem;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  word-break: break-word;
 }
 
 .dd-stem-assembled code {

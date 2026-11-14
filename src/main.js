@@ -122,6 +122,7 @@ import {
   matchDdCode,
   ddOptionLabel,
   ddStemChipText,
+  ddPackageDeterminedLine,
   resolveDdWizardStep,
   ddGoBack,
   DD_QUESTIONS,
@@ -1483,6 +1484,8 @@ function renderProcessDdBuilderHtml() {
   const assembled = assembleDdCode(stem);
   const segments = ddStemSegments(stem);
   const animClass = processFgLookupState.ddAnim === "in" ? " is-entering" : "";
+  const packageLine = ddPackageDeterminedLine(catalog, stem, match);
+  const packageSentenceHtml = `Package code determined to be: <code>${escapeHtml(packageLine.code)}</code> - ${escapeHtml(packageLine.description)}.`;
 
   const stripHtml = segments.length
     ? segments
@@ -1536,12 +1539,16 @@ function renderProcessDdBuilderHtml() {
   }
 
   const canBack = (processFgLookupState.ddHistory || []).length > 0;
+  const packageHtml = `<p class="dd-stem-assembled" aria-live="polite">${packageSentenceHtml}${
+    match || !remaining.length
+      ? ""
+      : ` <span class="muted">(${remaining.length} still possible)</span>`
+  }</p>`;
+
   return `<div class="dd-builder" aria-label="Demand Duo stem builder">
     <p class="muted dd-builder-blurb">One question at a time. Coloured stems assemble the order code; when it matches the catalog you get Zone Net ex GST. ${ddMeta.codeCount || catalog.length} DD system codes parked (not listed as rows).</p>
     <div class="dd-stem-strip" aria-live="polite">${stripHtml}</div>
-    <p class="dd-stem-assembled muted">Code so far: <code>${escapeHtml(assembled || "—")}</code>${
-      match ? "" : remaining.length ? ` · ${remaining.length} still possible` : ""
-    }</p>
+    ${packageHtml}
     ${cardHtml}
     <div class="dd-builder-actions">
       <button type="button" class="cart-action" id="dd-stem-back" ${canBack ? "" : "disabled"}>Go back</button>
