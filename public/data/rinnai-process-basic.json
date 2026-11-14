@@ -87,13 +87,13 @@
     {
       "id": "warranty",
       "title": "8. Is it still under warranty?",
-      "blurb": "Five gates + quick tool — escalate greys to Rinnai.",
+      "blurb": "Zero-knowledge: answer the tool; follow the card; grey → manager or 1300.",
       "body": [
-        "Age the job from the install date (or dataplate manufacture date + 2 months if install is unknown). Parts years and labour years are separate.",
-        "Walk five gates: (1) still in period, (2) compliant install, (3) correct application, (4) water in-spec, (5) clear Rinnai factory fault vs site/external. Grey or disputed at gate 5 → escalate to Rinnai — never “chase the booklet.”",
-        "Domestic vs commercial depends on the family °C limit: gas continuous flow / Demand Duo pack ≤65°C; Hotflo / heat pump / solar ≤70°C; Efinity ≤60°C.",
-        "Use This quick tool can help you assess below. It suggests labour+parts, parts only, chargeable, or escalate to Rinnai (with a plain-English path summary + phone checklist).",
-        "Full year tables: {{link:detailed:warranty}}Detailed Process → Warranty{{/link}}. Desk aid only — if Rinnai disagrees later, follow the Work Order close-off."
+        "You do not need to know warranty history. Use the quick tool below — tap one answer at a time.",
+        "Age starts at install date. If install is unknown, use the manufacture date on the metal data plate and add 2 months. Parts years and labour years can differ.",
+        "Home vs commercial depends on delivery temperature: gas continuous flow / Demand Duo ≤65°C; Hotflo / heat pump / solar ≤70°C; Efinity ≤60°C. Over that (or bulk HW / building flow-and-return) = commercial.",
+        "The tool ends on a card: labour+parts, parts only, customer pays, need more info, or grey. Grey means stop guessing — escalate to your manager, or call Rinnai on 1300 555 545, read them the path summary, log the case number, and offload. Never send yourself to a PDF.",
+        "Want the year tables too? {{link:detailed:warranty}}Detailed Process → Warranty{{/link}}. If Rinnai later disagrees on the Work Order, follow what Rinnai closes."
       ]
     },
     {

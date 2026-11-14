@@ -996,10 +996,19 @@ function renderProcessCheckerHtml(topic) {
     if (outcomeId === "escalate_rinnai" || outcomeId === "chase_rinnai") {
       panelInner = renderEscalateRiderHtml(checker, out);
     } else {
+      const pathText = formatCheckerPathSummary(processCheckerState.path || []);
+      const pathBlock =
+        Array.isArray(processCheckerState.path) && processCheckerState.path.length
+          ? `<div class="process-checker-rider-block">
+        <p class="process-checker-rider-label">What you answered</p>
+        <pre class="process-checker-path-summary">${escapeHtml(pathText)}</pre>
+      </div>`
+          : "";
       panelInner = `
       <div class="process-checker-outcome" data-outcome="${escapeHtml(outcomeId)}">
         <p class="process-checker-outcome-title">${escapeHtml(out.title || outcomeId)}</p>
-        <p class="process-checker-outcome-detail muted">${escapeHtml(out.detail || "")}</p>
+        <p class="process-checker-outcome-detail">${escapeHtml(out.detail || "")}</p>
+        ${pathBlock}
       </div>`;
     }
   } else {

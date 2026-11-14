@@ -91,27 +91,27 @@ def fail_q(parts: list[tuple[str, str]], *, extra: list[dict] | None = None) -> 
 WARRANTY_TOPIC = {
     "id": "warranty",
     "title": "Warranty periods",
-    "blurb": "Five binary gates + year tables from current Rinnai AU warranty booklets (rinnai.com.au/support/warranty). Grey / disputed → escalate to Rinnai — never “chase the booklet.”",
+    "blurb": "Newbie desk aid: answer the quick tool, follow the outcome card. Grey → manager or Rinnai 1300 555 545. Never send yourself to a PDF.",
     "steps": [
         {
             "n": 1,
-            "text": "Gate 1 — Period: Age from install date. If install is unknown, use manufacture date on the dataplate + 2 months. Run the quick tool for the right family years (parts and labour are separate). Outside the years → chargeable.",
+            "text": "Gate 1 — Period (is it still in years?): Find the install date on the job / proof of purchase. If nobody knows install date, read manufacture date on the metal data plate and add 2 months. Then run the quick tool below — it asks the age in plain English. Outside the years → customer pays (chargeable).",
         },
         {
             "n": 2,
-            "text": "Gate 2 — Compliant install: Was it installed by a licensed trade to AS/NZS 3500 & 5601? No → void warranty / billable. Domestic vs commercial still uses the family °C limit (gas CF / Demand Duo pack 65°C, Hotflo / heat pump / solar 70°C, Efinity 60°C).",
+            "text": "Gate 2 — Compliant install: Was a licensed tradesperson used, and does the install look normal for plumbing/gas rules (AS/NZS 3500 & 5601)? If clearly not → not warranty; customer pays. Also check domestic vs commercial using the family °C limit shown in the tool (gas CF / Demand Duo 65°C, Hotflo / heat pump / solar 70°C, Efinity 60°C).",
         },
         {
             "n": 3,
-            "text": "Gate 3 — Correct application: Unit matched to the load? No residential unit in a commercial or solar loop unless it is HD Demand Duo solar boost or a Rinnai-converted solar model. Wrong application → void / billable.",
+            "text": "Gate 3 — Correct application: Is this the right kind of unit for the job? A normal home continuous-flow heater stuck on a commercial loop or a non-Rinnai solar system is usually not warranty. Exception the tool knows: HD Demand Duo solar boost, or a unit Rinnai converted for Rinnai solar. Wrong application → customer pays.",
         },
         {
             "n": 4,
-            "text": "Gate 4 — Water chemistry: Within Rinnai water spec (no raw bore/dam / chemistry outside the booklet table)? Outside spec → void / billable. Remoteness (>~40 km from authorised provider, or off mainland) may make travel customer-paid — confirm with Rinnai if unsure.",
+            "text": "Gate 4 — Water chemistry: Mains water that looks normal is usually fine. Raw bore, dam, or “funny chemistry” water often voids warranty → customer pays. If the site is more than about 40 km from an authorised provider (or off mainland), travel may still be customer-paid even when parts are covered — ask your manager or Rinnai if unsure.",
         },
         {
             "n": 5,
-            "text": "Gate 5 — Fault isolation: Clear Rinnai factory-component defect → process as warranty (after Rinnai authorisation). Site/external (non-Rinnai valves, gas, power, frost exclusion) → billable. Grey or disputed → escalate to Rinnai with the rider (path summary + phone). Never tell the desk to “chase the booklet.” Desk aid only; Work Order close-off wins. Registration ≠ fault claim — faults go Book a Service / assessment.",
+            "text": "Gate 5 — What actually failed?: Clear Rinnai factory part fault → likely warranty path (still need Rinnai authorisation before promising free work). Site/external (someone else’s valve, gas, power, frost exclusion) → customer pays. If it is grey or disputed, stop guessing: use the grey card — escalate to your manager, or call Rinnai on 1300 555 545, relay the path summary, log the case #, and offload. Do not open a PDF to invent cover. Website “register product” is not a fault claim — faults go Book a Service / assessment.",
         },
     ],
     "tables": [
@@ -237,7 +237,7 @@ WARRANTY_TOPIC = {
                 ["Other components", "1 yr", "1 yr"],
             ],
             "footnote": [
-                "Domestic ceiling: 70°C. Commercial years are shorter (often 1–5) — use the quick tool; grey → escalate to Rinnai.",
+                "Domestic ceiling: 70°C. Commercial years are shorter (often 1–5) — use the quick tool; grey → manager or 1300 555 545.",
                 "Roof systems without pumped frost protection: frost damage not covered in known frost areas.",
             ],
         },
@@ -258,38 +258,39 @@ WARRANTY_TOPIC = {
         },
     ],
     "notes": [
-        "Source: https://www.rinnai.com.au/support/warranty ingest 2026-11-14 (Project store docs/rinnai-au-warranty-support-ingest.md).",
-        "GHF / fire / AC and other non-HW leftovers: use the escalate rider (call Rinnai) — do not invent cover from a PDF.",
-        "Authorisation required before warranty inspection / repair / replacement. Replacement under warranty keeps the original appliance term.",
+        "Built for brand-new desk admins: answer the quick tool; follow the outcome card; grey → manager or 1300 555 545.",
+        "Source snapshot: rinnai.com.au/support/warranty ingest 2026-11-14 (Project store docs/rinnai-au-warranty-support-ingest.md).",
+        "GHF / fire / AC leftovers: grey card → call Rinnai. Do not invent cover from a PDF.",
+        "Rinnai must authorise warranty work before you promise free labour/parts. Replacement under warranty keeps the original appliance term.",
     ],
     "checker": {
         "heading": "This quick tool can help you assess - Answer the following questions.",
-        "disclaimer": "Desk aid for newbies — not Rinnai’s final say. Grey or disputed answers escalate to Rinnai with a path summary — never “chase the booklet.” Confirm Charge Type = Warranty only after authorisation.",
+        "disclaimer": "For new desk staff — this tool holds your hand. It is not Rinnai’s final say. If the card goes grey, call your manager or Rinnai 1300 555 545 (do not open a PDF). Only set Charge Type = Warranty after Rinnai authorises.",
         "startId": "family",
         "questions": {},
         "outcomes": {
             "labour_parts": {
                 "title": "Likely warranty — labour + parts",
-                "detail": "Age looks inside both labour and parts years, and the gates you answered look clear. Set Charge Type = Warranty only if model, serial, and install/manufacture date on the Asset are correct — and Rinnai has authorised the visit. Travel on remote sites may still be customer-paid.",
+                "detail": "Next action: check model + serial + install (or manufacture + 2 months) on the Asset are correct, then get Rinnai authorisation before you promise a free visit. Only then set Charge Type = Warranty. Remote sites may still pay travel.",
             },
             "parts_only": {
                 "title": "Likely warranty — parts only",
-                "detail": "Parts years still look open; labour looks outside the band. Quote labour to the customer before promising a free call-out.",
+                "detail": "Next action: parts may be free; labour probably is not. Tell the customer labour is chargeable unless Rinnai says otherwise in writing. Do not promise a free call-out.",
             },
             "chargeable": {
-                "title": "Likely chargeable",
-                "detail": "Age looks past the matching years, or an exclusion gate failed (wrong application, water, non-Rinnai part, frost, non-compliant install). Treat as customer-paid unless Rinnai later authorises otherwise in writing.",
+                "title": "Likely chargeable (customer pays)",
+                "detail": "Next action: treat as customer-paid (age past years, or an exclusion like wrong application / water / non-Rinnai part / frost). Quote the customer. If someone disputes that, escalate to your manager or Rinnai on 1300 555 545 — do not guess from a PDF.",
             },
             "escalate_rinnai": {
                 "title": "Resolution has reached a grey area, here’s the problems.",
                 "detail": "Escalate to your manager, or Rinnai on 1300 555 545. Relay the path below, then log case # / rep / Covered vs Excluded and offload.",
             },
             "insufficient": {
-                "title": "Need more info",
-                "detail": "Need family, domestic vs commercial, what failed, and a rough age (install date, or manufacture date + 2 months) before picking Charge Type.",
+                "title": "Need more info before you decide",
+                "detail": "Next action: get (1) product family, (2) home vs commercial, (3) what failed, (4) rough age — install date, or manufacture date on the plate + 2 months. Ask the tech / customer. Then Reset and run the tool again. Do not set Charge Type yet.",
             },
         },
-        "examplesNote": "Family chips map to current AU HW warranty booklets. Confirm imprint date on rinnai.com.au/support/warranty.",
+        "examplesNote": "Tap ⓘ for photo examples of each family. Year tables below are a desk cheat-sheet — the quick tool is the hand-holding path.",
         "escalation": {
             "headline": "Resolution has reached a grey area, here’s the problems.",
             "when": "This case may need to be either escalated to your manager, or Rinnai on 1300 555 545 to help reach a determination.",
@@ -872,13 +873,13 @@ def main() -> None:
     for ch in basic.get("chapters") or []:
         if ch.get("id") != "warranty":
             continue
-        ch["blurb"] = "Five gates + quick tool — escalate greys to Rinnai."
+        ch["blurb"] = "Zero-knowledge: answer the tool; follow the card; grey → manager or 1300."
         ch["body"] = [
-            "Age the job from the install date (or dataplate manufacture date + 2 months if install is unknown). Parts years and labour years are separate.",
-            "Walk five gates: (1) still in period, (2) compliant install, (3) correct application, (4) water in-spec, (5) clear Rinnai factory fault vs site/external. Grey or disputed at gate 5 → escalate to Rinnai — never “chase the booklet.”",
-            "Domestic vs commercial depends on the family °C limit: gas continuous flow / Demand Duo pack ≤65°C; Hotflo / heat pump / solar ≤70°C; Efinity ≤60°C.",
-            "Use This quick tool can help you assess below. It suggests labour+parts, parts only, chargeable, or escalate to Rinnai (with a plain-English path summary + phone checklist).",
-            "Full year tables: {{link:detailed:warranty}}Detailed Process → Warranty{{/link}}. Desk aid only — if Rinnai disagrees later, follow the Work Order close-off.",
+            "You do not need to know warranty history. Use the quick tool below — tap one answer at a time.",
+            "Age starts at install date. If install is unknown, use the manufacture date on the metal data plate and add 2 months. Parts years and labour years can differ.",
+            "Home vs commercial depends on delivery temperature: gas continuous flow / Demand Duo ≤65°C; Hotflo / heat pump / solar ≤70°C; Efinity ≤60°C. Over that (or bulk HW / building flow-and-return) = commercial.",
+            "The tool ends on a card: labour+parts, parts only, customer pays, need more info, or grey. Grey means stop guessing — escalate to your manager, or call Rinnai on 1300 555 545, read them the path summary, log the case number, and offload. Never send yourself to a PDF.",
+            "Want the year tables too? {{link:detailed:warranty}}Detailed Process → Warranty{{/link}}. If Rinnai later disagrees on the Work Order, follow what Rinnai closes.",
         ]
     BASIC.write_text(json.dumps(basic, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"updated {BASIC} warranty chapter")
