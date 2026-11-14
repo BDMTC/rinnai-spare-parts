@@ -196,10 +196,7 @@ for (const [fam, urls] of Object.entries(seeds)) {
   console.log("FAMILY", fam, saved.length);
 }
 
-manifest.mixed = [
-  ...(manifest.hotflo || []).slice(0, 10),
-  ...(manifest.cf || []).slice(0, 10),
-].slice(0, 20);
+delete manifest.mixed;
 
 fs.writeFileSync(path.join(root, "manifest.json"), JSON.stringify(manifest, null, 2));
 console.log(

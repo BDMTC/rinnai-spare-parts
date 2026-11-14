@@ -143,10 +143,7 @@ const manifest = JSON.parse(
   fs.readFileSync("public/assets/process-family-examples/manifest.json", "utf8")
 );
 manifest["ghf-solar"] = saved.slice(0, 20);
-manifest.mixed = [
-  ...(manifest.hotflo || []).slice(0, 10),
-  ...(manifest.cf || []).slice(0, 10),
-];
+delete manifest.mixed;
 fs.writeFileSync(
   "public/assets/process-family-examples/manifest.json",
   JSON.stringify(manifest, null, 2)

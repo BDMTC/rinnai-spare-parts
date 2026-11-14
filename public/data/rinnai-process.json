@@ -580,11 +580,6 @@
                 "label": "GHF / solar",
                 "outcome": "chase_rinnai",
                 "exampleId": "ghf-solar"
-              },
-              {
-                "label": "Not sure / mixed",
-                "outcome": "insufficient",
-                "exampleId": "mixed"
               }
             ]
           },
@@ -1398,7 +1393,7 @@
             "detail": "Need product family, Domestic vs Commercial Use, what failed, and a rough age (or install / manufacture date) before picking Charge Type. Use the tables above once those are known."
           }
         },
-        "examplesNote": "Product family examples — Rinnai AU catalogue shots + Bible unit photos. Mixed = labeled tank+CF combo (desk invent)."
+        "examplesNote": "Product family examples — Rinnai AU catalogue shots + Bible unit photos. Checker family chips = real warranty-table families only."
       }
     },
     {

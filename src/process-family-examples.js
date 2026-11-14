@@ -1,6 +1,7 @@
 /**
  * Warranty-checker family example packs (Basic + Detailed).
- * Each ⓘ opens one family cover-flow (~20 offline shots). Next/Prev/drag stay inside that family.
+ * Each ⓘ opens one family cover-flow. Next/Prev/drag stay inside that family.
+ * Packs match real warranty-table families only (no Mixed / not-sure invent).
  */
 import { publicUrl } from "./boot-data.js";
 import manifest from "../public/assets/process-family-examples/manifest.json";
@@ -69,14 +70,6 @@ export const PROCESS_FAMILY_EXAMPLE_PACKS = [
     attribution:
       "Rinnai AU catalogue + Bible unit shot · offline in public/assets/process-family-examples/ghf-solar/",
   },
-  {
-    id: "mixed",
-    title: "Mixed system",
-    caption:
-      "Desk invent — storage tank + continuous-flow shots mixed (tank then CF). Beau to correct if the office uses a different mixed pattern.",
-    attribution:
-      "Composite gallery · Hotflo + Infinity catalogue shots (see SOURCES.md)",
-  },
 ];
 
 /**
@@ -96,7 +89,7 @@ function exampleFileUrl(relPath) {
 }
 
 /**
- * Pages for one family only (~20 images). Next/Prev stay inside this list.
+ * Pages for one family only. Next/Prev stay inside this list.
  * @param {FamilyExamplePack} pack
  * @returns {FamilyExamplePage[]}
  */
@@ -106,7 +99,8 @@ export function familyExamplePages(pack) {
     .map((row) => {
       const file = String(row?.file || "");
       if (!file) return null;
-      const label = file.split("/").pop()?.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ") || pack.title;
+      const label =
+        file.split("/").pop()?.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ") || pack.title;
       return {
         kind: "image",
         src: exampleFileUrl(file),
