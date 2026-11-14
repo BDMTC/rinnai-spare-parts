@@ -111,7 +111,7 @@ WARRANTY_TOPIC = {
         },
         {
             "n": 5,
-            "text": "Gate 5 — What actually failed?: Clear Rinnai factory part fault → likely warranty path (still need Rinnai authorisation before promising free work). Site/external (someone else’s valve, gas, power, frost exclusion) → customer pays. If it is grey or disputed, stop guessing: use the grey card — escalate to your manager, or call Rinnai on 1300 555 545, relay the path summary, log the case #, and offload. Do not open a PDF to invent cover. Website “register product” is not a fault claim — faults go Book a Service / assessment.",
+            "text": "Gate 5 — What actually failed?: Clear Rinnai factory part fault → Next action matches the tool (authorise, then Charge Type = Warranty). Site/external → customer pays. Grey/disputed → same next action as the grey card: manager first outside Mon–Fri 8:00–17:00 AEST; manager or Rinnai 1300 555 545 in hours; copy path; tick checklist; log case # / Covered vs Excluded; offload. Do not open a PDF. Website “register product” is not a fault claim — faults go Book a Service / assessment.",
         },
     ],
     "tables": [
@@ -265,7 +265,7 @@ WARRANTY_TOPIC = {
     ],
     "checker": {
         "heading": "This quick tool can help you assess - Answer the following questions.",
-        "disclaimer": "For new desk staff — this tool holds your hand. It is not Rinnai’s final say. If the card goes grey, call your manager or Rinnai 1300 555 545 (do not open a PDF). Only set Charge Type = Warranty after Rinnai authorises.",
+        "disclaimer": "For new desk staff — same tool on Basic and Detailed. Not Rinnai’s final say. Grey card: manager first outside hours; manager or 1300 555 545 in hours (do not open a PDF). Only set Charge Type = Warranty after Rinnai authorises.",
         "startId": "family",
         "questions": {},
         "outcomes": {
@@ -279,11 +279,11 @@ WARRANTY_TOPIC = {
             },
             "chargeable": {
                 "title": "Likely chargeable (customer pays)",
-                "detail": "Next action: treat as customer-paid (age past years, or an exclusion like wrong application / water / non-Rinnai part / frost). Quote the customer. If someone disputes that, escalate to your manager or Rinnai on 1300 555 545 — do not guess from a PDF.",
+                "detail": "Next action: treat as customer-paid. Quote the customer. If someone disputes that, escalate to your manager first — or Rinnai on 1300 555 545 in help-line hours (Mon–Fri 8:00–17:00 AEST). Do not guess from a PDF.",
             },
             "escalate_rinnai": {
                 "title": "Resolution has reached a grey area, here’s the problems.",
-                "detail": "Escalate to your manager, or Rinnai on 1300 555 545. Relay the path below, then log case # / rep / Covered vs Excluded and offload.",
+                "detail": "Manager first outside hours; manager or Rinnai 1300 555 545 in hours. Relay the path, tick the checklist, log case # / Covered vs Excluded, and offload.",
             },
             "insufficient": {
                 "title": "Need more info before you decide",
@@ -294,14 +294,15 @@ WARRANTY_TOPIC = {
         "escalation": {
             "headline": "Resolution has reached a grey area, here’s the problems.",
             "when": "This case may need to be either escalated to your manager, or Rinnai on 1300 555 545 to help reach a determination.",
+            "whenOutsideHours": "Outside help-line hours right now — escalate to your manager first. Call Rinnai on 1300 555 545 Mon–Fri 8:00–17:00 AEST (next open window) if your manager wants an OEM ruling.",
             "pathLead": "The path taken to reach this outcome was:",
             "offload": "Take the Rinnai warranty case / reference number and offload the case: log case #, rep name, and Covered vs Excluded in the job notes before you proceed.",
             "beforeCall": [
                 "Model (full REU / plate model)",
                 "Serial number",
-                "Install date or proof of purchase (else manufacture date + 2 months)",
-                "Fault codes + tech diagnostic notes",
-                "Site: residential vs commercial, water supply (mains / bore / dam)",
+                "Install date or PoP (else manufacture + 2 months)",
+                "Fault code + tech diagnostic notes",
+                "Site type (resi vs commercial, water supply)",
             ],
             "phone": "1300 555 545",
             "hours": "Mon–Fri 8:00–17:00 AEST",
@@ -873,13 +874,13 @@ def main() -> None:
     for ch in basic.get("chapters") or []:
         if ch.get("id") != "warranty":
             continue
-        ch["blurb"] = "Zero-knowledge: answer the tool; follow the card; grey → manager or 1300."
+        ch["blurb"] = "Zero-knowledge: same quick tool as Detailed — playbook only differs."
         ch["body"] = [
-            "You do not need to know warranty history. Use the quick tool below — tap one answer at a time.",
+            "You do not need to know warranty history. Use the quick tool below — it is the exact same questions and outcomes as Detailed Process → Warranty. Basic only adds this plain-English playbook around it.",
             "Age starts at install date. If install is unknown, use the manufacture date on the metal data plate and add 2 months. Parts years and labour years can differ.",
             "Home vs commercial depends on delivery temperature: gas continuous flow / Demand Duo ≤65°C; Hotflo / heat pump / solar ≤70°C; Efinity ≤60°C. Over that (or bulk HW / building flow-and-return) = commercial.",
-            "The tool ends on a card: labour+parts, parts only, customer pays, need more info, or grey. Grey means stop guessing — escalate to your manager, or call Rinnai on 1300 555 545, read them the path summary, log the case number, and offload. Never send yourself to a PDF.",
-            "Want the year tables too? {{link:detailed:warranty}}Detailed Process → Warranty{{/link}}. If Rinnai later disagrees on the Work Order, follow what Rinnai closes.",
+            "Next actions match the tool cards: labour+parts → authorise then Charge Type Warranty; parts only → quote labour; customer pays → quote (dispute → manager first, or 1300 in hours); need more info → ask tech then Reset; grey → manager first outside hours / manager or 1300 555 545 in hours, copy path, tick checklist, log case #, offload. Never open a PDF to invent cover.",
+            "Tap ⓘ on a family for a worked dataplate example. Year tables: {{link:detailed:warranty}}Detailed Process → Warranty{{/link}}. If Rinnai later disagrees on the Work Order, follow what Rinnai closes.",
         ]
     BASIC.write_text(json.dumps(basic, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
     print(f"updated {BASIC} warranty chapter")

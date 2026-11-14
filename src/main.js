@@ -176,9 +176,75 @@ let processViewMode = "chooser";
  *   outcomeId: string | null,
  *   path: Array<{ prompt: string, answer: string }>,
  *   anim: "" | "in" | "out",
+ *   checklist: Record<string, boolean>,
+ *   caseRef: string,
+ *   caseLogged: boolean,
  * }} */
-let processCheckerState = { topicId: "", nodeId: "", outcomeId: null, path: [], anim: "" };
+let processCheckerState = emptyProcessCheckerState();
 const CHECKER_CARD_FADE_MS = 320;
+
+/** Shared next-step lines (Basic playbook + Detailed SOP + tool outcomes). */
+const WARRANTY_NEXT_STEPS = {
+  labour_parts:
+    "Next action: check model + serial + install (or manufacture + 2 months) on the Asset are correct, then get Rinnai authorisation before you promise a free visit. Only then set Charge Type = Warranty. Remote sites may still pay travel.",
+  parts_only:
+    "Next action: parts may be free; labour probably is not. Tell the customer labour is chargeable unless Rinnai says otherwise in writing. Do not promise a free call-out.",
+  chargeable:
+    "Next action: treat as customer-paid. Quote the customer. If someone disputes that, escalate to your manager first — or Rinnai on 1300 555 545 in help-line hours (Mon–Fri 8:00–17:00 AEST). Do not guess from a PDF.",
+  insufficient:
+    "Next action: get (1) product family, (2) home vs commercial, (3) what failed, (4) rough age — install date, or manufacture date on the plate + 2 months. Ask the tech / customer. Then Reset and run the tool again. Do not set Charge Type yet.",
+};
+
+const GREY_CHECKLIST_ITEMS = [
+  { id: "model", label: "Model (full REU / plate model)" },
+  { id: "serial", label: "Serial number" },
+  { id: "installDate", label: "Install date or PoP (else manufacture + 2 months)" },
+  { id: "faultCode", label: "Fault code + tech diagnostic notes" },
+  { id: "siteType", label: "Site type (resi vs commercial, water supply)" },
+];
+
+function emptyProcessCheckerState() {
+  return {
+    topicId: "",
+    nodeId: "",
+    outcomeId: null,
+    path: [],
+    anim: "",
+    checklist: Object.fromEntries(GREY_CHECKLIST_ITEMS.map((i) => [i.id, false])),
+    caseRef: "",
+    caseLogged: false,
+  };
+}
+
+/**
+ * Soft hours: Rinnai help line Mon–Fri 8:00–17:00 AEST (Australia/Brisbane = no DST).
+ */
+function isRinnaiHelpLineOpenNow(now = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-AU", {
+    timeZone: "Australia/Brisbane",
+    weekday: "short",
+    hour: "numeric",
+    minute: "numeric",
+    hour12: false,
+  }).formatToParts(now);
+  const weekday = parts.find((p) => p.type === "weekday")?.value || "";
+  const hour = Number(parts.find((p) => p.type === "hour")?.value || "0");
+  const minute = Number(parts.find((p) => p.type === "minute")?.value || "0");
+  if (weekday === "Sat" || weekday === "Sun") return false;
+  const mins = hour * 60 + minute;
+  return mins >= 8 * 60 && mins < 17 * 60;
+}
+
+/**
+ * Grey escalate who-to-call copy. Soft default: manager first outside hours.
+ * @param {string} phone
+ */
+function greyEscalateWhoCopy(phone) {
+  if (isRinnaiHelpLineOpenNow()) {
+    return `This case may need to be either escalated to your manager, or Rinnai on ${phone} to help reach a determination.`;
+  }
+  return `Outside help-line hours right now — escalate to your manager first. Call Rinnai on ${phone} Mon–Fri 8:00–17:00 AEST (next open window) if your manager wants an OEM ruling.`;
+}
 /** Active family example pack id + page index (cover-flow stays inside one family). */
 let processExampleFamilyId = "cf";
 let processExamplePageIndex = 0;
@@ -638,24 +704,29 @@ function showProcessChooser() {
 function resetProcessChecker(topic) {
   const startId = topic?.checker?.startId || "";
   processCheckerState = {
+    ...emptyProcessCheckerState(),
     topicId: topic?.id || "",
     nodeId: startId,
-    outcomeId: null,
-    path: [],
-    anim: "",
   };
 }
 
 function ensureProcessCheckerState(topic) {
   const checker = topic?.checker;
   if (!checker?.startId) {
-    processCheckerState = { topicId: "", nodeId: "", outcomeId: null, path: [], anim: "" };
+    processCheckerState = emptyProcessCheckerState();
     return;
   }
   if (processCheckerState.topicId !== topic.id) {
     resetProcessChecker(topic);
   }
   if (!Array.isArray(processCheckerState.path)) processCheckerState.path = [];
+  if (!processCheckerState.checklist || typeof processCheckerState.checklist !== "object") {
+    processCheckerState.checklist = Object.fromEntries(
+      GREY_CHECKLIST_ITEMS.map((i) => [i.id, false])
+    );
+  }
+  if (typeof processCheckerState.caseRef !== "string") processCheckerState.caseRef = "";
+  if (typeof processCheckerState.caseLogged !== "boolean") processCheckerState.caseLogged = false;
 }
 
 /**
@@ -775,18 +846,32 @@ function formatGreyOutcomeCopyText(checker, path) {
   const phone = esc.phone || "1300 555 545";
   const problems = buildGreyProblemStatements(path);
   const pathText = formatCheckerPathSummary(path);
+  const checks = GREY_CHECKLIST_ITEMS.map((item) => {
+    const on = !!processCheckerState.checklist?.[item.id];
+    return `${on ? "[x]" : "[ ]"} ${item.label}`;
+  });
+  const caseLine = processCheckerState.caseLogged
+    ? `Case logged: YES${processCheckerState.caseRef ? ` — ${processCheckerState.caseRef}` : ""}`
+    : processCheckerState.caseRef
+      ? `Case # drafted (not confirmed logged): ${processCheckerState.caseRef}`
+      : "Case # not logged yet";
   return [
     "Resolution has reached a grey area, here’s the problems.",
     ...problems.map((p) => `• ${p}`),
     "",
-    `This case may need to be either escalated to your manager, or Rinnai on ${phone} to help reach a determination.`,
+    greyEscalateWhoCopy(phone),
     "",
     "The path taken to reach this outcome was:",
     pathText,
     "",
+    "Pre-call checklist:",
+    ...checks,
+    caseLine,
+    "",
     "Take the Rinnai warranty case / reference number and offload the case: log case #, rep name, and Covered vs Excluded in the job notes before you proceed.",
     esc.ivr ? `IVR (if calling): ${esc.ivr}` : "",
-    esc.hours ? `Hours: ${esc.hours}` : "",
+    `Hours: ${esc.hours || "Mon–Fri 8:00–17:00 AEST"}`,
+    esc.backupPhone ? `Backup: ${esc.backupPhone}` : "",
     esc.caution || "",
   ]
     .filter((line, i, arr) => !(line === "" && arr[i - 1] === ""))
@@ -805,19 +890,42 @@ function renderEscalateRiderHtml(checker, _out) {
   const path = processCheckerState.path || [];
   const problems = buildGreyProblemStatements(path);
   const pathText = formatCheckerPathSummary(path);
-  const problemsHtml = problems
-    .map((p) => `<li>${escapeHtml(p)}</li>`)
-    .join("");
+  const problemsHtml = problems.map((p) => `<li>${escapeHtml(p)}</li>`).join("");
+  const openNow = isRinnaiHelpLineOpenNow();
+  const checklistHtml = GREY_CHECKLIST_ITEMS.map((item) => {
+    const checked = !!processCheckerState.checklist?.[item.id];
+    return `<label class="process-checker-check">
+      <input type="checkbox" data-checker-check="${escapeHtml(item.id)}" ${checked ? "checked" : ""} />
+      <span>${escapeHtml(item.label)}</span>
+    </label>`;
+  }).join("");
 
   return `
     <div class="process-checker-outcome process-checker-rider" data-outcome="escalate_rinnai">
       <p class="process-checker-outcome-title">Resolution has reached a grey area, here’s the problems.</p>
       <ul class="process-checker-rider-list process-checker-grey-problems">${problemsHtml}</ul>
-      <p class="process-checker-outcome-detail">This case may need to be either escalated to your manager, or Rinnai on <strong>${escapeHtml(phone)}</strong> to help reach a determination.</p>
+      <p class="process-checker-outcome-detail">${escapeHtml(greyEscalateWhoCopy(phone))}</p>
+      <p class="muted process-checker-hours-hint">${
+        openNow
+          ? "Help line is in hours now (Mon–Fri 8:00–17:00 AEST)."
+          : "Help line is closed now — manager first; Rinnai next open Mon–Fri 8:00–17:00 AEST."
+      }</p>
       <div class="process-checker-rider-block">
         <p class="process-checker-rider-label">The path taken to reach this outcome was:</p>
         <pre class="process-checker-path-summary" id="process-checker-path-summary">${escapeHtml(pathText)}</pre>
-        <button type="button" class="cart-action process-checker-copy-path" data-checker-copy-path>Copy for job notes</button>
+        <button type="button" class="cart-action process-checker-copy-path" data-checker-copy-path>Copy path for Salesforce / Rinnai call</button>
+      </div>
+      <div class="process-checker-rider-block">
+        <p class="process-checker-rider-label">Pre-call checklist — tick before you dial</p>
+        <div class="process-checker-checklist">${checklistHtml}</div>
+        <label class="process-checker-case-label" for="process-checker-case-ref">Rinnai case / reference #</label>
+        <input type="text" id="process-checker-case-ref" class="process-checker-case-input" data-checker-case-ref
+          value="${escapeHtml(processCheckerState.caseRef || "")}"
+          placeholder="e.g. case number from Rinnai" autocomplete="off" />
+        <label class="process-checker-check process-checker-case-logged">
+          <input type="checkbox" data-checker-case-logged ${processCheckerState.caseLogged ? "checked" : ""} />
+          <span>I logged the case # (and Covered vs Excluded) in job notes</span>
+        </label>
       </div>
       <div class="process-checker-rider-block">
         <p class="process-checker-rider-label">Offload the case</p>
@@ -955,10 +1063,18 @@ function renderProcessFamilyExampleSlide() {
     })
     .join("");
 
+  const plate = pack.dataplateExample
+    ? `<div class="process-example-dataplate">
+        <p class="process-example-dataplate-label">Worked dataplate example</p>
+        <p class="process-example-dataplate-body">${escapeHtml(pack.dataplateExample)}</p>
+      </div>`
+    : "";
+
   stage.innerHTML = `
     <div class="process-example-slide" data-example-id="${escapeHtml(pack.id)}">
       <h3 class="process-example-slide-title">${escapeHtml(pack.title)}</h3>
       <p class="process-example-slide-caption">${escapeHtml(pack.caption)}</p>
+      ${plate}
       <div class="process-coverflow" aria-roledescription="carousel" aria-label="${escapeHtml(pack.title)} examples">
         <div class="process-coverflow-track" id="process-coverflow-track">${cards}</div>
       </div>
@@ -997,6 +1113,9 @@ function renderProcessCheckerHtml(topic) {
       panelInner = renderEscalateRiderHtml(checker, out);
     } else {
       const pathText = formatCheckerPathSummary(processCheckerState.path || []);
+      const nextStep =
+        WARRANTY_NEXT_STEPS[outcomeId] ||
+        String(out.detail || "");
       const pathBlock =
         Array.isArray(processCheckerState.path) && processCheckerState.path.length
           ? `<div class="process-checker-rider-block">
@@ -1007,7 +1126,7 @@ function renderProcessCheckerHtml(topic) {
       panelInner = `
       <div class="process-checker-outcome" data-outcome="${escapeHtml(outcomeId)}">
         <p class="process-checker-outcome-title">${escapeHtml(out.title || outcomeId)}</p>
-        <p class="process-checker-outcome-detail">${escapeHtml(out.detail || "")}</p>
+        <p class="process-checker-outcome-detail">${escapeHtml(nextStep)}</p>
         ${pathBlock}
       </div>`;
     }
@@ -1113,10 +1232,31 @@ function bindProcessChecker(topic) {
     const btn = body.querySelector("[data-checker-copy-path]");
     try {
       await navigator.clipboard.writeText(blob);
-      if (btn) btn.textContent = "Copied";
+      if (btn) btn.textContent = "Copied — paste into Salesforce / call notes";
     } catch {
       if (btn) btn.textContent = "Copy failed — select path text";
     }
+  });
+
+  body.querySelectorAll("[data-checker-check]").forEach((input) => {
+    input.addEventListener("change", () => {
+      const id = input.getAttribute("data-checker-check") || "";
+      if (!id) return;
+      processCheckerState.checklist = {
+        ...(processCheckerState.checklist || {}),
+        [id]: !!input.checked,
+      };
+    });
+  });
+
+  body.querySelector("[data-checker-case-ref]")?.addEventListener("input", (e) => {
+    const el = /** @type {HTMLInputElement} */ (e.target);
+    processCheckerState.caseRef = String(el?.value || "");
+  });
+
+  body.querySelector("[data-checker-case-logged]")?.addEventListener("change", (e) => {
+    const el = /** @type {HTMLInputElement} */ (e.target);
+    processCheckerState.caseLogged = !!el?.checked;
   });
 
   body.querySelectorAll("[data-checker-choice]").forEach((btn) => {
