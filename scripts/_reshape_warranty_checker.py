@@ -91,7 +91,7 @@ def fail_q(parts: list[tuple[str, str]], *, extra: list[dict] | None = None) -> 
 WARRANTY_TOPIC = {
     "id": "warranty",
     "title": "Warranty periods",
-    "blurb": "Newbie desk aid: answer the quick tool, follow the outcome card. Grey → manager or Rinnai 1300 555 545. Never send yourself to a PDF.",
+    "blurb": "Newbie desk aid: answer the quick tool, follow the outcome card. Grey → manager or Rinnai 1300 555 545.",
     "steps": [
         {
             "n": 1,
@@ -111,7 +111,7 @@ WARRANTY_TOPIC = {
         },
         {
             "n": 5,
-            "text": "Gate 5 — What actually failed?: Clear Rinnai factory part fault → Next action matches the tool (authorise, then Charge Type = Warranty). Site/external → customer pays. Grey/disputed → same next action as the grey card: manager first outside Mon–Fri 8:00–17:00 AEST; manager or Rinnai 1300 555 545 in hours; copy path; tick checklist; log case # / Covered vs Excluded; offload. Do not open a PDF. Website “register product” is not a fault claim — faults go Book a Service / assessment.",
+            "text": "Gate 5 — What actually failed?: Clear Rinnai factory part fault → Next action matches the tool (authorise, then Charge Type = Warranty). Site/external → customer pays. Grey/disputed → same next action as the grey card: manager first outside Mon–Fri 8:00–17:00 AEST; manager or Rinnai 1300 555 545 in hours; copy path; tick checklist; log case # / Covered vs Excluded; offload. Website “register product” is not a fault claim — faults go Book a Service / assessment.",
         },
     ],
     "tables": [
@@ -260,12 +260,12 @@ WARRANTY_TOPIC = {
     "notes": [
         "Built for brand-new desk admins: answer the quick tool; follow the outcome card; grey → manager or 1300 555 545.",
         "Source snapshot: rinnai.com.au/support/warranty ingest 2026-11-14 (Project store docs/rinnai-au-warranty-support-ingest.md).",
-        "GHF / fire / AC leftovers: grey card → call Rinnai. Do not invent cover from a PDF.",
+        "GHF / fire / AC leftovers: grey card → escalate to manager or Rinnai.",
         "Rinnai must authorise warranty work before you promise free labour/parts. Replacement under warranty keeps the original appliance term.",
     ],
     "checker": {
         "heading": "This quick tool can help you assess - Answer the following questions.",
-        "disclaimer": "For new desk staff — same tool on Basic and Detailed. Not Rinnai’s final say. Grey card: manager first outside hours; manager or 1300 555 545 in hours (do not open a PDF). Only set Charge Type = Warranty after Rinnai authorises.",
+        "disclaimer": "For new desk staff — same tool on Basic and Detailed. Not Rinnai’s final say. Grey card: manager first outside hours; manager or 1300 555 545 in hours. Only set Charge Type = Warranty after Rinnai authorises.",
         "startId": "family",
         "questions": {},
         "outcomes": {
@@ -279,7 +279,7 @@ WARRANTY_TOPIC = {
             },
             "chargeable": {
                 "title": "Likely chargeable (customer pays)",
-                "detail": "Next action: treat as customer-paid. Quote the customer. If someone disputes that, escalate to your manager first — or Rinnai on 1300 555 545 in help-line hours (Mon–Fri 8:00–17:00 AEST). Do not guess from a PDF.",
+                "detail": "Next action: treat as customer-paid. Quote the customer. If someone disputes that, escalate to your manager first — or Rinnai on 1300 555 545 in help-line hours (Mon–Fri 8:00–17:00 AEST).",
             },
             "escalate_rinnai": {
                 "title": "Resolution has reached a grey area, here’s the problems.",
@@ -879,7 +879,7 @@ def main() -> None:
             "You do not need to know warranty history. Use the quick tool below — it is the exact same questions and outcomes as Detailed Process → Warranty. Basic only adds this plain-English playbook around it.",
             "Age starts at install date. If install is unknown, use the manufacture date on the metal data plate and add 2 months. Parts years and labour years can differ.",
             "Home vs commercial depends on delivery temperature: gas continuous flow / Demand Duo ≤65°C; Hotflo / heat pump / solar ≤70°C; Efinity ≤60°C. Over that (or bulk HW / building flow-and-return) = commercial.",
-            "Next actions match the tool cards: labour+parts → authorise then Charge Type Warranty; parts only → quote labour; customer pays → quote (dispute → manager first, or 1300 in hours); need more info → ask tech then Reset; grey → manager first outside hours / manager or 1300 555 545 in hours, copy path, tick checklist, log case #, offload. Never open a PDF to invent cover.",
+            "Next actions match the tool cards: labour+parts → authorise then Charge Type Warranty; parts only → quote labour; customer pays → quote (dispute → manager first, or 1300 in hours); need more info → ask tech then Reset; grey → manager first outside hours / manager or 1300 555 545 in hours, copy path, tick checklist, log case #, offload.",
             "Tap ⓘ on a family for a worked dataplate example. Year tables: {{link:detailed:warranty}}Detailed Process → Warranty{{/link}}. If Rinnai later disagrees on the Work Order, follow what Rinnai closes.",
         ]
     BASIC.write_text(json.dumps(basic, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")

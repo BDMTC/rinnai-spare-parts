@@ -190,7 +190,7 @@ const WARRANTY_NEXT_STEPS = {
   parts_only:
     "Next action: parts may be free; labour probably is not. Tell the customer labour is chargeable unless Rinnai says otherwise in writing. Do not promise a free call-out.",
   chargeable:
-    "Next action: treat as customer-paid. Quote the customer. If someone disputes that, escalate to your manager first — or Rinnai on 1300 555 545 in help-line hours (Mon–Fri 8:00–17:00 AEST). Do not guess from a PDF.",
+    "Next action: treat as customer-paid. Quote the customer. If someone disputes that, escalate to your manager first — or Rinnai on 1300 555 545 in help-line hours (Mon–Fri 8:00–17:00 AEST).",
   insufficient:
     "Next action: get (1) product family, (2) home vs commercial, (3) what failed, (4) rough age — install date, or manufacture date on the plate + 2 months. Ask the tech / customer. Then Reset and run the tool again. Do not set Charge Type yet.",
 };
