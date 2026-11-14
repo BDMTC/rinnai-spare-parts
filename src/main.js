@@ -798,7 +798,7 @@ function renderProcessCheckerHtml(topic) {
   return `
     <section class="process-checker" aria-label="Warranty pathway checker">
       <div class="process-checker-head">
-        <h3 class="process-checker-title">${escapeHtml(checker.heading || "Still unsure? — answer the following")}</h3>
+        <h3 class="process-checker-title">${escapeHtml(checker.heading || "Still unsure? - Try answering the following questions.")}</h3>
         <button type="button" class="cart-action process-checker-reset" data-checker-reset>Reset</button>
       </div>
       <div class="process-checker-panel">${panelInner}</div>

@@ -27,14 +27,14 @@ export const PROCESS_FAMILY_EXAMPLE_PACKS = [
     id: "cf",
     title: "Gas continuous flow",
     caption:
-      "Infinity / Enviro, HD / HDC, Builders, Flowmaster — wall-hung gas CF [e.g. Infinity 32, HD200e].",
+      "Infinity / Enviro, HD / HDC, Builders, Flowmaster — wall-hung gas continuous flow [e.g. Infinity 32, HD200e].",
     attribution: "Rinnai AU catalogue shots · offline in public/assets/process-family-examples/cf/",
   },
   {
     id: "accessory",
-    title: "CF accessory",
+    title: "Continuous flow accessory",
     caption:
-      "Controllers, SmartStart, flues, pipe covers — sold with or after a CF unit.",
+      "Controllers, SmartStart, flues, pipe covers — sold with or after a continuous flow unit.",
     attribution:
       "Rinnai AU catalogue shots · offline in public/assets/process-family-examples/accessory/",
   },
@@ -42,7 +42,7 @@ export const PROCESS_FAMILY_EXAMPLE_PACKS = [
     id: "hotflo",
     title: "Hotflo electric storage",
     caption:
-      "Tank-style electric storage [EHFA / EHFD / HFE]. Cylinder vs components have different year bands.",
+      "Tank-style electric storage [EHFA / EHFD / HFE codes]. Cylinder vs components have different year bands.",
     attribution:
       "Rinnai AU catalogue shots · offline in public/assets/process-family-examples/hotflo/",
   },
@@ -56,7 +56,7 @@ export const PROCESS_FAMILY_EXAMPLE_PACKS = [
   },
   {
     id: "efinity",
-    title: "Efinity electric CF",
+    title: "Efinity electric continuous flow",
     caption:
       "Indoor electric continuous flow (3-phase) [Efinity 14 / 19 / 29 kW] — not a storage tank.",
     attribution:
@@ -64,9 +64,9 @@ export const PROCESS_FAMILY_EXAMPLE_PACKS = [
   },
   {
     id: "ghf-solar",
-    title: "GHF / solar",
+    title: "Gas storage / solar",
     caption:
-      "Gas storage (GHF) or solar CF booster / solar cylinder [e.g. Solar 28]. Often needs booklet / Rinnai check.",
+      "Gas storage Hotflo [GHF…] or solar continuous-flow booster / solar cylinder [e.g. Solar 28]. Often needs booklet / Rinnai check.",
     attribution:
       "Rinnai AU catalogue + Bible unit shot · offline in public/assets/process-family-examples/ghf-solar/",
   },

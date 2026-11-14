@@ -21,11 +21,11 @@
       "blurb": "Work Order arrival, plate, notes, submit.",
       "body": [
         "Open the Rinnai partner portal in your browser (bookmark / link from IT — the password is never stored in this Bible).",
-        "Find the Work Order (WO) for this job. A Work Order is Rinnai’s ticket for one visit / one unit [example: an 8-digit Rinnai WO number, not the SA number].",
-        "On the WO, log that someone arrived and that JSA (job safety) was done, if your process asks for it.",
+        "Find the Work Order (WO) for this job. A Work Order is Rinnai’s ticket for one visit / one unit [example: an 8-digit Rinnai Work Order number, not the SA (service appointment) number].",
+        "On the Work Order, log that someone arrived and that JSA (job safety assessment) was done, if your process asks for it.",
         "Enter the unit’s model and serial from the metal data plate on the unit (tech photo if you are not on site). Do not invent a model from memory — see chapter 9 Data plates.",
         "Add completion notes (what was done). Add photos if Rinnai/MTC asks for them.",
-        "Submit the WO for Rinnai to review when the visit is finished."
+        "Submit the Work Order for Rinnai to review when the visit is finished."
       ]
     },
     {
@@ -34,22 +34,22 @@
       "blurb": "Real part codes only — Bible first.",
       "body": [
         "If parts were used or need ordering, you need a real part number [usually 8 digits, e.g. 92099423].",
-        "Look it up in this Spare Parts Bible: Pin 1 (type of system) → Pin 2 (series) → Pin 3 (exact unit) → search. Example series: HD / HDC [HD200, HD28, HDC32].",
-        "If the tech wrote a number on the job sheet, check it in the Bible against that unit before you submit it on the WO.",
+        "Look it up in this Spare Parts Bible: Pin 1 (type of system) → Pin 2 (series) → Pin 3 (exact unit) → search. Example series: HD / HDC continuous flow [e.g. HD200, HD28, HDC32].",
+        "If the tech wrote a number on the job sheet, check it in the Bible against that unit before you submit it on the Work Order.",
         "If stores hold the physical part, confirm the code on the bag/box still matches the Bible result for that unit.",
-        "In the portal WO, open RELATED → Parts and Labour → New. Put the part code into Price Book Entry (same idea as labour codes). Save.",
+        "In the portal Work Order, open RELATED → Parts and Labour → New. Put the part code into Price Book Entry (same idea as labour codes). Save.",
         "Mark whether it is warranty or chargeable (customer pays). Wrong choice = wrong who pays — use chapter 8 Warranty, or switch to Detailed for the full tables and Still unsure? checker.",
         "If the part is not a Rinnai stock part (third-party), use the chargeable / markup rules in chapter 5 Chargeable & PayWay — do not invent a customer price from Bible Net alone.",
-        "If the Bible cannot find a purchaseable part, use Flag problem on the part card (or note on the WO) — do not guess a code."
+        "If the Bible cannot find a purchaseable part, use Flag problem on the part card (or note on the Work Order) — do not guess a code."
       ]
     },
     {
       "id": "labour",
       "title": "4. Labour on the Work Order",
-      "blurb": "Hours and labour codes on the WO.",
+      "blurb": "Hours and labour codes on the Work Order.",
       "body": [
         "Add labour time the tech was on site (hours) using the labour codes listed in Detailed Process → Labour [examples used today: A15 for many domestic-style jobs, CFA for many commercial-style jobs].",
-        "Labour also goes under RELATED → Parts and Labour on the WO."
+        "Labour also goes under RELATED → Parts and Labour on the Work Order."
       ]
     },
     {
@@ -69,8 +69,8 @@
       "blurb": "Accounts job code and payment track.",
       "body": [
         "Exo is MTC’s accounts system. Invoice Rinnai using job code RSW (Rinnai Service Work) unless Detailed Process lists a different current code.",
-        "Match labour and parts to what you entered on the portal WO.",
-        "Track payment on the RCTI / payment tracker path written in Detailed Process (keep the path current in Process — do not rely on memory of old year folders).",
+        "Match labour and parts to what you entered on the portal Work Order.",
+        "Track payment on the RCTI (recipient-created tax invoice) / payment tracker path written in Detailed Process (keep the path current in Process — do not rely on memory of old year folders).",
         "Leave the job open in your checklist until Rinnai has paid / closed their side."
       ]
     },
@@ -92,7 +92,7 @@
         "Warranty years depend on the product family [heat exchanger / cylinder / compressor / other parts / labour] and whether the install is domestic or commercial — same box can have different years.",
         "Use Still unsure? below (yes/no questions). It will suggest likely warranty labour+parts, parts only, chargeable, or chase Rinnai through the portal notes path.",
         "For the full year tables by product family, use Change instruction level → Detailed → Warranty.",
-        "That checker is a desk aid — if Rinnai later disagrees, follow what Rinnai closes on the WO."
+        "That checker is a desk aid — if Rinnai later disagrees, follow what Rinnai closes on the Work Order."
       ]
     },
     {
@@ -112,9 +112,9 @@
       "blurb": "Bible + Process first; ask if needed.",
       "body": [
         "First: use this Process desk + the Spare Parts Bible (pins, search, Flag problem). Do not guess.",
-        "No part number: Pin the unit in the Bible and search by what failed [fan, HEX, valve…]. Use Flag problem if nothing purchaseable shows.",
+        "No part number: Pin the unit in the Bible and search by what failed [fan, heat exchanger, valve…]. Use Flag problem if nothing purchaseable shows.",
         "Plate unreadable / two possible units: get a clearer photo of the plate from the tech; do not pick a Pin 3 at random.",
-        "Warranty vs chargeable unclear: open chapter 8 Is it still under warranty? and run Still unsure?, then use the outcome on the WO charge type.",
+        "Warranty vs chargeable unclear: open chapter 8 Is it still under warranty? and run Still unsure?, then use the outcome on the Work Order charge type.",
         "Portal login / password: use IT’s password process (never store passwords in this Bible).",
         "Try the Spare Parts Bible and this Process desk first. Still stuck? Ask your supervisor or manager. For parts lookups or incoming warranties, you can also ask Beau for a second opinion."
       ]

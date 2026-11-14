@@ -11,7 +11,7 @@
       "steps": [
         {
           "n": 1,
-          "text": "Open the Rinnai partner portal and search by the 8-digit Rinnai WO number (not the SA number)."
+          "text": "Open the Rinnai partner portal and search by the 8-digit Rinnai Work Order number (not the SA (service appointment) number)."
         },
         {
           "n": 2,
@@ -19,7 +19,7 @@
         },
         {
           "n": 3,
-          "text": "Arrival and JSA: edit Arrival and JSA, set the attendance date from Prestart/job sheet, and tick JSA Completed."
+          "text": "Arrival and JSA (job safety assessment): edit Arrival and JSA fields, set the attendance date from Prestart/job sheet, and tick JSA Completed."
         },
         {
           "n": 4,
@@ -31,7 +31,7 @@
         },
         {
           "n": 6,
-          "text": "When labour/parts and payment (if any) are done: set Payment Method, Authority No (receipt), Amount Received → Save; advance Status through to Job Completed; run Contractor Review so the WO closes."
+          "text": "When labour/parts and payment (if any) are done: set Payment Method, Authority No (receipt), Amount Received → Save; advance Status through to Job Completed; run Contractor Review so the Work Order closes."
         },
         {
           "n": 7,
@@ -45,16 +45,16 @@
     },
     {
       "id": "parts",
-      "title": "Parts on the WO",
+      "title": "Parts on the Work Order",
       "blurb": "Bible finds the part → portal submits it. Warranty vs chargeable.",
       "steps": [
         {
           "n": 1,
-          "text": "Get clear part numbers from the tech (or stores). Prefer Pin 1 → Pin 2 → Pin 3 in this Bible before you submit anything on the WO."
+          "text": "Get clear part numbers from the tech (or stores). Prefer Pin 1 → Pin 2 → Pin 3 in this Bible before you submit anything on the Work Order."
         },
         {
           "n": 2,
-          "text": "On the Rinnai WO, open RELATED → Parts and Labour → New. Search Price Book Entry by part code (same pattern as labour codes)."
+          "text": "On the Rinnai Work Order, open RELATED → Parts and Labour → New. Search Price Book Entry by part code (same pattern as labour codes)."
         },
         {
           "n": 3,
@@ -100,11 +100,11 @@
         },
         {
           "n": 3,
-          "text": "Upload/save a copy of the signed quote to the Salesforce WO (or keep it where you can produce it immediately if 1stCare asks)."
+          "text": "Upload/save a copy of the signed quote to the Salesforce Work Order (or keep it where you can produce it immediately if 1stCare asks)."
         },
         {
           "n": 4,
-          "text": "Add labour + parts on the WO first so the portal total matches what you collect. Call-out and extra time follow the MTC rate card."
+          "text": "Add labour + parts on the Work Order first so the portal total matches what you collect. Call-out and extra time follow the MTC rate card."
         },
         {
           "n": 5,
@@ -112,11 +112,11 @@
         },
         {
           "n": 6,
-          "text": "Paste the PayWay receipt into the Rinnai WO Payment section and the MTC/RCTI tracking sheet. Email confirmation of payment if asked — that is not a tax invoice (Rinnai sends the tax invoice)."
+          "text": "Paste the PayWay receipt into the Rinnai Work Order Payment section and the MTC/RCTI (recipient-created tax invoice) tracking sheet. Email confirmation of payment if asked — that is not a tax invoice (Rinnai sends the tax invoice)."
         },
         {
           "n": 7,
-          "text": "Refusal to pay (COD after signed quote): call 1stCare 13 43 73 option 3 while still onsite (or admin continues). Note operator name, upload signed quote, complete WO within 24 hours."
+          "text": "Refusal to pay (COD after signed quote): call 1stCare 13 43 73 option 3 while still onsite (or admin continues). Note operator name, upload signed quote, complete Work Order within 24 hours."
         },
         {
           "n": 8,
@@ -130,8 +130,8 @@
     },
     {
       "id": "exo",
-      "title": "Exo → Rinnai (RSW) + RCTI",
-      "blurb": "Invoice Rinnai in Exo, then match RCTI remittance.",
+      "title": "Exo → Rinnai (RSW service work) + RCTI remittance",
+      "blurb": "Invoice Rinnai in Exo, then match the RCTI (recipient-created tax invoice) remittance.",
       "steps": [
         {
           "n": 1,
@@ -139,7 +139,7 @@
         },
         {
           "n": 2,
-          "text": "Use invoice code RSW for Rinnai work. Charge amount comes from the Rinnai portal Payment section. Convert quote → invoice and save (no need to email the invoice off)."
+          "text": "Use invoice code RSW (Rinnai Service Work). Charge amount comes from the Rinnai portal Payment section. Convert quote → invoice and save (no need to email the invoice off)."
         },
         {
           "n": 3,
@@ -147,15 +147,15 @@
         },
         {
           "n": 4,
-          "text": "RCTI: when Rinnai remittance arrives (via Jeff), open the Rinnai RCTI tracker spreadsheet (office Admin/RSW path — outside this Bible)."
+          "text": "When the RCTI (recipient-created tax invoice) remittance arrives (via Jeff), open the Rinnai RCTI tracker spreadsheet (office Admin/RSW path — outside this Bible)."
         },
         {
           "n": 5,
-          "text": "New tab named for the Advice Date; copy headers. Enter Date, Voucher, Remark (Rinnai WO), Payment from the RCTI PDF."
+          "text": "New tab named for the Advice Date; copy headers. Enter Date, Voucher, Remark (Rinnai Work Order), Payment from the RCTI PDF."
         },
         {
           "n": 6,
-          "text": "Match Remark (WO) in Exo → Billing Schedule → paste our invoice number into the tracker. Raise any missing invoices, then return the sheet to Jeff."
+          "text": "Match Remark (Work Order) in Exo → Billing Schedule → paste our invoice number into the tracker. Raise any missing invoices, then return the sheet to Jeff."
         }
       ],
       "notes": [
@@ -174,7 +174,7 @@
         },
         {
           "n": 2,
-          "text": "Create the Asset on the WO first (serial + data-plate model) — same habit as warranty parts."
+          "text": "Create the Asset on the Work Order first (serial + data-plate model) — same habit as warranty parts."
         },
         {
           "n": 3,
@@ -186,7 +186,7 @@
         },
         {
           "n": 5,
-          "text": "Submit for Parts Approval from the WO overflow menu. Advise the customer when ordered; book fit when arrived; arrange site delivery with stores/purchasing if needed."
+          "text": "Submit for Parts Approval from the Work Order overflow menu. Advise the customer when ordered; book fit when arrived; arrange site delivery with stores/purchasing if needed."
         }
       ],
       "notes": [
@@ -196,7 +196,7 @@
     {
       "id": "warranty",
       "title": "Warranty periods",
-      "blurb": "Real HEX / parts / labour years from Cont. Flow, Hotflo, Heat Pump sheets + Warranty info.docx. Confirm booklet before promising cover.",
+      "blurb": "Real heat exchanger / parts / labour years from Continuous Flow, Hotflo, Heat Pump sheets + Warranty info.docx. Confirm booklet before promising cover.",
       "steps": [
         {
           "n": 1,
@@ -208,12 +208,12 @@
         },
         {
           "n": 3,
-          "text": "Read footnotes on the matching row (extended HEX options, dual controllers, solar exclusions, frost, high-temp HD preset). Then set WO Charge Type = Warranty only when the claim fits the table and Asset data (serial, model, install / manufacture date) is correct."
+          "text": "Read footnotes on the matching row (extended heat exchanger options, dual controllers, solar exclusions, frost, high-temperature HD preset). Then set Work Order Charge Type = Warranty only when the claim fits the table and Asset data (serial, model, install / manufacture date) is correct."
         }
       ],
       "tables": [
         {
-          "title": "Gas continuous flow & instantaneous (Cont. Flow sheet)",
+          "title": "Gas continuous flow & instantaneous (Continuous Flow sheet)",
           "headers": [
             "Use",
             "Product group",
@@ -292,11 +292,11 @@
             "(3) Unsuitable for solar HW applications — failure/service in solar install is not covered, except HD models on Rinnai Demand Duo commercial solar boosting, or models converted by Rinnai specifically for Rinnai solar systems.",
             "(5) Flowmaster 10: do not install where temperature stays below 0°C for extended periods. Frost failures are not covered.",
             "(6) HD commercial: drops to 1 year on heat exchanger including parts and labour when pre-set to 85°C or 95°C.",
-            "Warranty info.docx also lists Hotflo 10 Instantaneous at 10 / 3 / 3 (domestic) — treat as the same instantaneous band as Flowmaster 10 unless the current booklet says otherwise. HDC follows the HD row on this Cont. Flow extract."
+            "Warranty info.docx also lists Hotflo 10 Instantaneous at 10 / 3 / 3 (domestic) — treat as the same instantaneous band as Flowmaster 10 unless the current booklet says otherwise. HDC follows the HD row on this Continuous Flow extract."
           ]
         },
         {
-          "title": "CF accessories (Cont. Flow sheet)",
+          "title": "Continuous flow accessories (Continuous Flow sheet)",
           "headers": [
             "Use",
             "Accessory",
@@ -531,7 +531,7 @@
             [
               "Solar cont. flow S20 & S26",
               "3 years parts / 12 years heat exchanger",
-              "3 years (parts and HEX)",
+              "3 years (parts and heat exchanger)",
               "See current solar booklet"
             ],
             [
@@ -541,15 +541,15 @@
               "Ground VE glass 10 yr; roof VE glass 5 yr; stainless 10 yr"
             ]
           ],
-          "footnote": "These DOCX rows are the old office summary — prefer the Cont. Flow / Hotflo / Heat Pump PDF tables above for CF, EHFA/EHFD, HFE and EHPA. Use this block for GHF and solar until a dedicated sheet is filed."
+          "footnote": "These DOCX rows are the old office summary — prefer the Continuous Flow / Hotflo / Heat Pump PDF tables above for continuous flow, EHFA/EHFD, HFE and EHPA. Use this block for gas storage (GHF) and solar until a dedicated sheet is filed."
         }
       ],
       "notes": [
-        "Source kit: Cont. Flow.pdf, Heat Pump.pdf, Hotflo - EFH.pdf, Hotflo - HFE.pdf, Warranty info.docx (MTC PROCESS / Rinnai stuff). No secrets copied.",
-        "Never invent cover from memory. If the claim is borderline (solar boosting, high-temp commercial HD, frost, extended HEX option not registered), check the current Rinnai warranty booklet before approving Warranty charge-type."
+        "Source kit: Continuous Flow.pdf, Heat Pump.pdf, Hotflo - EFH.pdf, Hotflo - HFE.pdf, Warranty info.docx (MTC PROCESS / Rinnai stuff). No secrets copied.",
+        "Never invent cover from memory. If the claim is borderline (solar boosting, high-temperature commercial HD, frost, extended heat exchanger option not registered), check the current Rinnai warranty booklet before approving Warranty charge-type."
       ],
       "checker": {
-        "heading": "Still unsure? — answer the following",
+        "heading": "Still unsure? - Try answering the following questions.",
         "disclaimer": "Desk aid only — not legal advice or Rinnai’s final say. Confirm against the tables above and the current booklet before setting Charge Type.",
         "startId": "family",
         "questions": {
@@ -557,27 +557,27 @@
             "prompt": "Which product family?",
             "choices": [
               {
-                "label": "Gas CF / Infinity / HD",
+                "label": "Gas continuous flow [Infinity / HD]",
                 "next": "cf_solar",
                 "exampleId": "cf"
               },
               {
-                "label": "CF accessory",
+                "label": "Continuous flow accessory",
                 "next": "acc_use",
                 "exampleId": "accessory"
               },
               {
-                "label": "Hotflo storage",
+                "label": "Hotflo electric storage",
                 "next": "hotflo_size",
                 "exampleId": "hotflo"
               },
               {
-                "label": "Heat pump EHPA",
+                "label": "Heat pump Enviroflo [EHPA]",
                 "next": "hp_use",
                 "exampleId": "heat-pump"
               },
               {
-                "label": "GHF / solar",
+                "label": "Gas storage / solar [GHF]",
                 "outcome": "chase_rinnai",
                 "exampleId": "ghf-solar"
               }
@@ -587,7 +587,7 @@
             "prompt": "Is this on a solar hot-water install?",
             "choices": [
               {
-                "label": "No — gas CF",
+                "label": "No — gas continuous flow",
                 "next": "cf_use"
               },
               {
@@ -618,7 +618,7 @@
             ]
           },
           "cf_dom_group": {
-            "prompt": "Which domestic CF group?",
+            "prompt": "Which domestic continuous flow group?",
             "choices": [
               {
                 "label": "Infinity / Enviro",
@@ -629,7 +629,7 @@
                 "next": "cf_dom_bld_fail"
               },
               {
-                "label": "HD / HDC",
+                "label": "HD / HDC [e.g. HD200e]",
                 "next": "cf_dom_hd_fail"
               },
               {
@@ -656,7 +656,7 @@
             ]
           },
           "cf_dom_inf_hex_age": {
-            "prompt": "Roughly how old is the unit? (Infinity / Enviro HEX — table: parts 12 yr, labour 3 yr)",
+            "prompt": "Roughly how old is the unit? (Infinity / Enviro heat exchanger — table: parts 12 yr, labour 3 yr)",
             "choices": [
               {
                 "label": "≤3 yr labour+parts",
@@ -715,7 +715,7 @@
             ]
           },
           "cf_dom_bld_hex_age": {
-            "prompt": "Roughly how old? (Builders HEX — table: parts 10 yr, labour 3 yr)",
+            "prompt": "Roughly how old? (Builders heat exchanger — table: parts 10 yr, labour 3 yr)",
             "choices": [
               {
                 "label": "≤3 yr labour+parts",
@@ -770,7 +770,7 @@
             ]
           },
           "cf_dom_hd_hex_age": {
-            "prompt": "Roughly how old? (HD domestic HEX — table: parts 12 yr, labour 5 yr)",
+            "prompt": "Roughly how old? (HD domestic heat exchanger — table: parts 12 yr, labour 5 yr)",
             "choices": [
               {
                 "label": "≤5 yr labour+parts",
@@ -791,7 +791,7 @@
             ]
           },
           "cf_dom_hd_other_age": {
-            "prompt": "Roughly how old? (HD domestic other — table: 5 yr parts + labour)",
+            "prompt": "Roughly how old? (HD domestic other parts — table: 5 yr parts + labour)",
             "choices": [
               {
                 "label": "≤5 years",
@@ -811,7 +811,7 @@
             "prompt": "What failed? (also: frost / below-0°C installs are not covered)",
             "choices": [
               {
-                "label": "HEX — not frost",
+                "label": "Heat exchanger — not frost",
                 "next": "cf_dom_fm_hex_age"
               },
               {
@@ -829,7 +829,7 @@
             ]
           },
           "cf_dom_fm_hex_age": {
-            "prompt": "Roughly how old? (Flowmaster 10 HEX — table: parts 10 yr, labour 3 yr)",
+            "prompt": "Roughly how old? (Flowmaster 10 heat exchanger — table: parts 10 yr, labour 3 yr)",
             "choices": [
               {
                 "label": "≤3 yr labour+parts",
@@ -867,14 +867,14 @@
             ]
           },
           "cf_comm_group": {
-            "prompt": "Which commercial CF group?",
+            "prompt": "Which commercial continuous flow group?",
             "choices": [
               {
                 "label": "Infinity / Flowmaster",
                 "next": "cf_comm_inf_age"
               },
               {
-                "label": "HD / HDC",
+                "label": "HD / HDC [e.g. HD200e]",
                 "next": "cf_comm_hd_temp"
               }
             ]
@@ -897,7 +897,7 @@
             ]
           },
           "cf_comm_hd_temp": {
-            "prompt": "Is the HD pre-set to 85°C or 95°C? (footnote drops cover to 1 yr)",
+            "prompt": "Is the HD unit pre-set to 85°C or 95°C? (footnote drops cover to 1 year)",
             "choices": [
               {
                 "label": "Normal preset",
@@ -931,7 +931,7 @@
             ]
           },
           "cf_comm_hd_hex_age": {
-            "prompt": "Roughly how old? (HD commercial HEX — table: parts 5 yr, labour 3 yr)",
+            "prompt": "Roughly how old? (HD commercial heat exchanger — table: parts 5 yr, labour 3 yr)",
             "choices": [
               {
                 "label": "≤3 yr labour+parts",
@@ -952,7 +952,7 @@
             ]
           },
           "cf_comm_hd_other_age": {
-            "prompt": "Roughly how old? (HD commercial other — table: 3 yr parts + labour)",
+            "prompt": "Roughly how old? (HD commercial other parts — table: 3 yr parts + labour)",
             "choices": [
               {
                 "label": "≤3 years",
@@ -969,7 +969,7 @@
             ]
           },
           "cf_comm_hd_hi_age": {
-            "prompt": "Roughly how old? (HD high-temp — table drops to 1 yr parts + labour)",
+            "prompt": "Roughly how old? (HD high-temperature preset — table drops to 1 year parts + labour)",
             "choices": [
               {
                 "label": "≤1 year",
@@ -1075,7 +1075,7 @@
             ]
           },
           "acc_comm_age": {
-            "prompt": "Roughly how old? (all commercial CF accessories — table: 1 yr parts + labour)",
+            "prompt": "Roughly how old? (all commercial continuous flow accessories — table: 1 year parts + labour)",
             "choices": [
               {
                 "label": "≤1 year",
@@ -1095,15 +1095,15 @@
             "prompt": "Which Hotflo size / line?",
             "choices": [
               {
-                "label": "EHFA / EHFD",
+                "label": "Hotflo EHFA / EHFD [tank]",
                 "next": "hotflo_use"
               },
               {
-                "label": "HFE 80–400 L",
+                "label": "Hotflo HFE 80–400 L",
                 "next": "hotflo_use"
               },
               {
-                "label": "HFE 25 / 50 L",
+                "label": "Hotflo HFE 25 / 50 L",
                 "next": "hotflo_small_use"
               },
               {
@@ -1219,7 +1219,7 @@
             ]
           },
           "hotflo_small_cyl_age": {
-            "prompt": "Roughly how old? (HFE 25/50 domestic cylinder — parts 7 yr, labour 3 yr)",
+            "prompt": "Roughly how old? (Hotflo HFE 25/50 L domestic cylinder — parts 7 yr, labour 3 yr)",
             "choices": [
               {
                 "label": "≤3 yr labour+parts",
@@ -1295,7 +1295,7 @@
             ]
           },
           "hp_dom_cyl_age": {
-            "prompt": "Roughly how old? (EHPA domestic cylinder — parts 5 yr, labour 3 yr)",
+            "prompt": "Roughly how old? (Enviroflo EHPA domestic cylinder — parts 5 yr, labour 3 yr)",
             "choices": [
               {
                 "label": "≤3 yr labour+parts",
@@ -1316,7 +1316,7 @@
             ]
           },
           "hp_dom_comp_age": {
-            "prompt": "Roughly how old? (EHPA domestic compressor — parts 3 yr, labour 1 yr)",
+            "prompt": "Roughly how old? (Enviroflo EHPA domestic compressor — parts 3 yr, labour 1 yr)",
             "choices": [
               {
                 "label": "≤1 yr labour+parts",
@@ -1337,7 +1337,7 @@
             ]
           },
           "hp_dom_other_age": {
-            "prompt": "Roughly how old? (EHPA other components — table: 1 yr parts + labour)",
+            "prompt": "Roughly how old? (Enviroflo EHPA other components — table: 1 year parts + labour)",
             "choices": [
               {
                 "label": "≤1 year",
@@ -1354,7 +1354,7 @@
             ]
           },
           "hp_comm_age": {
-            "prompt": "Roughly how old? (commercial EHPA — table: 1 yr parts + labour across cylinder / compressor / components)",
+            "prompt": "Roughly how old? (commercial Enviroflo EHPA — table: 1 year parts + labour across cylinder / compressor / components)",
             "choices": [
               {
                 "label": "≤1 year",
@@ -1386,7 +1386,7 @@
           },
           "chase_rinnai": {
             "title": "Chase Rinnai / check booklet",
-            "detail": "Borderline path (solar exclusion, extended HEX option, dual controllers, frost, high-temp HD, GHF/solar summary rows). Do not invent cover — check the current Rinnai warranty booklet or ask Rinnai before Warranty charge-type."
+            "detail": "Borderline path (solar exclusion, extended heat exchanger option, dual controllers, frost, high-temperature HD, gas storage (GHF) / solar summary rows). Do not invent cover — check the current Rinnai warranty booklet or ask Rinnai before Warranty charge-type."
           },
           "insufficient": {
             "title": "Insufficient info",
