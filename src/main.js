@@ -589,6 +589,40 @@ function setProcessLevel(level) {
   renderProcessDesk();
 }
 
+/**
+ * Open Detailed Process on a topic (e.g. from Basic hotlinks).
+ * @param {string} topicId
+ */
+function gotoProcessDetailedTopic(topicId) {
+  const id = String(topicId || "").trim();
+  if (!id) return;
+  processViewMode = "detailed";
+  processTopicId = id;
+  renderProcessDesk();
+}
+
+/**
+ * Escape Basic body copy, turning {{link:detailed:fg}}Label{{/link}} into hotlinks.
+ * @param {string} text
+ */
+function formatProcessBasicPara(text) {
+  const raw = String(text || "");
+  const re = /\{\{link:(detailed|basic):([a-z0-9-]+)\}\}([\s\S]*?)\{\{\/link\}\}/gi;
+  let out = "";
+  let last = 0;
+  let m;
+  while ((m = re.exec(raw))) {
+    out += escapeHtml(raw.slice(last, m.index));
+    const level = m[1].toLowerCase();
+    const targetId = m[2];
+    const label = m[3];
+    out += `<button type="button" class="process-inline-link" data-process-goto-level="${escapeHtml(level)}" data-process-goto-id="${escapeHtml(targetId)}">${escapeHtml(label)}</button>`;
+    last = m.index + m[0].length;
+  }
+  out += escapeHtml(raw.slice(last));
+  return out;
+}
+
 function showProcessChooser() {
   processViewMode = "chooser";
   renderProcessDesk();
@@ -966,7 +1000,7 @@ function renderProcessBasicBody() {
   const paras = Array.isArray(current.body) ? current.body : [];
   const bodyHtml = paras.length
     ? `<div class="process-basic-body">${paras
-        .map((p) => `<p class="process-basic-para">${escapeHtml(p)}</p>`)
+        .map((p) => `<p class="process-basic-para">${formatProcessBasicPara(p)}</p>`)
         .join("")}</div>`
     : `<p class="process-empty muted">No copy for this chapter.</p>`;
 
@@ -995,6 +1029,20 @@ function renderProcessBasicBody() {
     btn.addEventListener("click", () => {
       processBasicChapterId = btn.getAttribute("data-process-basic-chapter") || "";
       renderProcessDesk();
+    });
+  });
+
+  body.querySelectorAll("[data-process-goto-level]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const level = btn.getAttribute("data-process-goto-level") || "";
+      const id = btn.getAttribute("data-process-goto-id") || "";
+      if (level === "detailed" && id) {
+        gotoProcessDetailedTopic(id);
+      } else if (level === "basic" && id) {
+        processViewMode = "basic";
+        processBasicChapterId = id;
+        renderProcessDesk();
+      }
     });
   });
 

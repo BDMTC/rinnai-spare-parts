@@ -81,7 +81,7 @@
       "body": [
         "Sometimes the unit is dead and Rinnai/MTC replace the whole heater — that is a finished good, not a spare part.",
         "Use the Zone Contractor Hot Water price list (unit/package list) — not the spare-parts Net prices in this Bible.",
-        "Raise a Finished Goods request using the steps in Detailed Process → Finished goods. Confirm the exact model code from the data plate + that price list before ordering."
+        "Raise a Finished Goods request using the steps in {{link:detailed:fg}}Detailed Process → Finished goods{{/link}}. Confirm the exact model code from the data plate + that price list before ordering."
       ]
     },
     {
