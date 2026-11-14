@@ -1,0 +1,3572 @@
+{
+  "version": 1,
+  "meta": {
+    "title": "Zone Contractor Qld HWT finished-goods mock",
+    "effectiveDate": "2026-02-01",
+    "customer": "Zone Contractor Qld",
+    "sourceFile": "Zone Contractor Qld Price List - HWT Effective 01-02-26.xlsx",
+    "sourcePathOffice": "G:\\My Drive\\MTC\\Projects\\MTC PROCESS\\Admin FSL Training\\Zone Contractor Qld Price List - HWT Effective 01-02-26.xlsx",
+    "notes": "Mock for Process Finished-goods lookup only. Not spare-parts Bible pricing. Net = Zone NET INVOICE PRICE (EX GST) after discount. Sibling NG/LPG rows may inherit priced head-row Net."
+  },
+  "families": [
+    {
+      "id": "cf",
+      "label": "Gas continuous flow",
+      "count": 79
+    },
+    {
+      "id": "efinity",
+      "label": "Electric continuous flow",
+      "count": 6
+    },
+    {
+      "id": "storage",
+      "label": "Storage tanks",
+      "count": 69
+    },
+    {
+      "id": "hp-aio",
+      "label": "Heat pump (all-in-one)",
+      "count": 11
+    },
+    {
+      "id": "hp-split",
+      "label": "Heat pump (split)",
+      "count": 22
+    },
+    {
+      "id": "solar",
+      "label": "Solar components",
+      "count": 101
+    },
+    {
+      "id": "commercial",
+      "label": "Commercial / Demand Duo",
+      "count": 299
+    }
+  ],
+  "items": [
+    {
+      "familyId": "cf",
+      "name": "INFINITY Enviro 16  (7.0 Star Equivalent)",
+      "orderCode": "INF16EL50A",
+      "netExGst": 1733.58
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY Enviro 16  (7.0 Star Equivalent)",
+      "orderCode": "INF16EN50A",
+      "netExGst": 1733.58
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY Enviro 16  (7.0 Star Equivalent)",
+      "orderCode": "INF16EL60A",
+      "netExGst": 1733.58
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY Enviro 16  (7.0 Star Equivalent)",
+      "orderCode": "INF16EN60A",
+      "netExGst": 1733.58
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY Enviro 26  (7.0 Star Equivalent)",
+      "orderCode": "INF26EL50A",
+      "netExGst": 2590.97
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY Enviro 26  (7.0 Star Equivalent)",
+      "orderCode": "INF26EN50A",
+      "netExGst": 2590.97
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY Enviro 26  (7.0 Star Equivalent)",
+      "orderCode": "INF26EL60A",
+      "netExGst": 2590.97
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY Enviro 26  (7.0 Star Equivalent)",
+      "orderCode": "INF26EN60A",
+      "netExGst": 2590.97
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY Enviro C32",
+      "orderCode": "INF32E60B",
+      "netExGst": 3650.4
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B12",
+      "orderCode": "INF12L50B",
+      "netExGst": 1295.18
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B12",
+      "orderCode": "INF12N50B",
+      "netExGst": 1295.18
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B12",
+      "orderCode": "INF12L60B",
+      "netExGst": 1295.18
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B12",
+      "orderCode": "INF12N60B",
+      "netExGst": 1295.18
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B16",
+      "orderCode": "INF16L50B",
+      "netExGst": 1171.73
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B16",
+      "orderCode": "INF16N50B",
+      "netExGst": 1171.73
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B16",
+      "orderCode": "INF16L60B",
+      "netExGst": 1171.73
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B16",
+      "orderCode": "INF16N60B",
+      "netExGst": 1171.73
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B20",
+      "orderCode": "INF20L50B",
+      "netExGst": 1200.69
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B20",
+      "orderCode": "INF20N50B",
+      "netExGst": 1200.69
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B20",
+      "orderCode": "INF20L60B",
+      "netExGst": 1200.69
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B20",
+      "orderCode": "INF20N60B",
+      "netExGst": 1200.69
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B26",
+      "orderCode": "INF26L50B",
+      "netExGst": 1392.32
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B26",
+      "orderCode": "INF26N50B",
+      "netExGst": 1392.32
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B26",
+      "orderCode": "INF26L60B",
+      "netExGst": 1392.32
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B26",
+      "orderCode": "INF26N60B",
+      "netExGst": 1392.32
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B26",
+      "orderCode": "INF26L42B",
+      "netExGst": 1494.08
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY B26",
+      "orderCode": "INF26N42B",
+      "netExGst": 1494.08
+    },
+    {
+      "familyId": "cf",
+      "name": "Black 26",
+      "orderCode": "B26N50ABLK",
+      "netExGst": 1392.32
+    },
+    {
+      "familyId": "cf",
+      "name": "Black 26",
+      "orderCode": "B26N60ABLK",
+      "netExGst": 1392.32
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY 28i Internal Model - requires separate flueing",
+      "orderCode": "INF28IL50",
+      "netExGst": 3315.52
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY 28i Internal Model - requires separate flueing",
+      "orderCode": "INF28IN50",
+      "netExGst": 3315.52
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY 28i Internal Model - requires separate flueing",
+      "orderCode": "INF28IL60",
+      "netExGst": 3315.52
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY 28i Internal Model - requires separate flueing",
+      "orderCode": "INF28IN60",
+      "netExGst": 3315.52
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY 32",
+      "orderCode": "INF32L50MA",
+      "netExGst": 3036.64
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY 32",
+      "orderCode": "INF32N50MA",
+      "netExGst": 3036.64
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY 32",
+      "orderCode": "INF32L60MA",
+      "netExGst": 3036.64
+    },
+    {
+      "familyId": "cf",
+      "name": "INFINITY 32",
+      "orderCode": "INF32N60MA",
+      "netExGst": 3036.64
+    },
+    {
+      "familyId": "cf",
+      "name": "Flowmaster 10 RUNOUT",
+      "orderCode": "FM10LA",
+      "netExGst": 1100.05
+    },
+    {
+      "familyId": "cf",
+      "name": "Flowmaster 10 RUNOUT",
+      "orderCode": "FM10NA",
+      "netExGst": 1100.05
+    },
+    {
+      "familyId": "cf",
+      "name": "CONTROLLER (STANDARD) INFINITY",
+      "orderCode": "MC601QA",
+      "netExGst": 179.65
+    },
+    {
+      "familyId": "cf",
+      "name": "CONTROLLER CABLE 25M  (Suits all controller models)",
+      "orderCode": "CFCONCABLE25",
+      "netExGst": 69.54
+    },
+    {
+      "familyId": "cf",
+      "name": "Deluxe Kitchen Water Controller (Suits all models)",
+      "orderCode": "MC145",
+      "netExGst": 252.46
+    },
+    {
+      "familyId": "cf",
+      "name": "Deluxe Bathroom Water Controller  (Suits all models)",
+      "orderCode": "BC145",
+      "netExGst": 252.46
+    },
+    {
+      "familyId": "cf",
+      "name": "Wireless Water Controller  (Suits all models. Requires Transceiver for new applications)",
+      "orderCode": "WWC503",
+      "netExGst": 270.1
+    },
+    {
+      "familyId": "cf",
+      "name": "Wireless Water Transceiver (Suits all models)",
+      "orderCode": "WWT503",
+      "netExGst": 299.43
+    },
+    {
+      "familyId": "cf",
+      "name": "Wireless Starter Kit (Includes Controller & Transceiver)",
+      "orderCode": "KWL503",
+      "netExGst": 503.75
+    },
+    {
+      "familyId": "cf",
+      "name": "Pipe Cover (Suits Infinity B12, B16, B20, B26)",
+      "orderCode": "PC12W",
+      "netExGst": 154.44
+    },
+    {
+      "familyId": "cf",
+      "name": "Pipe Cover (Suits Black B26)",
+      "orderCode": "PC12BLK",
+      "netExGst": 171.6
+    },
+    {
+      "familyId": "cf",
+      "name": "Pipe Cover  (Suits Enviro INF16E-A  and INF26E-A)",
+      "orderCode": "PCD08",
+      "netExGst": 160.28
+    },
+    {
+      "familyId": "cf",
+      "name": "Pipe Cover  (Suits  INF32-MA)",
+      "orderCode": "PCD10",
+      "netExGst": 179.28
+    },
+    {
+      "familyId": "cf",
+      "name": "Fully Recessed Box (Suits INF32 and HD250)",
+      "orderCode": "RBOX02",
+      "netExGst": 383.98
+    },
+    {
+      "familyId": "cf",
+      "name": "Semi Recessed Frame (Used in conjunction with RBOX02 or RBOX05 - Convert to Semi Recess)",
+      "orderCode": "RBOX02F",
+      "netExGst": 162.06
+    },
+    {
+      "familyId": "cf",
+      "name": "Lockable Recessed Box (Suits All B16, B20 & B26)",
+      "orderCode": "RBOX04L",
+      "netExGst": 311.17
+    },
+    {
+      "familyId": "cf",
+      "name": "Lockable Recessed Box  (Suits Infinity B12, B16, B20, B26)",
+      "orderCode": "RBOX04LW",
+      "netExGst": 311.17
+    },
+    {
+      "familyId": "cf",
+      "name": "Lockable Recessed Box  (Suits Black B26)",
+      "orderCode": "RBOX04LBLK",
+      "netExGst": 343.2
+    },
+    {
+      "familyId": "cf",
+      "name": "Access panel for RBOX04L (white)",
+      "orderCode": "RBOX04LCW",
+      "netExGst": 70.57
+    },
+    {
+      "familyId": "cf",
+      "name": "Access panel for RBOX04L (black)",
+      "orderCode": "RBOX04LCBLK",
+      "netExGst": 85.8
+    },
+    {
+      "familyId": "cf",
+      "name": "Recess Box (Frame only)",
+      "orderCode": "RBOX04LF",
+      "netExGst": 45.96
+    },
+    {
+      "familyId": "cf",
+      "name": "Lockable Recessed Box  (Suits Enviro INF16E-A  and INF26E-A)",
+      "orderCode": "RBOX07L",
+      "netExGst": 311.17
+    },
+    {
+      "familyId": "cf",
+      "name": "Smartbox (Complete Assembly) (Suits Infinity B12, B16, B20, B26)",
+      "orderCode": "SBOX",
+      "netExGst": 258.32
+    },
+    {
+      "familyId": "cf",
+      "name": "Smartbox (Frame Only)",
+      "orderCode": "SBOXF",
+      "netExGst": 84.57
+    },
+    {
+      "familyId": "cf",
+      "name": "Roof Mounting Frame (Suits INF12-MA to INF26-MA  and all Builders models)",
+      "orderCode": "CFROOFFRAME",
+      "netExGst": 187.15
+    },
+    {
+      "familyId": "cf",
+      "name": "Security Cage (Suits ALL external models)",
+      "orderCode": "CAGE01A",
+      "netExGst": 367.63
+    },
+    {
+      "familyId": "cf",
+      "name": "Sideways Flue Diverter Extension (To be used with either SFD01,  SFD02 or SFD03)",
+      "orderCode": "SFDE",
+      "netExGst": 93.93
+    },
+    {
+      "familyId": "cf",
+      "name": "Sideways Flue diverter  (Suits  Infinity B26)",
+      "orderCode": "SFD01",
+      "netExGst": 150.3
+    },
+    {
+      "familyId": "cf",
+      "name": "Sideways Flue diverter  (Suits Infinity B12, B16)",
+      "orderCode": "SFD02",
+      "netExGst": 150.3
+    },
+    {
+      "familyId": "cf",
+      "name": "Sideways Flue diverter  (Suits Infinity B20)",
+      "orderCode": "SFD03",
+      "netExGst": 150.3
+    },
+    {
+      "familyId": "cf",
+      "name": "Sideways Flue diverter  (Suits Enviro INF16E-A  and INF26E-A)",
+      "orderCode": "SFD-04",
+      "netExGst": 150.3
+    },
+    {
+      "familyId": "cf",
+      "name": "Sideways Flue diverter  (Suits INF32-MA)",
+      "orderCode": "SFD05",
+      "netExGst": 157.38
+    },
+    {
+      "familyId": "cf",
+      "name": "Security Brackets (Pair)",
+      "orderCode": "SECBKT",
+      "netExGst": 54.01
+    },
+    {
+      "familyId": "cf",
+      "name": "Condensate Pipe Internal Infinity",
+      "orderCode": "FFCPIPE",
+      "netExGst": 19.89
+    },
+    {
+      "familyId": "cf",
+      "name": "Male flue spigot (suits INF28 internal)",
+      "orderCode": "FFMSPIGOT",
+      "netExGst": 66.25
+    },
+    {
+      "familyId": "cf",
+      "name": "Ceiling Ring",
+      "orderCode": "FFWSEAL",
+      "netExGst": 18.84
+    },
+    {
+      "familyId": "cf",
+      "name": "Universal 45/90 Degrees Bend",
+      "orderCode": "FFBEND",
+      "netExGst": 163.96
+    },
+    {
+      "familyId": "cf",
+      "name": "Flue Pipe, 1000 mm long",
+      "orderCode": "FFPIPE1000",
+      "netExGst": 163.96
+    },
+    {
+      "familyId": "cf",
+      "name": "Vertical Flue Terminal",
+      "orderCode": "FFROOFCOWL",
+      "netExGst": 238.17
+    },
+    {
+      "familyId": "cf",
+      "name": "Horizontal Flue Terminal",
+      "orderCode": "FFWALLTERM",
+      "netExGst": 187.21
+    },
+    {
+      "familyId": "cf",
+      "name": "Internal / External Wall Plate",
+      "orderCode": "FFWPLATE",
+      "netExGst": 15.5
+    },
+    {
+      "familyId": "cf",
+      "name": "90 Degree Starter Bend (Horizontal only)",
+      "orderCode": "FFSBEND",
+      "netExGst": 125.19
+    },
+    {
+      "familyId": "efinity",
+      "name": "EFINITY 14KW",
+      "orderCode": "ECF14I50",
+      "netExGst": 1170.0
+    },
+    {
+      "familyId": "efinity",
+      "name": "EFINITY 14KW",
+      "orderCode": "ECF14I60",
+      "netExGst": 1170.0
+    },
+    {
+      "familyId": "efinity",
+      "name": "EFINITY 19KW",
+      "orderCode": "ECF19I50",
+      "netExGst": 1263.6
+    },
+    {
+      "familyId": "efinity",
+      "name": "EFINITY 19KW",
+      "orderCode": "ECF19I60",
+      "netExGst": 1263.6
+    },
+    {
+      "familyId": "efinity",
+      "name": "EFINITY 29KW",
+      "orderCode": "ECF29I50",
+      "netExGst": 1404.0
+    },
+    {
+      "familyId": "efinity",
+      "name": "EFINITY 29KW",
+      "orderCode": "ECF29I60",
+      "netExGst": 1404.0
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel (Plug In)",
+      "orderCode": "EHF25S18P",
+      "netExGst": 468.17
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel (Plug In)",
+      "orderCode": "EHF25S24P",
+      "netExGst": 468.17
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel (Plug In)",
+      "orderCode": "EHF25S24HP",
+      "netExGst": 468.17
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHF25S36",
+      "netExGst": 462.05
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHF25S36H",
+      "netExGst": 462.05
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel (Plug In)",
+      "orderCode": "EHF50S18P",
+      "netExGst": 493.84
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel (Plug In)",
+      "orderCode": "EHF50S24P",
+      "netExGst": 493.84
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel (Plug In)",
+      "orderCode": "EHF50S24HP",
+      "netExGst": 493.84
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHF50S36",
+      "netExGst": 487.72
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHF50S36H",
+      "netExGst": 487.72
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHF80S18",
+      "netExGst": 757.88
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHF80S24",
+      "netExGst": 757.88
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHF80S24H",
+      "netExGst": 757.88
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHF80S36",
+      "netExGst": 757.88
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHF80S36H",
+      "netExGst": 757.88
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHF125S18",
+      "netExGst": 705.91
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHF125S24",
+      "netExGst": 705.91
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHF125S24H",
+      "netExGst": 705.91
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHF125S36",
+      "netExGst": 705.91
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHF125S36H",
+      "netExGst": 705.91
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA160S18",
+      "netExGst": 841.36
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA160S18H",
+      "netExGst": 841.36
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA160S24",
+      "netExGst": 841.36
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA160S24H",
+      "netExGst": 841.36
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA160S36",
+      "netExGst": 841.36
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA160S36H",
+      "netExGst": 841.36
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA160T36",
+      "netExGst": 1002.23
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA160T36H",
+      "netExGst": 1002.23
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFD160S24",
+      "netExGst": 841.36
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFD160S24H",
+      "netExGst": 841.36
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFD160S36",
+      "netExGst": 841.36
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFD160S36H",
+      "netExGst": 841.36
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA250S24",
+      "netExGst": 968.76
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA250S24H",
+      "netExGst": 968.76
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA250S36",
+      "netExGst": 968.76
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA250S36H",
+      "netExGst": 968.76
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA250S48",
+      "netExGst": 968.76
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA250S48H",
+      "netExGst": 968.76
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA250T36",
+      "netExGst": 1073.89
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA250T36H",
+      "netExGst": 1073.89
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA250T48",
+      "netExGst": 1073.89
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA250T48H",
+      "netExGst": 1073.89
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA315S24",
+      "netExGst": 1111.28
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA315S24H",
+      "netExGst": 1111.28
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA315S36",
+      "netExGst": 1111.28
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA315S36H",
+      "netExGst": 1111.28
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA315S48",
+      "netExGst": 1111.28
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA315S48H",
+      "netExGst": 1111.28
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA315T36",
+      "netExGst": 1272.69
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA315T36H",
+      "netExGst": 1272.69
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA315T48",
+      "netExGst": 1272.69
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA315T48H",
+      "netExGst": 1272.69
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA400S36",
+      "netExGst": 1474.13
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA400S36H",
+      "netExGst": 1474.13
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA400S48",
+      "netExGst": 1474.13
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA400S48H",
+      "netExGst": 1474.13
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA400T36",
+      "netExGst": 1590.88
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA400T36H",
+      "netExGst": 1590.88
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA400T48",
+      "netExGst": 1590.88
+    },
+    {
+      "familyId": "storage",
+      "name": "HOTFLO - Vitreous Enamel",
+      "orderCode": "EHFA400T48H",
+      "netExGst": 1590.88
+    },
+    {
+      "familyId": "storage",
+      "name": "Wall Bracket  (Suits 25L, 50L, 80L)",
+      "orderCode": "HFEBKT255080",
+      "netExGst": 45.65
+    },
+    {
+      "familyId": "storage",
+      "name": "4 Star Gas Tank 135 Lt",
+      "orderCode": "GHF4135N",
+      "netExGst": 1166.21
+    },
+    {
+      "familyId": "storage",
+      "name": "4 Star Gas Tank 135 Lt",
+      "orderCode": "GHF4135L",
+      "netExGst": 1166.21
+    },
+    {
+      "familyId": "storage",
+      "name": "4 Star Gas Tank 135 Lt - Hard Water",
+      "orderCode": "GHF4135NH",
+      "netExGst": 1166.21
+    },
+    {
+      "familyId": "storage",
+      "name": "4 Star Gas Tank 135 Lt - Hard Water",
+      "orderCode": "GHF4135LH",
+      "netExGst": 1166.21
+    },
+    {
+      "familyId": "storage",
+      "name": "4 Star Gas Tank 170 Lt",
+      "orderCode": "GHF4170N",
+      "netExGst": 1429.43
+    },
+    {
+      "familyId": "storage",
+      "name": "4 Star Gas Tank 170 Lt",
+      "orderCode": "GHF4170L",
+      "netExGst": 1429.43
+    },
+    {
+      "familyId": "storage",
+      "name": "4 Star Gas Tank 170 Lt - Hard Water",
+      "orderCode": "GHF4170NH",
+      "netExGst": 1429.43
+    },
+    {
+      "familyId": "storage",
+      "name": "4 Star Gas Tank 170 Lt - Hard Water",
+      "orderCode": "GHF4170LH",
+      "netExGst": 1429.43
+    },
+    {
+      "familyId": "hp-aio",
+      "name": "Enviroflo - 300L Vitreous Enamel with element",
+      "orderCode": "EHPA300VM",
+      "netExGst": 3359.2
+    },
+    {
+      "familyId": "hp-aio",
+      "name": "Enviroflo - 300L Vitreous Enamel with element",
+      "orderCode": "EHPA300VMH",
+      "netExGst": 3412.24
+    },
+    {
+      "familyId": "hp-aio",
+      "name": "Enviroflo - 340L Vitreous Enamel with element",
+      "orderCode": "EHPA340VM",
+      "netExGst": 3536.0
+    },
+    {
+      "familyId": "hp-aio",
+      "name": "Enviroflo - 340L Vitreous Enamel with element",
+      "orderCode": "EHPA340VMH",
+      "netExGst": 3589.04
+    },
+    {
+      "familyId": "hp-aio",
+      "name": "Enviroflo - 215L Vitreous Enamel with element 15A",
+      "orderCode": "EHPG215VM",
+      "netExGst": 2636.4
+    },
+    {
+      "familyId": "hp-aio",
+      "name": "Enviroflo - 280L Vitreous Enamel with element 15A",
+      "orderCode": "EHPG280VM",
+      "netExGst": 2906.8
+    },
+    {
+      "familyId": "hp-aio",
+      "name": "Enviroflo - 300L Vitreous Enamel with element 15A - RUN OUT",
+      "orderCode": "EHPG300VM",
+      "netExGst": 3042.0
+    },
+    {
+      "familyId": "hp-aio",
+      "name": "Enviroflo - 180L Vitreous Enamel with element 10A",
+      "orderCode": "EHPG180VM10",
+      "netExGst": 3486.6
+    },
+    {
+      "familyId": "hp-aio",
+      "name": "Enviroflo - 265L Vitreous Enamel with element 10A",
+      "orderCode": "EHPG265VM10",
+      "netExGst": 3884.4
+    },
+    {
+      "familyId": "hp-aio",
+      "name": "Enviroflo - 300L Vitreous Enamel with element 10A",
+      "orderCode": "EHPG300VM10",
+      "netExGst": 4212.0
+    },
+    {
+      "familyId": "hp-aio",
+      "name": "Enviroflo - 180L Vitreous Enamel with element - RUN OUT",
+      "orderCode": "EHPT180VM",
+      "netExGst": 3542.99
+    },
+    {
+      "familyId": "hp-split",
+      "name": "Enviroflo S 7KW- SPLIT ELECTRIC HEAT PUMP",
+      "orderCode": "SHPL70",
+      "netExGst": 3510.0
+    },
+    {
+      "familyId": "hp-split",
+      "name": "Enviroflo S 5kW - SPLIT ELECTRIC HEAT PUMP",
+      "orderCode": "SHPR50",
+      "netExGst": 2808.0
+    },
+    {
+      "familyId": "hp-split",
+      "name": "250L Vitreous Enamel with element",
+      "orderCode": "HPTB250VM24",
+      "netExGst": 1564.06
+    },
+    {
+      "familyId": "hp-split",
+      "name": "250L Vitreous Enamel with element",
+      "orderCode": "HPTB250VM24H",
+      "netExGst": 1564.06
+    },
+    {
+      "familyId": "hp-split",
+      "name": "315L Vitreous Enamel with element",
+      "orderCode": "HPTB315VM24",
+      "netExGst": 1765.3
+    },
+    {
+      "familyId": "hp-split",
+      "name": "315L Vitreous Enamel with element",
+      "orderCode": "HPTB315VM24H",
+      "netExGst": 1765.3
+    },
+    {
+      "familyId": "hp-split",
+      "name": "400L Vitreous Enamel with element",
+      "orderCode": "HPTB400VM24",
+      "netExGst": 2341.87
+    },
+    {
+      "familyId": "hp-split",
+      "name": "400L Vitreous Enamel with element",
+      "orderCode": "HPTB400VM24H",
+      "netExGst": 2341.87
+    },
+    {
+      "familyId": "hp-split",
+      "name": "250L Vitreous Enamel with element",
+      "orderCode": "HPTS250VM24",
+      "netExGst": 1634.26
+    },
+    {
+      "familyId": "hp-split",
+      "name": "250L Vitreous Enamel with element",
+      "orderCode": "HPTS250VM24H",
+      "netExGst": 1634.26
+    },
+    {
+      "familyId": "hp-split",
+      "name": "315L Vitreous Enamel with element",
+      "orderCode": "HPTS315VM24",
+      "netExGst": 1835.5
+    },
+    {
+      "familyId": "hp-split",
+      "name": "315L Vitreous Enamel with element",
+      "orderCode": "HPTS315VM24H",
+      "netExGst": 1835.5
+    },
+    {
+      "familyId": "hp-split",
+      "name": "SHPL70 + 250L Tank Vitreous Enamel with element",
+      "orderCode": "KSHP250M24L70",
+      "netExGst": 0.1
+    },
+    {
+      "familyId": "hp-split",
+      "name": "SHPL70 + 250L Tank Vitreous Enamel with element  HW",
+      "orderCode": "KSHP250M24L70H",
+      "netExGst": 0.1
+    },
+    {
+      "familyId": "hp-split",
+      "name": "SHPL70 + 315L Tank Vitreous Enamel with element",
+      "orderCode": "KSHP315M24L70",
+      "netExGst": 0.1
+    },
+    {
+      "familyId": "hp-split",
+      "name": "SHPL70 + 315L Tank Vitreous Enamel with element  HW",
+      "orderCode": "KSHP315M24L70H",
+      "netExGst": 0.1
+    },
+    {
+      "familyId": "hp-split",
+      "name": "SHPL70 + 400L Tank Vitreous Enamel with element",
+      "orderCode": "KSHP400M24L70",
+      "netExGst": 0.1
+    },
+    {
+      "familyId": "hp-split",
+      "name": "SHPL70 + 400L Tank Vitreous Enamel with element  HW",
+      "orderCode": "KSHP400M24L70H",
+      "netExGst": 0.1
+    },
+    {
+      "familyId": "hp-split",
+      "name": "SHPR50 + 250L Tank Vitreous Enamel with element",
+      "orderCode": "KSHP250M24R50",
+      "netExGst": 0.1
+    },
+    {
+      "familyId": "hp-split",
+      "name": "SHPR50 + 250L Tank Vitreous Enamel with element  HW",
+      "orderCode": "KSHP250M24R50",
+      "netExGst": 0.1
+    },
+    {
+      "familyId": "hp-split",
+      "name": "SHPR50 + 315L Tank Vitreous Enamel with element",
+      "orderCode": "KSHP315M24R50",
+      "netExGst": 0.1
+    },
+    {
+      "familyId": "hp-split",
+      "name": "SHPR50 + 315L Tank Vitreous Enamel with element  HW",
+      "orderCode": "KSHP315M24R50",
+      "netExGst": 0.1
+    },
+    {
+      "familyId": "solar",
+      "name": "Enduro SP200B (1960mm x 1050mm x 80mm)",
+      "orderCode": "SP200B",
+      "netExGst": 1422.55
+    },
+    {
+      "familyId": "solar",
+      "name": "Enduro XL SP250B (1960mm x 1270mm x 80mm)",
+      "orderCode": "SP250B",
+      "netExGst": 1950.9
+    },
+    {
+      "familyId": "solar",
+      "name": "20 Tube R5 type collector assembly (complete with header, bottom rail and support frame)",
+      "orderCode": "KEVT20A",
+      "netExGst": 3088.96
+    },
+    {
+      "familyId": "solar",
+      "name": "25 Tube R5 type collector assembly (complete with header, bottom rail and support frame)",
+      "orderCode": "KEVT25A",
+      "netExGst": 3698.61
+    },
+    {
+      "familyId": "solar",
+      "name": "30 Tube R5 type collector assembly (complete with header, bottom rail and support frame)",
+      "orderCode": "KEVT30A",
+      "netExGst": 4308.3
+    },
+    {
+      "familyId": "solar",
+      "name": "1 Collector (Enduro SP200B, Enduro XL SP250B and Excelsior SP200BEX)",
+      "orderCode": "BIKSP1COLL",
+      "netExGst": 276.22
+    },
+    {
+      "familyId": "solar",
+      "name": "2 Collector (Enduro SP200B and Excelsior SP200BEX)",
+      "orderCode": "BIKSP2COLL",
+      "netExGst": 292.0
+    },
+    {
+      "familyId": "solar",
+      "name": "2 Collector (Enduro XL SP250B only)",
+      "orderCode": "BIKSP2COLLXL",
+      "netExGst": 339.35
+    },
+    {
+      "familyId": "solar",
+      "name": "3 Collector (Enduro SP200B and Excelsior SP200BEX)",
+      "orderCode": "BIKSP3COLL",
+      "netExGst": 370.92
+    },
+    {
+      "familyId": "solar",
+      "name": "1 Collector - 200 Litre Vitreous Tank (Enduro SP200B and Excelsior SP200BEX)",
+      "orderCode": "BIKV200CCT01C",
+      "netExGst": 520.25
+    },
+    {
+      "familyId": "solar",
+      "name": "2 Collector - 200 Litre Vitreous Tank (Enduro SP200B and Excelsior SP200BEX)",
+      "orderCode": "BIKV200CCT02C",
+      "netExGst": 631.38
+    },
+    {
+      "familyId": "solar",
+      "name": "2 Collectors - 330 Litre Vitreous Tank (Enduro SP200B and Excelsior SP200BEX)",
+      "orderCode": "BIKV330CCT02C",
+      "netExGst": 577.14
+    },
+    {
+      "familyId": "solar",
+      "name": "3 Collectors - 330 litre Vitreous Tank (Enduro SP200B and Excelsior SP200BEX)",
+      "orderCode": "BIKV330CCT03C",
+      "netExGst": 661.45
+    },
+    {
+      "familyId": "solar",
+      "name": "1 Collector - 200 Litre Vitreous Tank low profiled roof mounted kit inc pump assy (Enduro SP250B only)",
+      "orderCode": "BIKV200CCP1XL",
+      "netExGst": 1678.38
+    },
+    {
+      "familyId": "solar",
+      "name": "Pitched roof installation rails for a 20 tube system",
+      "orderCode": "EVTPIT20R5A",
+      "netExGst": 190.76
+    },
+    {
+      "familyId": "solar",
+      "name": "Pitched roof installation rails for a 25 tube system",
+      "orderCode": "EVTPIT25R5A",
+      "netExGst": 196.72
+    },
+    {
+      "familyId": "solar",
+      "name": "Pitched roof installation rails for a 30 tube system",
+      "orderCode": "EVTPIT30R5A",
+      "netExGst": 202.67
+    },
+    {
+      "familyId": "solar",
+      "name": "Plumbing fittings kit complete with hot sensor lead and air bleed valve",
+      "orderCode": "IKEVTR5A",
+      "netExGst": 138.21
+    },
+    {
+      "familyId": "solar",
+      "name": "Tiled roof installation kit complete with under tile mounting hooks - Stainless Steel",
+      "orderCode": "EVTRFBRKTSS",
+      "netExGst": 118.76
+    },
+    {
+      "familyId": "solar",
+      "name": "S20 - 20 Litre External - RUN OUT",
+      "orderCode": "S20L70",
+      "netExGst": 1365.63
+    },
+    {
+      "familyId": "solar",
+      "name": "S20 - 20 Litre External - RUN OUT",
+      "orderCode": "S20N70",
+      "netExGst": 1365.63
+    },
+    {
+      "familyId": "solar",
+      "name": "S26 - 26 Litre External - RUN OUT",
+      "orderCode": "S26L70",
+      "netExGst": 1967.19
+    },
+    {
+      "familyId": "solar",
+      "name": "S26 - 26 Litre External - RUN OUT",
+      "orderCode": "S26N70",
+      "netExGst": 1967.19
+    },
+    {
+      "familyId": "solar",
+      "name": "Infinity S20 - 20 Litre External - NEW",
+      "orderCode": "S20L70B",
+      "netExGst": 1365.63
+    },
+    {
+      "familyId": "solar",
+      "name": "Infinity S20 - 20 Litre External - NEW",
+      "orderCode": "S20N70B",
+      "netExGst": 1365.63
+    },
+    {
+      "familyId": "solar",
+      "name": "Infinity S26 - 26 Litre External - NEW",
+      "orderCode": "S26L70B",
+      "netExGst": 1967.19
+    },
+    {
+      "familyId": "solar",
+      "name": "Infinity S26 - 26 Litre External - NEW",
+      "orderCode": "S26N70B",
+      "netExGst": 1967.19
+    },
+    {
+      "familyId": "solar",
+      "name": "S28i - 28 Litre Internal (Made to Order#)",
+      "orderCode": "S28IL70",
+      "netExGst": 3603.43
+    },
+    {
+      "familyId": "solar",
+      "name": "S28i - 28 Litre Internal (Made to Order#)",
+      "orderCode": "S28IN70",
+      "netExGst": 3603.43
+    },
+    {
+      "familyId": "solar",
+      "name": "S32 - 32 Litre External (Made to Order#)",
+      "orderCode": "S32L70AM",
+      "netExGst": 3235.27
+    },
+    {
+      "familyId": "solar",
+      "name": "S32 - 32 Litre External (Made to Order#)",
+      "orderCode": "S32N70AM",
+      "netExGst": 3235.27
+    },
+    {
+      "familyId": "solar",
+      "name": "175 Litre - Vitreous Enamel",
+      "orderCode": "SG175",
+      "netExGst": 1438.81
+    },
+    {
+      "familyId": "solar",
+      "name": "215 Litre - Vitreous Enamel",
+      "orderCode": "SG215A",
+      "netExGst": 1552.61
+    },
+    {
+      "familyId": "solar",
+      "name": "270 Litre  - Vitreous Enamel",
+      "orderCode": "SG270A",
+      "netExGst": 1674.53
+    },
+    {
+      "familyId": "solar",
+      "name": "320 Litre  - Vitreous Enamel",
+      "orderCode": "SG320A",
+      "netExGst": 2032.24
+    },
+    {
+      "familyId": "solar",
+      "name": "200 Litre 3.6 kW - Vitreous Enamel - RUN OUT",
+      "orderCode": "SE200AB36",
+      "netExGst": 1506.29
+    },
+    {
+      "familyId": "solar",
+      "name": "250 Litre 3.6kW slim line - Vitreous Enamel",
+      "orderCode": "SE250AB36",
+      "netExGst": 1695.57
+    },
+    {
+      "familyId": "solar",
+      "name": "315 Litre 3.6 kW slim line - Vitreous Enamel",
+      "orderCode": "SE315AB36",
+      "netExGst": 1837.54
+    },
+    {
+      "familyId": "solar",
+      "name": "250 Litre 3.6kW slim line - Vitreous Enamel",
+      "orderCode": "SE250AM36",
+      "netExGst": 1695.57
+    },
+    {
+      "familyId": "solar",
+      "name": "315 Litre 3.6kW slim line - Vitreous Enamel",
+      "orderCode": "SE315AM36",
+      "netExGst": 1837.54
+    },
+    {
+      "familyId": "solar",
+      "name": "CC200 Litre Gas Vitreous Enamel (Dune body with black end caps) - RUN OUT",
+      "orderCode": "CCSG20001",
+      "netExGst": 2146.01
+    },
+    {
+      "familyId": "solar",
+      "name": "CC330 Litre Gas Vitreous Enamel (Dune body with black end caps) - RUN OUT",
+      "orderCode": "CCSG33001",
+      "netExGst": 2682.51
+    },
+    {
+      "familyId": "solar",
+      "name": "CC200 Litre Gas Vitreous Enamel (Platinum Grey body with black end caps)",
+      "orderCode": "CCSG20011",
+      "netExGst": 2146.01
+    },
+    {
+      "familyId": "solar",
+      "name": "CC330 Litre Gas Vitreous Enamel (Platinum Grey body with black end caps)",
+      "orderCode": "CCSG33011",
+      "netExGst": 2682.51
+    },
+    {
+      "familyId": "solar",
+      "name": "CC200 Litre 2.4 kW Vitreous Enamel (Platinum Grey body with black end caps) - RUN OUT",
+      "orderCode": "CCSE200S2411",
+      "netExGst": 2082.03
+    },
+    {
+      "familyId": "solar",
+      "name": "CC330 Litre 2.4 kW Vitreous Enamel (Platinum Grey body with black end caps)",
+      "orderCode": "CCSE330S2411",
+      "netExGst": 2602.54
+    },
+    {
+      "familyId": "solar",
+      "name": "CC330 Litre 3.6 kW Vitreous Enamel (Platinum Grey body with black end caps)",
+      "orderCode": "CCSE330S3611",
+      "netExGst": 2602.54
+    },
+    {
+      "familyId": "solar",
+      "name": "Pump Kit with Deluxe controller for electric boost systems (Sunmaster Electric Only)",
+      "orderCode": "SEPKITC",
+      "netExGst": 1348.57
+    },
+    {
+      "familyId": "solar",
+      "name": "Universal Pump Kit with standard controller (Pre 2019 Sunmaster Elec & All Prestige Elec and Gas)",
+      "orderCode": "USKIT1C",
+      "netExGst": 1390.01
+    },
+    {
+      "familyId": "solar",
+      "name": "Pump Kit with stepless speed control (Suits SG175/SG215A/SG270A/SG320A)",
+      "orderCode": "SGPKIT2C",
+      "netExGst": 1390.01
+    },
+    {
+      "familyId": "solar",
+      "name": "Excelsior SP200BEX (1960mm x 1050mm x 80mm) - RUN OUT",
+      "orderCode": "SP200BEX",
+      "netExGst": 1585.08
+    },
+    {
+      "familyId": "solar",
+      "name": "20 Tube R5 type collector assembly (complete with header, bottom rail support frame)",
+      "orderCode": "KEVT20A",
+      "netExGst": 3088.96
+    },
+    {
+      "familyId": "solar",
+      "name": "25 Tube R5 type collector assembly (complete with header, bottom rail support frame)",
+      "orderCode": "KEVT25A",
+      "netExGst": 3698.61
+    },
+    {
+      "familyId": "solar",
+      "name": "30 Tube R5 type collector assembly (complete with header, bottom rail support frame)",
+      "orderCode": "KEVT30A",
+      "netExGst": 4308.3
+    },
+    {
+      "familyId": "solar",
+      "name": "180 Litre S/Steel - 1 collector (Excelsior SP200BEX and Enduro SP200B)",
+      "orderCode": "BIKS180CCT01C",
+      "netExGst": 520.25
+    },
+    {
+      "familyId": "solar",
+      "name": "330 Litre S/Steel - 2 collectors (Excelsior SP200BEX and Enduro SP200B)",
+      "orderCode": "BIKS330CCT02C",
+      "netExGst": 577.14
+    },
+    {
+      "familyId": "solar",
+      "name": "Universal close coupled installation kit suits 330 Litre S/Steel - 3 collectors or 180 Litre S/Steel - 2 collectors (Excelsior SP200BEX and Enduro SP200B)",
+      "orderCode": "BIKSUNICCT23C",
+      "netExGst": 609.65
+    },
+    {
+      "familyId": "solar",
+      "name": "Pitched roof installation rails for a 20 tube system",
+      "orderCode": "EVTPIT20R5A",
+      "netExGst": 190.76
+    },
+    {
+      "familyId": "solar",
+      "name": "Pitched roof installation rails for a 25 tube system",
+      "orderCode": "EVTPIT25R5A",
+      "netExGst": 196.72
+    },
+    {
+      "familyId": "solar",
+      "name": "Pitched roof installation rails for a 30 tube system",
+      "orderCode": "EVTPIT30R5A",
+      "netExGst": 202.67
+    },
+    {
+      "familyId": "solar",
+      "name": "Plumbing fittings kit complete with hot sensor lead",
+      "orderCode": "IKEVTR5A",
+      "netExGst": 138.21
+    },
+    {
+      "familyId": "solar",
+      "name": "Tiled roof installation kit complete with under tile mounting hooks - Stainless Steel",
+      "orderCode": "EVTRFBRKTSS",
+      "netExGst": 118.76
+    },
+    {
+      "familyId": "solar",
+      "name": "Universal Pump Kit with standard controller (All Prestige Elec and Gas)",
+      "orderCode": "USKIT1C",
+      "netExGst": 1390.01
+    },
+    {
+      "familyId": "solar",
+      "name": "S20 - 20 Litre External - RUN OUT",
+      "orderCode": "S20L70",
+      "netExGst": 1365.63
+    },
+    {
+      "familyId": "solar",
+      "name": "S20 - 20 Litre External - RUN OUT",
+      "orderCode": "S20N70",
+      "netExGst": 1365.63
+    },
+    {
+      "familyId": "solar",
+      "name": "S26 - 26 Litre External - RUN OUT",
+      "orderCode": "S26L70",
+      "netExGst": 1967.19
+    },
+    {
+      "familyId": "solar",
+      "name": "S26 - 26 Litre External - RUN OUT",
+      "orderCode": "S26N70",
+      "netExGst": 1967.19
+    },
+    {
+      "familyId": "solar",
+      "name": "Infinity S20 - 20 Litre External - NEW",
+      "orderCode": "S20L70B",
+      "netExGst": 1365.63
+    },
+    {
+      "familyId": "solar",
+      "name": "Infinity S20 - 20 Litre External - NEW",
+      "orderCode": "S20N70B",
+      "netExGst": 1365.63
+    },
+    {
+      "familyId": "solar",
+      "name": "Infinity S26 - 26 Litre External - NEW",
+      "orderCode": "S26L70B",
+      "netExGst": 1967.19
+    },
+    {
+      "familyId": "solar",
+      "name": "Infinity S26 - 26 Litre External - NEW",
+      "orderCode": "S26N70B",
+      "netExGst": 1967.19
+    },
+    {
+      "familyId": "solar",
+      "name": "S28i - 28 Litre Internal (Made to Order#)",
+      "orderCode": "S28IL70",
+      "netExGst": 3603.43
+    },
+    {
+      "familyId": "solar",
+      "name": "S28i - 28 Litre Internal (Made to Order#)",
+      "orderCode": "S28IN70",
+      "netExGst": 3603.43
+    },
+    {
+      "familyId": "solar",
+      "name": "S32 - 32 Litre External (Made to Order#)",
+      "orderCode": "S32L70AM",
+      "netExGst": 3235.27
+    },
+    {
+      "familyId": "solar",
+      "name": "S32 - 32 Litre External (Made to Order#)",
+      "orderCode": "S32N70AM",
+      "netExGst": 3235.27
+    },
+    {
+      "familyId": "solar",
+      "name": "250 Litre - Stainless Steel - RUN OUT",
+      "orderCode": "SP25000G01A",
+      "netExGst": 3397.84
+    },
+    {
+      "familyId": "solar",
+      "name": "315 Litre - Stainless Steel",
+      "orderCode": "SP31500G01A",
+      "netExGst": 3763.66
+    },
+    {
+      "familyId": "solar",
+      "name": "250 Litre 3.6kW - Stainless Steel - RUN OUT",
+      "orderCode": "SP25036B01A",
+      "netExGst": 3485.04
+    },
+    {
+      "familyId": "solar",
+      "name": "315 Litre 3.6kW - Stainless Steel",
+      "orderCode": "SP31536B01A",
+      "netExGst": 4014.19
+    },
+    {
+      "familyId": "solar",
+      "name": "315 Litre 3.6kW - Stainless Steel",
+      "orderCode": "SP31536M01A",
+      "netExGst": 4014.19
+    },
+    {
+      "familyId": "solar",
+      "name": "180 Litre - Stainless Steel (Platinum Grey body with black end caps) - RUN OUT",
+      "orderCode": "CC18000G11A",
+      "netExGst": 3522.48
+    },
+    {
+      "familyId": "solar",
+      "name": "180 Litre 2.4kW - Stainless Steel (Platinum Grey body with black end caps)",
+      "orderCode": "CC18024B11A",
+      "netExGst": 3730.28
+    },
+    {
+      "familyId": "solar",
+      "name": "330 Litre 2.4kW - Stainless Steel (Platinum Grey body with black end caps)",
+      "orderCode": "CC33024B11A",
+      "netExGst": 4613.56
+    },
+    {
+      "familyId": "solar",
+      "name": "330 Litre 3.6kW - Stainless Steel (Platinum Grey body with black end caps)",
+      "orderCode": "CC33036B11A",
+      "netExGst": 4613.56
+    },
+    {
+      "familyId": "solar",
+      "name": "330 Litre 2.4kW - Stainless Steel (Silver Prestige body with black end caps) - RUN OUT",
+      "orderCode": "CC33024B03A",
+      "netExGst": 4613.56
+    },
+    {
+      "familyId": "solar",
+      "name": "330 Litre 3.6kW - Stainless Steel (Silver Prestige body with black end caps) - RUN OUT",
+      "orderCode": "CC33036B03A",
+      "netExGst": 4613.56
+    },
+    {
+      "familyId": "solar",
+      "name": "200 Litre & 180 litre - 1&2 Collectors (Enduro SP200A, Enduro SP200B & Excelsior SP200BEX)",
+      "orderCode": "RF180CC12A",
+      "netExGst": 497.75
+    },
+    {
+      "familyId": "solar",
+      "name": "330 Litre - 2 Collectors (Enduro SP200A, Enduro SP200B & Excelsior SP200BEX)",
+      "orderCode": "RF330CC02A",
+      "netExGst": 578.75
+    },
+    {
+      "familyId": "solar",
+      "name": "330 Litre SS - 3 Collectors (Enduro SP200A, Enduro SP200B & Excelsior SP200BEX)",
+      "orderCode": "RF330CC03A",
+      "netExGst": 926.01
+    },
+    {
+      "familyId": "solar",
+      "name": "1 Collector (Enduro SP200A, Enduro SP200B, Enduro SP250B & Excelsior SP200BEX)",
+      "orderCode": "33202036",
+      "netExGst": 497.75
+    },
+    {
+      "familyId": "solar",
+      "name": "2 Collectors (Enduro SP200A, Enduro SP200B & Excelsior SP200BEX)",
+      "orderCode": "33202037",
+      "netExGst": 578.75
+    },
+    {
+      "familyId": "solar",
+      "name": "3 Collectors (Enduro SP200A, Enduro SP200B & Excelsior SP200BEX)",
+      "orderCode": "33202038",
+      "netExGst": 926.01
+    },
+    {
+      "familyId": "solar",
+      "name": "200 Litre & 180 Litre - 1 Collector (Enduro SP200B & Excelsior SP200BEX)",
+      "orderCode": "CYCF1B",
+      "netExGst": 374.61
+    },
+    {
+      "familyId": "solar",
+      "name": "330 Litre - 2 Collectors (Enduro SP200B & Excelsior SP200BEX)",
+      "orderCode": "CYCF2B",
+      "netExGst": 449.52
+    },
+    {
+      "familyId": "solar",
+      "name": "CC 180L SS / 200L VE with 1 collector  or Split system with 1 / 2 collectors (Reverse and side orientation)",
+      "orderCode": "33202026",
+      "netExGst": 387.76
+    },
+    {
+      "familyId": "solar",
+      "name": "Split system with 3 collectors (Reverse orientation only)",
+      "orderCode": "33202027",
+      "netExGst": 572.95
+    },
+    {
+      "familyId": "solar",
+      "name": "Anti vandalism guard - 1 Collector only (Enduro SP200B)",
+      "orderCode": "SP200BGUARD",
+      "netExGst": 226.53
+    },
+    {
+      "familyId": "solar",
+      "name": "Single box of 10 evacuated tubes R5 type (full assembly complete with heat pipe)",
+      "orderCode": "EVTUBE10R5A",
+      "netExGst": 774.95
+    },
+    {
+      "familyId": "solar",
+      "name": "20 Tube collector assembly - 30 Degrees pitch complete with mounting feet",
+      "orderCode": "EVTFRF20R5A",
+      "netExGst": 268.25
+    },
+    {
+      "familyId": "solar",
+      "name": "25 Tube collector assembly - 30 Degrees pitch complete with mounting feet",
+      "orderCode": "EVTFRF25R5A",
+      "netExGst": 280.17
+    },
+    {
+      "familyId": "solar",
+      "name": "30 Tube collector assembly - 30 Degrees pitch complete with mounting feet",
+      "orderCode": "EVTFRF30R5A",
+      "netExGst": 292.12
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28e Continuous Flow",
+      "orderCode": "HD28EN75",
+      "netExGst": 2822.14
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28e Continuous Flow",
+      "orderCode": "HD28EL75",
+      "netExGst": 2822.14
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28e Continuous Flow",
+      "orderCode": "HD28EN50",
+      "netExGst": 2822.14
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28e Continuous Flow",
+      "orderCode": "HD28EL50",
+      "netExGst": 2822.14
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28e Continuous Flow",
+      "orderCode": "HD28EN42",
+      "netExGst": 2946.99
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28e Continuous Flow",
+      "orderCode": "HD28EL42",
+      "netExGst": 2946.99
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 32e Continuous Flow",
+      "orderCode": "HD32EN75",
+      "netExGst": 4202.07
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 32e Continuous Flow",
+      "orderCode": "HD32EL75",
+      "netExGst": 4202.07
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 32e Continuous Flow",
+      "orderCode": "HD32EN50",
+      "netExGst": 4202.07
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 32e Continuous Flow",
+      "orderCode": "HD32EL50",
+      "netExGst": 4202.07
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty C32e Condensing Continuous Flow",
+      "orderCode": "HDC32E75",
+      "netExGst": 3572.88
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty C32e Condensing Continuous Flow",
+      "orderCode": "HDC32E50",
+      "netExGst": 3572.88
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28i Continuous Flow",
+      "orderCode": "HD28IN75",
+      "netExGst": 3671.26
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28i Continuous Flow",
+      "orderCode": "HD28IL75",
+      "netExGst": 3671.26
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28i Continuous Flow",
+      "orderCode": "HD28IN50",
+      "netExGst": 3671.26
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28i Continuous Flow",
+      "orderCode": "HD28IL50",
+      "netExGst": 3671.26
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28i Continuous Flow",
+      "orderCode": "HD28IN42",
+      "netExGst": 3796.14
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28i Continuous Flow",
+      "orderCode": "HD28IL42",
+      "netExGst": 3796.14
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty C32i Condensing Continuous Flow",
+      "orderCode": "HDC32I75",
+      "netExGst": 3837.54
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty C32i Condensing Continuous Flow",
+      "orderCode": "HDC32I50",
+      "netExGst": 3837.54
+    },
+    {
+      "familyId": "commercial",
+      "name": "Condensate Pipe Internal Infinity",
+      "orderCode": "FFCPIPE",
+      "netExGst": 19.89
+    },
+    {
+      "familyId": "commercial",
+      "name": "Male flue spigot (suits HD28 internal)",
+      "orderCode": "FFMSPIGOT",
+      "netExGst": 66.25
+    },
+    {
+      "familyId": "commercial",
+      "name": "Ceiling Ring",
+      "orderCode": "FFWSEAL",
+      "netExGst": 18.84
+    },
+    {
+      "familyId": "commercial",
+      "name": "Universal 45/90 Degrees Bend",
+      "orderCode": "FFBEND",
+      "netExGst": 163.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Flue Pipe, 1000 mm long",
+      "orderCode": "FFPIPE1000",
+      "netExGst": 163.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Vertical Flue Terminal",
+      "orderCode": "FFROOFCOWL",
+      "netExGst": 238.17
+    },
+    {
+      "familyId": "commercial",
+      "name": "Horizontal Flue Terminal",
+      "orderCode": "FFWALLTERM",
+      "netExGst": 187.21
+    },
+    {
+      "familyId": "commercial",
+      "name": "Internal / External Wall Plate",
+      "orderCode": "FFWPLATE",
+      "netExGst": 15.5
+    },
+    {
+      "familyId": "commercial",
+      "name": "90 Degree Starter Bend (Horizontal only)",
+      "orderCode": "FFSBEND",
+      "netExGst": 125.19
+    },
+    {
+      "familyId": "commercial",
+      "name": "Universal 45/90 Degrees Bend",
+      "orderCode": "FFPPBEND45",
+      "netExGst": 149.85
+    },
+    {
+      "familyId": "commercial",
+      "name": "90 Degree fixed bend",
+      "orderCode": "FFPPBEND90",
+      "netExGst": 99.88
+    },
+    {
+      "familyId": "commercial",
+      "name": "Direct horizontal flue kit complete with wall terminal",
+      "orderCode": "FFPPWALLKIT",
+      "netExGst": 262.24
+    },
+    {
+      "familyId": "commercial",
+      "name": "Flue Pipe, 1000 mm long",
+      "orderCode": "FFPPPIPE1000",
+      "netExGst": 124.88
+    },
+    {
+      "familyId": "commercial",
+      "name": "Vertical Flue Terminal",
+      "orderCode": "FFPPROOFCOWL",
+      "netExGst": 237.26
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo 1 Flue Adaptor box including draft diverter",
+      "orderCode": "DD1FADAPT",
+      "netExGst": 705.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "MP228EMN/L",
+      "netExGst": 6193.7
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "MP328EMN/L",
+      "netExGst": 8709.89
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "MP428EMN/L",
+      "netExGst": 13548.71
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "MP528EMN/L",
+      "netExGst": 16857.84
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "MP628EMN/L",
+      "netExGst": 20291.84
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty C32e High Efficiency Systems - Natural Gas or LPG",
+      "orderCode": "MP2C32ECN/L",
+      "netExGst": 8496.8
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty C32e High Efficiency Systems - Natural Gas or LPG",
+      "orderCode": "MP3C32ECN/L",
+      "netExGst": 12844.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty C32e High Efficiency Systems - Natural Gas or LPG",
+      "orderCode": "MP4C32ECN/L",
+      "netExGst": 17092.4
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty C32e High Efficiency Systems - Natural Gas or LPG",
+      "orderCode": "MP5C32ECN/L",
+      "netExGst": 21538.4
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty C32e High Efficiency Systems - Natural Gas or LPG",
+      "orderCode": "MP6C32ECN/L",
+      "netExGst": 25885.6
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "MP228IMN/L",
+      "netExGst": 7198.9
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "MP328IMN/L",
+      "netExGst": 10551.77
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "MP428IMN/L",
+      "netExGst": 16583.11
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "MP528IMN/L",
+      "netExGst": 20291.84
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "MP628IMN/L",
+      "netExGst": 23039.04
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty C32i High Efficiency Systems - Natural Gas or LPG",
+      "orderCode": "MP2C32ICN/L",
+      "netExGst": 8299.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty C32i High Efficiency Systems - Natural Gas or LPG",
+      "orderCode": "MP3C32ICN/L",
+      "netExGst": 12547.6
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty C32i High Efficiency Systems - Natural Gas or LPG",
+      "orderCode": "MP4C32ICN/L",
+      "netExGst": 16697.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty C32i High Efficiency Systems - Natural Gas or LPG",
+      "orderCode": "MP5C32ICN/L",
+      "netExGst": 21044.4
+    },
+    {
+      "familyId": "commercial",
+      "name": "Heavy Duty C32i High Efficiency Systems - Natural Gas or LPG",
+      "orderCode": "MP6C32ICN/L",
+      "netExGst": 25292.8
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Stainless Steel Storage heater using HD28e - Natural Gas or LPG",
+      "orderCode": "DD128E250N/L",
+      "netExGst": 7092.78
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Stainless Steel Storage heater using HD28e - Natural Gas or LPG",
+      "orderCode": "DD128E315N/L",
+      "netExGst": 7436.18
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Vitreous Enamel Storage heater using HD28e - Natural Gas or LPG",
+      "orderCode": "DD128E270VN/L",
+      "netExGst": 6716.42
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Vitreous Enamel Storage heater using HD28e - Natural Gas or LPG",
+      "orderCode": "DD128E330VN/L",
+      "netExGst": 7021.72
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Stainless Steel Storage heater using HD32e - Natural Gas or LPG",
+      "orderCode": "DD132E250N/L",
+      "netExGst": 8278.4
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Stainless Steel Storage heater using HD32e - Natural Gas or LPG",
+      "orderCode": "DD132E315N/L",
+      "netExGst": 8454.7
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Stainless Steel Storage heater using high efficiency HDC32e - Natural Gas or LPG",
+      "orderCode": "DD1C32E250N/L",
+      "netExGst": 8694.4
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Stainless Steel Storage heater using high efficiency HDC32e - Natural Gas or LPG",
+      "orderCode": "DD1C32E315N/L",
+      "netExGst": 8990.8
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Vitreous Enamel Storage heater using high efficiency HDC32e - Natural Gas or LPG",
+      "orderCode": "DD1C32E270VN/L",
+      "netExGst": 8299.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Vitreous Enamel Storage heater using high efficiency HDC32e - Natural Gas or LPG",
+      "orderCode": "DD1C32E330VN/L",
+      "netExGst": 8595.6
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Stainless Steel Storage heater using HD28i - Natural Gas or LPG",
+      "orderCode": "DD128I250N/L",
+      "netExGst": 7604.75
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Stainless Steel Storage heater using HD28i - Natural Gas or LPG",
+      "orderCode": "DD128I315N/L",
+      "netExGst": 7948.15
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Vitreous Enamel Storage heater using HD28i - Natural Gas or LPG",
+      "orderCode": "DD128I270VN/L",
+      "netExGst": 7225.24
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Vitreous Enamel Storage heater using HD28i - Natural Gas or LPG",
+      "orderCode": "DD128I330VN/L",
+      "netExGst": 7530.54
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Stainless Steel Storage heater using high efficiency HDC32i - Natural Gas or LPG",
+      "orderCode": "DD1C32I250N/L",
+      "netExGst": 8398.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Stainless Steel Storage heater using high efficiency HDC32i - Natural Gas or LPG",
+      "orderCode": "DD1C32I315N/L",
+      "netExGst": 8694.4
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Vitreous Enamel Storage heater using high efficiency HDC32i - Natural Gas or LPG",
+      "orderCode": "DD1C32I270VN/L",
+      "netExGst": 8002.8
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Vitreous Enamel Storage heater using high efficiency HDC32i - Natural Gas or LPG",
+      "orderCode": "DD1C32I330VN/L",
+      "netExGst": 8595.6
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDF228E250N/L",
+      "netExGst": 12137.64
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDF328E250N/L",
+      "netExGst": 15059.67
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDF428E250N/L",
+      "netExGst": 20379.25
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDF528E250N/L",
+      "netExGst": 24837.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDF628E250N/L",
+      "netExGst": 26822.68
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDF228E315N/L",
+      "netExGst": 12481.04
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDF328E315N/L",
+      "netExGst": 15390.57
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDF428E315N/L",
+      "netExGst": 20716.41
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDF528E315N/L",
+      "netExGst": 25193.1
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDF628E315N/L",
+      "netExGst": 27184.83
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF232E250N/L",
+      "netExGst": 27184.83
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF332E250N/L",
+      "netExGst": 27184.83
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF432E250N/L",
+      "netExGst": 27184.83
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF532E250N/L",
+      "netExGst": 27184.83
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF632E250N/L",
+      "netExGst": 27184.83
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF232E315N/L",
+      "netExGst": 27184.83
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF332E315N/L",
+      "netExGst": 27184.83
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF432E315N/L",
+      "netExGst": 27184.83
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF532E315N/L",
+      "netExGst": 27184.83
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF632E315N/L",
+      "netExGst": 27184.83
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF2C32E250N/L",
+      "netExGst": 13239.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF3C32E250N/L",
+      "netExGst": 17784.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF4C32E250N/L",
+      "netExGst": 24304.8
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF5C32E250N/L",
+      "netExGst": 29047.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF6C32E250N/L",
+      "netExGst": 33592.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF2C32E315N/L",
+      "netExGst": 13634.4
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF3C32E315N/L",
+      "netExGst": 18179.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF4C32E315N/L",
+      "netExGst": 24304.8
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF5C32E315N/L",
+      "netExGst": 29047.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF6C32E315N/L",
+      "netExGst": 33987.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDF228I250N/L",
+      "netExGst": 12549.74
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDF328I250N/L",
+      "netExGst": 15577.89
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDF428I250N/L",
+      "netExGst": 21902.7
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDF528I250N/L",
+      "netExGst": 25873.65
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDF628I250N/L",
+      "netExGst": 28895.57
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDF228I315N/L",
+      "netExGst": 12986.78
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDF328I315N/L",
+      "netExGst": 16408.29
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDF428I315N/L",
+      "netExGst": 22239.85
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDF528I315N/L",
+      "netExGst": 26223.29
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDF628I315N/L",
+      "netExGst": 29220.24
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDF2C32I250N/L",
+      "netExGst": 13041.6
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDF3C32I250N/L",
+      "netExGst": 17487.6
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDF4C32I250N/L",
+      "netExGst": 23909.6
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDF5C32I250N/L",
+      "netExGst": 28553.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDF6C32I250N/L",
+      "netExGst": 32999.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDF2C32I315N/L",
+      "netExGst": 13436.8
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDF3C32I315N/L",
+      "netExGst": 17882.8
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDF4C32I315N/L",
+      "netExGst": 24304.8
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDF5C32I315N/L",
+      "netExGst": 28948.4
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems including separate heaters on dedicated frame  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDF6C32I315N/L",
+      "netExGst": 33394.4
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL228E250N/L",
+      "netExGst": 12836.92
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL328E250N/L",
+      "netExGst": 15709.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL428E250N/L",
+      "netExGst": 21440.67
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL528E250N/L",
+      "netExGst": 25598.94
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL628E250N/L",
+      "netExGst": 27784.21
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL228E315N/L",
+      "netExGst": 13161.59
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL328E315N/L",
+      "netExGst": 16046.17
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL428E315N/L",
+      "netExGst": 21715.39
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL528E315N/L",
+      "netExGst": 26004.76
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL628E315N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL232E250N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL332E250N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL432E250N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL532E250N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL632E250N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL232E315N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL332E315N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL432E315N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL532E315N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL632E315N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL2C32E250N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL3C32E250N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL4C32E250N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL5C32E250N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL6C32E250N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL2C32E315N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL3C32E315N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL4C32E315N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL5C32E315N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL6C32E315N/L",
+      "netExGst": 28471.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL228I250N/L",
+      "netExGst": 14010.73
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL328I250N/L",
+      "netExGst": 16795.41
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL428I250N/L",
+      "netExGst": 22976.61
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL528I250N/L",
+      "netExGst": 26910.1
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL628I250N/L",
+      "netExGst": 30094.35
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL228I315N/L",
+      "netExGst": 14360.37
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL328I315N/L",
+      "netExGst": 17107.58
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL428I315N/L",
+      "netExGst": 23288.79
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL528I315N/L",
+      "netExGst": 27347.15
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL628I315N/L",
+      "netExGst": 30468.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL2C32I250N/L",
+      "netExGst": 30468.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL3C32I250N/L",
+      "netExGst": 30468.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL4C32I250N/L",
+      "netExGst": 30468.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL5C32I250N/L",
+      "netExGst": 30468.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL6C32I250N/L",
+      "netExGst": 30468.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL2C32I315N/L",
+      "netExGst": 30468.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL3C32I315N/L",
+      "netExGst": 30468.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL4C32I315N/L",
+      "netExGst": 30468.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL5C32I315N/L",
+      "netExGst": 30468.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems including separate heaters on dedicated frame including integrated primary pump,controller and heater GPO's  Heavy Duty High Efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL6C32I315N/L",
+      "netExGst": 30468.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDF428E315N/L-50",
+      "netExGst": 21090.39
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDF528E315N/L-50",
+      "netExGst": 25567.08
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDF628E315N/L-50",
+      "netExGst": 27558.81
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty high efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF4C32E315N/L-50",
+      "netExGst": 24996.4
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty high efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF5C32E315N/L-50",
+      "netExGst": 29837.6
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty high efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDF6C32E315N/L-50",
+      "netExGst": 34382.4
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDF428I315N/L-50",
+      "netExGst": 22613.84
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDF528I315N/L-50",
+      "netExGst": 26597.27
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDF628I315N/L-50",
+      "netExGst": 29594.23
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty high efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDF4C32I315N/L-50",
+      "netExGst": 24601.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty high efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDF5C32I315N/L-50",
+      "netExGst": 33789.6
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Systems with 50mm tank outlet  Including seperate heaters on dedicated frame Heavy Duty high efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDF6C32I315N/L-50",
+      "netExGst": 33789.6
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and  heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL428E315N/L-50",
+      "netExGst": 22089.37
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and  heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL528E315N/L-50",
+      "netExGst": 26378.74
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and  heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL628E315N/L-50",
+      "netExGst": 28844.98
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty high efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL4C32E315N/L-50",
+      "netExGst": 28844.98
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty high efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL5C32E315N/L-50",
+      "netExGst": 28844.98
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty high efficiency C32e Systems - Natural Gas or LPG",
+      "orderCode": "DDPL6C32E315N/L-50",
+      "netExGst": 28844.98
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL428I315N/L-50",
+      "netExGst": 35815.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL528E315N/L-50",
+      "netExGst": 23662.78
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty 28i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL628I315N/L-50",
+      "netExGst": 26378.74
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty high efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL4C32I315N/L-50",
+      "netExGst": 26378.74
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty high efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL5C32I315N/L-50",
+      "netExGst": 26378.74
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo PLUS Systems with 50mm tank outlet and heaters on dedicated frame Including integrated primary pump,controller and heater GPO's Heavy Duty high efficiency C32i Systems - Natural Gas or LPG",
+      "orderCode": "DDPL6C32I315N/L-50",
+      "netExGst": 26378.74
+    },
+    {
+      "familyId": "commercial",
+      "name": "20kW Vertical discharge Heat Pump with 32mm inlet / outlet ports and integrated primary  pump",
+      "orderCode": "CHP020VPA",
+      "netExGst": 17577.38
+    },
+    {
+      "familyId": "commercial",
+      "name": "20kW Vertical discharge Heat Pump with 32mm inlet / outlet ports",
+      "orderCode": "CHP020VA",
+      "netExGst": 15072.93
+    },
+    {
+      "familyId": "commercial",
+      "name": "20kW Horizontal discharge Heat Pump with 32mm inlet / outlet ports and integrated primary  pump",
+      "orderCode": "CHP020HPA",
+      "netExGst": 17840.94
+    },
+    {
+      "familyId": "commercial",
+      "name": "20kW Horizontal discharge Heat Pump with 32mm inlet / outlet ports",
+      "orderCode": "CHP020HA",
+      "netExGst": 15341.73
+    },
+    {
+      "familyId": "commercial",
+      "name": "40kW Vertical discharge Heat Pump with 32mm inlet / outlet ports and integrated primary  pump",
+      "orderCode": "CHP040VP",
+      "netExGst": 29498.38
+    },
+    {
+      "familyId": "commercial",
+      "name": "40kW Vertical discharge Heat Pump with 32mm inlet / outlet ports",
+      "orderCode": "CHP040V",
+      "netExGst": 27224.82
+    },
+    {
+      "familyId": "commercial",
+      "name": "40kW Horizontal discharge Heat Pump with 32mm inlet / outlet ports and integrated primary  pump",
+      "orderCode": "CHP040HP",
+      "netExGst": 29806.14
+    },
+    {
+      "familyId": "commercial",
+      "name": "40kW Horizontal discharge Heat Pump with 32mm inlet / outlet ports",
+      "orderCode": "CHP040H",
+      "netExGst": 27556.62
+    },
+    {
+      "familyId": "commercial",
+      "name": "Stainless Steel 80L Quick recovery storage tank with 3x3.6kW elec elements and 32mm outlet",
+      "orderCode": "QRESS80L336",
+      "netExGst": 2745.56
+    },
+    {
+      "familyId": "commercial",
+      "name": "Stainless Steel 80L Quick recovery storage tank  with 3x4.8kW elec elements and 32mm outlet",
+      "orderCode": "QRESS80L348",
+      "netExGst": 2745.56
+    },
+    {
+      "familyId": "commercial",
+      "name": "Stainless Steel Quick recovery storage heater with 3x3.6kW elec elements and 50mm tank outlet",
+      "orderCode": "QRESS315L336",
+      "netExGst": 3509.39
+    },
+    {
+      "familyId": "commercial",
+      "name": "Stainless Steel Quick recovery storage heater with 3x4.8kW elec elements and 50mm tank outlet",
+      "orderCode": "QRESS315L348",
+      "netExGst": 3509.39
+    },
+    {
+      "familyId": "commercial",
+      "name": "Stainless Steel Quick recovery storage heater with 3x6.0kW elec elements and 50mm tank outlet",
+      "orderCode": "QRESS315L360",
+      "netExGst": 3509.39
+    },
+    {
+      "familyId": "commercial",
+      "name": "50L Vitreous Enamel Quick recovery tank with 3x3.6kW elec elements, 32mm ports",
+      "orderCode": "QREVE50L336",
+      "netExGst": 1877.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "50L Vitreous Enamel Quick recovery tank with 3x4.8kW elec elements, 32mm tank ports - Hard Water",
+      "orderCode": "QREVE50L336H",
+      "netExGst": 1877.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "50LVitreous Enamel Quick recovery tank with 3x4.8kW elec elements, 32mm tank ports",
+      "orderCode": "QREVE50L348",
+      "netExGst": 1877.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "50L Vitreous Enamel Quick recovery tank with 3x4.8kW elec elements, 32mm tank ports - Hard Water",
+      "orderCode": "QREVE50L348H",
+      "netExGst": 1877.2
+    },
+    {
+      "familyId": "commercial",
+      "name": "Vitreouos Enamel Quick recovery storage heater with 3x3.6kW elec elements and 32mm tank outlet",
+      "orderCode": "QREVE340L336",
+      "netExGst": 3154.68
+    },
+    {
+      "familyId": "commercial",
+      "name": "Vitreouos Enamel Quick recovery storage heater with 3x4.8kW elec elements and 32mm tank outlet",
+      "orderCode": "QREVE340L348",
+      "netExGst": 3154.68
+    },
+    {
+      "familyId": "commercial",
+      "name": "Vitreouos Enamel Quick recovery storage heater with 3x6.0kW elec elements and 32mm tank outlet",
+      "orderCode": "QREVE340L360",
+      "netExGst": 3154.68
+    },
+    {
+      "familyId": "commercial",
+      "name": "DD 250 L Stainless Steel  (1 x HT575/850 kpa PTR valve, with thermostat pocket with 32mm hot / cold return)",
+      "orderCode": "DD250",
+      "netExGst": 2912.79
+    },
+    {
+      "familyId": "commercial",
+      "name": "DD 250 L Stainless Steel  (1 x HT575/850 kpa PTR valve, with thermostat pocket with 50mm hot / cold return)",
+      "orderCode": "DD250-50",
+      "netExGst": 3467.73
+    },
+    {
+      "familyId": "commercial",
+      "name": "DD 270 L Vitreous Enamel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 50mm hot / cold return)",
+      "orderCode": "DD270V-50",
+      "netExGst": 3052.92
+    },
+    {
+      "familyId": "commercial",
+      "name": "DD 315 L Stainless Steel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 32mm hot / cold return)",
+      "orderCode": "DD315",
+      "netExGst": 3234.72
+    },
+    {
+      "familyId": "commercial",
+      "name": "DD 315 L Stainless Steel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 50mm hot / cold return)",
+      "orderCode": "DD315-50",
+      "netExGst": 3789.66
+    },
+    {
+      "familyId": "commercial",
+      "name": "DD 330 L Vitreous Enamel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 50mm hot / cold return)",
+      "orderCode": "DD330V-50",
+      "netExGst": 3358.21
+    },
+    {
+      "familyId": "commercial",
+      "name": "DD 440 L Vitreous Enamel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 50mm hot / cold return)",
+      "orderCode": "DD440V-50",
+      "netExGst": 3765.27
+    },
+    {
+      "familyId": "commercial",
+      "name": "Pre-heat DD 315L Stainless Steel (1 x HT575/850 kpa PTR valve, 3.6kW boost element with 50mm hot / cold return)",
+      "orderCode": "DDS31536B11A50",
+      "netExGst": 3525.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Pre-heat DD 315L Stainless Steel (1 x HT575/850 kpa PTR valve, 4.8kW boost element with 50mm hot / cold return)",
+      "orderCode": "DDS31548B11A50",
+      "netExGst": 3525.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Horizontal DD 330 L Stainless Steel (1 x HT575/850 kpa PTR valve, with thermostat pocket with 50mm hot / cold return)",
+      "orderCode": "SH33000G11A",
+      "netExGst": 4484.13
+    },
+    {
+      "familyId": "commercial",
+      "name": "DD warm water valve: 32mm inlet and outlet",
+      "orderCode": "DDWW32",
+      "netExGst": 17016.71
+    },
+    {
+      "familyId": "commercial",
+      "name": "DD warm water valve: 50mm inlet and outlet",
+      "orderCode": "DDWW50",
+      "netExGst": 20082.8
+    },
+    {
+      "familyId": "commercial",
+      "name": "DD warm water valve: 80mm inlet and outlet",
+      "orderCode": "DDWW80",
+      "netExGst": 26053.98
+    },
+    {
+      "familyId": "commercial",
+      "name": "Ultra Violet Steriliser System C1200",
+      "orderCode": "DDUVC1200",
+      "netExGst": 5189.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Ultra Violet Steriliser System C1700",
+      "orderCode": "DDUVC1700",
+      "netExGst": 8039.36
+    },
+    {
+      "familyId": "commercial",
+      "name": "Enduro SP200B (1960mm x 1050mm x 80mm)",
+      "orderCode": "SP200B",
+      "netExGst": 1422.55
+    },
+    {
+      "familyId": "commercial",
+      "name": "2 Collector with Interconnectors & Rails (Suits SP200B only)",
+      "orderCode": "DDSP2B",
+      "netExGst": 229.97
+    },
+    {
+      "familyId": "commercial",
+      "name": "3 Collector with Interconnectors & Rails  (Suits SP200B only)",
+      "orderCode": "DDSP3B",
+      "netExGst": 329.59
+    },
+    {
+      "familyId": "commercial",
+      "name": "2 Collector High rise security system",
+      "orderCode": "DDHRKIT2",
+      "netExGst": 180.9
+    },
+    {
+      "familyId": "commercial",
+      "name": "3 Collector High rise security system",
+      "orderCode": "DDHRKIT3",
+      "netExGst": 231.48
+    },
+    {
+      "familyId": "commercial",
+      "name": "Single UPS20-60 Pump and controller with LCD display (240 volt) Hot & Cold leads/Hot Sensor Sheath & Air Bleed (Suits SP200B only)",
+      "orderCode": "DDSCP20B",
+      "netExGst": 1609.7
+    },
+    {
+      "familyId": "commercial",
+      "name": "Single UPS25-80 Pump and controller with LCD display (240 volt) Hot & Cold leads/Hot Sensor Sheath & Air Bleed (Suits SP200B only)",
+      "orderCode": "DDSCP25B",
+      "netExGst": 2146.25
+    },
+    {
+      "familyId": "commercial",
+      "name": "Dual UPS20-60 Pump and alternating controller with LCD display (240 volt) Hot & Cold leads/Hot Sensor Sheath & Air Bleed (Suits SP200B only)",
+      "orderCode": "DDSCP20BDUAL",
+      "netExGst": 3372.71
+    },
+    {
+      "familyId": "commercial",
+      "name": "Dual UPS25-80 Pump and alternating controller with LCD display (240 volt) Hot & Cold leads/Hot Sensor Sheath & Air Bleed (Suits SP200B only)",
+      "orderCode": "DDSCP25BDUAL",
+      "netExGst": 3985.91
+    },
+    {
+      "familyId": "commercial",
+      "name": "1 Collector (Flat Roof 25\u00b0)",
+      "orderCode": "33202036",
+      "netExGst": 497.75
+    },
+    {
+      "familyId": "commercial",
+      "name": "2 Collectors (Flat Roof 25\u00b0)",
+      "orderCode": "33202037",
+      "netExGst": 578.75
+    },
+    {
+      "familyId": "commercial",
+      "name": "3 Collectors (Flat Roof 25\u00b0)",
+      "orderCode": "33202038",
+      "netExGst": 926.01
+    },
+    {
+      "familyId": "commercial",
+      "name": "20 Evacuated tubes solar collector assembly",
+      "orderCode": "KDDEVT20A",
+      "netExGst": 2971.87
+    },
+    {
+      "familyId": "commercial",
+      "name": "25 Evacuated tubes solar collector assembly",
+      "orderCode": "KDDEVT25A",
+      "netExGst": 3558.39
+    },
+    {
+      "familyId": "commercial",
+      "name": "30 Evacuated tubes solar collector assembly",
+      "orderCode": "KDDEVT30A",
+      "netExGst": 4144.96
+    },
+    {
+      "familyId": "commercial",
+      "name": "Single UPS20-60 Pump and controller with LCD display (240 volt) Hot & Cold leads/Hot Sensor Sheath & Air Bleed",
+      "orderCode": "DDEVTSCP20",
+      "netExGst": 1462.53
+    },
+    {
+      "familyId": "commercial",
+      "name": "Single UPS25-80 Pump and controller with LCD display (240 volt) Hot & Cold leads/Hot Sensor Sheath & Air Bleed",
+      "orderCode": "DDEVTSCP25",
+      "netExGst": 2107.94
+    },
+    {
+      "familyId": "commercial",
+      "name": "Manifold header coupling kit with insulation",
+      "orderCode": "DDEVTCPLKIT",
+      "netExGst": 62.87
+    },
+    {
+      "familyId": "commercial",
+      "name": "20 Tube collector assembly - 30 Degrees pitch complete with mounting feet",
+      "orderCode": "EVTFRF20R5A",
+      "netExGst": 268.25
+    },
+    {
+      "familyId": "commercial",
+      "name": "25 Tube collector assembly - 30 Degrees pitch complete with mounting feet",
+      "orderCode": "EVTFRF25R5A",
+      "netExGst": 280.17
+    },
+    {
+      "familyId": "commercial",
+      "name": "30 Tube collector assembly - 30 Degrees pitch complete with mounting feet",
+      "orderCode": "EVTFRF30R5A",
+      "netExGst": 292.12
+    },
+    {
+      "familyId": "commercial",
+      "name": "Pitched roof installation rails for a 20 tube system",
+      "orderCode": "EVTPIT20R5A",
+      "netExGst": 190.76
+    },
+    {
+      "familyId": "commercial",
+      "name": "Pitched roof installation rails for a 25 tube system",
+      "orderCode": "EVTPIT25R5A",
+      "netExGst": 196.72
+    },
+    {
+      "familyId": "commercial",
+      "name": "Pitched roof installation rails for a 30 tube system",
+      "orderCode": "EVTPIT30R5A",
+      "netExGst": 202.67
+    },
+    {
+      "familyId": "commercial",
+      "name": "Tiled roof installation kit complete with under tile mounting hooks - Stainless Steel NEW",
+      "orderCode": "EVTRFBRKTSS",
+      "netExGst": 118.76
+    },
+    {
+      "familyId": "commercial",
+      "name": "250 Litre Stainless Steel  with 32mm hot/cold return",
+      "orderCode": "DDS250",
+      "netExGst": 2836.12
+    },
+    {
+      "familyId": "commercial",
+      "name": "315 Litre Stainless Steel  with 32mm hot/cold return",
+      "orderCode": "DDS315",
+      "netExGst": 3158.05
+    },
+    {
+      "familyId": "commercial",
+      "name": "270 Litre Vitreous Enamel with 20mm hot/cold return",
+      "orderCode": "SG270A",
+      "netExGst": 1767.56
+    },
+    {
+      "familyId": "commercial",
+      "name": "320 Litre Vitreous Enamel with 20mm hot/cold return",
+      "orderCode": "SG320A",
+      "netExGst": 2145.14
+    },
+    {
+      "familyId": "commercial",
+      "name": "UPS20-60N",
+      "orderCode": "DDUPS2060N",
+      "netExGst": 643.88
+    },
+    {
+      "familyId": "commercial",
+      "name": "20 MM Unions (With inbuilt ball valves)",
+      "orderCode": "DDUNION2060BV",
+      "netExGst": 62.87
+    },
+    {
+      "familyId": "commercial",
+      "name": "UP25-80N",
+      "orderCode": "DDUPS2580N",
+      "netExGst": 1027.12
+    },
+    {
+      "familyId": "commercial",
+      "name": "25MM Unions (With inbuilt ball valves)",
+      "orderCode": "DDUNION2580B",
+      "netExGst": 73.59
+    },
+    {
+      "familyId": "commercial",
+      "name": "UPS32-100N",
+      "orderCode": "DDUPS32100N",
+      "netExGst": 1816.67
+    },
+    {
+      "familyId": "commercial",
+      "name": "32MM Unions (With inbuilt ball valves)",
+      "orderCode": "DDUNION32100N",
+      "netExGst": 243.76
+    },
+    {
+      "familyId": "commercial",
+      "name": "TLCHN25-12L",
+      "orderCode": "DDTLCHN25120",
+      "netExGst": 1359.16
+    },
+    {
+      "familyId": "commercial",
+      "name": "UPS20-60N (With Check Valves / Manifold with 25mm header)",
+      "orderCode": "DDDUAL2060N",
+      "netExGst": 2495.02
+    },
+    {
+      "familyId": "commercial",
+      "name": "UP25-80N (With Check Valves / Manifold with 32mm header)",
+      "orderCode": "DDDUAL2580N",
+      "netExGst": 3299.87
+    },
+    {
+      "familyId": "commercial",
+      "name": "UP32-100N (With Check Valves / Manifold with 50mm header)",
+      "orderCode": "DDDP32100N",
+      "netExGst": 6358.28
+    },
+    {
+      "familyId": "commercial",
+      "name": "20-60N (With Deluxe Control Box - Standard features plus  Pump Fault / Run Lights / Individual Pump controls)",
+      "orderCode": "DDDP2060NFDPC",
+      "netExGst": 4579.19
+    },
+    {
+      "familyId": "commercial",
+      "name": "32-80N (With Deluxe Control Box - Standard features plus  Pump Fault / Run Lights / Individual Pump controls)",
+      "orderCode": "DDDP2580NFDPC",
+      "netExGst": 5052.9
+    },
+    {
+      "familyId": "commercial",
+      "name": "32-100N (With Deluxe Control Box - Standard features plus  Pump Fault / Run Lights / Individual Pump controls)",
+      "orderCode": "DDDP32100NFDPC",
+      "netExGst": 7895.15
+    },
+    {
+      "familyId": "commercial",
+      "name": "Kit to install back to back including pipe work",
+      "orderCode": "DDB2BBRIDGEKIT",
+      "netExGst": 899.89
+    },
+    {
+      "familyId": "commercial",
+      "name": "Kit to to install back to back/side by side",
+      "orderCode": "DDFJOINKIT",
+      "netExGst": 73.59
+    },
+    {
+      "familyId": "commercial",
+      "name": "Floor mounting kit to suit Manifold 2 & 3 modules",
+      "orderCode": "DDBASE",
+      "netExGst": 203.89
+    },
+    {
+      "familyId": "commercial",
+      "name": "Pressure relief boiler valve (900 kpa with 20 mm male thread)",
+      "orderCode": "DDBVALVE",
+      "netExGst": 858.51
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Thermostat - To suit DD1",
+      "orderCode": "DD1TSTAT",
+      "netExGst": 766.53
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Thermostat - To suit DD2, DD3, DD4",
+      "orderCode": "DD234TSTAT",
+      "netExGst": 766.53
+    },
+    {
+      "familyId": "commercial",
+      "name": "Demand Duo Thermostat - To suit DD5, DD6",
+      "orderCode": "DD56TSTAT",
+      "netExGst": 766.53
+    },
+    {
+      "familyId": "commercial",
+      "name": "Dual ringmain pump management controller",
+      "orderCode": "DDPCDEL",
+      "netExGst": 766.53
+    },
+    {
+      "familyId": "commercial",
+      "name": "Solar pre-heat management controller",
+      "orderCode": "DDSOLAR",
+      "netExGst": 766.53
+    },
+    {
+      "familyId": "commercial",
+      "name": "MEC Pro Pack 1 (Connects 2 units)",
+      "orderCode": "MECA04",
+      "netExGst": 1058.5
+    },
+    {
+      "familyId": "commercial",
+      "name": "MEC Pro Pack 2 (Connects extra HD Unit)",
+      "orderCode": "MECB04",
+      "netExGst": 365.03
+    },
+    {
+      "familyId": "commercial",
+      "name": "MEC Pro Pack 3 (Connects each bank of 5 HD units)",
+      "orderCode": "MECC04",
+      "netExGst": 511.0
+    },
+    {
+      "familyId": "commercial",
+      "name": "PAM Valve",
+      "orderCode": "PAMV01",
+      "netExGst": 728.22
+    },
+    {
+      "familyId": "commercial",
+      "name": "Cascade cable 3 metres (compatible with HD210 only)",
+      "orderCode": "CSAC1",
+      "netExGst": 34.4
+    },
+    {
+      "familyId": "commercial",
+      "name": "Cascade cable 8 metres (compatible with HD210 only)",
+      "orderCode": "CSAC2",
+      "netExGst": 82.56
+    },
+    {
+      "familyId": "commercial",
+      "name": "Complete engineered packages to suit Demand Duo systems (Factory mounted on an engineered base with crane lifting points - including all fully insulated pipework, electrical GPO's with lead and pumps as required)",
+      "orderCode": "Various",
+      "netExGst": 82.56
+    },
+    {
+      "familyId": "commercial",
+      "name": "Complete engineered packages to suit Manifold Pack systems (Factory mounted on an engineered base with crane lifting points - including all fully insulated pipework, electrical GPO's with lead and pumps as required)",
+      "orderCode": "Various",
+      "netExGst": 82.56
+    },
+    {
+      "familyId": "commercial",
+      "name": "Remote monitoring systems",
+      "orderCode": "Various",
+      "netExGst": 82.56
+    },
+    {
+      "familyId": "commercial",
+      "name": "Multi-stage pump sets with alternating controller",
+      "orderCode": "Various",
+      "netExGst": 82.56
+    },
+    {
+      "familyId": "commercial",
+      "name": "Plate heat exchanger systems",
+      "orderCode": "Various",
+      "netExGst": 82.56
+    },
+    {
+      "familyId": "commercial",
+      "name": "Engineered low profile Demand Duo or Manifold Pack systems",
+      "orderCode": "Various",
+      "netExGst": 82.56
+    },
+    {
+      "familyId": "commercial",
+      "name": "Large capacity storage tanks",
+      "orderCode": "Various",
+      "netExGst": 82.56
+    },
+    {
+      "familyId": "commercial",
+      "name": "Natural draft common flueing for internal installations",
+      "orderCode": "Various",
+      "netExGst": 82.56
+    },
+    {
+      "familyId": "commercial",
+      "name": "Fan assisted common flueing for internal installations",
+      "orderCode": "Various",
+      "netExGst": 82.56
+    },
+    {
+      "familyId": "commercial",
+      "name": "Commissioning of Warm Water Valve and UV steriliser",
+      "orderCode": "Various",
+      "netExGst": 82.56
+    }
+  ]
+}

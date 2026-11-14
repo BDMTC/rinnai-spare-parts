@@ -110,7 +110,7 @@ import {
   diffPriceImport,
   buildReviewedParts,
 } from "./price-import.js";
-import { loadBootData } from "./boot-data.js";
+import { loadBootData, publicUrl } from "./boot-data.js";
 import { mountDataplatePin } from "./dataplate-pin.js";
 
 // Resolved at boot (not import time) so the file:// classic IIFE can sit in <head>
@@ -159,6 +159,10 @@ let processCheckerState = { topicId: "", nodeId: "", outcomeId: null };
 /** Active family example pack id + page index (cover-flow stays inside one family). */
 let processExampleFamilyId = "cf";
 let processExamplePageIndex = 0;
+/** Zone HWT finished-goods mock pack (Process Finished goods lookup). */
+let zoneHwtFgDoc = null;
+/** @type {{ familyId: string, query: string }} */
+let processFgLookupState = { familyId: "", query: "" };
 /** @type {{ pointerId: number, startX: number, lastX: number, dragged: boolean }|null} */
 let processExampleDrag = null;
 /** @type {ReturnType<typeof buildPartSearchCache>|null} */
@@ -967,6 +971,103 @@ function renderProcessBasicBody() {
   if (warrantyTopic) bindProcessChecker(warrantyTopic);
 }
 
+async function ensureZoneHwtFgDoc() {
+  if (zoneHwtFgDoc) return zoneHwtFgDoc;
+  try {
+    const res = await fetch(publicUrl("data/zone-hwt-fg.json"));
+    if (!res.ok) throw new Error(String(res.status));
+    zoneHwtFgDoc = await res.json();
+  } catch {
+    zoneHwtFgDoc = { version: 1, meta: {}, families: [], items: [] };
+  }
+  return zoneHwtFgDoc;
+}
+
+function renderProcessFgLookupHtml() {
+  const families = Array.isArray(zoneHwtFgDoc?.families) ? zoneHwtFgDoc.families : [];
+  const items = Array.isArray(zoneHwtFgDoc?.items) ? zoneHwtFgDoc.items : [];
+  const effective = zoneHwtFgDoc?.meta?.effectiveDate || "2026-02-01";
+  const familyId = processFgLookupState.familyId || "";
+  const query = String(processFgLookupState.query || "").trim().toLowerCase();
+
+  const familyBtns = families
+    .map((f) => {
+      const active = f.id === familyId ? " is-active" : "";
+      return `<button type="button" class="process-fg-family${active}" data-fg-family="${escapeHtml(f.id)}">${escapeHtml(f.label)} <span class="muted">(${f.count || 0})</span></button>`;
+    })
+    .join("");
+
+  let hits = [];
+  if (familyId) {
+    hits = items.filter((it) => it.familyId === familyId);
+    if (query) {
+      hits = hits.filter((it) => {
+        const blob = `${it.orderCode || ""} ${it.name || ""}`.toLowerCase();
+        return blob.includes(query);
+      });
+    }
+  }
+
+  const maxShow = 40;
+  const shown = hits.slice(0, maxShow);
+  const rowsHtml = shown.length
+    ? shown
+        .map(
+          (it) => `<tr>
+            <td>${escapeHtml(it.name || "")}</td>
+            <td><code>${escapeHtml(it.orderCode || "")}</code></td>
+            <td class="process-fg-net">${formatAud(it.netExGst)}</td>
+          </tr>`
+        )
+        .join("")
+    : `<tr><td colspan="3" class="muted">${
+        familyId
+          ? query
+            ? "No matches in this family."
+            : "No priced rows in this family."
+          : "Pick a family, then search by name or order code."
+      }</td></tr>`;
+
+  return `<section class="process-fg-lookup" aria-label="Finished goods Zone HWT lookup">
+    <h3 class="process-fg-title">Finished-goods lookup (mock)</h3>
+    <p class="muted process-fg-blurb">Zone Contractor Qld Hot Water book — effective ${escapeHtml(String(effective))}. Family → search → Zone Net (ex GST) + order code. Not Bible spare Net.</p>
+    <div class="process-fg-families" role="group" aria-label="Product family">${familyBtns || `<p class="muted">Finished-goods mock data not loaded.</p>`}</div>
+    <label class="process-fg-search-label">Search in family
+      <input type="search" id="process-fg-query" class="process-fg-query" placeholder="e.g. Infinity 26, HD28, EHF160" value="${escapeHtml(processFgLookupState.query || "")}" ${familyId ? "" : "disabled"} />
+    </label>
+    <p class="muted process-fg-count">${familyId ? `${hits.length} match${hits.length === 1 ? "" : "es"}${hits.length > maxShow ? ` (showing ${maxShow})` : ""}` : ""}</p>
+    <div class="process-table-scroll">
+      <table class="process-table process-fg-table">
+        <thead><tr><th scope="col">Product</th><th scope="col">Order code</th><th scope="col">Zone Net ex GST</th></tr></thead>
+        <tbody>${rowsHtml}</tbody>
+      </table>
+    </div>
+  </section>`;
+}
+
+function bindProcessFgLookup(body) {
+  if (!body) return;
+  body.querySelectorAll("[data-fg-family]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      processFgLookupState.familyId = btn.getAttribute("data-fg-family") || "";
+      processFgLookupState.query = "";
+      renderProcessDesk();
+    });
+  });
+  const input = body.querySelector("#process-fg-query");
+  input?.addEventListener("input", () => {
+    processFgLookupState.query = input.value || "";
+    // Re-render results only: cheap path via full topic re-render
+    renderProcessDesk();
+    const again = document.querySelector("#process-fg-query");
+    if (again) {
+      again.focus();
+      const len = again.value.length;
+      again.setSelectionRange(len, len);
+    }
+  });
+}
+
 function renderProcessDetailedBody() {
   const rail = document.querySelector("#process-rail");
   const body = document.querySelector("#process-body");
@@ -979,6 +1080,31 @@ function renderProcessDetailedBody() {
   if (!topics.length || !current) {
     rail.innerHTML = "";
     body.innerHTML = `<p class="process-empty muted">Process pack not loaded.</p>`;
+    return;
+  }
+
+  if (current.id === "fg" && !zoneHwtFgDoc) {
+    rail.innerHTML = topics
+      .map((t) => {
+        const active = t.id === current.id;
+        return `<button type="button" class="process-rail-btn${active ? " is-active" : ""}" data-process-topic="${escapeHtml(t.id)}" aria-current="${active ? "page" : "false"}">
+          <span class="process-rail-title">${escapeHtml(t.title || t.id)}</span>
+          <span class="process-rail-blurb">${escapeHtml(t.blurb || "")}</span>
+        </button>`;
+      })
+      .join("");
+    rail.querySelectorAll("[data-process-topic]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        processTopicId = btn.getAttribute("data-process-topic") || "";
+        renderProcessDesk();
+      });
+    });
+    body.innerHTML = `<p class="muted">Loading finished-goods Zone HWT mock…</p>`;
+    ensureZoneHwtFgDoc().then(() => {
+      if (processViewMode === "detailed" && processTopicId === "fg") {
+        renderProcessDetailedBody();
+      }
+    });
     return;
   }
 
@@ -1074,6 +1200,8 @@ function renderProcessDetailedBody() {
     : "";
 
   const checkerHtml = renderProcessCheckerHtml(current);
+  const fgLookupHtml =
+    current.id === "fg" && zoneHwtFgDoc ? renderProcessFgLookupHtml() : "";
 
   body.innerHTML = `
     <header class="process-topic-head">
@@ -1081,6 +1209,7 @@ function renderProcessDetailedBody() {
       <p class="process-topic-blurb muted">${escapeHtml(current.blurb || "")}</p>
     </header>
     ${stepsHtml}
+    ${fgLookupHtml}
     ${tablesHtml}
     ${checkerHtml}
     ${notesHtml}
@@ -1095,6 +1224,7 @@ function renderProcessDetailedBody() {
   });
 
   bindProcessChecker(current);
+  if (current.id === "fg") bindProcessFgLookup(body);
 
   body.querySelector("#process-focus-search")?.addEventListener("click", () => {
     closeProcess();
