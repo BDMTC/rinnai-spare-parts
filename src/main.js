@@ -141,6 +141,8 @@ let partBlurbs = null;
 let processDoc = null;
 /** Active Process desk topic id. */
 let processTopicId = "";
+/** @type {{ topicId: string, nodeId: string, outcomeId: string | null }} */
+let processCheckerState = { topicId: "", nodeId: "", outcomeId: null };
 /** @type {ReturnType<typeof buildPartSearchCache>|null} */
 let partSearchCache = null;
 /** Memoised visibility predicate — pin/unlocks change it, typing must not. */
@@ -501,6 +503,113 @@ function activeProcessTopic() {
   return topics.find((t) => t.id === processTopicId) || topics[0];
 }
 
+function resetProcessChecker(topic) {
+  const startId = topic?.checker?.startId || "";
+  processCheckerState = {
+    topicId: topic?.id || "",
+    nodeId: startId,
+    outcomeId: null,
+  };
+}
+
+function ensureProcessCheckerState(topic) {
+  const checker = topic?.checker;
+  if (!checker?.startId) {
+    processCheckerState = { topicId: "", nodeId: "", outcomeId: null };
+    return;
+  }
+  if (processCheckerState.topicId !== topic.id) {
+    resetProcessChecker(topic);
+  }
+}
+
+function renderProcessCheckerHtml(topic) {
+  const checker = topic?.checker;
+  if (!checker || typeof checker !== "object") return "";
+  ensureProcessCheckerState(topic);
+
+  const questions = checker.questions && typeof checker.questions === "object" ? checker.questions : {};
+  const outcomes = checker.outcomes && typeof checker.outcomes === "object" ? checker.outcomes : {};
+  const outcomeId = processCheckerState.outcomeId;
+  const nodeId = processCheckerState.nodeId || checker.startId || "";
+
+  let panelInner = "";
+  if (outcomeId && outcomes[outcomeId]) {
+    const out = outcomes[outcomeId];
+    panelInner = `
+      <div class="process-checker-outcome" data-outcome="${escapeHtml(outcomeId)}">
+        <p class="process-checker-outcome-title">${escapeHtml(out.title || outcomeId)}</p>
+        <p class="process-checker-outcome-detail muted">${escapeHtml(out.detail || "")}</p>
+      </div>`;
+  } else {
+    const q = questions[nodeId];
+    if (!q) {
+      panelInner = `<p class="muted">Checker path not available.</p>`;
+    } else {
+      const choices = Array.isArray(q.choices) ? q.choices : [];
+      panelInner = `
+        <p class="process-checker-prompt">${escapeHtml(q.prompt || "")}</p>
+        <div class="process-checker-choices" role="group" aria-label="${escapeHtml(q.prompt || "Choices")}">
+          ${choices
+            .map((c, i) => {
+              const label = escapeHtml(c?.label || `Choice ${i + 1}`);
+              return `<button type="button" class="process-checker-choice" data-checker-choice="${i}">${label}</button>`;
+            })
+            .join("")}
+        </div>`;
+    }
+  }
+
+  return `
+    <section class="process-checker" aria-label="Warranty pathway checker">
+      <div class="process-checker-head">
+        <h3 class="process-checker-title">${escapeHtml(checker.heading || "Still unsure? — answer the following")}</h3>
+        <button type="button" class="cart-action process-checker-reset" data-checker-reset>Reset</button>
+      </div>
+      <div class="process-checker-panel">${panelInner}</div>
+      <p class="process-checker-disclaimer muted">${escapeHtml(
+        checker.disclaimer ||
+          "Desk aid only — not legal advice or Rinnai’s final say."
+      )}</p>
+    </section>`;
+}
+
+function bindProcessChecker(topic) {
+  const body = document.querySelector("#process-body");
+  if (!body || !topic?.checker) return;
+  const checker = topic.checker;
+  const questions = checker.questions && typeof checker.questions === "object" ? checker.questions : {};
+
+  body.querySelector("[data-checker-reset]")?.addEventListener("click", () => {
+    resetProcessChecker(topic);
+    renderProcessBody();
+  });
+
+  body.querySelectorAll("[data-checker-choice]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const idx = Number(btn.getAttribute("data-checker-choice"));
+      const nodeId = processCheckerState.nodeId || checker.startId || "";
+      const q = questions[nodeId];
+      const choice = Array.isArray(q?.choices) ? q.choices[idx] : null;
+      if (!choice) return;
+      if (choice.outcome) {
+        processCheckerState = {
+          ...processCheckerState,
+          topicId: topic.id,
+          outcomeId: String(choice.outcome),
+        };
+      } else if (choice.next) {
+        processCheckerState = {
+          topicId: topic.id,
+          nodeId: String(choice.next),
+          outcomeId: null,
+        };
+      }
+      renderProcessBody();
+    });
+  });
+}
+
 function renderProcessBody() {
   const rail = document.querySelector("#process-rail");
   const body = document.querySelector("#process-body");
@@ -607,6 +716,8 @@ function renderProcessBody() {
         .join("")}</div>`
     : "";
 
+  const checkerHtml = renderProcessCheckerHtml(current);
+
   body.innerHTML = `
     <header class="process-topic-head">
       <h3 class="process-topic-title">${escapeHtml(current.title || "")}</h3>
@@ -614,6 +725,7 @@ function renderProcessBody() {
     </header>
     ${stepsHtml}
     ${tablesHtml}
+    ${checkerHtml}
     ${notesHtml}
     ${actionsHtml}
   `;
@@ -624,6 +736,8 @@ function renderProcessBody() {
       renderProcessBody();
     });
   });
+
+  bindProcessChecker(current);
 
   body.querySelector("#process-focus-search")?.addEventListener("click", () => {
     closeProcess();

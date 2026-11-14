@@ -2676,6 +2676,128 @@ ul.process-table-foot li {
   margin: 0.5rem 0;
 }
 
+.process-checker {
+  margin-top: 1.15rem;
+  padding: 0.85rem 0.85rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #f8fafb;
+}
+
+.process-checker-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 0.65rem;
+}
+
+.process-checker-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--accent-ink);
+}
+
+.process-checker-reset {
+  flex-shrink: 0;
+  padding: 0.4rem 0.7rem;
+  font-size: 0.78rem;
+}
+
+.process-checker-panel {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.process-checker-prompt {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  font-weight: 650;
+}
+
+.process-checker-choices {
+  display: grid;
+  gap: 0.4rem;
+}
+
+.process-checker-choice {
+  margin: 0;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  font: inherit;
+  font-size: 0.86rem;
+  font-weight: 600;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 140ms ease, background 140ms ease;
+}
+
+.process-checker-choice:hover {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+}
+
+.process-checker-outcome {
+  padding: 0.7rem 0.75rem;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.process-checker-outcome[data-outcome="labour_parts"] {
+  border-color: #9dc4a8;
+  background: #f3faf5;
+}
+
+.process-checker-outcome[data-outcome="parts_only"] {
+  border-color: #c5d4e8;
+  background: #f4f7fb;
+}
+
+.process-checker-outcome[data-outcome="chargeable"] {
+  border-color: #e7c4a8;
+  background: #fff8f1;
+}
+
+.process-checker-outcome[data-outcome="chase_rinnai"] {
+  border-color: #d4c48a;
+  background: #fbf8ee;
+}
+
+.process-checker-outcome[data-outcome="insufficient"] {
+  border-color: var(--line);
+  background: #f6f7f9;
+}
+
+.process-checker-outcome-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--accent-ink);
+}
+
+.process-checker-outcome-detail {
+  margin: 0.35rem 0 0;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.process-checker-disclaimer {
+  margin: 0.7rem 0 0;
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
 .help-dialog-inner {
   display: grid;
   grid-template-rows: auto 1fr;
