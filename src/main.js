@@ -796,7 +796,7 @@ function renderProcessCheckerHtml(topic) {
   return `
     <section class="process-checker" aria-label="Warranty pathway checker">
       <div class="process-checker-head">
-        <h3 class="process-checker-title">${escapeHtml(checker.heading || "Still unsure? - Try answering the following questions.")}</h3>
+        <h3 class="process-checker-title">${escapeHtml(checker.heading || "This quick tool can help you assess - Answer the following questions.")}</h3>
         <button type="button" class="cart-action process-checker-reset" data-checker-reset>Reset</button>
       </div>
       <div class="process-checker-panel">${panelInner}</div>
@@ -906,7 +906,7 @@ function renderProcessChooser() {
         </button>
         <button type="button" class="process-chooser-card" data-process-level="detailed">
           <span class="process-chooser-card-title">Detailed</span>
-          <span class="process-chooser-card-blurb">Full Process topics with step tables, warranty year tables, and the Still unsure? checker.</span>
+          <span class="process-chooser-card-blurb">Full Process topics with step tables, warranty year tables, and the quick assess checker.</span>
         </button>
       </div>
     </div>
@@ -1352,8 +1352,8 @@ function renderProcessDetailedBody() {
     </header>
     ${stepsHtml}
     ${fgLookupHtml}
-    ${tablesHtml}
     ${checkerHtml}
+    ${tablesHtml}
     ${notesHtml}
     ${actionsHtml}
   `;

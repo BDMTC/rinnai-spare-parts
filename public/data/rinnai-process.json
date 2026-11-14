@@ -546,8 +546,8 @@
       ],
       "notes": [],
       "checker": {
-        "heading": "Still unsure? - Try answering the following questions.",
-        "disclaimer": "Desk aid only — not legal advice or Rinnai’s final say. Confirm against the tables above and the current booklet before setting Charge Type.",
+        "heading": "This quick tool can help you assess - Answer the following questions.",
+        "disclaimer": "Desk aid only — not legal advice or Rinnai’s final say. Confirm against the tables below and the current booklet before setting Charge Type.",
         "startId": "family",
         "questions": {
           "family": {

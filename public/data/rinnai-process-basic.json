@@ -38,7 +38,7 @@
         "If the tech wrote a number on the job sheet, check it in the Bible against that unit before you submit it on the Work Order.",
         "If stores hold the physical part, confirm the code on the bag/box still matches the Bible result for that unit.",
         "In the portal Work Order, open RELATED → Parts and Labour → New. Put the part code into Price Book Entry (same idea as labour codes). Save.",
-        "Mark whether it is warranty or chargeable (customer pays). Wrong choice = wrong who pays — use chapter 8 Warranty, or switch to Detailed for the full tables and Still unsure? checker.",
+        "Mark whether it is warranty or chargeable (customer pays). Wrong choice = wrong who pays — use chapter 8 Warranty, or switch to Detailed for the full tables and the quick assess checker.",
         "If the part is not a Rinnai stock part (third-party), use the chargeable / markup rules in chapter 5 Chargeable & PayWay — do not invent a customer price from Bible Net alone.",
         "If the Bible cannot find a purchaseable part, use Flag problem on the part card (or note on the Work Order) — do not guess a code."
       ]
@@ -90,7 +90,7 @@
       "blurb": "Years differ — use the checker below.",
       "body": [
         "Warranty years depend on the product family [heat exchanger / cylinder / compressor / other parts / labour] and whether the install is domestic or commercial — same box can have different years.",
-        "Use Still unsure? below (yes/no questions). It will suggest likely warranty labour+parts, parts only, chargeable, or chase Rinnai through the portal notes path.",
+        "Use This quick tool can help you assess below (yes/no questions). It will suggest likely warranty labour+parts, parts only, chargeable, or chase Rinnai through the portal notes path.",
         "For the full year tables by product family, use Change instruction level → Detailed → Warranty.",
         "That checker is a desk aid — if Rinnai later disagrees, follow what Rinnai closes on the Work Order."
       ]
@@ -114,7 +114,7 @@
         "First: use this Process desk + the Spare Parts Bible (pins, search, Flag problem). Do not guess.",
         "No part number: Pin the unit in the Bible and search by what failed [fan, heat exchanger, valve…]. Use Flag problem if nothing purchaseable shows.",
         "Plate unreadable / two possible units: get a clearer photo of the plate from the tech; do not pick a Pin 3 at random.",
-        "Warranty vs chargeable unclear: open chapter 8 Is it still under warranty? and run Still unsure?, then use the outcome on the Work Order charge type.",
+        "Warranty vs chargeable unclear: open chapter 8 Is it still under warranty? and run the quick assess tool, then use the outcome on the Work Order charge type.",
         "Portal login / password: use IT’s password process (never store passwords in this Bible).",
         "Try the Spare Parts Bible and this Process desk first. Still stuck? Ask your supervisor or manager. For parts lookups or incoming warranties, you can also ask Beau for a second opinion."
       ]
