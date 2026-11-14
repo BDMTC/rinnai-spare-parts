@@ -1,0 +1,24 @@
+---
+description: Beau locked — slim Drive sync only; never full-repo G: MIR; never git clone unless asked
+alwaysApply: true
+---
+
+# Local Drive sync & clone (locked forever)
+
+Beau locked 2026-11-14. Applies to every local / office agent run on this machine.
+
+## Drive sync
+
+- **Slim sync only** when refreshing a Drive / office copy (e.g. `G:\My Drive\MTC\Projects\rinnai-spare-parts`).
+- Prefer copying just what changed for office use: typically `dist/` (after `npm run build:file`) and any other paths Beau named.
+- **Never** full-repo `robocopy /MIR` (or equivalent mirror/purge) of the whole tree to G: (or any Drive letter).
+- **Never** invent an `X:` sync path. Only use a Drive letter that exists and that Beau named.
+
+## Git clone
+
+- **Never** `git clone` unless Beau explicitly asks to clone.
+- Use existing checkouts / worktrees (`C:\Temp\rinnai-spare-parts`, `C:\Temp\rinnai-spare-parts-process-desk`, etc.).
+
+## Why
+
+Full-repo G: MIR walks huge `data-sheets` PDF trees over Drive and can hang for many minutes with no useful ETA.
